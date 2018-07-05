@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The tool that lets you interactively play with Dart in a browser.">
+  <title>DartPad | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="DartPad" />
+  <meta name="twitter:description" content="The tool that lets you interactively play with Dart in a browser." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="DartPad" />
+  <meta property="og:description" content="The tool that lets you interactively play with Dart in a browser." />
+  <meta property="og:url" content="https://www.dartlang.org/tools/dartpad.html" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="/assets/style.css">
+  
+  <!--
+    Why don't we use Dart here?
+
+    The only scripting we use here is stuff like the on-click footnotes on the
+    front page or resizing of the left nav. These happen to be use cases where
+    JavaScript and jQuery are doing just fine. Dart is here for application
+    programming, not page scripting.
+   -->
+  <script type="text/javascript" src="/assets/main.js"></script>
+  
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>Get Started</span></a></li>
+    <li><a href="/guides/language">Language</a></li>
+    <li><a href="/guides/libraries">Libraries</a></li>
+    <li><a href="/tools">Tools</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/dartpad.html" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.66.0&nbsp;&nbsp;(beta)</a></li>
+
+        <li role="separator" class="divider"></li>
+        <li><a href="/dart-2#migration">Migration guide</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-default" href="/guides/get-started">Get Started</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="Language">Language</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="Tour">Tour</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="Style">Style</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="Documentation">Documentation</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="Usage">Usage</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="Design">Design</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="Sample Code">Sample Code</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="Libraries">Libraries</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="Tour">Tour</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="Platforms">Platforms</a></h4>
+  <ul><li >
+          <a href="https://flutter.io" title="Mobile (Flutter)">Mobile (Flutter)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/dart-vm" title="Server">Server</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="Testing">Testing</a></h4>
+  <ul>
+  </ul><h4 >Resources</h4>
+  <ul><li >
+          <a href="/install" title="Install">Install</a>
+        </li><li >
+          <a href="/codelabs" title="Codelabs">Codelabs</a>
+        </li><li >
+          <a href="/tutorials" title="Tutorials">Tutorials</a>
+        </li><li >
+          <a href="/articles" title="Articles">Articles</a>
+        </li><li class="active">
+          <a href="/tools" title="Tools">Tools</a>
+        </li><li >
+          <a href="/community" title="Community and Support">Community and Support</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <h4>On this page
+      <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
+    </h4>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#library-support">Library support</a></li>
+<li class="toc-entry toc-h2"><a href="#getting-started">Getting started</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#open-dartpad-and-run-some-samples">Open DartPad, and run some samples</a></li>
+<li class="toc-entry toc-h3"><a href="#create-a-command-line-app">Create a command-line app</a></li>
+<li class="toc-entry toc-h3"><a href="#create-a-web-app">Create a web app</a></li>
+<li class="toc-entry toc-h3"><a href="#checking-dart-version-info">Checking Dart version info</a></li>
+</ul>
+</li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+<div class="banner alert alert-info">
+  <p class="banner__text">
+    Welcome to <a href="/dart-2"><b>Dart 2</b></a>!
+    Still using Dart 1.x? See the
+    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">archived site</a>
+    or the <a href="/dart-2#migration">migration guide</a>.
+  </p>
+</div>
+
+
+          
+
+          <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+  
+    <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+      <a property="item" typeof="WebPage" href="/tools/">
+      <span property="name">Tools</span>
+      </a>
+      <meta property="position" content="1" />
+    </li>
+  
+    <li class="breadcrumb-item active" property="itemListElement" typeof="ListItem">
+      
+      <span property="name">DartPad</span>
+      
+      <meta property="position" content="2" />
+    </li>
+  
+  </ol>
+          <div>
+            <ul class="page-github-links-menu" role="group">
+  <li>
+    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/dartpad.md"
+      class="no-automatic-external"
+      title="View page source"
+      target="_blank" rel="noopener">
+      <i class="fab fa-github fa-sm"></i>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/site-www/issues/new?title='DartPad' page issue&body=From URL: https://www.dartlang.org/tools/dartpad.html"
+      class="no-automatic-external"
+      title="Report a bug on this page" target="_blank" rel="noopener">
+      <i class="fas fa-bug fa-sm"></i>
+    </a>
+  </li>
+</ul>
+
+            <h1>DartPad</h1>
+          </div>
+          <p><a href="https://dartpad.dartlang.org" target="_blank">DartPad (dartpad.dartlang.org)</a>
+is an open-source tool that
+lets you play with the Dart language in any modern browser.
+Here’s what DartPad looks like:</p>
+
+<p><img src="/assets/dartpad-hello.png" alt="DartPad Hello World"></p>
+
+<h2 id="library-support">
+<a id="library-support" class="anchor" href="#library-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Library support</h2>
+
+<p>DartPad supports
+<a href="https://api.dartlang.org">dart:* libraries</a>
+that work with web apps; it doesn’t support
+<a href="https://api.dartlang.org/stable/dart-io">dart:io</a> or
+libraries from <a href="https://pub.dartlang.org">packages.</a>
+If you want to use dart:io, use the <a href="/tools/sdk">Dart SDK</a> instead.
+If you want to use a package, get the SDK for a
+<a href="/guides/platforms">platform</a> that the package supports.</p>
+
+<h2 id="getting-started">
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started</h2>
+
+<p>To get familiar with DartPad, try these steps:</p>
+
+<ul>
+  <li><a href="#step-1-open-and-run">Run some samples.</a></li>
+  <li><a href="#step-2-server">Create a simple command-line app.</a></li>
+  <li><a href="#step-3-web">Create a simple web app.</a></li>
+</ul>
+
+<h3 id="step-1-open-and-run">
+<a id="open-dartpad-and-run-some-samples" class="anchor" href="#open-dartpad-and-run-some-samples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Open DartPad, and run some samples</h3>
+
+<ol>
+  <li>
+    <p>Go to <a href="https://dartpad.dartlang.org" target="_blank">dartpad.dartlang.org.</a></p>
+
+    <p>A sample appears on the left and the output appears on the right.
+  If you’ve played with DartPad before,
+  you can click <strong>New Pad</strong> to get back to the original sample.</p>
+  </li>
+
+  <li>
+    <p>Click <strong>Run</strong>.</p>
+
+    <p>The sample runs again, updating the output.</p>
+  </li>
+
+  <li>
+    <p>Choose an HTML sample, using the <strong>Samples</strong> list at the upper right.</p>
+
+    <p>For example, choose <strong>Hello World HTML</strong>.
+  Again, the output appears to the right.
+  By default, you see the HTML output—what you’d see in a browser.</p>
+  </li>
+
+  <li>
+    <p>Click <strong>CONSOLE</strong> to view the sample’s console output.</p>
+  </li>
+
+  <li>
+    <p>On the left, click the <strong>HTML</strong> tab to view the sample’s HTML markup.</p>
+  </li>
+</ol>
+
+<h3 id="step-2-server">
+<a id="create-a-command-line-app" class="anchor" href="#create-a-command-line-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a command-line app</h3>
+
+<p>To create a simple command-line app, use <strong>New Pad</strong>.</p>
+
+<ol>
+  <li>
+    <p>Click the <strong>New Pad</strong> button.</p>
+
+    <p>The source code for the Hello World app appears
+  under the DART tab.</p>
+  </li>
+
+  <li>
+    <p>Change the code. For example, change the <code class="highlighter-rouge">main()</code> function
+  to contain this code:</p>
+
+    <!-- library-tour/string-tests/bin/main.dart -->
+    <pre class="prettyprint lang-dart">
+for (var char in 'hello'.split('')) {
+  print(char);
+}
+</pre>
+
+    <p>As you type, DartPad shows hints, documentation,
+  and autocomplete suggestions.</p>
+  </li>
+
+  <li>
+    <p>Click the <strong>Format</strong> button.
+  DartPad uses the <a href="https://github.com/dart-lang/dart_style#readme">Dart formatter</a>
+  to ensure that your code has proper indentation, white space, and line wrapping.</p>
+  </li>
+
+  <li>
+    <p>Run your app.</p>
+  </li>
+
+  <li>
+    <p>If you didn’t happen to have any bugs while you were entering the code,
+  try introducing a bug.</p>
+
+    <p>For example, if you change <code class="highlighter-rouge">split</code> to <code class="highlighter-rouge">spit</code>,
+  you get warnings at the bottom of the window and in the Run button.
+  If you run the app, you’ll see output from an uncaught exception.</p>
+  </li>
+</ol>
+
+<h3 id="step-3-web">
+<a id="create-a-web-app" class="anchor" href="#create-a-web-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a web app</h3>
+
+<p>To create a simple web app, start with the Hello World HTML sample.</p>
+
+<ol>
+  <li>
+    Click <b>Samples</b>, and choose <b>Hello World HTML</b>.
+    If you've already edited Hello World HTML,
+    click <b>Reset</b> to restore the original version.
+  </li>
+
+  <li>
+    Edit the HTML:
+    <ol>
+      <li>
+        Click <b>HTML</b> to view the HTML code.
+      </li>
+      <li>
+        Change the text inside the h2 element
+        from <code>Hello world</code> to something else—perhaps
+        <b>Hola mundo</b>.
+      </li>
+    </ol>
+    <p>
+      The display under HTML OUTPUT updates as you type.
+    </p>
+  </li>
+
+  <li>
+    Edit the Dart code:
+    <ol>
+      <li>
+        Click <b>DART</b> to view the Dart code.
+      </li>
+      <li>
+        Change the value displayed by <code>count.text</code>.
+        For example, change <code>'${i}'</code> to <code>'#${i}'</code>.
+      </li>
+      <li>
+        Click <b>Run</b> to compile and run the Dart code,
+        updating the HTML OUTPUT display.
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h3 id="checking-dart-version-info">
+<a id="checking-dart-version-info" class="anchor" href="#checking-dart-version-info" aria-hidden="true"><span class="octicon octicon-link"></span></a>Checking Dart version info</h3>
+
+<p>DartPad’s various language features and APIs depend on the
+<b>Dart SDK version</b> that DartPad is based on,
+to view the version number firstly go to the Dart editor.</p>
+
+<ol>
+  <li>
+    Click the <b>DartPad</b> title,
+    which is at the upper left of your DartPad editor.
+  </li>
+  <li>
+     At the bottom of the dialog that appears,
+     you can see the <b>Dart SDK</b> version number.
+  </li>
+</ol>
+
+<p>For example, if DartPad is based on Dart SDK 1.25.0,
+then DartPad partially supports type safety but doesn’t support many other Dart 2 features.</p>
+
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dart-lang/site-www"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dart-lang/site-www/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2018/07/05 16:56 CST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Technologies</h4>
+          <ul>
+            <li><a href="https://flutter.io">Mobile (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart for the web</a></li>
+            <li><a href="/dart-vm">Server-side Dart</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory</a></li>
+            <li><a href="/guides/libraries">Dart libraries</a></li>
+            <li><a href="/guides/language">Dart programming language</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/dev">API reference</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart news</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs and <br> feature requests</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="/community">Support & mailing lists</a></li>
+            <li><a href="/community/who-uses-dart">Who uses Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">community</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">announcement group</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter chat rooms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

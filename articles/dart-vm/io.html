@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An introduction to the Dart I/O library, which is aimed at server-side code that runs on the standalone Dart VM.">
+  <title>An Introduction to the dart:io Library | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="An Introduction to the dart:io Library" />
+  <meta name="twitter:description" content="An introduction to the Dart I/O library, which is aimed at server-side code that runs on the standalone Dart VM." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="An Introduction to the dart:io Library" />
+  <meta property="og:description" content="An introduction to the Dart I/O library, which is aimed at server-side code that runs on the standalone Dart VM." />
+  <meta property="og:url" content="https://www.dartlang.org/articles/dart-vm/io" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="/assets/style.css">
+  
+  <!--
+    Why don't we use Dart here?
+
+    The only scripting we use here is stuff like the on-click footnotes on the
+    front page or resizing of the left nav. These happen to be use cases where
+    JavaScript and jQuery are doing just fine. Dart is here for application
+    programming, not page scripting.
+   -->
+  <script type="text/javascript" src="/assets/main.js"></script>
+  
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default obsolete">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>Get Started</span></a></li>
+    <li><a href="/guides/language">Language</a></li>
+    <li><a href="/guides/libraries">Libraries</a></li>
+    <li><a href="/tools">Tools</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/io" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.66.0&nbsp;&nbsp;(beta)</a></li>
+
+        <li role="separator" class="divider"></li>
+        <li><a href="/dart-2#migration">Migration guide</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+  <div class="alert alert-danger">
+    <h4 class="text-center">Content of this page might be obsolete.</h4>
+  </div>
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-default" href="/guides/get-started">Get Started</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="Language">Language</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="Tour">Tour</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="Style">Style</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="Documentation">Documentation</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="Usage">Usage</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="Design">Design</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="Sample Code">Sample Code</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="Libraries">Libraries</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="Tour">Tour</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="Platforms">Platforms</a></h4>
+  <ul><li >
+          <a href="https://flutter.io" title="Mobile (Flutter)">Mobile (Flutter)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/dart-vm" title="Server">Server</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="Testing">Testing</a></h4>
+  <ul>
+  </ul><h4 >Resources</h4>
+  <ul><li >
+          <a href="/install" title="Install">Install</a>
+        </li><li >
+          <a href="/codelabs" title="Codelabs">Codelabs</a>
+        </li><li >
+          <a href="/tutorials" title="Tutorials">Tutorials</a>
+        </li><li class="active">
+          <a href="/articles" title="Articles">Articles</a>
+        </li><li >
+          <a href="/tools" title="Tools">Tools</a>
+        </li><li >
+          <a href="/community" title="Community and Support">Community and Support</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <h4>On this page
+      <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
+    </h4>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#the-dart-vm-and-the-event-loop">The Dart VM and the event loop</a></li>
+<li class="toc-entry toc-h2"><a href="#file-system-access">File system access</a></li>
+<li class="toc-entry toc-h2"><a href="#interacting-with-processes">Interacting with processes</a></li>
+<li class="toc-entry toc-h2"><a href="#writing-web-servers">Writing web servers</a></li>
+<li class="toc-entry toc-h2"><a href="#feature-requests-welcome">Feature requests welcome</a></li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+<div class="banner alert alert-info">
+  <p class="banner__text">
+    Welcome to <a href="/dart-2"><b>Dart 2</b></a>!
+    Still using Dart 1.x? See the
+    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">archived site</a>
+    or the <a href="/dart-2#migration">migration guide</a>.
+  </p>
+</div>
+
+
+          
+
+          
+          <div>
+            <ul class="page-github-links-menu" role="group">
+  <li>
+    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/dart-vm/io.md"
+      class="no-automatic-external"
+      title="View page source"
+      target="_blank" rel="noopener">
+      <i class="fab fa-github fa-sm"></i>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/site-www/issues/new?title='An Introduction to the dart:io Library' page issue&body=From URL: https://www.dartlang.org/articles/dart-vm/io"
+      class="no-automatic-external"
+      title="Report a bug on this page" target="_blank" rel="noopener">
+      <i class="fas fa-bug fa-sm"></i>
+    </a>
+  </li>
+</ul>
+
+            <h1>An Introduction to the dart:io Library</h1>
+          </div>
+          <p><em>Written by Mads Ager <br>
+March 2012 (updated October 2012, February 2013, January 2014, and March 2015)</em></p>
+
+<p>The <a href="https://api.dartlang.org/dev/dart-io/dart-io-library.html">dart:io</a> library
+is aimed at server-side code
+that runs on the standalone Dart VM.
+In this article we will give you a feel for
+what is currently possible with dart:io
+by going through a couple of examples.</p>
+
+<p>Dart is a single-threaded programming language.
+If an operation blocks the Dart thread,
+the application makes no progress before that operation completes.
+For scalability it is therefore crucial that no I/O operations block.
+Instead of blocking on I/O operations,
+dart:io uses an asynchronous programming model inspired by
+<a href="http://nodejs.org">node.js</a>,
+<a href="https://github.com/eventmachine/eventmachine/wiki">EventMachine</a>, and
+<a href="http://twistedmatrix.com/trac/">Twisted</a>.</p>
+
+<h2 id="the-dart-vm-and-the-event-loop">
+<a id="the-dart-vm-and-the-event-loop" class="anchor" href="#the-dart-vm-and-the-event-loop" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Dart VM and the event loop</h2>
+
+<p>Before we dive into asynchronous I/O operations,
+it might be useful to explain how the standalone Dart VM operates.</p>
+
+<p>When executing a server-side application,
+the Dart VM runs in an event loop with
+an associated event queue of pending asynchronous operations.
+The VM terminates when it has executed the current code to completion
+and no more pending operations are in the queue.</p>
+
+<p>One simple way to add an event to the event queue is to
+schedule a function to be called in the future.
+You can do this by creating a
+<a href="https://api.dartlang.org/dev/dart-async/Timer-class.html">Timer</a> object.
+The following example registers a timer with the event queue
+and then drops off the end of main().
+Because a pending operation is in the event queue,
+the VM does not terminate at that point.
+After one second,
+the timer fires and the code in the argument callback executes.
+Once that code executes to completion,
+no more pending operations are in the event queue
+and the VM terminates.</p>
+
+<!--- BEGIN(io_timer) -->
+<pre class="prettyprint lang-dart">
+import 'dart:async';
+
+main() {
+  new Timer(new Duration(seconds: 1), () =&gt; print('timer'));
+  print('end of main');
+}
+</pre>
+<!--- END(io_timer) -->
+
+<p>Running this example at the command line, we get:</p>
+
+<pre>
+$ dart timer.dart
+end of main
+timer
+</pre>
+
+<p>Had we made the timer repeating by using the Timer.periodic() constructor,
+the VM would not terminate
+and would continue to print out ‘timer’ every second.</p>
+
+<h2 id="file-system-access">
+<a id="file-system-access" class="anchor" href="#file-system-access" aria-hidden="true"><span class="octicon octicon-link"></span></a>File system access</h2>
+
+<p>The dart:io library provides access to files and directories through the
+<a href="https://api.dartlang.org/dev/dart-io/File-class.html">File</a> and
+<a href="https://api.dartlang.org/dev/dart-io/Directory-class.html">Directory</a> classes.</p>
+
+<p>The following example prints its own source code.
+To determine the location of the source code being executed,
+we use the
+<a href="https://api.dartlang.org/dev/dart-io/Platform-class.html">Platform</a>
+class.</p>
+
+<!--- BEGIN(io_file_system) -->
+<pre class="prettyprint lang-dart">
+import 'dart:io';
+import 'dart:async';
+import 'dart:convert';
+
+main() async {
+  var file = new File(Platform.script.toFilePath());
+  print("${await (file.readAsString(encoding: ASCII))}");
+}
+</pre>
+<!--- END(io_file_system) -->
+
+<p>Notice that the readAsString() method is asynchronous;
+it returns a <a href="https://api.dartlang.org/dev/dart-async/Future-class.html">Future</a>
+that returns the contents of the file
+once the file has been read from the underlying system.
+This asynchronicity allows the Dart thread to perform other work
+while waiting for the I/O operation to complete.</p>
+
+<p>To illustrate more detailed file operations,
+let’s change the example to read the contents
+only up to the first semicolon and then to print that.
+You could do this in two ways:
+either open the file for random access,
+or open a
+<a href="https://api.dartlang.org/dev/dart-async/Stream-class.html">Stream</a>
+for the file and stream in the data.</p>
+
+<p>Here is a version that opens the file for random access operations.
+The code opens the file for reading and then reads one byte at a time
+until it encounters the char code for ‘;’.</p>
+
+<!--- BEGIN(io_random_access) -->
+<pre class="prettyprint lang-dart">
+import 'dart:io';
+
+main() async {
+  var semicolon = ';'.codeUnitAt(0);
+  var result = [];
+
+  File script = new File(Platform.script.toFilePath());
+  RandomAccessFile file = await script.open(mode: FileMode.READ);
+
+  // Callback to deal with each byte.
+  onByte(int byte) async {
+    result.add(byte);
+    if (byte == semicolon) {
+      print(new String.fromCharCodes(result));
+      file.close();
+    } else {
+      onByte(await file.readByte());
+    }
+  }
+  onByte(await file.readByte());
+}
+</pre>
+<!--- END(io_random_access) -->
+
+<p>When you see a use of <code class="highlighter-rouge">async</code> or <code class="highlighter-rouge">await</code>, you are seeing a Future in action.
+Both the <code class="highlighter-rouge">open()</code> and <code class="highlighter-rouge">readByte()</code> methods return a Future object.</p>
+
+<p>This code is, of course,
+a very simple use of random-access operations.
+Operations are available for writing,
+seeking to a given position, truncating, and so on.</p>
+
+<p>Let’s implement a version using a stream.
+The following code opens the file for reading presenting the content
+as a stream of lists of bytes. Like all streams in Dart you listen on
+this stream (using <code class="highlighter-rouge">await for</code>) and the data is given in chunks.</p>
+
+<!--- BEGIN(io_stream) -->
+<pre class="prettyprint lang-dart">
+import 'dart:io';
+import 'dart:async';
+
+main() async {
+  List result = [];
+
+  Stream&lt;List&lt;int&gt;&gt; stream =
+      new File(Platform.script.toFilePath()).openRead();
+  int semicolon = ';'.codeUnitAt(0);
+
+  await for (var data in stream) {
+    for (int i = 0; i &lt; data.length; i++) {
+      result.add(data[i]);
+      if (data[i] == semicolon) {
+        print(new String.fromCharCodes(result));
+        return;
+      }
+    }
+  }
+}
+</pre>
+<!--- END(io_stream) -->
+
+<p>The stream subscription is implicitly handled by <code class="highlighter-rouge">await for</code>.
+Exiting from the function that contains <code class="highlighter-rouge">await for</code> cancels the subscription.</p>
+
+<p><code class="highlighter-rouge">Stream&lt;List&lt;int&gt;&gt;</code> is used in multiple places in dart:io:
+when working with stdin, files, sockets, HTTP connections, and so on.
+Similarly, <a href="https://api.dartlang.org/dev/dart-io/IOSink-class.html">IOSink</a>s
+are used to stream data to
+stdout, files, sockets, HTTP connections, and so on.</p>
+
+<h2 id="interacting-with-processes">
+<a id="interacting-with-processes" class="anchor" href="#interacting-with-processes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interacting with processes</h2>
+
+<p>For the simple case, use
+<a href="https://api.dartlang.org/dev/dart-io/Process/run.html">Process.run()</a>
+to run a process
+and collect its output. Use <code class="highlighter-rouge">run()</code> when you don’t
+need interactive control over the process.</p>
+
+<!--- BEGIN(io_process) -->
+<pre class="prettyprint lang-dart">
+import 'dart:io';
+
+main() async {
+  // List all files in the current directory,
+  // in UNIX-like operating systems.
+  ProcessResult results = await Process.run('ls', ['-l']);
+  print(results.stdout);
+}
+</pre>
+<!--- END(io_process) -->
+
+<p>You can also start a process by creating a
+<a href="https://api.dartlang.org/dev/dart-io/Process-class.html">Process</a> object
+using the Process.start() constructor.
+Once you have a Process object you can interact with the process
+by writing data to its stdin sink,
+reading data from its stderr and stdout streams,
+and killing the process.
+When the process exits the exitCode future completes with
+the exit code of the process.</p>
+
+<p>The following example runs ‘ls -l’ in a separate process
+and prints the output and the exit code for the process to stdout.
+Since we are interested in getting lines,
+we use a
+<a href="https://api.dartlang.org/dev/dart-convert/Utf8Decoder-class.html">Utf8Decoder</a>,
+which decodes chunks of bytes into strings followed by a
+<a href="https://api.dartlang.org/dev/dart-convert/LineSplitter-class.html">LineSplitter</a>,
+which splits the strings at line boundaries.</p>
+
+<!--- BEGIN(io_process_transform) -->
+<pre class="prettyprint lang-dart">
+import 'dart:io';
+import 'dart:convert';
+
+main() async {
+  Process process = await Process.start('ls', ['-l']);
+  var lineStream = process.stdout
+      .transform(new Utf8Decoder())
+      .transform(new LineSplitter());
+  await for (var line in lineStream) {
+    print(line);
+  }
+
+  process.stderr.drain();
+  print('exit code: ${await process.exitCode}');
+}
+</pre>
+<!--- END(io_process_transform) -->
+
+<p>Notice that exitCode can complete before all of the lines of output
+have been processed. Also note
+that we do not explicitly close the process. In order to
+not leak resources we have to drain both the stderr and the stdout
+streams. To do that we set a listener (using <code class="highlighter-rouge">await for</code>)
+to drain the stderr stream.</p>
+
+<p>Instead of printing the output to stdout,
+we can use the streaming classes
+to pipe the output of the process to a file.</p>
+
+<!--- BEGIN(io_process_stdio) -->
+<pre class="prettyprint lang-dart">
+import 'dart:io';
+
+main() async {
+  var output = new File('output.txt').openWrite();
+  Process process = await Process.start('ls', ['-l']);
+  process.stdout.pipe(output);
+  process.stderr.drain();
+  print('exit code: ${await process.exitCode}');
+}
+</pre>
+<!--- END(io_process_stdio) -->
+
+<h2 id="writing-web-servers">
+<a id="writing-web-servers" class="anchor" href="#writing-web-servers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing web servers</h2>
+
+<p>dart:io makes it easy to write HTTP servers and clients.
+To write a simple web server,
+all you have to do is create an
+<a href="https://api.dartlang.org/dev/dart-io/HttpServer-class.html">HttpServer</a>
+and hook up a listener (using <code class="highlighter-rouge">await for</code>) to its stream of <code class="highlighter-rouge">HttpRequest</code>s.</p>
+
+<p>Here is a simple web server
+that just answers ‘Hello, world’ to any request.</p>
+
+<!--- BEGIN(io_http_server) -->
+<pre class="prettyprint lang-dart">
+import 'dart:io';
+
+main() async {
+  HttpServer server = await HttpServer.bind('127.0.0.1', 8082);
+  await for (HttpRequest request in server) {
+    request.response.write('Hello, world');
+    request.response.close();
+  }
+}
+</pre>
+<!--- END(io_http_server) -->
+
+<p>Running this application
+and pointing your browser to ‘http://127.0.0.1:8082’
+gives you ‘Hello, world’ as expected.</p>
+
+<p>Let’s add a bit more and actually serve files.
+The base path for every file that we serve will be
+the location of the script.
+If no path is specified in a request we will serve index.html.
+For a request with a path,
+we will attempt to find the file and serve it.
+If the file is not found we will respond with a ‘404 Not Found’ status.
+We make use of the streaming interface
+to pipe all the data read from a file directly to the response stream.</p>
+
+<!--- BEGIN(io_http_server_file) -->
+<pre class="prettyprint lang-dart">
+import 'dart:io';
+
+_sendNotFound(HttpResponse response) {
+  response.statusCode = HttpStatus.NOT_FOUND;
+  response.close();
+}
+
+startServer(String basePath) async {
+  HttpServer server = await HttpServer.bind('127.0.0.1', 8082);
+  await for (HttpRequest request in server) {
+    final String path = request.uri.toFilePath();
+    // PENDING: Do more security checks here.
+    final String resultPath = path == '/' ? '/index.html' : path;
+    final File file = new File('${basePath}${resultPath}');
+    if (await file.exists()) {
+      try {
+        await file.openRead().pipe(request.response);
+      } catch (e) {
+        print(e);
+      }
+    } else {
+      _sendNotFound(request.response);
+    }
+  }
+}
+
+main() {
+  // Compute base path for the request based on the location of the
+  // script and then start the server.
+  File script = new File(Platform.script.toFilePath());
+  startServer(script.parent.path);
+}
+</pre>
+<!--- END(io_http_server_file) -->
+
+<p>Writing HTTP clients is very similar to using the
+<a href="https://api.dartlang.org/dev/dart-io/HttpClient-class.html">HttpClient</a>
+class.</p>
+
+<h2 id="feature-requests-welcome">
+<a id="feature-requests-welcome" class="anchor" href="#feature-requests-welcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Feature requests welcome</h2>
+
+<p>The dart:io library is already capable of performing a lot of tasks.
+As an example of our own use of dart:io,
+we have rewritten the Dart testing scripts from Python to Dart.
+All of the tests that you see being run on the
+<a href="http://build.chromium.org/p/client.dart">buildbot</a>
+are running on the Dart VM using the dart:io library!</p>
+
+<p>Please give dart:io a spin and let us know what you think.
+Feature requests are very welcome!
+When you file a bug or feature request,
+use the Area-IO label in the issue tracker at
+<a href="http://dartbug.com">dartbug.com</a>.</p>
+
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dart-lang/site-www"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dart-lang/site-www/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2018/07/05 16:56 CST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Technologies</h4>
+          <ul>
+            <li><a href="https://flutter.io">Mobile (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart for the web</a></li>
+            <li><a href="/dart-vm">Server-side Dart</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory</a></li>
+            <li><a href="/guides/libraries">Dart libraries</a></li>
+            <li><a href="/guides/language">Dart programming language</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/dev">API reference</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart news</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs and <br> feature requests</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="/community">Support & mailing lists</a></li>
+            <li><a href="/community/who-uses-dart">Who uses Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">community</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">announcement group</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter chat rooms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

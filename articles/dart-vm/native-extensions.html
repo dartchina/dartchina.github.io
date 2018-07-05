@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn how to enable command-line Dart apps to call C/C++ functions.">
+  <title>Native Extensions for the Standalone Dart VM | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Native Extensions for the Standalone Dart VM" />
+  <meta name="twitter:description" content="Learn how to enable command-line Dart apps to call C/C++ functions." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Native Extensions for the Standalone Dart VM" />
+  <meta property="og:description" content="Learn how to enable command-line Dart apps to call C/C++ functions." />
+  <meta property="og:url" content="https://www.dartlang.org/articles/dart-vm/native-extensions" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="/assets/style.css">
+  
+  <!--
+    Why don't we use Dart here?
+
+    The only scripting we use here is stuff like the on-click footnotes on the
+    front page or resizing of the left nav. These happen to be use cases where
+    JavaScript and jQuery are doing just fine. Dart is here for application
+    programming, not page scripting.
+   -->
+  <script type="text/javascript" src="/assets/main.js"></script>
+  
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>Get Started</span></a></li>
+    <li><a href="/guides/language">Language</a></li>
+    <li><a href="/guides/libraries">Libraries</a></li>
+    <li><a href="/tools">Tools</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/native-extensions" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.66.0&nbsp;&nbsp;(beta)</a></li>
+
+        <li role="separator" class="divider"></li>
+        <li><a href="/dart-2#migration">Migration guide</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-default" href="/guides/get-started">Get Started</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="Language">Language</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="Tour">Tour</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="Style">Style</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="Documentation">Documentation</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="Usage">Usage</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="Design">Design</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="Sample Code">Sample Code</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="Libraries">Libraries</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="Tour">Tour</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="Platforms">Platforms</a></h4>
+  <ul><li >
+          <a href="https://flutter.io" title="Mobile (Flutter)">Mobile (Flutter)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/dart-vm" title="Server">Server</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="Testing">Testing</a></h4>
+  <ul>
+  </ul><h4 >Resources</h4>
+  <ul><li >
+          <a href="/install" title="Install">Install</a>
+        </li><li >
+          <a href="/codelabs" title="Codelabs">Codelabs</a>
+        </li><li >
+          <a href="/tutorials" title="Tutorials">Tutorials</a>
+        </li><li class="active">
+          <a href="/articles" title="Articles">Articles</a>
+        </li><li >
+          <a href="/tools" title="Tools">Tools</a>
+        </li><li >
+          <a href="/community" title="Community and Support">Community and Support</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <h4>On this page
+      <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
+    </h4>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#anatomy-of-a-native-extension">Anatomy of a native extension</a></li>
+<li class="toc-entry toc-h2"><a href="#example-code">Example code</a></li>
+<li class="toc-entry toc-h2"><a href="#the-synchronous-sample-extension">The synchronous sample extension</a></li>
+<li class="toc-entry toc-h2"><a href="#using-the-dart-embedding-api-from-native-code">Using the Dart Embedding API from native code</a></li>
+<li class="toc-entry toc-h2"><a href="#dart-handles">Dart handles</a></li>
+<li class="toc-entry toc-h2"><a href="#the-native-code-sample_extensioncc">The native code: sample_extension.cc</a></li>
+<li class="toc-entry toc-h2"><a href="#the-asynchronous-native-extension">The asynchronous native extension</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#wrapping-the-c-function">Wrapping the C function</a></li>
+<li class="toc-entry toc-h3"><a href="#setting-up-the-native-port">Setting up the native port</a></li>
+<li class="toc-entry toc-h3"><a href="#calling-the-native-port-from-dart">Calling the native port from Dart</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#conclusion-and-further-resources">Conclusion and further resources</a></li>
+<li class="toc-entry toc-h2"><a href="#appendix-compiling-and-linking-extensions">Appendix: Compiling and linking extensions</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#building-on-linux">Building on Linux</a></li>
+<li class="toc-entry toc-h3"><a href="#building-on-mac">Building on Mac</a></li>
+<li class="toc-entry toc-h3"><a href="#building-on-windows">Building on Windows</a></li>
+</ul>
+</li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+<div class="banner alert alert-info">
+  <p class="banner__text">
+    Welcome to <a href="/dart-2"><b>Dart 2</b></a>!
+    Still using Dart 1.x? See the
+    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">archived site</a>
+    or the <a href="/dart-2#migration">migration guide</a>.
+  </p>
+</div>
+
+
+          
+
+          
+          <div>
+            <ul class="page-github-links-menu" role="group">
+  <li>
+    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/dart-vm/native-extensions.md"
+      class="no-automatic-external"
+      title="View page source"
+      target="_blank" rel="noopener">
+      <i class="fab fa-github fa-sm"></i>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/site-www/issues/new?title='Native Extensions for the Standalone Dart VM' page issue&body=From URL: https://www.dartlang.org/articles/dart-vm/native-extensions"
+      class="no-automatic-external"
+      title="Report a bug on this page" target="_blank" rel="noopener">
+      <i class="fas fa-bug fa-sm"></i>
+    </a>
+  </li>
+</ul>
+
+            <h1>Native Extensions for the Standalone Dart VM</h1>
+          </div>
+          <p><em>Written by William Hesse <br>
+May 2012</em></p>
+
+<p>Dart programs running on the standalone Dart VM (<em>command-line apps</em>) can call C
+or C++ functions in a shared library, by means of native extensions. This
+article shows how to write and build such native extensions on Windows,
+macOS, and Linux.</p>
+
+<p>You can provide two types of native extensions: asynchronous or synchronous. An
+<em>asynchronous extension</em> runs a native function on a separate thread, scheduled
+by the Dart VM. A <em>synchronous extension</em> uses the Dart virtual machine
+library’s C API (the Dart Embedding API) directly and runs on the same thread as
+the Dart isolate. An asynchronous function is called by sending a message to a
+Dart port, receiving the response on a reply port.</p>
+
+<h2 id="anatomy-of-a-native-extension">
+<a id="anatomy-of-a-native-extension" class="anchor" href="#anatomy-of-a-native-extension" aria-hidden="true"><span class="octicon octicon-link"></span></a>Anatomy of a native extension</h2>
+
+<p>A Dart native extension contains two files: a Dart library and a native library.
+The Dart library defines classes and top-level functions as usual, but declares
+that some of these functions are implemented in native code, using the
+<strong>native</strong> keyword. The native library is a shared library, written in C or C++,
+that contains the implementations of those functions.</p>
+
+<p>The Dart library specifies the native library using an <code class="highlighter-rouge">import</code> statement
+and the <strong>dart-ext</strong>: URI scheme. As of 1.20, the URI must either be an absolute
+path like <code class="highlighter-rouge">dart-ext:/path/to/extension</code>, or only the name of the extension,
+like <code class="highlighter-rouge">dart-ext:extension</code>. The VM modifies the URI to add platform
+specific prefixes and suffixes to the extension name. For example,
+<code class="highlighter-rouge">extension</code> becomes <code class="highlighter-rouge">libextension.so</code> on Linux. If the URI is an
+absolute path, the import fails if the file does not exist. If the
+URI is only the name of the extension, the VM first looks for the
+file adjacent to the importing Dart library. If it is not found there
+the VM passes the file name to the platform specific call for loading
+dynamic libraries (e.g. <code class="highlighter-rouge">dlopen</code> on Linux), which is free to follow its
+own search procedure.</p>
+
+<h2 id="example-code">
+<a id="example-code" class="anchor" href="#example-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example code</h2>
+
+<p>The code for the sample extensions featured in this article is in the
+<a href="https://github.com/dart-lang/sdk/tree/master/samples/sample_extension">samples/sample_extension</a>
+directory of the Dart repository.</p>
+
+<p>The sample extensions call the C standard library’s rand() and srand()
+functions, returning pseudorandom numbers to a Dart program. Because the native
+parts of the asynchronous and synchronous native extensions share most of their
+code, a single native source file (and resulting shared library) implements both
+extensions. The two extensions have separate Dart library files. Two additional
+Dart files provide examples of using and testing the asynchronous and
+synchronous extensions.</p>
+
+<p>The shared library (native code) for the extensions shown in this article is
+called sample_extension. Its C++ file,
+<a href="https://github.com/dart-lang/sdk/blob/master/samples/sample_extension/sample_extension.cc">sample_extension.cc</a>, contains
+six functions that are called from Dart:</p>
+
+<dl>
+  <dt>sample_extension_Init():</dt>
+  <dd>Called when the extension is loaded.</dd>
+  <dt>ResolveName():</dt>
+  <dd>Called the first time a native function with a given name is called, to
+resolve the Dart name of the native function into a C function pointer.</dd>
+  <dt>SystemRand() and SystemSrand():</dt>
+  <dd>Implement the synchronous extension. These are native functions called
+directly from Dart, and that call rand() and srand() from the C standard library.</dd>
+  <dt>wrappedRandomArray() and randomArrayServicePort():</dt>
+  <dd>Implement the asynchronous extension. randomArrayServicePort() creates
+a native port and associates it with wrappedRandomArray(). When Dart sends
+a message to the native port, the Dart VM schedules wrappedRandomArray() to
+run on a separate thread.</dd>
+</dl>
+
+<p>Some of the code in the shared library is setup and initialization code,
+which can be the same for all extensions.  The functions sample_extension_Init()
+and ResolveName() should be almost the same in all extensions, and a version of
+randomArrayServicePort() must be in all asynchronous extensions.</p>
+
+<h2 id="the-synchronous-sample-extension">
+<a id="the-synchronous-sample-extension" class="anchor" href="#the-synchronous-sample-extension" aria-hidden="true"><span class="octicon octicon-link"></span></a>The synchronous sample extension</h2>
+
+<p>Because the asynchronous extension works like a synchronous extension with some
+added functions, we’ll show the synchronous extension first. First we’ll show
+the Dart part of the extension and the sequence of function calls that happen
+when the extension is loaded.  Then we explain how to use the Dart Embedding
+API, show the native code, and show what happens when the extension is called.</p>
+
+<p>Here is the Dart part of the synchronous extension, called
+<b>sample_synchronous_extension.dart</b>:</p>
+
+<pre class="prettyprint lang-dart">
+library sample_synchronous_extension;
+
+import 'dart-ext:sample_extension';
+
+// The simplest way to call native code: top-level functions.
+int systemRand() native "SystemRand";
+bool systemSrand(int seed) native "SystemSrand";
+</pre>
+
+<p>The code that implements a native extension executes at two different times.
+First, it runs when the native extension is loaded. Later, it runs when a
+function with a native implementation is called.</p>
+
+<p>Here is the sequence of events at load time, when a Dart app that imports
+sample_synchronous_extension.dart starts running:</p>
+
+<ol>
+  <li>The Dart library sample_synchronous_extension.dart is loaded, and the
+  Dart VM hits the code <b><code>import 'dart-ext:sample_extension'</code></b>.</li>
+  <li>The VM loads the shared library ‘sample_extension’ from the directory
+  containing the Dart library.</li>
+  <li>The function sample_extension_Init() in the shared library is called.
+  It registers the shared library function ResolveName() as the name resolver
+  for all native functions in the library sample_extension.dart. We’ll see what
+  the name resolver does when we look at synchronous native functions, below.</li>
+</ol>
+
+<aside class="alert alert-info">
+<strong>Note:</strong>
+The filename of the shared library depends on the platform. On Windows,
+the VM loads sample_extension.dll, on Linux it loads libsample_extension.so,
+and on Mac it loads libsample_extension.dylib. We show how to build and link
+these shared libraries in an appendix at the end of the article.
+</aside>
+
+<h2 id="using-the-dart-embedding-api-from-native-code">
+<a id="using-the-dart-embedding-api-from-native-code" class="anchor" href="#using-the-dart-embedding-api-from-native-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the Dart Embedding API from native code</h2>
+
+<p>As the sample extensions show, the native shared library contains an
+initialization function, a name resolution function, and the native
+implementations of functions declared as native in the Dart part of the
+extension. The initialization function registers the native name resolution
+function as responsible for looking up native function names in this library.
+When a function declared as <strong><code>native "<em>function_name</em>"</code></strong> in
+the Dart library is called, the native library’s name resolution function is
+called with the string “<em>function_name</em>” as an argument, plus the number
+of arguments in the function call. The name resolution function then returns a
+function pointer to the native implementation of that function. The
+initialization function and the name resolution function look pretty much the
+same in all Dart native extensions.</p>
+
+<p>The functions in the native library use the Dart Embedding API to communicate
+with the VM, so the native code includes the header <b>dart_api.h</b>, which
+is in the SDK at dart-sdk/include/dart_api.h or in the repository at
+<a href="https://github.com/dart-lang/sdk/blob/master/runtime/include/dart_api.h">runtime/include/dart_api.h</a>.
+The Dart Embedding API is the interface that embedders use to include the Dart
+VM in a web browser or in the standalone VM for the command line. It consists
+of about 100 function interfaces and many data type and data structure
+definitions. These are all shown, with comments, in dart_api.h. Examples of
+using them are in the unit test file
+<a href="https://github.com/dart-lang/sdk/blob/master/runtime/vm/dart_api_impl_test.cc">runtime/vm/dart_api_impl_test.cc</a>.</p>
+
+<p>A native function to be called from Dart must have the
+type <strong>Dart_NativeFunction</strong>, which is defined in dart_api.h as:</p>
+
+<pre class="prettyprint lang-cpp">
+typedef void (*Dart_NativeFunction)(Dart_NativeArguments arguments);
+</pre>
+
+<p>So a Dart_NativeFunction is a pointer to a function taking a
+Dart_NativeArguments object, and returning no value. The arguments object is a
+Dart object accessed by API functions that return the number of arguments, and
+return a Dart_Handle to the argument at a specified index. The native function
+returns a Dart object to the Dart app, as the return value, by storing it in
+the arguments object using the Dart_SetReturnValue() function.</p>
+
+<h2 id="dart-handles">
+<a id="dart-handles" class="anchor" href="#dart-handles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dart handles</h2>
+
+<p>The extension’s native implementations of functions use Dart_Handles
+extensively. Calls in the Dart Embedding API return a Dart_Handle and often take
+Dart_Handles as arguments. A Dart_Handle is an opaque indirect pointer to an
+object on the Dart heap, and Dart_Handles are copied by value. These handles
+remain valid even when a garbage-collection phase moves Dart objects on the
+heap, so native code must use handles to store references to heap objects.
+Because these handles take resources to store and maintain, you must free them
+when they’re no longer used. Until a handle is freed, the VM’s garbage collector
+cannot collect the object it points to, even if there are no other references to
+it.</p>
+
+<p>The Dart Embedding API automatically creates a new scope to manage
+the lifetime of handles in a native function.  A local handle
+scope is created when the native function is entered, and is deleted when
+the function is exited.  The scope is deleted if the function exits with
+PropagateError, as well as if it returns normally. Most handles and memory
+pointers returned by the Dart Embedding API are
+allocated in the current local scope, and will be invalid after the function
+returns. If the extension wants to keep a pointer to a Dart object for a long time,
+it should use a <em>persistent handle</em> (see Dart_NewPersistentHandle() and
+Dart_NewWeakPersistentHandle()), which remains valid after a local scope ends.</p>
+
+<p>Calls into the Dart Embedding API might return errors in their Dart_Handle
+return values. These errors, which might be exceptions, should be passed up to
+the caller of the function as the return value.</p>
+
+<p>Most of the functions in a native extension—the functions of type
+Dart_NativeFunction—have no return value and must pass the error up to the
+proper handler in another way. They call Dart_PropagateError to pass errors and
+control flow to where the error should be handled. The sample uses a helper
+function, called HandleError(), to make this convenient.  A call to
+Dart_PropagateError() never returns.</p>
+
+<h2 id="the-native-code-sample_extensioncc">
+<a id="the-native-code-sample_extensioncc" class="anchor" href="#the-native-code-sample_extensioncc" aria-hidden="true"><span class="octicon octicon-link"></span></a>The native code: sample_extension.cc</h2>
+
+<p>Now we’ll show the native code for the sample extension, starting with the
+initialization function, then the native function implementations, and ending
+with the name resolution function. The two native functions implementing the
+asynchronous extension are shown later.</p>
+
+<pre class="prettyprint lang-cpp">
+#include &lt;string.h&gt;
+#include "dart_api.h"
+// Forward declaration of ResolveName function.
+Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_scope);
+
+// The name of the initialization function is the extension name followed
+// by _Init.
+DART_EXPORT Dart_Handle sample_extension_Init(Dart_Handle parent_library) {
+  if (Dart_IsError(parent_library)) return parent_library;
+
+  Dart_Handle result_code =
+      Dart_SetNativeResolver(parent_library, ResolveName, NULL);
+  if (Dart_IsError(result_code)) return result_code;
+
+  return Dart_Null();
+}
+
+Dart_Handle HandleError(Dart_Handle handle) {
+ if (Dart_IsError(handle)) Dart_PropagateError(handle);
+ return handle;
+}
+
+// Native functions get their arguments in a Dart_NativeArguments structure
+// and return their results with Dart_SetReturnValue.
+void SystemRand(Dart_NativeArguments arguments) {
+  Dart_Handle result = HandleError(Dart_NewInteger(rand()));
+  Dart_SetReturnValue(arguments, result);
+}
+
+void SystemSrand(Dart_NativeArguments arguments) {
+  bool success = false;
+  Dart_Handle seed_object =
+      HandleError(Dart_GetNativeArgument(arguments, 0));
+  if (Dart_IsInteger(seed_object)) {
+    bool fits;
+    HandleError(Dart_IntegerFitsIntoInt64(seed_object, &amp;fits));
+    if (fits) {
+      int64_t seed;
+      HandleError(Dart_IntegerToInt64(seed_object, &amp;seed));
+      srand(static_cast&lt;unsigned&gt;(seed));
+      success = true;
+    }
+  }
+  Dart_SetReturnValue(arguments, HandleError(Dart_NewBoolean(success)));
+}
+
+Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_scope) {
+  // If we fail, we return NULL, and Dart throws an exception.
+  if (!Dart_IsString(name)) return NULL;
+  Dart_NativeFunction result = NULL;
+  const char* cname;
+  HandleError(Dart_StringToCString(name, &amp;cname));
+
+  if (strcmp("SystemRand", cname) == 0) result = SystemRand;
+  if (strcmp("SystemSrand", cname) == 0) result = SystemSrand;
+  return result;
+}
+</pre>
+
+<p>Here is the sequence of events that happens at runtime, when the function
+systemRand() (defined in sample_synchronous_extension.dart) is called for the
+first time.</p>
+
+<ol>
+  <li>The function ResolveName() in the shared library is called with a Dart string containing “SystemRand” and the integer 0, representing the number of arguments in the call. The string “SystemRand” is the string literal following the <b>native</b> keyword in the declaration of systemRand().</li>
+  <li>ResolveName() returns a pointer to the native function SystemRand() in the shared library.</li>
+  <li>The arguments to the systemRand() call in Dart are packaged into a Dart_NativeArguments object, and SystemRand() is called with this object as its only argument.</li>
+  <li>SystemRand() does its computations, puts its return value into the Dart_NativeArguments object, and returns.</li>
+  <li>The Dart VM extracts the return value from the Dart_NativeArguments object, returning it as the result of the Dart call to systemRand().</li>
+</ol>
+
+<p>On later calls to systemRand(), the result of the function lookup has been cached, so ResolveName() is not called again.</p>
+
+<h2 id="the-asynchronous-native-extension">
+<a id="the-asynchronous-native-extension" class="anchor" href="#the-asynchronous-native-extension" aria-hidden="true"><span class="octicon octicon-link"></span></a>The asynchronous native extension</h2>
+
+<p>As we saw above, a synchronous extension uses the Dart Embedding API to work
+with Dart heap objects, and it runs on the main Dart thread for the current
+isolate. An asynchronous extension, on the other hand, does not use most of the
+Dart Embedding API, and it runs on a separate thread so as not to block the main
+Dart thread.</p>
+
+<p>In many ways, asynchronous extensions are simpler to program than synchronous
+extensions.  They use the native ports functions in the Dart Embedding API to
+schedule C functions on independent threads. To Dart code that uses the
+extension, it appears simply as a Dart SendPort.  The messages posted to this
+port are automatically translated into a C structure called a Dart_CObject,
+containing C data types such as int, double, and char*. This C structure is then
+passed to a C function, which is run in an independent thread drawn from a pool
+of threads managed by the VM. The C function can respond by a Dart_CObject to a
+reply port. The Dart_CObject is translated back into a tree of Dart objects, and
+appears as a reply on the Dart async call’s reply port. This automatic
+conversion of Dart objects into a Dart_CObject C structure replaces the use of
+the Dart Embedding API to fetch fields from objects and to convert Dart objects
+into C value types.</p>
+
+<p>To create an asynchronous native extension, we do three things:</p>
+
+<ol>
+  <li>Wrap the C function we wish to call with a wrapper that converts the
+  Dart_CObject input argument to the desired input parameters, converts the
+  result of the function to a Dart_CObject, and posts it back to Dart.</li>
+  <li>Write a native function that creates a native port and attaches it to the
+  wrapped function.  This native function is a synchronous native method, and
+  it’s in a native extension that looks just like the synchronous extension
+  above. We have just added the wrapped function from step 1 to the extension,
+  as well.</li>
+  <li>Write a Dart class that fetches the native port and caches it. In that class,
+  provide a function that forwards its arguments to the native port as a
+  message, and calls a callback argument when it receives a reply to that
+  message.</li>
+</ol>
+
+<h3 id="wrapping-the-c-function">
+<a id="wrapping-the-c-function" class="anchor" href="#wrapping-the-c-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wrapping the C function</h3>
+
+<p>Here is an example of a C function (actually, a C++ function, due to the use of
+reinterpret_cast) that creates an array of random bytes,
+given a seed and a length.  It returns the data in a newly allocated array,
+which will be freed by the wrapper:</p>
+
+<pre class="prettyprint lang-cpp">
+uint8_t* random_array(int seed, int length) {
+  if (length &lt;= 0 || length &gt; 10000000) return NULL;
+
+  uint8_t* values = reinterpret_cast&lt;uint8_t*&gt;(malloc(length));
+  if (NULL == values) return NULL;
+
+  srand(seed);
+  for (int i = 0; i &lt; length; ++i) {
+    values[i] = rand() % 256;
+  }
+  return values;
+}
+</pre>
+
+<p>To call this from Dart, we put it in a wrapper that unpacks the Dart_CObject
+containing seed and length, and that packs the result values into a
+Dart_CObject.  A Dart_CObject can hold an integer (of various sizes), a double,
+a string, or an array of Dart_CObjects. It is implemented in
+<a href="https://github.com/dart-lang/sdk/blob/master/runtime/include/dart_api.h">dart_api.h</a>
+as a struct
+containing a union. Look in dart_api.h to see the fields and tags used to access
+the union’s members. After the Dart_CObject is posted, it and all its resources
+can be freed, since they have been copied into Dart objects on the Dart heap.</p>
+
+<pre class="prettyprint lang-cpp">
+void wrappedRandomArray(Dart_Port dest_port_id,
+                        Dart_Port reply_port_id,
+                        Dart_CObject* message) {
+  if (message-&gt;type == Dart_CObject::kArray &amp;&amp;
+      2 == message-&gt;value.as_array.length) {
+    // Use .as_array and .as_int32 to access the data in the Dart_CObject.
+    Dart_CObject* param0 = message-&gt;value.as_array.values[0];
+    Dart_CObject* param1 = message-&gt;value.as_array.values[1];
+    if (param0-&gt;type == Dart_CObject::kInt32 &amp;&amp;
+        param1-&gt;type == Dart_CObject::kInt32) {
+      int length = param0-&gt;value.as_int32;
+      int seed = param1-&gt;value.as_int32;
+
+      uint8_t* values = randomArray(seed, length);
+
+      if (values != NULL) {
+        Dart_CObject result;
+        result.type = Dart_CObject::kUint8Array;
+        result.value.as_byte_array.values = values;
+        result.value.as_byte_array.length = length;
+        Dart_PostCObject(reply_port_id, &amp;result);
+        free(values);
+        // It is OK that result is destroyed when function exits.
+        // Dart_PostCObject has copied its data.
+        return;
+      }
+    }
+  }
+  Dart_CObject result;
+  result.type = Dart_CObject::kNull;
+  Dart_PostCObject(reply_port_id, &amp;result);
+}
+</pre>
+
+<p>Dart_PostCObject() is the only Dart Embedding API function that should be called
+from the wrapper or the C function. Most of the API is illegal to call here,
+because there is no current isolate. No errors or exceptions can be thrown, so
+any error must be encoded in the reply message, to be decoded and thrown by the
+Dart part of the extension.</p>
+
+<h3 id="setting-up-the-native-port">
+<a id="setting-up-the-native-port" class="anchor" href="#setting-up-the-native-port" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up the native port</h3>
+
+<p>Now we set up the mechanism that calls this wrapped C function from Dart code,
+by sending a message. We create a native port that calls this function, and
+return a send port connected to that port. The Dart library gets the port from
+this function, and forwards calls to the port.</p>
+
+<pre class="prettyprint lang-cpp">
+void randomArrayServicePort(Dart_NativeArguments arguments) {
+  Dart_SetReturnValue(arguments, Dart_Null());
+  Dart_Port service_port =
+      Dart_NewNativePort("RandomArrayService", wrappedRandomArray, true);
+  if (service_port != kIllegalPort) {
+    Dart_Handle send_port = Dart_NewSendPort(service_port);
+    Dart_SetReturnValue(arguments, send_port);
+  }
+}
+</pre>
+
+<h3 id="calling-the-native-port-from-dart">
+<a id="calling-the-native-port-from-dart" class="anchor" href="#calling-the-native-port-from-dart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Calling the native port from Dart</h3>
+
+<p>On the Dart side, we need a class that stores this send port, sending messages
+to it when a Dart asynchronous function with a callback is called. The Dart
+class gets the port the first time the function is called, caching it in the
+usual way. Here is the Dart library for the asynchronous extension:</p>
+
+<pre class="prettyprint lang-dart">
+library sample_asynchronous_extension;
+
+import 'dart-ext:sample_extension';
+
+// A class caches the native port used to call an asynchronous extension.
+class RandomArray {
+  static SendPort _port;
+
+  void randomArray(int seed, int length, void callback(List result)) {
+    var args = new List(2);
+    args[0] = seed;
+    args[1] = length;
+    _servicePort.call(args).then((result) {
+      if (result != null) {
+        callback(result);
+      } else {
+        throw new Exception("Random array creation failed");
+      }
+    });
+  }
+
+  SendPort get _servicePort {
+    if (_port == null) {
+      _port = _newServicePort();
+    }
+    return _port;
+  }
+
+  SendPort _newServicePort() native "RandomArray_ServicePort";
+}
+</pre>
+
+<h2 id="conclusion-and-further-resources">
+<a id="conclusion-and-further-resources" class="anchor" href="#conclusion-and-further-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion and further resources</h2>
+
+<p>You’ve seen both synchronous and asynchronous native extensions. We hope that
+you’ll use these tools to provide access to existing C and C++ libraries,
+thereby adding useful new capabilities to the standalone Dart VM.  We recommend
+using asynchronous extensions rather than synchronous extensions, because
+asynchronous extensions don’t block the main Dart thread and can be simpler to
+implement. The built-in Dart I/O libraries are built around asynchronous calls
+to achieve high, non-blocking throughput. Extensions should have the same
+performance goals.</p>
+
+<h2 id="appendix-compiling-and-linking-extensions">
+<a id="appendix-compiling-and-linking-extensions" class="anchor" href="#appendix-compiling-and-linking-extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Appendix: Compiling and linking extensions</h2>
+
+<p>Building a shared library can be tricky, and the tools to do it are platform
+dependent. Building Dart native extensions is especially tricky because they are
+dynamically loaded, and they link to Dart Embedding API functions in the Dart
+library embedded in the executable that dynamically loads them.</p>
+
+<p>As with all shared libraries, the compilation step must generate position-
+independent code. The linker step must specify that unresolved functions will be
+resolved in the executable when the library is loaded. We will show commands
+that do this on the Linux, Windows, and Mac platforms. If you download the dart
+source repository, the sample code also includes a platform-independent build
+system, called gyp, and a build file sample_extension.gypi that builds the
+sample extension.</p>
+
+<h3 id="building-on-linux">
+<a id="building-on-linux" class="anchor" href="#building-on-linux" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building on Linux</h3>
+
+<p>On Linux, you can compile the code in the samples/sample_extension directory like this:</p>
+
+<pre>
+g++ -fPIC -m32 -I{path to SDK include directory} -DDART_SHARED_LIB -c sample_extension.cc
+</pre>
+
+<p>To create the shared library from the object file:</p>
+
+<pre>
+gcc -shared -m32 -Wl,-soname,libsample_extension.so -o
+libsample_extension.so sample_extension.o
+</pre>
+
+<p>Remove the -m32 to build a 64-bit library that runs with the 64-bit Dart standalone VM.</p>
+
+<h3 id="building-on-mac">
+<a id="building-on-mac" class="anchor" href="#building-on-mac" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building on Mac</h3>
+
+<ol>
+  <li>Using Xcode (tested with Xcode 3.2.6), create a new project with the same name as the native extension, of type Framework &amp; Library/BSD C Library, type dynamic.</li>
+  <li>Add the source files of your extension to the source section of the project.</li>
+  <li>Make the following changes in Project/Edit Project Settings, choosing the Build tab and All Configurations in the dialog box:
+    <ol>
+      <li>In section Linking, line Other Linker Flags, add -undefined dynamic_lookup.</li>
+      <li>In section Search Paths, line Header Search Paths, add the path to dart_api.h in the SDK download or the Dart repository checkout.</li>
+      <li>In section Preprocessing, line Preprocessor Macros, add DART_SHARED_LIB=1</li>
+    </ol>
+  </li>
+  <li>Choose the correct architecture (i386 or x86_64), and build by choosing Build/Build.</li>
+</ol>
+
+<p>The resulting lib[extension_name].dylib will be in the <b>build/</b> subdirectory of your project location, so copy it to the desired location (probably the location of the Dart library part of the extension).</p>
+
+<h3 id="building-on-windows">
+<a id="building-on-windows" class="anchor" href="#building-on-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building on Windows</h3>
+
+<p>The Windows DLL compilation is complicated by the fact that we need to link with
+library file, dart.lib, that does not contain code itself, but specifies that
+calls to the Dart Embedding API will be resolved by linking to the Dart
+executable, dart.exe, when the DLL is dynamically loaded. This library file is
+generated when building dart and is included in the Dart SDK.</p>
+
+<ol>
+  <li>Create a new project of type Win32/Win32 project in Visual Studio 2008 or 2010. Give the project the same name as the native extension. On the next screen of the wizard, change the application type to DLL and select “Empty project”, then choose finish.</li>
+  <li>Add the C/C++ files for the native extension to the source files folder in the project.  Make sure to include the [extension name]_dllmain_win.cc file.</li>
+  <li>Change the following settings in the project’s properties:
+    <ol>
+      <li>Configuration properties / Linker / Input / Additional dependencies: Add dart-sdk\bin\dart.lib, from the downloaded Dart SDK.</li>
+      <li>Configuration properties / C/C++ / General / Additional Include Directories: Add the path to the directory containing dart_api.h, which is dart-sdk/include in the downloaded Dart SDK.</li>
+      <li>Configuration properties / C/C++ / Preprocessor / Preprocessor Definitions: Add DART_SHARED_LIB. This is just to export the <extension name="">_init function from the DLL, since it has been declared as DART_EXPORT.</extension>
+</li>
+    </ol>
+  </li>
+  <li>Build the project, and copy the DLL to the correct directory, relative to the Dart library part of the extension.  Make sure to build a 32-bit DLL for use with the 32-bit SDK download, and a 64-bit DLL for use with the 64-bit download.</li>
+</ol>
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dart-lang/site-www"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dart-lang/site-www/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2018/07/05 16:56 CST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Technologies</h4>
+          <ul>
+            <li><a href="https://flutter.io">Mobile (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart for the web</a></li>
+            <li><a href="/dart-vm">Server-side Dart</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory</a></li>
+            <li><a href="/guides/libraries">Dart libraries</a></li>
+            <li><a href="/guides/language">Dart programming language</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/dev">API reference</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart news</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs and <br> feature requests</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="/community">Support & mailing lists</a></li>
+            <li><a href="/community/who-uses-dart">Who uses Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">community</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">announcement group</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter chat rooms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

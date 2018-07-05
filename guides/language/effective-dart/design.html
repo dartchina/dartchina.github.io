@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Design consistent, usable libraries.">
+  <title>Effective Dart: Design | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Effective Dart: Design" />
+  <meta name="twitter:description" content="Design consistent, usable libraries." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Effective Dart: Design" />
+  <meta property="og:description" content="Design consistent, usable libraries." />
+  <meta property="og:url" content="https://www.dartlang.org/guides/language/effective-dart/design" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="/assets/style.css">
+  
+  <!--
+    Why don't we use Dart here?
+
+    The only scripting we use here is stuff like the on-click footnotes on the
+    front page or resizing of the left nav. These happen to be use cases where
+    JavaScript and jQuery are doing just fine. Dart is here for application
+    programming, not page scripting.
+   -->
+  <script type="text/javascript" src="/assets/main.js"></script>
+  
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>Get Started</span></a></li>
+    <li><a href="/guides/language">Language</a></li>
+    <li><a href="/guides/libraries">Libraries</a></li>
+    <li><a href="/tools">Tools</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/effective-dart/design" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.66.0&nbsp;&nbsp;(beta)</a></li>
+
+        <li role="separator" class="divider"></li>
+        <li><a href="/dart-2#migration">Migration guide</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-default" href="/guides/get-started">Get Started</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="Language">Language</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="Tour">Tour</a>
+        </li>
+        
+        <li class="active">
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="Style">Style</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="Documentation">Documentation</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="Usage">Usage</a>
+              </li><li class="active">
+                <a href="/guides/language/effective-dart/design" title="Design">Design</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="Sample Code">Sample Code</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="Libraries">Libraries</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="Tour">Tour</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="Platforms">Platforms</a></h4>
+  <ul><li >
+          <a href="https://flutter.io" title="Mobile (Flutter)">Mobile (Flutter)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/dart-vm" title="Server">Server</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="Testing">Testing</a></h4>
+  <ul>
+  </ul><h4 >Resources</h4>
+  <ul><li >
+          <a href="/install" title="Install">Install</a>
+        </li><li >
+          <a href="/codelabs" title="Codelabs">Codelabs</a>
+        </li><li >
+          <a href="/tutorials" title="Tutorials">Tutorials</a>
+        </li><li >
+          <a href="/articles" title="Articles">Articles</a>
+        </li><li >
+          <a href="/tools" title="Tools">Tools</a>
+        </li><li >
+          <a href="/community" title="Community and Support">Community and Support</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <h4>On this page
+      <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
+    </h4>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#names">Names</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#do-use-terms-consistently">DO use terms consistently.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-abbreviations">AVOID abbreviations.</a></li>
+<li class="toc-entry toc-h3"><a href="#prefer-putting-the-most-descriptive-noun-last">PREFER putting the most descriptive noun last.</a></li>
+<li class="toc-entry toc-h3"><a href="#consider-making-the-code-read-like-a-sentence">CONSIDER making the code read like a sentence.</a></li>
+<li class="toc-entry toc-h3"><a href="#prefer-a-noun-phrase-for-a-non-boolean-property-or-variable">PREFER a noun phrase for a non-boolean property or variable.</a></li>
+<li class="toc-entry toc-h3"><a href="#prefer-a-non-imperative-verb-phrase-for-a-boolean-property-or-variable">PREFER a non-imperative verb phrase for a boolean property or variable.</a></li>
+<li class="toc-entry toc-h3"><a href="#consider-omitting-the-verb-for-a-named-boolean-parameter">CONSIDER omitting the verb for a named boolean parameter.</a></li>
+<li class="toc-entry toc-h3"><a href="#prefer-the-positive-name-for-a-boolean-property-or-variable">PREFER the “positive” name for a boolean property or variable.</a></li>
+<li class="toc-entry toc-h3"><a href="#prefer-an-imperative-verb-phrase-for-a-function-or-method-whose-main-purpose-is-a-side-effect">PREFER an imperative verb phrase for a function or method whose main purpose is a side effect.</a></li>
+<li class="toc-entry toc-h3"><a href="#prefer-a-noun-phrase-or-non-imperative-verb-phrase-for-a-function-or-method-if-returning-a-value-is-its-primary-purpose">PREFER a noun phrase or non-imperative verb phrase for a function or method if returning a value is its primary purpose.</a></li>
+<li class="toc-entry toc-h3"><a href="#consider-an-imperative-verb-phrase-for-a-function-or-method-if-you-want-to-draw-attention-to-the-work-it-performs">CONSIDER an imperative verb phrase for a function or method if you want to draw attention to the work it performs.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-starting-a-method-name-with-get">AVOID starting a method name with get.</a></li>
+<li class="toc-entry toc-h3"><a href="#prefer-naming-a-method-to___-if-it-copies-the-objects-state-to-a-new-object">PREFER naming a method to___() if it copies the object’s state to a new object.</a></li>
+<li class="toc-entry toc-h3"><a href="#prefer-naming-a-method-as___-if-it-returns-a-different-representation-backed-by-the-original-object">PREFER naming a method as___() if it returns a different representation backed by the original object.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-describing-the-parameters-in-the-functions-or-methods-name">AVOID describing the parameters in the function’s or method’s name.</a></li>
+<li class="toc-entry toc-h3"><a href="#do-follow-existing-mnemonic-conventions-when-naming-type-parameters">DO follow existing mnemonic conventions when naming type parameters.</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#libraries">Libraries</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#prefer-making-declarations-private">PREFER making declarations private.</a></li>
+<li class="toc-entry toc-h3"><a href="#consider-declaring-multiple-classes-in-the-same-library">CONSIDER declaring multiple classes in the same library.</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#classes">Classes</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#avoid-defining-a-one-member-abstract-class-when-a-simple-function-will-do">AVOID defining a one-member abstract class when a simple function will do.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-defining-a-class-that-contains-only-static-members">AVOID defining a class that contains only static members.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-extending-a-class-that-isnt-intended-to-be-subclassed">AVOID extending a class that isn’t intended to be subclassed.</a></li>
+<li class="toc-entry toc-h3"><a href="#do-document-if-your-class-supports-being-extended">DO document if your class supports being extended.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-implementing-a-class-that-isnt-intended-to-be-an-interface">AVOID implementing a class that isn’t intended to be an interface.</a></li>
+<li class="toc-entry toc-h3"><a href="#do-document-if-your-class-supports-being-used-as-an-interface">DO document if your class supports being used as an interface.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-mixing-in-a-class-that-isnt-intended-to-be-a-mixin">AVOID mixing in a class that isn’t intended to be a mixin.</a></li>
+<li class="toc-entry toc-h3"><a href="#do-document-if-your-class-supports-being-used-as-a-mixin">DO document if your class supports being used as a mixin.</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#constructors">Constructors</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#prefer-defining-constructors-instead-of-static-methods-to-create-instances">PREFER defining constructors instead of static methods to create instances.</a></li>
+<li class="toc-entry toc-h3"><a href="#consider-making-your-constructor-const-if-the-class-supports-it">CONSIDER making your constructor const if the class supports it.</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#members">Members</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#prefer-making-fields-and-top-level-variables-final">PREFER making fields and top-level variables final.</a></li>
+<li class="toc-entry toc-h3"><a href="#do-use-getters-for-operations-that-conceptually-access-properties">DO use getters for operations that conceptually access properties.</a></li>
+<li class="toc-entry toc-h3"><a href="#do-use-setters-for-operations-that-conceptually-change-properties">DO use setters for operations that conceptually change properties.</a></li>
+<li class="toc-entry toc-h3"><a href="#dont-define-a-setter-without-a-corresponding-getter">DON’T define a setter without a corresponding getter.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-returning-null-from-members-whose-return-type-is-bool-double-int-or-num">AVOID returning null from members whose return type is bool, double, int, or num.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-returning-this-from-methods-just-to-enable-a-fluent-interface">AVOID returning this from methods just to enable a fluent interface.</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#types">Types</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious">PREFER type annotating public fields and top-level variables if the type isn’t obvious.</a></li>
+<li class="toc-entry toc-h3"><a href="#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious">CONSIDER type annotating private fields and top-level variables if the type isn’t obvious.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-type-annotating-initialized-local-variables">AVOID type annotating initialized local variables.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-annotating-inferred-parameter-types-on-function-expressions">AVOID annotating inferred parameter types on function expressions.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-redundant-type-arguments-on-generic-invocations">AVOID redundant type arguments on generic invocations.</a></li>
+<li class="toc-entry toc-h3"><a href="#do-annotate-when-dart-infers-the-wrong-type">DO annotate when Dart infers the wrong type.</a></li>
+<li class="toc-entry toc-h3"><a href="#prefer-annotating-with-dynamic-instead-of-letting-inference-fail">PREFER annotating with dynamic instead of letting inference fail.</a></li>
+<li class="toc-entry toc-h3"><a href="#prefer-signatures-in-function-type-annotations">PREFER signatures in function type annotations.</a></li>
+<li class="toc-entry toc-h3"><a href="#dont-specify-a-return-type-for-a-setter">DON’T specify a return type for a setter.</a></li>
+<li class="toc-entry toc-h3"><a href="#dont-use-the-legacy-typedef-syntax">DON’T use the legacy typedef syntax.</a></li>
+<li class="toc-entry toc-h3"><a href="#prefer-inline-function-types-over-typedefs">PREFER inline function types over typedefs.</a></li>
+<li class="toc-entry toc-h3"><a href="#consider-using-function-type-syntax-for-parameters">CONSIDER using function type syntax for parameters.</a></li>
+<li class="toc-entry toc-h3"><a href="#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed">DO annotate with Object instead of dynamic to indicate any object is allowed.</a></li>
+<li class="toc-entry toc-h3"><a href="#do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values">DO use Future<void> as the return type of asynchronous members that do not produce values.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-using-futureort-as-a-return-type">AVOID using FutureOr<T> as a return type.</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#parameters">Parameters</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#avoid-positional-boolean-parameters">AVOID positional boolean parameters.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters">AVOID optional positional parameters if the user may want to omit earlier parameters.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-mandatory-parameters-that-accept-a-special-no-argument-value">AVOID mandatory parameters that accept a special “no argument” value.</a></li>
+<li class="toc-entry toc-h3"><a href="#do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range">DO use inclusive start and exclusive end parameters to accept a range.</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#equality">Equality</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#do-override-hashcode-if-you-override-">DO override hashCode if you override ==.</a></li>
+<li class="toc-entry toc-h3"><a href="#do-make-your--operator-obey-the-mathematical-rules-of-equality">DO make your == operator obey the mathematical rules of equality.</a></li>
+<li class="toc-entry toc-h3"><a href="#avoid-defining-custom-equality-for-mutable-classes">AVOID defining custom equality for mutable classes.</a></li>
+<li class="toc-entry toc-h3"><a href="#dont-check-for-null-in-custom--operators">DON’T check for null in custom == operators.</a></li>
+</ul>
+</li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+<div class="banner alert alert-info">
+  <p class="banner__text">
+    Welcome to <a href="/dart-2"><b>Dart 2</b></a>!
+    Still using Dart 1.x? See the
+    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">archived site</a>
+    or the <a href="/dart-2#migration">migration guide</a>.
+  </p>
+</div>
+
+
+          
+<nav id="subnav">
+  <ul>
+    <li class="previous">
+      
+        <a href="/guides/language/effective-dart/usage">&lang;&nbsp;&nbsp;Usage</a>
+      
+    </li>
+    <li class="next">
+      
+    </li>
+  </ul>
+</nav>
+
+
+          
+          <div>
+            <ul class="page-github-links-menu" role="group">
+  <li>
+    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/language/effective-dart/design.md"
+      class="no-automatic-external"
+      title="View page source"
+      target="_blank" rel="noopener">
+      <i class="fab fa-github fa-sm"></i>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/site-www/issues/new?title='Effective Dart: Design' page issue&body=From URL: https://www.dartlang.org/guides/language/effective-dart/design"
+      class="no-automatic-external"
+      title="Report a bug on this page" target="_blank" rel="noopener">
+      <i class="fas fa-bug fa-sm"></i>
+    </a>
+  </li>
+</ul>
+
+            <h1>Effective Dart: Design</h1>
+          </div>
+          <?code-excerpt replace="/([A-Z]\w*)\d\b/$1/g"?>
+<?code-excerpt plaster="none"?>
+
+<div class="banner">
+  <p class="banner__text">
+    <em>Effective Dart</em> is being updated to reflect
+    current practices and Dart 2.
+    If you notice a problem that isn't a <a target="_blank" href="https://github.com/dart-lang/site-www/labels/EffectiveDart">known issue,</a>
+    please report a bug.
+  </p>
+</div>
+
+<p>Here are some guidelines for writing consistent, usable APIs for libraries.</p>
+
+<ul id="markdown-toc">
+  <li>
+<a href="#names" id="markdown-toc-names">Names</a>    <ul>
+      <li><a href="#do-use-terms-consistently" id="markdown-toc-do-use-terms-consistently">DO use terms consistently.</a></li>
+      <li><a href="#avoid-abbreviations" id="markdown-toc-avoid-abbreviations">AVOID abbreviations.</a></li>
+      <li><a href="#prefer-putting-the-most-descriptive-noun-last" id="markdown-toc-prefer-putting-the-most-descriptive-noun-last">PREFER putting the most descriptive noun last.</a></li>
+      <li><a href="#consider-making-the-code-read-like-a-sentence" id="markdown-toc-consider-making-the-code-read-like-a-sentence">CONSIDER making the code read like a sentence.</a></li>
+      <li><a href="#prefer-a-noun-phrase-for-a-non-boolean-property-or-variable" id="markdown-toc-prefer-a-noun-phrase-for-a-non-boolean-property-or-variable">PREFER a noun phrase for a non-boolean property or variable.</a></li>
+      <li><a href="#prefer-a-non-imperative-verb-phrase-for-a-boolean-property-or-variable" id="markdown-toc-prefer-a-non-imperative-verb-phrase-for-a-boolean-property-or-variable">PREFER a non-imperative verb phrase for a boolean property or variable.</a></li>
+      <li><a href="#consider-omitting-the-verb-for-a-named-boolean-parameter" id="markdown-toc-consider-omitting-the-verb-for-a-named-boolean-parameter">CONSIDER omitting the verb for a named boolean <em>parameter</em>.</a></li>
+      <li><a href="#prefer-the-positive-name-for-a-boolean-property-or-variable" id="markdown-toc-prefer-the-positive-name-for-a-boolean-property-or-variable">PREFER the “positive” name for a boolean property or variable.</a></li>
+      <li><a href="#prefer-an-imperative-verb-phrase-for-a-function-or-method-whose-main-purpose-is-a-side-effect" id="markdown-toc-prefer-an-imperative-verb-phrase-for-a-function-or-method-whose-main-purpose-is-a-side-effect">PREFER an imperative verb phrase for a function or method whose main purpose is a side effect.</a></li>
+      <li><a href="#prefer-a-noun-phrase-or-non-imperative-verb-phrase-for-a-function-or-method-if-returning-a-value-is-its-primary-purpose" id="markdown-toc-prefer-a-noun-phrase-or-non-imperative-verb-phrase-for-a-function-or-method-if-returning-a-value-is-its-primary-purpose">PREFER a noun phrase or non-imperative verb phrase for a function or method if returning a value is its primary purpose.</a></li>
+      <li><a href="#consider-an-imperative-verb-phrase-for-a-function-or-method-if-you-want-to-draw-attention-to-the-work-it-performs" id="markdown-toc-consider-an-imperative-verb-phrase-for-a-function-or-method-if-you-want-to-draw-attention-to-the-work-it-performs">CONSIDER an imperative verb phrase for a function or method if you want to draw attention to the work it performs.</a></li>
+      <li><a href="#avoid-starting-a-method-name-with-get" id="markdown-toc-avoid-starting-a-method-name-with-get">AVOID starting a method name with <code class="highlighter-rouge">get</code>.</a></li>
+      <li><a href="#prefer-naming-a-method-to___-if-it-copies-the-objects-state-to-a-new-object" id="markdown-toc-prefer-naming-a-method-to___-if-it-copies-the-objects-state-to-a-new-object">PREFER naming a method <code class="highlighter-rouge">to___()</code> if it copies the object’s state to a new object.</a></li>
+      <li><a href="#prefer-naming-a-method-as___-if-it-returns-a-different-representation-backed-by-the-original-object" id="markdown-toc-prefer-naming-a-method-as___-if-it-returns-a-different-representation-backed-by-the-original-object">PREFER naming a method <code class="highlighter-rouge">as___()</code> if it returns a different representation backed by the original object.</a></li>
+      <li><a href="#avoid-describing-the-parameters-in-the-functions-or-methods-name" id="markdown-toc-avoid-describing-the-parameters-in-the-functions-or-methods-name">AVOID describing the parameters in the function’s or method’s name.</a></li>
+      <li><a href="#do-follow-existing-mnemonic-conventions-when-naming-type-parameters" id="markdown-toc-do-follow-existing-mnemonic-conventions-when-naming-type-parameters">DO follow existing mnemonic conventions when naming type parameters.</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#libraries" id="markdown-toc-libraries">Libraries</a>    <ul>
+      <li><a href="#prefer-making-declarations-private" id="markdown-toc-prefer-making-declarations-private">PREFER making declarations private.</a></li>
+      <li><a href="#consider-declaring-multiple-classes-in-the-same-library" id="markdown-toc-consider-declaring-multiple-classes-in-the-same-library">CONSIDER declaring multiple classes in the same library.</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#classes" id="markdown-toc-classes">Classes</a>    <ul>
+      <li><a href="#avoid-defining-a-one-member-abstract-class-when-a-simple-function-will-do" id="markdown-toc-avoid-defining-a-one-member-abstract-class-when-a-simple-function-will-do">AVOID defining a one-member abstract class when a simple function will do.</a></li>
+      <li><a href="#avoid-defining-a-class-that-contains-only-static-members" id="markdown-toc-avoid-defining-a-class-that-contains-only-static-members">AVOID defining a class that contains only static members.</a></li>
+      <li><a href="#avoid-extending-a-class-that-isnt-intended-to-be-subclassed" id="markdown-toc-avoid-extending-a-class-that-isnt-intended-to-be-subclassed">AVOID extending a class that isn’t intended to be subclassed.</a></li>
+      <li><a href="#do-document-if-your-class-supports-being-extended" id="markdown-toc-do-document-if-your-class-supports-being-extended">DO document if your class supports being extended.</a></li>
+      <li><a href="#avoid-implementing-a-class-that-isnt-intended-to-be-an-interface" id="markdown-toc-avoid-implementing-a-class-that-isnt-intended-to-be-an-interface">AVOID implementing a class that isn’t intended to be an interface.</a></li>
+      <li><a href="#do-document-if-your-class-supports-being-used-as-an-interface" id="markdown-toc-do-document-if-your-class-supports-being-used-as-an-interface">DO document if your class supports being used as an interface.</a></li>
+      <li><a href="#avoid-mixing-in-a-class-that-isnt-intended-to-be-a-mixin" id="markdown-toc-avoid-mixing-in-a-class-that-isnt-intended-to-be-a-mixin">AVOID mixing in a class that isn’t intended to be a mixin.</a></li>
+      <li><a href="#do-document-if-your-class-supports-being-used-as-a-mixin" id="markdown-toc-do-document-if-your-class-supports-being-used-as-a-mixin">DO document if your class supports being used as a mixin.</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#constructors" id="markdown-toc-constructors">Constructors</a>    <ul>
+      <li><a href="#prefer-defining-constructors-instead-of-static-methods-to-create-instances" id="markdown-toc-prefer-defining-constructors-instead-of-static-methods-to-create-instances">PREFER defining constructors instead of static methods to create instances.</a></li>
+      <li><a href="#consider-making-your-constructor-const-if-the-class-supports-it" id="markdown-toc-consider-making-your-constructor-const-if-the-class-supports-it">CONSIDER making your constructor <code class="highlighter-rouge">const</code> if the class supports it.</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#members" id="markdown-toc-members">Members</a>    <ul>
+      <li><a href="#prefer-making-fields-and-top-level-variables-final" id="markdown-toc-prefer-making-fields-and-top-level-variables-final">PREFER making fields and top-level variables <code class="highlighter-rouge">final</code>.</a></li>
+      <li><a href="#do-use-getters-for-operations-that-conceptually-access-properties" id="markdown-toc-do-use-getters-for-operations-that-conceptually-access-properties">DO use getters for operations that conceptually access properties.</a></li>
+      <li><a href="#do-use-setters-for-operations-that-conceptually-change-properties" id="markdown-toc-do-use-setters-for-operations-that-conceptually-change-properties">DO use setters for operations that conceptually change properties.</a></li>
+      <li><a href="#dont-define-a-setter-without-a-corresponding-getter" id="markdown-toc-dont-define-a-setter-without-a-corresponding-getter">DON’T define a setter without a corresponding getter.</a></li>
+      <li><a href="#avoid-returning-null-from-members-whose-return-type-is-bool-double-int-or-num" id="markdown-toc-avoid-returning-null-from-members-whose-return-type-is-bool-double-int-or-num">AVOID returning <code class="highlighter-rouge">null</code> from members whose return type is <code class="highlighter-rouge">bool</code>, <code class="highlighter-rouge">double</code>, <code class="highlighter-rouge">int</code>, or <code class="highlighter-rouge">num</code>.</a></li>
+      <li><a href="#avoid-returning-this-from-methods-just-to-enable-a-fluent-interface" id="markdown-toc-avoid-returning-this-from-methods-just-to-enable-a-fluent-interface">AVOID returning <code class="highlighter-rouge">this</code> from methods just to enable a fluent interface.</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#types" id="markdown-toc-types">Types</a>    <ul>
+      <li><a href="#prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious" id="markdown-toc-prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious">PREFER type annotating public fields and top-level variables if the type isn’t obvious.</a></li>
+      <li><a href="#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious" id="markdown-toc-consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious">CONSIDER type annotating private fields and top-level variables if the type isn’t obvious.</a></li>
+      <li><a href="#avoid-type-annotating-initialized-local-variables" id="markdown-toc-avoid-type-annotating-initialized-local-variables">AVOID type annotating initialized local variables.</a></li>
+      <li><a href="#avoid-annotating-inferred-parameter-types-on-function-expressions" id="markdown-toc-avoid-annotating-inferred-parameter-types-on-function-expressions">AVOID annotating inferred parameter types on function expressions.</a></li>
+      <li><a href="#avoid-redundant-type-arguments-on-generic-invocations" id="markdown-toc-avoid-redundant-type-arguments-on-generic-invocations">AVOID redundant type arguments on generic invocations.</a></li>
+      <li><a href="#do-annotate-when-dart-infers-the-wrong-type" id="markdown-toc-do-annotate-when-dart-infers-the-wrong-type">DO annotate when Dart infers the wrong type.</a></li>
+      <li><a href="#prefer-annotating-with-dynamic-instead-of-letting-inference-fail" id="markdown-toc-prefer-annotating-with-dynamic-instead-of-letting-inference-fail">PREFER annotating with <code class="highlighter-rouge">dynamic</code> instead of letting inference fail.</a></li>
+      <li><a href="#prefer-signatures-in-function-type-annotations" id="markdown-toc-prefer-signatures-in-function-type-annotations">PREFER signatures in function type annotations.</a></li>
+      <li><a href="#dont-specify-a-return-type-for-a-setter" id="markdown-toc-dont-specify-a-return-type-for-a-setter">DON’T specify a return type for a setter.</a></li>
+      <li><a href="#dont-use-the-legacy-typedef-syntax" id="markdown-toc-dont-use-the-legacy-typedef-syntax">DON’T use the legacy typedef syntax.</a></li>
+      <li><a href="#prefer-inline-function-types-over-typedefs" id="markdown-toc-prefer-inline-function-types-over-typedefs">PREFER inline function types over typedefs.</a></li>
+      <li><a href="#consider-using-function-type-syntax-for-parameters" id="markdown-toc-consider-using-function-type-syntax-for-parameters">CONSIDER using function type syntax for parameters.</a></li>
+      <li><a href="#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed" id="markdown-toc-do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed">DO annotate with <code class="highlighter-rouge">Object</code> instead of <code class="highlighter-rouge">dynamic</code> to indicate any object is allowed.</a></li>
+      <li><a href="#do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values" id="markdown-toc-do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values">DO use <code class="highlighter-rouge">Future&lt;void&gt;</code> as the return type of asynchronous members that do not produce values.</a></li>
+      <li><a href="#avoid-using-futureort-as-a-return-type" id="markdown-toc-avoid-using-futureort-as-a-return-type">AVOID using <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> as a return type.</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#parameters" id="markdown-toc-parameters">Parameters</a>    <ul>
+      <li><a href="#avoid-positional-boolean-parameters" id="markdown-toc-avoid-positional-boolean-parameters">AVOID positional boolean parameters.</a></li>
+      <li><a href="#avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters" id="markdown-toc-avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters">AVOID optional positional parameters if the user may want to omit earlier parameters.</a></li>
+      <li><a href="#avoid-mandatory-parameters-that-accept-a-special-no-argument-value" id="markdown-toc-avoid-mandatory-parameters-that-accept-a-special-no-argument-value">AVOID mandatory parameters that accept a special “no argument” value.</a></li>
+      <li><a href="#do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range" id="markdown-toc-do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range">DO use inclusive start and exclusive end parameters to accept a range.</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#equality" id="markdown-toc-equality">Equality</a>    <ul>
+      <li><a href="#do-override-hashcode-if-you-override-" id="markdown-toc-do-override-hashcode-if-you-override-">DO override <code class="highlighter-rouge">hashCode</code> if you override <code class="highlighter-rouge">==</code>.</a></li>
+      <li><a href="#do-make-your--operator-obey-the-mathematical-rules-of-equality" id="markdown-toc-do-make-your--operator-obey-the-mathematical-rules-of-equality">DO make your <code class="highlighter-rouge">==</code> operator obey the mathematical rules of equality.</a></li>
+      <li><a href="#avoid-defining-custom-equality-for-mutable-classes" id="markdown-toc-avoid-defining-custom-equality-for-mutable-classes">AVOID defining custom equality for mutable classes.</a></li>
+      <li><a href="#dont-check-for-null-in-custom--operators" id="markdown-toc-dont-check-for-null-in-custom--operators">DON’T check for <code class="highlighter-rouge">null</code> in custom <code class="highlighter-rouge">==</code> operators.</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="names">
+<a id="names" class="anchor" href="#names" aria-hidden="true"><span class="octicon octicon-link"></span></a>Names</h2>
+
+<p>Naming is an important part of writing readable, maintainable code.
+The following best practices can help you achieve that goal.</p>
+
+<h3 id="do-use-terms-consistently">
+<a id="do-use-terms-consistently" class="anchor" href="#do-use-terms-consistently" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use terms consistently.</h3>
+
+<p>Use the same name for the same thing, throughout your code. If a precedent
+already exists outside your API that users are likely to know, follow that
+precedent.</p>
+
+<pre class="prettyprint lang-dart good-style">
+pageCount         // A field.
+updatePageCount() // Consistent with pageCount.
+toSomething()     // Consistent with Iterable's toList().
+asSomething()     // Consistent with List's asMap().
+Point             // A familiar concept.
+</pre>
+
+<pre class="prettyprint lang-dart bad-style">
+renumberPages()      // Confusingly different from pageCount.
+convertToSomething() // Inconsistent with toX() precedent.
+wrappedAsSomething() // Inconsistent with asX() precedent.
+Cartesian            // Unfamiliar to most users.
+</pre>
+
+<p>The goal is to take advantage of what the user already knows. This includes
+their knowledge of the problem domain itself, the conventions of the core
+libraries, and other parts of your own API. By building on top of those, you
+reduce the amount of new knowledge they have to acquire before they can be
+productive.</p>
+
+<h3 id="avoid-abbreviations">
+<a id="avoid-abbreviations" class="anchor" href="#avoid-abbreviations" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID abbreviations.</h3>
+
+<p>Unless the abbreviation is more common than the unabbreviated term, don’t
+abbreviate. If you do abbreviate, <a href="/guides/language/effective-dart/style#identifiers">capitalize it correctly</a>.</p>
+
+<pre class="prettyprint lang-dart good-style">
+pageCount
+buildRectangles
+IOStream
+HttpRequest
+</pre>
+
+<pre class="prettyprint lang-dart bad-style">
+numPages    // "num" is an abbreviation of number(of)
+buildRects
+InputOutputStream
+HypertextTransferProtocolRequest
+</pre>
+
+<h3 id="prefer-putting-the-most-descriptive-noun-last">
+<a id="prefer-putting-the-most-descriptive-noun-last" class="anchor" href="#prefer-putting-the-most-descriptive-noun-last" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER putting the most descriptive noun last.</h3>
+
+<p>The last word should be the most descriptive of what the thing is. You can
+prefix it with other words, such as adjectives, to further describe the thing.</p>
+
+<pre class="prettyprint lang-dart good-style">
+pageCount             // A count (of pages).
+ConversionSink        // A sink for doing conversions.
+ChunkedConversionSink // A ConversionSink that's chunked.
+CssFontFaceRule       // A rule for font faces in CSS.
+</pre>
+
+<pre class="prettyprint lang-dart bad-style">
+numPages                  // Not a collection of pages.
+CanvasRenderingContext2D  // Not a "2D".
+RuleFontFaceCss           // Not a CSS.
+</pre>
+
+<h3 id="consider-making-the-code-read-like-a-sentence">
+<a id="consider-making-the-code-read-like-a-sentence" class="anchor" href="#consider-making-the-code-read-like-a-sentence" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER making the code read like a sentence.</h3>
+
+<p>When in doubt about naming, write some code that uses your API, and try to read
+it like a sentence.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (code-like-prose)"?>
+<pre class="prettyprint lang-dart good-style">
+// "If errors is empty..."
+if (errors.isEmpty) ...
+
+// "Hey, subscription, cancel!"
+subscription.cancel();
+
+// "Get the monsters where the monster has claws."
+monsters.where((monster) =&gt; monster.hasClaws);
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (code-like-prose)" replace="/ as bool//g"?>
+<pre class="prettyprint lang-dart bad-style">
+// Telling errors to empty itself, or asking if it is?
+if (errors.empty) ...
+
+// Toggle what? To what?
+subscription.toggle();
+
+// Filter the monsters with claws *out* or include *only* those?
+monsters.filter((monster) =&gt; monster.hasClaws);
+</pre>
+
+<p>It’s helpful to try out your API and see how it “reads” when used in code, but
+you can go too far. It’s not helpful to add articles and other parts of speech
+to force your names to <em>literally</em> read like a grammatically correct sentence.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (code-like-prose-overdone)"?>
+<pre class="prettyprint lang-dart bad-style">
+if (theCollectionOfErrors.isEmpty) ...
+
+monsters.producesANewSequenceWhereEach((monster) =&gt; monster.hasClaws);
+</pre>
+
+<h3 id="prefer-a-noun-phrase-for-a-non-boolean-property-or-variable">
+<a id="prefer-a-noun-phrase-for-a-non-boolean-property-or-variable" class="anchor" href="#prefer-a-noun-phrase-for-a-non-boolean-property-or-variable" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER a noun phrase for a non-boolean property or variable.</h3>
+
+<p>The reader’s focus is on <em>what</em> the property is. If the user cares more about
+<em>how</em> a property is determined, then it should probably be a method with a
+verb phrase name.</p>
+
+<pre class="prettyprint lang-dart good-style">
+list.length
+context.lineWidth
+quest.rampagingSwampBeast
+</pre>
+
+<pre class="prettyprint lang-dart bad-style">
+list.deleteItems
+</pre>
+
+<h3 id="prefer-a-non-imperative-verb-phrase-for-a-boolean-property-or-variable">
+<a id="prefer-a-non-imperative-verb-phrase-for-a-boolean-property-or-variable" class="anchor" href="#prefer-a-non-imperative-verb-phrase-for-a-boolean-property-or-variable" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER a non-imperative verb phrase for a boolean property or variable.</h3>
+
+<p>Boolean names are often used as conditions in control flow, so you want a name
+that reads well there. Compare:</p>
+
+<pre class="prettyprint lang-dart">
+if (window.closeable) ...  // Adjective.
+if (window.canClose) ...   // Verb.
+</pre>
+
+<p>Good names tend to start with one of a few kinds of verbs:</p>
+
+<ul>
+  <li>
+    <p>a form of “to be”: <code class="highlighter-rouge">isEnabled</code>, <code class="highlighter-rouge">wasShown</code>, <code class="highlighter-rouge">willFire</code>. These are, by far,
+the most common.</p>
+  </li>
+  <li>
+    <p>an <a href="https://en.wikipedia.org/wiki/Auxiliary_verb">auxiliary verb</a>: <code class="highlighter-rouge">hasElements</code>, <code class="highlighter-rouge">canClose</code>,
+<code class="highlighter-rouge">shouldConsume</code>, <code class="highlighter-rouge">mustSave</code>.</p>
+  </li>
+  <li>
+    <p>an active verb: <code class="highlighter-rouge">ignoresInput</code>, <code class="highlighter-rouge">wroteFile</code>. These are rare because they are
+usually ambiguous. <code class="highlighter-rouge">loggedResult</code> is a bad name because it could mean
+“whether or not a result was logged” or “the result that was logged”.
+Likewise, <code class="highlighter-rouge">closingConnection</code> could be “whether the connection is closing”
+or “the connection that is closing”. Active verbs are allowed when the name
+can <em>only</em> be read as a predicate.</p>
+  </li>
+</ul>
+
+<p>What separates all these verb phrases from method names is that they are not
+<em>imperative</em>. A boolean name should never sound like a command to tell the
+object to do something, because accessing a property doesn’t change the object.
+(If the property <em>does</em> modify the object in a meaningful way, it should be a
+method.)</p>
+
+<pre class="prettyprint lang-dart good-style">
+isEmpty
+hasElements
+canClose
+closesWindow
+canShowPopup
+hasShownPopup
+</pre>
+
+<pre class="prettyprint lang-dart bad-style">
+empty         // Adjective or verb?
+withElements  // Sounds like it might hold elements.
+closeable     // Sounds like an interface.
+              // "canClose" reads better as a sentence.
+closingWindow // Returns a bool or a window?
+showPopup     // Sounds like it shows the popup.
+</pre>
+
+<aside class="alert alert-info">
+  <p>There is one exception to this rule. Input properties in <a href="https://webdev.dartlang.org/angular">Angular</a>
+components sometimes use imperative verbs for boolean setters because these
+setters are invoked in templates, not from other Dart code.</p>
+
+</aside>
+
+<h3 id="consider-omitting-the-verb-for-a-named-boolean-parameter">
+<a id="consider-omitting-the-verb-for-a-named-boolean-parameter" class="anchor" href="#consider-omitting-the-verb-for-a-named-boolean-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER omitting the verb for a named boolean <em>parameter</em>.</h3>
+
+<p>This refines the previous rule. For named parameters that are boolean, the name
+is often just as clear without the verb, and the code reads better at the call
+site.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (omit-verb-for-bool-param)"?>
+<pre class="prettyprint lang-dart good-style">
+Isolate.spawn(entryPoint, message, paused: false);
+var copy = List.from(elements, growable: true);
+var regExp = RegExp(pattern, caseSensitive: false);
+</pre>
+
+<h3 id="prefer-the-positive-name-for-a-boolean-property-or-variable">
+<a id="prefer-the-positive-name-for-a-boolean-property-or-variable" class="anchor" href="#prefer-the-positive-name-for-a-boolean-property-or-variable" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER the “positive” name for a boolean property or variable.</h3>
+
+<p>Most boolean names have conceptually “positive” and “negative” forms where the
+former feels like the fundamental concept and the latter is its
+negation—“open” and “closed”, “enabled” and “disabled”, etc. Often the
+latter name literally has a prefix that negates the former: “visible” and
+“<em>in</em>-visible”, “connected” and “<em>dis</em>-connected”, “zero” and “<em>non</em>-zero”.</p>
+
+<p>When choosing which of the two cases that <code class="highlighter-rouge">true</code> represents — and thus
+which case the property is named for — prefer the positive or more
+fundamental one. Boolean members are often nested inside logical expressions,
+including negation operators. If your property itself reads like a negation,
+it’s harder for the reader to mentally perform the double negation and
+understand what the code means.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (positive)"?>
+<pre class="prettyprint lang-dart good-style">
+if (socket.isConnected &amp;&amp; database.hasData) {
+  socket.write(database.read());
+}
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (positive)"?>
+<pre class="prettyprint lang-dart bad-style">
+if (!socket.isDisconnected &amp;&amp; !database.isEmpty) {
+  socket.write(database.read());
+}
+</pre>
+
+<p>An exception to this rule is properties where the negative form is what users
+overwhelmingly need to use. Choosing the positive case would force them to
+negate the property with <code class="highlighter-rouge">!</code> everywhere. Instead, it may be better to use the
+negative case for that property.</p>
+
+<p>For some properties, there is no obvious positive form. Is a document that has
+been flushed to disk “saved” or “<em>un</em>-changed”? Is a document that <em>hasn’t</em> been
+flushed “<em>un</em>-saved” or “changed”? In ambiguous cases, lean towards the choice
+that is less likely to be negated by users or has the shorter name.</p>
+
+<h3 id="prefer-an-imperative-verb-phrase-for-a-function-or-method-whose-main-purpose-is-a-side-effect">
+<a id="prefer-an-imperative-verb-phrase-for-a-function-or-method-whose-main-purpose-is-a-side-effect" class="anchor" href="#prefer-an-imperative-verb-phrase-for-a-function-or-method-whose-main-purpose-is-a-side-effect" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER an imperative verb phrase for a function or method whose main purpose is a side effect.</h3>
+
+<p>Callable members can return a result to the caller and perform other work or
+side effects. In an imperative language like Dart, members are often called
+mainly for their side effect: they may change an object’s internal state,
+produce some output, or talk to the outside world.</p>
+
+<p>Those kinds of members should be named using an imperative verb phrase that
+clarifies the work the member performs.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (verb-for-func-with-side-effect)"?>
+<pre class="prettyprint lang-dart good-style">
+list.add("element");
+queue.removeFirst();
+window.refresh();
+</pre>
+
+<p>This way, an invocation reads like a command to do that work.</p>
+
+<h3 id="prefer-a-noun-phrase-or-non-imperative-verb-phrase-for-a-function-or-method-if-returning-a-value-is-its-primary-purpose">
+<a id="prefer-a-noun-phrase-or-non-imperative-verb-phrase-for-a-function-or-method-if-returning-a-value-is-its-primary-purpose" class="anchor" href="#prefer-a-noun-phrase-or-non-imperative-verb-phrase-for-a-function-or-method-if-returning-a-value-is-its-primary-purpose" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER a noun phrase or non-imperative verb phrase for a function or method if returning a value is its primary purpose.</h3>
+
+<p>Other callable members have few side effects but return a useful result to the
+caller. If the member needs no parameters to do that, it should generally be a
+getter. But, sometimes a logical “property” needs some parameters. For example,
+<code class="highlighter-rouge">elementAt()</code> returns a piece of data from a collection, but it needs a
+parameter to know <em>which</em> piece of data to return.</p>
+
+<p>This means the member is <em>syntactically</em> a method, but <em>conceptually</em> it is a
+property, and should be named as such using a phrase that describes <em>what</em> the
+member returns.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (noun-for-func-returning-value)"?>
+<pre class="prettyprint lang-dart good-style">
+var element = list.elementAt(3);
+var first = list.firstWhere(test);
+var char = string.codeUnitAt(4);
+</pre>
+
+<p>This guideline is deliberately softer than the previous one. Sometimes a method
+has no side effects but is still simpler to name with a verb phrase like
+<code class="highlighter-rouge">list.take()</code> or <code class="highlighter-rouge">string.split()</code>.</p>
+
+<h3 id="consider-an-imperative-verb-phrase-for-a-function-or-method-if-you-want-to-draw-attention-to-the-work-it-performs">
+<a id="consider-an-imperative-verb-phrase-for-a-function-or-method-if-you-want-to-draw-attention-to-the-work-it-performs" class="anchor" href="#consider-an-imperative-verb-phrase-for-a-function-or-method-if-you-want-to-draw-attention-to-the-work-it-performs" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER an imperative verb phrase for a function or method if you want to draw attention to the work it performs.</h3>
+
+<p>When a member produces a result without any side effects, it should usually be a
+getter or a method with a noun phrase name describing the result it returns.
+However, sometimes the work required to produce that result is important. It may
+be prone to runtime failures, or use heavyweight resources like networking or
+file I/O. In cases like this, where you want the caller to think about the work
+the member is doing, give the member a verb phrase name that describes that
+work.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (verb-for-func-with-work)"?>
+<pre class="prettyprint lang-dart good-style">
+var table = database.downloadData();
+var packageVersions = packageGraph.solveConstraints();
+</pre>
+
+<p>Note, though, that this guideline is softer than the previous two. The work an
+operation performs is often an implementation detail that isn’t relevant to the
+caller, and performance and robustness boundaries change over time. Most of the
+time, name your members based on <em>what</em> they do for the caller, not <em>how</em> they
+do it.</p>
+
+<h3 id="avoid-starting-a-method-name-with-get">
+<a id="avoid-starting-a-method-name-with-get" class="anchor" href="#avoid-starting-a-method-name-with-get" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID starting a method name with <code class="highlighter-rouge">get</code>.</h3>
+
+<p>In most cases, the method should be a getter with <code class="highlighter-rouge">get</code> removed from the name.
+For example, instead of a method named <code class="highlighter-rouge">getBreakfastOrder()</code>, define a getter
+named <code class="highlighter-rouge">breakfastOrder</code>.</p>
+
+<p>Even if the member does need to be a method because it takes arguments or
+otherwise isn’t a good fit for a getter, you should still avoid <code class="highlighter-rouge">get</code>. Like the
+previous guidelines state, either:</p>
+
+<ul>
+  <li>
+    <p>Simply drop <code class="highlighter-rouge">get</code> and <a href="#prefer-a-noun-phrase-or-non-imperative-verb-phrase-for-a-function-or-method-if-returning-a-value-is-its-primary-purpose">use a noun phrase name</a> like <code class="highlighter-rouge">breakfastOrder()</code>
+if the caller mostly cares about the value the method returns.</p>
+  </li>
+  <li>
+    <p><a href="#consider-an-imperative-verb-phrase-for-a-function-or-method-if-you-want-to-draw-attention-to-the-work-it-performs">Use a verb phrase name</a> if the caller cares about the work being done,
+but pick a verb that more precisely describes the work than <code class="highlighter-rouge">get</code>, like
+<code class="highlighter-rouge">create</code>, <code class="highlighter-rouge">download</code>, <code class="highlighter-rouge">fetch</code>, <code class="highlighter-rouge">calculate</code>, <code class="highlighter-rouge">request</code>, <code class="highlighter-rouge">aggregate</code>, etc.</p>
+  </li>
+</ul>
+
+<h3 id="prefer-naming-a-method-to___-if-it-copies-the-objects-state-to-a-new-object">
+<a id="prefer-naming-a-method-to___-if-it-copies-the-objects-state-to-a-new-object" class="anchor" href="#prefer-naming-a-method-to___-if-it-copies-the-objects-state-to-a-new-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER naming a method <code class="highlighter-rouge">to___()</code> if it copies the object’s state to a new object.</h3>
+
+<p>A <em>conversion</em> method is one that returns a new object containing a copy of
+almost all of the state of the receiver but usually in some different form or
+representation. The core libraries have a convention that these methods are
+named starting with <code class="highlighter-rouge">to</code> followed by the kind of result.</p>
+
+<p>If you define a conversion method, it’s helpful to follow that convention.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (to___)"?>
+<pre class="prettyprint lang-dart good-style">
+list.toSet();
+stackTrace.toString();
+dateTime.toLocal();
+</pre>
+
+<h3 id="prefer-naming-a-method-as___-if-it-returns-a-different-representation-backed-by-the-original-object">
+<a id="prefer-naming-a-method-as___-if-it-returns-a-different-representation-backed-by-the-original-object" class="anchor" href="#prefer-naming-a-method-as___-if-it-returns-a-different-representation-backed-by-the-original-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER naming a method <code class="highlighter-rouge">as___()</code> if it returns a different representation backed by the original object.</h3>
+
+<p>Conversion methods are “snapshots”. The resulting object has its own copy of the
+original object’s state. There are other conversion-like methods that return
+<em>views</em>—they provide a new object, but that object refers back to the
+original. Later changes to the original object are reflected in the view.</p>
+
+<p>The core library convention for you to follow is <code class="highlighter-rouge">as___()</code>.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (as___)"?>
+<pre class="prettyprint lang-dart good-style">
+var map = table.asMap();
+var list = bytes.asFloat32List();
+var future = subscription.asFuture();
+</pre>
+
+<h3 id="avoid-describing-the-parameters-in-the-functions-or-methods-name">
+<a id="avoid-describing-the-parameters-in-the-functions-or-methods-name" class="anchor" href="#avoid-describing-the-parameters-in-the-functions-or-methods-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID describing the parameters in the function’s or method’s name.</h3>
+
+<p>The user will see the argument at the callsite, so it usually doesn’t help
+readability to also refer to it in the name itself.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (avoid-desc-param-in-func)"?>
+<pre class="prettyprint lang-dart good-style">
+list.add(element);
+map.remove(key);
+</pre>
+
+<pre class="prettyprint lang-dart bad-style">
+list.addElement(element)
+map.removeKey(key)
+</pre>
+
+<p>However, it can be useful to mention a parameter to disambiguate it from other
+similarly-named methods that take different types:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (desc-param-in-func-ok)"?>
+<pre class="prettyprint lang-dart good-style">
+map.containsKey(key);
+map.containsValue(value);
+</pre>
+
+<h3 id="do-follow-existing-mnemonic-conventions-when-naming-type-parameters">
+<a id="do-follow-existing-mnemonic-conventions-when-naming-type-parameters" class="anchor" href="#do-follow-existing-mnemonic-conventions-when-naming-type-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO follow existing mnemonic conventions when naming type parameters.</h3>
+
+<p>Single letter names aren’t exactly illuminating, but almost all generic types
+use them. Fortunately, they mostly use them in a consistent, mnemonic way.
+The conventions are:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">E</code> for the <strong>element</strong> type in a collection:</p>
+
+    <?code-excerpt "misc/lib/effective_dart/design_good.dart (type-parameter-e)" replace="/\n\n/\n/g"?>
+    <pre class="prettyprint lang-dart good-style">class IterableBase&lt;E&gt; {}
+class List&lt;E&gt; {}
+class HashSet&lt;E&gt; {}
+class RedBlackTree&lt;E&gt; {}</pre>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">K</code> and <code class="highlighter-rouge">V</code> for the <strong>key</strong> and <strong>value</strong> types in an associative
+collection:</p>
+
+    <?code-excerpt "misc/lib/effective_dart/design_good.dart (type-parameter-k-v)" replace="/\n\n/\n/g"?>
+    <pre class="prettyprint lang-dart good-style">class Map&lt;K, V&gt; {}
+class Multimap&lt;K, V&gt; {}
+class MapEntry&lt;K, V&gt; {}</pre>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">R</code> for a type used as the <strong>return</strong> type of a function or a class’s
+methods. This isn’t common, but appears in typedefs sometimes and in classes
+that implement the visitor pattern:</p>
+
+    <?code-excerpt "misc/lib/effective_dart/design_good.dart (type-parameter-r)"?>
+    <pre class="prettyprint lang-dart good-style">abstract class ExpressionVisitor&lt;R&gt; {
+  R visitBinary(BinaryExpression node);
+  R visitLiteral(LiteralExpression node);
+  R visitUnary(UnaryExpression node);
+}</pre>
+  </li>
+  <li>
+    <p>Otherwise, use <code class="highlighter-rouge">T</code>, <code class="highlighter-rouge">S</code>, and <code class="highlighter-rouge">U</code> for generics that have a single type
+parameter and where the surrounding type makes its meaning obvious. There
+are multiple letters here to allow nesting without shadowing a surrounding
+name. For example:</p>
+
+    <?code-excerpt "misc/lib/effective_dart/design_good.dart (type-parameter-t)"?>
+    <pre class="prettyprint lang-dart good-style">class Future&lt;T&gt; {
+  Future&lt;S&gt; then&lt;S&gt;(FutureOr&lt;S&gt; onValue(T value)) =&gt; ...
+}</pre>
+
+    <p>Here, the generic method <code class="highlighter-rouge">then&lt;S&gt;()</code> uses <code class="highlighter-rouge">S</code> to avoid shadowing the <code class="highlighter-rouge">T</code>
+on <code class="highlighter-rouge">Future&lt;T&gt;</code>.</p>
+  </li>
+</ul>
+
+<p>If none of the above cases are a good fit, then either another single-letter
+mnemonic name or a descriptive name is fine:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (type-parameter-graph)"?>
+<pre class="prettyprint lang-dart good-style">
+class Graph&lt;N, E&gt; {
+  final List&lt;N&gt; nodes = [];
+  final List&lt;E&gt; edges = [];
+}
+
+class Graph&lt;Node, Edge&gt; {
+  final List&lt;Node&gt; nodes = [];
+  final List&lt;Edge&gt; edges = [];
+}
+</pre>
+
+<p>In practice, the existing conventions cover most type parameters.</p>
+
+<h2 id="libraries">
+<a id="libraries" class="anchor" href="#libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Libraries</h2>
+
+<p>A leading underscore character ( <code class="highlighter-rouge">_</code> ) indicates that a member is private to its
+library. This is not mere convention, but is built into the language itself.</p>
+
+<h3 id="prefer-making-declarations-private">
+<a id="prefer-making-declarations-private" class="anchor" href="#prefer-making-declarations-private" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER making declarations private.</h3>
+
+<p>A public declaration in a library—either top level or in a class—is
+a signal that other libraries can and should access that member. It is also a
+commitment on your library’s part to support that and behave properly when it
+happens.</p>
+
+<p>If that’s not what you intend, add the little <code class="highlighter-rouge">_</code> and be happy. Narrow public
+interfaces are easier for you to maintain and easier for users to learn. As a
+nice bonus, the analyzer will tell you about unused private declarations so you
+can delete dead code. It can’t do that if the member is public because it
+doesn’t know if any code outside of its view is using it.</p>
+
+<h3 id="consider-declaring-multiple-classes-in-the-same-library">
+<a id="consider-declaring-multiple-classes-in-the-same-library" class="anchor" href="#consider-declaring-multiple-classes-in-the-same-library" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER declaring multiple classes in the same library.</h3>
+
+<p>Some languages, such as Java, tie the organization of files to the organization of
+classes—each file may only define a single top level class. Dart does not
+have that limitation. Libraries are distinct entities separate from classes.
+It’s perfectly fine for a single library to contain multiple classes, top level
+variables, and functions if they all logically belong together.</p>
+
+<p>Placing multiple classes together in one library can enable some useful
+patterns. Since privacy in Dart works at the library level, not the class level,
+this is a way to define “friend” classes like you might in C++. Every class
+declared in the same library can access each other’s private members, but code
+outside of that library cannot.</p>
+
+<p>Of course, this guideline doesn’t mean you <em>should</em> put all of your classes into
+a huge monolithic library, just that you are allowed to place more than one
+class in a single library.</p>
+
+<h2 id="classes">
+<a id="classes" class="anchor" href="#classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes</h2>
+
+<p>Dart is a “pure” object-oriented language in that all objects are instances of
+classes. But Dart does not require all code to be defined inside a
+class—you can define top-level variables, constants, and functions like
+you can in a procedural or functional language.</p>
+
+<h3 id="avoid-defining-a-one-member-abstract-class-when-a-simple-function-will-do">
+<a id="avoid-defining-a-one-member-abstract-class-when-a-simple-function-will-do" class="anchor" href="#avoid-defining-a-one-member-abstract-class-when-a-simple-function-will-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID defining a one-member abstract class when a simple function will do.</h3>
+
+<p>Unlike Java, Dart has first-class functions, closures, and a nice light syntax
+for using them. If all you need is something like a callback, just use a
+function. If you’re defining a class and it only has a single abstract member
+with a meaningless name like <code class="highlighter-rouge">call</code> or <code class="highlighter-rouge">invoke</code>, there is a good chance you
+just want a function.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (one-member-abstract-class)"?>
+<pre class="prettyprint lang-dart good-style">
+typedef Predicate&lt;E&gt; = bool Function(E element);
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (one-member-abstract-class)"?>
+<pre class="prettyprint lang-dart bad-style">
+abstract class Predicate&lt;E&gt; {
+  bool test(E element);
+}
+</pre>
+
+<h3 id="avoid-defining-a-class-that-contains-only-static-members">
+<a id="avoid-defining-a-class-that-contains-only-static-members" class="anchor" href="#avoid-defining-a-class-that-contains-only-static-members" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID defining a class that contains only static members.</h3>
+
+<p>In Java and C#, every definition <em>must</em> be inside a class, so it’s common to see
+“classes” that exist only as a place to stuff static members. Other classes are
+used as namespaces—a way to give a shared prefix to a bunch of members to
+relate them to each other or avoid a name collision.</p>
+
+<p>Dart has top-level functions, variables, and constants, so you don’t <em>need</em> a
+class just to define something. If what you want is a namespace, a library is a
+better fit. Libraries support import prefixes and show/hide combinators. Those
+are powerful tools that let the consumer of your code handle name collisions in
+the way that works best for <em>them</em>.</p>
+
+<p>If a function or variable isn’t logically tied to a class, put it at the top
+level. If you’re worried about name collisions, give it a more precise name or
+move it to a separate library that can be imported with a prefix.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (class-only-static)"?>
+<pre class="prettyprint lang-dart good-style">
+DateTime mostRecent(List&lt;DateTime&gt; dates) {
+  return dates.reduce((a, b) =&gt; a.isAfter(b) ? a : b);
+}
+
+const _favoriteMammal = 'weasel';
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (class-only-static)"?>
+<pre class="prettyprint lang-dart bad-style">
+class DateUtils {
+  static DateTime mostRecent(List&lt;DateTime&gt; dates) {
+    return dates.reduce((a, b) =&gt; a.isAfter(b) ? a : b);
+  }
+}
+
+class _Favorites {
+  static const mammal = 'weasel';
+}
+</pre>
+
+<p>In idiomatic Dart, classes define <em>kinds of objects</em>. A type that is never
+instantiated is a code smell.</p>
+
+<p>However, this isn’t a hard rule. With constants and enum-like types, it may be
+natural to group them in a class.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (class-only-static-exception)"?>
+<pre class="prettyprint lang-dart good-style">
+class Color {
+  static const red = '#f00';
+  static const green = '#0f0';
+  static const blue = '#00f';
+  static const black = '#000';
+  static const white = '#fff';
+}
+</pre>
+
+<h3 id="avoid-extending-a-class-that-isnt-intended-to-be-subclassed">
+<a id="avoid-extending-a-class-that-isnt-intended-to-be-subclassed" class="anchor" href="#avoid-extending-a-class-that-isnt-intended-to-be-subclassed" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID extending a class that isn’t intended to be subclassed.</h3>
+
+<p>If a constructor is changed from a generative constructor to a factory
+constructor, any subclass constructor calling that constructor will break.
+Also, if a class changes which of its own methods it invokes on <code class="highlighter-rouge">this</code>, that
+may break subclasses that override those methods and expect them to be called
+at certain points.</p>
+
+<p>Both of these mean that a class needs to be deliberate about whether or not it
+wants to allow subclassing. This can be communicated in a doc comment, or by
+giving the class an obvious name like <code class="highlighter-rouge">IterableBase</code>. If the author of the class
+doesn’t do that, it’s best to assume you should <em>not</em> extend the class.
+Otherwise, later changes to it may break your code.</p>
+
+<h3 id="do-document-if-your-class-supports-being-extended">
+<a id="do-document-if-your-class-supports-being-extended" class="anchor" href="#do-document-if-your-class-supports-being-extended" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO document if your class supports being extended.</h3>
+
+<p>This is the corollary to the above rule. If you want to allow subclasses of your
+class, state that. Suffix the class name with <code class="highlighter-rouge">Base</code>, or mention it in the
+class’s doc comment.</p>
+
+<h3 id="avoid-implementing-a-class-that-isnt-intended-to-be-an-interface">
+<a id="avoid-implementing-a-class-that-isnt-intended-to-be-an-interface" class="anchor" href="#avoid-implementing-a-class-that-isnt-intended-to-be-an-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID implementing a class that isn’t intended to be an interface.</h3>
+
+<p>Implicit interfaces are a powerful tool in Dart to avoid having to repeat the
+contract of a class when it can be trivially inferred from the signatures of an
+implementation of that contract.</p>
+
+<p>But implementing a class’s interface is a very tight coupling to that class. It
+means virtually <em>any</em> change to the class whose interface you are implementing
+will break your implementation. For example, adding a new member to a class is
+usually a safe, non-breaking change. But if you are implementing that class’s
+interface, now your class has a static error because it lacks an implementation
+of that new method.</p>
+
+<p>Library maintainers need the ability to evolve existing classes without breaking
+users. If you treat every class like it exposes an interface that users are free
+implement, then changing those classes becomes very difficult. That difficulty
+in turn means the libraries you rely on are slower to grow and adapt to new
+needs.</p>
+
+<p>To give the authors of the classes you use more leeway, avoid implementing
+implicit interfaces except for classes that are clearly intended to be
+implemented. Otherwise, you may introduce a coupling that the author doesn’t
+intend, and they may break your code without realizing it.</p>
+
+<h3 id="do-document-if-your-class-supports-being-used-as-an-interface">
+<a id="do-document-if-your-class-supports-being-used-as-an-interface" class="anchor" href="#do-document-if-your-class-supports-being-used-as-an-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO document if your class supports being used as an interface.</h3>
+
+<p>If your class can be used as an interface, mention that in the class’s doc
+comment.</p>
+
+<h3 id="avoid-mixing-in-a-class-that-isnt-intended-to-be-a-mixin">
+<a id="avoid-mixing-in-a-class-that-isnt-intended-to-be-a-mixin" class="anchor" href="#avoid-mixing-in-a-class-that-isnt-intended-to-be-a-mixin" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID mixing in a class that isn’t intended to be a mixin.</h3>
+
+<p>If a constructor is added to a class that previously did not define any, that
+breaks any other classes that are mixing it in. This is a seemingly innocuous
+change in the class, and the restrictions around mixins aren’t widely known.
+It’s likely an author may add a constructor without realizing it will break your
+class that’s mixing it in.</p>
+
+<p>Like with subclassing, this means a class needs to be deliberate about whether
+or not it wants to allow being used as a mixin. If the class doesn’t have a doc
+comment or an obvious name like <code class="highlighter-rouge">IterableMixin</code>, you should assume you cannot
+mix in the class.</p>
+
+<h3 id="do-document-if-your-class-supports-being-used-as-a-mixin">
+<a id="do-document-if-your-class-supports-being-used-as-a-mixin" class="anchor" href="#do-document-if-your-class-supports-being-used-as-a-mixin" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO document if your class supports being used as a mixin.</h3>
+
+<p>Mention in the class’s doc comment whether the class can or must be used as a
+mixin. If your class is designed for use only as a mixin, then consider adding
+<code class="highlighter-rouge">Mixin</code> to the end of the class name.</p>
+
+<h2 id="constructors">
+<a id="constructors" class="anchor" href="#constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constructors</h2>
+
+<p>Dart constructors are created by declaring a function with the same name as the
+class and, optionally, an additional identifier. The latter are called <em>named
+constructors</em>.</p>
+
+<h3 id="prefer-defining-constructors-instead-of-static-methods-to-create-instances">
+<a id="prefer-defining-constructors-instead-of-static-methods-to-create-instances" class="anchor" href="#prefer-defining-constructors-instead-of-static-methods-to-create-instances" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER defining constructors instead of static methods to create instances.</h3>
+
+<p>Constructors are invoked using <code class="highlighter-rouge">new</code> or <code class="highlighter-rouge">const</code>, which communicates
+that the main purpose of the call is to return an instance of the class
+(or at least something that implements its interface).</p>
+
+<p>You never <em>need</em> to use a static method to create an instance. Named
+constructors let you clarify how the object is created, and factory
+constructors let you construct instances of subclasses or
+subinterfaces when appropriate.</p>
+
+<p>Still, some methods that technically create a new object don’t feel
+“constructor-like”. For example, <a href="https://api.dartlang.org/dev/dart-core/Uri/parse.html"><code class="highlighter-rouge">Uri.parse()</code></a> is a static method
+even though it creates a new URI from the given arguments. Likewise, classes
+implementing the <a href="http://en.wikipedia.org/wiki/Builder_pattern">Builder pattern</a> may read better using static methods.</p>
+
+<p>But, in most cases, you should use a constructor even though it’s more verbose.
+When users want a new instance of your class, they expect a constructor to be
+the normal way to create one.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (named-ctr)"?>
+<pre class="prettyprint lang-dart good-style">
+class Point {
+  num x, y;
+  Point(this.x, this.y);
+  Point.polar(num theta, num radius)
+      : x = radius * cos(theta),
+        y = radius * sin(theta);
+}
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (named-ctr)"?>
+<pre class="prettyprint lang-dart bad-style">
+class Point {
+  num x, y;
+  Point(this.x, this.y);
+  static Point polar(num theta, num radius) =&gt;
+      Point(radius * cos(theta), radius * sin(theta));
+}
+</pre>
+
+<h3 id="consider-making-your-constructor-const-if-the-class-supports-it">
+<a id="consider-making-your-constructor-const-if-the-class-supports-it" class="anchor" href="#consider-making-your-constructor-const-if-the-class-supports-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER making your constructor <code class="highlighter-rouge">const</code> if the class supports it.</h3>
+
+<p>If you have a class where all the fields are final, and the constructor does
+nothing but initialize them, you can make that constructor <code class="highlighter-rouge">const</code>. That lets
+users create instances of your class in places where constants are
+required—inside other larger constants, switch cases, default parameter
+values, etc.</p>
+
+<p>If you don’t explicitly make it <code class="highlighter-rouge">const</code>, they aren’t able to do that.</p>
+
+<p>Note, however, that a <code class="highlighter-rouge">const</code> constructor is a commitment in your public API. If
+you later change the constructor to non-<code class="highlighter-rouge">const</code>, it will break users that are
+calling it in constant expressions. If you don’t want to commit to that, don’t
+make it <code class="highlighter-rouge">const</code>. In practice, <code class="highlighter-rouge">const</code> constructors are most useful for simple,
+immutable data record sorts of classes.</p>
+
+<h2 id="members">
+<a id="members" class="anchor" href="#members" aria-hidden="true"><span class="octicon octicon-link"></span></a>Members</h2>
+
+<p>A member belongs to an object and can be either methods or instance variables.</p>
+
+<h3 id="prefer-making-fields-and-top-level-variables-final">
+<a id="prefer-making-fields-and-top-level-variables-final" class="anchor" href="#prefer-making-fields-and-top-level-variables-final" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER making fields and top-level variables <code class="highlighter-rouge">final</code>.</h3>
+
+<p>State that is not <em>mutable</em>—that does not change over time—is
+easier for programmers to reason about. Classes and libraries that minimize the
+amount of mutable state they work with tend to be easier to maintain.</p>
+
+<p>Of course, it is often useful to have mutable data. But, if you don’t need it,
+your default should be to make fields and top-level variables <code class="highlighter-rouge">final</code> when you
+can.</p>
+
+<h3 id="do-use-getters-for-operations-that-conceptually-access-properties">
+<a id="do-use-getters-for-operations-that-conceptually-access-properties" class="anchor" href="#do-use-getters-for-operations-that-conceptually-access-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use getters for operations that conceptually access properties.</h3>
+
+<p>Deciding when a member should be a getter versus a method is a challenging,
+subtle, but important part of good API design, hence this very long guideline.
+Some other language’s cultures shy away from getters. They only use them when
+the operation is almost exactly like a field—it does a miniscule amount of
+calculation on state that lives entirely on the object. Anything more complex or
+heavyweight than that gets <code class="highlighter-rouge">()</code> after the name to signal “computation goin’ on
+here!” because a bare name after a <code class="highlighter-rouge">.</code> means “field”.</p>
+
+<p>Dart is <em>not</em> like that. In Dart, <em>all</em> dotted names are member invocations that
+may do computation. Fields are special—they’re getters whose
+implementation is provided by the language. In other words, getters are not
+“particularly slow fields” in Dart; fields are “particularly fast getters”.</p>
+
+<p>Even so, choosing a getter over a method sends an important signal to the
+caller. The signal, roughly, is that the operation is “field-like”. The
+operation, at least in principle, <em>could</em> be implemented using a field, as far
+as the caller knows. That implies:</p>
+
+<ul>
+  <li>
+    <p><strong>The operation does not take any arguments and returns a result.</strong></p>
+  </li>
+  <li>
+    <p><strong>The caller cares mostly about the result.</strong> If you want the caller to
+worry about <em>how</em> the operation produces its result more than they do the
+result being produced, then give the operation a verb name that describes
+the work and make it a method.</p>
+
+    <p>This does <em>not</em> mean the operation has to be particularly fast in order to
+be a getter. <code class="highlighter-rouge">IterableBase.length</code> is <code class="highlighter-rouge">O(n)</code>, and that’s OK. It’s fine for a
+getter to do significant calculation. But if it does a <em>surprising</em> amount
+of work, you may want to draw their attention to that by making it a method
+whose name is a verb describing what it does.</p>
+
+    <pre class="prettyprint lang-dart bad-style">connection.nextIncomingMessage; // Does network I/O.
+expression.normalForm; // Could be exponential to calculate.</pre>
+  </li>
+  <li>
+    <p><strong>The operation does not have user-visible side effects.</strong> Accessing a real
+field does not alter the object or any other state in the program. It
+doesn’t produce output, write files, etc. A getter shouldn’t do those things
+either.</p>
+
+    <p>The “user-visible” part is important. It’s fine for getters to modify hidden
+state or produce out of band side effects. Getters can lazily calculate and
+store their result, write to a cache, log stuff, etc. As long as the caller
+doesn’t <em>care</em> about the side effect, it’s probably fine.</p>
+
+    <pre class="prettyprint lang-dart bad-style">stdout.newline; // Produces output.
+list.clear; // Modifies object.</pre>
+  </li>
+  <li>
+    <p><strong>The operation is <em>idempotent</em>.</strong> “Idempotent” is an odd word that, in this
+context, basically means that calling the operation multiple times produces
+the same result each time, unless some state is explicitly modified between
+those calls. (Obviously, <code class="highlighter-rouge">list.length</code> produces different results if you add
+an element to the list between calls.)</p>
+
+    <p>“Same result” here does not mean a getter must literally produce an
+identical object on successive calls. Requiring that would force many
+getters to have brittle caching, which negates the whole point of using a
+getter. It’s common, and perfectly fine, for a getter to return a new future
+or list each time you call it. The important part is that the future
+completes to the same value, and the list contains the same elements.</p>
+
+    <p>In other words, the result value should be the same <em>in the aspects that the
+caller cares about.</em></p>
+
+    <pre class="prettyprint lang-dart bad-style">DateTime.now; // New result each time.</pre>
+  </li>
+  <li>
+    <p><strong>The resulting object doesn’t expose all of the original object’s state.</strong>
+A field exposes only a piece of an object. If your operation returns a
+result that exposes the original object’s entire state, it’s likely better
+off as a <a href="#prefer-naming-a-method-to___-if-it-copies-the-objects-state-to-a-new-object"><code class="highlighter-rouge">to___()</code></a> or <a href="#prefer-naming-a-method-as___-if-it-returns-a-different-representation-backed-by-the-original-object"><code class="highlighter-rouge">as___()</code></a> method.</p>
+  </li>
+</ul>
+
+<p>If all of the above describe your operation, it should be a getter. It seems
+like few members would survive that gauntlet, but surprisingly many do. Many
+operations just do some computation on some state and most of those can and
+should be getters.</p>
+
+<pre class="prettyprint lang-dart good-style">
+rectangle.area;
+collection.isEmpty;
+button.canShow;
+dataSet.minimumValue;
+</pre>
+
+<h3 id="do-use-setters-for-operations-that-conceptually-change-properties">
+<a id="do-use-setters-for-operations-that-conceptually-change-properties" class="anchor" href="#do-use-setters-for-operations-that-conceptually-change-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use setters for operations that conceptually change properties.</h3>
+
+<p>Deciding between a setter versus a method is similar to deciding between a
+getter versus a method. In both cases, the operation should be “field-like”.</p>
+
+<p>For a setter, “field-like” means:</p>
+
+<ul>
+  <li>
+    <p><strong>The operation takes a single argument and does not produce a result
+value.</strong></p>
+  </li>
+  <li>
+    <p><strong>The operation changes some state in the object.</strong></p>
+  </li>
+  <li>
+    <p><strong>The operation is idempotent.</strong> Calling the same setter twice with the same
+value should do nothing the second time as far as the caller is concerned.
+Internally, maybe you’ve got some cache invalidation or logging going on.
+That’s fine. But from the caller’s perspective, it appears that the second
+call does nothing.</p>
+  </li>
+</ul>
+
+<pre class="prettyprint lang-dart good-style">
+rectangle.width = 3;
+button.visible = false;
+</pre>
+
+<h3 id="dont-define-a-setter-without-a-corresponding-getter">
+<a id="dont-define-a-setter-without-a-corresponding-getter" class="anchor" href="#dont-define-a-setter-without-a-corresponding-getter" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T define a setter without a corresponding getter.</h3>
+
+<p>Users think of getters and setters as visible properties of an object. A
+“dropbox” property that can be written to but not seen is confusing and
+confounds their intuition about how properties work. For example, a setter
+without a getter means you can use <code class="highlighter-rouge">=</code> to modify it, but not <code class="highlighter-rouge">+=</code>.</p>
+
+<p>This guideline does <em>not</em> mean you should add a getter just to permit the setter
+you want to add. Object’s shouldn’t generally expose more state than they need
+to. If you have some piece of an object’s state that can be modified but not
+exposed in the same way, use a method instead.</p>
+
+<aside class="alert alert-info">
+  <p>There is one exception to this rule. An <a href="https://webdev.dartlang.org/angular">Angular</a> component class may expose
+setters that are invoked from a template to initialize the component. Often,
+these setters are not intended to be invoked from Dart code and don’t need a
+corresponding getter. (If they are used from Dart code, they <em>should</em> have a
+getter.)</p>
+
+</aside>
+
+<h3 id="avoid-returning-null-from-members-whose-return-type-is-bool-double-int-or-num">
+<a id="avoid-returning-null-from-members-whose-return-type-is-bool-double-int-or-num" class="anchor" href="#avoid-returning-null-from-members-whose-return-type-is-bool-double-int-or-num" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID returning <code class="highlighter-rouge">null</code> from members whose return type is <code class="highlighter-rouge">bool</code>, <code class="highlighter-rouge">double</code>, <code class="highlighter-rouge">int</code>, or <code class="highlighter-rouge">num</code>.</h3>
+
+<p>Even though all types are nullable in Dart, users assume those types almost
+never contain <code class="highlighter-rouge">null</code>, and the lowercase names encourage a “Java primitive”
+mindset.</p>
+
+<p>It can be occasionally useful to have a “nullable primitive” type in your API,
+for example to indicate the absence of a value for some key in a map, but these
+should be rare.</p>
+
+<p>If you do have a member of this type that may return <code class="highlighter-rouge">null</code>, document it very
+clearly, including the conditions under which <code class="highlighter-rouge">null</code> will be returned.</p>
+
+<h3 id="avoid-returning-this-from-methods-just-to-enable-a-fluent-interface">
+<a id="avoid-returning-this-from-methods-just-to-enable-a-fluent-interface" class="anchor" href="#avoid-returning-this-from-methods-just-to-enable-a-fluent-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID returning <code class="highlighter-rouge">this</code> from methods just to enable a fluent interface.</h3>
+
+<p>Method cascades are a better solution for chaining method calls.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (cascades)"?>
+<pre class="prettyprint lang-dart good-style">
+var buffer = StringBuffer()
+  ..write('one')
+  ..write('two')
+  ..write('three');
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (cascades)"?>
+<pre class="prettyprint lang-dart bad-style">
+var buffer = StringBuffer()
+    .write('one')
+    .write('two')
+    .write('three');
+</pre>
+
+<h2 id="types">
+<a id="types" class="anchor" href="#types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Types</h2>
+
+<p>When you write down a type in your program, you constrain the kinds of values
+that flow into different parts of your code. Types can appear in two kinds of
+places: <em>type annotations</em> on declarations and type arguments to <em>generic
+invocations</em>.</p>
+
+<p>Type annotations are what you normally think of when you think of “static
+types”. You can type annotate a variable, parameter, field, or return type. In
+the following example, <code class="highlighter-rouge">bool</code> and <code class="highlighter-rouge">String</code> are type annotations. They hang off
+the static declarative structure of the code and aren’t “executed” at runtime.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (annotate-declaration)"?>
+<pre class="prettyprint lang-dart">
+bool isEmpty(String parameter) {
+  bool result = parameter.length == 0;
+  return result;
+}
+</pre>
+
+<p>A generic invocation is a collection literal, a call to a generic class’s
+constructor, or an invocation of a generic method. In the next example, <code class="highlighter-rouge">num</code>
+and <code class="highlighter-rouge">int</code> are type arguments on generic invocations. Even though they are types,
+they are first-class entities that get reified and passed to the invocation at
+runtime.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (annotate-invocation)"?>
+<pre class="prettyprint lang-dart">
+var lists = &lt;num&gt;[1, 2];
+lists.addAll(List&lt;num&gt;.filled(3, 4));
+lists.cast&lt;int&gt;();
+</pre>
+
+<p>We stress the “generic invocation” part here, because type arguments can <em>also</em>
+appear in type annotations:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (annotate-type-arg)"?>
+<pre class="prettyprint lang-dart">
+List&lt;int&gt; ints = [1, 2];
+</pre>
+
+<p>Here, <code class="highlighter-rouge">int</code> is a type argument, but it appears inside a type annotation, not a
+generic invocation. You usually don’t need to worry about this distinction, but
+in a couple of places, we have different guidance for when a type is used in a
+generic invocation as opposed to a type annotation.</p>
+
+<p>In most places, Dart allows you to omit a type annotation and infers a type for
+you based on the nearby context, or defaults to the <code class="highlighter-rouge">dynamic</code> type. The fact
+that Dart has both type inference and a <code class="highlighter-rouge">dynamic</code> type leads to some confusion
+about what it means to say code is “untyped”. Does that mean the code is
+dynamically typed, or that you didn’t <em>write</em> the type? To avoid that confusion,
+we avoid saying “untyped” and instead use the following terminology:</p>
+
+<ul>
+  <li>
+    <p>If the code is <em>type annotated</em>, the type was explicitly written in the
+code.</p>
+  </li>
+  <li>
+    <p>If the code is <em>inferred</em>, no type annotation was written, and Dart
+successfully figured out the type on its own. Inference can fail, in which
+case the guidelines don’t consider that inferred. In some places, inference
+failure is a static error. In others, Dart uses <code class="highlighter-rouge">dynamic</code> as the fallback
+type.</p>
+  </li>
+  <li>
+    <p>If the code is <em>dynamic</em>, then its static type is the special <code class="highlighter-rouge">dynamic</code>
+type. Code can be explicitly annotated <code class="highlighter-rouge">dynamic</code> or it can be inferred.</p>
+  </li>
+</ul>
+
+<p>In other words, whether some code is annotated or inferred is orthogonal to
+whether it is <code class="highlighter-rouge">dynamic</code> or some other type.</p>
+
+<p>Inference is a powerful tool to spare you the effort of writing and reading
+types that are obvious or uninteresting. Omitting types in obvious cases also
+draws the reader’s attention to explicit types when those types are important,
+for things like casts.</p>
+
+<p>Explicit types are also a key part of robust, maintainable code. They define the
+static shape of an API. They document and enforce what kinds of values are
+allowed to reach different parts of the program.</p>
+
+<p>The guidelines here strike the best balance we’ve found between brevity and
+explicitness, flexibility and safety. When deciding which types to write, you
+need to answer two questions:</p>
+
+<ul>
+  <li>Which types should I write because I think it’s best for them to be visible in
+the code?</li>
+  <li>Which types should I write because inference can’t provide them for me?</li>
+</ul>
+
+<p>These guidelines help you answer the first question:</p>
+
+<ul>
+  <li><a href="#prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious">PREFER type annotating public fields and top-level variables if the type isn’t obvious.</a></li>
+  <li><a href="#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious">CONSIDER type annotating private fields and top-level variables if the type isn’t obvious.</a></li>
+  <li><a href="#avoid-type-annotating-initialized-local-variables">AVOID type annotating initialized local variables.</a></li>
+  <li><a href="#avoid-annotating-inferred-parameter-types-on-function-expressions">AVOID annotating inferred parameter types on function expressions.</a></li>
+  <li><a href="#avoid-redundant-type-arguments-on-generic-invocations">AVOID redundant type arguments on generic invocations.</a></li>
+</ul>
+
+<p>These cover the second:</p>
+
+<ul>
+  <li><a href="#do-annotate-when-dart-infers-the-wrong-type">DO annotate when Dart infers the wrong type.</a></li>
+  <li><a href="#prefer-annotating-with-dynamic-instead-of-letting-inference-fail">PREFER annotating with <code class="highlighter-rouge">dynamic</code> instead of letting inference fail.</a></li>
+</ul>
+
+<p>The remaining guidelines cover other more specific questions around types.</p>
+
+<h3 id="prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious">
+<a id="prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious" class="anchor" href="#prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER type annotating public fields and top-level variables if the type isn’t obvious.</h3>
+
+<p>Type annotations are important documentation for how a library should be used.
+They form boundaries between regions of a program to isolate the source of a
+type error. Consider:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (type_annotate_public_apis)"?>
+<pre class="prettyprint lang-dart bad-style">
+install(id, destination) =&gt; ...
+</pre>
+
+<p>Here, it’s unclear what <code class="highlighter-rouge">id</code> is. A string? And what is <code class="highlighter-rouge">destination</code>? A string
+or a <code class="highlighter-rouge">File</code> object? Is this method synchronous or asynchronous? This is clearer:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (type_annotate_public_apis)"?>
+<pre class="prettyprint lang-dart good-style">
+Future&lt;bool&gt; install(PackageId id, String destination) =&gt; ...
+</pre>
+
+<p>In some cases, though, the type is so obvious that writing it is pointless:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (inferred)"?>
+<pre class="prettyprint lang-dart good-style">
+const screenWidth = 640; // Inferred as int.
+</pre>
+
+<p>“Obvious” isn’t precisely defined, but these are all good candidates:</p>
+
+<ul>
+  <li>Literals.</li>
+  <li>Constructor invocations.</li>
+  <li>References to other constants that are explicitly typed.</li>
+  <li>Simple expressions on numbers and strings.</li>
+  <li>Factory methods like <code class="highlighter-rouge">int.parse()</code>, <code class="highlighter-rouge">Future.wait()</code>, etc. that readers are
+expected to be familiar with.</li>
+</ul>
+
+<p>When in doubt, add a type annotation. Even when a type is obvious, you may still
+wish to explicitly annotate. If the inferred type relies on values or
+declarations from other libraries, you may want to type annotate <em>your</em>
+declaration so that a change to that other library doesn’t silently change the
+type of your own API without you realizing.</p>
+
+<h3 id="consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious">
+<a id="consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious" class="anchor" href="#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER type annotating private fields and top-level variables if the type isn’t obvious.</h3>
+
+<p>Type annotations on your public declarations help <em>users</em> of your code. Types on
+private members help <em>maintainers</em>. The scope of a private declaration is
+smaller and those who need to know the type of that declaration are also more
+likely to be familiar with the surrounding code. That makes it reasonable to
+lean more heavily on inference and omit types for private declarations, which is
+why this guideline is softer than the previous one.</p>
+
+<p>If you think the initializer expression—whatever it is—is
+sufficiently clear, then you may omit the annotation. But if you think
+annotating helps make the code clearer, then add one.</p>
+
+<h3 id="avoid-type-annotating-initialized-local-variables">
+<a id="avoid-type-annotating-initialized-local-variables" class="anchor" href="#avoid-type-annotating-initialized-local-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID type annotating initialized local variables.</h3>
+
+<p>Local variables, especially in modern code where functions tend to be small,
+have very little scope. Omitting the type focuses the reader’s attention on the
+more important <em>name</em> of the variable and its initialized value.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (omit-types-on-locals)"?>
+<pre class="prettyprint lang-dart good-style">
+List&lt;List&lt;Ingredient&gt;&gt; possibleDesserts(Set&lt;Ingredient&gt; pantry) {
+  var desserts = &lt;List&lt;Ingredient&gt;&gt;[];
+  for (var recipe in cookbook) {
+    if (pantry.containsAll(recipe)) {
+      desserts.add(recipe);
+    }
+  }
+
+  return desserts;
+}
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (omit-types-on-locals)"?>
+<pre class="prettyprint lang-dart bad-style">
+List&lt;List&lt;Ingredient&gt;&gt; possibleDesserts(Set&lt;Ingredient&gt; pantry) {
+  List&lt;List&lt;Ingredient&gt;&gt; desserts = &lt;List&lt;Ingredient&gt;&gt;[];
+  for (List&lt;Ingredient&gt; recipe in cookbook) {
+    if (pantry.containsAll(recipe)) {
+      desserts.add(recipe);
+    }
+  }
+
+  return desserts;
+}
+</pre>
+
+<p>If the local variable doesn’t have an initializer, then its type can’t be
+inferred. In that case, it <em>is</em> a good idea to annotate. Otherwise, you get
+<code class="highlighter-rouge">dynamic</code> and lose the benefits of static type checking.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (uninitialized-local)"?>
+<pre class="prettyprint lang-dart good-style">
+List&lt;AstNode&gt; parameters;
+if (node is Constructor) {
+  parameters = node.signature;
+} else if (node is Method) {
+  parameters = node.parameters;
+}
+</pre>
+
+<h3 id="avoid-annotating-inferred-parameter-types-on-function-expressions">
+<a id="avoid-annotating-inferred-parameter-types-on-function-expressions" class="anchor" href="#avoid-annotating-inferred-parameter-types-on-function-expressions" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID annotating inferred parameter types on function expressions.</h3>
+
+<p>Anonymous functions are almost always immediately passed to a method taking a
+callback of some type. (If the function isn’t used immediately, it’s usually
+worth making it a named declaration.) When a function expression is created in a
+typed context, Dart tries to infer the function’s parameter types based on the
+expected type.</p>
+
+<p>For example, when you pass a function expression to <code class="highlighter-rouge">Iterable.map()</code>, your
+function’s parameter type is inferred based on the type of callback that <code class="highlighter-rouge">map()</code>
+expects:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (func-expr-no-param-type)"?>
+<pre class="prettyprint lang-dart good-style">
+var names = people.map((person) =&gt; person.name);
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (func-expr-no-param-type)"?>
+<pre class="prettyprint lang-dart bad-style">
+var names = people.map((Person person) =&gt; person.name);
+</pre>
+
+<p>In rare cases, the surrounding context is not precise enough to provide a type
+for one or more of the function’s parameters. In those cases, you may need to
+annotate.</p>
+
+<h3 id="avoid-redundant-type-arguments-on-generic-invocations">
+<a id="avoid-redundant-type-arguments-on-generic-invocations" class="anchor" href="#avoid-redundant-type-arguments-on-generic-invocations" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID redundant type arguments on generic invocations.</h3>
+
+<p>A type argument is redundant if inference would fill in the same type. If the
+invocation is the initializer for a type-annotated variable, or is an argument
+to a function, then inference usually fills in the type for you:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (redundant)"?>
+<pre class="prettyprint lang-dart good-style">
+Set&lt;String&gt; things = Set();
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (redundant)"?>
+<pre class="prettyprint lang-dart bad-style">
+Set&lt;String&gt; things = Set&lt;String&gt;();
+</pre>
+
+<p>Here, the type annotation on the variable is used to infer the type argument of
+constructor call in the initializer.</p>
+
+<p>In other contexts, there isn’t enough information to infer the type and then you
+should write the type argument:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (explicit)"?>
+<pre class="prettyprint lang-dart good-style">
+var things = Set&lt;String&gt;();
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (explicit)"?>
+<pre class="prettyprint lang-dart bad-style">
+var things = Set();
+</pre>
+
+<p>Here, since the variable has no type annotation, there isn’t enough context to
+determine what kind of <code class="highlighter-rouge">Set</code> to create, so the type argument should be provided
+explicitly.</p>
+
+<h3 id="do-annotate-when-dart-infers-the-wrong-type">
+<a id="do-annotate-when-dart-infers-the-wrong-type" class="anchor" href="#do-annotate-when-dart-infers-the-wrong-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO annotate when Dart infers the wrong type.</h3>
+
+<p>Sometimes, Dart infers a type, but not the type you want. For example, you may
+want a variable’s type to be a supertype of the initializer’s type so that you
+can later assign some other sibling type to the variable:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (inferred-wrong)"?>
+<pre class="prettyprint lang-dart good-style">
+num highScore(List&lt;num&gt; scores) {
+  num highest = 0;
+  for (var score in scores) {
+    if (score &gt; highest) highest = score;
+  }
+  return highest;
+}
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (inferred-wrong)" replace="/ +\/\/ ignore: .*?\n//g"?>
+<pre class="prettyprint lang-dart bad-style">
+num highScore(List&lt;num&gt; scores) {
+  var highest = 0;
+  for (var score in scores) {
+    if (score &gt; highest) highest = score;
+  }
+  return highest;
+}
+</pre>
+
+<p>Here, if <code class="highlighter-rouge">scores</code> contains doubles, like <code class="highlighter-rouge">[1.2]</code>, then the assignment to
+<code class="highlighter-rouge">highest</code> will fail since its inferred type is <code class="highlighter-rouge">int</code>, not <code class="highlighter-rouge">num</code>. In these cases,
+explicit annotations make sense.</p>
+
+<h3 id="prefer-annotating-with-dynamic-instead-of-letting-inference-fail">
+<a id="prefer-annotating-with-dynamic-instead-of-letting-inference-fail" class="anchor" href="#prefer-annotating-with-dynamic-instead-of-letting-inference-fail" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER annotating with <code class="highlighter-rouge">dynamic</code> instead of letting inference fail.</h3>
+
+<p>Dart allows you to omit type annotations in many places and will try to infer a
+type for you. In some cases, if inference fails, it silently gives you
+<code class="highlighter-rouge">dynamic</code>. If <code class="highlighter-rouge">dynamic</code> is the type you want, this is technically the most terse
+way to get it.</p>
+
+<p>However, it’s not the most <em>clear</em> way. A casual reader of your code who sees an
+annotation is missing has no way of knowing if you intended it to be <code class="highlighter-rouge">dynamic</code>,
+expected inference to fill in some other type, or simply forgot to write the
+annotation.</p>
+
+<p>When <code class="highlighter-rouge">dynamic</code> is the type you want, writing it explicitly makes your intent
+clear.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (prefer-dynamic)"?>
+<pre class="prettyprint lang-dart good-style">
+dynamic mergeJson(dynamic original, dynamic changes) =&gt; ...
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (prefer-dynamic)"?>
+<pre class="prettyprint lang-dart bad-style">
+mergeJson(original, changes) =&gt; ...
+</pre>
+
+<aside class="alert alert-info">
+
+  <p>Before Dart 2, this guideline stated the exact opposite: <em>don’t</em> annotate with
+<code class="highlighter-rouge">dynamic</code> when it is implicit. With the new stronger type system and type
+inference, users now expect Dart to behave like an inferred statically-typed
+language. With that mental model, it is an unpleasant surprise to discover that
+a region of code has silently lost all of the safety and performance of static
+types.</p>
+
+</aside>
+
+<h3 id="prefer-signatures-in-function-type-annotations">
+<a id="prefer-signatures-in-function-type-annotations" class="anchor" href="#prefer-signatures-in-function-type-annotations" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER signatures in function type annotations.</h3>
+
+<p>The identifier <code class="highlighter-rouge">Function</code> by itself without any return type or parameter
+signature refers to the special <a href="https://api.dartlang.org/dev/dart-core/Function-class.html">Function</a> type. This type is only
+marginally more useful than using <code class="highlighter-rouge">dynamic</code>. If you’re going to annotate, prefer
+a full function type that includes the parameters and return type of the
+function.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (avoid-Function)" replace="/(void )?Function(\(.*?\))?/[!$&!]/g"?>
+<pre class="prettyprint lang-dart good-style">
+bool isValid(String value, bool <span class="highlight">Function(String)</span> test) =&gt; ...
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (avoid-Function)" replace="/Function/[!$&!]/g"?>
+<pre class="prettyprint lang-dart bad-style">
+bool isValid(String value, <span class="highlight">Function</span> test) =&gt; ...
+</pre>
+
+<p>One exception to this guideline is if you want a type that represents the union
+of multiple different function types. For example, you may accept a function
+that takes one parameter or a function that takes two. Since we don’t have union
+types, there’s no way to precisely type that and you’d normally have to use
+<code class="highlighter-rouge">dynamic</code>. <code class="highlighter-rouge">Function</code> is at least a little more helpful than that:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (function-arity)" replace="/(void )?Function(\(.*?\))?/[!$&!]/g"?>
+<pre class="prettyprint lang-dart good-style">
+void handleError(<span class="highlight">void Function()</span> operation, <span class="highlight">Function</span> errorHandler) {
+  try {
+    operation();
+  } catch (err, stack) {
+    if (errorHandler is <span class="highlight">Function(Object)</span>) {
+      errorHandler(err);
+    } else if (errorHandler is <span class="highlight">Function(Object, StackTrace)</span>) {
+      errorHandler(err, stack);
+    } else {
+      throw ArgumentError("errorHandler has wrong signature.");
+    }
+  }
+}
+</pre>
+
+<h3 id="dont-specify-a-return-type-for-a-setter">
+<a id="dont-specify-a-return-type-for-a-setter" class="anchor" href="#dont-specify-a-return-type-for-a-setter" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T specify a return type for a setter.</h3>
+
+<p>Setters always return <code class="highlighter-rouge">void</code> in Dart. Writing the word is pointless.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (avoid_return_types_on_setters)"?>
+<pre class="prettyprint lang-dart bad-style">
+void set foo(Foo value) { ... }
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (avoid_return_types_on_setters)"?>
+<pre class="prettyprint lang-dart good-style">
+set foo(Foo value) { ... }
+</pre>
+
+<h3 id="dont-use-the-legacy-typedef-syntax">
+<a id="dont-use-the-legacy-typedef-syntax" class="anchor" href="#dont-use-the-legacy-typedef-syntax" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T use the legacy typedef syntax.</h3>
+
+<p>Dart has two notations for defining a named typedef for a function type. The
+original syntax looks like:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (old-typedef)"?>
+<pre class="prettyprint lang-dart bad-style">
+typedef int Comparison&lt;T&gt;(T a, T b);
+</pre>
+
+<p>That syntax has a couple of problems:</p>
+
+<ul>
+  <li>
+    <p>There is no way to assign a name to a <em>generic</em> function type. In the above
+example, the typedef itself is generic. If you reference <code class="highlighter-rouge">Comparison</code> in
+your code, without a type argument, you implicitly get the function type
+<code class="highlighter-rouge">int Function(dynamic, dynamic)</code>, <em>not</em> <code class="highlighter-rouge">int Function&lt;T&gt;(T, T)</code>. This
+doesn’t come up in practice often, but it matters in certain corner cases.</p>
+  </li>
+  <li>
+    <p>A single identifier in a parameter is interpreted as the parameter’s <em>name</em>,
+not its <em>type</em>. Given:</p>
+
+    <?code-excerpt "misc/lib/effective_dart/design_bad.dart (typedef-param)"?>
+    <pre class="prettyprint lang-dart bad-style">typedef bool TestNumber(num);</pre>
+
+    <p>Most users expect this to be a function type that takes a <code class="highlighter-rouge">num</code> and returns
+<code class="highlighter-rouge">bool</code>. It is actually a function type that takes <em>any</em> object (<code class="highlighter-rouge">dynamic</code>)
+and returns <code class="highlighter-rouge">bool</code>. The parameter’s <em>name</em> (which isn’t used for anything
+except documentation in the typedef) is “num”. This has been a
+long-standing source of errors in Dart.</p>
+  </li>
+</ul>
+
+<p>The new syntax looks like this:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (new-typedef)"?>
+<pre class="prettyprint lang-dart good-style">
+typedef Comparison&lt;T&gt; = int Function(T, T);
+</pre>
+
+<p>If you want to include a parameter’s name, you can do that too:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (new-typedef-param-name)"?>
+<pre class="prettyprint lang-dart good-style">
+typedef Comparison&lt;T&gt; = int Function(T a, T b);
+</pre>
+
+<p>The new syntax can express anything the old syntax could express and more, and
+lacks the error-prone misfeature where a single identifier is treated as the
+parameter’s name instead of its type. The same function type syntax after the
+<code class="highlighter-rouge">=</code> in the typedef is also allowed anywhere a type annotation may appear, giving
+us a single consistent way to write function types anywhere in a program.</p>
+
+<p>The old typedef syntax is still supported to avoid breaking existing code, but
+it’s deprecated.</p>
+
+<h3 id="prefer-inline-function-types-over-typedefs">
+<a id="prefer-inline-function-types-over-typedefs" class="anchor" href="#prefer-inline-function-types-over-typedefs" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER inline function types over typedefs.</h3>
+
+<p>In Dart 1, if you wanted to use a function type for a field, variable, or
+generic type argument, you had to first define a typedef for it. Dart 2 supports
+a function type syntax that can be used anywhere a type annotation is allowed:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (function-type)"  replace="/(bool|void) Function\(Event\)/[!$&!]/g"?>
+<pre class="prettyprint lang-dart good-style">
+class FilteredObservable {
+  final <span class="highlight">bool Function(Event)</span> _predicate;
+  final List&lt;<span class="highlight">void Function(Event)</span>&gt; _observers;
+
+  FilteredObservable(this._predicate, this._observers);
+
+  <span class="highlight">void Function(Event)</span> notify(Event event) {
+    if (!_predicate(event)) return null;
+
+    <span class="highlight">void Function(Event)</span> last;
+    for (var observer in _observers) {
+      observer(event);
+      last = observer;
+    }
+
+    return last;
+  }
+}
+</pre>
+
+<p>It may still be worth defining a typedef if the function type is particularly
+long or frequently used. But in most cases, users want to see what the function
+type actually is right where it’s used, and the function type syntax gives them
+that clarity.</p>
+
+<h3 id="consider-using-function-type-syntax-for-parameters">
+<a id="consider-using-function-type-syntax-for-parameters" class="anchor" href="#consider-using-function-type-syntax-for-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER using function type syntax for parameters.</h3>
+
+<p>Dart has a special syntax when defining a parameter whose type is a function.
+Sort of like in C, you surround the parameter’s name with the function’s return
+type and parameter signature:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (function-type-param)"?>
+<pre class="prettyprint lang-dart">
+Iterable&lt;T&gt; where(bool predicate(T element)) =&gt; ...
+</pre>
+
+<p>Before Dart 2 added function type syntax, this was the only way to give a
+parameter a function type without defining a typedef. Now that Dart has a
+general notation for function types, you can use it for function-typed
+parameters as well:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (function-type-param)"?>
+<pre class="prettyprint lang-dart good-style">
+Iterable&lt;T&gt; where(bool Function(T) predicate) =&gt; ...
+</pre>
+
+<p>The new syntax is a little more verbose, but is consistent with other locations
+where you must use the new syntax.</p>
+
+<h3 id="do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed">
+<a id="do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed" class="anchor" href="#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO annotate with <code class="highlighter-rouge">Object</code> instead of <code class="highlighter-rouge">dynamic</code> to indicate any object is allowed.</h3>
+
+<p>Some operations work with any possible object. For example, a <code class="highlighter-rouge">log()</code> method
+could take any object and call <code class="highlighter-rouge">toString()</code> on it. Two types in Dart permit all
+values: <code class="highlighter-rouge">Object</code> and <code class="highlighter-rouge">dynamic</code>. However, they convey different things. If you
+simply want to state that you allow all objects, use <code class="highlighter-rouge">Object</code>, as you would in
+Java or C#.</p>
+
+<p>Using <code class="highlighter-rouge">dynamic</code> sends a more complex signal. It may mean that Dart’s type system
+isn’t sophisticated enough to represent the set of types that are allowed, or
+that the values are coming from interop or otherwise outside of the purview of
+the static type system, or that you explicitly want runtime dynamism at that
+point in the program.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (Object-vs-dynamic)"?>
+<pre class="prettyprint lang-dart good-style">
+void log(Object object) {
+  print(object.toString());
+}
+
+/// Returns a Boolean representation for [arg], which must
+/// be a String or bool.
+bool convertToBool(dynamic arg) {
+  if (arg is bool) return arg;
+  if (arg is String) return arg == 'true';
+  throw ArgumentError('Cannot convert $arg to a bool.');
+}
+</pre>
+
+<h3 id="do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values">
+<a id="do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values" class="anchor" href="#do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use <code class="highlighter-rouge">Future&lt;void&gt;</code> as the return type of asynchronous members that do not produce values.</h3>
+
+<p>When you have a synchronous function that doesn’t return a value, you use <code class="highlighter-rouge">void</code>
+as the return type. The asynchronous equivalent is <code class="highlighter-rouge">Future&lt;void&gt;</code>.</p>
+
+<p>You may see code that uses <code class="highlighter-rouge">Future</code> or <code class="highlighter-rouge">Future&lt;Null&gt;</code> instead because older
+versions of Dart didn’t allow <code class="highlighter-rouge">void</code> as a type argument. Now that it does, you
+should use it. Doing so more directly matches how you’d type a similar
+synchronous function, and gives you better error-checking for callers and in the
+body of the function.</p>
+
+<h3 id="avoid-using-futureort-as-a-return-type">
+<a id="avoid-using-futureort-as-a-return-type" class="anchor" href="#avoid-using-futureort-as-a-return-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID using <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> as a return type.</h3>
+
+<p>If a method accepts a <code class="highlighter-rouge">FutureOr&lt;int&gt;</code>, it is <a href="https://en.wikipedia.org/wiki/Robustness_principle">generous in what it
+accepts</a>. Users can call the method with either an <code class="highlighter-rouge">int</code> or a
+<code class="highlighter-rouge">Future&lt;int&gt;</code>, so they don’t need to wrap an <code class="highlighter-rouge">int</code> in <code class="highlighter-rouge">Future</code> that you are
+going to unwrap anyway.</p>
+
+<p>If you <em>return</em> a <code class="highlighter-rouge">FutureOr&lt;int&gt;</code>, users need to check whether get back an <code class="highlighter-rouge">int</code>
+or a <code class="highlighter-rouge">Future&lt;int&gt;</code> before they can do anything useful. (Or they’ll just <code class="highlighter-rouge">await</code>
+the value, effectively always treating it as a <code class="highlighter-rouge">Future</code>.) Just return a
+<code class="highlighter-rouge">Future&lt;int&gt;</code>, it’s cleaner. It’s easier for users to understand that a function
+is either always asynchronous or always synchronous, but a function that can be
+either is hard to use correctly.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (future-or)"?>
+<pre class="prettyprint lang-dart good-style">
+Future&lt;int&gt; triple(FutureOr&lt;int&gt; value) async =&gt; (await value) * 3;
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (future-or)"?>
+<pre class="prettyprint lang-dart bad-style">
+FutureOr&lt;int&gt; triple(FutureOr&lt;int&gt; value) {
+  if (value is int) return value * 3;
+  return (value as Future&lt;int&gt;).then((v) =&gt; v * 3);
+}
+</pre>
+
+<p>The more precise formulation of this guideline is to <em>only use <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> in
+<a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)">contravariant</a> positions.</em> Parameters are contravariant and return types are
+covariant. In nested function types, this gets flipped—if you have a
+parameter whose type is itself a function, then the callback’s return type is
+now in contravariant position and the callback’s parameters are covariant. This
+means it’s OK for a <em>callback’s</em> type to return <code class="highlighter-rouge">FutureOr&lt;T&gt;</code>:</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (future-or-contra)" replace="/FutureOr.S./[!$&!]/g"?>
+<pre class="prettyprint lang-dart good-style">
+Stream&lt;S&gt; asyncMap&lt;T, S&gt;(
+    Iterable&lt;T&gt; iterable, <span class="highlight">FutureOr&lt;S&gt;</span> Function(T) callback) async* {
+  for (var element in iterable) {
+    yield await callback(element);
+  }
+}
+</pre>
+
+<h2 id="parameters">
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h2>
+
+<p>In Dart, optional parameters can be either positional or named, but not both.</p>
+
+<h3 id="avoid-positional-boolean-parameters">
+<a id="avoid-positional-boolean-parameters" class="anchor" href="#avoid-positional-boolean-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID positional boolean parameters.</h3>
+
+<p>Unlike other types, booleans are usually used in literal form. Things like
+numbers are usually wrapped in named constants, but we usually just pass around
+<code class="highlighter-rouge">true</code> and <code class="highlighter-rouge">false</code> directly. That can make callsites unreadable if it isn’t
+clear what the boolean represents:</p>
+
+<pre class="prettyprint lang-dart bad-style">
+new Task(true);
+new Task(false);
+new ListBox(false, true, true);
+new Button(false);
+</pre>
+
+<p>Instead, consider using named arguments, named constructors, or named constants
+to clarify what the call is doing.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (avoid-positional-bool-param)"?>
+<pre class="prettyprint lang-dart good-style">
+Task.oneShot();
+Task.repeating();
+ListBox(scroll: true, showScrollbars: true);
+Button(ButtonState.enabled);
+</pre>
+
+<p>Note that this doesn’t apply to setters, where the name makes it clear what the
+value represents:</p>
+
+<pre class="prettyprint lang-dart good-style">
+listBox.canScroll = true;
+button.isEnabled = false;
+</pre>
+
+<h3 id="avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters">
+<a id="avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters" class="anchor" href="#avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID optional positional parameters if the user may want to omit earlier parameters.</h3>
+
+<p>Optional positional parameters should have a logical progression such that
+earlier parameters are passed more often than later ones. Users should almost
+never need to explicitly pass a “hole” to omit an earlier positional argument to
+pass later one. You’re better off using named arguments for that.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (omit-optional-positional)"?>
+<pre class="prettyprint lang-dart good-style">
+String.fromCharCodes(Iterable&lt;int&gt; charCodes, [int start = 0, int end]);
+
+DateTime(int year,
+    [int month = 1,
+    int day = 1,
+    int hour = 0,
+    int minute = 0,
+    int second = 0,
+    int millisecond = 0,
+    int microsecond = 0]);
+
+Duration(
+    {int days = 0,
+    int hours = 0,
+    int minutes = 0,
+    int seconds = 0,
+    int milliseconds = 0,
+    int microseconds = 0});
+</pre>
+
+<h3 id="avoid-mandatory-parameters-that-accept-a-special-no-argument-value">
+<a id="avoid-mandatory-parameters-that-accept-a-special-no-argument-value" class="anchor" href="#avoid-mandatory-parameters-that-accept-a-special-no-argument-value" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID mandatory parameters that accept a special “no argument” value.</h3>
+
+<p>If the user is logically omitting a parameter, prefer letting them actually omit
+it by making the parameter optional instead of forcing them to pass <code class="highlighter-rouge">null</code>, an
+empty string, or some other special value that means “did not pass”.</p>
+
+<p>Omitting the parameter is more terse and helps prevent bugs where a sentinel
+value like <code class="highlighter-rouge">null</code> is accidentally passed when the user thought they were
+providing a real value.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (avoid-mandatory-param)"?>
+<pre class="prettyprint lang-dart good-style">
+var rest = string.substring(start);
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (avoid-mandatory-param)"?>
+<pre class="prettyprint lang-dart bad-style">
+var rest = string.substring(start, null);
+</pre>
+
+<h3 id="do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range">
+<a id="do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range" class="anchor" href="#do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use inclusive start and exclusive end parameters to accept a range.</h3>
+
+<p>If you are defining a method or function that lets a user select a range of
+elements or items from some integer-indexed sequence, take a start index, which
+refers to the first item and a (likely optional) end index which is one greater
+than the index of the last item.</p>
+
+<p>This is consistent with core libraries that do the same thing.</p>
+
+<?code-excerpt "misc/test/effective_dart_test.dart (param-range)" replace="/expect\(//g; /, \/\*\*\// \/\//g; /\);//g"?>
+<pre class="prettyprint lang-dart good-style">
+[0, 1, 2, 3].sublist(1, 3) // [1, 2]
+'abcd'.substring(1, 3) // 'bc'
+</pre>
+
+<p>It’s particularly important to be consistent here because these parameters are
+usually unnamed. If your API takes a length instead of an end point, the
+difference won’t be visible at all at the callsite.</p>
+
+<h2 id="equality">
+<a id="equality" class="anchor" href="#equality" aria-hidden="true"><span class="octicon octicon-link"></span></a>Equality</h2>
+
+<p>Implementing custom equality behavior for a class can be tricky. Users have deep
+intuition about how equality works that your objects need to match, and
+collection types like hash tables have subtle contracts that they expect
+elements to follow.</p>
+
+<h3 id="do-override-hashcode-if-you-override-">
+<a id="do-override-hashcode-if-you-override-" class="anchor" href="#do-override-hashcode-if-you-override-" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO override <code class="highlighter-rouge">hashCode</code> if you override <code class="highlighter-rouge">==</code>.</h3>
+
+<p>The default hash code implementation provides an <em>identity</em> hash—two
+objects generally only have the same hash code if they are the exact same
+object. Likewise, the default behavior for <code class="highlighter-rouge">==</code> is identity.</p>
+
+<p>If you are overriding <code class="highlighter-rouge">==</code>, it implies you may have different objects that are
+considered “equal” by your class. <strong>Any two objects that are equal must have the
+same hash code.</strong> Otherwise, maps and other hash-based collections will fail to
+recognize that the two objects are equivalent.</p>
+
+<h3 id="do-make-your--operator-obey-the-mathematical-rules-of-equality">
+<a id="do-make-your--operator-obey-the-mathematical-rules-of-equality" class="anchor" href="#do-make-your--operator-obey-the-mathematical-rules-of-equality" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO make your <code class="highlighter-rouge">==</code> operator obey the mathematical rules of equality.</h3>
+
+<p>An equivalence relation should be:</p>
+
+<ul>
+  <li>
+    <p><strong>Reflexive</strong>: <code class="highlighter-rouge">a == a</code> should always return <code class="highlighter-rouge">true</code>.</p>
+  </li>
+  <li>
+    <p><strong>Symmetric</strong>: <code class="highlighter-rouge">a == b</code> should return the same thing as <code class="highlighter-rouge">b == a</code>.</p>
+  </li>
+  <li>
+    <p><strong>Transitive</strong>: If <code class="highlighter-rouge">a == b</code> and <code class="highlighter-rouge">b == c</code> both return <code class="highlighter-rouge">true</code>, then <code class="highlighter-rouge">a == c</code>
+should too.</p>
+  </li>
+</ul>
+
+<p>Users and code that uses <code class="highlighter-rouge">==</code> expect all of these laws to be followed. If your
+class can’t obey these rules, then <code class="highlighter-rouge">==</code> isn’t the right name for the operation
+you’re trying to express.</p>
+
+<h3 id="avoid-defining-custom-equality-for-mutable-classes">
+<a id="avoid-defining-custom-equality-for-mutable-classes" class="anchor" href="#avoid-defining-custom-equality-for-mutable-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID defining custom equality for mutable classes.</h3>
+
+<p>When you define <code class="highlighter-rouge">==</code>, you also have to define <code class="highlighter-rouge">hashCode</code>. Both of those should
+take into account the object’s fields. If those fields <em>change</em> then that
+implies the object’s hash code can change.</p>
+
+<p>Most hash-based collections don’t anticipate that—they assume an object’s
+hash code will be the same forever and may behave unpredictably if that isn’t
+true.</p>
+
+<h3 id="dont-check-for-null-in-custom--operators">
+<a id="dont-check-for-null-in-custom--operators" class="anchor" href="#dont-check-for-null-in-custom--operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T check for <code class="highlighter-rouge">null</code> in custom <code class="highlighter-rouge">==</code> operators.</h3>
+
+<p>The language specifies that this check is done automatically and your <code class="highlighter-rouge">==</code>
+method is called only if the right-hand side is not <code class="highlighter-rouge">null</code>.</p>
+
+<?code-excerpt "misc/lib/effective_dart/design_good.dart (eq-dont-check-for-null)" replace="/operator ==/[!$&!]/g" plaster?>
+<pre class="prettyprint lang-dart good-style">
+class Person {
+  final String name;
+  // ···
+  <span class="highlight">operator ==</span>(other) =&gt; other is Person &amp;&amp; name == other.name;
+
+  int get hashCode =&gt; name.hashCode;
+}
+</pre>
+
+<?code-excerpt "misc/lib/effective_dart/design_bad.dart (eq-dont-check-for-null)" replace="/\w+ != null/[!$&!]/g" plaster?>
+<pre class="prettyprint lang-dart bad-style">
+class Person {
+  final String name;
+  // ···
+  operator ==(other) =&gt; <span class="highlight">other != null</span> &amp;&amp; ...
+}
+</pre>
+
+
+          
+<nav id="subnav">
+  <ul>
+    <li class="previous">
+      
+        <a href="/guides/language/effective-dart/usage">&lang;&nbsp;&nbsp;Usage</a>
+      
+    </li>
+    <li class="next">
+      
+    </li>
+  </ul>
+</nav>
+
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dart-lang/site-www"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dart-lang/site-www/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2018/07/05 16:56 CST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Technologies</h4>
+          <ul>
+            <li><a href="https://flutter.io">Mobile (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart for the web</a></li>
+            <li><a href="/dart-vm">Server-side Dart</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory</a></li>
+            <li><a href="/guides/libraries">Dart libraries</a></li>
+            <li><a href="/guides/language">Dart programming language</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/dev">API reference</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart news</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs and <br> feature requests</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="/community">Support & mailing lists</a></li>
+            <li><a href="/community/who-uses-dart">Who uses Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">community</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">announcement group</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter chat rooms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

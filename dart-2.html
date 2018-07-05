@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How Dart 2 is different from Dart 1.x, and how you can convert your code to work with Dart 2.">
+  <title>Dart 2 | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Dart 2" />
+  <meta name="twitter:description" content="How Dart 2 is different from Dart 1.x, and how you can convert your code to work with Dart 2." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Dart 2" />
+  <meta property="og:description" content="How Dart 2 is different from Dart 1.x, and how you can convert your code to work with Dart 2." />
+  <meta property="og:url" content="https://www.dartlang.org/dart-2.html" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="/assets/style.css">
+  
+  <!--
+    Why don't we use Dart here?
+
+    The only scripting we use here is stuff like the on-click footnotes on the
+    front page or resizing of the left nav. These happen to be use cases where
+    JavaScript and jQuery are doing just fine. Dart is here for application
+    programming, not page scripting.
+   -->
+  <script type="text/javascript" src="/assets/main.js"></script>
+  
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>Get Started</span></a></li>
+    <li><a href="/guides/language">Language</a></li>
+    <li><a href="/guides/libraries">Libraries</a></li>
+    <li><a href="/tools">Tools</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/dart-2.html" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.66.0&nbsp;&nbsp;(beta)</a></li>
+
+        <li role="separator" class="divider"></li>
+        <li><a href="/dart-2#migration">Migration guide</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-default" href="/guides/get-started">Get Started</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="Language">Language</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="Tour">Tour</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="Style">Style</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="Documentation">Documentation</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="Usage">Usage</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="Design">Design</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="Sample Code">Sample Code</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="Libraries">Libraries</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="Tour">Tour</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="Platforms">Platforms</a></h4>
+  <ul><li >
+          <a href="https://flutter.io" title="Mobile (Flutter)">Mobile (Flutter)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/dart-vm" title="Server">Server</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="Testing">Testing</a></h4>
+  <ul>
+  </ul><h4 >Resources</h4>
+  <ul><li >
+          <a href="/install" title="Install">Install</a>
+        </li><li >
+          <a href="/codelabs" title="Codelabs">Codelabs</a>
+        </li><li >
+          <a href="/tutorials" title="Tutorials">Tutorials</a>
+        </li><li >
+          <a href="/articles" title="Articles">Articles</a>
+        </li><li >
+          <a href="/tools" title="Tools">Tools</a>
+        </li><li >
+          <a href="/community" title="Community and Support">Community and Support</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <h4>On this page
+      <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
+    </h4>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#differences">Differences</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#language-and-libraries">Language and libraries</a></li>
+<li class="toc-entry toc-h3"><a href="#tools">Tools</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#migrating-your-code">Migrating your code</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#general-process">General process</a></li>
+<li class="toc-entry toc-h3"><a href="#migrating-packages">Migrating packages</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#changes-and-backward-compatibility">Changes and backward compatibility</a></li>
+<li class="toc-entry toc-h4"><a href="#upper-constraints-on-the-sdk-version">Upper constraints on the SDK version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#more-resources">More resources</a></li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+<div class="banner alert alert-info">
+  <p class="banner__text">
+    Welcome to <a href="/dart-2"><b>Dart 2</b></a>!
+    Still using Dart 1.x? See the
+    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">archived site</a>
+    or the <a href="/dart-2#migration">migration guide</a>.
+  </p>
+</div>
+
+
+          
+
+          
+          <div>
+            <ul class="page-github-links-menu" role="group">
+  <li>
+    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/dart-2.md"
+      class="no-automatic-external"
+      title="View page source"
+      target="_blank" rel="noopener">
+      <i class="fab fa-github fa-sm"></i>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart 2' page issue&body=From URL: https://www.dartlang.org/dart-2.html"
+      class="no-automatic-external"
+      title="Report a bug on this page" target="_blank" rel="noopener">
+      <i class="fas fa-bug fa-sm"></i>
+    </a>
+  </li>
+</ul>
+
+            <h1>Dart 2</h1>
+          </div>
+          <p>Dart 2 has a few key differences from earlier versions of Dart.
+This page briefly covers those differences and
+gives general advice on migrating your code to Dart 2.</p>
+
+<p>For information on <em>why</em> Dart 2 has changed, see the
+<a href="https://medium.com/dartlang/announcing-dart-2-80ba01f43b6">Dart 2 announcement.</a></p>
+
+<h2 id="differences">
+<a id="differences" class="anchor" href="#differences" aria-hidden="true"><span class="octicon octicon-link"></span></a>Differences</h2>
+
+<p>The Dart language, libraries, build system, and web development tools have changed.</p>
+
+<h3 id="language-and-libraries">
+<a id="language-and-libraries" class="anchor" href="#language-and-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Language and libraries</h3>
+
+<ul>
+  <li>
+<a href="/guides/language/sound-dart">Dart’s type system</a> is now sound.
+    <ul>
+      <li><a href="/guides/language/sound-problems">Fixing common type problems</a></li>
+      <li><a href="https://groups.google.com/d/msg/flutter-dev/H8dDhWg_c8I/_Ql78q_6AgAJ">Flutter announcement: Breaking Change: <code class="highlighter-rouge">--preview-dart-2</code> turned on by default</a></li>
+    </ul>
+  </li>
+  <li>Instance creation keywords are now generally optional,
+as described in <a href="/guides/language/language-tour#using-constructors">Using constructors</a>:
+    <ul>
+      <li>
+<code class="highlighter-rouge">new</code> is always optional.</li>
+      <li>
+<code class="highlighter-rouge">const</code> is optional inside of a constant context.</li>
+    </ul>
+  </li>
+  <li>Dart no longer has checked mode.
+    <ul>
+      <li>
+<a href="/guides/language/language-tour#assert">Assert statements</a> are still supported, but you enable them differently.</li>
+    </ul>
+  </li>
+  <li>The Dart language and core libraries have changed,
+partly as a result of the type system changes.
+    <ul>
+      <li><a href="https://api.dartlang.org/dev">Dev channel API reference documentation</a></li>
+      <li><a href="https://github.com/dart-lang/sdk/blob/master/CHANGELOG.md#200">dart-lang/sdk CHANGELOG</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="tools">
+<a id="tools" class="anchor" href="#tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tools</h3>
+
+<ul>
+  <li>Pub no longer supports transformers.
+Instead, use the <a href="https://github.com/dart-lang/build/tree/master/docs">new build system.</a>
+</li>
+  <li>Tools related to web development have changed.
+    <ul>
+      <li>The new build system <a href="https://webdev.dartlang.org/tools/build_runner">replaces <code class="highlighter-rouge">pub build</code> and <code class="highlighter-rouge">pub serve</code>.</a>
+</li>
+      <li>Dartium is no longer supported. Instead, use <a href="https://webdev.dartlang.org/tools/dartdevc">dartdevc</a> and Chrome.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><a id="migration"></a></p>
+<h2 id="migrating-your-code">
+<a id="migrating-your-code" class="anchor" href="#migrating-your-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Migrating your code</h2>
+
+<p>First, see the migration guide for your platform:</p>
+
+<ul>
+  <li><a href="https://github.com/flutter/flutter/wiki/Dart-2-Migration">Flutter migration guide</a></li>
+  <li><a href="https://webdev.dartlang.org/dart-2">Web app migration guide</a></li>
+</ul>
+
+<p>If you publish packages, then also see the
+<a href="#migrating-packages">package migration instructions below.</a></p>
+
+<h3 id="general-process">
+<a id="general-process" class="anchor" href="#general-process" aria-hidden="true"><span class="octicon octicon-link"></span></a>General process</h3>
+
+<p>Here’s an overview of the process of migrating to Dart 2,
+from either Dart 1.x or an earlier version of Dart 2.</p>
+
+<ol>
+  <li>
+<strong>Get an up-to-date version of the Flutter or Dart SDK.</strong>
+    <ul>
+      <li><a href="https://flutter.io/upgrading/">Flutter SDK instructions</a></li>
+      <li>
+<a href="/tools/sdk#install">Dart SDK instructions</a> (VM or web)</li>
+    </ul>
+  </li>
+  <li>
+<strong>Upgrade the packages your app depends on.</strong>
+    <ul>
+      <li>Flutter: <a href="https://flutter.io/using-packages/#updating-package-dependencies"><code class="highlighter-rouge">flutter packages upgrade</code></a>
+</li>
+      <li>Dart VM or web: <a href="/tools/pub/get-started#upgrading-a-dependency"><code class="highlighter-rouge">pub upgrade</code></a>
+</li>
+    </ul>
+  </li>
+  <li>
+<strong>Run the <a href="https://github.com/dart-lang/dart2_fix">dart2_fix tool.</a></strong> It helps migrate some
+usages of deprecated Dart 1.x APIs to Dart 2.</li>
+  <li>
+<strong>Run the analyzer</strong> to find <a href="/guides/language/sound-problems#static-errors-and-warnings">compile-time errors</a>.
+    <ul>
+      <li>Flutter: <a href="https://flutter.io/debugging/#the-dart-analyzer"><code class="highlighter-rouge">flutter analyze</code></a>
+</li>
+      <li>Dart VM or web: <a href="https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer"><code class="highlighter-rouge">dartanalyzer</code></a> with
+<a href="/guides/language/analysis-options#enabling-dart-2-semantics">Dart 2 semantics</a>
+</li>
+    </ul>
+  </li>
+  <li>
+<strong>Fix issues in your code and run the analyzer again</strong>,
+repeating until your code passes static analysis.</li>
+  <li>
+<strong>Run tests to find <a href="/guides/language/sound-problems#runtime-errors">runtime errors</a>.</strong>
+    <ul>
+      <li>Run all <a href="/guides/testing">automated tests</a> for your software.</li>
+      <li>Do manual testing, and look for console errors.
+Consider adding automated tests to catch issues that you find.</li>
+    </ul>
+  </li>
+  <li><strong>Fix issues until your code works.</strong></li>
+</ol>
+
+<p>Each time the SDK has a significant release, repeat the process.</p>
+
+<h3 id="migrating-packages">
+<a id="migrating-packages" class="anchor" href="#migrating-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Migrating packages</h3>
+
+<p>As a package owner, you need to do the following:</p>
+
+<ul>
+  <li>Follow the migration tips for the platforms that your package supports
+(see above).</li>
+  <li>Make sure your package’s users know how to report issues.</li>
+  <li>Respond quickly to issue reports.</li>
+  <li>If code changes aren’t backward compatible,
+update the lower SDK constraint.</li>
+</ul>
+
+<h4 id="changes-and-backward-compatibility">
+<a id="changes-and-backward-compatibility" class="anchor" href="#changes-and-backward-compatibility" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changes and backward compatibility</h4>
+
+<p>If you have to change your package’s code,
+<strong>try to make it work in 1.x</strong>, as well as Dart 2.
+For example, you might be able to add type annotations
+or (if an API has been removed) to use an alternative 1.x API.</p>
+
+<p>If a backward-compatible change isn’t possible,
+<strong>update the lower <a href="/tools/pub/pubspec#sdk-constraints">SDK constraint.</a></strong></p>
+
+<aside class="alert alert-warning">
+  <p><strong>Specify SDK constraints carefully!</strong>
+  Incorrect lower constraints can cause problems for users of the stable SDK.</p>
+</aside>
+
+<p><a href="/guides/testing">Test your changes</a> to make sure that your package works as expected.</p>
+
+<h4 id="upper-constraints-on-the-sdk-version">
+<a id="upper-constraints-on-the-sdk-version" class="anchor" href="#upper-constraints-on-the-sdk-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upper constraints on the SDK version</h4>
+
+<p>Don’t update an already-published package
+solely to indicate that it can be used with Dart 2 pre-releases.
+As long as a package has either no <a href="/tools/pub/pubspec#sdk-constraints">SDK constraints</a>
+or an upper constraint of <code class="highlighter-rouge">&lt;2.0.0</code>,
+<code class="highlighter-rouge">pub get</code> and similar pub commands in any Dart 2 pre-release
+can download the package.
+(The package won’t be usable with Dart 2 stable releases,
+but you can fix that later.)</p>
+
+<p>When you update an existing package or publish a new one,
+specify an upper constraint of <code class="highlighter-rouge">&lt;2.0.0</code> for the SDK version. Examples:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Works in 1.20.1+; might work in 2.0.0-dev:</span>
+<span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=1.20.1</span><span class="nv"> </span><span class="s">&lt;2.0.0'</span>
+
+<span class="c1"># Backward incompatible change requires at least 2.0.0-dev.1.2:</span>
+<span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=2.0.0-dev.1.2</span><span class="nv"> </span><span class="s">&lt;2.0.0'</span>
+</code></pre></div></div>
+
+<p>Eventually, you’ll need to publish new versions of your packages to
+declare Dart 2 compatibility, most likely using a <code class="highlighter-rouge">&lt;3.0.0</code> SDK constraint.
+Because incompatible changes might occur in any Dart 2 pre-release,
+don’t declare Dart 2 compatibility until we announce that it’s safe to do so.</p>
+
+<h2 id="more-resources">
+<a id="more-resources" class="anchor" href="#more-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>More resources</h2>
+
+<ul>
+  <li><a href="/tools/sdk#about-release-channels-and-version-strings">About Dart SDK release channels and version strings</a></li>
+  <li><a href="/tools/pub/pubspec#sdk-constraints">SDK constraints</a></li>
+</ul>
+
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dart-lang/site-www"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dart-lang/site-www/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2018/07/05 16:56 CST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Technologies</h4>
+          <ul>
+            <li><a href="https://flutter.io">Mobile (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart for the web</a></li>
+            <li><a href="/dart-vm">Server-side Dart</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory</a></li>
+            <li><a href="/guides/libraries">Dart libraries</a></li>
+            <li><a href="/guides/language">Dart programming language</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/dev">API reference</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart news</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs and <br> feature requests</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="/community">Support & mailing lists</a></li>
+            <li><a href="/community/who-uses-dart">Who uses Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">community</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">announcement group</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter chat rooms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

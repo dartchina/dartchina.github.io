@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn more about the directory structure used by Dart's package management tool, pub.">
+  <title>Pub Package Layout Conventions | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Pub Package Layout Conventions" />
+  <meta name="twitter:description" content="Learn more about the directory structure used by Dart's package management tool, pub." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pub Package Layout Conventions" />
+  <meta property="og:description" content="Learn more about the directory structure used by Dart's package management tool, pub." />
+  <meta property="og:url" content="https://www.dartlang.org/tools/pub/package-layout" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="/assets/style.css">
+  
+  <!--
+    Why don't we use Dart here?
+
+    The only scripting we use here is stuff like the on-click footnotes on the
+    front page or resizing of the left nav. These happen to be use cases where
+    JavaScript and jQuery are doing just fine. Dart is here for application
+    programming, not page scripting.
+   -->
+  <script type="text/javascript" src="/assets/main.js"></script>
+  
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>Get Started</span></a></li>
+    <li><a href="/guides/language">Language</a></li>
+    <li><a href="/guides/libraries">Libraries</a></li>
+    <li><a href="/tools">Tools</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/package-layout" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.66.0&nbsp;&nbsp;(beta)</a></li>
+
+        <li role="separator" class="divider"></li>
+        <li><a href="/dart-2#migration">Migration guide</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-default" href="/guides/get-started">Get Started</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="Language">Language</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="Tour">Tour</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="Style">Style</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="Documentation">Documentation</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="Usage">Usage</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="Design">Design</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="Sample Code">Sample Code</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="Libraries">Libraries</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="Tour">Tour</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="Platforms">Platforms</a></h4>
+  <ul><li >
+          <a href="https://flutter.io" title="Mobile (Flutter)">Mobile (Flutter)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/dart-vm" title="Server">Server</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="Testing">Testing</a></h4>
+  <ul>
+  </ul><h4 >Resources</h4>
+  <ul><li >
+          <a href="/install" title="Install">Install</a>
+        </li><li >
+          <a href="/codelabs" title="Codelabs">Codelabs</a>
+        </li><li >
+          <a href="/tutorials" title="Tutorials">Tutorials</a>
+        </li><li >
+          <a href="/articles" title="Articles">Articles</a>
+        </li><li class="active">
+          <a href="/tools" title="Tools">Tools</a>
+        </li><li >
+          <a href="/community" title="Community and Support">Community and Support</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <h4>On this page
+      <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
+    </h4>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#the-basics">The basics</a></li>
+<li class="toc-entry toc-h2"><a href="#readme">README</a></li>
+<li class="toc-entry toc-h2"><a href="#changelog">CHANGELOG</a></li>
+<li class="toc-entry toc-h2"><a href="#public-directories">Public directories</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#public-libraries">Public libraries</a></li>
+<li class="toc-entry toc-h3"><a href="#public-tools">Public tools</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#public-assets">Public assets</a></li>
+<li class="toc-entry toc-h2"><a href="#implementation-files">Implementation files</a></li>
+<li class="toc-entry toc-h2"><a href="#web-files">Web files</a></li>
+<li class="toc-entry toc-h2"><a href="#command-line-apps">Command-line apps</a></li>
+<li class="toc-entry toc-h2"><a href="#tests-and-benchmarks">Tests and benchmarks</a></li>
+<li class="toc-entry toc-h2"><a href="#documentation">Documentation</a></li>
+<li class="toc-entry toc-h2"><a href="#examples">Examples</a></li>
+<li class="toc-entry toc-h2"><a href="#internal-tools-and-scripts">Internal tools and scripts</a></li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+<div class="banner alert alert-info">
+  <p class="banner__text">
+    Welcome to <a href="/dart-2"><b>Dart 2</b></a>!
+    Still using Dart 1.x? See the
+    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">archived site</a>
+    or the <a href="/dart-2#migration">migration guide</a>.
+  </p>
+</div>
+
+
+          
+
+          <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+  
+    <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+      <a property="item" typeof="WebPage" href="/tools/">
+      <span property="name">Tools</span>
+      </a>
+      <meta property="position" content="1" />
+    </li>
+  
+    <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+      <a property="item" typeof="WebPage" href="/tools/pub/">
+      <span property="name">Pub</span>
+      </a>
+      <meta property="position" content="2" />
+    </li>
+  
+    <li class="breadcrumb-item active" property="itemListElement" typeof="ListItem">
+      
+      <span property="name">Pub Package Layout Conventions</span>
+      
+      <meta property="position" content="3" />
+    </li>
+  
+  </ol>
+          <div>
+            <ul class="page-github-links-menu" role="group">
+  <li>
+    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/pub/package-layout.md"
+      class="no-automatic-external"
+      title="View page source"
+      target="_blank" rel="noopener">
+      <i class="fab fa-github fa-sm"></i>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/site-www/issues/new?title='Pub Package Layout Conventions' page issue&body=From URL: https://www.dartlang.org/tools/pub/package-layout"
+      class="no-automatic-external"
+      title="Report a bug on this page" target="_blank" rel="noopener">
+      <i class="fas fa-bug fa-sm"></i>
+    </a>
+  </li>
+</ul>
+
+            <h1>Pub Package Layout Conventions</h1>
+          </div>
+          <p>When you build a <a href="/tools/pub">pub</a> package,
+we encourage you to follow the conventions that this page describes.
+They describe how you organize the files and directories within your
+package, and how to name things.</p>
+
+<aside class="alert alert-info"><div class="alert-with-image">
+  <img src="/assets/shared/flutter/logo/default.svg" alt="[Flutter]">
+  <div>
+      <p><strong>Note:</strong>
+  Flutter apps can use custom directories for their assets.
+  For details, see
+  <a href="https://flutter.io/assets-and-images/">Adding Assets and Images in Flutter</a>
+  on the <a href="https://flutter.io">Flutter website.</a></p>
+    </div>
+</div></aside>
+
+<p>Here’s what a complete package (named <code class="highlighter-rouge">enchilada</code>)
+that uses every corner of these guidelines
+might look like:</p>
+
+<pre>
+enchilada/
+  .dart_tool/ *
+  .packages *
+  pubspec.yaml
+  pubspec.lock **
+  README.md
+  CHANGELOG.md
+  LICENSE
+  benchmark/
+    make_lunch.dart
+  bin/
+    enchilada
+  doc/
+    api/ ***
+    getting_started.md
+  example/
+    main.dart
+  lib/
+    enchilada.dart
+    tortilla.dart
+    guacamole.css
+    src/
+      beans.dart
+      queso.dart
+  test/
+    enchilada_test.dart
+    tortilla_test.dart
+  tool/
+    generate_docs.dart
+  web/
+    index.html
+    main.dart
+    style.css
+</pre>
+
+<p>* The <code class="highlighter-rouge">.dart_tool</code> directory and <code class="highlighter-rouge">.packages</code> file exist after you’ve run
+   <code class="highlighter-rouge">pub get</code>. Don’t check them into source control.</p>
+
+<p>** The <code class="highlighter-rouge">pubspec.lock</code> file exists after you’ve run <code class="highlighter-rouge">pub get</code>.
+    Leave it out of source control unless your package is an
+    <a href="/tools/pub/glossary#application-package">application package</a>.</p>
+
+<p>*** The <code class="highlighter-rouge">doc/api</code> directory exists locally after you’ve run
+      <a href="https://github.com/dart-lang/dartdoc#dartdoc">dartdoc</a>.
+      Don’t check the <code class="highlighter-rouge">api</code> directory into source control.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+  The <code class="highlighter-rouge">.packages</code> file has replaced <code class="highlighter-rouge">packages</code> directories.
+  For more information, see <a href="/tools/pub/cmd/pub-get">pub get</a>.</p>
+</aside>
+
+<h2 id="the-basics">
+<a id="the-basics" class="anchor" href="#the-basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>The basics</h2>
+
+<pre>
+enchilada/
+  pubspec.yaml
+  pubspec.lock
+</pre>
+
+<p>Every package has a <a href="/tools/pub/pubspec"><em>pubspec</em></a>, a file named
+<code class="highlighter-rouge">pubspec.yaml</code>, in the root directory of the package. That’s what <em>makes</em> it a
+package.</p>
+
+<p>Once you’ve run <a href="/tools/pub/cmd/pub-get"><code class="highlighter-rouge">pub get</code></a>,
+<a href="/tools/pub/cmd/pub-upgrade"><code class="highlighter-rouge">pub upgrade</code></a>, or
+<a href="/tools/pub/cmd/pub-downgrade"><code class="highlighter-rouge">pub downgrade</code></a> on the package, you will also have a
+<strong>lockfile</strong>, named <code class="highlighter-rouge">pubspec.lock</code>. If your package is an <a href="/tools/pub/glossary#application-package">application
+package</a>, check the lockfile into source
+control. Otherwise, don’t.</p>
+
+<pre>
+enchilada/
+  .packages
+</pre>
+
+<p>Running pub also generates a <code class="highlighter-rouge">.packages</code> file.
+Don’t check this into source control.</p>
+
+<p>The open source community has a few other files that commonly appear at
+the top level of a project: <code class="highlighter-rouge">LICENSE</code>, <code class="highlighter-rouge">AUTHORS</code>, etc. If you use any
+of those, they can go in the top level of the package too.</p>
+
+<p>For more information, see <a href="/tools/pub/pubspec">Pubspec Format</a>.</p>
+
+<h2 id="readme">
+<a id="readme" class="anchor" href="#readme" aria-hidden="true"><span class="octicon octicon-link"></span></a>README</h2>
+
+<pre>
+enchilada/
+  README.md
+</pre>
+
+<p>One file that’s very common in open source is a README file that
+describes the project. This is especially important in pub. When you upload
+to <a href="https://pub.dartlang.org">pub.dartlang.org</a>, your README is shown on
+the page for your package. This is the perfect place to introduce people to
+your code.</p>
+
+<p>If your README ends in <code class="highlighter-rouge">.md</code>, <code class="highlighter-rouge">.markdown</code>, or <code class="highlighter-rouge">.mdown</code>, it is parsed as
+<a href="http://daringfireball.net/projects/markdown/">Markdown</a>.</p>
+
+<h2 id="changelog">
+<a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>CHANGELOG</h2>
+
+<pre>
+enchilada/
+  CHANGELOG.md
+</pre>
+
+<p>To show users the latest changes to your package, you can include a changelog
+file where you can write a short note about the changes in your latest
+release. When you upload your package to
+<a href="https://pub.dartlang.org">pub.dartlang.org</a>,
+your package’s changelog file (if any)
+appears in the changelog tab.</p>
+
+<p>If your CHANGELOG ends in <code class="highlighter-rouge">.md</code>, <code class="highlighter-rouge">.markdown</code>, or <code class="highlighter-rouge">.mdown</code>, it is parsed as
+<a href="http://daringfireball.net/projects/markdown/">Markdown</a>.</p>
+
+<h2 id="public-directories">
+<a id="public-directories" class="anchor" href="#public-directories" aria-hidden="true"><span class="octicon octicon-link"></span></a>Public directories</h2>
+
+<p>Two directories in your package are public to other packages: <code class="highlighter-rouge">lib</code> and
+<code class="highlighter-rouge">bin</code>. You place <a href="#public-libraries">public libraries</a> in <code class="highlighter-rouge">lib</code> and
+<a href="#public-tools">public tools</a> in <code class="highlighter-rouge">bin</code>.</p>
+
+<h3 id="public-libraries">
+<a id="public-libraries" class="anchor" href="#public-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Public libraries</h3>
+
+<p>The following directory structure shows the <code class="highlighter-rouge">lib</code> portion of enchilada:</p>
+
+<pre>
+enchilada/
+  lib/
+    enchilada.dart
+    tortilla.dart
+</pre>
+
+<p>Many packages are <a href="/tools/pub/glossary#library-package"><em>library
+packages</em></a>: they
+define Dart libraries that other packages can import and use.
+These public Dart library files go inside a directory called <code class="highlighter-rouge">lib</code>.</p>
+
+<p>Most packages define a single library that users can import. In that case,
+its name should usually be the same as the name of the package, like
+<code class="highlighter-rouge">enchilada.dart</code> in the example here. But you can also define other
+libraries with whatever names make sense for your package.</p>
+
+<p>When you do, users can import these libraries using the name of the
+package and the library file, like so:</p>
+
+<pre class="prettyprint lang-dart">
+import 'package:enchilada/enchilada.dart';
+import 'package:enchilada/tortilla.dart';
+</pre>
+
+<p>If you want to organize your public libraries, you can also create
+subdirectories inside <code class="highlighter-rouge">lib</code>. If you do that, users will specify that path
+when they import it. Say you have the following file hierarchy:</p>
+
+<pre>
+enchilada/
+  lib/
+    some/
+      path/
+        olives.dart
+</pre>
+
+<p>Users import <code class="highlighter-rouge">olives.dart</code> as follows:</p>
+
+<pre class="prettyprint lang-dart">
+import 'package:enchilada/some/path/olives.dart';
+</pre>
+
+<p>Note that only <em>libraries</em> should be in <code class="highlighter-rouge">lib</code>.
+<em>Entrypoints</em>—Dart scripts with a <code class="highlighter-rouge">main()</code> function—cannot
+go in <code class="highlighter-rouge">lib</code>. If you place a Dart script inside <code class="highlighter-rouge">lib</code>,
+you will discover that any <code class="highlighter-rouge">package:</code> imports it contains don’t
+resolve. Instead, your entrypoints should go in the appropriate
+<a href="/tools/pub/glossary#entrypoint-directory">entrypoint directory</a>.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Tip for web apps:</strong>
+For the best performance when developing with
+<a href="https://webdev.dartlang.org/tools/dartdevc">dartdevc,</a>
+put <a href="#implementation-files">implementation files</a> under <code class="highlighter-rouge">/lib/src</code>,
+instead of elsewhere under <code class="highlighter-rouge">/lib</code>.
+Also, avoid imports of <code>package:<em>package_name</em>/src/...</code>.</p>
+</aside>
+
+<p>For more information on library packages, see
+<a href="/guides/libraries/create-library-packages">Create Library Packages</a>.</p>
+
+<h3 id="public-tools">
+<a id="public-tools" class="anchor" href="#public-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Public tools</h3>
+
+<p>Dart scripts placed inside of the <code class="highlighter-rouge">bin</code> directory are public. Any package
+that depends on your package can run scripts from your package’s <code class="highlighter-rouge">bin</code>
+directory using <a href="/tools/pub/cmd/pub-run"><code class="highlighter-rouge">pub run</code></a>. <em>Any</em> package
+can run scripts from your package’s bin directory using
+<a href="/tools/pub/cmd/pub-global"><code class="highlighter-rouge">pub global</code></a>.</p>
+
+<p>If you intend for your package to be depended on,
+and you want your scripts to be private to your package, place them
+in the top-level <code class="highlighter-rouge">tool</code> directory.
+If you do not intend for your package to be depended on, you can leave your
+scripts in <code class="highlighter-rouge">bin</code>.</p>
+
+<h2 id="public-assets">
+<a id="public-assets" class="anchor" href="#public-assets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Public assets</h2>
+
+<pre>
+enchilada/
+  lib/
+    guacamole.css
+</pre>
+
+<p>While most library packages exist to let you reuse Dart code, you can also
+reuse other kinds of content. For example, a package for
+<a href="http://getbootstrap.com/">Bootstrap</a> might include a number of CSS files
+for consumers of the package to use.</p>
+
+<p>These go in the top-level <code class="highlighter-rouge">lib</code> directory. You can put any kind of file
+in there and organize it with subdirectories however you like.</p>
+
+<p>You can reference another package’s assets using the
+<a href="https://github.com/dart-lang/resource">resource package</a>.</p>
+
+<aside class="alert alert-warning">
+  <p><strong>Warning:</strong>
+Old code might refer to assets using <code class="highlighter-rouge">/packages/&lt;package&gt;/&lt;path&gt;</code> URLs.</p>
+</aside>
+
+<h2 id="implementation-files">
+<a id="implementation-files" class="anchor" href="#implementation-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementation files</h2>
+
+<pre>
+enchilada/
+  lib/
+    src/
+      beans.dart
+      queso.dart
+</pre>
+
+<p>The libraries inside <code class="highlighter-rouge">lib</code> are publicly visible: other packages are free to
+import them. But much of a package’s code is internal implementation libraries
+that should only be imported and used by the package itself. Those go inside a
+subdirectory of <code class="highlighter-rouge">lib</code> called <code class="highlighter-rouge">src</code>. You can create subdirectories in there if
+it helps you organize things.</p>
+
+<p>You are free to import libraries that live in <code class="highlighter-rouge">lib/src</code> from within other Dart
+code in the <em>same</em> package (like other libraries in <code class="highlighter-rouge">lib</code>, scripts in <code class="highlighter-rouge">bin</code>, and
+tests) but you should never import from another package’s <code class="highlighter-rouge">lib/src</code> directory.
+Those files are not part of the package’s public API, and they might change in
+ways that could break your code.</p>
+
+<p>When you use libraries from within your own package, even code in <code class="highlighter-rouge">src</code>, you
+can (and should) still use <code class="highlighter-rouge">package:</code> to import them. For example:</p>
+
+<pre class="prettyprint lang-dart">
+import 'package:enchilada/src/beans.dart';
+</pre>
+
+<p>The name you use here (in this case <code class="highlighter-rouge">enchilada</code>) is the name you specify for
+your package in its <a href="/tools/pub/pubspec">pubspec</a>.</p>
+
+<h2 id="web-files">
+<a id="web-files" class="anchor" href="#web-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Web files</h2>
+
+<pre>
+enchilada/
+  web/
+    index.html
+    main.dart
+    style.css
+</pre>
+
+<p>For web packages, place entrypoint code—Dart scripts that include
+<code class="highlighter-rouge">main()</code> and supporting files, such as CSS or HTML—under <code class="highlighter-rouge">web</code>.
+You can organize the <code class="highlighter-rouge">web</code> directory into subdirectories if you like.</p>
+
+<p>Put <a href="#public-libraries">library code</a> under <code class="highlighter-rouge">lib</code>.
+If the library isn’t imported directly by code under <code class="highlighter-rouge">web</code>, or by
+another package, put it under <code class="highlighter-rouge">lib/src</code>.
+Put <a href="#examples">web-based examples</a> under <code class="highlighter-rouge">example</code>. See
+<a href="#public-assets">Public assets</a> for tips on where to put assets,
+such as images.</p>
+
+<h2 id="command-line-apps">
+<a id="command-line-apps" class="anchor" href="#command-line-apps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command-line apps</h2>
+
+<pre>
+enchilada/
+  bin/
+    enchilada
+</pre>
+
+<p>Some packages define programs that can be run directly from the command
+line.  These can be shell scripts or any other scripting language,
+including Dart.  The <code class="highlighter-rouge">pub</code> application itself is one example: it’s
+a simple shell script that invokes <code class="highlighter-rouge">pub.dart</code>.</p>
+
+<p>If your package defines code like this, put it in a directory named <code class="highlighter-rouge">bin</code>.
+You can run that script from anywhere on the command line, if you set it up
+using
+<a href="/tools/pub/cmd/pub-global#running-a-script-from-your-path">pub global</a>.</p>
+
+<h2 id="tests-and-benchmarks">
+<a id="tests-and-benchmarks" class="anchor" href="#tests-and-benchmarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests and benchmarks</h2>
+
+<pre>
+enchilada/
+  test/
+    enchilada_test.dart
+    tortilla_test.dart
+</pre>
+
+<p>Every package should have tests. With pub, the convention is
+that these go in a <code class="highlighter-rouge">test</code> directory (or some directory inside it if you like)
+and have <code class="highlighter-rouge">_test</code> at the end of their file names.</p>
+
+<p>Typically, these use the <a href="https://pub.dartlang.org/packages/test">test</a>
+package.</p>
+
+<pre>
+enchilada/
+  benchmark/
+    make_lunch.dart
+</pre>
+
+<p>Packages that have performance critical code may also include <em>benchmarks</em>.
+These test the API not for correctness but for speed (or memory use, or maybe
+other empirical metrics).</p>
+
+<h2 id="documentation">
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<pre>
+enchilada/
+  doc/
+    api/
+    getting_started.md
+</pre>
+
+<p>If you’ve got code and tests, the next piece you might want
+is good documentation. That goes inside a directory named <code class="highlighter-rouge">doc</code>.</p>
+
+<p>When you run the <a href="https://github.com/dart-lang/dartdoc#dartdoc">dartdoc</a>
+tool, it places the API documentation, by default, under <code class="highlighter-rouge">doc/api</code>.
+Since the API documentation is generated from the source code,
+you should not place it under source control.</p>
+
+<p>Other than the generated <code class="highlighter-rouge">api</code>, we don’t
+have any guidelines about format or organization of the documentation
+that you author.  Use whatever markup format that you prefer.</p>
+
+<h2 id="examples">
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<pre>
+enchilada/
+  example/
+    main.dart
+</pre>
+
+<p>Code, tests, docs, what else
+could your users want? Standalone example programs that use your package, of
+course! Those go inside the <code class="highlighter-rouge">example</code> directory. If the examples are complex
+and use multiple files, consider making a directory for each example. Otherwise,
+you can place each one right inside <code class="highlighter-rouge">example</code>.</p>
+
+<p>In your examples, use <code class="highlighter-rouge">package:</code> to import files from your own package.
+That ensures the example code in your package looks exactly
+like code outside of your package would look.</p>
+
+<p>If you might publish your package,
+consider creating an example file with one of the following names:</p>
+
+<ul>
+  <li><code>example[/lib]/main.dart</code></li>
+  <li><code>example[/lib]/<em>package_name</em>.dart</code></li>
+  <li><code>example[/lib]/<em>package_name</em>_example.dart</code></li>
+  <li><code>example[/lib]/example.dart</code></li>
+</ul>
+
+<p>When you publish a package that contains one of the above files,
+the pub site creates an <strong>Example</strong> tab to display that file.
+For example, the json_serializable package contains a file named
+<code class="highlighter-rouge">example/example.dart</code>, which appears in the
+<a href="https://pub.dartlang.org/packages/json_serializable#pub-pkg-tab-example">json_serializable Example tab.</a></p>
+
+<h2 id="internal-tools-and-scripts">
+<a id="internal-tools-and-scripts" class="anchor" href="#internal-tools-and-scripts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Internal tools and scripts</h2>
+
+<pre>
+enchilada/
+  tool/
+    generate_docs.dart
+</pre>
+
+<p>Mature packages often have little helper scripts and programs that people
+run while developing the package itself. Think things like test runners,
+documentation generators, or other bits of automation.</p>
+
+<p>Unlike the scripts in <code class="highlighter-rouge">bin</code>, these are <em>not</em> for external users of the package.
+If you have any of these, place them in a directory called <code class="highlighter-rouge">tool</code>.</p>
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dart-lang/site-www"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dart-lang/site-www/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2018/07/05 16:56 CST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Technologies</h4>
+          <ul>
+            <li><a href="https://flutter.io">Mobile (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart for the web</a></li>
+            <li><a href="/dart-vm">Server-side Dart</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory</a></li>
+            <li><a href="/guides/libraries">Dart libraries</a></li>
+            <li><a href="/guides/language">Dart programming language</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/dev">API reference</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart news</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs and <br> feature requests</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="/community">Support & mailing lists</a></li>
+            <li><a href="/community/who-uses-dart">Who uses Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">community</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">announcement group</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter chat rooms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

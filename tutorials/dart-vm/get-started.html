@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get Dart and run a Dart app.">
+  <title>Get Started with the Dart VM | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Get Started with the Dart VM" />
+  <meta name="twitter:description" content="Get Dart and run a Dart app." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Get Started with the Dart VM" />
+  <meta property="og:description" content="Get Dart and run a Dart app." />
+  <meta property="og:url" content="https://www.dartlang.org/tutorials/dart-vm/get-started" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="/assets/style.css">
+  
+  <!--
+    Why don't we use Dart here?
+
+    The only scripting we use here is stuff like the on-click footnotes on the
+    front page or resizing of the left nav. These happen to be use cases where
+    JavaScript and jQuery are doing just fine. Dart is here for application
+    programming, not page scripting.
+   -->
+  <script type="text/javascript" src="/assets/main.js"></script>
+  
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="tutorial">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>Get Started</span></a></li>
+    <li><a href="/guides/language">Language</a></li>
+    <li><a href="/guides/libraries">Libraries</a></li>
+    <li><a href="/tools">Tools</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/dart-vm/get-started" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.66.0&nbsp;&nbsp;(beta)</a></li>
+
+        <li role="separator" class="divider"></li>
+        <li><a href="/dart-2#migration">Migration guide</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-default" href="/guides/get-started">Get Started</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="Language">Language</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="Tour">Tour</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="Style">Style</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="Documentation">Documentation</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="Usage">Usage</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="Design">Design</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="Sample Code">Sample Code</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="Libraries">Libraries</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="Tour">Tour</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="Platforms">Platforms</a></h4>
+  <ul><li >
+          <a href="https://flutter.io" title="Mobile (Flutter)">Mobile (Flutter)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/dart-vm" title="Server">Server</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="Testing">Testing</a></h4>
+  <ul>
+  </ul><h4 >Resources</h4>
+  <ul><li >
+          <a href="/install" title="Install">Install</a>
+        </li><li >
+          <a href="/codelabs" title="Codelabs">Codelabs</a>
+        </li><li class="active">
+          <a href="/tutorials" title="Tutorials">Tutorials</a>
+        </li><li >
+          <a href="/articles" title="Articles">Articles</a>
+        </li><li >
+          <a href="/tools" title="Tools">Tools</a>
+        </li><li >
+          <a href="/community" title="Community and Support">Community and Support</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <h4>On this page
+      <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
+    </h4>
+    <ul class="section-nav">
+<li class="toc-entry toc-h4"><a href="#whats-the-point">What's the point?</a></li>
+<li class="toc-entry toc-h2"><a href="#download-dart-and-an-ide">Download Dart and an IDE</a></li>
+<li class="toc-entry toc-h2"><a href="#what-did-you-get">What did you get?</a></li>
+<li class="toc-entry toc-h2"><a href="#about-dart-apps">About Dart apps</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#pub-package-manager">Pub package manager</a></li>
+<li class="toc-entry toc-h3"><a href="#command-line-apps">Command-line apps</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#create-a-command-line-app">Create a command-line app</a></li>
+<li class="toc-entry toc-h2"><a href="#run-a-command-line-app">Run a command-line app</a></li>
+<li class="toc-entry toc-h2"><a href="#about-main-and-other-top-level-functions">About main() and other top-level functions</a></li>
+<li class="toc-entry toc-h2"><a href="#about-file-naming-conventions">About file naming conventions</a></li>
+<li class="toc-entry toc-h2"><a href="#other-resources">Other resources</a></li>
+<li class="toc-entry toc-h2"><a href="#what-next">What next?</a></li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+<div class="banner alert alert-info">
+  <p class="banner__text">
+    Welcome to <a href="/dart-2"><b>Dart 2</b></a>!
+    Still using Dart 1.x? See the
+    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">archived site</a>
+    or the <a href="/dart-2#migration">migration guide</a>.
+  </p>
+</div>
+
+
+          
+<nav id="subnav">
+  <ul>
+    <li class="previous">
+      
+        <a href="/tutorials/dart-vm">&lang;&nbsp;&nbsp;Dart VM Tutorials</a>
+      
+    </li>
+    <li class="next">
+      
+        <a href="/tutorials/dart-vm/cmdline">Write Command-Line Apps&nbsp;&nbsp;&rang;</a>
+      
+    </li>
+  </ul>
+</nav>
+
+
+          
+          <div>
+            <ul class="page-github-links-menu" role="group">
+  <li>
+    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_tutorials/dart-vm/get-started.md"
+      class="no-automatic-external"
+      title="View page source"
+      target="_blank" rel="noopener">
+      <i class="fab fa-github fa-sm"></i>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/site-www/issues/new?title='Get Started with the Dart VM' page issue&body=From URL: https://www.dartlang.org/tutorials/dart-vm/get-started"
+      class="no-automatic-external"
+      title="Report a bug on this page" target="_blank" rel="noopener">
+      <i class="fas fa-bug fa-sm"></i>
+    </a>
+  </li>
+</ul>
+
+            <h1>Get Started with the Dart VM</h1>
+          </div>
+          
+<div class="mini-toc">
+  <h4>
+<a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the point?</h4>
+
+  <ul>
+    <li>The Dart SDK has development tools and libraries.</li>
+    <li>Use an IDE (such as WebStorm) or code editor to create your app.</li>
+    <li>All Dart apps have a <code class="highlighter-rouge">main()</code> function.</li>
+    <li>Dart supports top-level functions.</li>
+  </ul>
+</div>
+
+<p>This tutorial gets you ready
+to begin writing Dart apps in an editor or IDE.
+Here you will download the Dart software and
+create and run a small app.</p>
+
+<h2 id="download-dart">
+<a id="download-dart-and-an-ide" class="anchor" href="#download-dart-and-an-ide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download Dart and an IDE</h2>
+
+<p>Once you are ready to move beyond DartPad and create Dart apps in
+a real world environment, you need to download some software.</p>
+
+<p>The Dart SDK contains all of
+the tools and libraries that you need for basic Dart development.
+You may also want an IDE or code editor; this tutorial uses WebStorm.</p>
+
+<ul>
+  <li><a href="/tools/sdk#install">Get the Dart SDK</a></li>
+  <li>Recommended: <a href="https://webdev.dartlang.org/tools/webstorm">Get WebStorm</a>
+</li>
+</ul>
+
+<h2 id="what-did-you-get">
+<a id="what-did-you-get" class="anchor" href="#what-did-you-get" aria-hidden="true"><span class="octicon octicon-link"></span></a>What did you get?</h2>
+
+<p>When you download the <strong>Dart SDK</strong>, you get a directory
+that contains tools (under <code class="highlighter-rouge">bin</code>) and libraries (under <code class="highlighter-rouge">lib</code>),
+along with supporting files.
+The location of the directory (we’ll call it the <em>&lt;sdk-install-dir&gt;</em>)
+depends on your platform and how you downloaded the SDK.</p>
+
+<p>Under <em>&lt;sdk-install-dir&gt;</em>/lib are Dart libraries, such as dart:core,
+dart:html, and dart:io, that define APIs useful to most apps.
+The <em>&lt;sdk-install-dir&gt;</em>/bin directory contains several useful
+command-line tools, such as the <strong>pub</strong> package manager,
+the Dart-to-JavaScript compiler,
+and the command-line version of the Dart VM.</p>
+
+<p><strong>WebStorm</strong> has a pre-installed Dart plugin,
+but it requires a bit of configuration,
+as we’ll describe later.
+If you prefer to use another IDE or code editor,
+you might want to download and install a Dart plugin,
+if available.
+See the <a href="/tools">tools page</a> for a list of plugins.</p>
+
+<h2 id="what-is-app">
+<a id="about-dart-apps" class="anchor" href="#about-dart-apps" aria-hidden="true"><span class="octicon octicon-link"></span></a>About Dart apps</h2>
+
+<p>The most minimal Dart app has the following:</p>
+
+<ul>
+  <li>One Dart source file—a
+file with the <code class="highlighter-rouge">.dart</code> suffix that contains Dart code</li>
+  <li>One top-level <code class="highlighter-rouge">main()</code> function.
+This is the entry point for your app.</li>
+</ul>
+
+<p>As long as this simple Dart app can be run from the
+command line (and does not rely on the browser or the Flutter SDK),
+you can run it using <code class="highlighter-rouge">dart</code>, the Dart VM tool.
+For example:</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> dart main.dart
+</code></pre></div></div>
+
+<p><strong>An app with any level of complexity should also
+include a pubspec file.</strong> The pubspec.yaml file contains
+the name of the app and (optionally) a description.</p>
+
+<p>For example:</p>
+
+<?code-excerpt "misc/pubspec.yaml" retain="/^(name|desc)/"?>
+<pre class="prettyprint lang-yaml">
+name: examples
+description: dartlang.org example code.
+</pre>
+
+<h3 id="pub-package-manager">
+<a id="pub-package-manager" class="anchor" href="#pub-package-manager" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pub package manager</h3>
+
+<p>The <a href="/tools/pub">pub</a> tool allows you to manage Dart packages.
+Pub also includes commands for creating, developing, running, and deploying
+Dart apps. Behind the scenes, <a href="/tools/pub/cmd/pub-run"><code class="highlighter-rouge">pub run</code></a>,
+for example, uses the <code class="highlighter-rouge">dart</code> tool to run a command-line app.</p>
+
+<p>Pub uses the <code class="highlighter-rouge">pubspec.yaml</code> file to determine
+your app’s dependencies and any special setup that your app requires.
+Pub assumes that the files and directories in a Dart app are
+<a href="/tools/pub/package-layout">laid out in a particular way</a>. The following diagram shows some of the
+conventions used by pub. Not all of these directories are required.</p>
+
+<p><img class="scale-img-max" src="/tutorials/dart-vm/images/pub-directory-structure.png" alt="Pub's directory structure including bin, lib, build directories, and pubspec"></p>
+
+<dl>
+  <dt><code class="highlighter-rouge">bin</code></dt>
+  <dd>The main files for a command-line app. One of the
+files must include a top-level <code class="highlighter-rouge">main()</code> function.</dd>
+  <dt><code class="highlighter-rouge">lib</code></dt>
+  <dd>Additional code to be used by your app.</dd>
+  <dt><code class="highlighter-rouge">pubspec.yaml</code></dt>
+  <dd>The app’s metadata, including information about which
+packages the app depends on and which versions of those
+packages are required.</dd>
+</dl>
+
+<p>You can invoke pub commands from the command line or from the WebStorm UI.</p>
+
+<h3 id="command-line-apps">
+<a id="command-line-apps" class="anchor" href="#command-line-apps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command-line apps</h3>
+
+<p>Dart command-line apps
+run standalone from the command line.
+Command-line apps are often used
+to provide server-side support to a web app,
+but they can also be scripts.</p>
+
+<p>The Dart VM runs Dart code directly without intermediate compilation.</p>
+
+<p><img class="scale-img-max" src="/tutorials/dart-vm/images/dartvm-cmd-line.png" alt="Run a command-line app without compilation"></p>
+
+<h2 id="create-cmd-line">
+<a id="create-a-command-line-app" class="anchor" href="#create-a-command-line-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a command-line app</h2>
+
+<ol>
+  <li>
+    <p>Launch WebStorm. This brings up a “Welcome to Webstorm” dialog.</p>
+  </li>
+  <li>
+    <p>If this is the first time you have run WebStorm, you will
+need to set the path to the SDK.
+You can find the instructions at
+<a href="https://webdev.dartlang.org/tools/webstorm#configuring-dart-support">Configuring Dart support</a>.</p>
+  </li>
+  <li>
+    <p>Choose <strong>Create New Project</strong>.
+A dialog appears asking you to fill out a simple form.</p>
+  </li>
+  <li>
+    <p>Select <strong>Dart</strong> from the list on the left.</p>
+  </li>
+  <li>
+    <p>Replace the <code class="highlighter-rouge">untitled</code> portion of the string with <code class="highlighter-rouge">hello_world</code>.
+This name is used for the app’s directory name and package name.
+By convention, these names are lowercase, with words
+separated by underscores (<code class="highlighter-rouge">_</code>).</p>
+  </li>
+  <li>
+    <p>Make sure that <strong>Generate sample content</strong> is checked.</p>
+  </li>
+  <li>
+    <p>Select <strong>Console app</strong> from the list.</p>
+  </li>
+  <li>
+    <p>Click <strong>Create</strong>.</p>
+  </li>
+</ol>
+
+<p>WebStorm creates a <code class="highlighter-rouge">hello_world</code> directory for the app
+and boilerplate files for a small command-line app.
+It then runs <code class="highlighter-rouge">pub get</code> to download the packages that the app depends on.</p>
+
+<aside class="alert alert-info">
+  <p><strong>If you don’t have WebStorm:</strong>
+You can create the command-line app’s files
+using the <strong>console-full</strong> generator from
+<a href="http://stagehand.pub/">Stagehand.</a>
+Then run <code class="highlighter-rouge">pub get</code>.</p>
+</aside>
+
+<p>Some of the files and directories in the hello_world app
+include the following:</p>
+
+<dl>
+  <dt><code class="highlighter-rouge">.dart_tool</code></dt>
+  <dd>Support files used by <code class="highlighter-rouge">pub</code> and other Dart tools. You can ignore this.</dd>
+  <dt><code class="highlighter-rouge">bin</code></dt>
+  <dd>Contains the source files for the app.
+Expand <code class="highlighter-rouge">bin</code> to see <code class="highlighter-rouge">main.dart</code>, which is the main
+Dart file for this example.</dd>
+  <dt><code class="highlighter-rouge">pubspec.yaml</code></dt>
+  <dd>Declares which packages your app needs.</dd>
+  <dt><code class="highlighter-rouge">pubspec.lock</code></dt>
+  <dd>A generated file that specifies the version numbers
+of the packages on which the app depends.</dd>
+  <dt><code class="highlighter-rouge">lib</code></dt>
+  <dd>Contains library code. Expand <code class="highlighter-rouge">lib</code> to see
+<code class="highlighter-rouge">hello_world.dart</code>, a library file with
+a simple <code class="highlighter-rouge">calculate()</code> method.</dd>
+  <dt><code class="highlighter-rouge">.packages</code></dt>
+  <dd>Tells the Dart tools where to get the packages that your
+app uses. This file is created by the <code class="highlighter-rouge">pub get</code> command.
+You can ignore this.</dd>
+</dl>
+
+<p>Double-clicking any filename displays the contents of that file
+in the pane to the right.</p>
+
+<p>The messages pane at the bottom contains the results of calling
+<code class="highlighter-rouge">pub get</code>, which fetches the packages used by the app.</p>
+
+<p>When executed, the program prints
+“Hello world: 42!” to the standard output stream,
+using the <code class="highlighter-rouge">print()</code> function provided by the <code class="highlighter-rouge">dart:core</code> library.
+The functions and objects defined in the dart:core library
+are automatically available to all Dart apps.</p>
+
+<h2 id="run-cmd-line">
+<a id="run-a-command-line-app" class="anchor" href="#run-a-command-line-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run a command-line app</h2>
+
+<p>In WebStorm, you can run the app in any of the following ways:</p>
+
+<ul>
+  <li>Click the Run button ( <img src="/assets/green-run.png" width="16" height="16" alt="green-run.png"> ) in the upper right corner.</li>
+  <li>Click the Run button to the left of the messages pane.</li>
+  <li>Right-click <code class="highlighter-rouge">main.dart</code> in the files pane and select <strong>Run ‘main.dart’</strong>
+from the pop-up menu.</li>
+</ul>
+
+<p>WebStorm shows the output at the bottom in a pane titled
+<strong>Run main.dart</strong>.</p>
+
+<p>If you don’t have WebStorm, you can run the app from the command line:</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> pub run bin/main.dart
+</code></pre></div></div>
+
+<h2 id="top-level-functions">
+<a id="about-main-and-other-top-level-functions" class="anchor" href="#about-main-and-other-top-level-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>About main() and other top-level functions</h2>
+
+<p>Dart lets you define <em>top-level</em> functions,
+that is, functions that are not encapsulated within a class or object.
+All apps have at least one top-level function,
+namely the <code class="highlighter-rouge">main()</code> function.</p>
+
+<p>The app you’ve seen in this tutorial has other top-level functions.
+The Hello World example calls <code class="highlighter-rouge">print()</code>,
+a top-level function defined in <code class="highlighter-rouge">dart:core</code>.</p>
+
+<p>A function declaration
+has two parts: a <em>signature</em> and a <em>body</em>.</p>
+
+<p><img class="scale-img-max" src="/tutorials/dart-vm/images/function-parts.png" alt="Two parts of a function, the signature and the body"></p>
+
+<p>The signature sets the function name,
+the data type of its return value,
+and the number and type of its input arguments.</p>
+
+<p><img class="scale-img-max" src="/tutorials/dart-vm/images/signature-parts.png" alt="The parts of a function signature"></p>
+
+<p>The body is the code that defines the function’s behavior.
+It usually appears between curly braces (<code class="highlighter-rouge">{</code><em>code</em><code class="highlighter-rouge">}</code>).
+If the body is a single expression, then you
+can skip the braces and use the <code class="highlighter-rouge">=&gt;</code> shorthand:</p>
+
+<?code-excerpt "misc/lib/vm_get_started.dart"?>
+<pre class="prettyprint lang-dart">
+double milesToKM(double miles) =&gt; miles / 0.62;
+</pre>
+
+<p>The <code class="highlighter-rouge">milesToKM()</code> function performs a simple arithmetic calculation
+and returns the result.</p>
+
+<p>This function takes a single argument.
+Functions can take multiple arguments,
+in which case the arguments are set apart by commas.</p>
+
+<h2 id="file-names">
+<a id="about-file-naming-conventions" class="anchor" href="#about-file-naming-conventions" aria-hidden="true"><span class="octicon octicon-link"></span></a>About file naming conventions</h2>
+
+<p>When creating an app with WebStorm,
+you are asked to provide an app name.
+By convention, app names
+(and thus, the related files and directories) are lowercase,
+with words separated by underscores (<code class="highlighter-rouge">_</code>).</p>
+
+<h2 id="other-resources">
+<a id="other-resources" class="anchor" href="#other-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other resources</h2>
+
+<ul>
+  <li>The <a href="https://webdev.dartlang.org/tools/webstorm">WebStorm</a> page
+provides more information about this tool.</li>
+  <li>The <a href="/tools/pub">pub</a>
+pages contain more information
+about Dart’s package and asset manager.</li>
+</ul>
+
+<h2 id="what-next">
+<a id="what-next" class="anchor" href="#what-next" aria-hidden="true"><span class="octicon octicon-link"></span></a>What next?</h2>
+
+<p>Try the next tutorial, <a href="cmdline">Write Command-Line Apps</a>, which describes how
+to build command-line apps.</p>
+
+
+
+
+          
+<nav id="subnav">
+  <ul>
+    <li class="previous">
+      
+        <a href="/tutorials/dart-vm">&lang;&nbsp;&nbsp;Dart VM Tutorials</a>
+      
+    </li>
+    <li class="next">
+      
+        <a href="/tutorials/dart-vm/cmdline">Write Command-Line Apps&nbsp;&nbsp;&rang;</a>
+      
+    </li>
+  </ul>
+</nav>
+
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dart-lang/site-www"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dart-lang/site-www/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2018/07/05 16:56 CST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Technologies</h4>
+          <ul>
+            <li><a href="https://flutter.io">Mobile (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart for the web</a></li>
+            <li><a href="/dart-vm">Server-side Dart</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory</a></li>
+            <li><a href="/guides/libraries">Dart libraries</a></li>
+            <li><a href="/guides/language">Dart programming language</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/dev">API reference</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart news</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs and <br> feature requests</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="/community">Support & mailing lists</a></li>
+            <li><a href="/community/who-uses-dart">Who uses Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">community</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">announcement group</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter chat rooms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

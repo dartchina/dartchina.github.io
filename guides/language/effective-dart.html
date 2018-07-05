@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Best practices for building consistent, maintainable, efficient Dart libraries.">
+  <title>Effective Dart | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Effective Dart" />
+  <meta name="twitter:description" content="Best practices for building consistent, maintainable, efficient Dart libraries." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Effective Dart" />
+  <meta property="og:description" content="Best practices for building consistent, maintainable, efficient Dart libraries." />
+  <meta property="og:url" content="https://www.dartlang.org/guides/language/effective-dart" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="/assets/style.css">
+  
+  <!--
+    Why don't we use Dart here?
+
+    The only scripting we use here is stuff like the on-click footnotes on the
+    front page or resizing of the left nav. These happen to be use cases where
+    JavaScript and jQuery are doing just fine. Dart is here for application
+    programming, not page scripting.
+   -->
+  <script type="text/javascript" src="/assets/main.js"></script>
+  
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>Get Started</span></a></li>
+    <li><a href="/guides/language">Language</a></li>
+    <li><a href="/guides/libraries">Libraries</a></li>
+    <li><a href="/tools">Tools</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/effective-dart" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.66.0&nbsp;&nbsp;(beta)</a></li>
+
+        <li role="separator" class="divider"></li>
+        <li><a href="/dart-2#migration">Migration guide</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-default" href="/guides/get-started">Get Started</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="Language">Language</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="Tour">Tour</a>
+        </li>
+        
+        <li class="active">
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="Style">Style</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="Documentation">Documentation</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="Usage">Usage</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="Design">Design</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="Sample Code">Sample Code</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="Libraries">Libraries</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="Tour">Tour</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="Platforms">Platforms</a></h4>
+  <ul><li >
+          <a href="https://flutter.io" title="Mobile (Flutter)">Mobile (Flutter)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/dart-vm" title="Server">Server</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="Testing">Testing</a></h4>
+  <ul>
+  </ul><h4 >Resources</h4>
+  <ul><li >
+          <a href="/install" title="Install">Install</a>
+        </li><li >
+          <a href="/codelabs" title="Codelabs">Codelabs</a>
+        </li><li >
+          <a href="/tutorials" title="Tutorials">Tutorials</a>
+        </li><li >
+          <a href="/articles" title="Articles">Articles</a>
+        </li><li >
+          <a href="/tools" title="Tools">Tools</a>
+        </li><li >
+          <a href="/community" title="Community and Support">Community and Support</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <h4>On this page
+      <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
+    </h4>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#the-guides">The guides</a></li>
+<li class="toc-entry toc-h2"><a href="#how-to-read-the-guides">How to read the guides</a></li>
+<li class="toc-entry toc-h2"><a href="#glossary">Glossary</a></li>
+<li class="toc-entry toc-h2"><a href="#summary-of-all-rules">Summary of all rules</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#style">Style</a></li>
+<li class="toc-entry toc-h3"><a href="#documentation">Documentation</a></li>
+<li class="toc-entry toc-h3"><a href="#usage">Usage</a></li>
+<li class="toc-entry toc-h3"><a href="#design">Design</a></li>
+</ul>
+</li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+<div class="banner alert alert-info">
+  <p class="banner__text">
+    Welcome to <a href="/dart-2"><b>Dart 2</b></a>!
+    Still using Dart 1.x? See the
+    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">archived site</a>
+    or the <a href="/dart-2#migration">migration guide</a>.
+  </p>
+</div>
+
+
+          
+<nav id="subnav">
+  <ul>
+    <li class="previous">
+      
+    </li>
+    <li class="next">
+      
+        <a href="/guides/language/effective-dart/style">Style&nbsp;&nbsp;&rang;</a>
+      
+    </li>
+  </ul>
+</nav>
+
+
+          
+          <div>
+            <ul class="page-github-links-menu" role="group">
+  <li>
+    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/language/effective-dart/index.md"
+      class="no-automatic-external"
+      title="View page source"
+      target="_blank" rel="noopener">
+      <i class="fab fa-github fa-sm"></i>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/site-www/issues/new?title='Effective Dart' page issue&body=From URL: https://www.dartlang.org/guides/language/effective-dart"
+      class="no-automatic-external"
+      title="Report a bug on this page" target="_blank" rel="noopener">
+      <i class="fas fa-bug fa-sm"></i>
+    </a>
+  </li>
+</ul>
+
+            <h1>Effective Dart</h1>
+          </div>
+          <div class="banner">
+  <p class="banner__text">
+    <em>Effective Dart</em> is being updated to reflect
+    current practices and Dart 2.
+    If you notice a problem that isn't a <a target="_blank" href="https://github.com/dart-lang/site-www/labels/EffectiveDart">known issue,</a>
+    please report a bug.
+  </p>
+</div>
+
+<p>Over the past several years, we’ve written a ton of Dart code and learned a lot
+about what works well and what doesn’t. We’re sharing this with you so you can
+write consistent, robust, fast code too. There are two overarching themes:</p>
+
+<ol>
+  <li>
+    <p><strong>Be consistent.</strong> When it comes to things like formatting, and casing,
+arguments about which is better are subjective and impossible to resolve.
+What we do know is that being <em>consistent</em> is objectively helpful.</p>
+
+    <p>If two pieces of code look different it should be because they <em>are</em>
+different in some meaningful way. When a bit of code stands out and catches
+your eye, it should do so for a useful reason.</p>
+  </li>
+  <li>
+    <p><strong>Be brief.</strong> Dart was designed to be familiar, so it inherits many of the
+same statements and expressions as C, Java, JavaScript and other languages.
+But we created Dart because there is a lot of room to improve on what those
+languages offer. We added a bunch of features, from string interpolation to
+initializing formals, to help you express your intent more simply and
+easily.</p>
+
+    <p>If there are multiple ways to say something, you should generally pick the
+most concise one. This is not to say you should <a href="https://en.wikipedia.org/wiki/Code_golf">code golf</a> yourself into
+cramming a whole program into a single line. The goal is code that is
+<em>economical</em>, not <em>dense</em>.</p>
+  </li>
+</ol>
+
+<h2 id="the-guides">
+<a id="the-guides" class="anchor" href="#the-guides" aria-hidden="true"><span class="octicon octicon-link"></span></a>The guides</h2>
+
+<p>We split the guidelines into a few separate pages for easy digestion:</p>
+
+<ul>
+  <li>
+    <p><strong><a href="/guides/language/effective-dart/style">Style Guide</a></strong> – This defines the rules for laying out and
+organizing code, or at least the parts that <a href="https://github.com/dart-lang/dart_style#readme">dartfmt</a> doesn’t handle for
+you. The style guide also specifies how identifiers are formatted:
+<code class="highlighter-rouge">camelCase</code>, <code class="highlighter-rouge">using_underscores</code>, etc.</p>
+  </li>
+  <li>
+    <p><strong><a href="/guides/language/effective-dart/documentation">Documentation Guide</a></strong> – This tells you everything you need to
+know about what goes inside comments. Both doc comments and regular,
+run-of-the-mill code comments.</p>
+  </li>
+  <li>
+    <p><strong><a href="/guides/language/effective-dart/usage">Usage Guide</a></strong> – This teaches you how to make the best use of
+language features to implement behavior. If it’s in a statement or
+expression, it’s covered here.</p>
+  </li>
+  <li>
+    <p><strong><a href="/guides/language/effective-dart/design">Design Guide</a></strong> – This is the softest guide, but the one
+with the widest scope. It covers what we’ve learned about designing
+consistent, usable APIs for libraries. If it’s in a type signature or
+declaration, this goes over it.</p>
+  </li>
+</ul>
+
+<p>For links to all the guidelines, see the
+<a href="#summary-of-all-rules">summary</a>.</p>
+
+<h2 id="how-to-read-the-guides">
+<a id="how-to-read-the-guides" class="anchor" href="#how-to-read-the-guides" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to read the guides</h2>
+
+<p>Each guide is broken into a few sections. Sections contain a list of guidelines.
+Each guideline starts with one of these words:</p>
+
+<ul>
+  <li>
+    <p><strong>DO</strong> guidelines describe practices that should always be followed. There
+will almost never be a valid reason to stray from them.</p>
+  </li>
+  <li>
+    <p><strong>DON’T</strong> guidelines are the converse: things that are almost never a good
+idea. Hopefully, we don’t have as many of these as other languages do because
+we have less historical baggage.</p>
+  </li>
+  <li>
+    <p><strong>PREFER</strong> guidelines are practices that you <em>should</em> follow. However, there
+may be circumstances where it makes sense to do otherwise. Just make sure you
+understand the full implications of ignoring the guideline when you do.</p>
+  </li>
+  <li>
+    <p><strong>AVOID</strong> guidelines are the dual to “prefer”: stuff you shouldn’t do but
+where there may be good reasons to on rare occasions.</p>
+  </li>
+  <li>
+    <p><strong>CONSIDER</strong> guidelines are practices that you might or might not want to
+follow, depending on circumstances, precedents, and your own preference.</p>
+  </li>
+</ul>
+
+<p>This sounds like the police are going to beat down your door if you don’t have
+your laces tied correctly. Things aren’t that bad. Most of the guidelines here
+are common sense and we’re all reasonable people. The goal, as always, is nice,
+readable and maintainable code.</p>
+
+<h2 id="glossary">
+<a id="glossary" class="anchor" href="#glossary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Glossary</h2>
+
+<p>To keep the guidelines brief, we use a few shorthand terms to refer to different
+Dart constructs.</p>
+
+<ul>
+  <li>
+    <p>A <strong>library member</strong> is a top-level field, getter, setter, or function.
+Basically, anything at the top level that isn’t a type.</p>
+  </li>
+  <li>
+    <p>A <strong>class member</strong> is a constructor, field, getter, setter, function, or
+operator declared inside a class. Class members can be instance or static,
+abstract or concrete.</p>
+  </li>
+  <li>
+    <p>A <strong>member</strong> is either a library member or a class member.</p>
+  </li>
+  <li>
+    <p>A <strong>variable</strong>, when used generally, refers to top-level variables,
+parameters, and local variables. It doesn’t include static or instance fields.</p>
+  </li>
+  <li>
+    <p>A <strong>type</strong> is any named type declaration: a class, typedef, or enum.</p>
+  </li>
+  <li>
+    <p>A <strong>property</strong> is a top-level variable, getter (inside a class or at the top
+level, instance or static), setter (same), or field (instance or static).
+Roughly any “field-like” named construct.</p>
+  </li>
+</ul>
+
+<h2 id="summary-of-all-rules">
+<a id="summary-of-all-rules" class="anchor" href="#summary-of-all-rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary of all rules</h2>
+
+<div class="effective_dart--summary_column">
+
+  <h3 id="style">
+<a id="style" class="anchor" href="#style" aria-hidden="true"><span class="octicon octicon-link"></span></a>Style</h3>
+
+  <p><strong>Identifiers</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/style#do-name-types-using-uppercamelcase">DO name types using <code>UpperCamelCase</code>.</a></li>
+    <li><a href="/guides/language/effective-dart/style#do-name-libraries-and-source-files-using-lowercase_with_underscores">DO name libraries and source files using <code>lowercase_with_underscores</code>.</a></li>
+    <li><a href="/guides/language/effective-dart/style#do-name-import-prefixes-using-lowercase_with_underscores">DO name import prefixes using <code>lowercase_with_underscores</code>.</a></li>
+    <li><a href="/guides/language/effective-dart/style#do-name-other-identifiers-using-lowercamelcase">DO name other identifiers using <code>lowerCamelCase</code>.</a></li>
+    <li><a href="/guides/language/effective-dart/style#prefer-using-lowercamelcase-for-constant-names">PREFER using <code>lowerCamelCase</code> for constant names.</a></li>
+    <li><a href="/guides/language/effective-dart/style#do-capitalize-acronyms-and-abbreviations-longer-than-two-letters-like-words">DO capitalize acronyms and abbreviations longer than two letters like words.</a></li>
+  </ul>
+
+  <p><strong>Ordering</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/style#do-place-dart-imports-before-other-imports">DO place “dart:” imports before other imports.</a></li>
+    <li><a href="/guides/language/effective-dart/style#do-place-package-imports-before-relative-imports">DO place “package:” imports before relative imports.</a></li>
+    <li><a href="/guides/language/effective-dart/style#prefer-placing-third-party-package-imports-before-other-imports">PREFER placing “third-party” “package:” imports before other imports.</a></li>
+    <li><a href="/guides/language/effective-dart/style#do-specify-exports-in-a-separate-section-after-all-imports">DO specify exports in a separate section after all imports.</a></li>
+    <li><a href="/guides/language/effective-dart/style#do-sort-sections-alphabetically">DO sort sections alphabetically.</a></li>
+  </ul>
+
+  <p><strong>Formatting</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/style#do-format-your-code-using-dartfmt">DO format your code using <code>dartfmt</code>.</a></li>
+    <li><a href="/guides/language/effective-dart/style#consider-changing-your-code-to-make-it-more-formatter-friendly">CONSIDER changing your code to make it more formatter-friendly.</a></li>
+    <li><a href="/guides/language/effective-dart/style#avoid-lines-longer-than-80-characters">AVOID lines longer than 80 characters.</a></li>
+    <li><a href="/guides/language/effective-dart/style#do-use-curly-braces-for-all-flow-control-structures">DO use curly braces for all flow control structures.</a></li>
+  </ul>
+
+</div>
+<div class="effective_dart--summary_column">
+
+  <h3 id="documentation">
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h3>
+
+  <p><strong>Comments</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/documentation#do-format-comments-like-sentences">DO format comments like sentences.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#dont-use-block-comments-for-documentation">DON’T use block comments for documentation.</a></li>
+  </ul>
+
+  <p><strong>Doc comments</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/documentation#do-use--doc-comments-to-document-members-and-types">DO use <code>///</code> doc comments to document members and types.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#prefer-writing-doc-comments-for-public-apis">PREFER writing doc comments for public APIs.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#consider-writing-a-library-level-doc-comment">CONSIDER writing a library-level doc comment.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#consider-writing-doc-comments-for-private-apis">CONSIDER writing doc comments for private APIs.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#do-start-doc-comments-with-a-single-sentence-summary">DO start doc comments with a single-sentence summary.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#do-separate-the-first-sentence-of-a-doc-comment-into-its-own-paragraph">DO separate the first sentence of a doc comment into its own paragraph.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#avoid-redundancy-with-the-surrounding-context">AVOID redundancy with the surrounding context.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#prefer-starting-function-or-method-comments-with-third-person-verbs">PREFER starting function or method comments with third-person verbs.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#prefer-starting-variable-getter-or-setter-comments-with-noun-phrases">PREFER starting variable, getter, or setter comments with noun phrases.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#prefer-starting-library-or-type-comments-with-noun-phrases">PREFER starting library or type comments with noun phrases.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#consider-including-code-samples-in-doc-comments">CONSIDER including code samples in doc comments.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#do-use-square-brackets-in-doc-comments-to-refer-to-in-scope-identifiers">DO use square brackets in doc comments to refer to in-scope identifiers.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#do-use-prose-to-explain-parameters-return-values-and-exceptions">DO use prose to explain parameters, return values, and exceptions.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#do-put-doc-comments-before-metadata-annotations">DO put doc comments before metadata annotations.</a></li>
+  </ul>
+
+  <p><strong>Markdown</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/documentation#avoid-using-markdown-excessively">AVOID using markdown excessively.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#avoid-using-html-for-formatting">AVOID using HTML for formatting.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#prefer-backtick-fences-for-code-blocks">PREFER backtick fences for code blocks.</a></li>
+  </ul>
+
+  <p><strong>Writing</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/documentation#prefer-brevity">PREFER brevity.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#avoid-abbreviations-and-acronyms-unless-they-are-obvious">AVOID abbreviations and acronyms unless they are obvious.</a></li>
+    <li><a href="/guides/language/effective-dart/documentation#prefer-using-this-instead-of-the-to-refer-to-a-members-instance">PREFER using “this” instead of “the” to refer to a member’s instance.</a></li>
+  </ul>
+
+</div>
+<div style="clear:both"></div>
+<div class="effective_dart--summary_column">
+
+  <h3 id="usage">
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+  <p><strong>Libraries</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/usage#do-use-strings-in-part-of-directives">DO use strings in <code>part of</code> directives.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#dont-import-libraries-that-are-inside-the-src-directory-of-another-package">DON’T import libraries that are inside the <code>src</code> directory of another package.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#prefer-relative-paths-when-importing-libraries-within-your-own-packages-lib-directory">PREFER relative paths when importing libraries within your own package’s <code>lib</code> directory.</a></li>
+  </ul>
+
+  <p><strong>Strings</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/usage#do-use-adjacent-strings-to-concatenate-string-literals">DO use adjacent strings to concatenate string literals.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#prefer-using-interpolation-to-compose-strings-and-values">PREFER using interpolation to compose strings and values.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#avoid-using-curly-braces-in-interpolation-when-not-needed">AVOID using curly braces in interpolation when not needed.</a></li>
+  </ul>
+
+  <p><strong>Collections</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/usage#do-use-collection-literals-when-possible">DO use collection literals when possible.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#dont-use-length-to-see-if-a-collection-is-empty">DON’T use <code>.length</code> to see if a collection is empty.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#consider-using-higher-order-methods-to-transform-a-sequence">CONSIDER using higher-order methods to transform a sequence.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#avoid-using-iterableforeach-with-a-function-literal">AVOID using <code>Iterable.forEach()</code> with a function literal.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#dont-use-listfrom-unless-you-intend-to-change-the-type-of-the-result">DON’T use <code>List.from()</code> unless you intend to change the type of the result.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#do-use-wheretype-to-filter-a-collection-by-type">DO use <code>whereType()</code> to filter a collection by type.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#dont-use-cast-when-a-nearby-operation-will-do">DON’T use <code>cast()</code> when a nearby operation will do.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#avoid-using-cast">AVOID using <code>cast()</code>.</a></li>
+  </ul>
+
+  <p><strong>Functions</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/usage#do-use-a-function-declaration-to-bind-a-function-to-a-name">DO use a function declaration to bind a function to a name.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#dont-create-a-lambda-when-a-tear-off-will-do">DON’T create a lambda when a tear-off will do.</a></li>
+  </ul>
+
+  <p><strong>Parameters</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/usage#do-use--to-separate-a-named-parameter-from-its-default-value">DO use <code>=</code> to separate a named parameter from its default value.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#dont-use-an-explicit-default-value-of-null">DON’T use an explicit default value of <code>null</code>.</a></li>
+  </ul>
+
+  <p><strong>Variables</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/usage#dont-explicitly-initialize-variables-to-null">DON’T explicitly initialize variables to <code>null</code>.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#avoid-storing-what-you-can-calculate">AVOID storing what you can calculate.</a></li>
+  </ul>
+
+  <p><strong>Members</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/usage#dont-wrap-a-field-in-a-getter-and-setter-unnecessarily">DON’T wrap a field in a getter and setter unnecessarily.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#prefer-using-a-final-field-to-make-a-read-only-property">PREFER using a <code>final</code> field to make a read-only property.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#consider-using--for-simple-members">CONSIDER using <code>=&gt;</code> for simple members.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#dont-use-this-when-not-needed-to-avoid-shadowing">DON’T use <code>this.</code> when not needed to avoid shadowing.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#do-initialize-fields-at-their-declaration-when-possible">DO initialize fields at their declaration when possible.</a></li>
+  </ul>
+
+  <p><strong>Constructors</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/usage#do-use-initializing-formals-when-possible">DO use initializing formals when possible.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#dont-type-annotate-initializing-formals">DON’T type annotate initializing formals.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#do-use--instead-of--for-empty-constructor-bodies">DO use <code>;</code> instead of <code>{}</code> for empty constructor bodies.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#dont-use-new">DON’T use <code>new</code>.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#dont-use-const-redundantly">DON’T use <code>const</code> redundantly.</a></li>
+  </ul>
+
+  <p><strong>Error handling</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/usage#avoid-catches-without-on-clauses">AVOID catches without <code>on</code> clauses.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#dont-discard-errors-from-catches-without-on-clauses">DON’T discard errors from catches without <code>on</code> clauses.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#do-throw-objects-that-implement-error-only-for-programmatic-errors">DO throw objects that implement <code>Error</code> only for programmatic errors.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#dont-explicitly-catch-error-or-types-that-implement-it">DON’T explicitly catch <code>Error</code> or types that implement it.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#do-use-rethrow-to-rethrow-a-caught-exception">DO use <code>rethrow</code> to rethrow a caught exception.</a></li>
+  </ul>
+
+  <p><strong>Asynchrony</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/usage#prefer-asyncawait-over-using-raw-futures">PREFER async/await over using raw futures.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#dont-use-async-when-it-has-no-useful-effect">DON’T use <code>async</code> when it has no useful effect.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#consider-using-higher-order-methods-to-transform-a-stream">CONSIDER using higher-order methods to transform a stream.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#avoid-using-completer-directly">AVOID using Completer directly.</a></li>
+    <li><a href="/guides/language/effective-dart/usage#do-test-for-futuret-when-disambiguating-a-futureort-whose-type-argument-could-be-object">DO test for <code>Future&lt;T&gt;</code> when disambiguating a <code>FutureOr&lt;T&gt;</code> whose type argument could be <code>Object</code>.</a></li>
+  </ul>
+
+</div>
+<div class="effective_dart--summary_column">
+
+  <h3 id="design">
+<a id="design" class="anchor" href="#design" aria-hidden="true"><span class="octicon octicon-link"></span></a>Design</h3>
+
+  <p><strong>Names</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/design#do-use-terms-consistently">DO use terms consistently.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-abbreviations">AVOID abbreviations.</a></li>
+    <li><a href="/guides/language/effective-dart/design#prefer-putting-the-most-descriptive-noun-last">PREFER putting the most descriptive noun last.</a></li>
+    <li><a href="/guides/language/effective-dart/design#consider-making-the-code-read-like-a-sentence">CONSIDER making the code read like a sentence.</a></li>
+    <li><a href="/guides/language/effective-dart/design#prefer-a-noun-phrase-for-a-non-boolean-property-or-variable">PREFER a noun phrase for a non-boolean property or variable.</a></li>
+    <li><a href="/guides/language/effective-dart/design#prefer-a-non-imperative-verb-phrase-for-a-boolean-property-or-variable">PREFER a non-imperative verb phrase for a boolean property or variable.</a></li>
+    <li><a href="/guides/language/effective-dart/design#consider-omitting-the-verb-for-a-named-boolean-parameter">CONSIDER omitting the verb for a named boolean <em>parameter</em>.</a></li>
+    <li><a href="/guides/language/effective-dart/design#prefer-the-positive-name-for-a-boolean-property-or-variable">PREFER the “positive” name for a boolean property or variable.</a></li>
+    <li><a href="/guides/language/effective-dart/design#prefer-an-imperative-verb-phrase-for-a-function-or-method-whose-main-purpose-is-a-side-effect">PREFER an imperative verb phrase for a function or method whose main purpose is a side effect.</a></li>
+    <li><a href="/guides/language/effective-dart/design#prefer-a-noun-phrase-or-non-imperative-verb-phrase-for-a-function-or-method-if-returning-a-value-is-its-primary-purpose">PREFER a noun phrase or non-imperative verb phrase for a function or method if returning a value is its primary purpose.</a></li>
+    <li><a href="/guides/language/effective-dart/design#consider-an-imperative-verb-phrase-for-a-function-or-method-if-you-want-to-draw-attention-to-the-work-it-performs">CONSIDER an imperative verb phrase for a function or method if you want to draw attention to the work it performs.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-starting-a-method-name-with-get">AVOID starting a method name with <code>get</code>.</a></li>
+    <li><a href="/guides/language/effective-dart/design#prefer-naming-a-method-to___-if-it-copies-the-objects-state-to-a-new-object">PREFER naming a method <code>to___()</code> if it copies the object’s state to a new object.</a></li>
+    <li><a href="/guides/language/effective-dart/design#prefer-naming-a-method-as___-if-it-returns-a-different-representation-backed-by-the-original-object">PREFER naming a method <code>as___()</code> if it returns a different representation backed by the original object.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-describing-the-parameters-in-the-functions-or-methods-name">AVOID describing the parameters in the function’s or method’s name.</a></li>
+    <li><a href="/guides/language/effective-dart/design#do-follow-existing-mnemonic-conventions-when-naming-type-parameters">DO follow existing mnemonic conventions when naming type parameters.</a></li>
+  </ul>
+
+  <p><strong>Libraries</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/design#prefer-making-declarations-private">PREFER making declarations private.</a></li>
+    <li><a href="/guides/language/effective-dart/design#consider-declaring-multiple-classes-in-the-same-library">CONSIDER declaring multiple classes in the same library.</a></li>
+  </ul>
+
+  <p><strong>Classes</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/design#avoid-defining-a-one-member-abstract-class-when-a-simple-function-will-do">AVOID defining a one-member abstract class when a simple function will do.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-defining-a-class-that-contains-only-static-members">AVOID defining a class that contains only static members.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-extending-a-class-that-isnt-intended-to-be-subclassed">AVOID extending a class that isn’t intended to be subclassed.</a></li>
+    <li><a href="/guides/language/effective-dart/design#do-document-if-your-class-supports-being-extended">DO document if your class supports being extended.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-implementing-a-class-that-isnt-intended-to-be-an-interface">AVOID implementing a class that isn’t intended to be an interface.</a></li>
+    <li><a href="/guides/language/effective-dart/design#do-document-if-your-class-supports-being-used-as-an-interface">DO document if your class supports being used as an interface.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-mixing-in-a-class-that-isnt-intended-to-be-a-mixin">AVOID mixing in a class that isn’t intended to be a mixin.</a></li>
+    <li><a href="/guides/language/effective-dart/design#do-document-if-your-class-supports-being-used-as-a-mixin">DO document if your class supports being used as a mixin.</a></li>
+  </ul>
+
+  <p><strong>Constructors</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/design#prefer-defining-constructors-instead-of-static-methods-to-create-instances">PREFER defining constructors instead of static methods to create instances.</a></li>
+    <li><a href="/guides/language/effective-dart/design#consider-making-your-constructor-const-if-the-class-supports-it">CONSIDER making your constructor <code>const</code> if the class supports it.</a></li>
+  </ul>
+
+  <p><strong>Members</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/design#prefer-making-fields-and-top-level-variables-final">PREFER making fields and top-level variables <code>final</code>.</a></li>
+    <li><a href="/guides/language/effective-dart/design#do-use-getters-for-operations-that-conceptually-access-properties">DO use getters for operations that conceptually access properties.</a></li>
+    <li><a href="/guides/language/effective-dart/design#do-use-setters-for-operations-that-conceptually-change-properties">DO use setters for operations that conceptually change properties.</a></li>
+    <li><a href="/guides/language/effective-dart/design#dont-define-a-setter-without-a-corresponding-getter">DON’T define a setter without a corresponding getter.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-returning-null-from-members-whose-return-type-is-bool-double-int-or-num">AVOID returning <code>null</code> from members whose return type is <code>bool</code>, <code>double</code>, <code>int</code>, or <code>num</code>.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-returning-this-from-methods-just-to-enable-a-fluent-interface">AVOID returning <code>this</code> from methods just to enable a fluent interface.</a></li>
+  </ul>
+
+  <p><strong>Types</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/design#prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious">PREFER type annotating public fields and top-level variables if the type isn’t obvious.</a></li>
+    <li><a href="/guides/language/effective-dart/design#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious">CONSIDER type annotating private fields and top-level variables if the type isn’t obvious.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-type-annotating-initialized-local-variables">AVOID type annotating initialized local variables.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-annotating-inferred-parameter-types-on-function-expressions">AVOID annotating inferred parameter types on function expressions.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-redundant-type-arguments-on-generic-invocations">AVOID redundant type arguments on generic invocations.</a></li>
+    <li><a href="/guides/language/effective-dart/design#do-annotate-when-dart-infers-the-wrong-type">DO annotate when Dart infers the wrong type.</a></li>
+    <li><a href="/guides/language/effective-dart/design#prefer-annotating-with-dynamic-instead-of-letting-inference-fail">PREFER annotating with <code>dynamic</code> instead of letting inference fail.</a></li>
+    <li><a href="/guides/language/effective-dart/design#prefer-signatures-in-function-type-annotations">PREFER signatures in function type annotations.</a></li>
+    <li><a href="/guides/language/effective-dart/design#dont-specify-a-return-type-for-a-setter">DON’T specify a return type for a setter.</a></li>
+    <li><a href="/guides/language/effective-dart/design#dont-use-the-legacy-typedef-syntax">DON’T use the legacy typedef syntax.</a></li>
+    <li><a href="/guides/language/effective-dart/design#prefer-inline-function-types-over-typedefs">PREFER inline function types over typedefs.</a></li>
+    <li><a href="/guides/language/effective-dart/design#consider-using-function-type-syntax-for-parameters">CONSIDER using function type syntax for parameters.</a></li>
+    <li><a href="/guides/language/effective-dart/design#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed">DO annotate with <code>Object</code> instead of <code>dynamic</code> to indicate any object is allowed.</a></li>
+    <li><a href="/guides/language/effective-dart/design#do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values">DO use <code>Future&lt;void&gt;</code> as the return type of asynchronous members that do not produce values.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-using-futureort-as-a-return-type">AVOID using <code>FutureOr&lt;T&gt;</code> as a return type.</a></li>
+  </ul>
+
+  <p><strong>Parameters</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/design#avoid-positional-boolean-parameters">AVOID positional boolean parameters.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters">AVOID optional positional parameters if the user may want to omit earlier parameters.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-mandatory-parameters-that-accept-a-special-no-argument-value">AVOID mandatory parameters that accept a special “no argument” value.</a></li>
+    <li><a href="/guides/language/effective-dart/design#do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range">DO use inclusive start and exclusive end parameters to accept a range.</a></li>
+  </ul>
+
+  <p><strong>Equality</strong></p>
+
+  <ul>
+    <li><a href="/guides/language/effective-dart/design#do-override-hashcode-if-you-override-">DO override <code>hashCode</code> if you override <code>==</code>.</a></li>
+    <li><a href="/guides/language/effective-dart/design#do-make-your--operator-obey-the-mathematical-rules-of-equality">DO make your <code>==</code> operator obey the mathematical rules of equality.</a></li>
+    <li><a href="/guides/language/effective-dart/design#avoid-defining-custom-equality-for-mutable-classes">AVOID defining custom equality for mutable classes.</a></li>
+    <li><a href="/guides/language/effective-dart/design#dont-check-for-null-in-custom--operators">DON’T check for <code>null</code> in custom <code>==</code> operators.</a></li>
+  </ul>
+
+</div>
+<div style="clear:both"></div>
+
+
+          
+<nav id="subnav">
+  <ul>
+    <li class="previous">
+      
+    </li>
+    <li class="next">
+      
+        <a href="/guides/language/effective-dart/style">Style&nbsp;&nbsp;&rang;</a>
+      
+    </li>
+  </ul>
+</nav>
+
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dart-lang/site-www"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dart-lang/site-www/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2018/07/05 16:56 CST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Technologies</h4>
+          <ul>
+            <li><a href="https://flutter.io">Mobile (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart for the web</a></li>
+            <li><a href="/dart-vm">Server-side Dart</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory</a></li>
+            <li><a href="/guides/libraries">Dart libraries</a></li>
+            <li><a href="/guides/language">Dart programming language</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/dev">API reference</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart news</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs and <br> feature requests</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="/community">Support & mailing lists</a></li>
+            <li><a href="/community/who-uses-dart">Who uses Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">community</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">announcement group</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter chat rooms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

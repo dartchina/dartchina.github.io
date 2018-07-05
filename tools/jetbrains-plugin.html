@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Use Dart with a variety of IDEs and editors from JetBrains.">
+  <title>Dart Plugin from JetBrains | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Dart Plugin from JetBrains" />
+  <meta name="twitter:description" content="Use Dart with a variety of IDEs and editors from JetBrains." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Dart Plugin from JetBrains" />
+  <meta property="og:description" content="Use Dart with a variety of IDEs and editors from JetBrains." />
+  <meta property="og:url" content="https://www.dartlang.org/tools/jetbrains-plugin.html" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="/assets/style.css">
+  
+  <!--
+    Why don't we use Dart here?
+
+    The only scripting we use here is stuff like the on-click footnotes on the
+    front page or resizing of the left nav. These happen to be use cases where
+    JavaScript and jQuery are doing just fine. Dart is here for application
+    programming, not page scripting.
+   -->
+  <script type="text/javascript" src="/assets/main.js"></script>
+  
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>Get Started</span></a></li>
+    <li><a href="/guides/language">Language</a></li>
+    <li><a href="/guides/libraries">Libraries</a></li>
+    <li><a href="/tools">Tools</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/jetbrains-plugin.html" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.66.0&nbsp;&nbsp;(beta)</a></li>
+
+        <li role="separator" class="divider"></li>
+        <li><a href="/dart-2#migration">Migration guide</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-default" href="/guides/get-started">Get Started</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="Language">Language</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="Tour">Tour</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="Style">Style</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="Documentation">Documentation</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="Usage">Usage</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="Design">Design</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="Sample Code">Sample Code</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="Libraries">Libraries</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="Tour">Tour</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="Platforms">Platforms</a></h4>
+  <ul><li >
+          <a href="https://flutter.io" title="Mobile (Flutter)">Mobile (Flutter)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/dart-vm" title="Server">Server</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="Testing">Testing</a></h4>
+  <ul>
+  </ul><h4 >Resources</h4>
+  <ul><li >
+          <a href="/install" title="Install">Install</a>
+        </li><li >
+          <a href="/codelabs" title="Codelabs">Codelabs</a>
+        </li><li >
+          <a href="/tutorials" title="Tutorials">Tutorials</a>
+        </li><li >
+          <a href="/articles" title="Articles">Articles</a>
+        </li><li class="active">
+          <a href="/tools" title="Tools">Tools</a>
+        </li><li >
+          <a href="/community" title="Community and Support">Community and Support</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <h4>On this page
+      <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
+    </h4>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#getting-started">Getting started</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#downloading-the-ide">Downloading the IDE</a></li>
+<li class="toc-entry toc-h3"><a href="#downloading-the-dart-sdk">Downloading the Dart SDK</a></li>
+<li class="toc-entry toc-h3"><a href="#configuring-dart-support">Configuring Dart support</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#reporting-issues">Reporting issues</a></li>
+<li class="toc-entry toc-h2"><a href="#more-information">More information</a></li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+<div class="banner alert alert-info">
+  <p class="banner__text">
+    Welcome to <a href="/dart-2"><b>Dart 2</b></a>!
+    Still using Dart 1.x? See the
+    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">archived site</a>
+    or the <a href="/dart-2#migration">migration guide</a>.
+  </p>
+</div>
+
+
+          
+
+          <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+  
+    <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+      <a property="item" typeof="WebPage" href="/tools/">
+      <span property="name">Tools</span>
+      </a>
+      <meta property="position" content="1" />
+    </li>
+  
+    <li class="breadcrumb-item active" property="itemListElement" typeof="ListItem">
+      
+      <span property="name">Dart Plugin from JetBrains</span>
+      
+      <meta property="position" content="2" />
+    </li>
+  
+  </ol>
+          <div>
+            <ul class="page-github-links-menu" role="group">
+  <li>
+    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/jetbrains-plugin.md"
+      class="no-automatic-external"
+      title="View page source"
+      target="_blank" rel="noopener">
+      <i class="fab fa-github fa-sm"></i>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart Plugin from JetBrains' page issue&body=From URL: https://www.dartlang.org/tools/jetbrains-plugin.html"
+      class="no-automatic-external"
+      title="Report a bug on this page" target="_blank" rel="noopener">
+      <i class="fas fa-bug fa-sm"></i>
+    </a>
+  </li>
+</ul>
+
+            <h1>Dart Plugin from JetBrains</h1>
+          </div>
+          <p>The Dart plugin adds Dart support to JetBrains IDEs such as
+WebStorm and IntelliJ IDEA.
+WebStorm is an IDE for client-side development.
+IntelliJ IDEA is an intelligent Java IDE
+with support for many other languages and frameworks.</p>
+
+<p>Whichever JetBrains IDE you choose for Dart development,
+this page has resources to help you get started quickly
+and find more information when you need it.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+  WebStorm comes with the Dart plugin pre-installed.
+  For details on using WebStorm,
+  read the <a href="https://webdev.dartlang.org/tools/webstorm">WebStorm page</a>
+  on <a href="https://webdev.dartlang.org">Dart webdev</a>.</p>
+</aside>
+
+<h2 id="getting-started">
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started</h2>
+
+<p>If you don’t already have the IDE and the Dart SDK, get them.
+Then install the Dart plugin and tell it where to find the Dart SDK.</p>
+
+<h3 id="downloading-the-ide">
+<a id="downloading-the-ide" class="anchor" href="#downloading-the-ide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Downloading the IDE</h3>
+
+<p>Install a JetBrains IDE if you don’t already have one.</p>
+
+<ul>
+  <li>
+<a href="https://www.jetbrains.com/idea/download/" target="_blank">Download IntelliJ IDEA</a> or,
+to try out the latest Dart language features,
+<a href="https://confluence.jetbrains.com/display/IDEADEV/EAP">install IntelliJ IDEA EAP.</a>
+</li>
+  <li>Or <a href="https://www.jetbrains.com/products.html" target="_blank">find another JetBrains product.</a>
+</li>
+</ul>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+  The Community Edition of IntelliJ IDEA has limited functionality.
+  For example, it doesn’t directly support debugging web apps.
+  It also has very little support for JavaScript, HTML, CSS, and YAML.</p>
+</aside>
+
+<h3 id="downloading-the-dart-sdk">
+<a id="downloading-the-dart-sdk" class="anchor" href="#downloading-the-dart-sdk" aria-hidden="true"><span class="octicon octicon-link"></span></a>Downloading the Dart SDK</h3>
+
+<p>If you don’t already have the Dart SDK,
+install it.</p>
+
+<ul>
+  <li><a href="/tools/sdk#install">Download the Dart SDK</a></li>
+</ul>
+
+<h3 id="configuring-dart-support">
+<a id="configuring-dart-support" class="anchor" href="#configuring-dart-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuring Dart support</h3>
+
+<p>Here’s one way to configure Dart support:</p>
+
+<ol>
+<li>
+  <p>
+    Start the IDE, and install the <b>Dart</b> plugin.
+    To find the Dart plugin, from the Welcome screen
+    choose <b>Configure &gt; Plugins</b>,
+    then click <b>Install JetBrains plugin</b>,
+    and then search or scroll down until you find <b>Dart</b>.
+    Once you've installed the Dart plugin, restart the IDE.
+  </p>
+</li>
+
+<li>
+  <p>
+    Create a new Dart project:
+  </p>
+
+  <ol type="a">
+    <li> From the Welcome screen, click <b>Create New Project</b>. </li>
+    <li> In the next dialog, click <b>Dart</b>.</li>
+  </ol>
+</li>
+<br>
+
+<li>
+  <p>
+    If you don't see a value for the <b>Dart SDK</b> path,
+    enter it.
+  </p>
+
+  <p>
+    For example, the SDK path might be
+    <code><em>&lt;dart installation directory&gt;</em>/dart/dart-sdk</code>.
+  </p>
+
+<aside class="alert alert-info">
+      <p><b>Note:</b>
+  The <b>Dart SDK</b> path specifies the directory that
+  contains the SDK’s <code class="highlighter-rouge">bin</code> and <code class="highlighter-rouge">lib</code> directories;
+  the <code class="highlighter-rouge">bin</code> directory contains tools such as <code class="highlighter-rouge">dart</code> and <code class="highlighter-rouge">dartfmt</code>.
+  The IDE ensures that the path is valid.</p>
+    </aside>
+</li>
+</ol>
+
+<p>An alternative to Step 2 is to open an existing Dart project,
+and then open its <code class="highlighter-rouge">pubspec.yaml</code> file or any of its Dart files.</p>
+
+<h2 id="reporting-issues">
+<a id="reporting-issues" class="anchor" href="#reporting-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reporting issues</h2>
+
+<p>Please report issues and feedback via the official
+<a href="https://youtrack.jetbrains.com/issues/WEB?q=Subsystem%3A+Dart">JetBrains issue tracker for Dart.</a>
+Include details of the expected behavior, the actual behavior,
+and screenshots if appropriate.</p>
+
+<h2 id="more-information">
+<a id="more-information" class="anchor" href="#more-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h2>
+
+<p>See the JetBrains website for more information.</p>
+
+<ul>
+  <li>
+<a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>
+    <ul>
+      <li><a href="https://www.jetbrains.com/help/phpstorm/dart.html">Dart PhpStorm Help</a></li>
+      <li><a href="https://www.jetbrains.com/idea/features/">Features</a></li>
+      <li><a href="https://www.jetbrains.com/help/idea/meet-intellij-idea.html">Quick start</a></li>
+    </ul>
+  </li>
+  <li><a href="https://plugins.jetbrains.com/plugin/6351">Dart Plugin by JetBrains</a></li>
+  <li><a href="https://www.jetbrains.com/help/idea/eclipse.html">Eclipse to IntelliJ migration guide</a></li>
+</ul>
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dart-lang/site-www"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dart-lang/site-www/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2018/07/05 16:56 CST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Technologies</h4>
+          <ul>
+            <li><a href="https://flutter.io">Mobile (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart for the web</a></li>
+            <li><a href="/dart-vm">Server-side Dart</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory</a></li>
+            <li><a href="/guides/libraries">Dart libraries</a></li>
+            <li><a href="/guides/language">Dart programming language</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/dev">API reference</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart news</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs and <br> feature requests</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <div class="content">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="/community">Support & mailing lists</a></li>
+            <li><a href="/community/who-uses-dart">Who uses Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">community</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">announcement group</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter chat rooms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
