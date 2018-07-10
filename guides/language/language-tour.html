@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A tour of all of the major Dart language features.">
-  <title>Language Tour | Dart</title>
+  <title>语言概览 | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,11 +18,11 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="A Tour of the Dart Language" />
+  <meta name="twitter:title" content="Dart 编程语言概览" />
   <meta name="twitter:description" content="A tour of all of the major Dart language features." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="A Tour of the Dart Language" />
+  <meta property="og:title" content="Dart 编程语言概览" />
   <meta property="og:description" content="A tour of all of the major Dart language features." />
   <meta property="og:url" content="https://www.dartlang.org/guides/language/language-tour" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
@@ -124,7 +124,7 @@ ga('send', 'pageview');
           <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
           <i class="icon icon-arrow"></i>
           <ul><li >
-                <a href="/guides/language/effective-dart/style" title="样式">样式</a>
+                <a href="/guides/language/effective-dart/style" title="风格">风格</a>
               </li><li >
                 <a href="/guides/language/effective-dart/documentation" title="文档">文档</a>
               </li><li >
@@ -174,10 +174,10 @@ ga('send', 'pageview');
       <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
     </h4>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#a-basic-dart-program">A basic Dart program</a></li>
-<li class="toc-entry toc-h2"><a href="#important-concepts">Important concepts</a></li>
-<li class="toc-entry toc-h2"><a href="#keywords">Keywords</a></li>
-<li class="toc-entry toc-h2"><a href="#variables">Variables</a>
+<li class="toc-entry toc-h2"><a href="#一个简单的-dart-程序">一个简单的 Dart 程序</a></li>
+<li class="toc-entry toc-h2"><a href="#重要的概念">重要的概念</a></li>
+<li class="toc-entry toc-h2"><a href="#关键字">关键字</a></li>
+<li class="toc-entry toc-h2"><a href="#变量">变量</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#default-value">Default value</a></li>
 <li class="toc-entry toc-h3"><a href="#final-and-const">Final and const</a></li>
@@ -364,7 +364,7 @@ ga('send', 'pageview');
     </a>
   </li>
   <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='A Tour of the Dart Language' page issue&body=From URL: https://www.dartlang.org/guides/language/language-tour"
+    <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart 编程语言概览' page issue&body=From URL: https://www.dartlang.org/guides/language/language-tour"
       class="no-automatic-external"
       title="Report a bug on this page" target="_blank" rel="noopener">
       <i class="fas fa-bug fa-sm"></i>
@@ -372,161 +372,150 @@ ga('send', 'pageview');
   </li>
 </ul>
 
-            <h1>A Tour of the Dart Language</h1>
+            <h1>Dart 编程语言概览</h1>
           </div>
           <?code-excerpt replace="/([A-Z]\w*)\d\b/$1/g"?>
 
-<p>This page shows you how to use each major Dart feature, from
-variables and operators to classes and libraries, with the assumption
-that you already know how to program in another language.</p>
+<p>这里将介绍 Dart 主要功能，从变量和运算符到类和库，假设您已经知道如何使用其他语言编程。</p>
 
-<p>To learn more about Dart’s core libraries, see
-<a href="/guides/libraries/library-tour">A Tour of the Dart Libraries</a>.
-Whenever you want more details about a language feature,
-consult the <a href="/guides/language/spec">Dart Language Specification</a>.</p>
+<p>学习更多 Dart 核心库, 参阅
+<a href="/guides/libraries/library-tour">Dart 库概览</a>.
+想了解更多有关语言功能的详细信息,
+请参阅 <a href="/guides/language/spec">Dart 编程语言规范</a>.</p>
 
 <div class="alert alert-info">
-  <p><strong>Tip:</strong>
-You can play with most of Dart’s language features using DartPad
+  <p><strong>提示:</strong>
+使用 DartPad 可以体验 Dart 的大部分语言功能
 (<a href="/tools/dartpad">learn more</a>).</p>
 
   <p><strong><a href="https://dartpad.dartlang.org" target="_blank">Open DartPad</a></strong></p>
 </div>
 
-<h2 id="a-basic-dart-program">
-<a id="a-basic-dart-program" class="anchor" href="#a-basic-dart-program" aria-hidden="true"><span class="octicon octicon-link"></span></a>A basic Dart program</h2>
-
-<p>The following code uses many of Dart’s most basic features:</p>
+<h2 id="一个简单的-dart-程序">
+<a id="一个简单的-dart-程序" class="anchor" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84-dart-%E7%A8%8B%E5%BA%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>一个简单的 Dart 程序</h2>
+<p>下面的代码用到了很多 Dart 的基本功能：</p>
 
 <?code-excerpt "misc/test/language_tour/basic_test.dart"?>
 <pre class="prettyprint lang-dart">
-// Define a function.
+// 定义一个函数
 printInteger(int aNumber) {
-  print('The number is $aNumber.'); // Print to console.
+  print('The number is $aNumber.'); // 打印到控制台。
 }
 
-// This is where the app starts executing.
+// 应用从这里开始执行。
 main() {
-  var number = 42; // Declare and initialize a variable.
-  printInteger(number); // Call a function.
+  var number = 42; // 声明并初始化一个变量。
+  printInteger(number); // 调用函数。
 }
 </pre>
 
-<p>Here’s what this program uses that applies to all (or almost all) Dart
-apps:</p>
+<p>以下是此程序使用的代码，这些代码适用于所有（或几乎所有）的 Dart 
+应用：</p>
 
 <dl>
-  <dt><code>// <em>This is a comment.</em> </code></dt>
+  <dt><code>// <em>代码注释。</em> </code></dt>
   <dd>
-    <p>A single-line comment.
-Dart also supports multi-line and document comments.
-For details, see <a href="#comments">Comments</a>.</p>
+    <p>单行注释。
+Dart 同样支持多行注释和文档注释。
+有关更多信息，请参阅 <a href="#comments">注释</a>.</p>
   </dd>
   <dt><code class="highlighter-rouge">int</code></dt>
   <dd>
-    <p>A type. Some of the other <a href="#built-in-types">built-in types</a>
-are <code class="highlighter-rouge">String</code>, <code class="highlighter-rouge">List</code>, and <code class="highlighter-rouge">bool</code>.</p>
+    <p>数据类型。 一些其他 <a href="#built-in-types">内置类型</a>
+包括 <code class="highlighter-rouge">String</code>, <code class="highlighter-rouge">List</code>, 和 <code class="highlighter-rouge">bool</code>。</p>
   </dd>
   <dt><code class="highlighter-rouge">42</code></dt>
   <dd>
-    <p>A number literal. Number literals are a kind of compile-time constant.</p>
+    <p>字面量. 字面量是一种编译型常量。</p>
   </dd>
   <dt><code class="highlighter-rouge">print()</code></dt>
   <dd>
-    <p>A handy way to display output.</p>
+    <p>便利输出方式。</p>
   </dd>
   <dt>
 <code class="highlighter-rouge">'...'</code> (or <code class="highlighter-rouge">"..."</code>)</dt>
   <dd>
-    <p>A string literal.</p>
+    <p>字符串常量。</p>
   </dd>
   <dt>
-<code>$<em>variableName</em></code> (or <code>${<em>expression</em>}</code>)</dt>
+<code>$<em>variableName</em></code> (或 <code>${<em>expression</em>}</code>)</dt>
   <dd>
-    <p>String interpolation: including a variable or expression’s string
-equivalent inside of a string literal. For more information, see
+    <p>字符串插值： 包括字符串文字内部的变量或表达式的字符串。 
+有关更多信息，请参阅
 <a href="#strings">Strings</a>.</p>
   </dd>
   <dt><code class="highlighter-rouge">main()</code></dt>
   <dd>
-    <p>The special, <em>required</em>, top-level function where app execution
-starts. For more information, see
+    <p>程序开始执行函数，该函数是特定的、<em>必须的</em>、顶级函数。
+有关更多信息，请参阅
 <a href="#the-main-function">The main() function</a>.</p>
   </dd>
   <dt><code class="highlighter-rouge">var</code></dt>
   <dd>
-    <p>A way to declare a variable without specifying its type.</p>
+    <p>定义变量，通过这种方式定义变量不需要指定变量类型。</p>
   </dd>
 </dl>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
-This site’s code follows the conventions in the
-<a href="/guides/language/effective-dart/style">Dart style guide</a>.</p>
+  <p><strong>提示：</strong>
+本站的代码遵循 Dart 风格指南中的约定。
+<a href="/guides/language/effective-dart/style">Dart 风格指南</a>.</p>
 </div>
 
-<h2 id="important-concepts">
-<a id="important-concepts" class="anchor" href="#important-concepts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Important concepts</h2>
+<h2 id="重要的概念">
+<a id="重要的概念" class="anchor" href="#%E9%87%8D%E8%A6%81%E7%9A%84%E6%A6%82%E5%BF%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>重要的概念</h2>
 
-<p>As you learn about the Dart language, keep these facts and concepts in
-mind:</p>
+<p>在学习 Dart 语言时, 应该基于以下事实和概念：</p>
 
 <ul>
   <li>
-    <p>Everything you can place in a variable is an <em>object</em>, and every
-object is an instance of a <em>class</em>. Even numbers, functions, and
-<code class="highlighter-rouge">null</code> are objects. All objects inherit from the <a href="https://api.dartlang.org/dev/dart-core/Object-class.html">Object</a> class.</p>
+    <p>任何保存在变量中的都是一个 <em>对象</em> ， 并且所有的对象都是对应一个 <em>类</em> 的实例。
+无论是数字，函数和 <code class="highlighter-rouge">null</code> 都是对象。所有对象继承自 <a href="https://api.dartlang.org/dev/dart-core/Object-class.html">Object</a> 类。</p>
   </li>
   <li>
-    <p>Although Dart is strongly typed, type annotations are optional
-because Dart can infer types. In the code above, <code class="highlighter-rouge">number</code>
-is inferred to be of type <code class="highlighter-rouge">int</code>. When you want to explicitly say
-that no type is expected,
-<a href="/guides/language/effective-dart/design#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed">use the special type <code class="highlighter-rouge">dynamic</code></a>.</p>
+    <p>尽管 Dart 是强类型的，但是 Dart 可以推断类型，所以类型注释是可选的。 
+在上面的代码中， <code class="highlighter-rouge">number</code> 被推断为 <code class="highlighter-rouge">int</code> 类型。 
+如果要明确说明不需要任何类型，
+<a href="/guides/language/effective-dart/design#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed">需要使用特殊类型 <code class="highlighter-rouge">dynamic</code></a> 。</p>
   </li>
   <li>
-    <p>Dart supports generic types, like <code class="highlighter-rouge">List&lt;int&gt;</code> (a list of integers)
-or <code class="highlighter-rouge">List&lt;dynamic&gt;</code> (a list of objects of any type).</p>
+    <p>Dart 支持泛型，如 <code class="highlighter-rouge">List &lt;int&gt;</code> （整数列表）或 <code class="highlighter-rouge">List &lt;dynamic&gt;</code> （任何类型的对象列表）。</p>
   </li>
   <li>
-    <p>Dart supports top-level functions (such as <code class="highlighter-rouge">main()</code>), as well as
-functions tied to a class or object (<em>static</em> and <em>instance
-methods</em>, respectively). You can also create functions within
-functions (<em>nested</em> or <em>local functions</em>).</p>
+    <p>Dart 支持顶级函数（例如 <code class="highlighter-rouge">main（）</code> ），
+同样函数绑定在类或对象上（分别是 <em>静态函数</em> 和 <em>实例函数</em> ）。
+以及支持函数内创建函数 （ <em>嵌套</em> 或 <em>局部函数</em> ） 。</p>
   </li>
   <li>
-    <p>Similarly, Dart supports top-level <em>variables</em>, as well as variables
-tied to a class or object (static and instance variables). Instance
-variables are sometimes known as fields or properties.</p>
+    <p>类似地， Dart 支持顶级 <em>变量</em> ，
+同样变量绑定在类或对象上（静态变量和实例变量）。 
+实例变量有时称为字段或属性。</p>
   </li>
   <li>
-    <p>Unlike Java, Dart doesn’t have the keywords <code class="highlighter-rouge">public</code>, <code class="highlighter-rouge">protected</code>,
-and <code class="highlighter-rouge">private</code>. If an identifier starts with an underscore (_), it’s
-private to its library. For details, see
-<a href="#libraries-and-visibility">Libraries and visibility</a>.</p>
+    <p>与 Java 不同，Dart 没有关键字 “public” ， “protected” 和 “private” 。 
+如果标识符以下划线（\ _）开头，则它相对于库是私有的。 
+有关更多信息，请参阅 [库和可见性]（＃libraries-and-visibility）。</p>
   </li>
   <li>
-    <p><em>Identifiers</em> can start with a letter or underscore (_), followed by any
-combination of those characters plus digits.</p>
+    <p><em>标识符</em> 以字母或下划线（\ _）开头，后跟任意字母和数字组合。</p>
   </li>
   <li>
     <p>Sometimes it matters whether something is an <em>expression</em> or a
 <em>statement</em>, so it helps to be precise about those two words.</p>
   </li>
   <li>
-    <p>Dart tools can report two kinds of problems: warnings and errors.
-Warnings are just indications that your code might not work, but
-they don’t prevent your program from executing. Errors can be either
-compile-time or run-time. A compile-time error prevents the code
-from executing at all; a run-time error results in an
-<a href="#exceptions">exception</a> being raised while the code executes.</p>
+    <p>Dart 工具提示两种类型问题：警告和错误。 
+警告只是表明代码可能无法正常工作，但不会阻止程序的执行。 
+错误可能是编译时错误或者运行时错误。 
+编译时错误会阻止代码的执行;
+运行时错误会导致代码在执行过程中引发 [异常]（#exception）。</p>
   </li>
 </ul>
 
-<h2 id="keywords">
-<a id="keywords" class="anchor" href="#keywords" aria-hidden="true"><span class="octicon octicon-link"></span></a>Keywords</h2>
+<h2 id="关键字">
+<a id="关键字" class="anchor" href="#%E5%85%B3%E9%94%AE%E5%AD%97" aria-hidden="true"><span class="octicon octicon-link"></span></a>关键字</h2>
 
-<p>The following table lists the words that the Dart language treats specially.</p>
+<p>Dart 语言关键字列表。</p>
 
 <table class="table table-striped nowrap">
   <tbody>
@@ -648,25 +637,22 @@ from executing at all; a run-time error results in an
   </tbody>
 </table>
 
-<p><sup>1</sup> Words with the superscript <strong>1</strong>
-are <strong>built-in identifiers</strong>. Avoid using
-built-in identifiers as identifiers.
-A compile-time error happens if you try to
-use a built-in identifier for a class or type name.</p>
+<p><sup>1</sup> 带有上标1的单词
+是<strong>内置标识符</strong>。 
+避免使用内置标识符作为标识符。 
+如果对类或类型名称使用内置标识符，
+编译时会发生错误。</p>
 
-<p><sup>2</sup> Words with the superscript <strong>2</strong>
-are newer, limited reserved words related to <strong>asynchrony</strong> support
-added after Dart’s 1.0 release.
-You can’t use <code class="highlighter-rouge">async</code>, <code class="highlighter-rouge">await</code>, or <code class="highlighter-rouge">yield</code> as
-an identifier in any function body marked with <code class="highlighter-rouge">async</code>, <code class="highlighter-rouge">async*</code>, or <code class="highlighter-rouge">sync*</code>.
-For more information, see
-<a href="#asynchrony-support">Asynchrony support</a>.</p>
+<p><sup>2</sup> 带有上标2的单词
+是 Dart 1.0 发布后，为支持<strong>异步</strong>增加更新的，限制类保留字。 
+不能在标记为 <code class="highlighter-rouge">async</code> ，<code class="highlighter-rouge">async*</code> 或 <code class="highlighter-rouge">sync*</code> 的任何函数体中使用 <code class="highlighter-rouge">async</code> , <code class="highlighter-rouge">async*</code> , or <code class="highlighter-rouge">sync*</code> 作为标识符。
+有关更多信息，请参阅 <a href="#asynchrony-support">Asynchrony支持</a>。</p>
 
-<p>All other words in the keyword table are <strong>reserved words</strong>.
-You can’t use reserved words as identifiers.</p>
+<p>关键字表中的剩余单词都是<strong>保留字</strong>。
+不能将保留字用作标识符。</p>
 
-<h2 id="variables">
-<a id="variables" class="anchor" href="#variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variables</h2>
+<h2 id="变量">
+<a id="变量" class="anchor" href="#%E5%8F%98%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>变量</h2>
 
 <p>Here’s an example of creating a variable and initializing it:</p>
 
@@ -4747,7 +4733,7 @@ Specification</a> and
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/10 15:46 CST"
+                 title="Site built on 2018/07/10 18:54 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
