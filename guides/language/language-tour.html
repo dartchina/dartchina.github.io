@@ -179,11 +179,11 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h2"><a href="#关键字">关键字</a></li>
 <li class="toc-entry toc-h2"><a href="#变量">变量</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#default-value">Default value</a></li>
-<li class="toc-entry toc-h3"><a href="#final-and-const">Final and const</a></li>
+<li class="toc-entry toc-h3"><a href="#默认值">默认值</a></li>
+<li class="toc-entry toc-h3"><a href="#final-和-const">Final 和 const</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#built-in-types">Built-in types</a>
+<li class="toc-entry toc-h2"><a href="#内建类型">内建类型</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#numbers">Numbers</a></li>
 <li class="toc-entry toc-h3"><a href="#strings">Strings</a></li>
@@ -653,29 +653,27 @@ Dart 同样支持多行注释和文档注释。
 
 <h2 id="变量">
 <a id="变量" class="anchor" href="#%E5%8F%98%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>变量</h2>
-
-<p>Here’s an example of creating a variable and initializing it:</p>
+<p>创建一个变量并进行初始化:</p>
 
 <?code-excerpt "misc/lib/language_tour/variables.dart (var-decl)"?>
 <pre class="prettyprint lang-dart">
 var name = 'Bob';
 </pre>
 
-<p>Variables store references. The variable called <code class="highlighter-rouge">name</code> contains a
-reference to a <code class="highlighter-rouge">String</code> object with a value of “Bob”.</p>
+<p>变量仅存储对象引用，这里的变量是 <code class="highlighter-rouge">name</code> 存储了一个 <code class="highlighter-rouge">String</code> 类型的对象引用。
+“Bob” 是这个 <code class="highlighter-rouge">String</code> 类型对象的值。</p>
 
-<p>The type of the <code class="highlighter-rouge">name</code> variable is inferred to be <code class="highlighter-rouge">String</code>,
-but you can change that type by specifying it.
-If an object isn’t restricted to a single type,
-specify the <code class="highlighter-rouge">Object</code> or <code class="highlighter-rouge">dynamic</code> type, following
-<a href="/guides/language/effective-dart/design#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed">design guidelines</a>.</p>
+<p><code class="highlighter-rouge">name</code> 变量的类型被推断为 <code class="highlighter-rouge">String</code> 。
+但是也可以通过指定类型的方式，来改变变量类型。 
+如果对象不限定为单个类型，可以指定为 <code class="highlighter-rouge">对象类型</code> 或 <code class="highlighter-rouge">动态类型</code>，
+参见 <a href="/guides/language/effective-dart/design#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed">设计指南</a>。</p>
 
 <?code-excerpt "misc/lib/language_tour/variables.dart (type-decl)"?>
 <pre class="prettyprint lang-dart">
 dynamic name = 'Bob';
 </pre>
 
-<p>Another option is to explicitly declare the type that would be inferred:</p>
+<p>另一种方式是显式声明可以推断出的类型：</p>
 
 <?code-excerpt "misc/lib/language_tour/variables.dart (static-types)"?>
 <pre class="prettyprint lang-dart">
@@ -683,18 +681,18 @@ String name = 'Bob';
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
-This page follows the
-<a href="/guides/language/effective-dart/design#types">style guide recommendation</a>
-of using <code class="highlighter-rouge">var</code>, rather than type annotations, for local variables.</p>
+  <p><strong>提示：</strong>
+本页局部变量遵守
+<a href="/guides/language/effective-dart/design#types">风格建议指南</a>
+使用 <code class="highlighter-rouge">var</code>。 没有使用指定类型的方式。</p>
 </div>
 
-<h3 id="default-value">
-<a id="default-value" class="anchor" href="#default-value" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default value</h3>
+<h3 id="默认值">
+<a id="默认值" class="anchor" href="#%E9%BB%98%E8%AE%A4%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>默认值</h3>
 
-<p>Uninitialized variables have an initial value of <code class="highlighter-rouge">null</code>. Even variables
-with numeric types are initially null, because numbers—like everything
-else in Dart—are objects.</p>
+<p>未初始化的变量默认值是 <code class="highlighter-rouge">null</code>。即使变量是数字
+类型默认值也是 null，因为在 Dart 中一切都是对象，数字类型
+也不例外。</p>
 
 <?code-excerpt "misc/test/language_tour/variables_test.dart (var-null-init)"?>
 <pre class="prettyprint lang-dart">
@@ -703,28 +701,27 @@ assert(lineCount == null);
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
-The <code class="highlighter-rouge">assert()</code> call is ignored in production code.
-During development, <code>assert(<em>condition</em>)</code>
-throws an exception unless <em>condition</em> is true. For details,
-see <a href="#assert">Assert</a>.</p>
+  <p><strong>提示：</strong>
+在生产环境代码中 <code class="highlighter-rouge">assert()</code> 函数会被忽略，不会被调用。
+在开发过程中, <code>assert(<em>condition</em>)</code>
+会在非 <code class="highlighter-rouge">true</code> 的条件下抛出异常.有关更多信息，请参阅
+ <a href="#assert">Assert</a>.</p>
 </div>
 
-<h3 id="final-and-const">
-<a id="final-and-const" class="anchor" href="#final-and-const" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final and const</h3>
+<h3 id="final-和-const">
+<a id="final-和-const" class="anchor" href="#final-%E5%92%8C-const" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final 和 const</h3>
 
-<p>If you never intend to change a variable, use <code class="highlighter-rouge">final</code> or <code class="highlighter-rouge">const</code>, either
-instead of <code class="highlighter-rouge">var</code> or in addition to a type. A final variable can be set
-only once; a const variable is a compile-time constant. (Const variables
-are implicitly final.) A final top-level or class variable is initialized
-the first time it’s used.</p>
+<p>使用过程中从来不会被修改的变量， 可以使用 <code class="highlighter-rouge">final</code> 或 <code class="highlighter-rouge">const</code>, 而不是 <code class="highlighter-rouge">var</code> 或者其它类型，
+final 变量的值只能被设置一次；
+const 变量在编译时就已经固定 (Const 变量
+是隐式 final 的类型.) 最高级 final 变量或类变量在第一次使用时被初始化。</p>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
-Instance variables can be <code class="highlighter-rouge">final</code> but not <code class="highlighter-rouge">const</code>.</p>
+  <p><strong>提示：</strong>
+实例变量可以是 <code class="highlighter-rouge">final</code> 类型但不能是 <code class="highlighter-rouge">const</code> 类型。</p>
 </div>
 
-<p>Here’s an example of creating and setting a final variable:</p>
+<p>创建和设置一个 final 变量：</p>
 
 <?code-excerpt "misc/lib/language_tour/variables.dart (final)"?>
 <pre class="prettyprint lang-dart">
@@ -732,29 +729,27 @@ final name = 'Bob'; // Without a type annotation
 final String nickname = 'Bobby';
 </pre>
 
-<p>You can’t change the value of a final variable:</p>
+<p>final 不能被修改:</p>
 
 <?code-excerpt "misc/lib/language_tour/variables.dart (cant-assign-to-final)"?>
 <pre class="prettyprint lang-dart fails-sa">
-name = 'Alice'; // Error: a final variable can only be set once.
+name = 'Alice'; // Error: 一个 final 变量只能被设置一次。
 </pre>
 
-<p>Use <code class="highlighter-rouge">const</code> for variables that you want to be <strong>compile-time constants</strong>. If
-the const variable is at the class level, mark it <code class="highlighter-rouge">static const</code>.
-Where you declare the variable, set the value to a compile-time constant
-such as a number or string literal, a const
-variable, or the result of an arithmetic operation on constant numbers:</p>
+<p>如果需要在<strong>编译时</strong>就固定变量的值，可以使用 <code class="highlighter-rouge">const</code> 类型变量。
+如果 const 变量是类级别的，需要标记为 <code class="highlighter-rouge">static const</code>。
+在这些地方可以使用在编译时就已经固定不变的值，字面量的数字和字符串，
+固定的变量，或者是用于计算的固定数字：</p>
 
 <?code-excerpt "misc/lib/language_tour/variables.dart (const)"?>
 <pre class="prettyprint lang-dart">
-const bar = 1000000; // Unit of pressure (dynes/cm2)
-const double atm = 1.01325 * bar; // Standard atmosphere
+const bar = 1000000; // 压力单位 (dynes/cm2)
+const double atm = 1.01325 * bar; // 标准气压
 </pre>
 
-<p>The <code class="highlighter-rouge">const</code> keyword isn’t just for declaring constant variables.
-You can also use it to create constant <em>values</em>,
-as well as to declare constructors that <em>create</em> constant values.
-Any variable can have a constant value.</p>
+<p>const 关键字不仅可以用于声明常量变量。 
+还可以用来创建常量值，以及声明创建常量值的构造函数。
+任何变量都可以拥有常量值。</p>
 
 <?code-excerpt "misc/lib/language_tour/variables.dart (const-vs-final)"?>
 <pre class="prettyprint lang-dart">
@@ -763,50 +758,50 @@ final bar = const [];
 const baz = []; // Equivalent to `const []`
 </pre>
 
-<p>You can omit <code class="highlighter-rouge">const</code> from the initializing expression of a <code class="highlighter-rouge">const</code> declaration,
-like for <code class="highlighter-rouge">baz</code> above. For details, see <a href="/guides/language/effective-dart/usage#dont-use-const-redundantly">DON’T use const redundantly</a>.</p>
+<p>声明 <code class="highlighter-rouge">const</code> 的初始化表达式中 <code class="highlighter-rouge">const</code> 可以被省略。
+比如上面的 <code class="highlighter-rouge">baz</code>。 有关更多信息，请参阅 <a href="/guides/language/effective-dart/usage#dont-use-const-redundantly">不要冗余地使用 const</a>。</p>
 
-<p>You can change the value of a non-final, non-const variable,
-even if it used to have a const value:</p>
+<p>非 final ， 非 const 的变量是可以被修改的，即使这些变量
+曾经引用过 const 值。</p>
 
 <?code-excerpt "misc/lib/language_tour/variables.dart (reassign-to-non-final)"?>
 <pre class="prettyprint lang-dart">
-foo = [1, 2, 3]; // Was const []
+foo = [1, 2, 3]; // 曾经引用过 const [] 常量值。
 </pre>
 
-<p>You can’t change the value of a const variable:</p>
+<p>const 变量的值不可以修改：</p>
 
 <?code-excerpt "misc/lib/language_tour/variables.dart (cant-assign-to-const)"?>
 <pre class="prettyprint lang-dart fails-sa">
-baz = [42]; // Error: Constant variables can't be assigned a value.
+baz = [42]; // Error: 常量变量不能赋值修改。
 </pre>
 
-<p>For more information on using <code class="highlighter-rouge">const</code> to create constant values, see
-<a href="#lists">Lists</a>, <a href="#maps">Maps</a>, and <a href="#classes">Classes</a>.</p>
+<p>更多关于使用 <code class="highlighter-rouge">const</code> 创建常量值，详参阅
+<a href="#lists">Lists</a>， <a href="#maps">Maps</a>， 和 <a href="#classes">Classes</a>。</p>
 
-<h2 id="built-in-types">
-<a id="built-in-types" class="anchor" href="#built-in-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Built-in types</h2>
+<h2 id="内建类型">
+<a id="内建类型" class="anchor" href="#%E5%86%85%E5%BB%BA%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>内建类型</h2>
 
-<p>The Dart language has special support for the following types:</p>
+<p>Dart 语言支持以下内建类型：</p>
 
 <ul>
   <li>numbers</li>
   <li>strings</li>
   <li>booleans</li>
-  <li>lists (also known as <em>arrays</em>)</li>
+  <li>lists (也被称为 <em>arrays</em>)</li>
   <li>maps</li>
-  <li>runes (for expressing Unicode characters in a string)</li>
+  <li>runes (用于在字符串中表示 Unicode 字符)</li>
   <li>symbols</li>
 </ul>
 
-<p>You can initialize an object of any of these special types using a
-literal. For example, <code class="highlighter-rouge">'this is a string'</code> is a string literal,
-and <code class="highlighter-rouge">true</code> is a boolean literal.</p>
+<p>这些类型都可以被初始化为字面量。
+例如, <code class="highlighter-rouge">'this is a string'</code> 是一个字符串的字面量，
+<code class="highlighter-rouge">true</code> 是一个布尔的字面量。</p>
 
-<p>Because every variable in Dart refers to an object—an instance of a
-<em>class</em>—you can usually use <em>constructors</em> to initialize variables. Some
-of the built-in types have their own constructors. For example, you can
-use the <code class="highlighter-rouge">Map()</code> constructor to create a map.</p>
+<p>因为在 Dart 所有的变量终究是一个对象（一个类的实例），
+所以变量可以使用 <em>构造行数</em> 进行初始化。
+一些内建类型拥有自己的构造函数。
+例如， 通过 <code class="highlighter-rouge">Map()</code> 来构造一个 map 变量。</p>
 
 <h3 id="numbers">
 <a id="numbers" class="anchor" href="#numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Numbers</h3>
@@ -1212,7 +1207,7 @@ special syntax.</p>
 For example, the heart character (♥) is <code class="highlighter-rouge">\u2665</code>.
 To specify more or less than 4 hex digits,
 place the value in curly brackets.
-For example, the laughing emoji (😆) is <code class="highlighter-rouge">\u{1f600}</code>.</p>
+For example, the laughing emoji (�) is <code class="highlighter-rouge">\u{1f600}</code>.</p>
 
 <p>The <a href="https://api.dartlang.org/dev/dart-core/String-class.html">String</a>
 class has several properties you can use to extract rune information.
@@ -4733,7 +4728,7 @@ Specification</a> and
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/10 18:54 CST"
+                 title="Site built on 2018/07/11 21:07 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
