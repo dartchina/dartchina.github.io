@@ -895,8 +895,8 @@ const msUntilRetry = secondsUntilRetry * msPerSecond;
 <h3 id="strings">
 <a id="strings" class="anchor" href="#strings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Strings</h3>
 
-<p>A Dart string is a sequence of UTF-16 code units. You can use either
-single or double quotes to create a string:</p>
+<p>Dart 字符串是一组 UTF-16 单元序列。
+字符串通过单引号或者双引号创建。</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (quoting)"?>
 <pre class="prettyprint lang-dart">
@@ -906,10 +906,9 @@ var s3 = 'It\'s easy to escape the string delimiter.';
 var s4 = "It's even easier to use the other delimiter.";
 </pre>
 
-<p>You can put the value of an expression inside a string by using
-<code class="highlighter-rouge">${</code><em><code class="highlighter-rouge">expression</code></em><code class="highlighter-rouge">}</code>. If the expression is an identifier, you can skip
-the {}. To get the string corresponding to an object, Dart calls the
-object’s <code class="highlighter-rouge">toString()</code> method.</p>
+<p>字符串可以通过 <code class="highlighter-rouge">${</code><em><code class="highlighter-rouge">expression</code></em><code class="highlighter-rouge">}</code> 的方式内嵌表达式。
+如果表达式是一个标识符，则 {} 可以省略。
+在 Dart 中通过调用就对象的 <code class="highlighter-rouge">toString()</code> 方法来得到对象相应的字符串。</p>
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (string-interpolation)"?>
 <pre class="prettyprint lang-dart">
@@ -925,14 +924,13 @@ assert('That deserves all caps. ' +
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
-The <code class="highlighter-rouge">==</code> operator tests whether two objects are equivalent. Two
-strings are equivalent if they contain the same sequence of code
+  <p><strong>提示：</strong>
+<code class="highlighter-rouge">==</code> 操作符用来测试两个对象是否相等。
+在字符串中，如果两个字符串包含了相同的编码序列，那么这两个字符串相等。
 units.</p>
 </div>
 
-<p>You can concatenate strings using adjacent string literals or the <code class="highlighter-rouge">+</code>
-operator:</p>
+<p>可以使用 <code class="highlighter-rouge">+</code> 操作符来把多个字符串连接为一个，也可以把多个字面量字符串写在一起来实现字符串连接：</p>
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (adjacent-string-literals)"?>
 <pre class="prettyprint lang-dart">
@@ -947,8 +945,7 @@ var s2 = 'The + operator ' + 'works, as well.';
 assert(s2 == 'The + operator works, as well.');
 </pre>
 
-<p>Another way to create a multi-line string: use a triple quote with
-either single or double quotation marks:</p>
+<p>使用连续三个单引号或者三个双引号实现多行字符串对象的创建：</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (triple-quotes)"?>
 <pre class="prettyprint lang-dart">
@@ -961,67 +958,67 @@ var s2 = """This is also a
 multi-line string.""";
 </pre>
 
-<p>You can create a “raw” string by prefixing it with <code class="highlighter-rouge">r</code>:</p>
+<p>使用 <code class="highlighter-rouge">r</code> 前缀，可以创建 “原始 raw” 字符串：</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (raw-strings)"?>
 <pre class="prettyprint lang-dart">
 var s = r"In a raw string, even \n isn't special.";
 </pre>
 
-<p>See <a href="#runes">Runes</a> for details on how to express Unicode
-characters in a string.</p>
+<p>参考 <a href="#runes">Runes</a> 来了解如何在字符串中表达 Unicode 
+字符。</p>
 
-<p>Literal strings are compile-time constants,
-as long as any interpolated expression is a compile-time constant
-that evaluates to null or a numeric, string, or boolean value.</p>
+<p>一个编译时常量的字面量字符串中，如果存在插值表达式，表达式内容也是编译时常量，
+那么该字符串依旧是编译时常量。
+插入的常量值类型可以是 null，数值，字符串或布尔值。</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (string-literals)"?>
 <pre class="prettyprint lang-dart">
-// These work in a const string.
+// const 类型数据
 const aConstNum = 0;
 const aConstBool = true;
 const aConstString = 'a constant string';
 
-// These do NOT work in a const string.
+// 非 const 类型数据
 var aNum = 0;
 var aBool = true;
 var aString = 'a string';
 const aConstList = [1, 2, 3];
 
-const validConstString = '$aConstNum $aConstBool $aConstString';
-// const invalidConstString = '$aNum $aBool $aString $aConstList';
+const validConstString = '$aConstNum $aConstBool $aConstString'; //const 类型数据
+// const invalidConstString = '$aNum $aBool $aString $aConstList'; //非 const 类型数据
 </pre>
 
-<p>For more information on using strings, see
-<a href="/guides/libraries/library-tour#strings-and-regular-expressions">Strings and regular expressions</a>.</p>
+<p>更多关于 string 的使用, 参见
+<a href="/guides/libraries/library-tour#strings-and-regular-expressions">字符串和正则表达式</a>.</p>
 
 <h3 id="booleans">
 <a id="booleans" class="anchor" href="#booleans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Booleans</h3>
 
-<p>To represent boolean values, Dart has a type named <code class="highlighter-rouge">bool</code>. Only two
-objects have type bool: the boolean literals <code class="highlighter-rouge">true</code> and <code class="highlighter-rouge">false</code>,
-which are both compile-time constants.</p>
+<p>Dart 使用 <code class="highlighter-rouge">bool</code> 类型表示布尔值。 
+Dart 只有字面量 <code class="highlighter-rouge">true</code> and <code class="highlighter-rouge">false</code> 是布尔类型，
+这两个对象都是编译时常量。</p>
 
-<p>Dart’s type safety means that you can’t use code like
-<code>if (<em>nonbooleanValue</em>)</code> or
-<code>assert (<em>nonbooleanValue</em>)</code>.
-Instead, explicitly check for values, like this:</p>
+<p>Dart 的类型安全意味着不能使用
+<code>if (<em>nonbooleanValue</em>)</code> 或者
+<code>assert (<em>nonbooleanValue</em>)</code>。
+而是应该像下面这样，明确的进行值检查：</p>
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (no-truthy)"?>
 <pre class="prettyprint lang-dart">
-// Check for an empty string.
+// 检查空字符串。
 var fullName = '';
 assert(fullName.isEmpty);
 
-// Check for zero.
+// 检查 0 值。
 var hitPoints = 0;
 assert(hitPoints &lt;= 0);
 
-// Check for null.
+// 检查 null 值。
 var unicorn;
 assert(unicorn == null);
 
-// Check for NaN.
+// 检查 NaN 。
 var iMeantToDoThis = 0 / 0;
 assert(iMeantToDoThis.isNaN);
 </pre>
@@ -1029,12 +1026,12 @@ assert(iMeantToDoThis.isNaN);
 <h3 id="lists">
 <a id="lists" class="anchor" href="#lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists</h3>
 
-<p>Perhaps the most common collection in nearly every programming language
-is the <em>array</em>, or ordered group of objects. In Dart, arrays are
-<a href="https://api.dartlang.org/dev/dart-core/List-class.html">List</a> objects, so most people just call them <em>lists</em>.</p>
+<p>几乎每种编程语言中最常见的集合可能是 <em>array</em> 或有序的对象集合。
+在 Dart 中的 <em>array</em> 就是 <a href="https://api.dartlang.org/dev/dart-core/List-class.html">List</a> 对象，
+通常称之为 <em>lists</em> 。</p>
 
-<p>Dart list literals look like JavaScript array literals. Here’s a simple
-Dart list:</p>
+<p>Dart 中的 list 字面量非常像 JavaScript 中的 array 字面量。 
+下面是一个 Dart list 的示例：</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (list-literal)"?>
 <pre class="prettyprint lang-dart">
@@ -1042,18 +1039,18 @@ var list = [1, 2, 3];
 </pre>
 
 <aside class="alert alert-info">
-  <p><strong>Note:</strong>
-  The analyzer infers that <code class="highlighter-rouge">list</code> has type <code class="highlighter-rouge">List&lt;int&gt;</code>.
-  If you try to add non-integer objects to this list,
-  the analyzer or runtime raises an error.
-  For more information, read about
-  <a href="/guides/language/sound-dart#type-inference">type inference.</a></p>
+  <p><strong>提示：</strong>
+ 分析器推断 <code class="highlighter-rouge">list</code> 的类型为 <code class="highlighter-rouge">List&lt;int&gt;</code> 。 
+  如果尝试将非整数对象添加到此 list 中，
+  则分析器或运行时会引发错误。 
+  有关更多信息，请阅读
+  <a href="/guides/language/sound-dart#type-inference">类型推断。</a></p>
 </aside>
 
-<p>Lists use zero-based indexing, where 0 is the index of the first element
-and <code class="highlighter-rouge">list.length - 1</code> is the index of the last element. You can get a
-list’s length and refer to list elements just as you would in
-JavaScript:</p>
+<p>Lists 的下标索引从 0 开始，第一个元素的索引是 0。
+list.length - 1 是最后一个元素的索引。 
+访问 list 的长度和元素与 
+JavaScript 中的用法一样：</p>
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (list-indexing)"?>
 <pre class="prettyprint lang-dart">
@@ -1065,18 +1062,17 @@ list[1] = 1;
 assert(list[1] == 1);
 </pre>
 
-<p>To create a list that’s a compile-time constant,
-add <code class="highlighter-rouge">const</code> before the list literal:</p>
+<p>在 list 字面量之前添加 const 关键字，可以定义 list 类型的编译时常量：</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (const-list)"?>
 <pre class="prettyprint lang-dart">
 var constantList = const [1, 2, 3];
-// constantList[1] = 1; // Uncommenting this causes an error.
+// constantList[1] = 1; // 取消注释会引起错误。
 </pre>
 
-<p>The List type has many handy methods for manipulating lists. For more
-information about lists, see <a href="#generics">Generics</a> and
-<a href="/guides/libraries/library-tour#collections">Collections</a>.</p>
+<p>List 类型包含了很多 lists 的操作函数。 
+更多信息参考 <a href="#generics">泛型</a> 和
+<a href="/guides/libraries/library-tour#collections">集合</a>.</p>
 
 <h3 id="maps">
 <a id="maps" class="anchor" href="#maps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maps</h3>
@@ -4741,7 +4737,7 @@ Specification</a> and
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/12 13:59 CST"
+                 title="Site built on 2018/07/12 18:58 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
