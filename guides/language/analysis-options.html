@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/analysis-options" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.66.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/analysis-options" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -112,7 +112,7 @@ ga('send', 'pageview');
 
     <ul>
       <li>
-        <a class="btn btn-default" href="/guides/get-started">入门</a>
+        <a class="btn btn-default" href="/guides/get-started">Get Started</a>
       </li>
     </ul>
     <h4 ><a href="/guides/language" title="语言">语言</a></h4>
@@ -175,11 +175,8 @@ ga('send', 'pageview');
     </h4>
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#the-analysis-options-file">The analysis options file</a></li>
-<li class="toc-entry toc-h2"><a href="#enabling-dart-2-semantics">Enabling Dart 2 semantics</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#performing-additional-type-checks">Performing additional type checks</a></li>
-</ul>
-</li>
+<li class="toc-entry toc-h2"><a href="#enabling-dart-2-semantics-sdk-200-dev680">Enabling Dart 2 semantics (SDK <2.0.0-dev.68.0)</a></li>
+<li class="toc-entry toc-h2"><a href="#enabling-additional-type-checks">Enabling additional type checks</a></li>
 <li class="toc-entry toc-h2"><a href="#enabling-linter-rules">Enabling linter rules</a></li>
 <li class="toc-entry toc-h2"><a href="#excluding-files">Excluding files</a></li>
 <li class="toc-entry toc-h2"><a href="#excluding-lines-within-a-file">Excluding lines within a file</a></li>
@@ -291,7 +288,8 @@ release, so we recommend that you <strong>rename your <code class="highlighter-r
 
 <pre class="prettyprint lang-yaml">
 analyzer:
-  strong-mode: true
+  strong-mode:
+    implicit-casts: false
   errors:
     todo: ignore
   exclude:
@@ -326,11 +324,10 @@ and <code class="highlighter-rouge">my_other_other_package</code>, and file #2 t
 <code class="highlighter-rouge">my_package</code>.</p>
 
 <h2 id="enabling-dart-2-semantics">
-<a id="enabling-dart-2-semantics" class="anchor" href="#enabling-dart-2-semantics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling Dart 2 semantics</h2>
+<a id="enabling-dart-2-semantics-sdk-200-dev680" class="anchor" href="#enabling-dart-2-semantics-sdk-200-dev680" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling Dart 2 semantics (SDK &lt;2.0.0-dev.68.0)</h2>
 
-<p>The analyzer in the Dart SDK doesn’t yet use the
-<a href="/guides/language/sound-dart">latest Dart type system</a>, by default.
-The simplest way to enable Dart 2 semantics is to put
+<p>As of release 2.0.0-dev.68.0, <a href="/guides/language/sound-dart">Dart 2 semantics</a> are on by default.
+For earlier releases, the simplest way to enable Dart 2 semantics is to put
 <code class="highlighter-rouge">strong-mode: true</code> in the analysis-options file:</p>
 
 <pre class="prettyprint lang-yaml">
@@ -338,8 +335,10 @@ analyzer:
   strong-mode: true
 </pre>
 
-<h3 id="performing-additional-type-checks">
-<a id="performing-additional-type-checks" class="anchor" href="#performing-additional-type-checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Performing additional type checks</h3>
+<p>Another way to enable Dart 2 semantics is to enable additional type checks.</p>
+
+<h2 id="enabling-additional-type-checks">
+<a id="enabling-additional-type-checks" class="anchor" href="#enabling-additional-type-checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling additional type checks</h2>
 
 <p>If you want stricter static checks than
 the <a href="/guides/language/sound-dart">Dart type system</a> requires,
@@ -553,7 +552,7 @@ missing returns as errors, and only provide information about dead code.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/11 19:44 CST"
+                 title="Site built on 2018/07/12 13:59 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

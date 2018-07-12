@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/language-tour" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.66.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/language-tour" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -112,7 +112,7 @@ ga('send', 'pageview');
 
     <ul>
       <li>
-        <a class="btn btn-default" href="/guides/get-started">入门</a>
+        <a class="btn btn-default" href="/guides/get-started">Get Started</a>
       </li>
     </ul>
     <h4 ><a href="/guides/language" title="语言">语言</a></h4>
@@ -806,45 +806,43 @@ baz = [42]; // Error: 常量变量不能赋值修改。
 <h3 id="numbers">
 <a id="numbers" class="anchor" href="#numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Numbers</h3>
 
-<p>Dart numbers come in two flavors:</p>
+<p>Dart 语言的 numbers 有两种类型:</p>
 
 <dl>
   <dt><a href="https://api.dartlang.org/dev/dart-core/int-class.html">int</a></dt>
   <dd>
-    <p>Integer values no larger than 64 bits,
-depending on the platform.
-On the Dart VM, values can be from
--2<sup>63</sup> to 2<sup>63</sup> - 1.
-Dart that’s compiled to JavaScript uses
+    <p>整数值不大于64位，
+具体取决于平台。
+在 Dart VM 上， 值的范围从
+-2<sup>63</sup> 到 2<sup>63</sup> - 1.
+Dart 被编译为 JavaScript 时，使用
 <a href="https://stackoverflow.com/questions/2802957/number-of-bits-in-javascript-numbers/2803010#2803010">JavaScript numbers,</a>
-allowing values from -2<sup>53</sup> to 2<sup>53</sup> - 1.</p>
+值的范围从 -2<sup>53</sup> 到 2<sup>53</sup> - 1.</p>
   </dd>
   <dt><a href="https://api.dartlang.org/dev/dart-core/double-class.html">double</a></dt>
   <dd>
-    <p>64-bit (double-precision) floating-point numbers, as specified by
-the IEEE 754 standard.</p>
+    <p>64位（双精度）浮点数，依据 IEEE 754 标准。</p>
   </dd>
 </dl>
 
-<p>Both <code class="highlighter-rouge">int</code> and <code class="highlighter-rouge">double</code> are subtypes of <a href="https://api.dartlang.org/dev/dart-core/num-class.html"><code class="highlighter-rouge">num</code>.</a>
-The num type includes basic operators such as +, -, /, and *,
-and is also where you’ll find <code class="highlighter-rouge">abs()</code>,<code class="highlighter-rouge"> ceil()</code>,
-and <code class="highlighter-rouge">floor()</code>, among other methods.
-(Bitwise operators, such as &gt;&gt;, are defined in the <code class="highlighter-rouge">int</code> class.)
-If num and its subtypes don’t have what you’re looking for, the
-<a href="https://api.dartlang.org/dev/dart-math">dart:math</a> library might.</p>
+<p><code class="highlighter-rouge">int</code> 和 <code class="highlighter-rouge">double</code> 都是 <a href="https://api.dartlang.org/dev/dart-core/num-class.html"><code class="highlighter-rouge">num</code>.</a> 的亚类型。
+num 类型包括基本运算 +， -， /， 和 *，
+以及 <code class="highlighter-rouge">abs()</code>，<code class="highlighter-rouge"> ceil()</code>，
+和 <code class="highlighter-rouge">floor()</code>， 等函数方法。
+（按位运算符，例如»，定义在 int 类中。）
+如果 num 及其亚类型找不到你想要的方法，
+尝试查找使用 <a href="https://api.dartlang.org/dev/dart-math">dart:math</a> 库。</p>
 
-<p>Integers are numbers without a decimal point. Here are some examples of
-defining integer literals:</p>
+<p>整数类型不包含小数点。
+下面是定义整数类型字面量的例子:</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (integer-literals)"?>
 <pre class="prettyprint lang-dart">
 int x = 1;
 int hex = 0xDEADBEEF;
 </pre>
-
-<p>If a number includes a decimal, it is a double. Here are some examples
-of defining double literals:</p>
+<p>如果一个数字包含小数点，那么就是小数类型。 
+下面是定义小数类型字面量的例子:</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (double-literals)"?>
 <pre class="prettyprint lang-dart">
@@ -852,7 +850,7 @@ double y = 1.1;
 double exponents = 1.42e5;
 </pre>
 
-<p>Here’s how you turn a string into a number, or vice versa:</p>
+<p>以下是将字符串转换为数字的方法，反之亦然：</p>
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (number-conversion)"?>
 <pre class="prettyprint lang-dart">
@@ -873,8 +871,8 @@ String piAsString = 3.14159.toStringAsFixed(2);
 assert(piAsString == '3.14');
 </pre>
 
-<p>The int type specifies the traditional bitwise shift (&lt;&lt;, &gt;&gt;), AND
-(&amp;), and OR (|) operators. For example:</p>
+<p>int 特有的传统按位运算操作，移位（&lt;&lt;， &gt;&gt;），按位与（&amp;）以及 按位或（|）。
+例如：</p>
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (bit-shifting)"?>
 <pre class="prettyprint lang-dart">
@@ -883,10 +881,9 @@ assert((3 &gt;&gt; 1) == 1); // 0011 &gt;&gt; 1 == 0001
 assert((3 | 4) == 7); // 0011 | 0100 == 0111
 </pre>
 
-<p>Literal numbers are compile-time constants.
-Many arithmetic expressions are also compile-time constants,
-as long as their operands are
-compile-time constants that evaluate to numbers.</p>
+<p>数字类型字面量是编译时常量。
+在算术表达式中，只要参与计算的因子是编译时常量， 
+那么算术表达式的结果也是编译时常量。</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (const-num)"?>
 <pre class="prettyprint lang-dart">
@@ -1300,7 +1297,8 @@ expression</a>.</p>
 
 <p>A function can have two types of parameters: required and optional. The
 required parameters are listed first, followed by any optional
-parameters.</p>
+parameters. Named optional parameters can also be marked as <code class="highlighter-rouge">@required</code>.
+See the next section for details.</p>
 
 <h3 id="optional-parameters">
 <a id="optional-parameters" class="anchor" href="#optional-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional parameters</h3>
@@ -1325,10 +1323,27 @@ to specify named parameters:</p>
 <?code-excerpt "misc/lib/language_tour/functions.dart (specify-named-parameters)"?>
 <pre class="prettyprint lang-dart">
 /// Sets the [bold] and [hidden] flags ...
-void enableFlags({bool bold, bool hidden}) {
-  // ...
-}
+void enableFlags({bool bold, bool hidden}) {...}
 </pre>
+
+<p><a href="https://flutter.io">Flutter</a> instance creation expressions can get complex, so widget
+constructors use named parameters exclusively. This makes instance creation
+expressions easier to read.</p>
+
+<p>You can annotate a named parameter in any Dart code (not just Flutter) with
+<a href="https://pub.dartlang.org/documentation/meta/latest/meta/required-constant.html">@required</a> to indicate that it is a <em>required</em> parameter. For example:</p>
+
+<?code-excerpt "misc/lib/language_tour/functions.dart (required-named-parameters)" replace="/@required/[!$&!]/g"?>
+<pre class="prettyprint lang-dart">
+const Scrollbar({Key key, <span class="highlight">@required</span> Widget child})
+</pre>
+
+<p>When a <code class="highlighter-rouge">Scrollbar</code> is constructed, the analyzer reports an issue when the
+<code class="highlighter-rouge">child</code> argument is absent.</p>
+
+<p><a href="https://pub.dartlang.org/documentation/meta/latest/meta/required-constant.html">Required</a> is defined in the <a href="https://pub.dartlang.org/packages/meta">meta</a> package. Either import
+<code class="highlighter-rouge">package:meta/meta.dart</code> directly, or import another package that exports
+<code class="highlighter-rouge">meta</code>, such as Flutter’s <code class="highlighter-rouge">package:flutter/material.dart</code>.</p>
 
 <h4 id="optional-positional-parameters">
 <a id="optional-positional-parameters" class="anchor" href="#optional-positional-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional positional parameters</h4>
@@ -1376,9 +1391,7 @@ If no default value is provided, the default value is <code class="highlighter-r
 <?code-excerpt "misc/lib/language_tour/functions.dart (named-parameter-default-values)"?>
 <pre class="prettyprint lang-dart">
 /// Sets the [bold] and [hidden] flags ...
-void enableFlags({bool bold = false, bool hidden = false}) {
-  // ...
-}
+void enableFlags({bool bold = false, bool hidden = false}) {...}
 
 // bold will be true; hidden will be false.
 enableFlags(bold: true);
@@ -1863,7 +1876,7 @@ assert(5 / 2 == 2.5); // Result is a double
 assert(5 ~/ 2 == 2); // Result is an int
 assert(5 % 2 == 1); // Remainder
 
-assert('5/2 = ${5~/2} r ${5%2}' == '5/2 = 2 r 1');
+assert('5/2 = ${5 ~/ 2} r ${5 % 2}' == '5/2 = 2 r 1');
 </pre>
 
 <p>Dart also supports both prefix and postfix increment and decrement
@@ -4728,7 +4741,7 @@ Specification</a> and
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/11 21:07 CST"
+                 title="Site built on 2018/07/12 13:59 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Articles that clarify aspects of the Dart language.">
-  <title>Articles: Language Details | Dart</title>
+  <meta name="description" content="Articles pertaining to command-line and server-side Dart apps, covering topics such as benchmarking, native extensions, and numeric computation.">
+  <title>Articles: Server-Side Dart | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,13 +18,13 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="Articles: Language Details" />
-  <meta name="twitter:description" content="Articles that clarify aspects of the Dart language." />
+  <meta name="twitter:title" content="Articles: Server-Side Dart" />
+  <meta name="twitter:description" content="Articles pertaining to command-line and server-side Dart apps, covering topics such as benchmarking, native extensions, and numeric computation." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Articles: Language Details" />
-  <meta property="og:description" content="Articles that clarify aspects of the Dart language." />
-  <meta property="og:url" content="https://www.dartlang.org/articles/language" />
+  <meta property="og:title" content="Articles: Server-Side Dart" />
+  <meta property="og:description" content="Articles pertaining to command-line and server-side Dart apps, covering topics such as benchmarking, native extensions, and numeric computation." />
+  <meta property="og:url" content="https://www.dartlang.org/articles/dart-vm/index" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/language" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.66.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/index" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -112,7 +112,7 @@ ga('send', 'pageview');
 
     <ul>
       <li>
-        <a class="btn btn-default" href="/guides/get-started">入门</a>
+        <a class="btn btn-default" href="/guides/get-started">Get Started</a>
       </li>
     </ul>
     <h4 ><a href="/guides/language" title="语言">语言</a></h4>
@@ -188,7 +188,7 @@ ga('send', 'pageview');
           <div>
             <ul class="page-github-links-menu" role="group">
   <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/language/index.md"
+    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/dart-vm/index.md"
       class="no-automatic-external"
       title="View page source"
       target="_blank" rel="noopener">
@@ -196,7 +196,7 @@ ga('send', 'pageview');
     </a>
   </li>
   <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Articles: Language Details' page issue&body=From URL: https://www.dartlang.org/articles/language"
+    <a href="https://github.com/dart-lang/site-www/issues/new?title='Articles: Server-Side Dart' page issue&body=From URL: https://www.dartlang.org/articles/dart-vm/index"
       class="no-automatic-external"
       title="Report a bug on this page" target="_blank" rel="noopener">
       <i class="fas fa-bug fa-sm"></i>
@@ -204,32 +204,47 @@ ga('send', 'pageview');
   </li>
 </ul>
 
-            <h1>Articles: Language Details</h1>
+            <h1>Articles: Server-Side Dart</h1>
           </div>
-          <p>Read these articles for insight into the Dart language.</p>
+          <p>Read these articles for information that’s relevant to
+Dart apps that run on the command line or as servers.</p>
+
+<p>Also see: <a href="/articles">Articles about the Dart language and libraries</a></p>
+
+<aside class="alert alert-danger">
+  <p><strong>Obsolete content:</strong>
+Most of these articles haven’t been updated to reflect the latest release.
+To find newer articles, look in
+<a href="https://medium.com/dartlang">Medium’s dartlang channel.</a></p>
+</aside>
 
 <div class="break-80">
   
   <ul class="nav-list">
     
-      <li><h4><a href="/articles/language/mixins" title="A Brief History of Mixins in Dart">A Brief History of Mixins in Dart</a></h4>
-<em class="muted">December 2012&nbsp;(updated: June 2018)</em>
-<p>Mixins let you implement functionality once and use it in multiple classes.</p>
+      <li><h4><a href="/articles/dart-vm/io" title="An Introduction to the dart:io Library">An Introduction to the dart:io Library</a></h4>
+<em class="muted">March 2012&nbsp;(updated: March 2015)</em>
+<p>An introduction to the Dart I/O library, which is aimed at server-side code that runs on the standalone Dart VM.</p>
 </li>
     
-      <li><h4><a href="/articles/language/beyond-async" title="Dart Language Asynchrony Support: Phase 2">Dart Language Asynchrony Support: Phase 2</a></h4>
-<em class="muted">March 2015&nbsp;</em>
-<p>Async*, sync*, yield, and yield* are now available as part of Dart's asynchrony support.</p>
+      <li><h4><a href="/articles/dart-vm/simd" title="Using SIMD in Dart">Using SIMD in Dart</a></h4>
+<em class="muted">August 2013&nbsp;</em>
+<p>Get more out of your CPU: operate on four numbers in parallel, using the Float32x4 class from the dart:typed_data library.</p>
 </li>
     
-      <li><h4><a href="/articles/language/await-async" title="Dart Language Asynchrony Support: Phase 1">Dart Language Asynchrony Support: Phase 1</a></h4>
-<em class="muted">October 2014&nbsp;</em>
-<p>Async and await, two language features that support asynchronous programming, are now available in Dart.</p>
+      <li><h4><a href="/articles/dart-vm/numeric-computation" title="Numeric Computation">Numeric Computation</a></h4>
+<em class="muted">May 2013&nbsp;</em>
+<p>How you store and use numbers can have a big impact on your app's performance. This article focuses on the Dart VM.</p>
 </li>
     
-      <li><h4><a href="/articles/language/emulating-functions" title="Emulating Functions in Dart">Emulating Functions in Dart</a></h4>
-<em class="muted">January 2012&nbsp;(updated: February 2014)</em>
-<p>Learn how to define Dart classes that behave like functions.</p>
+      <li><h4><a href="/articles/dart-vm/benchmarking" title="Benchmarking the Dart VM">Benchmarking the Dart VM</a></h4>
+<em class="muted">October 2012&nbsp;(updated: November 2012)</em>
+<p>Learn how to benchmark your applications</p>
+</li>
+    
+      <li><h4><a href="/articles/dart-vm/native-extensions" title="Native Extensions for the Standalone Dart VM">Native Extensions for the Standalone Dart VM</a></h4>
+<em class="muted">May 2012&nbsp;</em>
+<p>Learn how to enable command-line Dart apps to call C/C++ functions.</p>
 </li>
     
   </ul>
@@ -238,8 +253,8 @@ ga('send', 'pageview');
 <p>Also see:</p>
 
 <ul>
+  <li><a href="/articles/language">Language articles</a></li>
   <li><a href="/articles/libraries">Libraries articles</a></li>
-  <li><a href="/articles/dart-vm">Dart VM articles</a></li>
   <li><a href="https://webdev.dartlang.org/articles">webdev articles</a></li>
 </ul>
 
@@ -269,7 +284,7 @@ ga('send', 'pageview');
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/11 19:44 CST"
+                 title="Site built on 2018/07/12 13:59 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/effective-dart/usage" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.66.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/effective-dart/usage" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -112,7 +112,7 @@ ga('send', 'pageview');
 
     <ul>
       <li>
-        <a class="btn btn-default" href="/guides/get-started">入门</a>
+        <a class="btn btn-default" href="/guides/get-started">Get Started</a>
       </li>
     </ul>
     <h4 ><a href="/guides/language" title="语言">语言</a></h4>
@@ -737,6 +737,13 @@ you don’t care about the type, then use <code class="highlighter-rouge">toList
 
 <h3 id="do-use-wheretype-to-filter-a-collection-by-type">
 <a id="do-use-wheretype-to-filter-a-collection-by-type" class="anchor" href="#do-use-wheretype-to-filter-a-collection-by-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use <code class="highlighter-rouge">whereType()</code> to filter a collection by type.</h3>
+
+<aside class="alert alert-warning">
+  <p><strong>Before using <code class="highlighter-rouge">whereType()</code>, make sure it’s implemented.</strong>
+  We expect <code class="highlighter-rouge">whereType()</code> to be added late in Dart 2 development.
+  For details, see
+  <a href="https://github.com/dart-lang/sdk/issues/32463#issuecomment-402975456">SDK issue #32463.</a></p>
+</aside>
 
 <p>Let’s say you have a list containing a mixture of objects, and you want to get
 just the integers out of it. You could use <code class="highlighter-rouge">where()</code> like this:</p>
@@ -1819,7 +1826,7 @@ like a bare, synchronous value.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/11 19:44 CST"
+                 title="Site built on 2018/07/12 13:59 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
