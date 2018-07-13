@@ -196,11 +196,11 @@ ga('send', 'pageview');
 </li>
 <li class="toc-entry toc-h2"><a href="#functions">Functions</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#optional-parameters">Optional parameters</a>
+<li class="toc-entry toc-h3"><a href="#optional-参数">Optional 参数</a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#optional-named-parameters">Optional named parameters</a></li>
-<li class="toc-entry toc-h4"><a href="#optional-positional-parameters">Optional positional parameters</a></li>
-<li class="toc-entry toc-h4"><a href="#default-parameter-values">Default parameter values</a></li>
+<li class="toc-entry toc-h4"><a href="#optional-命名参数">Optional 命名参数</a></li>
+<li class="toc-entry toc-h4"><a href="#optional-位置参数">Optional 位置参数</a></li>
+<li class="toc-entry toc-h4"><a href="#默认参数值">默认参数值</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#the-main-function">The main() function</a></li>
@@ -378,10 +378,10 @@ ga('send', 'pageview');
 
 <p>这里将介绍 Dart 主要功能，从变量和运算符到类和库，假设您已经知道如何使用其他语言编程。</p>
 
-<p>学习更多 Dart 核心库, 参阅
+<p>学习更多 Dart 核心库, 参见
 <a href="/guides/libraries/library-tour">Dart 库概览</a>.
 想了解更多有关语言功能的详细信息,
-请参阅 <a href="/guides/language/spec">Dart 编程语言规范</a>.</p>
+参见 <a href="/guides/language/spec">Dart 编程语言规范</a>.</p>
 
 <div class="alert alert-info">
   <p><strong>提示:</strong>
@@ -417,7 +417,7 @@ main() {
   <dd>
     <p>单行注释。
 Dart 同样支持多行注释和文档注释。
-有关更多信息，请参阅 <a href="#comments">注释</a>.</p>
+有关更多信息，参见 <a href="#comments">注释</a>.</p>
   </dd>
   <dt><code class="highlighter-rouge">int</code></dt>
   <dd>
@@ -441,13 +441,13 @@ Dart 同样支持多行注释和文档注释。
 <code>$<em>variableName</em></code> (或 <code>${<em>expression</em>}</code>)</dt>
   <dd>
     <p>字符串插值： 包括字符串文字内部的变量或表达式的字符串。 
-有关更多信息，请参阅
+有关更多信息，参见
 <a href="#strings">Strings</a>.</p>
   </dd>
   <dt><code class="highlighter-rouge">main()</code></dt>
   <dd>
     <p>程序开始执行函数，该函数是特定的、<em>必须的</em>、顶级函数。
-有关更多信息，请参阅
+有关更多信息，参见
 <a href="#the-main-function">The main() function</a>.</p>
   </dd>
   <dt><code class="highlighter-rouge">var</code></dt>
@@ -494,7 +494,7 @@ Dart 同样支持多行注释和文档注释。
   <li>
     <p>与 Java 不同，Dart 没有关键字 “public” ， “protected” 和 “private” 。 
 如果标识符以下划线（\ _）开头，则它相对于库是私有的。 
-有关更多信息，请参阅 [库和可见性]（＃libraries-and-visibility）。</p>
+有关更多信息，参见 [库和可见性]（＃libraries-and-visibility）。</p>
   </li>
   <li>
     <p><em>标识符</em> 以字母或下划线（\ _）开头，后跟任意字母和数字组合。</p>
@@ -646,7 +646,7 @@ Dart 同样支持多行注释和文档注释。
 <p><sup>2</sup> 带有上标2的单词
 是 Dart 1.0 发布后，为支持<strong>异步</strong>增加更新的，限制类保留字。 
 不能在标记为 <code class="highlighter-rouge">async</code> ，<code class="highlighter-rouge">async*</code> 或 <code class="highlighter-rouge">sync*</code> 的任何函数体中使用 <code class="highlighter-rouge">async</code> , <code class="highlighter-rouge">async*</code> , or <code class="highlighter-rouge">sync*</code> 作为标识符。
-有关更多信息，请参阅 <a href="#asynchrony-support">Asynchrony支持</a>。</p>
+有关更多信息，参见 <a href="#asynchrony-support">Asynchrony支持</a>。</p>
 
 <p>关键字表中的剩余单词都是<strong>保留字</strong>。
 不能将保留字用作标识符。</p>
@@ -704,7 +704,7 @@ assert(lineCount == null);
   <p><strong>提示：</strong>
 在生产环境代码中 <code class="highlighter-rouge">assert()</code> 函数会被忽略，不会被调用。
 在开发过程中, <code>assert(<em>condition</em>)</code>
-会在非 <code class="highlighter-rouge">true</code> 的条件下抛出异常.有关更多信息，请参阅
+会在非 <code class="highlighter-rouge">true</code> 的条件下抛出异常.有关更多信息，参见
  <a href="#assert">Assert</a>.</p>
 </div>
 
@@ -759,7 +759,7 @@ const baz = []; // Equivalent to `const []`
 </pre>
 
 <p>声明 <code class="highlighter-rouge">const</code> 的初始化表达式中 <code class="highlighter-rouge">const</code> 可以被省略。
-比如上面的 <code class="highlighter-rouge">baz</code>。 有关更多信息，请参阅 <a href="/guides/language/effective-dart/usage#dont-use-const-redundantly">不要冗余地使用 const</a>。</p>
+比如上面的 <code class="highlighter-rouge">baz</code>。 有关更多信息，参见 <a href="/guides/language/effective-dart/usage#dont-use-const-redundantly">不要冗余地使用 const</a>。</p>
 
 <p>非 final ， 非 const 的变量是可以被修改的，即使这些变量
 曾经引用过 const 值。</p>
@@ -776,7 +776,7 @@ foo = [1, 2, 3]; // 曾经引用过 const [] 常量值。
 baz = [42]; // Error: 常量变量不能赋值修改。
 </pre>
 
-<p>更多关于使用 <code class="highlighter-rouge">const</code> 创建常量值，详参阅
+<p>更多关于使用 <code class="highlighter-rouge">const</code> 创建常量值，参见
 <a href="#lists">Lists</a>， <a href="#maps">Maps</a>， 和 <a href="#classes">Classes</a>。</p>
 
 <h2 id="内建类型">
@@ -1077,12 +1077,11 @@ var constantList = const [1, 2, 3];
 <h3 id="maps">
 <a id="maps" class="anchor" href="#maps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maps</h3>
 
-<p>In general, a map is an object that associates keys and values. Both
-keys and values can be any type of object. Each <em>key</em> occurs only once,
-but you can use the same <em>value</em> multiple times. Dart support for maps
-is provided by map literals and the <a href="https://api.dartlang.org/dev/dart-core/Map-class.html">Map</a> type.</p>
+<p>通常来说， map 是用来关联 keys 和 values 的对象。
+keys 和 values 可以是任何类型的对象。在一个 map 对象中一个 <em>key</em> 只能出现一次。
+但是 <em>value</em> 可以出现多次。 Dart 中 map 通过 map 字面量 和 <a href="https://api.dartlang.org/dev/dart-core/Map-class.html">Map</a> 类型来实现。</p>
 
-<p>Here are a couple of simple Dart maps, created using map literals:</p>
+<p>下面是使用 map 字面量的两个简单例子：</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (map-literal)"?>
 <pre class="prettyprint lang-dart">
@@ -1101,16 +1100,14 @@ var nobleGases = {
 </pre>
 
 <aside class="alert alert-info">
-  <p><strong>Note:</strong>
-  The analyzer infers that <code class="highlighter-rouge">gifts</code> has the type
-  <code class="highlighter-rouge">Map&lt;String, String&gt;</code> and <code class="highlighter-rouge">nobleGases</code> has the type
-  <code class="highlighter-rouge">Map&lt;int, String&gt;</code>. If you try to add the wrong type of value
-  to either map, the analyzer or runtime raises an error.
-  For more information, read about
-  <a href="/guides/language/sound-dart#type-inference">type inference.</a></p>
+  <p><strong>提示：</strong>
+  分析器会将 <code class="highlighter-rouge">gifts</code> 的类型推断为 <code class="highlighter-rouge">Map&lt;String, String&gt;</code>，
+  <code class="highlighter-rouge">nobleGases</code> 的类型推断为 <code class="highlighter-rouge">Map&lt;int, String&gt;</code> 。 
+  如果尝试在上面的 map 中添加错误类型，那么分析器或者运行时会引发错误。 
+  有关更多信息，请阅读<a href="/guides/language/sound-dart#type-inference">类型推断。</a>。</p>
 </aside>
 
-<p>You can create the same objects using a Map constructor:</p>
+<p>以上 map 对象也可以使用 Map 构造函数创建：</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (map-constructor)"?>
 <pre class="prettyprint lang-dart">
@@ -1126,14 +1123,13 @@ nobleGases[18] = 'argon';
 </pre>
 
 <aside class="alert alert-info">
-  <p><strong>Note:</strong>
-You might expect to see <code class="highlighter-rouge">new Map()</code> instead of just <code class="highlighter-rouge">Map()</code>.
-As of Dart 2, the <code class="highlighter-rouge">new</code> keyword is optional.
-For details, see <a href="#using-constructors">Using constructors</a>.</p>
+  <p><strong>提示:</strong>
+这里为什么只有 <code class="highlighter-rouge">Map()</code> ，而不是使用 <code class="highlighter-rouge">new Map()</code>。
+因为在 Dart 2 中，<code class="highlighter-rouge">new</code> 关键字是可选的。
+有关更多信息，参见 <a href="#using-constructors">构造函数的使用</a>。</p>
 </aside>
 
-<p>Add a new key-value pair to an existing map just as you would in
-JavaScript:</p>
+<p>类似 JavaScript ，添加 key-value 对到已有的 map 中：</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (map-add-item)"?>
 <pre class="prettyprint lang-dart">
@@ -1141,7 +1137,7 @@ var gifts = {'first': 'partridge'};
 gifts['fourth'] = 'calling birds'; // Add a key-value pair
 </pre>
 
-<p>Retrieve a value from a map the same way you would in JavaScript:</p>
+<p>类似 JavaScript ，从一个 map 中移除一个 value：</p>
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (map-retrieve-item)"?>
 <pre class="prettyprint lang-dart">
@@ -1149,7 +1145,7 @@ var gifts = {'first': 'partridge'};
 assert(gifts['first'] == 'partridge');
 </pre>
 
-<p>If you look for a key that isn’t in a map, you get a null in return:</p>
+<p>如果 map 中不包含所要查找的 key，那么 map 返回 null：</p>
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (map-missing-key)"?>
 <pre class="prettyprint lang-dart">
@@ -1157,7 +1153,7 @@ var gifts = {'first': 'partridge'};
 assert(gifts['fifth'] == null);
 </pre>
 
-<p>Use <code class="highlighter-rouge">.length</code> to get the number of key-value pairs in the map:</p>
+<p>使用 <code class="highlighter-rouge">.length</code> 函数获取当前 map 中的 key-value 对数量：</p>
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (map-length)"?>
 <pre class="prettyprint lang-dart">
@@ -1166,7 +1162,7 @@ gifts['fourth'] = 'calling birds';
 assert(gifts.length == 2);
 </pre>
 
-<p>To create a map that’s a compile-time constant,
+<p>创建 map 类型运行时常量，要在 map 字面量前加上关键字 <code class="highlighter-rouge">const</code>。
 add <code class="highlighter-rouge">const</code> before the map literal:</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (const-map)"?>
@@ -1177,81 +1173,77 @@ final constantMap = const {
   18: 'argon',
 };
 
-// constantMap[2] = 'Helium'; // Uncommenting this causes an error.
+// constantMap[2] = 'Helium'; // 取消注释会引起错误。
 </pre>
 
-<p>For more information about maps, see
+<p>更名多关于 map 的内容，参见
 <a href="#generics">Generics</a> and
 <a href="/guides/libraries/library-tour#maps">Maps</a>.</p>
 
 <h3 id="runes">
 <a id="runes" class="anchor" href="#runes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Runes</h3>
 
-<p>In Dart, runes are the UTF-32 code points of a string.</p>
+<p>在 Dart 中，runes 用来表示字符串中的 UTF-32 编码字符。</p>
 
-<p>Unicode defines a unique numeric value for each letter, digit,
-and symbol used in all of the world’s writing systems.
-Because a Dart string is a sequence of UTF-16 code units,
-expressing 32-bit Unicode values within a string requires
-special syntax.</p>
+<p>Unicode 定义了一个全球的书写系统编码，
+系统中使用的所有字母，数字和符号都对应唯一的数值编码。
+由于 Dart 字符串是一系列 UTF-16 编码单元，
+因此要在字符串中表示32位 Unicode 值需要特殊语法支持。</p>
 
-<p>The usual way to express a Unicode code point is
-<code class="highlighter-rouge">\uXXXX</code>, where XXXX is a 4-digit hexidecimal value.
-For example, the heart character (♥) is <code class="highlighter-rouge">\u2665</code>.
-To specify more or less than 4 hex digits,
-place the value in curly brackets.
-For example, the laughing emoji (�) is <code class="highlighter-rouge">\u{1f600}</code>.</p>
+<p>表示 Unicode 编码的常用方法是，
+<code class="highlighter-rouge">\uXXXX</code>, 这里 XXXX 是一个4位的16进制数。
+例如，心形符号 (♥) 是 <code class="highlighter-rouge">\u2665</code>。
+对于特殊的非 4 个数值的情况，
+把编码值放到大括号中即可。
+例如，emoji 的笑脸   (�) 是 <code class="highlighter-rouge">\u{1f600}</code>。</p>
 
-<p>The <a href="https://api.dartlang.org/dev/dart-core/String-class.html">String</a>
-class has several properties you can use to extract rune information.
-The <code class="highlighter-rouge">codeUnitAt</code> and <code class="highlighter-rouge">codeUnit</code> properties return 16-bit code
-units. Use the <code class="highlighter-rouge">runes</code> property to get the runes of a string.</p>
+<p><a href="https://api.dartlang.org/dev/dart-core/String-class.html">String</a>
+类有一些属性可以获得 rune 数据。
+属性 <code class="highlighter-rouge">codeUnitAt</code> 和 <code class="highlighter-rouge">codeUnit</code> 返回16位编码数据。
+属性 <code class="highlighter-rouge">runes</code> 获取字符串中的 runes 。</p>
 
-<p>The following example illustrates the relationship between runes,
-16-bit code units, and 32-bit code points.
-Click the run button ( <img src="/assets/red-run.png" width="20" height="19" alt="red-run.png"> )
-to see runes in action.</p>
+<p>下面是示例演示了 runes、 16-bit code units、
+和 32-bit code points 之间的关系。
+点击运行按钮 ( <img src="/assets/red-run.png" width="20" height="19" alt="red-run.png"> )
+查看 runes 结果。</p>
 
 <iframe src="https://dartpad.dartlang.org/embed-dart.html?id=589bc5c95318696cefe5&amp;horizontalRatio=99&amp;verticalRatio=65" width="100%" height="310px" style="border: 1px solid #ccc;">
 </iframe>
 
 <div class="alert alert-warning">
-  <p><strong>Note:</strong>
-Be careful when manipulating runes using list operations.
-This approach can easily break down,
-depending on the particular language, character set, and operation.
-For more information, see
+  <p><strong>提示：</strong>
+谨慎使用 list 方式操作 runes。
+这种方法很容易引发崩溃，
+具体原因取决于特定的语言，字符集和操作。
+有关更多信息，参见
 <a href="http://stackoverflow.com/questions/21521729/how-do-i-reverse-a-string-in-dart">How do I reverse a String in Dart?</a> on Stack Overflow.</p>
 </div>
 
 <h3 id="symbols">
 <a id="symbols" class="anchor" href="#symbols" aria-hidden="true"><span class="octicon octicon-link"></span></a>Symbols</h3>
 
-<p>A <a href="https://api.dartlang.org/dev/dart-core/Symbol-class.html">Symbol</a> object
-represents an operator or identifier declared in a Dart program. You
-might never need to use symbols, but they’re invaluable for APIs that
-refer to identifiers by name, because minification changes identifier
-names but not identifier symbols.</p>
-
-<p>To get the symbol for an identifier, use a symbol literal, which is just
-<code class="highlighter-rouge">#</code> followed by the identifier:</p>
+<p>一个 Symbol 对象表示 Dart 程序中声明的操作符或者标识符。 
+你也许永远都不需要使用 Symbol ，但要按名称引用标识符的 API 时， Symbol 就非常有用了。
+因为代码压缩后会改变标识符的名称，但不会改变标识符的符号。
+通过字面量 Symbol ，也就是标识符前面添加一个 <code class="highlighter-rouge">#</code> 号，来获取标识符的 Symbol 。</p>
 
 <pre><code class="language-nocode">#radix
 #bar
 </code></pre>
 
-<p>Symbol literals are compile-time constants.</p>
+<p>Symbol 字面量是编译时常量。</p>
 
 <h2 id="functions">
 <a id="functions" class="anchor" href="#functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Functions</h2>
 
-<p>Dart is a true object-oriented language, so even functions are objects
-and have a type, <a href="https://api.dartlang.org/dev/dart-core/Function-class.html">Function</a>.
-This means that functions can be assigned to variables or passed as arguments
-to other functions. You can also call an instance of a Dart class as if
-it were a function. For details, see <a href="#callable-classes">Callable classes</a>.</p>
+<p>Dart 是一门真正面向对象的语言，
+甚至其中的函数也是对象，并且有它的类型 
+<a href="https://api.dartlang.org/dev/dart-core/Function-class.html">Function</a> 。
+这也意味着函数可以被赋值给变量或者作为参数传递给其它函数。
+也可以把 Dart 类的实例当做方法来调用。
+有关更多信息，参见 <a href="#callable-classes">Callable classes</a>.</p>
 
-<p>Here’s an example of implementing a function:</p>
+<p>已下是函数实现的示例：</p>
 
 <?code-excerpt "misc/lib/language_tour/functions.dart (function)"?>
 <pre class="prettyprint lang-dart">
@@ -1260,9 +1252,9 @@ bool isNoble(int atomicNumber) {
 }
 </pre>
 
-<p>Although Effective Dart recommends
-<a href="/guides/language/effective-dart/design#prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious">type annotations for public APIs</a>,
-the function still works if you omit the types:</p>
+<p>虽然在 Effective Dart 中推荐
+<a href="/guides/language/effective-dart/design#prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious">公共API中声明类型</a>,
+但是省略了类型声明，函数依旧是可以正常使用的：</p>
 
 <?code-excerpt "misc/lib/language_tour/functions.dart (function-omitting-types)"?>
 <pre class="prettyprint lang-dart">
@@ -1271,50 +1263,49 @@ isNoble(atomicNumber) {
 }
 </pre>
 
-<p>For functions that contain just one expression, you can use a shorthand
-syntax:</p>
+<p>如果函数中只有一句表达式，可以使用简写语法：</p>
 
 <?code-excerpt "misc/lib/language_tour/functions.dart (function-shorthand)"?>
 <pre class="prettyprint lang-dart">
 bool isNoble(int atomicNumber) =&gt; _nobleGases[atomicNumber] != null;
 </pre>
 
-<p>The <code>=&gt; <em>expr</em></code> syntax is a shorthand for
-<code>{ return <em>expr</em>; }</code>. The <code class="highlighter-rouge">=&gt;</code> notation
-is sometimes referred to as <em>fat arrow</em> syntax.</p>
+<p><code>=&gt; <em>expr</em></code> 语法是
+<code>{ return <em>expr</em>; }</code> 的简写。 <code class="highlighter-rouge">=&gt;</code> 符号
+有时也被称为 <em>胖箭头</em> 语法。</p>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
-Only an <em>expression</em>—not a <em>statement</em>—can appear between the arrow
-(=&gt;) and the semicolon (;). For example, you can’t put an <a href="#if-and-else">if
-statement</a> there, but you can use a <a href="#conditional-expressions">conditional
-expression</a>.</p>
+  <p><strong>提示：</strong>
+在箭头 (=&gt;) 和冒号 (;) 之间只能使用一个 <em>表达式</em>—不能是 <em>语句</em>。
+例如：不能使用 <a href="#if-and-else">if
+语句</a> ，但是可以是用 
+<a href="#conditional-expressions">条件表达式</a>.</p>
 </div>
 
-<p>A function can have two types of parameters: required and optional. The
-required parameters are listed first, followed by any optional
-parameters. Named optional parameters can also be marked as <code class="highlighter-rouge">@required</code>.
-See the next section for details.</p>
+<p>函数有两种参数类型: required 和 optional。
+required 类型参数在参数最前面， 随后是 optional 类型参数。
+命名的可选参数也可以标记为 “@ required” 。
+参见下一章节，了解更多细节。</p>
 
-<h3 id="optional-parameters">
-<a id="optional-parameters" class="anchor" href="#optional-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional parameters</h3>
+<h3 id="optional-参数">
+<a id="optional-参数" class="anchor" href="#optional-%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional 参数</h3>
 
-<p>Optional parameters can be either positional or named, but not both.</p>
+<p>可选参数可以是命名参数或者位置参数，但一个参数只能选择其中一种方式修饰。</p>
 
-<h4 id="optional-named-parameters">
-<a id="optional-named-parameters" class="anchor" href="#optional-named-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional named parameters</h4>
+<h4 id="optional-命名参数">
+<a id="optional-命名参数" class="anchor" href="#optional-%E5%91%BD%E5%90%8D%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional 命名参数</h4>
 
-<p>When calling a function, you can specify named parameters using
-<code><em>paramName</em>: <em>value</em></code>. For example:</p>
+<p>调用函数时，可以使用指定命名参数
+<code><em>paramName</em>: <em>value</em></code>。 例如：</p>
 
 <?code-excerpt "misc/lib/language_tour/functions.dart (use-named-parameters)"?>
 <pre class="prettyprint lang-dart">
 enableFlags(bold: true, hidden: false);
 </pre>
 
-<p>When defining a function, use
+<p>定义函数是，使用
 <code>{<em>param1</em>, <em>param2</em>, …}</code>
-to specify named parameters:</p>
+来指定命名参数：</p>
 
 <?code-excerpt "misc/lib/language_tour/functions.dart (specify-named-parameters)"?>
 <pre class="prettyprint lang-dart">
@@ -1322,30 +1313,28 @@ to specify named parameters:</p>
 void enableFlags({bool bold, bool hidden}) {...}
 </pre>
 
-<p><a href="https://flutter.io">Flutter</a> instance creation expressions can get complex, so widget
-constructors use named parameters exclusively. This makes instance creation
-expressions easier to read.</p>
+<p><a href="https://flutter.io">Flutter</a> 创建实例的表达式可能很复杂，
+因此窗口小部件构造函数仅使用命名参数。 
+这样创建实例的表达式更易于阅读。</p>
 
-<p>You can annotate a named parameter in any Dart code (not just Flutter) with
-<a href="https://pub.dartlang.org/documentation/meta/latest/meta/required-constant.html">@required</a> to indicate that it is a <em>required</em> parameter. For example:</p>
+<p>使用 <a href="https://pub.dartlang.org/documentation/meta/latest/meta/required-constant.html">@required</a> 注释表示参数是 <em>required</em> 性质的命名参数，
+该方式可以在任何 Dart 代码中使用（不仅仅是Flutter）。</p>
 
 <?code-excerpt "misc/lib/language_tour/functions.dart (required-named-parameters)" replace="/@required/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">
 const Scrollbar({Key key, <span class="highlight">@required</span> Widget child})
 </pre>
 
-<p>When a <code class="highlighter-rouge">Scrollbar</code> is constructed, the analyzer reports an issue when the
-<code class="highlighter-rouge">child</code> argument is absent.</p>
+<p>此时 <code class="highlighter-rouge">Scrollbar</code> 是一个构造函数， 当 <code class="highlighter-rouge">child</code> 参数缺少是，分析器会提示错误。</p>
 
-<p><a href="https://pub.dartlang.org/documentation/meta/latest/meta/required-constant.html">Required</a> is defined in the <a href="https://pub.dartlang.org/packages/meta">meta</a> package. Either import
-<code class="highlighter-rouge">package:meta/meta.dart</code> directly, or import another package that exports
-<code class="highlighter-rouge">meta</code>, such as Flutter’s <code class="highlighter-rouge">package:flutter/material.dart</code>.</p>
+<p><a href="https://pub.dartlang.org/documentation/meta/latest/meta/required-constant.html">Required</a> 被定义在 <a href="https://pub.dartlang.org/packages/meta">meta</a> package。 无论是直接引入（import）
+<code class="highlighter-rouge">package:meta/meta.dart</code> ，或者引入了其它 package，而这个 package 输出（export）了
+<code class="highlighter-rouge">meta</code>，比如 Flutter 的 <code class="highlighter-rouge">package:flutter/material.dart</code>。</p>
 
-<h4 id="optional-positional-parameters">
-<a id="optional-positional-parameters" class="anchor" href="#optional-positional-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional positional parameters</h4>
+<h4 id="optional-位置参数">
+<a id="optional-位置参数" class="anchor" href="#optional-%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional 位置参数</h4>
 
-<p>Wrapping a set of function parameters in <code class="highlighter-rouge">[]</code> marks them as optional
-positional parameters:</p>
+<p>将参数放到 <code class="highlighter-rouge">[]</code> 中来标记参数是可选的：</p>
 
 <?code-excerpt "misc/test/language_tour/functions_test.dart (optional-positional-parameters)"?>
 <pre class="prettyprint lang-dart">
@@ -1358,15 +1347,15 @@ String say(String from, String msg, [String device]) {
 }
 </pre>
 
-<p>Here’s an example of calling this function without the optional
-parameter:</p>
+<p>下面是不使用可选参数调用上面方法
+的示例：</p>
 
 <?code-excerpt "misc/test/language_tour/functions_test.dart (call-without-optional-param)"?>
 <pre class="prettyprint lang-dart">
 assert(say('Bob', 'Howdy') == 'Bob says Howdy');
 </pre>
 
-<p>And here’s an example of calling this function with the third parameter:</p>
+<p>下面是使用可选参数调用上面方法的示例：</p>
 
 <?code-excerpt "misc/test/language_tour/functions_test.dart (call-with-optional-param)"?>
 <pre class="prettyprint lang-dart">
@@ -1375,35 +1364,35 @@ assert(say('Bob', 'Howdy', 'smoke signal') ==
 </pre>
 
 <p><a id="default-parameters"></a></p>
-<h4 id="default-parameter-values">
-<a id="default-parameter-values" class="anchor" href="#default-parameter-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default parameter values</h4>
+<h4 id="默认参数值">
+<a id="默认参数值" class="anchor" href="#%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>默认参数值</h4>
 
-<p>Your function can use <code class="highlighter-rouge">=</code> to define default values for both named and positional
-parameters. The default values must be compile-time constants.
-If no default value is provided, the default value is <code class="highlighter-rouge">null</code>.</p>
+<p>在定义方法的时候，可以使用 <code class="highlighter-rouge">=</code> 来定义可选参数的默认值。
+默认值只能是编译时常量。 
+如果没有提供默认值，则默认值为 null。</p>
 
-<p>Here’s an example of setting default values for named parameters:</p>
+<p>下面是设置可选参数默认值示例：</p>
 
 <?code-excerpt "misc/lib/language_tour/functions.dart (named-parameter-default-values)"?>
 <pre class="prettyprint lang-dart">
-/// Sets the [bold] and [hidden] flags ...
+/// 设置 [bold] 和 [hidden] 标志 ...
 void enableFlags({bool bold = false, bool hidden = false}) {...}
 
-// bold will be true; hidden will be false.
+// bold 值为 true; hidden 值为 false.
 enableFlags(bold: true);
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Deprecation note:</strong>
-Old code might use a colon (<code class="highlighter-rouge">:</code>) instead of <code class="highlighter-rouge">=</code>
-to set default values of named parameters.
-The reason is that originally, only <code class="highlighter-rouge">:</code> was supported for named parameters.
-That support is likely to be deprecated,
-so we recommend that you
-<strong><a href="/tools/pub/pubspec#sdk-constraints">use <code class="highlighter-rouge">=</code> to specify default values.</a></strong></p>
+  <p><strong>不推荐：</strong>
+旧版本代码中可能使用的是冒号 (<code class="highlighter-rouge">:</code>) 而不是 <code class="highlighter-rouge">=</code> 
+来设置参数默认值。
+原因是起初命名参数只支持 <code class="highlighter-rouge">:</code> 。
+这种支持可能会被弃用。
+建议
+<strong><a href="/tools/pub/pubspec#sdk-constraints">使用 <code class="highlighter-rouge">=</code> 指定默认值。</a></strong></p>
 </div>
 
-<p>The next example shows how to set default values for positional parameters:</p>
+<p>下面示例展示如何为位置参数设置默认值：</p>
 
 <?code-excerpt "misc/test/language_tour/functions_test.dart (optional-positional-param-default)"?>
 <pre class="prettyprint lang-dart">
@@ -1423,10 +1412,10 @@ assert(say('Bob', 'Howdy') ==
     'Bob says Howdy with a carrier pigeon');
 </pre>
 
-<p>You can also pass lists or maps as default values.
-The following example defines a function, <code class="highlighter-rouge">doStuff()</code>,
-that specifies a default list for the <code class="highlighter-rouge">list</code>
-parameter and a default map for the <code class="highlighter-rouge">gifts</code> parameter.</p>
+<p>list 或 map 可以作为默认值传递。
+下面的示例定义了一个方法 <code class="highlighter-rouge">doStuff()</code>，
+并分别指定参数 <code class="highlighter-rouge">list</code> 和 <code class="highlighter-rouge">gifts</code>
+的默认值。</p>
 
 <?code-excerpt "misc/lib/language_tour/functions.dart (list-map-default-function-param)"?>
 <pre class="prettyprint lang-dart">
@@ -1461,7 +1450,7 @@ void main() {
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 The <code class="highlighter-rouge">..</code> syntax in the preceding code is called a <a href="#cascade-notation-">cascade</a>.
 With cascades,
 you can perform multiple operations on the members of a single object.</p>
@@ -2058,7 +2047,7 @@ if (emp is Person) {
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 The code isn’t equivalent. If <code class="highlighter-rouge">emp</code> is null or not a Person, the
 first example (with <code class="highlighter-rouge">is</code>) does nothing; the second (with <code class="highlighter-rouge">as</code>) throws
 an exception.</p>
@@ -2344,7 +2333,7 @@ sb.write('foo')
 and you can’t construct a cascade on <code class="highlighter-rouge">void</code>.</p>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 Strictly speaking,
 the “double dot” notation for cascades is not an operator.
 It’s just part of the Dart syntax.</p>
@@ -2555,7 +2544,7 @@ override <code class="highlighter-rouge">==</code>.
 <a href="#enumerated-types">Enumerated types</a> work well in <code class="highlighter-rouge">switch</code> statements.</p>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 Switch statements in Dart are intended for limited circumstances,
 such as in interpreters or scanners.</p>
 </div>
@@ -2665,7 +2654,7 @@ assert(urlString.startsWith('https'));
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 Assert statements have no effect in production code;
 they’re for development only.
 Flutter enables asserts in <a href="https://flutter.io/debugging/#debug-mode-assertions">debug mode.</a>
@@ -2725,7 +2714,7 @@ throw 'Out of llamas!';
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong> Production-quality code usually throws types that implement
+  <p><strong>提示：</strong> Production-quality code usually throws types that implement
   <a href="https://api.dartlang.org/dev/dart-core/Error-class.html">Error</a> or <a href="https://api.dartlang.org/dev/dart-core/Exception-class.html">Exception</a>.</p>
 </div>
 
@@ -2920,7 +2909,7 @@ var p2 = new Point.fromJson({'x': 1, 'y': 2});
 </pre>
 
 <aside class="alert alert-info">
-  <p><strong>Version note:</strong> The <code class="highlighter-rouge">new</code> keyword became optional in Dart 2.</p>
+  <p><strong>Version 提示：</strong> The <code class="highlighter-rouge">new</code> keyword became optional in Dart 2.</p>
 </aside>
 
 <p>Some classes provide constant constructors. To create a compile-time
@@ -2967,7 +2956,7 @@ const pointAndLine = {
 </pre>
 
 <aside class="alert alert-info">
-  <p><strong>Version note:</strong> The <code class="highlighter-rouge">const</code> keyword became optional
+  <p><strong>Version 提示：</strong> The <code class="highlighter-rouge">const</code> keyword became optional
 within a constant context in Dart 2.</p>
 </aside>
 
@@ -3051,7 +3040,7 @@ class Point {
 <p>The <code class="highlighter-rouge">this</code> keyword refers to the current instance.</p>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 Use <code class="highlighter-rouge">this</code> only when there is a name conflict. Otherwise, Dart style
 omits the <code class="highlighter-rouge">this</code>.</p>
 </div>
@@ -3276,7 +3265,7 @@ class Logger {
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 Factory constructors have no access to <code class="highlighter-rouge">this</code>.</p>
 </div>
 
@@ -3352,7 +3341,7 @@ void main() {
 wrapping them with methods, all without changing client code.</p>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 Operators such as increment (++) work in the expected way, whether or
 not a getter is explicitly defined. To avoid any unexpected side
 effects, the operator calls the getter exactly once, saving its value
@@ -3613,7 +3602,7 @@ that’s different from the one in class <code class="highlighter-rouge">Object<
   </li>
 </ul>
 
-<p>For more information, see the informal
+<p>有关更多信息，参见 the informal
 <a href="https://github.com/dart-lang/sdk/blob/master/docs/language/informal/nosuchmethod-forwarding.md">nosuchMethod forwarding specification.</a></p>
 
 <p><a id="enums"></a></p>
@@ -3681,7 +3670,7 @@ switch (aColor) {
   <li>You can’t explicitly instantiate an enum.</li>
 </ul>
 
-<p>For more information, see the
+<p>有关更多信息，参见 the
 <a href="/guides/language/spec">Dart Language Specification</a>.</p>
 
 <h3 id="adding-features-to-a-class-mixins">
@@ -3731,7 +3720,7 @@ abstract class Musical {
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong> Some restrictions on mixins are being removed. For details, see the
+  <p><strong>提示：</strong> Some restrictions on mixins are being removed. For details, see the
   <a href="https://github.com/dart-lang/sdk/blob/master/docs/language/informal/mixin-declaration.md">proposed mixin specification.</a></p>
 
 </div>
@@ -3765,7 +3754,7 @@ void main() {
 <p>Static variables aren’t initialized until they’re used.</p>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 This page follows the <a href="/guides/language/effective-dart/style#identifiers">style guide
 recommendation</a>
 of preferring <code class="highlighter-rouge">lowerCamelCase</code> for constant names.</p>
@@ -3802,7 +3791,7 @@ void main() {
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 Consider using top-level functions, instead of static methods, for
 common or widely used utilities and functionality.</p>
 </div>
@@ -3941,7 +3930,7 @@ print(names is List&lt;String&gt;); // true
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 In contrast, generics in Java use <em>erasure</em>, which means that generic
 type parameters are removed at runtime. In Java, you can test whether
 an object is a List, but you can’t test whether it’s a <code class="highlighter-rouge">List&lt;String&gt;</code>.</p>
@@ -4058,7 +4047,7 @@ import 'package:test/test.dart';
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 <em>URI</em> stands for uniform resource identifier.
 <em>URLs</em> (uniform resource locators) are a common kind of URI.</p>
 </div>
@@ -4227,7 +4216,7 @@ Future checkVersion() <span class="highlight">async</span> {
 </pre>
 
 <aside class="alert alert-info">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 Although an async function might perform time-consuming operations,
 it doesn’t wait for those operations.
 Instead, the async function executes only until it encounters
@@ -4325,7 +4314,7 @@ you have two options:</p>
 </ul>
 
 <aside class="alert alert-warning">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 Before using <code class="highlighter-rouge">await for</code>, be sure that it makes the code clearer
 and that you really do want to wait for all of the stream’s results.
 For example, you usually should <strong>not</strong> use <code class="highlighter-rouge">await for</code> for UI event listeners,
@@ -4465,7 +4454,7 @@ concurrency is error prone and can lead to complicated code.</p>
 isolate has its own memory heap, ensuring that no isolate’s state is
 accessible from any other isolate.</p>
 
-<p>For more information, see the
+<p>有关更多信息，参见 the
 <a href="https://api.dartlang.org/dev/dart-isolate">dart:isolate library documentation.</a></p>
 
 <h2 id="typedefs">
@@ -4527,7 +4516,7 @@ void main() {
 </pre>
 
 <aside class="alert alert-info">
-  <p><strong>Note:</strong>
+  <p><strong>提示：</strong>
 Currently, typedefs are restricted to function types. We expect this
 to change.</p>
 </aside>
@@ -4703,7 +4692,7 @@ your comments, see
 
 <p>This page summarized the commonly used features in the Dart language.
 More features are being implemented, but we expect that they won’t break
-existing code. For more information, see the <a href="/guides/language/spec">Dart Language
+existing code. 有关更多信息，参见 the <a href="/guides/language/spec">Dart Language
 Specification</a> and
 <a href="/guides/language/effective-dart">Effective Dart</a>.</p>
 
@@ -4737,7 +4726,7 @@ Specification</a> and
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/12 18:58 CST"
+                 title="Site built on 2018/07/13 19:12 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
