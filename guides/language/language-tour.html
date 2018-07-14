@@ -212,13 +212,13 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#返回值">返回值</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#操作符">操作符</a>
+<li class="toc-entry toc-h2"><a href="#运算符">运算符</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#arithmetic-operators">Arithmetic operators</a></li>
-<li class="toc-entry toc-h3"><a href="#equality-and-relational-operators">Equality and relational operators</a></li>
-<li class="toc-entry toc-h3"><a href="#type-test-operators">Type test operators</a></li>
-<li class="toc-entry toc-h3"><a href="#assignment-operators">Assignment operators</a></li>
-<li class="toc-entry toc-h3"><a href="#logical-operators">Logical operators</a></li>
+<li class="toc-entry toc-h3"><a href="#算术运算符">算术运算符</a></li>
+<li class="toc-entry toc-h3"><a href="#关系运算符">关系运算符</a></li>
+<li class="toc-entry toc-h3"><a href="#类型判定运算符">类型判定运算符</a></li>
+<li class="toc-entry toc-h3"><a href="#赋值运算符">赋值运算符</a></li>
+<li class="toc-entry toc-h3"><a href="#逻辑运算符">逻辑运算符</a></li>
 <li class="toc-entry toc-h3"><a href="#bitwise-and-shift-operators">Bitwise and shift operators</a></li>
 <li class="toc-entry toc-h3"><a href="#conditional-expressions">Conditional expressions</a></li>
 <li class="toc-entry toc-h3"><a href="#cascade-notation-">Cascade notation (..)</a></li>
@@ -925,12 +925,12 @@ assert('That deserves all caps. ' +
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
-<code class="highlighter-rouge">==</code> 操作符用来测试两个对象是否相等。
+<code class="highlighter-rouge">==</code> 运算符用来测试两个对象是否相等。
 在字符串中，如果两个字符串包含了相同的编码序列，那么这两个字符串相等。
 units.</p>
 </div>
 
-<p>可以使用 <code class="highlighter-rouge">+</code> 操作符来把多个字符串连接为一个，也可以把多个字面量字符串写在一起来实现字符串连接：</p>
+<p>可以使用 <code class="highlighter-rouge">+</code> 运算符来把多个字符串连接为一个，也可以把多个字面量字符串写在一起来实现字符串连接：</p>
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (adjacent-string-literals)"?>
 <pre class="prettyprint lang-dart">
@@ -1222,7 +1222,7 @@ final constantMap = const {
 <h3 id="symbols">
 <a id="symbols" class="anchor" href="#symbols" aria-hidden="true"><span class="octicon octicon-link"></span></a>Symbols</h3>
 
-<p>一个 Symbol 对象表示 Dart 程序中声明的操作符或者标识符。 
+<p>一个 Symbol 对象表示 Dart 程序中声明的运算符或者标识符。 
 你也许永远都不需要使用 Symbol ，但要按名称引用标识符的 API 时， Symbol 就非常有用了。
 因为代码压缩后会改变标识符的名称，但不会改变标识符的符号。
 通过字面量 Symbol ，也就是标识符前面添加一个 <code class="highlighter-rouge">#</code> 号，来获取标识符的 Symbol 。</p>
@@ -1663,11 +1663,11 @@ foo() {}
 assert(foo() == null);
 </pre>
 
-<h2 id="操作符">
-<a id="操作符" class="anchor" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>操作符</h2>
+<h2 id="运算符">
+<a id="运算符" class="anchor" href="#%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>运算符</h2>
 
-<p>下表是 Dart 定义的操作符。
-多数操作符可以被重载，详情参见
+<p>下表是 Dart 定义的运算符。
+多数运算符可以被重载，详情参见
 <a href="#overridable-operators">Overridable operators</a>。</p>
 
 <table class="table table-striped">
@@ -1759,8 +1759,8 @@ assert(foo() == null);
   </tbody>
 </table>
 
-<p>创建表达式的时候会用到操作符。 
-下面是一些操作符表达式的实例：</p>
+<p>创建表达式的时候会用到运算符。 
+下面是一些运算符表达式的实例：</p>
 
 <?code-excerpt "misc/test/language_tour/operators_test.dart (expressions)" replace="/,//g"?>
 <pre class="prettyprint lang-dart">
@@ -1772,10 +1772,10 @@ c ? a : b
 a is T
 </pre>
 
-<p>在 <a href="#operators">操作符表</a> 中，
-每一行的操作符优先级，由上到下依次排列，第一行优先级最高，最后一行优先级最低。
+<p>在 <a href="#operators">运算符表</a> 中，
+每一行的运算符优先级，由上到下依次排列，第一行优先级最高，最后一行优先级最低。
 例如
-<code class="highlighter-rouge">%</code> 操作符优先级高于 <code class="highlighter-rouge">==</code> ，
+<code class="highlighter-rouge">%</code> 运算符优先级高于 <code class="highlighter-rouge">==</code> ，
 而 <code class="highlighter-rouge">==</code> 高于 <code class="highlighter-rouge">&amp;&amp;</code>。
 根据优先级规则，那么意味着以下两行代码执行的方式相同：</p>
 
@@ -1790,16 +1790,16 @@ if (n % i == 0 &amp;&amp; d % i == 0) ...
 
 <div class="alert alert-warning">
   <p><strong>警告：</strong>
-对于有两个操作数的操作符，操作符的功能由左边的操作数决定。
+对于有两个操作数的运算符，运算符的功能由左边的操作数决定。
 例如,
 如果有两个操作数 Vector 和 Point，
-<code class="highlighter-rouge">aVector + aPoint</code> 使用的是 Vector 中定义的 + 操作符。</p>
+<code class="highlighter-rouge">aVector + aPoint</code> 使用的是 Vector 中定义的 + 运算符。</p>
 </div>
 
-<h3 id="arithmetic-operators">
-<a id="arithmetic-operators" class="anchor" href="#arithmetic-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arithmetic operators</h3>
+<h3 id="算术运算符">
+<a id="算术运算符" class="anchor" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>算术运算符</h3>
 
-<p>Dart supports the usual arithmetic operators, as shown in the following table.</p>
+<p>Dart 支持常用的运算运算符，如下表所示：</p>
 
 <table class="table table-striped">
   <thead>
@@ -1840,22 +1840,21 @@ if (n % i == 0 &amp;&amp; d % i == 0) ...
   </tbody>
 </table>
 
-<p>Example:</p>
+<p>示例：</p>
 
 <?code-excerpt "misc/test/language_tour/operators_test.dart (arithmetic)"?>
 <pre class="prettyprint lang-dart">
 assert(2 + 3 == 5);
 assert(2 - 3 == -1);
 assert(2 * 3 == 6);
-assert(5 / 2 == 2.5); // Result is a double
-assert(5 ~/ 2 == 2); // Result is an int
-assert(5 % 2 == 1); // Remainder
+assert(5 / 2 == 2.5); // 结果是双浮点型
+assert(5 ~/ 2 == 2); // 结果是整型
+assert(5 % 2 == 1); // 余数
 
 assert('5/2 = ${5 ~/ 2} r ${5 % 2}' == '5/2 = 2 r 1');
 </pre>
 
-<p>Dart also supports both prefix and postfix increment and decrement
-operators.</p>
+<p>Dart 还支持前缀和后缀，自增和自减运算符。</p>
 
 <table class="table table-striped">
   <thead>
@@ -1888,33 +1887,33 @@ operators.</p>
   </tbody>
 </table>
 
-<p>Example:</p>
+<p>示例：</p>
 
 <?code-excerpt "misc/test/language_tour/operators_test.dart (increment-decrement)"?>
 <pre class="prettyprint lang-dart">
 var a, b;
 
 a = 0;
-b = ++a; // Increment a before b gets its value.
+b = ++a; // a自加后赋值给b。
 assert(a == b); // 1 == 1
 
 a = 0;
-b = a++; // Increment a AFTER b gets its value.
+b = a++; // a先赋值给b后，a自加。
 assert(a != b); // 1 != 0
 
 a = 0;
-b = --a; // Decrement a before b gets its value.
+b = --a; // a自减后赋值给b。
 assert(a == b); // -1 == -1
 
 a = 0;
-b = a--; // Decrement a AFTER b gets its value.
+b = a--; // a先赋值给b后，a自减。
 assert(a != b); // -1 != 0
 </pre>
 
-<h3 id="equality-and-relational-operators">
-<a id="equality-and-relational-operators" class="anchor" href="#equality-and-relational-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Equality and relational operators</h3>
+<h3 id="关系运算符">
+<a id="关系运算符" class="anchor" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>关系运算符</h3>
 
-<p>The following table lists the meanings of equality and relational operators.</p>
+<p>下表列出了关系运算符及含义：</p>
 
 <table class="table table-striped">
   <thead>
@@ -1951,28 +1950,26 @@ assert(a != b); // -1 != 0
   </tbody>
 </table>
 
-<p>To test whether two objects x and y represent the same thing, use the
-<code class="highlighter-rouge">==</code> operator. (In the rare case where you need to know whether two
-objects are the exact same object, use the <a href="https://api.dartlang.org/dev/dart-core/identical.html">identical()</a>
-function instead.) Here’s how the <code class="highlighter-rouge">==</code> operator works:</p>
+<p>要测试两个对象x和y是否表示相同的事物，
+使用 <code class="highlighter-rouge">==</code> 运算符。 (在极少数情况下，
+要确定两个对象是否完全相同，需要使用 <a href="https://api.dartlang.org/dev/dart-core/identical.html">identical()</a> 函数。)
+下面给出 <code class="highlighter-rouge">==</code> 运算符的工作原理：</p>
 
 <ol>
   <li>
-    <p>If <em>x</em> or <em>y</em> is null, return true if both are null, and false if only
-one is null.</p>
+    <p>如果 <em>x</em> 或 <em>y</em> 可以 null，都为 null 时返回 true ，其中一个为 null 时返回 false。</p>
   </li>
   <li>
-    <p>Return the result of the method invocation
-<code><em>x</em>.==(<em>y</em>)</code>. (That’s right,
-operators such as <code class="highlighter-rouge">==</code> are methods that are invoked on their first
-operand. You can even override many operators, including <code class="highlighter-rouge">==</code>, as
-you’ll see in
-<a href="#overridable-operators">Overridable operators</a>.)</p>
+    <p>结果为函数 <code><em>x</em>.==(<em>y</em>)</code> 的返回值。
+(如上所见,
+<code class="highlighter-rouge">==</code> 运算符执行的是第一个运算符的函数。
+我们甚至可以重写很多运算符，包括 <code class="highlighter-rouge">==</code>，
+运算符的重写，参见 
+<a href="#overridable-operators">Overridable operators</a>。）</p>
   </li>
 </ol>
 
-<p>Here’s an example of using each of the equality and relational
-operators:</p>
+<p>这里列出了每种关系运算符的示例：</p>
 
 <?code-excerpt "misc/test/language_tour/operators_test.dart (relational)"?>
 <pre class="prettyprint lang-dart">
@@ -1984,11 +1981,10 @@ assert(3 &gt;= 3);
 assert(2 &lt;= 3);
 </pre>
 
-<h3 id="type-test-operators">
-<a id="type-test-operators" class="anchor" href="#type-test-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Type test operators</h3>
+<h3 id="类型判定运算符">
+<a id="类型判定运算符" class="anchor" href="#%E7%B1%BB%E5%9E%8B%E5%88%A4%E5%AE%9A%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>类型判定运算符</h3>
 
-<p>The <code class="highlighter-rouge">as</code>, <code class="highlighter-rouge">is</code>, and <code class="highlighter-rouge">is!</code> operators are handy for checking types at
-runtime.</p>
+<p><code class="highlighter-rouge">as</code>， <code class="highlighter-rouge">is</code>， 和 <code class="highlighter-rouge">is!</code> 运算符用于在运行时处理类型检查：</p>
 
 <table class="table table-striped">
   <thead>
@@ -2013,13 +2009,12 @@ runtime.</p>
   </tbody>
 </table>
 
-<p>The result of <code class="highlighter-rouge">obj is T</code> is true if <code class="highlighter-rouge">obj</code> implements the interface
-specified by <code class="highlighter-rouge">T</code>. For example, <code class="highlighter-rouge">obj is Object</code> is always true.</p>
+<p>例如， <code class="highlighter-rouge">obj is Object</code> 总是 true。
+但是只有 <code class="highlighter-rouge">obj</code> 实现了 <code class="highlighter-rouge">T</code> 的接口时， <code class="highlighter-rouge">obj is T</code> 才是 true。</p>
 
-<p>Use the <code class="highlighter-rouge">as</code> operator to cast an object to a particular type. In
-general, you should use it as a shorthand for an <code class="highlighter-rouge">is</code> test on an object
-following by an expression using that object. For example, consider the
-following code:</p>
+<p>使用 <code class="highlighter-rouge">as</code> 运算符将对象强制转换为特定类型。 
+通常，可以认为是 <code class="highlighter-rouge">is</code> 类型判定后，被判定对象调用函数的一种缩写形式。
+请考虑以下代码：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/employee.dart (emp is Person)"?>
 <pre class="prettyprint lang-dart">
@@ -2029,7 +2024,7 @@ if (emp is Person) {
 }
 </pre>
 
-<p>You can make the code shorter using the <code class="highlighter-rouge">as</code> operator:</p>
+<p>使用 <code class="highlighter-rouge">as</code> 运算符进行缩写：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/employee.dart (emp as Person)"?>
 <pre class="prettyprint lang-dart">
@@ -2038,28 +2033,27 @@ if (emp is Person) {
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
-The code isn’t equivalent. If <code class="highlighter-rouge">emp</code> is null or not a Person, the
-first example (with <code class="highlighter-rouge">is</code>) does nothing; the second (with <code class="highlighter-rouge">as</code>) throws
-an exception.</p>
+以上代码并不是等价的。
+如果 <code class="highlighter-rouge">emp</code> 为 null 或者不是 Person 对象，
+那么第一个 <code class="highlighter-rouge">is</code> 的示例，后面将不回执行；
+第二个 <code class="highlighter-rouge">as</code> 的示例会抛出异常。</p>
 </div>
 
-<h3 id="assignment-operators">
-<a id="assignment-operators" class="anchor" href="#assignment-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assignment operators</h3>
+<h3 id="赋值运算符">
+<a id="赋值运算符" class="anchor" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>赋值运算符</h3>
 
-<p>As you’ve already seen, you can assign values using the <code class="highlighter-rouge">=</code> operator.
-To assign only if the assigned-to variable is null,
-use the <code class="highlighter-rouge">??=</code> operator.</p>
+<p>使用 <code class="highlighter-rouge">=</code> 为变量赋值。
+使用 <code class="highlighter-rouge">??=</code> 运算符时，只有当被复制变量为 null 时才会赋值给变量。</p>
 
 <?code-excerpt "misc/test/language_tour/operators_test.dart (assignment)"?>
 <pre class="prettyprint lang-dart">
-// Assign value to a
+// 将值赋值给变量a
 a = value;
-// Assign value to b if b is null; otherwise, b stays the same
+// 如果b为空时，将变量赋值给b，否则，b的值保持不变。
 b ??= value;
 </pre>
 
-<p>Compound assignment operators such as <code class="highlighter-rouge">+=</code> combine
-an operation with an assignment.</p>
+<p>复合赋值运算符（如 <code class="highlighter-rouge">+=</code> ）将算术运算符和赋值运算符组合在了一起。</p>
 
 <table class="table">
   <tbody>
@@ -2082,7 +2076,7 @@ an operation with an assignment.</p>
   </tbody>
 </table>
 
-<p>Here’s how compound assignment operators work:</p>
+<p>以下说明复合赋值运算符的作用：</p>
 
 <table class="table">
   <thead>
@@ -2106,18 +2100,17 @@ an operation with an assignment.</p>
   </tbody>
 </table>
 
-<p>The following example uses assignment and compound assignment
-operators:</p>
+<p>以下示例使用赋值和复合赋值运算符：</p>
 
 <?code-excerpt "misc/test/language_tour/operators_test.dart (op-assign)"?>
 <pre class="prettyprint lang-dart">
-var a = 2; // Assign using =
-a *= 3; // Assign and multiply: a = a * 3
+var a = 2; // 使用 = 复制
+a *= 3; // 复制并做乘法运算： a = a * 3
 assert(a == 6);
 </pre>
 
-<h3 id="logical-operators">
-<a id="logical-operators" class="anchor" href="#logical-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logical operators</h3>
+<h3 id="逻辑运算符">
+<a id="逻辑运算符" class="anchor" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>逻辑运算符</h3>
 
 <p>You can invert or combine boolean expressions using the logical
 operators.</p>
@@ -4716,7 +4709,7 @@ Specification</a> and
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/14 18:50 CST"
+                 title="Site built on 2018/07/15 01:03 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
