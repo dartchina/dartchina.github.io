@@ -194,17 +194,17 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#symbols">Symbols</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#functions">Functions</a>
+<li class="toc-entry toc-h2"><a href="#函数">函数</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#optional-参数">Optional 参数</a>
+<li class="toc-entry toc-h3"><a href="#可选参数">可选参数</a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#optional-命名参数">Optional 命名参数</a></li>
-<li class="toc-entry toc-h4"><a href="#optional-位置参数">Optional 位置参数</a></li>
+<li class="toc-entry toc-h4"><a href="#命名可选参数">命名可选参数</a></li>
+<li class="toc-entry toc-h4"><a href="#位置可选参数">位置可选参数</a></li>
 <li class="toc-entry toc-h4"><a href="#默认参数值">默认参数值</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#main-函数">main() 函数</a></li>
-<li class="toc-entry toc-h3"><a href="#functions-是一等对象">Functions 是一等对象</a></li>
+<li class="toc-entry toc-h3"><a href="#函数是一等对象">函数是一等对象</a></li>
 <li class="toc-entry toc-h3"><a href="#匿名函数">匿名函数</a></li>
 <li class="toc-entry toc-h3"><a href="#词法作用域">词法作用域</a></li>
 <li class="toc-entry toc-h3"><a href="#词法闭包">词法闭包</a></li>
@@ -225,13 +225,13 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#其他运算符">其他运算符</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#control-flow-statements">Control flow statements</a>
+<li class="toc-entry toc-h2"><a href="#控制流程语句">控制流程语句</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#if-and-else">If and else</a></li>
-<li class="toc-entry toc-h3"><a href="#for-loops">For loops</a></li>
-<li class="toc-entry toc-h3"><a href="#while-and-do-while">While and do-while</a></li>
-<li class="toc-entry toc-h3"><a href="#break-and-continue">Break and continue</a></li>
-<li class="toc-entry toc-h3"><a href="#switch-and-case">Switch and case</a></li>
+<li class="toc-entry toc-h3"><a href="#if-和-else">If 和 else</a></li>
+<li class="toc-entry toc-h3"><a href="#for-循环">For 循环</a></li>
+<li class="toc-entry toc-h3"><a href="#while-和-do-while">While 和 do-while</a></li>
+<li class="toc-entry toc-h3"><a href="#break-和-continue">Break 和 continue</a></li>
+<li class="toc-entry toc-h3"><a href="#switch-和-case">Switch 和 case</a></li>
 <li class="toc-entry toc-h3"><a href="#assert">Assert</a></li>
 </ul>
 </li>
@@ -1233,8 +1233,8 @@ final constantMap = const {
 
 <p>Symbol 字面量是编译时常量。</p>
 
-<h2 id="functions">
-<a id="functions" class="anchor" href="#functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Functions</h2>
+<h2 id="函数">
+<a id="函数" class="anchor" href="#%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>函数</h2>
 
 <p>Dart 是一门真正面向对象的语言，
 甚至其中的函数也是对象，并且有它的类型 
@@ -1287,13 +1287,13 @@ required 类型参数在参数最前面， 随后是 optional 类型参数。
 命名的可选参数也可以标记为 “@ required” 。
 参见下一章节，了解更多细节。</p>
 
-<h3 id="optional-参数">
-<a id="optional-参数" class="anchor" href="#optional-%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional 参数</h3>
+<h3 id="可选参数">
+<a id="可选参数" class="anchor" href="#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>可选参数</h3>
 
 <p>可选参数可以是命名参数或者位置参数，但一个参数只能选择其中一种方式修饰。</p>
 
-<h4 id="optional-命名参数">
-<a id="optional-命名参数" class="anchor" href="#optional-%E5%91%BD%E5%90%8D%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional 命名参数</h4>
+<h4 id="命名可选参数">
+<a id="命名可选参数" class="anchor" href="#%E5%91%BD%E5%90%8D%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>命名可选参数</h4>
 
 <p>调用函数时，可以使用指定命名参数
 <code><em>paramName</em>: <em>value</em></code>。 例如：</p>
@@ -1331,8 +1331,8 @@ const Scrollbar({Key key, <span class="highlight">@required</span> Widget child}
 <code class="highlighter-rouge">package:meta/meta.dart</code> ，或者引入了其它 package，而这个 package 输出（export）了
 <code class="highlighter-rouge">meta</code>，比如 Flutter 的 <code class="highlighter-rouge">package:flutter/material.dart</code>。</p>
 
-<h4 id="optional-位置参数">
-<a id="optional-位置参数" class="anchor" href="#optional-%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional 位置参数</h4>
+<h4 id="位置可选参数">
+<a id="位置可选参数" class="anchor" href="#%E4%BD%8D%E7%BD%AE%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>位置可选参数</h4>
 
 <p>将参数放到 <code class="highlighter-rouge">[]</code> 中来标记参数是可选的：</p>
 
@@ -1471,8 +1471,8 @@ void main(List&lt;String&gt; arguments) {
 
 <p>使用 <a href="https://pub.dartlang.org/packages/args">args library</a> 可以定义和解析命令行参数。</p>
 
-<h3 id="functions-是一等对象">
-<a id="functions-是一等对象" class="anchor" href="#functions-%E6%98%AF%E4%B8%80%E7%AD%89%E5%AF%B9%E8%B1%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Functions 是一等对象</h3>
+<h3 id="函数是一等对象">
+<a id="函数是一等对象" class="anchor" href="#%E5%87%BD%E6%95%B0%E6%98%AF%E4%B8%80%E7%AD%89%E5%AF%B9%E8%B1%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>函数是一等对象</h3>
 
 <p>一个函数可以作为另一个函数的参数。 例如：</p>
 
@@ -2362,10 +2362,10 @@ sb.write('foo')
 <p>更多关于 <code class="highlighter-rouge">.</code>, <code class="highlighter-rouge">?.</code> 和  <code class="highlighter-rouge">..</code> 运算符介绍，参考
 <a href="#classes">Classes</a>.</p>
 
-<h2 id="control-flow-statements">
-<a id="control-flow-statements" class="anchor" href="#control-flow-statements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Control flow statements</h2>
+<h2 id="控制流程语句">
+<a id="控制流程语句" class="anchor" href="#%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B%E8%AF%AD%E5%8F%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>控制流程语句</h2>
 
-<p>You can control the flow of your Dart code using any of the following:</p>
+<p>你可以通过下面任意一种方式来控制 Dart 程序流程：</p>
 
 <ul>
   <li>
@@ -2388,14 +2388,14 @@ sb.write('foo')
   </li>
 </ul>
 
-<p>You can also affect the control flow using <code class="highlighter-rouge">try-catch</code> and <code class="highlighter-rouge">throw</code>, as
-explained in <a href="#exceptions">Exceptions</a>.</p>
+<p>使用 <code class="highlighter-rouge">try-catch</code> 和 <code class="highlighter-rouge">throw</code> 也可以改变程序流程， 
+详见 <a href="#exceptions">Exceptions</a>。</p>
 
-<h3 id="if-and-else">
-<a id="if-and-else" class="anchor" href="#if-and-else" aria-hidden="true"><span class="octicon octicon-link"></span></a>If and else</h3>
+<h3 id="if-和-else">
+<a id="if-和-else" class="anchor" href="#if-%E5%92%8C-else" aria-hidden="true"><span class="octicon octicon-link"></span></a>If 和 else</h3>
 
-<p>Dart supports <code class="highlighter-rouge">if</code> statements with optional <code class="highlighter-rouge">else</code> statements, as the
-next sample shows. Also see <a href="#conditional-expressions">conditional expressions</a>.</p>
+<p>Dart 支持 <code class="highlighter-rouge">if - else</code> 语句，其中 <code class="highlighter-rouge">else</code> 是可选的， 
+比如下面的例子， 另参考 <a href="#conditional-expressions">conditional expressions</a>.</p>
 
 <?code-excerpt "misc/lib/language_tour/control_flow.dart (if-else)"?>
 <pre class="prettyprint lang-dart">
@@ -2408,13 +2408,13 @@ if (isRaining()) {
 }
 </pre>
 
-<p>Unlike JavaScript, conditions must use boolean values, nothing else. See
-<a href="#booleans">Booleans</a> for more information.</p>
+<p>和 JavaScript 不同， Dart 的判断条件必须是布尔值，不能是其他类型。
+更多信息，参见 <a href="#booleans">Booleans</a> 。</p>
 
-<h3 id="for-loops">
-<a id="for-loops" class="anchor" href="#for-loops" aria-hidden="true"><span class="octicon octicon-link"></span></a>For loops</h3>
+<h3 id="for-循环">
+<a id="for-循环" class="anchor" href="#for-%E5%BE%AA%E7%8E%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>For 循环</h3>
 
-<p>You can iterate with the standard <code class="highlighter-rouge">for</code> loop. For example:</p>
+<p>进行迭代操作，可以使用标准 <code class="highlighter-rouge">for</code> 语句。 例如：</p>
 
 <?code-excerpt "misc/test/language_tour/control_flow_test.dart (for)"?>
 <pre class="prettyprint lang-dart">
@@ -2424,10 +2424,9 @@ for (var i = 0; i &lt; 5; i++) {
 }
 </pre>
 
-<p>Closures inside of Dart’s <code class="highlighter-rouge">for</code> loops capture the <em>value</em> of the index,
-avoiding a common pitfall found in JavaScript. For example, consider:</p>
-
-<?code-excerpt "misc/test/language_tour/control_flow_test.dart (for-and-closures)"?>
+<p>闭包在 Dart 的 <code class="highlighter-rouge">for</code> 循环中会捕获循环的 index 索引值， 来避免 JavaScript 中常见的陷阱。
+请思考示例代码：
+<?code-excerpt "misc/test/language_tour/control_flow_test.dart (for-and-closures)"?></p>
 <pre class="prettyprint lang-dart">
 var callbacks = [];
 for (var i = 0; i &lt; 2; i++) {
@@ -2436,20 +2435,21 @@ for (var i = 0; i &lt; 2; i++) {
 callbacks.forEach((c) =&gt; c());
 </pre>
 
-<p>The output is <code class="highlighter-rouge">0</code> and then <code class="highlighter-rouge">1</code>, as expected. In contrast, the example
-would print <code class="highlighter-rouge">2</code> and then <code class="highlighter-rouge">2</code> in JavaScript.</p>
+<p>和期望一样，输出的是 <code class="highlighter-rouge">0</code> 和 <code class="highlighter-rouge">1</code>。 
+但是示例中的代码在 JavaScript 中会连续输出两个 <code class="highlighter-rouge">2</code> 。</p>
 
-<p>If the object that you are iterating over is an Iterable, you can use the
-<a href="https://api.dartlang.org/dev/dart-core/Iterable/forEach.html">forEach()</a> method. Using <code class="highlighter-rouge">forEach()</code> is a good option if you don’t need to
-know the current iteration counter:</p>
+<p>I如果要迭代一个实现了 Iterable 接口的对象， 
+可以使用 <a href="https://api.dartlang.org/dev/dart-core/Iterable/forEach.html">forEach()</a> 方法， 
+如果不需要使用当前计数值，
+使用 <code class="highlighter-rouge">forEach()</code> 是非常棒的选择；</p>
 
 <?code-excerpt "misc/lib/language_tour/control_flow.dart (forEach)"?>
 <pre class="prettyprint lang-dart">
 candidates.forEach((candidate) =&gt; candidate.interview());
 </pre>
 
-<p>Iterable classes such as List and Set also support the <code class="highlighter-rouge">for-in</code> form of
-<a href="/guides/libraries/library-tour#iteration">iteration</a>:</p>
+<p>实现了 Iterable 的类（比如， List 和 Set）同样也支持使用 <code class="highlighter-rouge">for-in</code> 进行迭代操作
+<a href="/guides/libraries/library-tour#iteration">iteration</a> ：</p>
 
 <?code-excerpt "misc/test/language_tour/control_flow_test.dart (collection)"?>
 <pre class="prettyprint lang-dart">
@@ -2459,10 +2459,10 @@ for (var x in collection) {
 }
 </pre>
 
-<h3 id="while-and-do-while">
-<a id="while-and-do-while" class="anchor" href="#while-and-do-while" aria-hidden="true"><span class="octicon octicon-link"></span></a>While and do-while</h3>
+<h3 id="while-和-do-while">
+<a id="while-和-do-while" class="anchor" href="#while-%E5%92%8C-do-while" aria-hidden="true"><span class="octicon octicon-link"></span></a>While 和 do-while</h3>
 
-<p>A <code class="highlighter-rouge">while</code> loop evaluates the condition before the loop:</p>
+<p><code class="highlighter-rouge">while</code> 循环在执行前判断执行条件：</p>
 
 <?code-excerpt "misc/lib/language_tour/control_flow.dart (while)"?>
 <pre class="prettyprint lang-dart">
@@ -2471,7 +2471,7 @@ while (!isDone()) {
 }
 </pre>
 
-<p>A <code class="highlighter-rouge">do</code>-<code class="highlighter-rouge">while</code> loop evaluates the condition <em>after</em> the loop:</p>
+<p><code class="highlighter-rouge">do</code>-<code class="highlighter-rouge">while</code> 循环在执行<code class="highlighter-rouge">后</code>判断执行条件：</p>
 
 <?code-excerpt "misc/lib/language_tour/control_flow.dart (do-while)"?>
 <pre class="prettyprint lang-dart">
@@ -2480,10 +2480,10 @@ do {
 } while (!atEndOfPage());
 </pre>
 
-<h3 id="break-and-continue">
-<a id="break-and-continue" class="anchor" href="#break-and-continue" aria-hidden="true"><span class="octicon octicon-link"></span></a>Break and continue</h3>
+<h3 id="break-和-continue">
+<a id="break-和-continue" class="anchor" href="#break-%E5%92%8C-continue" aria-hidden="true"><span class="octicon octicon-link"></span></a>Break 和 continue</h3>
 
-<p>Use <code class="highlighter-rouge">break</code> to stop looping:</p>
+<p>使用 <code class="highlighter-rouge">break</code> 停止程序循环：</p>
 
 <?code-excerpt "misc/lib/language_tour/control_flow.dart (while-break)"?>
 <pre class="prettyprint lang-dart">
@@ -2493,7 +2493,7 @@ while (true) {
 }
 </pre>
 
-<p>Use <code class="highlighter-rouge">continue</code> to skip to the next loop iteration:</p>
+<p>使用 <code class="highlighter-rouge">continue</code> 跳转到下一次迭代：</p>
 
 <?code-excerpt "misc/lib/language_tour/control_flow.dart (for-continue)"?>
 <pre class="prettyprint lang-dart">
@@ -2506,8 +2506,8 @@ for (int i = 0; i &lt; candidates.length; i++) {
 }
 </pre>
 
-<p>You might write that example differently if you’re using an
-<a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a> such as a list or set:</p>
+<p>如果对象实现了 <a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a> 接口 （例如，list 或者 set）。
+那么上面示例完全可以用另一种方式来实现：</p>
 
 <?code-excerpt "misc/lib/language_tour/control_flow.dart (where)"?>
 <pre class="prettyprint lang-dart">
@@ -2516,26 +2516,23 @@ candidates
     .forEach((c) =&gt; c.interview());
 </pre>
 
-<h3 id="switch-and-case">
-<a id="switch-and-case" class="anchor" href="#switch-and-case" aria-hidden="true"><span class="octicon octicon-link"></span></a>Switch and case</h3>
+<h3 id="switch-和-case">
+<a id="switch-和-case" class="anchor" href="#switch-%E5%92%8C-case" aria-hidden="true"><span class="octicon octicon-link"></span></a>Switch 和 case</h3>
 
-<p>Switch statements in Dart compare integer, string, or compile-time
-constants using <code class="highlighter-rouge">==</code>. The compared objects must all be instances of the
-same class (and not of any of its subtypes), and the class must not
-override <code class="highlighter-rouge">==</code>.
-<a href="#enumerated-types">Enumerated types</a> work well in <code class="highlighter-rouge">switch</code> statements.</p>
+<p>在 Dart 中 switch 语句使用 <code class="highlighter-rouge">==</code> 比较整数，字符串，或者编译时常量。
+比较的对象必须都是同一个类的实例（并且不可以是子类），
+类必须没有对 <code class="highlighter-rouge">==</code> 重写。
+<a href="#enumerated-types">Enumerated types</a> 可以用于 <code class="highlighter-rouge">switch</code> 语句。</p>
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
-Switch statements in Dart are intended for limited circumstances,
-such as in interpreters or scanners.</p>
+在 Dart 中 Switch 语句仅适用于有限的情况下，
+例如在 interpreter 或 scanner 中。</p>
 </div>
+<p>在 <code class="highlighter-rouge">case</code> 语句中，每个非空的 <code class="highlighter-rouge">case</code> 语句结尾需要跟一个 <code class="highlighter-rouge">break</code> 语句。 
+除 <code class="highlighter-rouge">break</code> 以外，还有可以使用 <code class="highlighter-rouge">continue</code>, <code class="highlighter-rouge">throw</code>，者 <code class="highlighter-rouge">return</code>。</p>
 
-<p>Each non-empty <code class="highlighter-rouge">case</code> clause ends with a <code class="highlighter-rouge">break</code> statement, as a rule.
-Other valid ways to end a non-empty <code class="highlighter-rouge">case</code> clause are a <code class="highlighter-rouge">continue</code>,
-<code class="highlighter-rouge">throw</code>, or <code class="highlighter-rouge">return</code> statement.</p>
-
-<p>Use a <code class="highlighter-rouge">default</code> clause to execute code when no <code class="highlighter-rouge">case</code> clause matches:</p>
+<p>当没有 <code class="highlighter-rouge">case</code> 语句匹配时，执行 <code class="highlighter-rouge">default</code> 代码：</p>
 
 <?code-excerpt "misc/lib/language_tour/control_flow.dart (switch)"?>
 <pre class="prettyprint lang-dart">
@@ -2561,8 +2558,7 @@ switch (command) {
 }
 </pre>
 
-<p>The following example omits the <code class="highlighter-rouge">break</code> statement in a <code class="highlighter-rouge">case</code> clause,
-thus generating an error:</p>
+<p>下面的 <code class="highlighter-rouge">case</code> 程序示例中缺省了 <code class="highlighter-rouge">break</code> 语句，导致错误：</p>
 
 <?code-excerpt "misc/lib/language_tour/control_flow.dart (switch-break-omitted)" plaster="none"?>
 <pre class="prettyprint lang-dart">
@@ -2570,7 +2566,7 @@ var command = 'OPEN';
 switch (command) {
   case 'OPEN':
     executeOpen();
-    // ERROR: Missing break
+    // ERROR: 丢失 break
 
   case 'CLOSED':
     executeClosed();
@@ -2578,8 +2574,8 @@ switch (command) {
 }
 </pre>
 
-<p>However, Dart does support empty <code class="highlighter-rouge">case</code> clauses, allowing a form of
-fall-through:</p>
+<p>但是， Dart 支持空 <code class="highlighter-rouge">case</code> 语句，
+允许程序以 fall-through 的形式执行。</p>
 
 <?code-excerpt "misc/lib/language_tour/control_flow.dart (switch-empty-case)"?>
 <pre class="prettyprint lang-dart">
@@ -2593,8 +2589,8 @@ switch (command) {
 }
 </pre>
 
-<p>If you really want fall-through, you can use a <code class="highlighter-rouge">continue</code> statement and
-a label:</p>
+<p>在非空 <code class="highlighter-rouge">case</code> 中实现 fall-through 形式，
+可以使用 <code class="highlighter-rouge">continue</code> 语句结合 <code class="highlighter-rouge">lable</code> 的方式实现:</p>
 
 <?code-excerpt "misc/lib/language_tour/control_flow.dart (switch-continue)"?>
 <pre class="prettyprint lang-dart">
@@ -2613,8 +2609,8 @@ switch (command) {
 }
 </pre>
 
-<p>A <code class="highlighter-rouge">case</code> clause can have local variables, which are visible only inside
-the scope of that clause.</p>
+<p><code class="highlighter-rouge">case</code> 语句可以拥有局部变量，
+这些局部变量只能在这个语句的作用域中可见。</p>
 
 <h3 id="assert">
 <a id="assert" class="anchor" href="#assert" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assert</h3>
@@ -4708,7 +4704,7 @@ Specification</a> and
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/15 09:30 CST"
+                 title="Site built on 2018/07/15 21:51 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
