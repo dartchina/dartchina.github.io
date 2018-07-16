@@ -242,13 +242,13 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#finally">Finally</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#classes">Classes</a>
+<li class="toc-entry toc-h2"><a href="#类">类</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#using-class-members">Using class members</a></li>
-<li class="toc-entry toc-h3"><a href="#using-constructors">Using constructors</a></li>
-<li class="toc-entry toc-h3"><a href="#getting-an-objects-type">Getting an object’s type</a></li>
-<li class="toc-entry toc-h3"><a href="#instance-variables">Instance variables</a></li>
-<li class="toc-entry toc-h3"><a href="#constructors">Constructors</a>
+<li class="toc-entry toc-h3"><a href="#使用类的成员变量">使用类的成员变量</a></li>
+<li class="toc-entry toc-h3"><a href="#使用构造函数">使用构造函数</a></li>
+<li class="toc-entry toc-h3"><a href="#获取对象的类型">获取对象的类型</a></li>
+<li class="toc-entry toc-h3"><a href="#实例变量">实例变量</a></li>
+<li class="toc-entry toc-h3"><a href="#构造函数">构造函数</a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#default-constructors">Default constructors</a></li>
 <li class="toc-entry toc-h4"><a href="#constructors-arent-inherited">Constructors aren’t inherited</a></li>
@@ -2814,57 +2814,54 @@ try {
 <p>了解更多，请参考
 <a href="/guides/libraries/library-tour#exceptions">Exceptions</a> 章节。</p>
 
-<h2 id="classes">
-<a id="classes" class="anchor" href="#classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes</h2>
+<h2 id="类">
+<a id="类" class="anchor" href="#%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>类</h2>
 
-<p>Dart is an object-oriented language with classes and mixin-based
-inheritance. Every object is an instance of a class, and all classes
-descend from <a href="https://api.dartlang.org/dev/dart-core/Object-class.html">Object.</a>
-<em>Mixin-based inheritance</em> means that although every class (except for
-Object) has exactly one superclass, a class body can be reused in
-multiple class hierarchies.</p>
+<p>Dart 是一种基于类和 mixin 继承机制的面向对象的语言。
+每个对象都是一个类的实例，所有的类都继承于 <a href="https://api.dartlang.org/dev/dart-core/Object-class.html">Object.</a> 。
+基于 * Mixin 继承* 意味着每个类（除 Object 外） 都只有一个超类，
+一个类中的代码可以在其它多个继承类中重复使用。</p>
 
-<h3 id="using-class-members">
-<a id="using-class-members" class="anchor" href="#using-class-members" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using class members</h3>
+<h3 id="使用类的成员变量">
+<a id="使用类的成员变量" class="anchor" href="#%E4%BD%BF%E7%94%A8%E7%B1%BB%E7%9A%84%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用类的成员变量</h3>
 
-<p>Objects have <em>members</em> consisting of functions and data (<em>methods</em> and
-<em>instance variables</em>, respectively). When you call a method, you <em>invoke</em>
-it on an object: the method has access to that object’s functions and
-data.</p>
+<p>对象的由函数和数据（即方法和实例变量）组成。 
+方法的调用要通过对象来完成：
+调用的方法可以访问其对象的其它函数和数据。</p>
 
-<p>Use a dot (<code class="highlighter-rouge">.</code>) to refer to an instance variable or method:</p>
+<p>使用 (<code class="highlighter-rouge">.</code>) 来引用实例对象的变量和方法：</p>
 
 <?code-excerpt "misc/test/language_tour/classes_test.dart (object-members)"?>
 <pre class="prettyprint lang-dart">
 var p = Point(2, 2);
 
-// Set the value of the instance variable y.
+// 为实例的变量 y 设置值。
 p.y = 3;
 
-// Get the value of y.
+// 获取变量 y 的值。
 assert(p.y == 3);
 
-// Invoke distanceTo() on p.
+// 调用 p 的 distanceTo() 方法。
 num distance = p.distanceTo(Point(4, 4));
 </pre>
 
-<p>Use <code class="highlighter-rouge">?.</code> instead of <code class="highlighter-rouge">.</code> to avoid an exception
-when the leftmost operand is null:</p>
+<p>使用 <code class="highlighter-rouge">?.</code> 来代替 <code class="highlighter-rouge">.</code> ，
+可以避免因为左边对象可能为 null ，
+导致的异常：</p>
 
 <?code-excerpt "misc/test/language_tour/classes_test.dart (safe-member-access)"?>
 <pre class="prettyprint lang-dart">
-// If p is non-null, set its y value to 4.
+// 如果 p 为 non-null，设置它变量 y 的值为 4。
 p?.y = 4;
 </pre>
 
-<h3 id="using-constructors">
-<a id="using-constructors" class="anchor" href="#using-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using constructors</h3>
+<h3 id="使用构造函数">
+<a id="使用构造函数" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用构造函数</h3>
 
-<p>You can create an object using a <em>constructor</em>.
-Constructor names can be either <code><em>ClassName</em></code> or
-<code><em>ClassName</em>.<em>identifier</em></code>. For example,
-the following code creates <code class="highlighter-rouge">Point</code> objects using the
-<code class="highlighter-rouge">Point()</code> and <code class="highlighter-rouge">Point.fromJson()</code> constructors:</p>
+<p>通过 <em>构造函数</em> 创建对象。
+构造函数的名字可以是 <code><em>ClassName</em></code> 或者
+<code><em>ClassName</em>.<em>identifier</em></code>。例如，
+以下代码使用 <code class="highlighter-rouge">Point</code> 和 <code class="highlighter-rouge">Point.fromJson()</code> 构造函数创建 <code class="highlighter-rouge">Point</code> 对象：</p>
 
 <?code-excerpt "misc/test/language_tour/classes_test.dart (object-creation)" replace="/ as .*?;/;/g"?>
 <pre class="prettyprint lang-dart">
@@ -2872,8 +2869,8 @@ var p1 = Point(2, 2);
 var p2 = Point.fromJson({'x': 1, 'y': 2});
 </pre>
 
-<p>The following code has the same effect, but
-uses the optional <code class="highlighter-rouge">new</code> keyword before the constructor name:</p>
+<p>以下代码具有相同的效果，
+但是构造函数前面的的 <code class="highlighter-rouge">new</code> 关键字是可选的：</p>
 
 <?code-excerpt "misc/test/language_tour/classes_test.dart (object-creation-new)" replace="/ as .*?;/;/g"?>
 <pre class="prettyprint lang-dart">
@@ -2882,46 +2879,45 @@ var p2 = new Point.fromJson({'x': 1, 'y': 2});
 </pre>
 
 <aside class="alert alert-info">
-  <p><strong>Version 提示：</strong> The <code class="highlighter-rouge">new</code> keyword became optional in Dart 2.</p>
+  <p><strong>版本提示：</strong> 在 Dart 2 中 <code class="highlighter-rouge">new</code> 关键字变成了可选的。</p>
 </aside>
 
-<p>Some classes provide constant constructors. To create a compile-time
-constant using a constant constructor, put the <code class="highlighter-rouge">const</code> keyword
-before the constructor name:</p>
+<p>一些类提供了常量构造函数。
+使用常量构造函数创建编译时常量时，需要在构造函数名之前加上 <code class="highlighter-rouge">const</code> 关键字：</p>
 
 <?code-excerpt "misc/test/language_tour/classes_test.dart (const)"?>
 <pre class="prettyprint lang-dart">
 var p = const ImmutablePoint(2, 2);
 </pre>
 
-<p>Constructing two identical compile-time constants results in a single,
-canonical instance:</p>
+<p>构造两个相同的编译时常量会产生一个唯一的，
+标准的实例：</p>
 
 <?code-excerpt "misc/test/language_tour/classes_test.dart (identical)"?>
 <pre class="prettyprint lang-dart">
 var a = const ImmutablePoint(1, 1);
 var b = const ImmutablePoint(1, 1);
 
-assert(identical(a, b)); // They are the same instance!
+assert(identical(a, b)); // 它们是同一个实例。
 </pre>
 
-<p>Within a <em>constant context</em>, you can omit the <code class="highlighter-rouge">const</code> before a constructor
-or literal. For example, look at this code, which creates a const map:</p>
+<p>在 <em>常量上下文</em> 中， 构造函数或者字面量前的 <code class="highlighter-rouge">const</code> 可以省略。
+例如，下面代码创建了一个 const 类型的 map 对象：</p>
 
 <?code-excerpt "misc/test/language_tour/classes_test.dart (const-context-withconst)" replace="/pointAndLine1/pointAndLine/g"?>
 <pre class="prettyprint lang-dart">
-// Lots of const keywords here.
+// 这里有很多的 const 关键字。
 const pointAndLine = const {
   'point': const [const ImmutablePoint(0, 0)],
   'line': const [const ImmutablePoint(1, 10), const ImmutablePoint(-2, 11)],
 };
 </pre>
 
-<p>You can omit all but the first use of the <code class="highlighter-rouge">const</code> keyword:</p>
+<p>保留第一个 <code class="highlighter-rouge">const</code> 关键字，其余的全部省略：</p>
 
 <?code-excerpt "misc/test/language_tour/classes_test.dart (const-context-noconst)" replace="/pointAndLine2/pointAndLine/g"?>
 <pre class="prettyprint lang-dart">
-// Only one const, which establishes the constant context.
+// 仅有一个 const ，由该 const 建立常量上下文。
 const pointAndLine = {
   'point': [ImmutablePoint(0, 0)],
   'line': [ImmutablePoint(1, 10), ImmutablePoint(-2, 11)],
@@ -2929,44 +2925,43 @@ const pointAndLine = {
 </pre>
 
 <aside class="alert alert-info">
-  <p><strong>Version 提示：</strong> The <code class="highlighter-rouge">const</code> keyword became optional
-within a constant context in Dart 2.</p>
+  <p><strong>版本提示：</strong> 在 Dart 2 中在一个常量上下文中，<code class="highlighter-rouge">const</code> 可以被省略。</p>
 </aside>
 
-<h3 id="getting-an-objects-type">
-<a id="getting-an-objects-type" class="anchor" href="#getting-an-objects-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting an object’s type</h3>
+<h3 id="获取对象的类型">
+<a id="获取对象的类型" class="anchor" href="#%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>获取对象的类型</h3>
 
-<p>To get an object’s type at runtime,
-you can use Object’s <code class="highlighter-rouge">runtimeType</code> property,
-which returns a <a href="https://api.dartlang.org/dev/dart-core/Type-class.html">Type</a> object.</p>
+<p>使用对象的 <code class="highlighter-rouge">runtimeType</code> 属性，
+可以在运行时获取对象的类型，
+<code class="highlighter-rouge">runtimeType</code> 属性回返回一个 <a href="https://api.dartlang.org/dev/dart-core/Type-class.html">Type</a> 对象。</p>
 
 <?code-excerpt "misc/test/language_tour/classes_test.dart (runtimeType)"?>
 <pre class="prettyprint lang-dart">
 print('The type of a is ${a.runtimeType}');
 </pre>
 
-<p>Up to here, you’ve seen how to <em>use</em> classes.
-The rest of this section shows how to <em>implement</em> classes.</p>
+<p>到目前为止，我们已经解了如何_使用_类。 
+本节的其余部分将介绍如何_实现_一个类。</p>
 
-<h3 id="instance-variables">
-<a id="instance-variables" class="anchor" href="#instance-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instance variables</h3>
+<h3 id="实例变量">
+<a id="实例变量" class="anchor" href="#%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>实例变量</h3>
 
-<p>Here’s how you declare instance variables:</p>
+<p>下面是声明实例变量的示例：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/point_with_main.dart (class)"?>
 <pre class="prettyprint lang-dart">
 class Point {
-  num x; // Declare instance variable x, initially null.
-  num y; // Declare y, initially null.
-  num z = 0; // Declare z, initially 0.
+  num x; // 声明示例变量 x，初始值为 null 。
+  num y; // 声明示例变量 y，初始值为 null 。
+  num z = 0; // 声明示例变量 z，初始值为 0 。
 }
 </pre>
 
-<p>All uninitialized instance variables have the value <code class="highlighter-rouge">null</code>.</p>
+<p>未初始化实例变量的默认人值为 “null” 。</p>
 
-<p>All instance variables generate an implicit <em>getter</em> method. Non-final
-instance variables also generate an implicit <em>setter</em> method. For details,
-see <a href="#getters-and-setters">Getters and setters</a>.</p>
+<p>所有实例变量都生成隐式 <em>getter</em> 方法。 
+非 final 的实例变量同样会生成隐式 <em>setter</em> 方法。
+有关更多信息，参见 <a href="#getters-and-setters">Getters 和 setters</a>.</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/point_with_main.dart (class+main)" replace="/(num .*?;).*/$1/g" plaster="none"?>
 <pre class="prettyprint lang-dart">
@@ -2983,13 +2978,12 @@ void main() {
 }
 </pre>
 
-<p>If you initialize an instance variable where it is declared (instead of
-in a constructor or method), the value is set when the instance is
-created, which is before the constructor and its initializer list
-execute.</p>
+<p>如果在声明时进行了示例变量的初始化，
+那么初始化值会在示例创建时赋值给变量，
+该赋值过程在构造函数及其初始化列表执行之前。</p>
 
-<h3 id="constructors">
-<a id="constructors" class="anchor" href="#constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constructors</h3>
+<h3 id="构造函数">
+<a id="构造函数" class="anchor" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>构造函数</h3>
 
 <p>Declare a constructor by creating a function with the same name as its
 class (plus, optionally, an additional identifier as described in
@@ -4699,7 +4693,7 @@ Specification</a> and
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/16 11:08 CST"
+                 title="Site built on 2018/07/16 13:11 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
