@@ -235,7 +235,7 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#assert">Assert</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#exceptions">Exceptions</a>
+<li class="toc-entry toc-h2"><a href="#异常">异常</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#throw">Throw</a></li>
 <li class="toc-entry toc-h3"><a href="#catch">Catch</a></li>
@@ -2615,35 +2615,34 @@ switch (command) {
 <h3 id="assert">
 <a id="assert" class="anchor" href="#assert" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assert</h3>
 
-<p>Use an <code class="highlighter-rouge">assert</code> statement to disrupt normal execution if a boolean
-condition is false. You can find examples of assert statements
-throughout this tour. Here are some more:</p>
+<p>如果 <code class="highlighter-rouge">assert</code> 语句中的布尔条件为 false ， 那么正常的程序执行流程会被中断。
+在本章中包含部分 assert 的使用，
+下面是一些示例：</p>
 
 <?code-excerpt "misc/test/language_tour/control_flow_test.dart (assert)"?>
 <pre class="prettyprint lang-dart">
-// Make sure the variable has a non-null value.
+// 确认变量值不为空。
 assert(text != null);
 
-// Make sure the value is less than 100.
+// 确认变量值小于100。
 assert(number &lt; 100);
 
-// Make sure this is an https URL.
+// 确认 URL 是否是 https 类型。
 assert(urlString.startsWith('https'));
 </pre>
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
-Assert statements have no effect in production code;
-they’re for development only.
-Flutter enables asserts in <a href="https://flutter.io/debugging/#debug-mode-assertions">debug mode.</a>
-Development-only tools such as <a href="https://webdev.dartlang.org/tools/dartdevc">dartdevc</a>
-typically support asserts by default.
-Some tools, such as <a href="/dart-vm/tools/dart-vm">dart</a> and <a href="https://webdev.dartlang.org/tools/dart2js">dart2js,</a>
-support asserts through a command-line flag: <code class="highlighter-rouge">--enable-asserts</code>.</p>
+assert 语句只在开发环境中有效，
+在生产环境是无效的；
+Flutter 中的 assert 只在 <a href="https://flutter.io/debugging/#debug-mode-assertions">debug 模式</a> 中有效。
+开发用的工具，例如 <a href="https://webdev.dartlang.org/tools/dartdevc">dartdevc</a>
+默认是开启 assert 功能。
+其它的一些工具， 例如 <a href="/dart-vm/tools/dart-vm">dart</a> 和 <a href="https://webdev.dartlang.org/tools/dart2js">dart2js,</a>
+支持通过命令行开启 assert ： <code class="highlighter-rouge">--enable-asserts</code>。</p>
 </div>
 
-<p>To attach a message to an assert,
-add a string as the second argument.</p>
+<p>assert 的第二个参数可以为其添加一个字符串消息。</p>
 
 <?code-excerpt "misc/test/language_tour/control_flow_test.dart (assert-with-message)"?>
 <pre class="prettyprint lang-dart">
@@ -2651,40 +2650,39 @@ assert(urlString.startsWith('https'),
     'URL ($urlString) should start with "https".');
 </pre>
 
-<p>The first argument to <code class="highlighter-rouge">assert</code> can be any expression that
-resolves to a boolean value. If the expression’s value
-is true, the assertion succeeds and execution
-continues. If it’s false, the assertion fails and an exception (an
-<a href="https://api.dartlang.org/dev/dart-core/AssertionError-class.html">AssertionError</a>) is thrown.</p>
+<p>assert 的第一个参数可以是解析为布尔值的任何表达式。
+如果表达式结果为 true ， 则断言成功，并继续执行。
+如果表达式结果为 false ， 则断言失败，并抛出异常
+(<a href="https://api.dartlang.org/dev/dart-core/AssertionError-class.html">AssertionError</a>) 。</p>
 
-<h2 id="exceptions">
-<a id="exceptions" class="anchor" href="#exceptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exceptions</h2>
+<h2 id="异常">
+<a id="异常" class="anchor" href="#%E5%BC%82%E5%B8%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>异常</h2>
 
-<p>Your Dart code can throw and catch exceptions. Exceptions are errors
-indicating that something unexpected happened. If the exception isn’t
-caught, the isolate that raised the exception is suspended, and
-typically the isolate and its program are terminated.</p>
+<p>Dart 代码可以抛出和捕获异常。 
+异常表示一些未知的错误情况。
+如果异常没有被捕获， 则异常会抛出，
+导致抛出异常的代码终止执行。</p>
 
-<p>In contrast to Java, all of Dart’s exceptions are unchecked exceptions.
-Methods do not declare which exceptions they might throw, and you are
-not required to catch any exceptions.</p>
+<p>和 Java 有所不同， Dart 中的所有异常是非检查异常。
+方法不会声明它们抛出的异常，
+也不要求捕获任何异常。</p>
 
-<p>Dart provides <a href="https://api.dartlang.org/dev/dart-core/Exception-class.html">Exception</a> and <a href="https://api.dartlang.org/dev/dart-core/Error-class.html">Error</a>
-types, as well as numerous predefined subtypes. You can, of course,
-define your own exceptions. However, Dart programs can throw any
-non-null object—not just Exception and Error objects—as an exception.</p>
+<p>Dart 提供了 <a href="https://api.dartlang.org/dev/dart-core/Exception-class.html">Exception</a> 和 <a href="https://api.dartlang.org/dev/dart-core/Error-class.html">Error</a> 类型，
+以及一些子类型。 
+当然也可以定义自己的异常类型。
+但是，此外 Dart 程序可以抛出任何非 null 对象， 不仅限 Exception 和 Error 对象。</p>
 
 <h3 id="throw">
 <a id="throw" class="anchor" href="#throw" aria-hidden="true"><span class="octicon octicon-link"></span></a>Throw</h3>
 
-<p>Here’s an example of throwing, or <em>raising</em>, an exception:</p>
+<p>下面是关于抛出或者 <em>引发</em> 异常的示例：</p>
 
 <?code-excerpt "misc/lib/language_tour/exceptions.dart (throw-FormatException)"?>
 <pre class="prettyprint lang-dart">
 throw FormatException('Expected at least 1 section');
 </pre>
 
-<p>You can also throw arbitrary objects:</p>
+<p>也可以抛出任意的对象：</p>
 
 <?code-excerpt "misc/lib/language_tour/exceptions.dart (out-of-llamas)"?>
 <pre class="prettyprint lang-dart">
@@ -2692,12 +2690,11 @@ throw 'Out of llamas!';
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>提示：</strong> Production-quality code usually throws types that implement
-  <a href="https://api.dartlang.org/dev/dart-core/Error-class.html">Error</a> or <a href="https://api.dartlang.org/dev/dart-core/Exception-class.html">Exception</a>.</p>
+  <p><strong>提示：</strong> 高质量的生产环境代码通常会实现 <a href="https://api.dartlang.org/dev/dart-core/Error-class.html">Error</a> 或 <a href="https://api.dartlang.org/dev/dart-core/Exception-class.html">Exception</a> 类型的异常抛出。</p>
 </div>
 
-<p>Because throwing an exception is an expression, you can throw exceptions
-in =&gt; statements, as well as anywhere else that allows expressions:</p>
+<p>因为抛出异常是一个表达式，
+所以可以在 =&gt; 语句中使用，也可以在其它使用表达式的地方抛出异常：</p>
 
 <?code-excerpt "misc/lib/language_tour/exceptions.dart (throw-is-an-expression)"?>
 <pre class="prettyprint lang-dart">
@@ -2707,9 +2704,8 @@ void distanceTo(Point other) =&gt; throw UnimplementedError();
 <h3 id="catch">
 <a id="catch" class="anchor" href="#catch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Catch</h3>
 
-<p>Catching, or capturing, an exception stops the exception from
-propagating (unless you rethrow the exception).
-Catching an exception gives you a chance to handle it:</p>
+<p>捕获异常可以避免异常继续传递（除非重新抛出（ rethrow ）异常）。 
+可以通过捕获异常的机会来处理该异常：</p>
 
 <?code-excerpt "misc/lib/language_tour/exceptions.dart (try)"?>
 <pre class="prettyprint lang-dart">
@@ -2720,34 +2716,34 @@ try {
 }
 </pre>
 
-<p>To handle code that can throw more than one type of exception, you can
-specify multiple catch clauses. The first catch clause that matches the
-thrown object’s type handles the exception. If the catch clause does not
-specify a type, that clause can handle any type of thrown object:</p>
+<p>通过指定多个 catch 语句，可以处理可能抛出多种类型异常的代码。
+与抛出异常类型匹配的第一个 catch 语句处理异常。 
+如果 catch 语句未指定类型，
+则该语句可以处理任何类型的抛出对象：</p>
 
 <?code-excerpt "misc/lib/language_tour/exceptions.dart (try-catch)"?>
 <pre class="prettyprint lang-dart">
 try {
   breedMoreLlamas();
 } on OutOfLlamasException {
-  // A specific exception
+  // 一个特殊的异常
   buyMoreLlamas();
 } on Exception catch (e) {
-  // Anything else that is an exception
+  // 其他任何异常
   print('Unknown exception: $e');
 } catch (e) {
-  // No specified type, handles all
+  // 没有指定的类型，处理所有异常
   print('Something really unknown: $e');
 }
 </pre>
 
-<p>As the preceding code shows, you can use either <code class="highlighter-rouge">on</code> or <code class="highlighter-rouge">catch</code> or both.
-Use <code class="highlighter-rouge">on</code> when you need to specify the exception type. Use <code class="highlighter-rouge">catch</code> when
-your exception handler needs the exception object.</p>
+<p>如上述代码所示，捕获语句中可以同时使用 <code class="highlighter-rouge">on</code> 和 <code class="highlighter-rouge">catch</code> ，也可以单独分开使用。
+使用 <code class="highlighter-rouge">on</code> 来指定异常类型，
+使用 <code class="highlighter-rouge">catch</code> 来 捕获异常对象。</p>
 
-<p>You can specify one or two parameters to <code class="highlighter-rouge">catch()</code>.
-The first is the exception that was thrown,
-and the second is the stack trace (a <a href="https://api.dartlang.org/dev/dart-core/StackTrace-class.html">StackTrace</a> object).</p>
+<p><code class="highlighter-rouge">catch()</code> 函数可以指定1到2个参数，
+第一个参数为抛出的异常对象， 
+第二个为堆栈信息 ( 一个 <a href="https://api.dartlang.org/dev/dart-core/StackTrace-class.html">StackTrace</a> 对象 )。</p>
 
 <?code-excerpt "misc/lib/language_tour/exceptions.dart (try-catch-2)" replace="/\(e.*?\)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">
@@ -2761,9 +2757,8 @@ try {
 }
 </pre>
 
-<p>To partially handle an exception,
-while allowing it to propagate,
-use the <code class="highlighter-rouge">rethrow</code> keyword.</p>
+<p>如果仅需要部分处理异常，
+那么可以使用关键字 <code class="highlighter-rouge">rethrow</code> 将异常重新抛出。</p>
 
 <?code-excerpt "misc/test/language_tour/exceptions_test.dart (rethrow)" replace="/rethrow;/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">
@@ -2789,9 +2784,9 @@ void main() {
 <h3 id="finally">
 <a id="finally" class="anchor" href="#finally" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finally</h3>
 
-<p>To ensure that some code runs whether or not an exception is thrown, use
-a <code class="highlighter-rouge">finally</code> clause. If no <code class="highlighter-rouge">catch</code> clause matches the exception, the
-exception is propagated after the <code class="highlighter-rouge">finally</code> clause runs:</p>
+<p>不管是否抛出异常， <code class="highlighter-rouge">finally</code> 中的代码都会被执行。
+如果 <code class="highlighter-rouge">catch</code> 没有匹配到异常，
+异常会在 <code class="highlighter-rouge">finally</code> 执行完成后，再次被抛出：</p>
 
 <?code-excerpt "misc/lib/language_tour/exceptions.dart (finally)"?>
 <pre class="prettyprint lang-dart">
@@ -2803,7 +2798,7 @@ try {
 }
 </pre>
 
-<p>The <code class="highlighter-rouge">finally</code> clause runs after any matching <code class="highlighter-rouge">catch</code> clauses:</p>
+<p>任何匹配的 <code class="highlighter-rouge">catch</code> 执行完成后，再执行 <code class="highlighter-rouge">finally</code> ：</p>
 
 <?code-excerpt "misc/lib/language_tour/exceptions.dart (try-catch-finally)"?>
 <pre class="prettyprint lang-dart">
@@ -2816,8 +2811,8 @@ try {
 }
 </pre>
 
-<p>Learn more by reading the
-<a href="/guides/libraries/library-tour#exceptions">Exceptions</a> section.</p>
+<p>了解更多，请参考
+<a href="/guides/libraries/library-tour#exceptions">Exceptions</a> 章节。</p>
 
 <h2 id="classes">
 <a id="classes" class="anchor" href="#classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes</h2>
@@ -4704,7 +4699,7 @@ Specification</a> and
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/15 21:51 CST"
+                 title="Site built on 2018/07/16 11:08 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
