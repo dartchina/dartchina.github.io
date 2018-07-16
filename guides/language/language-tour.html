@@ -250,14 +250,14 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#实例变量">实例变量</a></li>
 <li class="toc-entry toc-h3"><a href="#构造函数">构造函数</a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#default-constructors">Default constructors</a></li>
-<li class="toc-entry toc-h4"><a href="#constructors-arent-inherited">Constructors aren’t inherited</a></li>
-<li class="toc-entry toc-h4"><a href="#named-constructors">Named constructors</a></li>
-<li class="toc-entry toc-h4"><a href="#invoking-a-non-default-superclass-constructor">Invoking a non-default superclass constructor</a></li>
-<li class="toc-entry toc-h4"><a href="#initializer-list">Initializer list</a></li>
-<li class="toc-entry toc-h4"><a href="#redirecting-constructors">Redirecting constructors</a></li>
-<li class="toc-entry toc-h4"><a href="#constant-constructors">Constant constructors</a></li>
-<li class="toc-entry toc-h4"><a href="#factory-constructors">Factory constructors</a></li>
+<li class="toc-entry toc-h4"><a href="#默认构造函数">默认构造函数</a></li>
+<li class="toc-entry toc-h4"><a href="#构造函数不被继承">构造函数不被继承</a></li>
+<li class="toc-entry toc-h4"><a href="#命名构造函数">命名构造函数</a></li>
+<li class="toc-entry toc-h4"><a href="#调用父类非默认构造函数">调用父类非默认构造函数</a></li>
+<li class="toc-entry toc-h4"><a href="#初始化列表">初始化列表</a></li>
+<li class="toc-entry toc-h4"><a href="#重定向构造函数">重定向构造函数</a></li>
+<li class="toc-entry toc-h4"><a href="#常量构造函数">常量构造函数</a></li>
+<li class="toc-entry toc-h4"><a href="#工厂构造函数">工厂构造函数</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#methods">Methods</a>
@@ -1392,7 +1392,7 @@ enableFlags(bold: true);
 <strong><a href="/tools/pub/pubspec#sdk-constraints">使用 <code class="highlighter-rouge">=</code> 指定默认值。</a></strong></p>
 </div>
 
-<p>下面示例展示如何为位置参数设置默认值：</p>
+<p>下面示例演示了如何为位置参数设置默认值：</p>
 
 <?code-excerpt "misc/test/language_tour/functions_test.dart (optional-positional-param-default)"?>
 <pre class="prettyprint lang-dart">
@@ -2985,11 +2985,11 @@ void main() {
 <h3 id="构造函数">
 <a id="构造函数" class="anchor" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>构造函数</h3>
 
-<p>Declare a constructor by creating a function with the same name as its
-class (plus, optionally, an additional identifier as described in
-<a href="#named-constructors">Named constructors</a>).
-The most common form of constructor, the generative constructor, creates
-a new instance of a class:</p>
+<p>通过创建一个与其类同名的函数来声明构造函数
+（另外，还可以附加一个额外的可选标识符，如 <a href="#named-constructors">命名构造函数</a> 中所述）。 
+下面通过最常见的构造函数形式，
+即生成构造函数，
+创建一个类的实例：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/point_alt.dart (constructor-long-way)" plaster="none"?>
 <pre class="prettyprint lang-dart">
@@ -2997,54 +2997,51 @@ class Point {
   num x, y;
 
   Point(num x, num y) {
-    // There's a better way to do this, stay tuned.
+    // 还有更好的方式来实现下面代码，敬请关注。
     this.x = x;
     this.y = y;
   }
 }
 </pre>
 
-<p>The <code class="highlighter-rouge">this</code> keyword refers to the current instance.</p>
+<p>使用 <code class="highlighter-rouge">this</code> 关键字引用当前实例。</p>
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
-Use <code class="highlighter-rouge">this</code> only when there is a name conflict. Otherwise, Dart style
-omits the <code class="highlighter-rouge">this</code>.</p>
+近当存在命名冲突时，使用 <code class="highlighter-rouge">this</code> 关键字。 否则，按照 Dart 风格应该省略 <code class="highlighter-rouge">this</code> 。</p>
 </div>
 
-<p>The pattern of assigning a constructor argument to an instance variable
-is so common, Dart has syntactic sugar to make it easy:</p>
+<p>通常模式下，会将构造函数传入的参数的值赋值给对应的实例变量，
+Dart 自身的语法糖精简了这些代码：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/point.dart (constructor-initializer)" plaster="none"?>
 <pre class="prettyprint lang-dart">
 class Point {
   num x, y;
 
-  // Syntactic sugar for setting x and y
-  // before the constructor body runs.
+  // 在构造函数体执行前，
+  // 语法糖已经设置了变量 x 和 y。
   Point(this.x, this.y);
 }
 </pre>
 
-<h4 id="default-constructors">
-<a id="default-constructors" class="anchor" href="#default-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default constructors</h4>
+<h4 id="默认构造函数">
+<a id="默认构造函数" class="anchor" href="#%E9%BB%98%E8%AE%A4%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>默认构造函数</h4>
 
-<p>If you don’t declare a constructor, a default constructor is provided
-for you. The default constructor has no arguments and invokes the
-no-argument constructor in the superclass.</p>
+<p>在没有声明构造函数的情况下， Dart 会提供一个默认的构造函数。
+默认构造函数没有参数并会调用父类的无参构造函数。</p>
 
-<h4 id="constructors-arent-inherited">
-<a id="constructors-arent-inherited" class="anchor" href="#constructors-arent-inherited" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constructors aren’t inherited</h4>
+<h4 id="构造函数不被继承">
+<a id="构造函数不被继承" class="anchor" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%8D%E8%A2%AB%E7%BB%A7%E6%89%BF" aria-hidden="true"><span class="octicon octicon-link"></span></a>构造函数不被继承</h4>
 
-<p>Subclasses don’t inherit constructors from their superclass. A subclass
-that declares no constructors has only the default (no argument, no
-name) constructor.</p>
+<p>子类不会继承父类的构造函数。
+子类不声明构造函数，那么它就只有默认构造函数 (匿名，没有参数) 。</p>
 
-<h4 id="named-constructors">
-<a id="named-constructors" class="anchor" href="#named-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Named constructors</h4>
+<h4 id="命名构造函数">
+<a id="命名构造函数" class="anchor" href="#%E5%91%BD%E5%90%8D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>命名构造函数</h4>
 
-<p>Use a named constructor to implement multiple constructors for a class
-or to provide extra clarity:</p>
+<p>使用命名构造函数可为一个类实现多个构造函数，
+也可以使用命名构造函数来更清晰的表明函数意图：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/point.dart (named-constructor)" replace="/Point\.\S*/[!$&!]/g" plaster="none"?>
 <pre class="prettyprint lang-dart">
@@ -3053,7 +3050,7 @@ class Point {
 
   Point(this.x, this.y);
 
-  // Named constructor
+  // 命名构造函数
   <span class="highlight">Point.origin()</span> {
     x = 0;
     y = 0;
@@ -3061,42 +3058,38 @@ class Point {
 }
 </pre>
 
-<p>Remember that constructors are not inherited, which means that a
-superclass’s named constructor is not inherited by a subclass. If you
-want a subclass to be created with a named constructor defined in the
-superclass, you must implement that constructor in the subclass.</p>
+<p>切记，构造函数不能够被继承，
+这意味着父类的命名构造函数不会被子类继承。 
+如果希望使用父类中定义的命名构造函数创建子类，
+就必须在子类中实现该构造函数。</p>
 
-<h4 id="invoking-a-non-default-superclass-constructor">
-<a id="invoking-a-non-default-superclass-constructor" class="anchor" href="#invoking-a-non-default-superclass-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Invoking a non-default superclass constructor</h4>
+<h4 id="调用父类非默认构造函数">
+<a id="调用父类非默认构造函数" class="anchor" href="#%E8%B0%83%E7%94%A8%E7%88%B6%E7%B1%BB%E9%9D%9E%E9%BB%98%E8%AE%A4%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>调用父类非默认构造函数</h4>
 
-<p>By default, a constructor in a subclass calls the superclass’s unnamed,
-no-argument constructor.
-The superclass’s constructor is called at the beginning of the
-constructor body. If an <a href="#initializer-list">initializer list</a>
-is also being used, it executes before the superclass is called.
-In summary, the order of execution is as follows:</p>
+<p>默认情况下，子类的构造函数会自动调用父类的默认构造函数（匿名，无参数）。
+父类的构造函数在子类构造函数体开始执行的位置被调用。
+如果提供了一个 <a href="#initializer-list">initializer list</a> （初始化参数列表），
+则初始化参数列表在父类构造函数执行之前执行。 
+总之，执行顺序如下：</p>
 
 <ol>
-  <li>initializer list</li>
-  <li>superclass’s no-arg constructor</li>
-  <li>main class’s no-arg constructor</li>
+  <li>initializer list （初始化参数列表）</li>
+  <li>superclass’s no-arg constructor （父类的无名构造函数）</li>
+  <li>main class’s no-arg constructor （主类的无名构造函数）</li>
 </ol>
 
-<p>If the superclass doesn’t have an unnamed, no-argument constructor,
-then you must manually call one of the constructors in the
-superclass. Specify the superclass constructor after a colon (<code class="highlighter-rouge">:</code>), just
-before the constructor body (if any).</p>
+<p>如果父类中没有匿名无参的构造函数， 
+则需要手工调用父类的其它构造函数。 
+在当前构造函数冒号 (<code class="highlighter-rouge">:</code>) 之后，函数体之前，声明调用父类构造函数。</p>
 
-<p>In the following example, the constructor for the Employee class
-calls the named constructor for its superclass, Person.
-Click the run button ( <img src="/assets/red-run.png" width="20" height="19" alt="red-run.png"> ) to execute the code.</p>
+<p>下面的示例中，Employee 类的构造函数调用了父类 Person 的命名构造函数。 
+点击运行按钮( <img src="/assets/red-run.png" width="20" height="19" alt="red-run.png"> ) 执行示例代码。</p>
 
 <iframe src="https://dartpad.dartlang.org/embed-dart.html?id=e57aa06401e6618d4eb8&amp;horizontalRatio=99&amp;verticalRatio=80" width="100%" height="500px" style="border: 1px solid #ccc;">
 </iframe>
 
-<p>Because the arguments to the superclass constructor are evaluated before
-invoking the constructor, an argument can be an expression such as a
-function call:</p>
+<p>由于父类的构造函数参数在构造函数执行之前执行，
+所以参数可以是一个表达式或者一个方法调用：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/employee.dart (method-then-constructor)"?>
 <pre class="prettyprint lang-dart">
@@ -3107,22 +3100,23 @@ class Employee extends Person {
 </pre>
 
 <div class="alert alert-warning">
-  <p><strong>Warning:</strong>
-Arguments to the superclass constructor do not have access to <code class="highlighter-rouge">this</code>.
-For example, arguments can call static methods but not instance methods.</p>
+  <p><strong>警告：</strong>
+调用父类构造函数的参数无法访问 this 。 
+例如，参数可以为静态函数但是不能是实例函数。</p>
+
 </div>
 
-<h4 id="initializer-list">
-<a id="initializer-list" class="anchor" href="#initializer-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initializer list</h4>
+<h4 id="初始化列表">
+<a id="初始化列表" class="anchor" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>初始化列表</h4>
 
-<p>Besides invoking a superclass constructor, you can also initialize
-instance variables before the constructor body runs. Separate
-initializers with commas.</p>
+<p>除了调用超类构造函数之外，
+还可以在构造函数体执行之前初始化实例变量。
+各参数的初始化用逗号分隔。</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/point_alt.dart (initializer-list)"?>
 <pre class="prettyprint lang-dart">
-// Initializer list sets instance variables before
-// the constructor body runs.
+// 在构造函数体执行之前，
+// 通过初始列表设置实例变量。
 Point.fromJson(Map&lt;String, num&gt; json)
     : x = json['x'],
       y = json['y'] {
@@ -3131,12 +3125,12 @@ Point.fromJson(Map&lt;String, num&gt; json)
 </pre>
 
 <div class="alert alert-warning">
-  <p><strong>Warning:</strong>
-The right-hand side of an initializer does not have access to <code class="highlighter-rouge">this</code>.</p>
+  <p><strong>警告：</strong>
+初始化程序的右侧无法访问 <code class="highlighter-rouge">this</code> 。</p>
 </div>
 
-<p>During development, you can validate inputs by using <code class="highlighter-rouge">assert</code> in the
-initializer list.</p>
+<p>在开发期间，
+可以使用 <code class="highlighter-rouge">assert</code> 来验证输入的初始化列表。</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/point_alt.dart (initializer-list-with-assert)" replace="/assert\(.*?\)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">
@@ -3145,39 +3139,40 @@ Point.withAssert(this.x, this.y) : <span class="highlight">assert(x &gt;= 0)</sp
 }
 </pre>
 
-<p>Initializer lists are handy when setting up final fields.
-The following example initializes three final fields in an initializer list.
-Click the run button ( <img src="/assets/red-run.png" width="20" height="19" alt="red-run.png"> ) to execute the code.</p>
+<p>使用初始化列表可以很方便的设置 final 字段。
+下面示例演示了，如何使用初始化列表初始化设置三个 final 字段。
+点击运行按钮 ( <img src="/assets/red-run.png" width="20" height="19" alt="red-run.png"> ) 执行示例代码。</p>
 
 <iframe src="https://dartpad.dartlang.org/embed-dart.html?id=7a9764702c0608711e08&amp;horizontalRatio=99&amp;verticalRatio=85" width="100%" height="420px" style="border: 1px solid #ccc;">
 </iframe>
 
-<h4 id="redirecting-constructors">
-<a id="redirecting-constructors" class="anchor" href="#redirecting-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Redirecting constructors</h4>
+<h4 id="重定向构造函数">
+<a id="重定向构造函数" class="anchor" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>重定向构造函数</h4>
 
-<p>Sometimes a constructor’s only purpose is to redirect to another
-constructor in the same class. A redirecting constructor’s body is
-empty, with the constructor call appearing after a colon (:).</p>
+<p>有时构造函数的唯一目的是重定向到同一个类中的另一个构造函数。 
+重定向构造函数的函数体为空，
+构造函数的调用在冒号 (:) 之后。</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/point_redirecting.dart"?>
 <pre class="prettyprint lang-dart">
 class Point {
   num x, y;
 
-  // The main constructor for this class.
+  // 类的主构造函数。
   Point(this.x, this.y);
 
-  // Delegates to the main constructor.
+  // 指向主构造函数
   Point.alongXAxis(num x) : this(x, 0);
 }
 </pre>
 
-<h4 id="constant-constructors">
-<a id="constant-constructors" class="anchor" href="#constant-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constant constructors</h4>
+<h4 id="常量构造函数">
+<a id="常量构造函数" class="anchor" href="#%E5%B8%B8%E9%87%8F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>常量构造函数</h4>
 
-<p>If your class produces objects that never change, you can make these
-objects compile-time constants. To do this, define a <code class="highlighter-rouge">const</code> constructor
-and make sure that all instance variables are <code class="highlighter-rouge">final</code>.</p>
+<p>如果该类生成的对象是固定不变的，
+那么就可以把这些对象定义为编译时常量。
+为此，需要定义一个 <code class="highlighter-rouge">const</code> 构造函数，
+并且声明所有实例变量为 <code class="highlighter-rouge">final</code>。</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/immutable_point.dart"?>
 <pre class="prettyprint lang-dart">
@@ -3191,16 +3186,14 @@ class ImmutablePoint {
 }
 </pre>
 
-<h4 id="factory-constructors">
-<a id="factory-constructors" class="anchor" href="#factory-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Factory constructors</h4>
+<h4 id="工厂构造函数">
+<a id="工厂构造函数" class="anchor" href="#%E5%B7%A5%E5%8E%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>工厂构造函数</h4>
 
-<p>Use the <code class="highlighter-rouge">factory</code> keyword when implementing a constructor that doesn’t
-always create a new instance of its class. For example, a factory
-constructor might return an instance from a cache, or it might return an
-instance of a subtype.</p>
+<p>当执行构造函数并不总是创建这个类的一个新实例时，则使用 <code class="highlighter-rouge">factory</code> 关键字。
+例如，一个工厂构造函数可能会返回一个 cache 中的实例，
+或者可能返回一个子类的实例。</p>
 
-<p>The following example demonstrates a factory constructor returning
-objects from a cache:</p>
+<p>以下示例演示了从缓存中返回对象的工厂构造函数：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/logger.dart"?>
 <pre class="prettyprint lang-dart">
@@ -3208,8 +3201,8 @@ class Logger {
   final String name;
   bool mute = false;
 
-  // _cache is library-private, thanks to
-  // the _ in front of its name.
+  // 从命名的 _ 可以知，
+  // _cache 是私有属性。
   static final Map&lt;String, Logger&gt; _cache =
       &lt;String, Logger&gt;{};
 
@@ -3233,10 +3226,10 @@ class Logger {
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
-Factory constructors have no access to <code class="highlighter-rouge">this</code>.</p>
+工厂构造函数无法访问 this。</p>
 </div>
 
-<p>Invoke a factory constructor just like you would any other constructor:</p>
+<p>工厂构造函的调用方式与其他构造函数一样：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/logger.dart (logger)"?>
 <pre class="prettyprint lang-dart">
@@ -4693,7 +4686,7 @@ Specification</a> and
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/16 13:11 CST"
+                 title="Site built on 2018/07/16 16:01 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
