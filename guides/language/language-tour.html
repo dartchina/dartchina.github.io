@@ -281,7 +281,7 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h4"><a href="#使用枚举">使用枚举</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#adding-features-to-a-class-mixins">Adding features to a class: mixins</a></li>
+<li class="toc-entry toc-h3"><a href="#为类添加功能-mixins">为类添加功能： mixins</a></li>
 <li class="toc-entry toc-h3"><a href="#class-variables-and-methods">Class variables and methods</a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#static-variables">Static variables</a></li>
@@ -3624,14 +3624,14 @@ switch (aColor) {
 <p>有关更多信息，参见
 <a href="/guides/language/spec">Dart Language Specification</a>.</p>
 
-<h3 id="adding-features-to-a-class-mixins">
-<a id="adding-features-to-a-class-mixins" class="anchor" href="#adding-features-to-a-class-mixins" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding features to a class: mixins</h3>
+<h3 id="为类添加功能-mixins">
+<a id="为类添加功能-mixins" class="anchor" href="#%E4%B8%BA%E7%B1%BB%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BD-mixins" aria-hidden="true"><span class="octicon octicon-link"></span></a>为类添加功能： mixins</h3>
 
-<p>Mixins are a way of reusing a class’s code in multiple class
-hierarchies.</p>
+<p>mixins 是复用类代码的一种途径，
+复用的类可以在不同层级，之间可以不存在继承关系。</p>
 
-<p>To use a mixin, use the <code class="highlighter-rouge">with</code> keyword followed by one or more mixin
-names. The following example shows two classes that use mixins:</p>
+<p>通过 <code class="highlighter-rouge">with</code> 后面跟一个或多个混入的名称，来使用 mixin，
+下面的示例演示了两个使用 mixins 的类：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/orchestra.dart (Musician and Maestro)" replace="/(with.*) \{/[!$1!] {/g"?>
 <pre class="prettyprint lang-dart">
@@ -3648,8 +3648,7 @@ class Maestro extends Person
 }
 </pre>
 
-<p>To implement a mixin, create a class that extends Object,
-declares no constructors, and has no calls to <code class="highlighter-rouge">super</code>. For example:</p>
+<p>下面实现 mixin 的代码中，定义一个类，继承自 Object，没有声明构造函数，也没有调用 <code class="highlighter-rouge">super</code> ：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/orchestra.dart (Musical)"?>
 <pre class="prettyprint lang-dart">
@@ -3671,12 +3670,12 @@ abstract class Musical {
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>提示：</strong> Some restrictions on mixins are being removed. For details, see the
+  <p><strong>提示：</strong> 对 mixins 的一些限制正在被移除。 关于更多详情，参考
   <a href="https://github.com/dart-lang/sdk/blob/master/docs/language/informal/mixin-declaration.md">proposed mixin specification.</a></p>
 
 </div>
 
-<p>For a theoretical presentation of the evolution of mixins in Dart, see
+<p>有关 Dart 中 mixins 的理论演变, 参考
 <a href="/articles/language/mixins">A Brief History of Mixins in Dart</a>.</p>
 
 <h3 id="class-variables-and-methods">
@@ -4677,7 +4676,7 @@ Specification</a> and
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/17 15:03 CST"
+                 title="Site built on 2018/07/17 18:06 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
