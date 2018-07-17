@@ -260,25 +260,25 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h4"><a href="#工厂构造函数">工厂构造函数</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#methods">Methods</a>
+<li class="toc-entry toc-h3"><a href="#方法">方法</a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#instance-methods">Instance methods</a></li>
-<li class="toc-entry toc-h4"><a href="#getters-and-setters">Getters and setters</a></li>
-<li class="toc-entry toc-h4"><a href="#abstract-methods">Abstract methods</a></li>
+<li class="toc-entry toc-h4"><a href="#实例方法">实例方法</a></li>
+<li class="toc-entry toc-h4"><a href="#getters-和-setters">Getters 和 setters</a></li>
+<li class="toc-entry toc-h4"><a href="#抽象方法">抽象方法</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#abstract-classes">Abstract classes</a></li>
-<li class="toc-entry toc-h3"><a href="#implicit-interfaces">Implicit interfaces</a></li>
-<li class="toc-entry toc-h3"><a href="#extending-a-class">Extending a class</a>
+<li class="toc-entry toc-h3"><a href="#抽象类">抽象类</a></li>
+<li class="toc-entry toc-h3"><a href="#隐式接口">隐式接口</a></li>
+<li class="toc-entry toc-h3"><a href="#扩展类继承">扩展类（继承）</a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#overriding-members">Overriding members</a></li>
-<li class="toc-entry toc-h4"><a href="#overridable-operators">Overridable operators</a></li>
+<li class="toc-entry toc-h4"><a href="#重写类成员">重写类成员</a></li>
+<li class="toc-entry toc-h4"><a href="#重写运算符">重写运算符</a></li>
 <li class="toc-entry toc-h4"><a href="#nosuchmethod">noSuchMethod()</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#enumerated-types">Enumerated types</a>
+<li class="toc-entry toc-h3"><a href="#枚举类型">枚举类型</a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#using-enums">Using enums</a></li>
+<li class="toc-entry toc-h4"><a href="#使用枚举">使用枚举</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#adding-features-to-a-class-mixins">Adding features to a class: mixins</a></li>
@@ -965,7 +965,7 @@ multi-line string.""";
 var s = r"In a raw string, even \n isn't special.";
 </pre>
 
-<p>参考 <a href="#runes">Runes</a> 来了解如何在字符串中表达 Unicode 
+<p>参见 <a href="#runes">Runes</a> 来了解如何在字符串中表达 Unicode 
 字符。</p>
 
 <p>一个编译时常量的字面量字符串中，如果存在插值表达式，表达式内容也是编译时常量，
@@ -1071,7 +1071,7 @@ var constantList = const [1, 2, 3];
 </pre>
 
 <p>List 类型包含了很多 lists 的操作函数。 
-更多信息参考 <a href="#generics">泛型</a> 和
+更多信息参见 <a href="#generics">泛型</a> 和
 <a href="/guides/libraries/library-tour#collections">集合</a>.</p>
 
 <h3 id="maps">
@@ -2359,7 +2359,7 @@ sb.write('foo')
   </tbody>
 </table>
 
-<p>更多关于 <code class="highlighter-rouge">.</code>, <code class="highlighter-rouge">?.</code> 和  <code class="highlighter-rouge">..</code> 运算符介绍，参考
+<p>更多关于 <code class="highlighter-rouge">.</code>, <code class="highlighter-rouge">?.</code> 和  <code class="highlighter-rouge">..</code> 运算符介绍，参见
 <a href="#classes">Classes</a>.</p>
 
 <h2 id="控制流程语句">
@@ -2395,7 +2395,7 @@ sb.write('foo')
 <a id="if-和-else" class="anchor" href="#if-%E5%92%8C-else" aria-hidden="true"><span class="octicon octicon-link"></span></a>If 和 else</h3>
 
 <p>Dart 支持 <code class="highlighter-rouge">if - else</code> 语句，其中 <code class="highlighter-rouge">else</code> 是可选的， 
-比如下面的例子， 另参考 <a href="#conditional-expressions">conditional expressions</a>.</p>
+比如下面的例子， 另参见 <a href="#conditional-expressions">conditional expressions</a>.</p>
 
 <?code-excerpt "misc/lib/language_tour/control_flow.dart (if-else)"?>
 <pre class="prettyprint lang-dart">
@@ -2811,7 +2811,7 @@ try {
 }
 </pre>
 
-<p>了解更多，请参考
+<p>更多详情，请参见
 <a href="/guides/libraries/library-tour#exceptions">Exceptions</a> 章节。</p>
 
 <h2 id="类">
@@ -3237,17 +3237,16 @@ var logger = Logger('UI');
 logger.log('Button clicked');
 </pre>
 
-<h3 id="methods">
-<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h3>
+<h3 id="方法">
+<a id="方法" class="anchor" href="#%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>方法</h3>
 
-<p>Methods are functions that provide behavior for an object.</p>
+<p>方法是为对象提供行为的函数。</p>
 
-<h4 id="instance-methods">
-<a id="instance-methods" class="anchor" href="#instance-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instance methods</h4>
+<h4 id="实例方法">
+<a id="实例方法" class="anchor" href="#%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>实例方法</h4>
 
-<p>Instance methods on objects can access instance variables and <code class="highlighter-rouge">this</code>.
-The <code class="highlighter-rouge">distanceTo()</code> method in the following sample is an example of an
-instance method:</p>
+<p>对象的实例方法可以访问 <code class="highlighter-rouge">this</code> 和实例变量。
+以下示例中的 <code class="highlighter-rouge">distanceTo()</code> 方法就是实例方法：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/point.dart (class-with-distanceTo)" plaster="none"?>
 <pre class="prettyprint lang-dart">
@@ -3266,14 +3265,12 @@ class Point {
 }
 </pre>
 
-<h4 id="getters-and-setters">
-<a id="getters-and-setters" class="anchor" href="#getters-and-setters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getters and setters</h4>
+<h4 id="getters-和-setters">
+<a id="getters-和-setters" class="anchor" href="#getters-%E5%92%8C-setters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getters 和 setters</h4>
 
-<p>Getters and setters are special methods that provide read and write
-access to an object’s properties. Recall that each instance variable has
-an implicit getter, plus a setter if appropriate. You can create
-additional properties by implementing getters and setters, using the
-<code class="highlighter-rouge">get</code> and <code class="highlighter-rouge">set</code> keywords:</p>
+<p>getters 和 setters 是用于对象属性读和写的特殊方法。 
+回想之前的例子，每个实例变量都有一个隐式 getter ，通常情况下还会有一个 setter 。
+使用 <code class="highlighter-rouge">get</code> 和 <code class="highlighter-rouge">set</code> 关键字实现 getters 和 setters ，能够为实例创建额外的属性。</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/rectangle.dart"?>
 <pre class="prettyprint lang-dart">
@@ -3282,7 +3279,7 @@ class Rectangle {
 
   Rectangle(this.left, this.top, this.width, this.height);
 
-  // Define two calculated properties: right and bottom.
+  // 定义两个计算属性： right 和 bottom。
   num get right =&gt; left + width;
   set right(num value) =&gt; left = value - width;
   num get bottom =&gt; top + height;
@@ -3297,94 +3294,91 @@ void main() {
 }
 </pre>
 
-<p>With getters and setters, you can start with instance variables, later
-wrapping them with methods, all without changing client code.</p>
+<p>最开始实现 getters 和 setters 也许是直接返回成员变量；
+随着需求变化，getters 和 setters 可能需要进行计算处理而使用方法来实现；
+但是，调用对象的代码不需要做任何的修改。</p>
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
-Operators such as increment (++) work in the expected way, whether or
-not a getter is explicitly defined. To avoid any unexpected side
-effects, the operator calls the getter exactly once, saving its value
-in a temporary variable.</p>
+类似 (++) 之类操作符不管是否定义了 getter 方法，都能够正确的执行。 
+为了避免一些问题，操作符只调用一次 getter 方法，
+然后把值保存到一个临时的变量中。</p>
 </div>
 
-<h4 id="abstract-methods">
-<a id="abstract-methods" class="anchor" href="#abstract-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Abstract methods</h4>
+<h4 id="抽象方法">
+<a id="抽象方法" class="anchor" href="#%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>抽象方法</h4>
 
-<p>Instance, getter, and setter methods can be abstract, defining an
-interface but leaving its implementation up to other classes.
-Abstract methods can only exist in <a href="#abstract-classes">abstract classes</a>.</p>
+<p>实例方法， getter， 和 setter 方法可以是抽象的， 
+只定义接口不进行实现，而是留给其它类去实现。 
+抽象方法只存在于 <a href="#abstract-classes">抽象类</a> 中。</p>
 
-<p>To make a method abstract, use a semicolon (;) instead of a method body:</p>
+<p>定义一个抽象函数，使用分号 (;) 来代替函数体：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/doer.dart"?>
 <pre class="prettyprint lang-dart">
 abstract class Doer {
-  // Define instance variables and methods...
+  // 定义实例变量和方法 ...
 
-  void doSomething(); // Define an abstract method.
+  void doSomething(); // 定义一个抽象方法。
 }
 
 class EffectiveDoer extends Doer {
   void doSomething() {
-    // Provide an implementation, so the method is not abstract here...
+    // 提供方法实现，所以这里的方法就不是抽象方法了...
   }
 }
 </pre>
 
-<p>Calling an abstract method results in a runtime error.</p>
+<p>调用抽象方法会导致运行时错误。</p>
 
-<h3 id="abstract-classes">
-<a id="abstract-classes" class="anchor" href="#abstract-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Abstract classes</h3>
+<h3 id="抽象类">
+<a id="抽象类" class="anchor" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>抽象类</h3>
 
-<p>Use the <code class="highlighter-rouge">abstract</code> modifier to define an <em>abstract class</em>—a class that
-can’t be instantiated. Abstract classes are useful for defining
-interfaces, often with some implementation. If you want your abstract
-class to appear to be instantiable, define a <a href="#factory-constructors">factory
-constructor</a>.</p>
+<p>使用 <code class="highlighter-rouge">abstract</code> 修饰符来定义 <em>抽象类</em> — 抽象类不能实例化。
+抽象类通常用来定义接口，以及部分实现。
+如果希望抽象类能够被实例化，那么可以通过定义一个
+<a href="#factory-constructors">工厂构造函数</a> 来实现。</p>
 
-<p>Abstract classes often have <a href="#abstract-methods">abstract methods</a>.
-Here’s an example of declaring an abstract class that has an abstract
-method:</p>
+<p>抽象类通常具有 <a href="#abstract-methods">抽象方法</a>。
+下面是一个声明具有抽象方法的抽象类示例：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/misc.dart (abstract)"?>
 <pre class="prettyprint lang-dart">
-// This class is declared abstract and thus
-// can't be instantiated.
+// 这个类被定义为抽象类，
+// 所以不能被实例化。
 abstract class AbstractContainer {
-  // Define constructors, fields, methods...
+  // 定义构造行数，字段，方法...
 
-  void updateChildren(); // Abstract method.
+  void updateChildren(); // 抽象方法。
 }
 </pre>
 
-<h3 id="implicit-interfaces">
-<a id="implicit-interfaces" class="anchor" href="#implicit-interfaces" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implicit interfaces</h3>
+<h3 id="隐式接口">
+<a id="隐式接口" class="anchor" href="#%E9%9A%90%E5%BC%8F%E6%8E%A5%E5%8F%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>隐式接口</h3>
 
-<p>Every class implicitly defines an interface containing all the instance
-members of the class and of any interfaces it implements. If you want to
-create a class A that supports class B’s API without inheriting B’s
-implementation, class A should implement the B interface.</p>
+<p>每个类都隐式的定义了一个接口，接口包含了该类所有的实例成员及其实现的接口。
+如果要创建一个 A 类，A 要支持 B 类的 API ，但是不需要继承 B 的实现，
+那么可以通过 A 实现 B 的接口。</p>
 
-<p>A class implements one or more interfaces by declaring them in an
-<code class="highlighter-rouge">implements</code> clause and then providing the APIs required by the
-interfaces. For example:</p>
+<p>一个类可以通过 <code class="highlighter-rouge">implements</code> 关键字来实现一个或者多个接口， 
+并实现每个接口要求的 API。
+例如：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/impostor.dart"?>
 <pre class="prettyprint lang-dart">
-// A person. The implicit interface contains greet().
+// person 类。 隐式接口里面包含了 greet() 方法声明。
 class Person {
-  // In the interface, but visible only in this library.
+  // 包含在接口里，但只在当前库中可见。
   final _name;
 
-  // Not in the interface, since this is a constructor.
+  // 不包含在接口里，因为这是一个构造函数。
   Person(this._name);
 
-  // In the interface.
+  // 包含在接口里。
   String greet(String who) =&gt; 'Hello, $who. I am $_name.';
 }
 
-// An implementation of the Person interface.
+// person 接口的实现。
 class Impostor implements Person {
   get _name =&gt; '';
 
@@ -3399,7 +3393,8 @@ void main() {
 }
 </pre>
 
-<p>Here’s an example of specifying that a class implements multiple
+<p>下面示例演示一个类如何实现多个接口：
+Here’s an example of specifying that a class implements multiple
 interfaces:</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/misc.dart (point_interfaces)"?>
@@ -3407,11 +3402,11 @@ interfaces:</p>
 class Point implements Comparable, Location {...}
 </pre>
 
-<h3 id="extending-a-class">
-<a id="extending-a-class" class="anchor" href="#extending-a-class" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extending a class</h3>
+<h3 id="扩展类继承">
+<a id="扩展类继承" class="anchor" href="#%E6%89%A9%E5%B1%95%E7%B1%BB%E7%BB%A7%E6%89%BF" aria-hidden="true"><span class="octicon octicon-link"></span></a>扩展类（继承）</h3>
 
-<p>Use <code class="highlighter-rouge">extends</code> to create a subclass, and <code class="highlighter-rouge">super</code> to refer to the
-superclass:</p>
+<p>使用 <code class="highlighter-rouge">extends</code> 关键字来创建子类， 
+使用 <code class="highlighter-rouge">super</code> 关键字来引用父类：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/extends.dart" replace="/extends|super/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">
@@ -3434,12 +3429,11 @@ class SmartTelevision <span class="highlight">extends</span> Television {
 }
 </pre>
 
-<h4 id="overriding-members">
-<a id="overriding-members" class="anchor" href="#overriding-members" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overriding members</h4>
+<h4 id="重写类成员">
+<a id="重写类成员" class="anchor" href="#%E9%87%8D%E5%86%99%E7%B1%BB%E6%88%90%E5%91%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>重写类成员</h4>
 
-<p>Subclasses can override instance methods, getters, and setters.
-You can use the <code class="highlighter-rouge">@override</code> annotation to indicate that you are
-intentionally overriding a member:</p>
+<p>子类可以重写实例方法，getter 和 setter。
+可以使用 <code class="highlighter-rouge">@override</code> 注解指出想要重写的成员：</p>
 
 <?code-excerpt "misc/lib/language_tour/metadata/television.dart (override)" replace="/@override/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">
@@ -3454,12 +3448,11 @@ class SmartTelevision extends Television {
 <a href="/guides/language/sound-dart">type safe</a>,
 you can use the <a href="/guides/language/sound-problems#the-covariant-keyword"><code class="highlighter-rouge">covariant</code> keyword</a>.</p>
 
-<h4 id="overridable-operators">
-<a id="overridable-operators" class="anchor" href="#overridable-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overridable operators</h4>
+<h4 id="重写运算符">
+<a id="重写运算符" class="anchor" href="#%E9%87%8D%E5%86%99%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>重写运算符</h4>
 
-<p>You can override the operators shown in the following table.
-For example, if you define a
-Vector class, you might define a <code class="highlighter-rouge">+</code> method to add two vectors.</p>
+<p>下标的运算符可以被重写。
+例如，想要实现两个向量对象相加，可以重写 <code class="highlighter-rouge">+</code> 方法。</p>
 
 <table class="table">
   <tbody>
@@ -3496,7 +3489,7 @@ Vector class, you might define a <code class="highlighter-rouge">+</code> method
   </tbody>
 </table>
 
-<p>Here’s an example of a class that overrides the <code class="highlighter-rouge">+</code> and <code class="highlighter-rouge">-</code> operators:</p>
+<p>下面示例演示一个类重写 <code class="highlighter-rouge">+</code> 和 <code class="highlighter-rouge">-</code> 操作符：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/vector.dart"?>
 <pre class="prettyprint lang-dart">
@@ -3508,7 +3501,7 @@ class Vector {
   Vector operator +(Vector v) =&gt; Vector(x + v.x, y + v.y);
   Vector operator -(Vector v) =&gt; Vector(x - v.x, y - v.y);
 
-  // Operator == and hashCode not shown. For details, see note below.
+  // 运算符 == 和 hashCode 部分没有列出。 有关详情，请参见下面的注释。
   // ···
 }
 
@@ -3521,24 +3514,24 @@ void main() {
 }
 </pre>
 
-<p>If you override <code class="highlighter-rouge">==</code>, you should also override Object’s <code class="highlighter-rouge">hashCode</code> getter.
-For an example of overriding <code class="highlighter-rouge">==</code> and <code class="highlighter-rouge">hashCode</code>, see
+<p>如果要重写 <code class="highlighter-rouge">==</code> 操作符，需要重写对象的 <code class="highlighter-rouge">hashCode</code> getter 方法。
+重写 <code class="highlighter-rouge">==</code> 和 <code class="highlighter-rouge">hashCode</code> 的实例，参见
 <a href="/guides/libraries/library-tour#implementing-map-keys">Implementing map keys</a>.</p>
 
-<p>For more information on overriding, in general, see
+<p>有关重写的更多介绍，请参见
 <a href="#extending-a-class">Extending a class</a>.</p>
 
 <h4 id="nosuchmethod">
 <a id="nosuchmethod" class="anchor" href="#nosuchmethod" aria-hidden="true"><span class="octicon octicon-link"></span></a>noSuchMethod()</h4>
 
-<p>To detect or react whenever code attempts to use a non-existent method or
-instance variable, you can override <code class="highlighter-rouge">noSuchMethod()</code>:</p>
+<p>当代码尝试使用不存在的方法或实例变量时，
+通过重写 <code class="highlighter-rouge">noSuchMethod()</code> 方法，来实现检测和应对处理：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/no_such_method.dart" replace="/noSuchMethod(?!,)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">
 class A {
-  // Unless you override noSuchMethod, using a
-  // non-existent member results in a NoSuchMethodError.
+  // 如果不重写 noSuchMethod，访问
+  // 不存在的实例变量时会导致 NoSuchMethodError 错误。
   @override
   void <span class="highlight">noSuchMethod</span>(Invocation invocation) {
     print('You tried to use a non-existent member: ' +
@@ -3547,46 +3540,44 @@ class A {
 }
 </pre>
 
-<p>You <strong>can’t invoke</strong> an unimplemented method unless
-<strong>one</strong> of the following is true:</p>
+<p>除非符合下面的任意一项条件，
+否则没有实现的方法不能够被调用：</p>
 
 <ul>
   <li>
-    <p>The receiver has the static type <code class="highlighter-rouge">dynamic</code>.</p>
+    <p>receiver 具有 <code class="highlighter-rouge">dynamic</code> 的静态类型 。</p>
   </li>
   <li>
-    <p>The receiver has a static type that
-defines the unimplemented method (abstract is OK),
-and the dynamic type of the receiver has an implemention of <code class="highlighter-rouge">noSuchMethod()</code>
-that’s different from the one in class <code class="highlighter-rouge">Object</code>.</p>
+    <p>receiver 具有静态类型，用于定义为实现的方法 (可以是抽象的),
+并且 receiver 的动态类型具有 <code class="highlighter-rouge">noSuchMethod()</code> 的实现，
+该实现与 <code class="highlighter-rouge">Object</code> 类中的实现不同。</p>
   </li>
 </ul>
 
-<p>有关更多信息，参见 the informal
+<p>有关更多信息，参见
 <a href="https://github.com/dart-lang/sdk/blob/master/docs/language/informal/nosuchmethod-forwarding.md">nosuchMethod forwarding specification.</a></p>
 
 <p><a id="enums"></a></p>
-<h3 id="enumerated-types">
-<a id="enumerated-types" class="anchor" href="#enumerated-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enumerated types</h3>
+<h3 id="枚举类型">
+<a id="枚举类型" class="anchor" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>枚举类型</h3>
 
-<p>Enumerated types, often called <em>enumerations</em> or <em>enums</em>,
-are a special kind of class used to represent
-a fixed number of constant values.</p>
+<p>枚举类型也称为 <em>enumerations</em> 或 <em>enums</em> ，
+是一种特殊的类，用于表示数量固定的常量值。</p>
 
-<h4 id="using-enums">
-<a id="using-enums" class="anchor" href="#using-enums" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using enums</h4>
+<h4 id="使用枚举">
+<a id="使用枚举" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%9E%9A%E4%B8%BE" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用枚举</h4>
 
-<p>Declare an enumerated type using the <code class="highlighter-rouge">enum</code> keyword:</p>
+<p>使用 <code class="highlighter-rouge">enum</code> 关键字定义一个枚举类型：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/enum.dart (enum)"?>
 <pre class="prettyprint lang-dart">
 enum Color { red, green, blue }
 </pre>
 
-<p>Each value in an enum has an <code class="highlighter-rouge">index</code> getter,
-which returns the zero-based position of the value in the enum declaration.
-For example, the first value has index 0,
-and the second value has index 1.</p>
+<p>枚举中的每个值都有一个 <code class="highlighter-rouge">index</code> getter 方法，
+该方法返回值所在枚举类型定义中的位置（从 0 开始）。
+例如，第一个枚举值的索引是 0 ，
+第二个枚举值的索引是 1。</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/enum.dart (index)"?>
 <pre class="prettyprint lang-dart">
@@ -3595,8 +3586,8 @@ assert(Color.green.index == 1);
 assert(Color.blue.index == 2);
 </pre>
 
-<p>To get a list of all of the values in the enum,
-use the enum’s <code class="highlighter-rouge">values</code> constant.</p>
+<p>使用枚举的 <code class="highlighter-rouge">values</code> 常量，
+获取所有枚举值列表（ list ）。</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/enum.dart (values)"?>
 <pre class="prettyprint lang-dart">
@@ -3604,8 +3595,8 @@ List&lt;Color&gt; colors = Color.values;
 assert(colors[2] == Color.blue);
 </pre>
 
-<p>You can use enums in <a href="#switch-and-case">switch statements</a>, and
-you’ll get a warning if you don’t handle all of the enum’s values:</p>
+<p>可以在 <a href="#switch-and-case">switch 语句</a> 中使用枚举，
+如果不处理所有枚举值，会收到警告：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/enum.dart (switch)"?>
 <pre class="prettyprint lang-dart">
@@ -3618,19 +3609,19 @@ switch (aColor) {
   case Color.green:
     print('Green as grass!');
     break;
-  default: // Without this, you see a WARNING.
+  default: // 没有这个，会看到一个警告。
     print(aColor); // 'Color.blue'
 }
 </pre>
 
-<p>Enumerated types have the following limits:</p>
+<p>枚举类型具有以下限制：</p>
 
 <ul>
-  <li>You can’t subclass, mix in, or implement an enum.</li>
-  <li>You can’t explicitly instantiate an enum.</li>
+  <li>枚举不能被子类化，混合或实现。</li>
+  <li>枚举不能被显式实例化。</li>
 </ul>
 
-<p>有关更多信息，参见 the
+<p>有关更多信息，参见
 <a href="/guides/language/spec">Dart Language Specification</a>.</p>
 
 <h3 id="adding-features-to-a-class-mixins">
@@ -4686,7 +4677,7 @@ Specification</a> and
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/16 16:01 CST"
+                 title="Site built on 2018/07/17 15:03 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
