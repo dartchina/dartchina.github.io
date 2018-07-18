@@ -282,22 +282,22 @@ ga('send', 'pageview');
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#为类添加功能-mixins">为类添加功能： mixins</a></li>
-<li class="toc-entry toc-h3"><a href="#class-variables-and-methods">Class variables and methods</a>
+<li class="toc-entry toc-h3"><a href="#类变量和方法">类变量和方法</a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#static-variables">Static variables</a></li>
-<li class="toc-entry toc-h4"><a href="#static-methods">Static methods</a></li>
+<li class="toc-entry toc-h4"><a href="#静态变量">静态变量</a></li>
+<li class="toc-entry toc-h4"><a href="#静态方法">静态方法</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#generics">Generics</a>
+<li class="toc-entry toc-h2"><a href="#泛型">泛型</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#why-use-generics">Why use generics?</a></li>
-<li class="toc-entry toc-h3"><a href="#using-collection-literals">Using collection literals</a></li>
-<li class="toc-entry toc-h3"><a href="#using-parameterized-types-with-constructors">Using parameterized types with constructors</a></li>
-<li class="toc-entry toc-h3"><a href="#generic-collections-and-the-types-they-contain">Generic collections and the types they contain</a></li>
-<li class="toc-entry toc-h3"><a href="#restricting-the-parameterized-type">Restricting the parameterized type</a></li>
-<li class="toc-entry toc-h3"><a href="#using-generic-methods">Using generic methods</a></li>
+<li class="toc-entry toc-h3"><a href="#为什么使用泛型">为什么使用泛型</a></li>
+<li class="toc-entry toc-h3"><a href="#使用集合字面量">使用集合字面量</a></li>
+<li class="toc-entry toc-h3"><a href="#使用泛型类型的构造函数">使用泛型类型的构造函数</a></li>
+<li class="toc-entry toc-h3"><a href="#运行时中的泛型集合">运行时中的泛型集合</a></li>
+<li class="toc-entry toc-h3"><a href="#限制泛型类型">限制泛型类型</a></li>
+<li class="toc-entry toc-h3"><a href="#使用泛型函数">使用泛型函数</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#libraries-and-visibility">Libraries and visibility</a>
@@ -3670,24 +3670,23 @@ abstract class Musical {
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>提示：</strong> 对 mixins 的一些限制正在被移除。 关于更多详情，参考
+  <p><strong>提示：</strong> 对 mixins 的一些限制正在被移除。 关于更多详情，参见
   <a href="https://github.com/dart-lang/sdk/blob/master/docs/language/informal/mixin-declaration.md">proposed mixin specification.</a></p>
 
 </div>
 
-<p>有关 Dart 中 mixins 的理论演变, 参考
+<p>有关 Dart 中 mixins 的理论演变, 参见
 <a href="/articles/language/mixins">A Brief History of Mixins in Dart</a>.</p>
 
-<h3 id="class-variables-and-methods">
-<a id="class-variables-and-methods" class="anchor" href="#class-variables-and-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Class variables and methods</h3>
+<h3 id="类变量和方法">
+<a id="类变量和方法" class="anchor" href="#%E7%B1%BB%E5%8F%98%E9%87%8F%E5%92%8C%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>类变量和方法</h3>
 
-<p>Use the <code class="highlighter-rouge">static</code> keyword to implement class-wide variables and methods.</p>
+<p>使用 <code class="highlighter-rouge">static</code> 关键字实现类范围的变量和方法。</p>
 
-<h4 id="static-variables">
-<a id="static-variables" class="anchor" href="#static-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Static variables</h4>
+<h4 id="静态变量">
+<a id="静态变量" class="anchor" href="#%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>静态变量</h4>
 
-<p>Static variables (class variables) are useful for class-wide state and
-constants:</p>
+<p>静态变量（类变量）对于类级别的状态是非常有用的：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/misc.dart (static-field)"?>
 <pre class="prettyprint lang-dart">
@@ -3701,20 +3700,19 @@ void main() {
 }
 </pre>
 
-<p>Static variables aren’t initialized until they’re used.</p>
+<p>静态变量只到它们被使用的时候才会初始化。</p>
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
-This page follows the <a href="/guides/language/effective-dart/style#identifiers">style guide
-recommendation</a>
-of preferring <code class="highlighter-rouge">lowerCamelCase</code> for constant names.</p>
+代码准守<a href="/guides/language/effective-dart/style#identifiers">风格推荐指南</a>
+中的命名规则， 使用 <code class="highlighter-rouge">lowerCamelCase</code> 来命名常量。</p>
 </div>
 
-<h4 id="static-methods">
-<a id="static-methods" class="anchor" href="#static-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Static methods</h4>
+<h4 id="静态方法">
+<a id="静态方法" class="anchor" href="#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>静态方法</h4>
 
-<p>Static methods (class methods) do not operate on an instance, and thus
-do not have access to <code class="highlighter-rouge">this</code>. For example:</p>
+<p>静态方法（类方法）不能在实例上使用，因此它们不能访问 <code class="highlighter-rouge">this</code> 。
+例如：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/point_with_distance_method.dart"?>
 <pre class="prettyprint lang-dart">
@@ -3742,51 +3740,48 @@ void main() {
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
-Consider using top-level functions, instead of static methods, for
-common or widely used utilities and functionality.</p>
+对于常见或广泛使用的工具和函数，
+应该考虑使用顶级函数而不是静态方法。</p>
 </div>
 
-<p>You can use static methods as compile-time constants. For example, you
-can pass a static method as a parameter to a constant constructor.</p>
+<p>静态函数可以当做编译时常量使用。
+例如，可以将静态方法作为参数传递给常量构造函数。</p>
 
-<h2 id="generics">
-<a id="generics" class="anchor" href="#generics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generics</h2>
+<h2 id="泛型">
+<a id="泛型" class="anchor" href="#%E6%B3%9B%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>泛型</h2>
 
-<p>If you look at the API documentation for the basic array type,
-<a href="https://api.dartlang.org/dev/dart-core/List-class.html">List,</a> you’ll see that the
-type is actually <code class="highlighter-rouge">List&lt;E&gt;</code>. The &lt;…&gt; notation marks List as a
-<em>generic</em> (or <em>parameterized</em>) type—a type that has formal type
-parameters. By convention, type variables have single-letter names, such
-as E, T, S, K, and V.</p>
+<p>在 API 文档中你会发现基础数组类型 <a href="https://api.dartlang.org/dev/dart-core/List-class.html">List</a> 的实际类型是 <code class="highlighter-rouge">List&lt;E&gt;</code> 。
+&lt;…&gt; 符号将 List 标记为 <em>泛型</em> (或 <em>参数化</em>) 类型。
+这种类型具有形式化的参数。
+通常情况下，使用一个字母来代表类型参数， 例如 E, T, S, K, 和 V 等。</p>
 
-<h3 id="why-use-generics">
-<a id="why-use-generics" class="anchor" href="#why-use-generics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why use generics?</h3>
+<h3 id="为什么使用泛型">
+<a id="为什么使用泛型" class="anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>为什么使用泛型</h3>
 
-<p>Generics are often required for type safety, but they have more benefits
-than just allowing your code to run:</p>
+<p>在类型安全上通常需要泛型支持，
+它的好处不仅仅是保证代码的正常运行：</p>
 
 <ul>
-  <li>Properly specifying generic types results in better generated code.</li>
-  <li>You can use generics to reduce code duplication.</li>
+  <li>正确指定泛型类型可以提高代码质量。</li>
+  <li>使用泛型可以减少重复的代码。</li>
 </ul>
 
-<p>If you intend for a list to contain only strings, you can
-declare it as <code class="highlighter-rouge">List&lt;String&gt;</code> (read that as “list of string”). That way
-you, your fellow programmers, and your tools can detect that assigning a non-string to
-the list is probably a mistake. Here’s an example:</p>
+<p>如果想让 List 仅仅支持字符串类型，
+可以将其声明为 <code class="highlighter-rouge">List&lt;String&gt;</code> （读作“字符串类型的 list ”）。
+那么，当一个非字符串被赋值给了这个 list 时，开发工具就能够检测到这样的做法可能存在错误。 
+例如：</p>
 
 <?code-excerpt "misc/lib/language_tour/generics/misc.dart (why-generics)"?>
 <pre class="prettyprint lang-dart fails-sa">
 var names = List&lt;String&gt;();
 names.addAll(['Seth', 'Kathy', 'Lars']);
-names.add(42); // Error
+names.add(42); // 错误
 </pre>
 
-<p>Another reason for using generics is to reduce code duplication.
-Generics let you share a single interface and implementation between
-many types, while still taking advantage of static
-analysis. For example, say you create an interface for
-caching an object:</p>
+<p>另外一个使用泛型的原因是减少重复的代码。 
+泛型可以在多种类型之间定义同一个实现，
+同时还可以继续使用检查模式和静态分析工具提供的代码分析功能。
+例如，假设你创建了一个用于缓存对象的接口：</p>
 
 <?code-excerpt "misc/lib/language_tour/generics/cache.dart (ObjectCache)"?>
 <pre class="prettyprint lang-dart">
@@ -3796,8 +3791,7 @@ abstract class ObjectCache {
 }
 </pre>
 
-<p>You discover that you want a string-specific version of this interface,
-so you create another interface:</p>
+<p>后来发现需要一个相同功能的字符串类型接口，因此又创建了另一个接口：</p>
 
 <?code-excerpt "misc/lib/language_tour/generics/cache.dart (StringCache)"?>
 <pre class="prettyprint lang-dart">
@@ -3807,11 +3801,11 @@ abstract class StringCache {
 }
 </pre>
 
-<p>Later, you decide you want a number-specific version of this
-interface… You get the idea.</p>
+<p>后来，又发现需要一个相同功能的数字类型接口 … 
+这里你应该明白了。</p>
 
-<p>Generic types can save you the trouble of creating all these interfaces.
-Instead, you can create a single interface that takes a type parameter:</p>
+<p>泛型可以省去创建所有这些接口的麻烦。
+通过创建一个带有泛型参数的接口，来代替上述接口：</p>
 
 <?code-excerpt "misc/lib/language_tour/generics/cache.dart (Cache)"?>
 <pre class="prettyprint lang-dart">
@@ -3821,18 +3815,17 @@ abstract class Cache&lt;T&gt; {
 }
 </pre>
 
-<p>In this code, T is the stand-in type. It’s a placeholder that you can
-think of as a type that a developer will define later.</p>
+<p>在上面的代码中，T 是一个备用类型。
+这是一个类型占位符，在开发者调用该接口的时候会指定具体类型。</p>
 
-<h3 id="using-collection-literals">
-<a id="using-collection-literals" class="anchor" href="#using-collection-literals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using collection literals</h3>
+<h3 id="使用集合字面量">
+<a id="使用集合字面量" class="anchor" href="#%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88%E5%AD%97%E9%9D%A2%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用集合字面量</h3>
 
-<p>List and map literals can be parameterized. Parameterized literals are
-just like the literals you’ve already seen, except that you add
-<code>&lt;<em>type</em>&gt;</code> (for lists) or
-<code>&lt;<em>keyType</em>, <em>valueType</em>&gt;</code> (for maps)
-before the opening bracket. Here
-is example of using typed literals:</p>
+<p>list 和 map 字面量也是可以参数化的。
+参数化字面量和之前的字面量定义类似，
+对于 list 只需要在声明语句前加 <code>&lt;<em>type</em>&gt;</code> 前缀，
+对于 map 只需要在声明语句前加 <code>&lt;<em>keyType</em>, <em>valueType</em>&gt;</code> 前缀，
+下面是参数化字面量的示例：</p>
 
 <?code-excerpt "misc/lib/language_tour/generics/misc.dart (collection-literals)"?>
 <pre class="prettyprint lang-dart">
@@ -3844,11 +3837,11 @@ var pages = &lt;String, String&gt;{
 };
 </pre>
 
-<h3 id="using-parameterized-types-with-constructors">
-<a id="using-parameterized-types-with-constructors" class="anchor" href="#using-parameterized-types-with-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using parameterized types with constructors</h3>
+<h3 id="使用泛型类型的构造函数">
+<a id="使用泛型类型的构造函数" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用泛型类型的构造函数</h3>
 
-<p>To specify one or more types when using a constructor, put the types in
-angle brackets (<code class="highlighter-rouge">&lt;...&gt;</code>) just after the class name. For example:</p>
+<p>在调用构造函数的时，在类名字后面使用尖括号（<code class="highlighter-rouge">&lt;...&gt;</code>）来指定泛型类型。
+例如：</p>
 
 <?code-excerpt "misc/test/language_tour/generics_test.dart (constructor-1)"?>
 <pre class="prettyprint lang-dart">
@@ -3857,20 +3850,19 @@ names.addAll(['Seth', 'Kathy', 'Lars']);
 var nameSet = Set&lt;String&gt;.from(names);
 </pre>
 
-<p>The following code creates a map that has integer keys and values of
-type View:</p>
+<p>下面代码创建了一个 key 为 integer， value 为 View 的 map 对象：</p>
 
 <?code-excerpt "misc/test/language_tour/generics_test.dart (constructor-2)"?>
 <pre class="prettyprint lang-dart">
 var views = Map&lt;int, View&gt;();
 </pre>
 
-<h3 id="generic-collections-and-the-types-they-contain">
-<a id="generic-collections-and-the-types-they-contain" class="anchor" href="#generic-collections-and-the-types-they-contain" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generic collections and the types they contain</h3>
+<h3 id="运行时中的泛型集合">
+<a id="运行时中的泛型集合" class="anchor" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B%E9%9B%86%E5%90%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>运行时中的泛型集合</h3>
 
-<p>Dart generic types are <em>reified</em>, which means that they carry their type
-information around at runtime. For example, you can test the type of a
-collection:</p>
+<p>Dart 中泛型类型是 <em>固化的</em>，也就是说它们在运行时是携带着类型信息的。 
+例如，
+在运行时检测集合的类型：</p>
 
 <?code-excerpt "misc/test/language_tour/generics_test.dart (generic-collections)"?>
 <pre class="prettyprint lang-dart">
@@ -3881,17 +3873,16 @@ print(names is List&lt;String&gt;); // true
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
-In contrast, generics in Java use <em>erasure</em>, which means that generic
-type parameters are removed at runtime. In Java, you can test whether
-an object is a List, but you can’t test whether it’s a <code class="highlighter-rouge">List&lt;String&gt;</code>.</p>
+相反，Java中的泛型会被 <em>擦除</em> ，也就是说在运行时泛型类型参数的信息是不存在的。 
+在Java中，可以测试对象是否为 List 类型，
+但无法测试它是否为 <code class="highlighter-rouge">List&lt;String&gt;</code> 。</p>
 </div>
 
-<h3 id="restricting-the-parameterized-type">
-<a id="restricting-the-parameterized-type" class="anchor" href="#restricting-the-parameterized-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Restricting the parameterized type</h3>
+<h3 id="限制泛型类型">
+<a id="限制泛型类型" class="anchor" href="#%E9%99%90%E5%88%B6%E6%B3%9B%E5%9E%8B%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>限制泛型类型</h3>
 
-<p>When implementing a generic type,
-you might want to limit the types of its parameters.
-You can do this using <code class="highlighter-rouge">extends</code>.</p>
+<p>使用泛型类型的时候，
+可以使用 <code class="highlighter-rouge">extends</code> 实现参数类型的限制。</p>
 
 <?code-excerpt "misc/lib/language_tour/generics/base_class.dart" replace="/extends SomeBaseClass(?=. \{)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">
@@ -3903,7 +3894,7 @@ class Foo&lt;T <span class="highlight">extends SomeBaseClass</span>&gt; {
 class Extender extends SomeBaseClass {...}
 </pre>
 
-<p>It’s OK to use <code class="highlighter-rouge">SomeBaseClass</code> or any of its subclasses as generic argument:</p>
+<p>可以使用 <code class="highlighter-rouge">SomeBaseClass</code> 或其任意子类作为通用参数：</p>
 
 <?code-excerpt "misc/test/language_tour/generics_test.dart (SomeBaseClass-ok)" replace="/Foo.\w+./[!$&!]/g"?>
 <pre class="prettyprint lang-dart">
@@ -3911,7 +3902,7 @@ var someBaseClassFoo = <span class="highlight">Foo&lt;SomeBaseClass&gt;</span>()
 var extenderFoo = <span class="highlight">Foo&lt;Extender&gt;</span>();
 </pre>
 
-<p>It’s also OK to specify no generic argument:</p>
+<p>也可以不指定泛型参数：</p>
 
 <?code-excerpt "misc/test/language_tour/generics_test.dart (no-generic-arg-ok)" replace="/expect\((.*?).toString\(\), .(.*?).\);/print($1); \/\/ $2/g"?>
 <pre class="prettyprint lang-dart">
@@ -3919,18 +3910,18 @@ var foo = Foo();
 print(foo); // Instance of 'Foo&lt;SomeBaseClass&gt;'
 </pre>
 
-<p>Specifying any non-<code class="highlighter-rouge">SomeBaseClass</code> type results in an error:</p>
+<p>指定任何非 <code class="highlighter-rouge">SomeBaseClass</code> 类型会导致错误：</p>
 
 <?code-excerpt "misc/lib/language_tour/generics/misc.dart (Foo-Object-error)" replace="/Foo.\w+./[!$&!]/g"?>
 <pre class="prettyprint lang-dart fails-sa">
 var foo = <span class="highlight">Foo&lt;Object&gt;</span>();
 </pre>
 
-<h3 id="using-generic-methods">
-<a id="using-generic-methods" class="anchor" href="#using-generic-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using generic methods</h3>
+<h3 id="使用泛型函数">
+<a id="使用泛型函数" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用泛型函数</h3>
 
-<p>Initially, Dart’s generic support was limited to classes.
-A newer syntax, called <em>generic methods</em>, allows type arguments on methods and functions:</p>
+<p>最初，Dart 的泛型只能用于类。
+新语法_泛型方法_，允许在方法和函数上使用类型参数：</p>
 
 <!-- https://dartpad.dartlang.org/a02c53b001977efa4d803109900f21bb -->
 <!-- https://gist.github.com/a02c53b001977efa4d803109900f21bb -->
@@ -3944,17 +3935,17 @@ A newer syntax, called <em>generic methods</em>, allows type arguments on method
 }
 </pre>
 
-<p>Here the generic type parameter on <code class="highlighter-rouge">first</code> (<code class="highlighter-rouge">&lt;T&gt;</code>)
-allows you to use the type argument <code class="highlighter-rouge">T</code> in several places:</p>
+<p>这里的 <code class="highlighter-rouge">first</code> (<code class="highlighter-rouge">&lt;T&gt;</code>) 
+泛型可以在如下地方使用参数 <code class="highlighter-rouge">T</code> ：</p>
 
 <ul>
-  <li>In the function’s return type (<code class="highlighter-rouge">T</code>).</li>
-  <li>In the type of an argument (<code class="highlighter-rouge">List&lt;T&gt;</code>).</li>
-  <li>In the type of a local variable (<code class="highlighter-rouge">T tmp</code>).</li>
+  <li>函数的返回值类型 (<code class="highlighter-rouge">T</code>).</li>
+  <li>参数的类型 (<code class="highlighter-rouge">List&lt;T&gt;</code>).</li>
+  <li>局部变量的类型 (<code class="highlighter-rouge">T tmp</code>).</li>
 </ul>
 
-<p>For more information about generics, see
-<a href="https://github.com/dart-lang/sdk/blob/master/pkg/dev_compiler/doc/GENERIC_METHODS.md">Using Generic Methods.</a></p>
+<p>关于泛型的更多信息，参见
+<a href="https://github.com/dart-lang/sdk/blob/master/pkg/dev_compiler/doc/GENERIC_METHODS.md">使用泛型函数</a></p>
 
 <h2 id="libraries-and-visibility">
 <a id="libraries-and-visibility" class="anchor" href="#libraries-and-visibility" aria-hidden="true"><span class="octicon octicon-link"></span></a>Libraries and visibility</h2>
@@ -4676,7 +4667,7 @@ Specification</a> and
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/17 18:06 CST"
+                 title="Site built on 2018/07/18 10:46 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
