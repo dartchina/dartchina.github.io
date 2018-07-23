@@ -300,38 +300,38 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#使用泛型函数">使用泛型函数</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#libraries-and-visibility">Libraries and visibility</a>
+<li class="toc-entry toc-h2"><a href="#库和可见性">库和可见性</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#using-libraries">Using libraries</a>
+<li class="toc-entry toc-h3"><a href="#使用库">使用库</a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#specifying-a-library-prefix">Specifying a library prefix</a></li>
-<li class="toc-entry toc-h4"><a href="#importing-only-part-of-a-library">Importing only part of a library</a></li>
-<li class="toc-entry toc-h4"><a href="#lazily-loading-a-library">Lazily loading a library</a></li>
+<li class="toc-entry toc-h4"><a href="#指定库前缀">指定库前缀</a></li>
+<li class="toc-entry toc-h4"><a href="#仅导入库的一部分">仅导入库的一部分</a></li>
+<li class="toc-entry toc-h4"><a href="#懒加载库">懒加载库</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#implementing-libraries">Implementing libraries</a></li>
+<li class="toc-entry toc-h3"><a href="#实现库">实现库</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#asynchrony-support">Asynchrony support</a>
+<li class="toc-entry toc-h2"><a href="#异步支持">异步支持</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#handling-futures">Handling Futures</a></li>
-<li class="toc-entry toc-h3"><a href="#declaring-async-functions">Declaring async functions</a></li>
-<li class="toc-entry toc-h3"><a href="#handling-streams">Handling Streams</a></li>
+<li class="toc-entry toc-h3"><a href="#处理-future">处理 Future</a></li>
+<li class="toc-entry toc-h3"><a href="#声明异步函数">声明异步函数</a></li>
+<li class="toc-entry toc-h3"><a href="#处理流">处理流</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#generators">Generators</a></li>
-<li class="toc-entry toc-h2"><a href="#callable-classes">Callable classes</a></li>
+<li class="toc-entry toc-h2"><a href="#生成器">生成器</a></li>
+<li class="toc-entry toc-h2"><a href="#可调用类">可调用类</a></li>
 <li class="toc-entry toc-h2"><a href="#isolates">Isolates</a></li>
 <li class="toc-entry toc-h2"><a href="#typedefs">Typedefs</a></li>
-<li class="toc-entry toc-h2"><a href="#metadata">Metadata</a></li>
-<li class="toc-entry toc-h2"><a href="#comments">Comments</a>
+<li class="toc-entry toc-h2"><a href="#元数据">元数据</a></li>
+<li class="toc-entry toc-h2"><a href="#注释">注释</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#single-line-comments">Single-line comments</a></li>
-<li class="toc-entry toc-h3"><a href="#multi-line-comments">Multi-line comments</a></li>
-<li class="toc-entry toc-h3"><a href="#documentation-comments">Documentation comments</a></li>
+<li class="toc-entry toc-h3"><a href="#单行注释">单行注释</a></li>
+<li class="toc-entry toc-h3"><a href="#多行注释">多行注释</a></li>
+<li class="toc-entry toc-h3"><a href="#文档注释">文档注释</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#summary">Summary</a></li>
+<li class="toc-entry toc-h2"><a href="#总结">总结</a></li>
 </ul>
   </div>
 </div>
@@ -378,10 +378,10 @@ ga('send', 'pageview');
 
 <p>这里将介绍 Dart 主要功能，从变量和运算符到类和库，假设您已经知道如何使用其他语言编程。</p>
 
-<p>学习更多 Dart 核心库, 参见
+<p>学习更多 Dart 核心库, 参考
 <a href="/guides/libraries/library-tour">Dart 库概览</a>.
 想了解更多有关语言功能的详细信息,
-参见 <a href="/guides/language/spec">Dart 编程语言规范</a>.</p>
+参考 <a href="/guides/language/spec">Dart 编程语言规范</a>.</p>
 
 <div class="alert alert-info">
   <p><strong>提示:</strong>
@@ -417,7 +417,7 @@ main() {
   <dd>
     <p>单行注释。
 Dart 同样支持多行注释和文档注释。
-有关更多信息，参见 <a href="#comments">注释</a>.</p>
+有关更多信息，参考 <a href="#comments">注释</a>.</p>
   </dd>
   <dt><code class="highlighter-rouge">int</code></dt>
   <dd>
@@ -441,13 +441,13 @@ Dart 同样支持多行注释和文档注释。
 <code>$<em>variableName</em></code> (或 <code>${<em>expression</em>}</code>)</dt>
   <dd>
     <p>字符串插值： 包括字符串文字内部的变量或表达式的字符串。 
-有关更多信息，参见
+有关更多信息，参考
 <a href="#strings">Strings</a>.</p>
   </dd>
   <dt><code class="highlighter-rouge">main()</code></dt>
   <dd>
     <p>程序开始执行函数，该函数是特定的、<em>必须的</em>、顶级函数。
-有关更多信息，参见
+有关更多信息，参考
 <a href="#the-main-function">The main() function</a>.</p>
   </dd>
   <dt><code class="highlighter-rouge">var</code></dt>
@@ -494,7 +494,7 @@ Dart 同样支持多行注释和文档注释。
   <li>
     <p>与 Java 不同，Dart 没有关键字 “public” ， “protected” 和 “private” 。 
 如果标识符以下划线（\ _）开头，则它相对于库是私有的。 
-有关更多信息，参见 [库和可见性]（＃libraries-and-visibility）。</p>
+有关更多信息，参考 [库和可见性]（＃libraries-and-visibility）。</p>
   </li>
   <li>
     <p><em>标识符</em> 以字母或下划线（\ _）开头，后跟任意字母和数字组合。</p>
@@ -646,7 +646,7 @@ Dart 同样支持多行注释和文档注释。
 <p><sup>2</sup> 带有上标2的单词
 是 Dart 1.0 发布后，为支持<strong>异步</strong>增加更新的，限制类保留字。 
 不能在标记为 <code class="highlighter-rouge">async</code> ，<code class="highlighter-rouge">async*</code> 或 <code class="highlighter-rouge">sync*</code> 的任何函数体中使用 <code class="highlighter-rouge">async</code> , <code class="highlighter-rouge">async*</code> , or <code class="highlighter-rouge">sync*</code> 作为标识符。
-有关更多信息，参见 <a href="#asynchrony-support">Asynchrony支持</a>。</p>
+有关更多信息，参考 <a href="#asynchrony-support">Asynchrony支持</a>。</p>
 
 <p>关键字表中的剩余单词都是<strong>保留字</strong>。
 不能将保留字用作标识符。</p>
@@ -666,7 +666,7 @@ var name = 'Bob';
 <p><code class="highlighter-rouge">name</code> 变量的类型被推断为 <code class="highlighter-rouge">String</code> 。
 但是也可以通过指定类型的方式，来改变变量类型。 
 如果对象不限定为单个类型，可以指定为 <code class="highlighter-rouge">对象类型</code> 或 <code class="highlighter-rouge">动态类型</code>，
-参见 <a href="/guides/language/effective-dart/design#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed">设计指南</a>。</p>
+参考 <a href="/guides/language/effective-dart/design#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed">设计指南</a>。</p>
 
 <?code-excerpt "misc/lib/language_tour/variables.dart (type-decl)"?>
 <pre class="prettyprint lang-dart">
@@ -704,7 +704,7 @@ assert(lineCount == null);
   <p><strong>提示：</strong>
 在生产环境代码中 <code class="highlighter-rouge">assert()</code> 函数会被忽略，不会被调用。
 在开发过程中, <code>assert(<em>condition</em>)</code>
-会在非 <code class="highlighter-rouge">true</code> 的条件下抛出异常.有关更多信息，参见
+会在非 <code class="highlighter-rouge">true</code> 的条件下抛出异常.有关更多信息，参考
  <a href="#assert">Assert</a>.</p>
 </div>
 
@@ -759,7 +759,7 @@ const baz = []; // Equivalent to `const []`
 </pre>
 
 <p>声明 <code class="highlighter-rouge">const</code> 的初始化表达式中 <code class="highlighter-rouge">const</code> 可以被省略。
-比如上面的 <code class="highlighter-rouge">baz</code>。 有关更多信息，参见 <a href="/guides/language/effective-dart/usage#dont-use-const-redundantly">不要冗余地使用 const</a>。</p>
+比如上面的 <code class="highlighter-rouge">baz</code>。 有关更多信息，参考 <a href="/guides/language/effective-dart/usage#dont-use-const-redundantly">DON’T use const redundantly</a>。</p>
 
 <p>非 final ， 非 const 的变量是可以被修改的，即使这些变量
 曾经引用过 const 值。</p>
@@ -776,7 +776,7 @@ foo = [1, 2, 3]; // 曾经引用过 const [] 常量值。
 baz = [42]; // Error: 常量变量不能赋值修改。
 </pre>
 
-<p>更多关于使用 <code class="highlighter-rouge">const</code> 创建常量值，参见
+<p>更多关于使用 <code class="highlighter-rouge">const</code> 创建常量值，参考
 <a href="#lists">Lists</a>， <a href="#maps">Maps</a>， 和 <a href="#classes">Classes</a>。</p>
 
 <h2 id="内建类型">
@@ -965,7 +965,7 @@ multi-line string.""";
 var s = r"In a raw string, even \n isn't special.";
 </pre>
 
-<p>参见 <a href="#runes">Runes</a> 来了解如何在字符串中表达 Unicode 
+<p>参考 <a href="#runes">Runes</a> 来了解如何在字符串中表达 Unicode 
 字符。</p>
 
 <p>一个编译时常量的字面量字符串中，如果存在插值表达式，表达式内容也是编译时常量，
@@ -989,7 +989,7 @@ const validConstString = '$aConstNum $aConstBool $aConstString'; //const 类型�
 // const invalidConstString = '$aNum $aBool $aString $aConstList'; //非 const 类型数据
 </pre>
 
-<p>更多关于 string 的使用, 参见
+<p>更多关于 string 的使用, 参考
 <a href="/guides/libraries/library-tour#strings-and-regular-expressions">字符串和正则表达式</a>.</p>
 
 <h3 id="booleans">
@@ -1071,7 +1071,7 @@ var constantList = const [1, 2, 3];
 </pre>
 
 <p>List 类型包含了很多 lists 的操作函数。 
-更多信息参见 <a href="#generics">泛型</a> 和
+更多信息参考 <a href="#generics">泛型</a> 和
 <a href="/guides/libraries/library-tour#collections">集合</a>.</p>
 
 <h3 id="maps">
@@ -1126,7 +1126,7 @@ nobleGases[18] = 'argon';
   <p><strong>提示:</strong>
 这里为什么只有 <code class="highlighter-rouge">Map()</code> ，而不是使用 <code class="highlighter-rouge">new Map()</code>。
 因为在 Dart 2 中，<code class="highlighter-rouge">new</code> 关键字是可选的。
-有关更多信息，参见 <a href="#using-constructors">构造函数的使用</a>。</p>
+有关更多信息，参考 <a href="#using-constructors">构造函数的使用</a>。</p>
 </aside>
 
 <p>类似 JavaScript ，添加 key-value 对到已有的 map 中：</p>
@@ -1176,7 +1176,7 @@ final constantMap = const {
 // constantMap[2] = 'Helium'; // 取消注释会引起错误。
 </pre>
 
-<p>更名多关于 map 的内容，参见
+<p>更名多关于 map 的内容，参考
 <a href="#generics">Generics</a> and
 <a href="/guides/libraries/library-tour#maps">Maps</a>.</p>
 
@@ -1215,7 +1215,7 @@ final constantMap = const {
 谨慎使用 list 方式操作 runes。
 这种方法很容易引发崩溃，
 具体原因取决于特定的语言，字符集和操作。
-有关更多信息，参见
+有关更多信息，参考
 <a href="http://stackoverflow.com/questions/21521729/how-do-i-reverse-a-string-in-dart">How do I reverse a String in Dart?</a> on Stack Overflow.</p>
 </div>
 
@@ -1241,7 +1241,7 @@ final constantMap = const {
 <a href="https://api.dartlang.org/dev/dart-core/Function-class.html">Function</a> 。
 这也意味着函数可以被赋值给变量或者作为参数传递给其它函数。
 也可以把 Dart 类的实例当做方法来调用。
-有关更多信息，参见 <a href="#callable-classes">Callable classes</a>.</p>
+有关更多信息，参考 <a href="#callable-classes">Callable classes</a>.</p>
 
 <p>已下是函数实现的示例：</p>
 
@@ -1285,7 +1285,7 @@ bool isNoble(int atomicNumber) =&gt; _nobleGases[atomicNumber] != null;
 <p>函数有两种参数类型: required 和 optional。
 required 类型参数在参数最前面， 随后是 optional 类型参数。
 命名的可选参数也可以标记为 “@ required” 。
-参见下一章节，了解更多细节。</p>
+参考下一章节，了解更多细节。</p>
 
 <h3 id="可选参数">
 <a id="可选参数" class="anchor" href="#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>可选参数</h3>
@@ -1667,7 +1667,7 @@ assert(foo() == null);
 <a id="运算符" class="anchor" href="#%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>运算符</h2>
 
 <p>下表是 Dart 定义的运算符。
-多数运算符可以被重载，详情参见
+多数运算符可以被重载，详情参考
 <a href="#overridable-operators">Overridable operators</a>。</p>
 
 <table class="table table-striped">
@@ -1964,7 +1964,7 @@ assert(a != b); // -1 != 0
 (如上所见,
 <code class="highlighter-rouge">==</code> 运算符执行的是第一个运算符的函数。
 我们甚至可以重写很多运算符，包括 <code class="highlighter-rouge">==</code>，
-运算符的重写，参见 
+运算符的重写，参考 
 <a href="#overridable-operators">Overridable operators</a>。）</p>
   </li>
 </ol>
@@ -2359,7 +2359,7 @@ sb.write('foo')
   </tbody>
 </table>
 
-<p>更多关于 <code class="highlighter-rouge">.</code>, <code class="highlighter-rouge">?.</code> 和  <code class="highlighter-rouge">..</code> 运算符介绍，参见
+<p>更多关于 <code class="highlighter-rouge">.</code>, <code class="highlighter-rouge">?.</code> 和  <code class="highlighter-rouge">..</code> 运算符介绍，参考
 <a href="#classes">Classes</a>.</p>
 
 <h2 id="控制流程语句">
@@ -2395,7 +2395,7 @@ sb.write('foo')
 <a id="if-和-else" class="anchor" href="#if-%E5%92%8C-else" aria-hidden="true"><span class="octicon octicon-link"></span></a>If 和 else</h3>
 
 <p>Dart 支持 <code class="highlighter-rouge">if - else</code> 语句，其中 <code class="highlighter-rouge">else</code> 是可选的， 
-比如下面的例子， 另参见 <a href="#conditional-expressions">conditional expressions</a>.</p>
+比如下面的例子， 另参考 <a href="#conditional-expressions">conditional expressions</a>.</p>
 
 <?code-excerpt "misc/lib/language_tour/control_flow.dart (if-else)"?>
 <pre class="prettyprint lang-dart">
@@ -2409,7 +2409,7 @@ if (isRaining()) {
 </pre>
 
 <p>和 JavaScript 不同， Dart 的判断条件必须是布尔值，不能是其他类型。
-更多信息，参见 <a href="#booleans">Booleans</a> 。</p>
+更多信息，参考 <a href="#booleans">Booleans</a> 。</p>
 
 <h3 id="for-循环">
 <a id="for-循环" class="anchor" href="#for-%E5%BE%AA%E7%8E%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>For 循环</h3>
@@ -2811,7 +2811,7 @@ try {
 }
 </pre>
 
-<p>更多详情，请参见
+<p>更多详情，请参考
 <a href="/guides/libraries/library-tour#exceptions">Exceptions</a> 章节。</p>
 
 <h2 id="类">
@@ -2961,7 +2961,7 @@ class Point {
 
 <p>所有实例变量都生成隐式 <em>getter</em> 方法。 
 非 final 的实例变量同样会生成隐式 <em>setter</em> 方法。
-有关更多信息，参见 <a href="#getters-and-setters">Getters 和 setters</a>.</p>
+有关更多信息，参考 <a href="#getters-and-setters">Getters 和 setters</a>.</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/point_with_main.dart (class+main)" replace="/(num .*?;).*/$1/g" plaster="none"?>
 <pre class="prettyprint lang-dart">
@@ -3501,7 +3501,7 @@ class Vector {
   Vector operator +(Vector v) =&gt; Vector(x + v.x, y + v.y);
   Vector operator -(Vector v) =&gt; Vector(x - v.x, y - v.y);
 
-  // 运算符 == 和 hashCode 部分没有列出。 有关详情，请参见下面的注释。
+  // 运算符 == 和 hashCode 部分没有列出。 有关详情，请参考下面的注释。
   // ···
 }
 
@@ -3515,10 +3515,10 @@ void main() {
 </pre>
 
 <p>如果要重写 <code class="highlighter-rouge">==</code> 操作符，需要重写对象的 <code class="highlighter-rouge">hashCode</code> getter 方法。
-重写 <code class="highlighter-rouge">==</code> 和 <code class="highlighter-rouge">hashCode</code> 的实例，参见
+重写 <code class="highlighter-rouge">==</code> 和 <code class="highlighter-rouge">hashCode</code> 的实例，参考
 <a href="/guides/libraries/library-tour#implementing-map-keys">Implementing map keys</a>.</p>
 
-<p>有关重写的更多介绍，请参见
+<p>有关重写的更多介绍，请参考
 <a href="#extending-a-class">Extending a class</a>.</p>
 
 <h4 id="nosuchmethod">
@@ -3554,7 +3554,7 @@ class A {
   </li>
 </ul>
 
-<p>有关更多信息，参见
+<p>有关更多信息，参考
 <a href="https://github.com/dart-lang/sdk/blob/master/docs/language/informal/nosuchmethod-forwarding.md">nosuchMethod forwarding specification.</a></p>
 
 <p><a id="enums"></a></p>
@@ -3621,7 +3621,7 @@ switch (aColor) {
   <li>枚举不能被显式实例化。</li>
 </ul>
 
-<p>有关更多信息，参见
+<p>有关更多信息，参考
 <a href="/guides/language/spec">Dart Language Specification</a>.</p>
 
 <h3 id="为类添加功能-mixins">
@@ -3670,12 +3670,12 @@ abstract class Musical {
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>提示：</strong> 对 mixins 的一些限制正在被移除。 关于更多详情，参见
+  <p><strong>提示：</strong> 对 mixins 的一些限制正在被移除。 关于更多详情，参考
   <a href="https://github.com/dart-lang/sdk/blob/master/docs/language/informal/mixin-declaration.md">proposed mixin specification.</a></p>
 
 </div>
 
-<p>有关 Dart 中 mixins 的理论演变, 参见
+<p>有关 Dart 中 mixins 的理论演变, 参考
 <a href="/articles/language/mixins">A Brief History of Mixins in Dart</a>.</p>
 
 <h3 id="类变量和方法">
@@ -3944,43 +3944,35 @@ var foo = <span class="highlight">Foo&lt;Object&gt;</span>();
   <li>局部变量的类型 (<code class="highlighter-rouge">T tmp</code>).</li>
 </ul>
 
-<p>关于泛型的更多信息，参见
+<p>关于泛型的更多信息，参考
 <a href="https://github.com/dart-lang/sdk/blob/master/pkg/dev_compiler/doc/GENERIC_METHODS.md">使用泛型函数</a></p>
 
-<h2 id="libraries-and-visibility">
-<a id="libraries-and-visibility" class="anchor" href="#libraries-and-visibility" aria-hidden="true"><span class="octicon octicon-link"></span></a>Libraries and visibility</h2>
+<h2 id="库和可见性">
+<a id="库和可见性" class="anchor" href="#%E5%BA%93%E5%92%8C%E5%8F%AF%E8%A7%81%E6%80%A7" aria-hidden="true"><span class="octicon octicon-link"></span></a>库和可见性</h2>
 
-<p>The <code class="highlighter-rouge">import</code> and <code class="highlighter-rouge">library</code> directives can help you create a
-modular and shareable code base. Libraries not only provide APIs, but
-are a unit of privacy: identifiers that start with an underscore (_)
-are visible only inside the library. <em>Every Dart app is a library</em>, even
-if it doesn’t use a <code class="highlighter-rouge">library</code> directive.</p>
+<p><code class="highlighter-rouge">import</code> 和 <code class="highlighter-rouge">library</code> 指令可以用来创建一个模块化的，可共享的代码库。
+库不仅提供了 API ，而且对代码起到了封装的作用：
+以下划线 (_) 开头的标识符仅在库内可见。
+<em>每个 Dart 应用程序都是一个库</em> ，虽然没有使用 <code class="highlighter-rouge">library</code> 指令。</p>
 
-<p>Libraries can be distributed using packages. See
-<a href="/tools/pub">Pub Package and Asset Manager</a>
-for information about
-pub, a package manager included in the SDK.</p>
+<p>库可以通过包来分发。有关 pub（集成在SDK中的包管理器）的信息，请参考 
+<a href="/tools/pub">Pub Package 和 Asset Manager</a>。</p>
 
-<h3 id="using-libraries">
-<a id="using-libraries" class="anchor" href="#using-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using libraries</h3>
+<h3 id="使用库">
+<a id="使用库" class="anchor" href="#%E4%BD%BF%E7%94%A8%E5%BA%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用库</h3>
 
-<p>Use <code class="highlighter-rouge">import</code> to specify how a namespace from one library is used in the
-scope of another library.</p>
-
-<p>For example, Dart web apps generally use the <a href="https://api.dartlang.org/dev/dart-html">dart:html</a>
-library, which they can import like this:</p>
+<p>通过 <code class="highlighter-rouge">import</code> 指定一个库命名空间中的内如如何在另一个库中使用。
+例如，Dart Web应用程序通常使用 <a href="https://api.dartlang.org/dev/dart-html">dart:html</a> 库，它们可以像这样导入：</p>
 
 <?code-excerpt "misc/test/language_tour/browser_test.dart (dart-html-import)"?>
 <pre class="prettyprint lang-dart">
 import 'dart:html';
 </pre>
 
-<p>The only required argument to <code class="highlighter-rouge">import</code> is a URI specifying the
-library.
-For built-in libraries, the URI has the special <code class="highlighter-rouge">dart:</code> scheme.
-For other libraries, you can use a file system path or the <code class="highlighter-rouge">package:</code>
-scheme. The <code class="highlighter-rouge">package:</code> scheme specifies libraries provided by a package
-manager such as the pub tool. For example:</p>
+<p><code class="highlighter-rouge">import</code> 参数只需要一个指向库的 URI。
+对于内置库，URI 拥有自己特殊的<code class="highlighter-rouge">dart:</code> 方案。
+对于其他的库，使用系统文件路径或者 <code class="highlighter-rouge">package:</code> 方案 。
+<code class="highlighter-rouge">package:</code> 方案指定由包管理器（如 pub 工具）提供的库。例如：</p>
 
 <?code-excerpt "misc/test/language_tour/browser_test.dart (package-import)"?>
 <pre class="prettyprint lang-dart">
@@ -3989,71 +3981,71 @@ import 'package:test/test.dart';
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
-<em>URI</em> stands for uniform resource identifier.
-<em>URLs</em> (uniform resource locators) are a common kind of URI.</p>
+<em>URI</em> 代表统一资源标识符。
+<em>URL</em>（统一资源定位符）是一种常见的URI。</p>
 </div>
 
-<h4 id="specifying-a-library-prefix">
-<a id="specifying-a-library-prefix" class="anchor" href="#specifying-a-library-prefix" aria-hidden="true"><span class="octicon octicon-link"></span></a>Specifying a library prefix</h4>
+<h4 id="指定库前缀">
+<a id="指定库前缀" class="anchor" href="#%E6%8C%87%E5%AE%9A%E5%BA%93%E5%89%8D%E7%BC%80" aria-hidden="true"><span class="octicon octicon-link"></span></a>指定库前缀</h4>
 
-<p>If you import two libraries that have conflicting identifiers, then you
-can specify a prefix for one or both libraries. For example, if library1
-and library2 both have an Element class, then you might have code like
-this:</p>
+<p>如果导入两个存在冲突标识符的库，
+则可以为这两个库，或者其中一个指定前缀。
+例如，如果 library1 和 library2 都有一个 Element 类，
+那么可以通过下面的方式处理：</p>
 
 <?code-excerpt "misc/lib/language_tour/libraries/import_as.dart" replace="/(lib\d)\.dart/package:$1\/$&/g"?>
 <pre class="prettyprint lang-dart">
 import 'package:lib1/lib1.dart';
 import 'package:lib2/lib2.dart' as lib2;
 
-// Uses Element from lib1.
+// 使用 lib1 中的 Element。
 Element element1 = Element();
 
-// Uses Element from lib2.
+// 使用 lib2 中的 Element。
 lib2.Element element2 = lib2.Element();
 </pre>
 
-<h4 id="importing-only-part-of-a-library">
-<a id="importing-only-part-of-a-library" class="anchor" href="#importing-only-part-of-a-library" aria-hidden="true"><span class="octicon octicon-link"></span></a>Importing only part of a library</h4>
+<h4 id="仅导入库的一部分">
+<a id="仅导入库的一部分" class="anchor" href="#%E4%BB%85%E5%AF%BC%E5%85%A5%E5%BA%93%E7%9A%84%E4%B8%80%E9%83%A8%E5%88%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>仅导入库的一部分</h4>
 
-<p>If you want to use only part of a library, you can selectively import
-the library. For example:</p>
+<p>如果只想使用库的一部分，
+则可以有选择地导入库。 
+例如：</p>
 
 <?code-excerpt "misc/lib/language_tour/libraries/show_hide.dart" replace="/(lib\d)\.dart/package:$1\/$&/g"?>
 <pre class="prettyprint lang-dart">
-// Import only foo.
+// 仅导入 foo 。
 import 'package:lib1/lib1.dart' show foo;
 
-// Import all names EXCEPT foo.
+// 导入所有内容，除了 foo 。
 import 'package:lib2/lib2.dart' hide foo;
 </pre>
 
 <p><a id="deferred-loading"></a></p>
-<h4 id="lazily-loading-a-library">
-<a id="lazily-loading-a-library" class="anchor" href="#lazily-loading-a-library" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lazily loading a library</h4>
+<h4 id="懒加载库">
+<a id="懒加载库" class="anchor" href="#%E6%87%92%E5%8A%A0%E8%BD%BD%E5%BA%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>懒加载库</h4>
 
-<p><em>Deferred loading</em> (also called <em>lazy loading</em>)
-allows an application to load a library on demand,
-if and when it’s needed.
-Here are some cases when you might use deferred loading:</p>
+<p>延迟加载（也称为懒加载）允许应用程序根据需要加载库。
+以下是可能使用延迟加载的一些情况：
+减少应用程序的初始启动时间。
+例如，执行A / B测试 - 尝试算法的替代实现。
+加载很少使用的功能，例如可选的屏幕和对话框。</p>
 
 <ul>
-  <li>To reduce an app’s initial startup time.</li>
-  <li>To perform A/B testing—trying out
-alternative implementations of an algorithm, for example.</li>
-  <li>To load rarely used functionality, such as optional screens and dialogs.</li>
+  <li>减少应用程序的初始化启动时间。</li>
+  <li>例如，要执行A/B测试 ———— 测试算法的实现。</li>
+  <li>加载不常用的功能，比如可选的界面或者对话框。</li>
 </ul>
 
-<p>To lazily load a library, you must first
-import it using <code class="highlighter-rouge">deferred as</code>.</p>
+<p>要延迟加载一个库，必须使用 <code class="highlighter-rouge">deferred as</code> 来导入。</p>
 
 <?code-excerpt "misc/lib/language_tour/libraries/greeter.dart (import)" replace="/hello\.dart/package:greetings\/$&/g"?>
 <pre class="prettyprint lang-dart">
 import 'package:greetings/hello.dart' deferred as hello;
 </pre>
 
-<p>When you need the library, invoke
-<code class="highlighter-rouge">loadLibrary()</code> using the library’s identifier.</p>
+<p>当需要库的时候，
+通过使用库的标示符调用 loadLibrary()。</p>
 
 <?code-excerpt "misc/lib/language_tour/libraries/greeter.dart (loadLibrary)"?>
 <pre class="prettyprint lang-dart">
@@ -4063,90 +4055,82 @@ Future greet() async {
 }
 </pre>
 
-<p>In the preceding code,
-the <code class="highlighter-rouge">await</code> keyword pauses execution until the library is loaded.
-For more information about <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code>,
-see <a href="#asynchrony-support">asynchrony support</a>.</p>
+<p>在上面代码中，
+<code class="highlighter-rouge">await</code> 关键字表示程序暂停执行，直到库被加载完成。
+有关 <code class="highlighter-rouge">async</code> 和 <code class="highlighter-rouge">await</code> 的详细信息，
+请参考 <a href="#asynchrony-support">asynchrony support</a>。</p>
 
-<p>You can invoke <code class="highlighter-rouge">loadLibrary()</code> multiple times on a library without problems.
-The library is loaded only once.</p>
+<p>使用库时，是可以调用多次 <code class="highlighter-rouge">loadLibrary()</code> 的，
+但是库仅被加载一次。</p>
 
-<p>Keep in mind the following when you use deferred loading:</p>
+<p>使用延迟加载时请记住以下内容：</p>
 
 <ul>
-  <li>A deferred library’s constants aren’t constants in the importing file.
-Remember, these constants don’t exist until the deferred library is loaded.</li>
-  <li>You can’t use types from a deferred library in the importing file.
-Instead, consider moving interface types to a library imported by
-both the deferred library and the importing file.</li>
-  <li>Dart implicitly inserts <code class="highlighter-rouge">loadLibrary()</code> into the namespace that you define
-using <code>deferred as <em>namespace</em></code>.
-The <code class="highlighter-rouge">loadLibrary()</code> function returns a <a href="/guides/libraries/library-tour#future">Future</a>.</li>
+  <li>延迟加载库的常量在导入的时候是不可用的。 
+只有当库加载完毕的时候，库中常量才可以使用。</li>
+  <li>在导入文件的时候无法使用延迟库中的类型。 
+如果需要使用类型，
+应该考虑把接口类型移动到另外一个库中，
+让两个库都分别导入这个接口库。</li>
+  <li>Dart 隐含的把 <code class="highlighter-rouge">loadLibrary()</code> 函数导入到使用 <code>deferred as <em>namespace</em></code> 的命名空间。 
+<code class="highlighter-rouge">loadLibrary()</code> 方法返回一个 <a href="/guides/libraries/library-tour#future">Future</a>。</li>
 </ul>
 
 <aside class="alert alert-warning">
-  <p><strong>Dart VM difference:</strong>
-Due to <a href="https://github.com/dart-lang/sdk/issues/33118">issue #33118</a>,
-the Dart VM allows access to members of deferred libraries
-even before the call to <code class="highlighter-rouge">loadLibrary()</code>.
-We expect this bug to be fixed soon, so
-<strong>don’t depend on the current VM behavior.</strong></p>
+  <p><strong>Dart VM 的差异</strong></p>
+
+  <p>由于 ＃33118 问题，
+Dart VM甚至可以在调用 <code class="highlighter-rouge">loadLibrary()</code> 之前访问延迟库的成员。
+我们会尽快修复此错误，因此 **不要依赖于当前的 VM 判断 **。</p>
 </aside>
 
-<h3 id="implementing-libraries">
-<a id="implementing-libraries" class="anchor" href="#implementing-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementing libraries</h3>
+<h3 id="实现库">
+<a id="实现库" class="anchor" href="#%E5%AE%9E%E7%8E%B0%E5%BA%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>实现库</h3>
 
-<p>See
+<p>有关如何实现库包的建议，请参考 
 <a href="/guides/libraries/create-library-packages">Create Library Packages</a>
-for advice on how to implement a library package, including:</p>
+这里面包括：</p>
 
 <ul>
-  <li>How to organize library source code.</li>
-  <li>How to use the <code class="highlighter-rouge">export</code> directive.</li>
-  <li>When to use the <code class="highlighter-rouge">part</code> directive.</li>
+  <li>如何组织库的源文件。</li>
+  <li>如何使用 <code class="highlighter-rouge">export</code> 命令。</li>
+  <li>如何使用 <code class="highlighter-rouge">part</code> 命令。</li>
 </ul>
 
 <p><a id="asynchrony"></a></p>
-<h2 id="asynchrony-support">
-<a id="asynchrony-support" class="anchor" href="#asynchrony-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchrony support</h2>
+<h2 id="异步支持">
+<a id="异步支持" class="anchor" href="#%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>异步支持</h2>
 
-<p>Dart libraries are full of functions that
-return <a href="https://api.dartlang.org/dev/dart-async/Future-class.html">Future</a> or <a href="https://api.dartlang.org/dev/dart-async/Stream-class.html">Stream</a> objects.
-These functions are <em>asynchronous</em>:
-they return after setting up
-a possibly time-consuming operation
-(such as I/O),
-without waiting for that operation to complete.</p>
-
-<p>The <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code> keywords support asynchronous programming,
-letting you write asynchronous code that
-looks similar to synchronous code.</p>
+<p>Dart 库中包含许多返回 Future 或 Stream 对象的函数.
+这些函数在设置完耗时任务（例如 I/O 曹组）后，
+就立即返回了，不会等待耗任务完成。
+使用 <code class="highlighter-rouge">async</code> 和 <code class="highlighter-rouge">await</code> 关键字实现异步编程。
+可以让你像编写同步代码一样实现异步操作。</p>
 
 <p><a id="await"></a></p>
-<h3 id="handling-futures">
-<a id="handling-futures" class="anchor" href="#handling-futures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling Futures</h3>
+<h3 id="处理-future">
+<a id="处理-future" class="anchor" href="#%E5%A4%84%E7%90%86-future" aria-hidden="true"><span class="octicon octicon-link"></span></a>处理 Future</h3>
 
-<p>When you need the result of a completed Future,
-you have two options:</p>
+<p>可以通过下面两种方式，获得 Future 执行完成的结果：</p>
 
 <ul>
-  <li>Use <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code>.</li>
-  <li>Use the Future API, as described
+  <li>使用 <code class="highlighter-rouge">async</code> 和 <code class="highlighter-rouge">await</code>.</li>
+  <li>使用 Future API，具体描述，参考
 <a href="/guides/libraries/library-tour#future">in the library tour</a>.</li>
 </ul>
 
-<p>Code that uses <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code> is asynchronous,
-but it looks a lot like synchronous code.
-For example, here’s some code that uses <code class="highlighter-rouge">await</code>
-to wait for the result of an asynchronous function:</p>
+<p>使用 <code class="highlighter-rouge">async</code> 和 <code class="highlighter-rouge">await</code> 关键字的代码是异步的。
+虽然看起来有点想同步代码。
+例如，下面的代码使用 <code class="highlighter-rouge">await</code>
+等待异步函数的执行结果。</p>
 
 <?code-excerpt "misc/lib/language_tour/async.dart (await-lookUpVersion)"?>
 <pre class="prettyprint lang-dart">
 await lookUpVersion();
 </pre>
 
-<p>To use <code class="highlighter-rouge">await</code>, code must be in an <em>async function</em>—a
-function marked as <code class="highlighter-rouge">async</code>:</p>
+<p>要使用 <code class="highlighter-rouge">await</code> ，
+代码必须在_异步函数_（使用 <code class="highlighter-rouge">async</code> 标记的函数）中：</p>
 
 <?code-excerpt "misc/lib/language_tour/async.dart (checkVersion)" replace="/async|await/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">
@@ -4158,17 +4142,15 @@ Future checkVersion() <span class="highlight">async</span> {
 
 <aside class="alert alert-info">
   <p><strong>提示：</strong>
-Although an async function might perform time-consuming operations,
-it doesn’t wait for those operations.
-Instead, the async function executes only until it encounters
-its first <code class="highlighter-rouge">await</code> expression
-(<a href="https://github.com/dart-lang/sdk/blob/master/docs/newsletter/20170915.md#synchronous-async-start">details</a>).
-Then it returns a Future object,
-resuming execution only after the <code class="highlighter-rouge">await</code> expression completes.</p>
+虽然异步函数可能会执行耗时的操作，
+但它不会等待这些操作。
+相反，异步函数只有在遇到第一个 await 表达式（<a href="https://github.com/dart-lang/sdk/blob/master/docs/newsletter/20170915.md#synchronous-async-start">details</a>）时才会执行。
+也就是说，它返回一个 Future 对象，
+仅在await表达式完成后才恢复执行。</p>
 </aside>
 
-<p>Use <code class="highlighter-rouge">try</code>, <code class="highlighter-rouge">catch</code>, and <code class="highlighter-rouge">finally</code>
-to handle errors and cleanup in code that uses <code class="highlighter-rouge">await</code>:</p>
+<p>使用 <code class="highlighter-rouge">try</code>， <code class="highlighter-rouge">catch</code>， 和 <code class="highlighter-rouge">finally</code>
+来处理代码中使用 <code class="highlighter-rouge">await</code> 导致的错误。</p>
 
 <?code-excerpt "misc/lib/language_tour/async.dart (try-catch)"?>
 <pre class="prettyprint lang-dart">
@@ -4179,9 +4161,8 @@ try {
 }
 </pre>
 
-<p>You can use <code class="highlighter-rouge">await</code> multiple times in an async function.
-For example, the following code waits three times
-for the results of functions:</p>
+<p>在一个一步函数中可以多次使用 <code class="highlighter-rouge">await</code> 。
+例如，下面代码中等待了三次函数结果：</p>
 
 <?code-excerpt "misc/lib/language_tour/async.dart (repeated-await)"?>
 <pre class="prettyprint lang-dart">
@@ -4190,17 +4171,17 @@ var exitCode = await runExecutable(entrypoint, args);
 await flushThenExit(exitCode);
 </pre>
 
-<p>In <code>await <em>expression</em></code>,
-the value of <code><em>expression</em></code> is usually a Future;
-if it isn’t, then the value is automatically wrapped in a Future.
-This Future object indicates a promise to return an object.
-The value of <code>await <em>expression</em></code> is that returned object.
-The await expression makes execution pause until that object is available.</p>
+<p>在 <code>await <em>表达式</em></code> 中，
+<code><em>表达式</em></code>的值通常是一个 Future 对象；
+如果不是，这是表达式的值会被自动包装成一个 Future 对象。
+Future 对象指明返回一个对象的承诺（promise）。 
+<code>await <em>表达式</em></code> 执行的结果为这个返回的对象。
+await 表达式会阻塞代码的执行，直到需要的对象返回为止。</p>
 
-<p><strong>If you get a compile-time error when using <code class="highlighter-rouge">await</code>,
-make sure <code class="highlighter-rouge">await</code> is in an async function.</strong>
-For example, to use <code class="highlighter-rouge">await</code> in your app’s <code class="highlighter-rouge">main()</code> function,
-the body of <code class="highlighter-rouge">main()</code> must be marked as <code class="highlighter-rouge">async</code>:</p>
+<p><strong>如果在使用 <code class="highlighter-rouge">await</code> 导致编译时错误，
+确认 <code class="highlighter-rouge">await</code> 是否在一个异步函数中。</strong>
+例如，在应用的 <code class="highlighter-rouge">main()</code> 函数中使用 <code class="highlighter-rouge">await</code> ，
+<code class="highlighter-rouge">main()</code> 函数的函数体必须被标记为 <code class="highlighter-rouge">async</code> ：</p>
 
 <?code-excerpt "misc/lib/language_tour/async.dart (main)" replace="/async|await/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">
@@ -4211,58 +4192,53 @@ Future main() <span class="highlight">async</span> {
 </pre>
 
 <p><a id="async"></a></p>
-<h3 id="declaring-async-functions">
-<a id="declaring-async-functions" class="anchor" href="#declaring-async-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Declaring async functions</h3>
+<h3 id="声明异步函数">
+<a id="声明异步函数" class="anchor" href="#%E5%A3%B0%E6%98%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>声明异步函数</h3>
 
-<p>An <em>async function</em> is a function whose body is marked with
-the <code class="highlighter-rouge">async</code> modifier.</p>
-
-<p>Adding the <code class="highlighter-rouge">async</code> keyword to a function makes it return a Future.
-For example, consider this synchronous function,
-which returns a String:</p>
+<p>函数体被 <code class="highlighter-rouge">async</code> 标示符标记的函数，即是一个_异步函数_。
+将 <code class="highlighter-rouge">async</code> 关键字添加到函数使其返回Future。
+例如，考虑下面的同步函数，它返回一个 String ：</p>
 
 <?code-excerpt "misc/lib/language_tour/async.dart (sync-lookUpVersion)"?>
 <pre class="prettyprint lang-dart">
 String lookUpVersion() =&gt; '1.0.0';
 </pre>
 
-<p>If you change it to be an async function—for example,
-because a future implementation will be time consuming—the
-returned value is a Future:</p>
+<p>例如，将来的实现将非常耗时，将其更改为异步函数，返回值是 Future 。</p>
 
 <?code-excerpt "misc/lib/language_tour/async.dart (async-lookUpVersion)"?>
 <pre class="prettyprint lang-dart">
 Future&lt;String&gt; lookUpVersion() async =&gt; '1.0.0';
 </pre>
 
-<p>Note that the function’s body doesn’t need to use the Future API.
-Dart creates the Future object if necessary.</p>
+<p>注意，函数体不需要使用Future API。
+如有必要， Dart 会创建 Future 对象。</p>
 
-<p>If your function doesn’t return a useful value,
-make its return type <code class="highlighter-rouge">Future&lt;void&gt;</code>.</p>
+<p>如果函数没有返回有效值，
+需要设置其返回类型为 <code class="highlighter-rouge">Future&lt;void&gt;</code> 。</p>
 
 <p><a id="await-for"></a></p>
-<h3 id="handling-streams">
-<a id="handling-streams" class="anchor" href="#handling-streams" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling Streams</h3>
+<h3 id="处理流">
+<a id="处理流" class="anchor" href="#%E5%A4%84%E7%90%86%E6%B5%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>处理流</h3>
 
-<p>When you need to get values from a Stream,
-you have two options:</p>
+<p>当需要从 Stream 中获取数据值时，
+可以通过一下两种方式：</p>
 
 <ul>
-  <li>Use <code class="highlighter-rouge">async</code> and an <em>asynchronous for loop</em> (<code class="highlighter-rouge">await for</code>).</li>
-  <li>Use the Stream API, as described
-<a href="/guides/libraries/library-tour#stream">in the library tour</a>.</li>
+  <li>使用 <code class="highlighter-rouge">async</code> 和 一个 <em>异步玄幻</em> （<code class="highlighter-rouge">await for</code>）。</li>
+  <li>使用 Stream API, 更多详情，参考
+<a href="/guides/libraries/library-tour#stream">in the library tour</a>。</li>
 </ul>
 
 <aside class="alert alert-warning">
   <p><strong>提示：</strong>
-Before using <code class="highlighter-rouge">await for</code>, be sure that it makes the code clearer
-and that you really do want to wait for all of the stream’s results.
-For example, you usually should <strong>not</strong> use <code class="highlighter-rouge">await for</code> for UI event listeners,
-because UI frameworks send endless streams of events.</p>
+在使用 <code class="highlighter-rouge">await for</code> 前，确保代码清晰，
+并且确实希望等待所有流的结果。
+例如，通常不应该使用 <code class="highlighter-rouge">await for</code> 的UI事件侦听器，
+因为UI框架会发送无穷无尽的事件流。</p>
 </aside>
 
-<p>An asynchronous for loop has the following form:</p>
+<p>一下是异步for循环的使用形式：</p>
 
 <?code-excerpt "misc/lib/language_tour/async.dart (await-for)"?>
 <pre class="prettyprint lang-dart">
@@ -4271,25 +4247,22 @@ await for (varOrType identifier in expression) {
 }
 </pre>
 
-<p>The value of <code><em>expression</em></code> must have type Stream.
-Execution proceeds as follows:</p>
+<p>上面 <code><em>表达式</em></code> 返回的值必须是 Stream 类型。 
+执行流程如下：</p>
 
 <ol>
-  <li>Wait until the stream emits a value.</li>
-  <li>Execute the body of the for loop,
-with the variable set to that emitted value.</li>
-  <li>Repeat 1 and 2 until the stream is closed.</li>
+  <li>等待，直到流发出一个值。</li>
+  <li>执行 for 循环体，将变量设置为该发出的值</li>
+  <li>重复1和2，直到关闭流。</li>
 </ol>
 
-<p>To stop listening to the stream,
-you can use a <code class="highlighter-rouge">break</code> or <code class="highlighter-rouge">return</code> statement,
-which breaks out of the for loop
-and unsubscribes from the stream.</p>
-
-<p><strong>If you get a compile-time error when implementing an asynchronous for loop,
-make sure the <code class="highlighter-rouge">await for</code> is in an async function.</strong>
-For example, to use an asynchronous for loop in your app’s <code class="highlighter-rouge">main()</code> function,
-the body of <code class="highlighter-rouge">main()</code> must be marked as <code class="highlighter-rouge">async</code>:</p>
+<p>使用  break<code class="highlighter-rouge"> 或者 </code>return<code class="highlighter-rouge"> 语句可以停止接收 stream 的数据，
+这样就跳出了 for 循环，
+并且从 stream 上取消注册。
+**如果在实现异步 for 循环时遇到编译时错误，
+请检查确保 </code>await for<code class="highlighter-rouge"> 处于异步函数中。**
+例如，要在应用程序的 </code>main()<code class="highlighter-rouge"> 函数中使用异步 fo r循环，
+</code>main()<code class="highlighter-rouge"> 函数体必须标记为 </code>async` ：</p>
 
 <?code-excerpt "misc/lib/language_tour/async.dart (number_thinker)" replace="/async|await for/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">
@@ -4302,33 +4275,33 @@ Future main() <span class="highlight">async</span> {
 }
 </pre>
 
-<p>For more information about asynchronous programming, in general, see the
-<a href="/guides/libraries/library-tour#dartasync---asynchronous-programming">dart:async</a>
-section of the library tour.
-Also see the articles
+<p>有关异步编程的更多信息，请参考
+<a href="/guides/libraries/library-tour#dartasync---asynchronous-programming">dart:async</a> 
+部分。
+同时也可参考文章
 <a href="/articles/language/await-async">Dart Language Asynchrony Support: Phase 1</a>
-and
+和
 <a href="/articles/language/beyond-async">Dart Language Asynchrony Support: Phase 2</a>,
-and the <a href="/guides/language/spec">Dart language specification</a>.</p>
+以及 <a href="/guides/language/spec">Dart language specification</a>.</p>
 
 <p><a id="generator"></a></p>
-<h2 id="generators">
-<a id="generators" class="anchor" href="#generators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generators</h2>
+<h2 id="生成器">
+<a id="生成器" class="anchor" href="#%E7%94%9F%E6%88%90%E5%99%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>生成器</h2>
 
-<p>When you need to lazily produce a sequence of values,
-consider using a <em>generator function</em>.
-Dart has built-in support for two kinds of generator functions:</p>
+<p>当您需要延迟生成( lazily produce )一系列值时，
+可以考虑使用_生成器函数_。
+Dart 内置支持两种生成器函数：</p>
 
 <ul>
   <li>
-<strong>Synchronous</strong> generator: Returns an <strong><a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a></strong> object.</li>
+<strong>Synchronous</strong> 生成器： 返回一个 <strong><a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a></strong> 对象。</li>
   <li>
-<strong>Asynchronous</strong> generator: Returns a <strong><a href="https://api.dartlang.org/dev/dart-async/Stream-class.html">Stream</a></strong> object.</li>
+<strong>Asynchronous</strong> 生成器： 返回一个 <strong><a href="https://api.dartlang.org/dev/dart-async/Stream-class.html">Stream</a></strong> 对象。</li>
 </ul>
 
-<p>To implement a <strong>synchronous</strong> generator function,
-mark the function body as <code class="highlighter-rouge">sync*</code>,
-and use <code class="highlighter-rouge">yield</code> statements to deliver values:</p>
+<p>通过在函数体标记 <code class="highlighter-rouge">sync*</code>，
+可以实现一个<strong>同步</strong>生成器函数。
+使用 <code class="highlighter-rouge">yield</code> 语句来传递值：</p>
 
 <?code-excerpt "misc/test/language_tour/async_test.dart (sync-generator)"?>
 <pre class="prettyprint lang-dart">
@@ -4338,9 +4311,9 @@ Iterable&lt;int&gt; naturalsTo(int n) sync* {
 }
 </pre>
 
-<p>To implement an <strong>asynchronous</strong> generator function,
-mark the function body as <code class="highlighter-rouge">async*</code>,
-and use <code class="highlighter-rouge">yield</code> statements to deliver values:</p>
+<p>通过在函数体标记 <code class="highlighter-rouge">async*</code>，
+可以实现一个<strong>异步</strong>生成器函数。
+使用 <code class="highlighter-rouge">yield</code> 语句来传递值：</p>
 
 <?code-excerpt "misc/test/language_tour/async_test.dart (async-generator)"?>
 <pre class="prettyprint lang-dart">
@@ -4350,8 +4323,7 @@ Stream&lt;int&gt; asynchronousNaturalsTo(int n) async* {
 }
 </pre>
 
-<p>If your generator is recursive,
-you can improve its performance by using <code class="highlighter-rouge">yield*</code>:</p>
+<p>如果生成器是递归的，可以使用 <code class="highlighter-rouge">yield*</code> 来提高其性能：</p>
 
 <?code-excerpt "misc/test/language_tour/async_test.dart (recursive-generator)"?>
 <pre class="prettyprint lang-dart">
@@ -4363,50 +4335,48 @@ Iterable&lt;int&gt; naturalsDownFrom(int n) sync* {
 }
 </pre>
 
-<p>For more information about generators, see the article
-<a href="/articles/language/beyond-async">Dart Language Asynchrony Support: Phase 2</a>.</p>
+<p>有关生成器的更多信息，请参考文章
+<a href="/articles/language/beyond-async">Dart Language Asynchrony Support: Phase 2</a> 。</p>
 
-<h2 id="callable-classes">
-<a id="callable-classes" class="anchor" href="#callable-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Callable classes</h2>
+<h2 id="可调用类">
+<a id="可调用类" class="anchor" href="#%E5%8F%AF%E8%B0%83%E7%94%A8%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>可调用类</h2>
 
-<p>To allow your Dart class to be called like a function,
-implement the <code class="highlighter-rouge">call()</code> method.</p>
+<p>通过实现类的 call() 方法，
+能够让类像函数一样被调用。</p>
 
-<p>In the following example, the <code class="highlighter-rouge">WannabeFunction</code> class defines
-a call() function that takes three strings and concatenates them,
-separating each with a space, and appending an exclamation.
-Click the run button ( <img src="/assets/red-run.png" width="20" height="19" alt="red-run.png"> ) to execute the code.</p>
+<p>在下面的示例中，<code class="highlighter-rouge">WannabeFunction</code> 类定义了一个 call() 函数，
+函数接受三个字符串参数，函数体将三个字符串拼接，字符串间用空格分割，并在结尾附加了一个感叹号。
+单击运行按钮 ( <img src="/assets/red-run.png" width="20" height="19" alt="red-run.png"> ) 执行代码。</p>
 
 <iframe src="https://dartpad.dartlang.org/embed-dart.html?id=405379bacf30335f3aed&amp;horizontalRatio=99&amp;verticalRatio=73" width="100%" height="240px" style="border: 1px solid #ccc;">
 </iframe>
 
-<p>For more information on treating classes like functions, see
-<a href="/articles/language/emulating-functions">Emulating Functions in Dart</a>.</p>
+<p>有关把类当做方法使用的更多信息，请参考
+<a href="/articles/language/emulating-functions">Emulating Functions in Dart</a> 。</p>
 
 <h2 id="isolates">
 <a id="isolates" class="anchor" href="#isolates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Isolates</h2>
 
-<p>Most computers, even on mobile platforms, have multi-core CPUs.
-To take advantage of all those cores, developers traditionally use
-shared-memory threads running concurrently. However, shared-state
-concurrency is error prone and can lead to complicated code.</p>
+<p>大多数计算机中，甚至在移动平台上，都在使用多核CPU。
+为了有效利用多核性能，开发者一般使用共享内存数据来保证多线程的正确执行。
+然而，
+多线程共享数据通常会导致很多潜在的问题，并导致代码运行出错。</p>
 
-<p>Instead of threads, all Dart code runs inside of <em>isolates</em>. Each
-isolate has its own memory heap, ensuring that no isolate’s state is
-accessible from any other isolate.</p>
+<p>所有 Dart 代码都在<em>隔离区</em>（ isolates ）内运行，而不是线程。
+每个隔离区都有自己的内存堆，确保每个隔离区的状态都不会被其他隔离区访问。</p>
 
-<p>有关更多信息，参见 the
-<a href="https://api.dartlang.org/dev/dart-isolate">dart:isolate library documentation.</a></p>
+<p>有关更多信息，请参考
+<a href="https://api.dartlang.org/dev/dart-isolate">dart:isolate library documentation.</a> 。</p>
 
 <h2 id="typedefs">
 <a id="typedefs" class="anchor" href="#typedefs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Typedefs</h2>
 
-<p>In Dart, functions are objects, just like strings and numbers are
-objects. A <em>typedef</em>, or <em>function-type alias</em>, gives a function type a
-name that you can use when declaring fields and return types. A typedef
-retains type information when a function type is assigned to a variable.</p>
+<p>在 Dart 中，函数也是对象，就想字符和数字对象一样。
+使用 <em>typedef</em> ，或者 <em>function-type alias</em> 为函数起一个别名，
+别名可以用来声明字段及返回值类型。
+当函数类型分配给变量时，typedef会保留类型信息。</p>
 
-<p>Consider the following code, which doesn’t use a typedef:</p>
+<p>请考虑以下代码，代码中未使用 typedef ：</p>
 
 <?code-excerpt "misc/lib/language_tour/typedefs/sorted_collection_1.dart"?>
 <pre class="prettyprint lang-dart">
@@ -4418,23 +4388,22 @@ class SortedCollection {
   }
 }
 
-// Initial, broken implementation.
+// Initial, broken implementation. // broken ？
 int sort(Object a, Object b) =&gt; 0;
 
 void main() {
   SortedCollection coll = SortedCollection(sort);
 
-  // All we know is that compare is a function,
-  // but what type of function?
+  // 虽然知道 compare 是函数，
+  // 但是函数是什么类型 ？
   assert(coll.compare is Function);
 }
 </pre>
 
-<p>Type information is lost when assigning <code class="highlighter-rouge">f</code> to <code class="highlighter-rouge">compare</code>. The type of
-<code class="highlighter-rouge">f</code> is <code class="highlighter-rouge">(Object, </code><code class="highlighter-rouge">Object)</code> → <code class="highlighter-rouge">int</code> (where → means returns), yet the
-type of <code class="highlighter-rouge">compare</code> is Function. If we change the code to use explicit
-names and retain type information, both developers and tools can use
-that information.</p>
+<p>当把  <code class="highlighter-rouge">f</code> 赋值给 <code class="highlighter-rouge">compare</code> 的时候，类型信息丢失了。
+<code class="highlighter-rouge">f</code> 的类型是 <code class="highlighter-rouge">(Object, </code><code class="highlighter-rouge">Object)</code> → <code class="highlighter-rouge">int</code> (这里 → 代表返回值类型)，
+但是 <code class="highlighter-rouge">compare</code> 得到的类型是 Function 。如果我们使用显式的名字并保留类型信息，
+这样开发者和工具都可以使用这些信息：</p>
 
 <?code-excerpt "misc/lib/language_tour/typedefs/sorted_collection_2.dart"?>
 <pre class="prettyprint lang-dart">
@@ -4458,12 +4427,12 @@ void main() {
 
 <aside class="alert alert-info">
   <p><strong>提示：</strong>
-Currently, typedefs are restricted to function types. We expect this
-to change.</p>
+目前，typedefs 只能使用在函数类型上，
+我们希望将来这种情况有所改变。</p>
 </aside>
 
-<p>Because typedefs are simply aliases, they offer a way to check the type
-of any function. For example:</p>
+<p>由于 typedefs 只是别名，
+他们还提供了一种方式来判断任意函数的类型。例如：</p>
 
 <?code-excerpt "misc/lib/language_tour/typedefs/misc.dart (compare)"?>
 <pre class="prettyprint lang-dart">
@@ -4476,19 +4445,17 @@ void main() {
 }
 </pre>
 
-<h2 id="metadata">
-<a id="metadata" class="anchor" href="#metadata" aria-hidden="true"><span class="octicon octicon-link"></span></a>Metadata</h2>
+<h2 id="元数据">
+<a id="元数据" class="anchor" href="#%E5%85%83%E6%95%B0%E6%8D%AE" aria-hidden="true"><span class="octicon octicon-link"></span></a>元数据</h2>
 
-<p>Use metadata to give additional information about your code. A metadata
-annotation begins with the character <code class="highlighter-rouge">@</code>, followed by either a reference
-to a compile-time constant (such as <code class="highlighter-rouge">deprecated</code>) or a call to a
-constant constructor.</p>
+<p>使用元数据可以提供有关代码的其他信息。
+元数据注释以字符 <code class="highlighter-rouge">@</code> 开头，
+后跟对编译时常量 (如 <code class="highlighter-rouge">deprecated</code>) 的引用或对常量构造函数的调用。</p>
 
-<p>Two annotations are available to all Dart code: <code class="highlighter-rouge">@deprecated</code> and
-<code class="highlighter-rouge">@override</code>. For examples of using <code class="highlighter-rouge">@override</code>,
-see <a href="#extending-a-class">Extending a class</a>.
-Here’s an example of using the <code class="highlighter-rouge">@deprecated</code>
-annotation:</p>
+<p>对于所有 Dart 代码有两种可用注解：<code class="highlighter-rouge">@deprecated</code> 和 <code class="highlighter-rouge">@override</code>。
+关于 <code class="highlighter-rouge">@override</code> 的使用，
+参考 <a href="#extending-a-class">Extending a class</a>。
+下面是使用 <code class="highlighter-rouge">@deprecated</code> 注解的示例：</p>
 
 <?code-excerpt "misc/lib/language_tour/metadata/television.dart (deprecated)" replace="/@deprecated/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">
@@ -4504,8 +4471,8 @@ class Television {
 }
 </pre>
 
-<p>You can define your own metadata annotations. Here’s an example of
-defining a @todo annotation that takes two arguments:</p>
+<p>可以自定义元数据注解。
+下面的示例定义了一个带有两个参数的 @todo 注解：</p>
 
 <?code-excerpt "misc/lib/language_tour/metadata/todo.dart"?>
 <pre class="prettyprint lang-dart">
@@ -4519,7 +4486,7 @@ class Todo {
 }
 </pre>
 
-<p>And here’s an example of using that @todo annotation:</p>
+<p>使用 @todo 注解的示例：</p>
 
 <?code-excerpt "misc/lib/language_tour/metadata/misc.dart"?>
 <pre class="prettyprint lang-dart">
@@ -4531,22 +4498,21 @@ void doSomething() {
 }
 </pre>
 
-<p>Metadata can appear before a library, class, typedef, type parameter,
-constructor, factory, function, field, parameter, or variable
-declaration and before an import or export directive. You can
-retrieve metadata at runtime using reflection.</p>
+<p>元数据可以在 library、 class、 typedef、 type parameter、
+constructor、 factory、 function、 field、 parameter 或者 variable
+声明之前使用，也可以在 import 或者 export 指令之前使用。
+使用反射可以在运行时获取元数据信息。</p>
 
-<h2 id="comments">
-<a id="comments" class="anchor" href="#comments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Comments</h2>
+<h2 id="注释">
+<a id="注释" class="anchor" href="#%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a>注释</h2>
 
-<p>Dart supports single-line comments, multi-line comments, and
-documentation comments.</p>
+<p>Dart 支持单行注释、多行注释和文档注释。</p>
 
-<h3 id="single-line-comments">
-<a id="single-line-comments" class="anchor" href="#single-line-comments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Single-line comments</h3>
+<h3 id="单行注释">
+<a id="单行注释" class="anchor" href="#%E5%8D%95%E8%A1%8C%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a>单行注释</h3>
 
-<p>A single-line comment begins with <code class="highlighter-rouge">//</code>. Everything between <code class="highlighter-rouge">//</code> and the
-end of line is ignored by the Dart compiler.</p>
+<p>单行注释以 <code class="highlighter-rouge">//</code> 开始。 
+所有在 <code class="highlighter-rouge">//</code> 和改行结尾之间的内容被编译器忽略。</p>
 
 <?code-excerpt "misc/lib/language_tour/comments.dart (single-line-comments)"?>
 <pre class="prettyprint lang-dart">
@@ -4556,13 +4522,13 @@ void main() {
 }
 </pre>
 
-<h3 id="multi-line-comments">
-<a id="multi-line-comments" class="anchor" href="#multi-line-comments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multi-line comments</h3>
+<h3 id="多行注释">
+<a id="多行注释" class="anchor" href="#%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a>多行注释</h3>
 
-<p>A multi-line comment begins with <code class="highlighter-rouge">/*</code> and ends with <code class="highlighter-rouge">*/</code>. Everything
-between <code class="highlighter-rouge">/*</code> and <code class="highlighter-rouge">*/</code> is ignored by the Dart compiler (unless the
-comment is a documentation comment; see the next section). Multi-line
-comments can nest.</p>
+<p>多行注释以  <code class="highlighter-rouge">/*</code>  开始， 以 <code class="highlighter-rouge">*/</code> 结尾。
+所有在 <code class="highlighter-rouge">/*</code> 和 <code class="highlighter-rouge">*/</code> 之间的内容被编译器忽略
+（不会忽略文档注释）。
+多行注释可以嵌套。</p>
 
 <?code-excerpt "misc/lib/language_tour/comments.dart (multi-line-comments)"?>
 <pre class="prettyprint lang-dart">
@@ -4578,66 +4544,63 @@ void main() {
 }
 </pre>
 
-<h3 id="documentation-comments">
-<a id="documentation-comments" class="anchor" href="#documentation-comments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation comments</h3>
+<h3 id="文档注释">
+<a id="文档注释" class="anchor" href="#%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a>文档注释</h3>
 
-<p>Documentation comments are multi-line or single-line comments that begin
-with <code class="highlighter-rouge">///</code> or <code class="highlighter-rouge">/**</code>. Using <code class="highlighter-rouge">///</code> on consecutive lines has the same
-effect as a multi-line doc comment.</p>
+<p>文档注释可以是多行注释，也可以是单行注释，
+文档注释以 <code class="highlighter-rouge">///</code> 或者 <code class="highlighter-rouge">/**</code> 开始。
+在连续行上使用 <code class="highlighter-rouge">///</code> 与多行文档注释具有相同的效果。</p>
 
-<p>Inside a documentation comment, the Dart compiler ignores all text
-unless it is enclosed in brackets. Using brackets, you can refer to
-classes, methods, fields, top-level variables, functions, and
-parameters. The names in brackets are resolved in the lexical scope of
-the documented program element.</p>
+<p>在文档注释中，除非用中括号括起来，否则Dart 编译器会忽略所有文本。
+使用中括号可以引用类、 方法、 字段、 顶级变量、 函数、 和参数。
+括号中的符号会在已记录的程序元素的词法域中进行解析。</p>
 
-<p>Here is an example of documentation comments with references to other
-classes and arguments:</p>
+<p>下面是一个引用其他类和成员的文档注释：</p>
 
 <?code-excerpt "misc/lib/language_tour/comments.dart (doc-comments)"?>
 <pre class="prettyprint lang-dart">
 /// A domesticated South American camelid (Lama glama).
 ///
-/// Andean cultures have used llamas as meat and pack
-/// animals since pre-Hispanic times.
+/// 自从西班牙时代以来，
+/// 安第斯文化就将骆驼当做肉食类和运输类动物。
 class Llama {
   String name;
 
-  /// Feeds your llama [Food].
+  /// 喂养骆驼 [Food].
   ///
-  /// The typical llama eats one bale of hay per week.
+  /// 典型的美洲驼每周吃一捆干草。
   void feed(Food food) {
     // ...
   }
 
-  /// Exercises your llama with an [activity] for
-  /// [timeLimit] minutes.
+  /// 使用 [activity] 训练骆驼
+  /// [timeLimit] 分钟。
   void exercise(Activity activity, int timeLimit) {
     // ...
   }
 }
 </pre>
 
-<p>In the generated documentation, <code class="highlighter-rouge">[Food]</code> becomes a link to the API docs
-for the Food class.</p>
+<p>在生成的文档中，<code class="highlighter-rouge">[Food]</code> 会成为一个链接，
+指向 Food 类的 API 文档。</p>
 
-<p>To parse Dart code and generate HTML documentation, you can use the SDK’s
+<p>解析 Dart 代码并生成 HTML 文档，可以使用 SDK 中的
 <a href="https://github.com/dart-lang/dartdoc#dartdoc">documentation generation tool.</a>
-For an example of generated documentation, see the <a href="https://api.dartlang.org/dev">Dart API
-documentation.</a> For advice on how to structure
-your comments, see
+关于生成文档的实例，请参考 <a href="https://api.dartlang.org/dev">Dart API
+documentation.</a>
+关于文档结构的建议，请参考 
 <a href="/guides/language/effective-dart/documentation">Guidelines for Dart Doc Comments.</a></p>
 
-<h2 id="summary">
-<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h2>
+<h2 id="总结">
+<a id="总结" class="anchor" href="#%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
 
-<p>This page summarized the commonly used features in the Dart language.
-More features are being implemented, but we expect that they won’t break
-existing code. 有关更多信息，参见 the <a href="/guides/language/spec">Dart Language
-Specification</a> and
+<p>本页概述了 Dart 语言中常用的功能。
+还有更多特性有待实现，但我们希望它们不会破坏现有代码。
+有关更多信息，请参考
+<a href="/guides/language/spec">Dart Language Specification</a> 和
 <a href="/guides/language/effective-dart">Effective Dart</a>.</p>
 
-<p>To learn more about Dart’s core libraries, see
+<p>要了解更多关于 Dart 核心库的内容，请参考
 <a href="/guides/libraries/library-tour">A Tour of the Dart Libraries</a>.</p>
 
 
@@ -4667,7 +4630,7 @@ Specification</a> and
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/18 10:46 CST"
+                 title="Site built on 2018/07/23 15:42 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

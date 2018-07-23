@@ -2,252 +2,252 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>https://www.dartlang.org/tools/analyzer</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/resources/authors/bob-nystrom</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/resources/books</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/code-of-conduct</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/dart-2</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/dart-vm/tools/dart-vm</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/dartpad</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/dependencies</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/environment-variables</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/faq</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/resources/authors/florian-loitsch</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/get-started</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/resources/authors/gilad-bracha</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/glossary</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/dart-vm</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/resources</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/sdk/archive</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/resources/synonyms</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/community</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/cmd</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/resources/authors</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/dart-vm/tools</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/samples</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/codelabs</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/sdk</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/install</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/dart-vm/io-library-tour</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/jetbrains-plugin</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/map</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/obsolete</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/package-layout</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/cmd/pub-cache</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/cmd/pub-deps</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/cmd/pub-downgrade</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/cmd/pub-get</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/cmd/pub-global</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/cmd/pub-lish</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/cmd/pub-run</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/cmd/pub-upgrade</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/cmd/pub-uploader</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/publishing</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/pubspec</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/search</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/terms</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/troubleshoot</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tools/pub/versioning</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/community/who-uses-dart</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
@@ -257,7 +257,7 @@
   </url>
 <url>
   <loc>https://www.dartlang.org/articles/dart-vm/index</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
@@ -312,7 +312,7 @@
   </url>
 <url>
   <loc>https://www.dartlang.org/articles</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
@@ -322,7 +322,7 @@
   </url>
 <url>
   <loc>https://www.dartlang.org/articles/language/index</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
@@ -337,7 +337,7 @@
   </url>
 <url>
   <loc>https://www.dartlang.org/articles/libraries/index</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
@@ -347,162 +347,162 @@
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/get-started</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/json</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/language/analysis-options</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/language/effective-dart/design</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/language/effective-dart/documentation</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/language/effective-dart</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/language/effective-dart/style</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/language/effective-dart/usage</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/language</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/language/language-tour</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/language/sound-dart</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/language/sound-problems</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/language/spec</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/libraries/create-library-packages</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/libraries/futures-error-handling</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/libraries</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/libraries/library-tour</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/libraries/private-files</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/libraries/useful-libraries</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/platforms</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/guides/testing</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tutorials/dart-vm/cmdline</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tutorials/dart-vm/get-started</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tutorials/dart-vm/httpserver</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tutorials/dart-vm</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tutorials</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tutorials/language/futures</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tutorials/language</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tutorials/language/streams</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tutorials/libraries</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 <url>
   <loc>https://www.dartlang.org/tutorials/libraries/shared-pkgs</loc>
-  <lastmod>2018-07-16T09:59:04+08:00</lastmod>
+  <lastmod>2018-07-23T11:05:11+08:00</lastmod>
   <changefreq>monthly</changefreq>
   </url>
 </urlset>
