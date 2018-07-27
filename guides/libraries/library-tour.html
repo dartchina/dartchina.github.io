@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Learn about the major features in Dart's libraries.">
-  <title>Library Tour | Dart</title>
+  <title>Dart 库概览 | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,11 +18,11 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="A Tour of the Dart Libraries" />
+  <meta name="twitter:title" content="Dart 库概览" />
   <meta name="twitter:description" content="Learn about the major features in Dart's libraries." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="A Tour of the Dart Libraries" />
+  <meta property="og:title" content="Dart 库概览" />
   <meta property="og:description" content="Learn about the major features in Dart's libraries." />
   <meta property="og:url" content="https://www.dartlang.org/guides/libraries/library-tour" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
@@ -176,18 +176,18 @@ ga('send', 'pageview');
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#dartcore---numbers-collections-strings-and-more">dart:core - numbers, collections, strings, and more</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#printing-to-the-console">Printing to the console</a></li>
+<li class="toc-entry toc-h3"><a href="#控制台打印">控制台打印</a></li>
 <li class="toc-entry toc-h3"><a href="#numbers">Numbers</a></li>
 <li class="toc-entry toc-h3"><a href="#strings-and-regular-expressions">Strings and regular expressions</a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#searching-inside-a-string">Searching inside a string</a></li>
-<li class="toc-entry toc-h4"><a href="#extracting-data-from-a-string">Extracting data from a string</a></li>
-<li class="toc-entry toc-h4"><a href="#converting-to-uppercase-or-lowercase">Converting to uppercase or lowercase</a></li>
-<li class="toc-entry toc-h4"><a href="#trimming-and-empty-strings">Trimming and empty strings</a></li>
-<li class="toc-entry toc-h4"><a href="#replacing-part-of-a-string">Replacing part of a string</a></li>
-<li class="toc-entry toc-h4"><a href="#building-a-string">Building a string</a></li>
-<li class="toc-entry toc-h4"><a href="#regular-expressions">Regular expressions</a></li>
-<li class="toc-entry toc-h4"><a href="#more-information">More information</a></li>
+<li class="toc-entry toc-h4"><a href="#在字符串中搜索">在字符串中搜索</a></li>
+<li class="toc-entry toc-h4"><a href="#从字符串中提取数据">从字符串中提取数据</a></li>
+<li class="toc-entry toc-h4"><a href="#首字母大小写转换">首字母大小写转换</a></li>
+<li class="toc-entry toc-h4"><a href="#trimming-和空字符串">Trimming 和空字符串</a></li>
+<li class="toc-entry toc-h4"><a href="#替换部分字符串">替换部分字符串</a></li>
+<li class="toc-entry toc-h4"><a href="#构建一个字符串">构建一个字符串</a></li>
+<li class="toc-entry toc-h4"><a href="#正则表达式">正则表达式</a></li>
+<li class="toc-entry toc-h4"><a href="#更多信息">更多信息</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#collections">Collections</a>
@@ -195,15 +195,15 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h4"><a href="#lists">Lists</a></li>
 <li class="toc-entry toc-h4"><a href="#sets">Sets</a></li>
 <li class="toc-entry toc-h4"><a href="#maps">Maps</a></li>
-<li class="toc-entry toc-h4"><a href="#common-collection-methods">Common collection methods</a></li>
+<li class="toc-entry toc-h4"><a href="#公共集合方法">公共集合方法</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#uris">URIs</a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#encoding-and-decoding-fully-qualified-uris">Encoding and decoding fully qualified URIs</a></li>
-<li class="toc-entry toc-h4"><a href="#encoding-and-decoding-uri-components">Encoding and decoding URI components</a></li>
-<li class="toc-entry toc-h4"><a href="#parsing-uris">Parsing URIs</a></li>
-<li class="toc-entry toc-h4"><a href="#building-uris">Building URIs</a></li>
+<li class="toc-entry toc-h4"><a href="#编码和解码完整合法的uri">编码和解码完整合法的URI</a></li>
+<li class="toc-entry toc-h4"><a href="#编码和解码-uri-组件">编码和解码 URI 组件</a></li>
+<li class="toc-entry toc-h4"><a href="#解析-uri">解析 URI</a></li>
+<li class="toc-entry toc-h4"><a href="#构建-uri">构建 URI</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#dates-and-times">Dates and times</a></li>
@@ -235,7 +235,7 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h4"><a href="#handling-errors-and-completion">Handling errors and completion</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#more-information-1">More information</a></li>
+<li class="toc-entry toc-h3"><a href="#more-information">More information</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#dartmath---math-and-random">dart:math - math and random</a>
@@ -244,7 +244,7 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#maximum-and-minimum">Maximum and minimum</a></li>
 <li class="toc-entry toc-h3"><a href="#math-constants">Math constants</a></li>
 <li class="toc-entry toc-h3"><a href="#random-numbers">Random numbers</a></li>
-<li class="toc-entry toc-h3"><a href="#more-information-2">More information</a></li>
+<li class="toc-entry toc-h3"><a href="#more-information-1">More information</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#dartconvert---decoding-and-encoding-json-utf-8-and-more">dart:convert - decoding and encoding JSON, UTF-8, and more</a>
@@ -287,7 +287,7 @@ ga('send', 'pageview');
     </a>
   </li>
   <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='A Tour of the Dart Libraries' page issue&body=From URL: https://www.dartlang.org/guides/libraries/library-tour"
+    <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart 库概览' page issue&body=From URL: https://www.dartlang.org/guides/libraries/library-tour"
       class="no-automatic-external"
       title="Report a bug on this page" target="_blank" rel="noopener">
       <i class="fas fa-bug fa-sm"></i>
@@ -295,45 +295,46 @@ ga('send', 'pageview');
   </li>
 </ul>
 
-            <h1>A Tour of the Dart Libraries</h1>
+            <h1>Dart 库概览</h1>
           </div>
           <?code-excerpt plaster="none"?>
 
-<p>This tour shows how to use the main features of the following libraries,
-which are included in all Dart platforms:</p>
+<p>本章将介绍以下库的主要功能及使用方式，
+所有Dart平台中都包含这些库：</p>
 
 <dl>
   <dt><a href="#dartcore---numbers-collections-strings-and-more">dart:core</a></dt>
-  <dd>Built-in types, collections, and other core functionality.
-This library is automatically imported into every Dart program.</dd>
+  <dd>内置类型，集合和其它核心功能。 
+该库会被自动导入到所有的 Dart 程序。</dd>
   <dt><a href="#dartasync---asynchronous-programming">dart:async</a></dt>
-  <dd>Support for asynchronous programming, with classes such as Future and Stream.</dd>
+  <dd>支持异步编程，包括Future和Stream等类。</dd>
   <dt><a href="#dartmath---math-and-random">dart:math</a></dt>
-  <dd>Mathematical constants and functions, plus a random number generator.</dd>
+  <dd>数学常数和函数，以及随机数生成器。</dd>
   <dt><a href="#dartconvert---decoding-and-encoding-json-utf-8-and-more">dart:convert</a></dt>
-  <dd>Encoders and decoders for converting between different data representations, including JSON and UTF-8.</dd>
+  <dd>用于在不同数据表示之间进行转换的编码器和解码器，包括 JSON 和 UTF-8 。</dd>
 </dl>
 
-<p>This page is just an overview;
-it covers only a few dart:* libraries
-and no third-party libraries.
-The platform-specific dart:io and dart:html libraries
-are covered in the <a href="/dart-vm/io-library-tour">dart:io tour</a> and the <a href="https://webdev.dartlang.org/guides/html-library-tour">dart:html tour.</a></p>
+<p>本页只是一个概述；
+只涵盖了几个 dart:* 库，
+不包括第三方库。
+特定平台库 dart:io 和 dart:html
+的介绍，详见 <a href="/dart-vm/io-library-tour">dart:io tour</a> 和 <a href="https://webdev.dartlang.org/guides/html-library-tour">dart:html tour.</a></p>
 
-<p>Other places to find library information are
-<a href="https://pub.dartlang.org">pub.dartlang.org</a> and the
-<a href="https://webdev.dartlang.org/guides/web-programming">Dart web developer library guide.</a>
-You can find API documentation for all dart:* libraries in the
-<a href="https://api.dartlang.org/dev">Dart API reference</a> or, if you’re using Flutter,
-the <a href="https://docs.flutter.io/">Flutter API reference.</a></p>
+<p>更多库信息可以在
+<a href="https://pub.dartlang.org">pub.dartlang.org</a> 和
+<a href="https://webdev.dartlang.org/guides/web-programming">Dart web developer library guide.</a> 查找。
+所有 dart:* 库的 API 文档可以在
+<a href="https://api.dartlang.org/dev">Dart API reference</a> 查找， 如果使用的是 Flutter
+可以在 <a href="https://docs.flutter.io/">Flutter API reference.</a> 查找。</p>
 
 <aside class="alert alert-info">
   <p><strong>DartPad tip:</strong>
-You can play with the code in this page
-by copying it into a <a href="https://dartpad.dartlang.org">DartPad.</a>
-Note, however, that <a href="/guides/language/language-tour#assert">assert</a> statements are no-ops in DartPad
-because DartPad executes in production mode, not checked mode.
-An easy workaround: <strong>change <code class="highlighter-rouge">assert</code> to <code class="highlighter-rouge">print</code>.</strong>
+可以通过将该页中的代码拷贝到 <a href="https://dartpad.dartlang.org">DartPad.</a>
+中进行演示。
+但请注意， <a href="/guides/language/language-tour#assert">assert</a> 语句在 DartPad 中是无操作的，
+因为 DartPad 在生产模式下执行，而不是在检查模式下执行。 
+一个简单的解决方法：
+<strong>将 <code class="highlighter-rouge">assert</code> 更改为 <code class="highlighter-rouge">print</code> 。</strong> 
 <br>
 <br></p>
 
@@ -345,16 +346,16 @@ An easy workaround: <strong>change <code class="highlighter-rouge">assert</code>
 <h2 id="dartcore---numbers-collections-strings-and-more">
 <a id="dartcore---numbers-collections-strings-and-more" class="anchor" href="#dartcore---numbers-collections-strings-and-more" aria-hidden="true"><span class="octicon octicon-link"></span></a>dart:core - numbers, collections, strings, and more</h2>
 
-<p>The dart:core library (<a href="https://api.dartlang.org/dev/dart-core/dart-core-library.html">API reference</a>)
-provides a small but critical set of built-in functionality.
-This library is automatically imported into every Dart program.</p>
+<p>dart:core 库 (<a href="https://api.dartlang.org/dev/dart-core/dart-core-library.html">API reference</a>)
+提供了一个少量但是重要的内置功能集合。
+该库会被自动导入每个 Dart 程序。</p>
 
-<h3 id="printing-to-the-console">
-<a id="printing-to-the-console" class="anchor" href="#printing-to-the-console" aria-hidden="true"><span class="octicon octicon-link"></span></a>Printing to the console</h3>
+<h3 id="控制台打印">
+<a id="控制台打印" class="anchor" href="#%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%89%93%E5%8D%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>控制台打印</h3>
 
-<p>The top-level <code class="highlighter-rouge">print()</code> method takes a single argument (any Object)
-and displays that object’s string value (as returned by <code class="highlighter-rouge">toString()</code>)
-in the console.</p>
+<p>顶级 <code class="highlighter-rouge">print()</code> 方法接受一个参数 任意对象）
+并输出显示这个对象的字符串值(由 <code class="highlighter-rouge">toString()</code> 返回) 
+到控制台。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (print)"?>
 <pre class="prettyprint lang-dart">
@@ -362,17 +363,16 @@ print(anObject);
 print('I drink $tea.');
 </pre>
 
-<p>For more information on basic strings and <code class="highlighter-rouge">toString()</code>, see
+<p>有关基本字符串和 <code class="highlighter-rouge">toString()</code> 的更多信息，参考
 <a href="/guides/language/language-tour#strings">Strings</a> in the language tour.</p>
 
 <h3 id="numbers">
 <a id="numbers" class="anchor" href="#numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Numbers</h3>
 
-<p>The dart:core library defines the num, int, and double classes, which
-have some basic utilities for working with numbers.</p>
+<p>dart:core 库定义了 num ，int 以及 double 类，
+这些类拥有一定的工具方法来处理数字。</p>
 
-<p>You can convert a string into an integer or double with the <code class="highlighter-rouge">parse()</code>
-methods of int and double, respectively:</p>
+<p>使用 int 和 double 的 <code class="highlighter-rouge">parse()</code> 方法将字符串转换为整型或双浮点型对象：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (int|double.parse)"?>
 <pre class="prettyprint lang-dart">
@@ -381,8 +381,7 @@ assert(int.parse('0x42') == 66);
 assert(double.parse('0.50') == 0.5);
 </pre>
 
-<p>Or use the parse() method of num, which creates an integer if possible
-and otherwise a double:</p>
+<p>或者使用 num 的 parse() 方法，该方法可能会创建一个整型，否则为浮点型对象：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (num-parse)"?>
 <pre class="prettyprint lang-dart">
@@ -391,161 +390,151 @@ assert(num.parse('0x42') is int);
 assert(num.parse('0.50') is double);
 </pre>
 
-<p>To specify the base of an integer, add a <code class="highlighter-rouge">radix</code> parameter:</p>
+<p>通过添加 <code class="highlighter-rouge">radix</code> 参数，指定整数的进制基数：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (radix)"?>
 <pre class="prettyprint lang-dart">
 assert(int.parse('42', radix: 16) == 66);
 </pre>
 
-<p>Use the <code class="highlighter-rouge">toString()</code> method to convert an
-int or double to a string. To specify the number of digits to the right
-of the decimal, use <a href="https://api.dartlang.org/dev/dart-core/num/toStringAsFixed.html">toStringAsFixed().</a> To specify the
-number of significant digits in the string, use
-<a href="https://api.dartlang.org/dev/dart-core/num/toStringAsPrecision.html">toStringAsPrecision():</a></p>
+<p>使用 <code class="highlighter-rouge">toString()</code> 方法将整型或双精度浮点类型转换为字符串类型。
+使用 <a href="https://api.dartlang.org/dev/dart-core/num/toStringAsFixed.html">toStringAsFixed().</a> 指定小数点右边的位数，
+使用 <a href="https://api.dartlang.org/dev/dart-core/num/toStringAsPrecision.html">toStringAsPrecision():</a> 指定字符串中的有效数字的位数。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (toString())"?>
 <pre class="prettyprint lang-dart">
-// Convert an int to a string.
+// 整型转换为字符串类型。
 assert(42.toString() == '42');
 
-// Convert a double to a string.
+// 双浮点型转换为字符串类型。
 assert(123.456.toString() == '123.456');
 
-// Specify the number of digits after the decimal.
+// 指定小数点后的位数。
 assert(123.456.toStringAsFixed(2) == '123.46');
 
-// Specify the number of significant figures.
+// 指定有效数字的位数。
 assert(123.456.toStringAsPrecision(2) == '1.2e+2');
 assert(double.parse('1.2e+2') == 120.0);
 </pre>
 
-<p>For more information, see the API documentation for
-<a href="https://api.dartlang.org/dev/dart-core/int-class.html">int,</a> <a href="https://api.dartlang.org/dev/dart-core/double-class.html">double,</a> and <a href="https://api.dartlang.org/dev/dart-core/num-class.html">num.</a> Also see
-the <a href="#dartmath---math-and-random">dart:math section</a>.</p>
+<p>更多详情， 参考
+<a href="https://api.dartlang.org/dev/dart-core/int-class.html">int，</a> <a href="https://api.dartlang.org/dev/dart-core/double-class.html">double，</a> 和 <a href="https://api.dartlang.org/dev/dart-core/num-class.html">num</a> 的相关 API 文档。
+也可参考 <a href="#dartmath---math-and-random">dart:math section</a>。</p>
 
 <h3 id="strings-and-regular-expressions">
 <a id="strings-and-regular-expressions" class="anchor" href="#strings-and-regular-expressions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Strings and regular expressions</h3>
 
-<p>A string in Dart is an immutable sequence of UTF-16 code units.
-The language tour has more information about
-<a href="/guides/language/language-tour#strings">strings</a>.
-You can use regular expressions (RegExp objects)
-to search within strings and to
-replace parts of strings.</p>
+<p>在 Dart 中一个字符串是一个固定不变的 UTF-16 编码单元序列。
+语言概览中有更多关于 <a href="/guides/language/language-tour#strings">strings</a> 的内容。
+使用正则表达式 (RegExp 对象) 可以在字符串内搜索和替换部分字符串。</p>
 
-<p>The String class defines such methods as <code class="highlighter-rouge">split()</code>, <code class="highlighter-rouge">contains()</code>,
-<code class="highlighter-rouge">startsWith()</code>, <code class="highlighter-rouge">endsWith()</code>, and more.</p>
+<p>String 定义了例如 <code class="highlighter-rouge">split()</code>， <code class="highlighter-rouge">contains()</code>，
+<code class="highlighter-rouge">startsWith()</code>， <code class="highlighter-rouge">endsWith()</code> 等方法。</p>
 
-<h4 id="searching-inside-a-string">
-<a id="searching-inside-a-string" class="anchor" href="#searching-inside-a-string" aria-hidden="true"><span class="octicon octicon-link"></span></a>Searching inside a string</h4>
+<h4 id="在字符串中搜索">
+<a id="在字符串中搜索" class="anchor" href="#%E5%9C%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%90%9C%E7%B4%A2" aria-hidden="true"><span class="octicon octicon-link"></span></a>在字符串中搜索</h4>
 
-<p>You can find particular locations within a string, as well as check
-whether a string begins with or ends with a particular pattern. For
-example:</p>
+<p>可以在字符串内查找特定字符串的位置，
+以及检查字符串是否以特定字符串作为开头或结尾。例如：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (contains-etc)"?>
 <pre class="prettyprint lang-dart">
-// Check whether a string contains another string.
+// 检查一个字符串是否包含另一个字符串。
 assert('Never odd or even'.contains('odd'));
 
-// Does a string start with another string?
+// 一个字符串是否以另一个字符串为开头?
 assert('Never odd or even'.startsWith('Never'));
 
-// Does a string end with another string?
+// 一个字符串是否以另一个字符串为结尾?
 assert('Never odd or even'.endsWith('even'));
 
-// Find the location of a string inside a string.
+// 查找一个字符串在另一个字符串中的位置。
 assert('Never odd or even'.indexOf('odd') == 6);
 </pre>
 
-<h4 id="extracting-data-from-a-string">
-<a id="extracting-data-from-a-string" class="anchor" href="#extracting-data-from-a-string" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extracting data from a string</h4>
+<h4 id="从字符串中提取数据">
+<a id="从字符串中提取数据" class="anchor" href="#%E4%BB%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%8F%90%E5%8F%96%E6%95%B0%E6%8D%AE" aria-hidden="true"><span class="octicon octicon-link"></span></a>从字符串中提取数据</h4>
 
-<p>You can get the individual characters from a string as Strings or ints,
-respectively. To be precise, you actually get individual UTF-16 code
-units; high-numbered characters such as the treble clef symbol
-(‘\u{1D11E}’) are two code units apiece.</p>
+<p>可以获取字符串中的单个字符，将其作为字符串或者整数。
+确切地说，实际上获取的是单独的UTF-16编码单元;
+诸如高音谱号符号 (‘\u{1D11E}’) 之类的高编号字符分别为两个编码单元。</p>
 
-<p>You can also extract a substring or split a string into a list of
-substrings:</p>
+<p>你也可以获取字符串中的子字符串或者将一个字符串分割为子字符串列表：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (substring-etc)"?>
 <pre class="prettyprint lang-dart">
-// Grab a substring.
+// 抓取一个子字符串。
 assert('Never odd or even'.substring(6, 9) == 'odd');
 
-// Split a string using a string pattern.
+// 使用字符串模式分割字符串。
 var parts = 'structured web apps'.split(' ');
 assert(parts.length == 3);
 assert(parts[0] == 'structured');
 
-// Get a UTF-16 code unit (as a string) by index.
+// 通过下标获取 UTF-16 编码单元（编码单元作为字符串）。
 assert('Never odd or even'[0] == 'N');
 
-// Use split() with an empty string parameter to get
-// a list of all characters (as Strings); good for
-// iterating.
+// 使用 split() 传入一个空字符串参数，
+// 得到一个所有字符的 list 集合；
+// 有助于字符迭代。
 for (var char in 'hello'.split('')) {
   print(char);
 }
 
-// Get all the UTF-16 code units in the string.
+// 获取一个字符串的所有 UTF-16 编码单元。
 var codeUnitList =
     'Never odd or even'.codeUnits.toList();
 assert(codeUnitList[0] == 78);
 </pre>
 
-<h4 id="converting-to-uppercase-or-lowercase">
-<a id="converting-to-uppercase-or-lowercase" class="anchor" href="#converting-to-uppercase-or-lowercase" aria-hidden="true"><span class="octicon octicon-link"></span></a>Converting to uppercase or lowercase</h4>
+<h4 id="首字母大小写转换">
+<a id="首字母大小写转换" class="anchor" href="#%E9%A6%96%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%B0%8F%E5%86%99%E8%BD%AC%E6%8D%A2" aria-hidden="true"><span class="octicon octicon-link"></span></a>首字母大小写转换</h4>
 
-<p>You can easily convert strings to their uppercase and lowercase
-variants:</p>
+<p>可以轻松的对字符串的首字母大小写进行转换：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (toUpperCase-toLowerCase)"?>
 <pre class="prettyprint lang-dart">
-// Convert to uppercase.
+// 转换为首字母大写。
 assert('structured web apps'.toUpperCase() ==
     'STRUCTURED WEB APPS');
 
-// Convert to lowercase.
+// 转换为首字母小写。
 assert('STRUCTURED WEB APPS'.toLowerCase() ==
     'structured web apps');
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
-These methods don’t work for every language. For example, the Turkish
-alphabet’s dotless <em>I</em> is converted incorrectly.</p>
+  <p><strong>提示：</strong>
+这些方法不是在所有语言上都有效的。例如，
+土耳其字母表的无点 <em>I</em> 转换是不正确的。</p>
 </div>
 
-<h4 id="trimming-and-empty-strings">
-<a id="trimming-and-empty-strings" class="anchor" href="#trimming-and-empty-strings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trimming and empty strings</h4>
+<h4 id="trimming-和空字符串">
+<a id="trimming-和空字符串" class="anchor" href="#trimming-%E5%92%8C%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trimming 和空字符串</h4>
 
-<p>Remove all leading and trailing white space with <code class="highlighter-rouge">trim()</code>. To check
-whether a string is empty (length is zero), use <code class="highlighter-rouge">isEmpty</code>.</p>
+<p>使用 <code class="highlighter-rouge">trim()</code> 移除首尾空格。
+使用 <code class="highlighter-rouge">isEmpty</code> 检查一个字符串是否为空（长度为0）。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (trim-etc)"?>
 <pre class="prettyprint lang-dart">
 // Trim a string.
 assert('  hello  '.trim() == 'hello');
 
-// Check whether a string is empty.
+// 检查字符串是否为空。
 assert(''.isEmpty);
 
-// Strings with only white space are not empty.
+// 空格字符串不是空字符串。
 assert('  '.isNotEmpty);
 </pre>
 
-<h4 id="replacing-part-of-a-string">
-<a id="replacing-part-of-a-string" class="anchor" href="#replacing-part-of-a-string" aria-hidden="true"><span class="octicon octicon-link"></span></a>Replacing part of a string</h4>
+<h4 id="替换部分字符串">
+<a id="替换部分字符串" class="anchor" href="#%E6%9B%BF%E6%8D%A2%E9%83%A8%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>替换部分字符串</h4>
 
-<p>Strings are immutable objects, which means you can create them but you
-can’t change them. If you look closely at the <a href="https://api.dartlang.org/dev/dart-core/String-class.html">String API docs,</a>
-you’ll notice that
-none of the methods actually changes the state of a String. For example,
-the method <code class="highlighter-rouge">replaceAll()</code> returns a new String without changing the
-original String:</p>
+<p>字符串是不可变的对象，也就是说字符串可以创建但是不能被修改。
+如果仔细阅读了 <a href="https://api.dartlang.org/dev/dart-core/String-class.html">String API docs,</a>
+你会注意到，没有一个方法实际的改变了字符串的状态。
+例如，方法 <code class="highlighter-rouge">replaceAll()</code> 返回一个新字符串，
+并没有改变原始字符串：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (replace)"?>
 <pre class="prettyprint lang-dart">
@@ -553,17 +542,17 @@ var greetingTemplate = 'Hello, NAME!';
 var greeting =
     greetingTemplate.replaceAll(RegExp('NAME'), 'Bob');
 
-// greetingTemplate didn't change.
+// greetingTemplate 没有改变。
 assert(greeting != greetingTemplate);
 </pre>
 
-<h4 id="building-a-string">
-<a id="building-a-string" class="anchor" href="#building-a-string" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building a string</h4>
+<h4 id="构建一个字符串">
+<a id="构建一个字符串" class="anchor" href="#%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>构建一个字符串</h4>
 
-<p>To programmatically generate a string, you can use StringBuffer. A
-StringBuffer doesn’t generate a new String object until <code class="highlighter-rouge">toString()</code> is
-called. The <code class="highlighter-rouge">writeAll()</code> method has an optional second parameter that
-lets you specify a separator—in this case, a space.</p>
+<p>要以代码方式生成字符串，可以使用 StringBuffer 。
+在调用 <code class="highlighter-rouge">toString()</code> 之前， StringBuffer 不会生成新字符串对象。
+<code class="highlighter-rouge">writeAll()</code> 的第二个参数为可选参数，用来指定分隔符，
+本例中使用空格作为分隔符。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (StringBuffer)"?>
 <pre class="prettyprint lang-dart">
@@ -579,136 +568,136 @@ assert(fullString ==
     'Use a StringBuffer for efficient string creation.');
 </pre>
 
-<h4 id="regular-expressions">
-<a id="regular-expressions" class="anchor" href="#regular-expressions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Regular expressions</h4>
+<h4 id="正则表达式">
+<a id="正则表达式" class="anchor" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>正则表达式</h4>
 
-<p>The RegExp class provides the same capabilities as JavaScript regular
-expressions. Use regular expressions for efficient searching and pattern
-matching of strings.</p>
+<p>RegExp类提供与JavaScript正则表达式相同的功能。
+使用正则表达式可以对字符串进行高效搜索和模式匹配。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (RegExp)"?>
 <pre class="prettyprint lang-dart">
-// Here's a regular expression for one or more digits.
+// 下面正则表达式用于匹配一个或多个数字。
 var numbers = RegExp(r'\d+');
 
 var allCharacters = 'llamas live fifteen to twenty years';
 var someDigits = 'llamas live 15 to 20 years';
 
-// contains() can use a regular expression.
+// contains() 能够使用正则表达式。
 assert(!allCharacters.contains(numbers));
 assert(someDigits.contains(numbers));
 
-// Replace every match with another string.
+// 替换所有匹配对象为另一个字符串。
 var exedOut = someDigits.replaceAll(numbers, 'XX');
 assert(exedOut == 'llamas live XX to XX years');
 </pre>
 
-<p>You can work directly with the RegExp class, too. The Match class
-provides access to a regular expression match.</p>
+<p>你也可以直接使用RegExp类。
+Match 类提供对正则表达式匹配对象的访问。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (match)"?>
 <pre class="prettyprint lang-dart">
 var numbers = RegExp(r'\d+');
 var someDigits = 'llamas live 15 to 20 years';
 
-// Check whether the reg exp has a match in a string.
+// 检查正则表达式是否在字符串中匹配到对象。
 assert(numbers.hasMatch(someDigits));
 
-// Loop through all matches.
+// 迭代所有匹配对象
 for (var match in numbers.allMatches(someDigits)) {
   print(match.group(0)); // 15, then 20
 }
 </pre>
 
-<h4 id="more-information">
-<a id="more-information" class="anchor" href="#more-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h4>
+<h4 id="更多信息">
+<a id="更多信息" class="anchor" href="#%E6%9B%B4%E5%A4%9A%E4%BF%A1%E6%81%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>更多信息</h4>
 
-<p>Refer to the <a href="https://api.dartlang.org/dev/dart-core/String-class.html">String API docs</a> for a full list of
-methods. Also see the API docs for <a href="https://api.dartlang.org/dev/dart-core/StringBuffer-class.html">StringBuffer,</a>
-<a href="https://api.dartlang.org/dev/dart-core/Pattern-class.html">Pattern,</a> <a href="https://api.dartlang.org/dev/dart-core/RegExp-class.html">RegExp,</a> and <a href="https://api.dartlang.org/dev/dart-core/Match-class.html">Match.</a></p>
+<p>有关完整的方法列表，
+请参考 <a href="https://api.dartlang.org/dev/dart-core/String-class.html">String API docs</a>。
+另请参考 <a href="https://api.dartlang.org/dev/dart-core/StringBuffer-class.html">StringBuffer，</a>
+<a href="https://api.dartlang.org/dev/dart-core/Pattern-class.html">Pattern，</a> <a href="https://api.dartlang.org/dev/dart-core/RegExp-class.html">RegExp，</a> 和 <a href="https://api.dartlang.org/dev/dart-core/Match-class.html">Match</a>
+的 API 文档。</p>
 
 <h3 id="collections">
 <a id="collections" class="anchor" href="#collections" aria-hidden="true"><span class="octicon octicon-link"></span></a>Collections</h3>
 
-<p>Dart ships with a core collections API, which includes classes for
-lists, sets, and maps.</p>
+<p>Dart 附带了核心集合 API ，其中包括 list ，set 和 map 类。</p>
 
 <h4 id="lists">
 <a id="lists" class="anchor" href="#lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists</h4>
 
-<p>As the language tour shows, you can use literals to create and
-initialize <a href="#lists">lists</a>. Alternatively, use one of the List
-constructors. The List class also defines several methods for adding
-items to and removing items from lists.</p>
+<p>如语言概览中介绍，<a href="#lists">lists</a> 可以通过字面量来创建和初始化。
+另外，也可以使用 List 的构造函数。
+List 类还定义了若干方法，用于向列表添加或删除项目。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (List)"?>
 <pre class="prettyprint lang-dart">
-// Use a List constructor.
+// 使用 List 构造函数。
 var vegetables = List();
 
-// Or simply use a list literal.
+// 或者仅使用一个 list 字面量。
 var fruits = ['apples', 'oranges'];
 
-// Add to a list.
+// 添加一个元素到 list 对象。
 fruits.add('kiwis');
 
-// Add multiple items to a list.
+// 添加多个元素到 list 对象。
 fruits.addAll(['grapes', 'bananas']);
 
-// Get the list length.
+// 获取 list 长度。
 assert(fruits.length == 5);
 
-// Remove a single item.
+// 移除一个元素到 list 对象。
 var appleIndex = fruits.indexOf('apples');
 fruits.removeAt(appleIndex);
 assert(fruits.length == 4);
 
-// Remove all elements from a list.
+// 移除多个元素到 list 对象。
 fruits.clear();
 assert(fruits.length == 0);
 </pre>
 
-<p>Use <code class="highlighter-rouge">indexOf()</code> to find the index of an object in a list:</p>
+<p>使用 <code class="highlighter-rouge">indexOf()</code> 方法查找一个对象在 list 中的下标值。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (indexOf)"?>
 <pre class="prettyprint lang-dart">
 var fruits = ['apples', 'oranges'];
 
-// Access a list item by index.
+// 使用下标访问 list 中的元素
 assert(fruits[0] == 'apples');
 
-// Find an item in a list.
+// 查找一个元素在 list 中的下标。
 assert(fruits.indexOf('apples') == 0);
 </pre>
 
-<p>Sort a list using the <code class="highlighter-rouge">sort()</code> method. You can provide a sorting
-function that compares two objects. This sorting function must return &lt;
-0 for <em>smaller</em>, 0 for the <em>same</em>, and &gt; 0 for <em>bigger</em>. The following
-example uses <code class="highlighter-rouge">compareTo()</code>, which is defined by
-<a href="https://api.dartlang.org/dev/dart-core/Comparable-class.html">Comparable</a> and implemented by String.</p>
+<p>使用 <code class="highlighter-rouge">sort()</code> 方法排序一个 list 。
+你可以提供一个排序函数用于比较两个对象。
+比较函数在 <em>小于</em> 时返回 \ &lt;0，<em>相等</em> 时返回 0，<em>bigger</em> 时返回 &gt; 0 。
+下面示例中使用 <code class="highlighter-rouge">compareTo()</code> 函数，
+该函数在 <a href="https://api.dartlang.org/dev/dart-core/Comparable-class.html">Comparable</a> 中定义，
+并被 String 类实现。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (compareTo)"?>
 <pre class="prettyprint lang-dart">
 var fruits = ['bananas', 'apples', 'oranges'];
 
-// Sort a list.
+// 排序一个 list 。
 fruits.sort((a, b) =&gt; a.compareTo(b));
 assert(fruits[0] == 'apples');
 </pre>
 
-<p>Lists are parameterized types, so you can specify the type that a list
-should contain:</p>
+<p>list 是参数化类型，
+因此可以指定 list 应该包含的元素类型：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (ListOfString)"?>
 <pre class="prettyprint lang-dart">
-// This list should contain only strings.
+// 这个 list 只能包含字符串类型。
 var fruits = List&lt;String&gt;();
 
 fruits.add('apples');
 var fruit = fruits[0];
 assert(fruit is String);
 
-// Generates static analysis warning, num is not a string.
+// 产生静态分析警告，num 不是字符串类型。
 fruits.add(5); // BAD: Throws exception in checked mode.
 </pre>
 
@@ -718,13 +707,13 @@ fruits.add(5); // BAD: Throws exception in checked mode.
   see <a href="/dart-2">Dart 2 Updates.</a></p>
 </aside>
 
-<p>Refer to the <a href="https://api.dartlang.org/dev/dart-core/List-class.html">List API docs</a> for a full list of methods.</p>
+<p>全部的方法介绍 ，请参考 <a href="https://api.dartlang.org/dev/dart-core/List-class.html">List API docs</a> 。</p>
 
 <h4 id="sets">
 <a id="sets" class="anchor" href="#sets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sets</h4>
 
-<p>A set in Dart is an unordered collection of unique items. Because a set
-is unordered, you can’t get a set’s items by index (position).</p>
+<p>在 Dart 中，set 是一个无序的，元素唯一的集合。
+因为一个 set 是无序的，所以无法通过下标（位置）获取 set 中的元素。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (Set)"?>
 <pre class="prettyprint lang-dart">
@@ -732,92 +721,89 @@ var ingredients = Set();
 ingredients.addAll(['gold', 'titanium', 'xenon']);
 assert(ingredients.length == 3);
 
-// Adding a duplicate item has no effect.
+// 添加一个重复的元素是无效的。
 ingredients.add('gold');
 assert(ingredients.length == 3);
 
-// Remove an item from a set.
+// 从 set 中移除一个元素。
 ingredients.remove('gold');
 assert(ingredients.length == 2);
 </pre>
 
-<p>Use <code class="highlighter-rouge">contains()</code> and <code class="highlighter-rouge">containsAll()</code> to check whether one or more
-objects are in a set:</p>
+<p>使用 <code class="highlighter-rouge">contains()</code> 和 <code class="highlighter-rouge">containsAll()</code> 来检查一个或多个元素是否在 set 中。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (contains)"?>
 <pre class="prettyprint lang-dart">
 var ingredients = Set();
 ingredients.addAll(['gold', 'titanium', 'xenon']);
 
-// Check whether an item is in the set.
+// 检查一个元素是否在该 set 中。
 assert(ingredients.contains('titanium'));
 
-// Check whether all the items are in the set.
+// 检查多个元素是否在该 set 中。
 assert(ingredients.containsAll(['titanium', 'xenon']));
 </pre>
 
-<p>An intersection is a set whose items are in two other sets.</p>
+<p>交集是另外两个 set 中的公共元素组成的 set 。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (intersection)"?>
 <pre class="prettyprint lang-dart">
 var ingredients = Set();
 ingredients.addAll(['gold', 'titanium', 'xenon']);
 
-// Create the intersection of two sets.
+// 创建两个 set 的交集。
 var nobleGases = Set.from(['xenon', 'argon']);
 var intersection = ingredients.intersection(nobleGases);
 assert(intersection.length == 1);
 assert(intersection.contains('xenon'));
 </pre>
 
-<p>Refer to the <a href="https://api.dartlang.org/dev/dart-core/Set-class.html">Set API docs</a> for a full list of methods.</p>
+<p>全部的方法介绍 ，请参考 <a href="https://api.dartlang.org/dev/dart-core/Set-class.html">Set API docs</a> 。</p>
 
 <h4 id="maps">
 <a id="maps" class="anchor" href="#maps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maps</h4>
 
-<p>A map, commonly known as a <em>dictionary</em> or <em>hash</em>, is an unordered
-collection of key-value pairs. Maps associate a key to some value for
-easy retrieval. Unlike in JavaScript, Dart objects are not maps.</p>
+<p>map 是一个无序的 key-value （键值对）集合，就是大家熟知的 <em>dictionary</em> 或者 <em>hash</em>。
+map 将 kay 与 value 关联，以便于检索。和 JavaScript 不同，Dart 对象不是 map 。</p>
 
-<p>You can declare a map using a terse literal syntax, or you can use a
-traditional constructor:</p>
+<p>声明 map 可以使用简洁的字面量语法，也可以使用传统构造函数：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (Map)"?>
 <pre class="prettyprint lang-dart">
-// Maps often use strings as keys.
+// map 通常使用字符串作为 key。
 var hawaiianBeaches = {
   'Oahu': ['Waikiki', 'Kailua', 'Waimanalo'],
   'Big Island': ['Wailea Bay', 'Pololu Beach'],
   'Kauai': ['Hanalei', 'Poipu']
 };
 
-// Maps can be built from a constructor.
+// map 可以通过构造函数构建。
 var searchTerms = Map();
 
-// Maps are parameterized types; you can specify what
-// types the key and value should be.
+// map 是参数化类型；
+// 可以指定一个 map 中 key 和 value 的类型。
 var nobleGases = Map&lt;int, String&gt;();
 </pre>
 
-<p>You add, get, and set map items using the bracket syntax. Use <code class="highlighter-rouge">remove()</code>
-to remove a key and its value from a map.</p>
+<p>通过大括号语法可以为 map 添加，获取，设置元素。
+使用 <code class="highlighter-rouge">remove()</code> 方法从 map 中移除键值对。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (remove)"?>
 <pre class="prettyprint lang-dart">
 var nobleGases = {54: 'xenon'};
 
-// Retrieve a value with a key.
+// 使用 key 检索 value 。
 assert(nobleGases[54] == 'xenon');
 
-// Check whether a map contains a key.
+// 检查 map 是否包含 key 。
 assert(nobleGases.containsKey(54));
 
-// Remove a key and its value.
+// 移除一个 key 及其 value。
 nobleGases.remove(54);
 assert(!nobleGases.containsKey(54));
 </pre>
 
-<p>You can retrieve all the values or all the keys from a map:</p>
+<p>可以从一个 map 中检索出所有的 key 或所有的 value：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (keys)"?>
 <pre class="prettyprint lang-dart">
@@ -827,23 +813,23 @@ var hawaiianBeaches = {
   'Kauai': ['Hanalei', 'Poipu']
 };
 
-// Get all the keys as an unordered collection
-// (an Iterable).
+// 获取的所有的 key 是一个无序集合
+// (可迭代 list 对象)。
 var keys = hawaiianBeaches.keys;
 
 assert(keys.length == 3);
 assert(Set.from(keys).contains('Oahu'));
 
-// Get all the values as an unordered collection
-// (an Iterable of Lists).
+// 获取的所有的 value 是一个无序集合
+// (可迭代 list 对象).
 var values = hawaiianBeaches.values;
 assert(values.length == 3);
 assert(values.any((v) =&gt; v.contains('Waikiki')));
 </pre>
 
-<p>To check whether a map contains a key, use <code class="highlighter-rouge">containsKey()</code>. Because map
-values can be null, you cannot rely on simply getting the value for the
-key and checking for null to determine the existence of a key.</p>
+<p>使用 <code class="highlighter-rouge">containsKey()</code> 方法检查一个 map 中是否包含某个key 。
+因为 map 中的 value 可能会是 null ，
+所有通过 key 获取 value，并通过判断 value 是否为 null 来判断 key 是否存在是不可靠的。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (containsKey)"?>
 <pre class="prettyprint lang-dart">
@@ -857,9 +843,9 @@ assert(hawaiianBeaches.containsKey('Oahu'));
 assert(!hawaiianBeaches.containsKey('Florida'));
 </pre>
 
-<p>Use the <code class="highlighter-rouge">putIfAbsent()</code> method when you want to assign a value to a key
-if and only if the key does not already exist in a map. You must provide
-a function that returns the value.</p>
+<p>如果当且仅当该 key 不存在于 map 中，且要为这个 key 赋值，
+可使用<code class="highlighter-rouge">putIfAbsent（）</code>方法。
+该方法需要一个方法返回这个 value 。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (putIfAbsent)"?>
 <pre class="prettyprint lang-dart">
@@ -869,22 +855,22 @@ teamAssignments.putIfAbsent(
 assert(teamAssignments['Catcher'] != null);
 </pre>
 
-<p>Refer to the <a href="https://api.dartlang.org/dev/dart-core/Map-class.html">Map API docs</a> for a full list of methods.</p>
+<p>全部的方法介绍 ，请参考 <a href="https://api.dartlang.org/dev/dart-core/Map-class.html">Map API docs</a> 。</p>
 
-<h4 id="common-collection-methods">
-<a id="common-collection-methods" class="anchor" href="#common-collection-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Common collection methods</h4>
+<h4 id="公共集合方法">
+<a id="公共集合方法" class="anchor" href="#%E5%85%AC%E5%85%B1%E9%9B%86%E5%90%88%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>公共集合方法</h4>
 
-<p>List, Set, and Map share common functionality found in many collections.
-Some of this common functionality is defined by the Iterable class,
-which List and Set implement.</p>
+<p>List, Set, 和 Map 共享许多集合中的常用功能。
+其中一些常见功能由 Iterable 类定义，
+这些函数由 List 和 Set 实现。</p>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
-Although Map doesn’t implement Iterable, you can get Iterables from it
-using the Map <code class="highlighter-rouge">keys</code> and <code class="highlighter-rouge">values</code> properties.</p>
+  <p><strong>提示：</strong>
+虽然Map没有实现 Iterable，
+但可以使用 Map <code class="highlighter-rouge">keys</code> 和 <code class="highlighter-rouge">values</code> 属性从中获取 Iterable 对象。</p>
 </div>
 
-<p>Use <code class="highlighter-rouge">isEmpty</code> or <code class="highlighter-rouge">isNotEmpty</code> to check whether a list, set, or map has items:</p>
+<p>使用 <code class="highlighter-rouge">isEmpty</code> 和 <code class="highlighter-rouge">isNotEmpty</code> 方法可以检查 list， set 或 map 对象中是否包含元素：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (isEmpty)"?>
 <pre class="prettyprint lang-dart">
@@ -894,8 +880,7 @@ assert(coffees.isEmpty);
 assert(teas.isNotEmpty);
 </pre>
 
-<p>To apply a function to each item in a list, set, or map, you can use
-<code class="highlighter-rouge">forEach()</code>:</p>
+<p>使用 <code class="highlighter-rouge">forEach()</code> 可以让 list， set 或 map 对象中的每个元素都使用一个方法。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (List.forEach)"?>
 <pre class="prettyprint lang-dart">
@@ -904,20 +889,18 @@ var teas = ['green', 'black', 'chamomile', 'earl grey'];
 teas.forEach((tea) =&gt; print('I drink $tea'));
 </pre>
 
-<p>When you invoke <code class="highlighter-rouge">forEach()</code> on a map, your function must take two
-arguments (the key and value):</p>
+<p>当在 map 对象上调用 `forEach() 方法时，函数必须带两个参数（key 和 value）：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (Map.forEach)"?>
 <pre class="prettyprint lang-dart">
 hawaiianBeaches.forEach((k, v) {
   print('I want to visit $k and swim at $v');
-  // I want to visit Oahu and swim at
-  // [Waikiki, Kailua, Waimanalo], etc.
+  // 我想去瓦胡岛并且在
+  // [Waikiki, Kailua, Waimanalo]游泳， 等等。
 });
 </pre>
 
-<p>Iterables provide the <code class="highlighter-rouge">map()</code> method, which gives you all the results in
-a single object:</p>
+<p>Iterable 提供 <code class="highlighter-rouge">map()</code> 方法，这个方法将所有结果返回到一个对象中。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (List.map)"?>
 <pre class="prettyprint lang-dart">
@@ -928,14 +911,13 @@ loudTeas.forEach(print);
 </pre>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
-The object returned by <code class="highlighter-rouge">map()</code> is an Iterable that’s <em>lazily
-evaluated</em>: your function isn’t called until you ask for an item from
-the returned object.</p>
+  <p><strong>提示：</strong>
+<code class="highlighter-rouge">map()</code> 方法返回的对象是一个 <em>懒求值（lazily evaluated）</em>对象：
+只有当访问对象里面的元素时，函数才会被调用。</p>
 </div>
 
-<p>To force your function to be called immediately on each item, use
-<code class="highlighter-rouge">map().toList()</code> or <code class="highlighter-rouge">map().toSet()</code>:</p>
+<p>使用 <code class="highlighter-rouge">map().toList()</code> 或 <code class="highlighter-rouge">map().toSet()</code> ，
+可以强制在每个项目上立即调用函数。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (toList)"?>
 <pre class="prettyprint lang-dart">
@@ -943,52 +925,46 @@ var loudTeas =
     teas.map((tea) =&gt; tea.toUpperCase()).toList();
 </pre>
 
-<p>Use Iterable’s <code class="highlighter-rouge">where()</code> method to get all the items that match a
-condition. Use Iterable’s <code class="highlighter-rouge">any()</code> and <code class="highlighter-rouge">every()</code> methods to check whether
-some or all items match a condition.</p>
+<p>使用 Iterable 的 <code class="highlighter-rouge">where()</code> 方法可以获取所有匹配条件的元素。
+使用 Iterable 的 <code class="highlighter-rouge">any()</code> 和 <code class="highlighter-rouge">every()</code> 方法可以检查部分或者所有元素是否匹配某个条件。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (where-etc)"?>
 <pre class="prettyprint lang-dart">
 var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
-// Chamomile is not caffeinated.
+// 洋甘菊不含咖啡因。
 bool isDecaffeinated(String teaName) =&gt;
     teaName == 'chamomile';
 
-// Use where() to find only the items that return true
-// from the provided function.
+// 使用 where() 来查找元素，
+// 这些元素在给定的函数中返回 true 。
 var decaffeinatedTeas =
     teas.where((tea) =&gt; isDecaffeinated(tea));
-// or teas.where(isDecaffeinated)
+// 或者 teas.where(isDecaffeinated)
 
-// Use any() to check whether at least one item in the
-// collection satisfies a condition.
+// 使用 any() 来检查集合中是否至少有一个元素满足条件。
 assert(teas.any(isDecaffeinated));
 
-// Use every() to check whether all the items in a
-// collection satisfy a condition.
+// 使用 every() 来检查集合中是否所有元素满足条件。
 assert(!teas.every(isDecaffeinated));
 </pre>
 
-<p>For a full list of methods, refer to the <a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable API docs,</a> as well as those
-for <a href="https://api.dartlang.org/dev/dart-core/List-class.html">List,</a> <a href="https://api.dartlang.org/dev/dart-core/Set-class.html">Set,</a> and <a href="https://api.dartlang.org/dev/dart-core/Map-class.html">Map.</a></p>
+<p>有关方法的完整列表，请参考 <a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable API docs,</a> 以及
+<a href="https://api.dartlang.org/dev/dart-core/List-class.html">List,</a> <a href="https://api.dartlang.org/dev/dart-core/Set-class.html">Set,</a> and <a href="https://api.dartlang.org/dev/dart-core/Map-class.html">Map.</a></p>
 
 <h3 id="uris">
 <a id="uris" class="anchor" href="#uris" aria-hidden="true"><span class="octicon octicon-link"></span></a>URIs</h3>
 
-<p>The <a href="https://api.dartlang.org/dev/dart-core/Uri-class.html">Uri class</a> provides
-functions to encode and decode strings for use in URIs (which you might
-know as <em>URLs</em>). These functions handle characters that are special for
-URIs, such as <code class="highlighter-rouge">&amp;</code> and <code class="highlighter-rouge">=</code>. The Uri class also parses and exposes the
-components of a URI—host, port, scheme, and so on.</p>
+<p>在使用 URI（可能你会称它为 <em>URLs</em>） 时，<a href="https://api.dartlang.org/dev/dart-core/Uri-class.html">Uri 类</a> 提供对字符串的编解码操作。
+这些函数用来处理 URI 特有的字符，例如 <code class="highlighter-rouge">＆</code> 和 <code class="highlighter-rouge">=</code> 。
+Uri 类还可以解析和处理 URI—host，port，scheme等组件。</p>
 
-<h4 id="encoding-and-decoding-fully-qualified-uris">
-<a id="encoding-and-decoding-fully-qualified-uris" class="anchor" href="#encoding-and-decoding-fully-qualified-uris" aria-hidden="true"><span class="octicon octicon-link"></span></a>Encoding and decoding fully qualified URIs</h4>
+<h4 id="编码和解码完整合法的uri">
+<a id="编码和解码完整合法的uri" class="anchor" href="#%E7%BC%96%E7%A0%81%E5%92%8C%E8%A7%A3%E7%A0%81%E5%AE%8C%E6%95%B4%E5%90%88%E6%B3%95%E7%9A%84uri" aria-hidden="true"><span class="octicon octicon-link"></span></a>编码和解码完整合法的URI</h4>
 
-<p>To encode and decode characters <em>except</em> those with special meaning in a
-URI (such as <code class="highlighter-rouge">/</code>, <code class="highlighter-rouge">:</code>, <code class="highlighter-rouge">&amp;</code>, <code class="highlighter-rouge">#</code>), use the <code class="highlighter-rouge">encodeFull()</code> and
-<code class="highlighter-rouge">decodeFull()</code> methods. These methods are good for encoding or decoding
-a fully qualified URI, leaving intact special URI characters.</p>
+<p>使用 <code class="highlighter-rouge">encodeFull()</code> 和 <code class="highlighter-rouge">decodeFull()</code> 方法，
+对 URI 中除了特殊字符（例如 <code class="highlighter-rouge">/</code>， <code class="highlighter-rouge">:</code>， <code class="highlighter-rouge">&amp;</code>， <code class="highlighter-rouge">#</code>）以外的字符进行编解码，
+这些方法非常适合编解码完整合法的 URI，并保留 URI 中的特殊字符。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (encodeFull)"?>
 <pre class="prettyprint lang-dart">
@@ -1002,14 +978,13 @@ var decoded = Uri.decodeFull(encoded);
 assert(uri == decoded);
 </pre>
 
-<p>Notice how only the space between <code class="highlighter-rouge">some</code> and <code class="highlighter-rouge">message</code> was encoded.</p>
+<p>注意上面代码只编码了 <code class="highlighter-rouge">some</code> 和 <code class="highlighter-rouge">message</code> 之间的空格。</p>
 
-<h4 id="encoding-and-decoding-uri-components">
-<a id="encoding-and-decoding-uri-components" class="anchor" href="#encoding-and-decoding-uri-components" aria-hidden="true"><span class="octicon octicon-link"></span></a>Encoding and decoding URI components</h4>
+<h4 id="编码和解码-uri-组件">
+<a id="编码和解码-uri-组件" class="anchor" href="#%E7%BC%96%E7%A0%81%E5%92%8C%E8%A7%A3%E7%A0%81-uri-%E7%BB%84%E4%BB%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>编码和解码 URI 组件</h4>
 
-<p>To encode and decode all of a string’s characters that have special
-meaning in a URI, including (but not limited to) <code class="highlighter-rouge">/</code>, <code class="highlighter-rouge">&amp;</code>, and <code class="highlighter-rouge">:</code>, use
-the <code class="highlighter-rouge">encodeComponent()</code> and <code class="highlighter-rouge">decodeComponent()</code> methods.</p>
+<p>使用 <code class="highlighter-rouge">encodeComponent()</code> 和 <code class="highlighter-rouge">decodeComponent()</code> 方法，
+对 URI 中具有特殊含义的所有字符串字符，特殊字符包括（但不限于）<code class="highlighter-rouge">/</code>， <code class="highlighter-rouge">&amp;</code>， 和  <code class="highlighter-rouge">:</code>。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (encodeComponent)"?>
 <pre class="prettyprint lang-dart">
@@ -1023,15 +998,14 @@ var decoded = Uri.decodeComponent(encoded);
 assert(uri == decoded);
 </pre>
 
-<p>Notice how every special character is encoded. For example, <code class="highlighter-rouge">/</code> is
-encoded to <code class="highlighter-rouge">%2F</code>.</p>
+<p>注意上面代码编码了所有的字符。例如 <code class="highlighter-rouge">/</code> 被编码为 <code class="highlighter-rouge">%2F</code>。</p>
 
-<h4 id="parsing-uris">
-<a id="parsing-uris" class="anchor" href="#parsing-uris" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parsing URIs</h4>
+<h4 id="解析-uri">
+<a id="解析-uri" class="anchor" href="#%E8%A7%A3%E6%9E%90-uri" aria-hidden="true"><span class="octicon octicon-link"></span></a>解析 URI</h4>
 
-<p>If you have a Uri object or a URI string, you can get its parts using
-Uri fields such as <code class="highlighter-rouge">path</code>. To create a Uri from a string, use the
-<code class="highlighter-rouge">parse()</code> static method:</p>
+<p>可以使用 Uri 对象的字段（例如 <code class="highlighter-rouge">path</code>），
+来获取一个 Uri 对象或者 URI 字符串的一部分。
+使用 <code class="highlighter-rouge">parse()</code> 静态方法，可以使用字符串创建 Uri 对象。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (Uri.parse)"?>
 <pre class="prettyprint lang-dart">
@@ -1045,13 +1019,12 @@ assert(uri.fragment == 'frag');
 assert(uri.origin == 'http://example.org:8080');
 </pre>
 
-<p>See the <a href="https://api.dartlang.org/dev/dart-core/Uri-class.html">Uri API docs</a> for more URI components that you can get.</p>
+<p>有关 URI 组件的更多内容，参考 <a href="https://api.dartlang.org/dev/dart-core/Uri-class.html">Uri API docs</a> 。</p>
 
-<h4 id="building-uris">
-<a id="building-uris" class="anchor" href="#building-uris" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building URIs</h4>
+<h4 id="构建-uri">
+<a id="构建-uri" class="anchor" href="#%E6%9E%84%E5%BB%BA-uri" aria-hidden="true"><span class="octicon octicon-link"></span></a>构建 URI</h4>
 
-<p>You can build up a URI from individual parts using the <code class="highlighter-rouge">Uri()</code>
-constructor:</p>
+<p>可以使用 <code class="highlighter-rouge">Uri()</code> 构造函数，可以将各组件部分构建成 URI 。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (Uri)"?>
 <pre class="prettyprint lang-dart">
@@ -1667,8 +1640,8 @@ inputStream
 });
 </pre>
 
-<h3 id="more-information-1">
-<a id="more-information-1" class="anchor" href="#more-information-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h3>
+<h3 id="more-information">
+<a id="more-information" class="anchor" href="#more-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h3>
 
 <p>For some examples of using Future and Stream in command-line apps,
 see the <a href="/dart-vm/io-library-tour">dart:io tour.</a>
@@ -1768,8 +1741,8 @@ var random = Random();
 random.nextBool(); // true or false
 </pre>
 
-<h3 id="more-information-2">
-<a id="more-information-2" class="anchor" href="#more-information-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h3>
+<h3 id="more-information-1">
+<a id="more-information-1" class="anchor" href="#more-information-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h3>
 
 <p>Refer to the <a href="https://api.dartlang.org/dev/dart-math/dart-math-library.html">Math API docs</a> for a full list of methods.
 Also see the API docs for <a href="https://api.dartlang.org/dev/dart-core/num-class.html">num,</a> <a href="https://api.dartlang.org/dev/dart-core/int-class.html">int,</a> and <a href="https://api.dartlang.org/dev/dart-core/double-class.html">double.</a></p>
@@ -1951,7 +1924,7 @@ sampling of what you can install using pub.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/27 19:45 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
