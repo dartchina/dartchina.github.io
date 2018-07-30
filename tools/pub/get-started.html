@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/get-started" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/get-started" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -285,9 +285,7 @@ other metadata, such as a name for your package).</li>
 <p>To use a package, your application must define a pubspec.
 The simplest possible pubspec lists only the package name:</p>
 
-<pre class="prettyprint lang-yaml">
-name: my_app
-</pre>
+<pre class="prettyprint lang-yaml">name: my_app</pre>
 
 <p>A pubspec is where you list dependencies and their download locations.
 The pubspec is a file named <code class="literal">pubspec.yaml</code>,
@@ -298,12 +296,10 @@ two packages. First, it points to the js package that is hosted on
 pub.dartlang.org, and then it points to the intl package in the Dart
 SDK:</p>
 
-<pre class="prettyprint lang-yaml">
-name: my_app
+<pre class="prettyprint lang-yaml">name: my_app
 dependencies:
   js: ^0.3.0
-  intl: ^0.12.4
-</pre>
+  intl: ^0.12.4</pre>
 
 <p>For details, see the <a href="/tools/pub/pubspec">pubspec documentation</a>
 and the documentation for the packages you are interested in using.</p>
@@ -313,10 +309,8 @@ and the documentation for the packages you are interested in using.</p>
 <p>Once you have a pubspec, you can run <code class="literal">pub
 get</code> from the top directory of your application:</p>
 
-<pre class="prettyprint lang-dart">
-cd &lt;path-to-my_app&gt;
-pub get
-</pre>
+<pre class="prettyprint lang-dart">cd &lt;path-to-my_app&gt;
+pub get</pre>
 
 <p>This process is called <em>getting the dependencies</em>.</p>
 
@@ -338,10 +332,8 @@ that your app depends on to the corresponding package in the system cache.</p>
 <p>To import libraries found in packages, use the
 <code class="literal">package:</code> prefix:</p>
 
-<pre class="prettyprint lang-dart">
-import 'package:js/js.dart' as js;
-import 'package:intl/intl.dart';
-</pre>
+<pre class="prettyprint lang-dart">import 'package:js/js.dart' as js;
+import 'package:intl/intl.dart';</pre>
 
 <p>The Dart runtime takes everything after <code class="highlighter-rouge">package:</code>
 and looks it up within the <code class="highlighter-rouge">.packages</code> file for
@@ -352,37 +344,29 @@ your app.</p>
 <p>Consider the following pubspec file, which declares a dependency on
 the (fictional) <code class="highlighter-rouge">transmogrify</code> package:</p>
 
-<pre class="prettyprint lang-yaml">
-name: my_app
+<pre class="prettyprint lang-yaml">name: my_app
 dependencies:
-  transmogrify:
-</pre>
+  transmogrify:</pre>
 
 <p>Let’s say that your package is laid out as follows:</p>
 
-<pre>
-transmogrify/
+<pre>transmogrify/
   lib/
     transmogrify.dart
     parser.dart
   test/
     parser/
-      parser_test.dart
-</pre>
+      parser_test.dart</pre>
 
 <p>The <code class="highlighter-rouge">parser_test</code> file <em>could</em> import <code class="highlighter-rouge">parser.dart</code> like this:</p>
 
-<pre class="prettyprint lang-dart">
-import '../../lib/parser.dart';
-</pre>
+<pre class="prettyprint lang-dart">import '../../lib/parser.dart';</pre>
 
 <p>But that’s a fragile relative path. If <code class="highlighter-rouge">parser_test.dart</code> is ever moved
 up or down a directory, that path will break and you’ll have to fix the code.
 Instead, you can do as follows:</p>
 
-<pre class="prettyprint lang-dart">
-import 'package:transmogrify/parser.dart';
-</pre>
+<pre class="prettyprint lang-dart">import 'package:transmogrify/parser.dart';</pre>
 
 <p>This way, the import can always get to <code class="highlighter-rouge">parser.dart</code> regardless of where the
 importing file is.</p>
@@ -408,18 +392,14 @@ code when you deploy your app to production.</p>
 
 <p>When you are ready to upgrade your dependencies to the latest versions, do:</p>
 
-<pre class="prettyprint lang-sh">
-$ pub upgrade
-</pre>
+<pre class="prettyprint lang-sh">$ pub upgrade</pre>
 
 <p>This tells pub to regenerate the lockfile using the newest
 available versions of your package’s dependencies.
 If you only want to upgrade a specific dependency,
 you can specify that too:</p>
 
-<pre class="prettyprint lang-sh">
-$ pub upgrade transmogrify
-</pre>
+<pre class="prettyprint lang-sh">$ pub upgrade transmogrify</pre>
 
 <p>This upgrades <code class="highlighter-rouge">transmogrify</code> to the latest version but leaves everything else
 the same.</p>
@@ -461,7 +441,7 @@ the same.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/libraries/creating-streams" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/libraries/creating-streams" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -95,8 +95,10 @@ ga('send', 'pageview');
 </nav>
 
   
-  <div class="alert alert-danger">
-    <h4 class="text-center">Content of this page might be obsolete.</h4>
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
   </div>
   
 </header>
@@ -283,29 +285,23 @@ To get and use the stream returned by the function,
 you use code like this
 (from <a href="code/stream_controller.dart">stream_controller.dart</a>):</p>
 
-<pre class="prettyprint lang-dart">
-Stream&lt;int&gt; counterStream = timedCounter(const Duration(seconds: 1), 15);
-counterStream.listen(print);      // Print an integer every second, 15 times.
-</pre>
+<pre class="prettyprint lang-dart">Stream&lt;int&gt; counterStream = timedCounter(const Duration(seconds: 1), 15);
+counterStream.listen(print);      // Print an integer every second, 15 times.</pre>
 
 <p>To transform the stream,
 you can invoke a transforming method such as <code class="highlighter-rouge">map()</code>
 on the stream:</p>
 
-<pre class="prettyprint lang-dart">
-Stream&lt;int&gt; counterStream2 =
+<pre class="prettyprint lang-dart">Stream&lt;int&gt; counterStream2 =
     timedCounter(const Duration(seconds: 1), 15)
     .map((int x) =&gt; x * 2);       // Double the integer in each event.
-counterStream2.listen(print);
-</pre>
+counterStream2.listen(print);</pre>
 
 <p>Instead of <code class="highlighter-rouge">map()</code>, you could use any transforming method, such as:</p>
 
-<pre class="prettyprint lang-dart">
-.where((int x) =&gt; x.isEven);      // Retain only even integer events.
+<pre class="prettyprint lang-dart">.where((int x) =&gt; x.isEven);      // Retain only even integer events.
 .expand((var x) =&gt; [x, x]);       // Duplicate each event.
-.take(5);                         // Stop after the first five events.
-</pre>
+.take(5);                         // Stop after the first five events.</pre>
 
 <p>Often, a transforming method is all you need.
 However, if you need more control over the transformation,
@@ -330,8 +326,7 @@ to implement the timedCounter() function from the previous examples.
 This code creates a stream to return,
 and then feeds data into it.</p>
 
-<pre class="prettyprint lang-dart">
-// NOTE: This implementation is FLAWED!
+<pre class="prettyprint lang-dart">// NOTE: This implementation is FLAWED!
 // It starts before it has subscribers, and it doesn't implement pause.
 Stream&lt;int&gt; timedCounter(Duration interval, [int maxCount]) {
   StreamController&lt;int&gt; controller = new StreamController&lt;int&gt;();
@@ -346,17 +341,14 @@ Stream&lt;int&gt; timedCounter(Duration interval, [int maxCount]) {
   }
   new Timer.periodic(interval, tick); // BAD: Starts before it has subscribers.
   return controller.stream;
-}
-</pre>
+}</pre>
 
 <p>As before, you can use the stream returned by timedCounter() like this:</p>
 
-<pre class="prettyprint lang-dart">
-main() {
+<pre class="prettyprint lang-dart">main() {
   Stream&lt;int&gt; counterStream = timedCounter(const Duration(seconds: 1), 15);
   counterStream.listen(print);      // Print an integer every second, 15 times.
-}
-</pre>
+}</pre>
 
 <p>This implementation of timedCounter() has
 a couple of problems:</p>
@@ -382,14 +374,12 @@ if the stream never gets a subscriber.</p>
 
 <p>Try changing main() to the following:</p>
 
-<pre class="prettyprint lang-dart">
-main() {
+<pre class="prettyprint lang-dart">main() {
   var counterStream = timedCounter(const Duration(seconds: 1), 15);
 
   // After 5 seconds, add a listener.
   new Timer(const Duration(seconds: 5), () =&gt; counterStream.listen(print));
-}
-</pre>
+}</pre>
 
 <p>When this code runs,
 nothing is printed for the first 5 seconds,
@@ -422,8 +412,7 @@ then the work spent creating the buffer is wasted.</p>
 <p>To see what happens without pause support,
 try changing the main() method above to this:</p>
 
-<pre class="prettyprint lang-dart">
-main() {
+<pre class="prettyprint lang-dart">main() {
   Stream&lt;int&gt; counterStream = timedCounter(const Duration(seconds: 1), 15);
   StreamSubscription&lt;int&gt; subscription;
   subscription = counterStream.listen((int counter) {
@@ -434,8 +423,7 @@ main() {
       new Timer(const Duration(seconds: 5), subscription.resume);
     }
   });
-}
-</pre>
+}</pre>
 
 <p>When the five seconds of pause are up,
 the events fired during that time are all received at once.
@@ -450,8 +438,7 @@ implements pause by using the
 <code class="highlighter-rouge">onListen</code>, <code class="highlighter-rouge">onPause</code>, <code class="highlighter-rouge">onResume</code>, and <code class="highlighter-rouge">onCancel</code> callbacks
 on the StreamController.</p>
 
-<pre class="prettyprint lang-dart">
-import 'dart:async';
+<pre class="prettyprint lang-dart">import 'dart:async';
 
 Stream&lt;int&gt; timedCounter(Duration interval, [int maxCount]) {
   StreamController&lt;int&gt; controller;
@@ -485,8 +472,7 @@ Stream&lt;int&gt; timedCounter(Duration interval, [int maxCount]) {
       onCancel: stopTimer);
 
   return controller.stream;
-}
-</pre>
+}</pre>
 
 <p>Run this code with the main() method above.
 You’ll see that it stops counting while paused,
@@ -528,8 +514,7 @@ so they work as if called on the underlying stream.</p>
 has a LineStream class
 that extends Stream&lt;String&gt;:</p>
 
-<pre class="prettyprint lang-dart">
-import 'dart:async';
+<pre class="prettyprint lang-dart">import 'dart:async';
 
 class LineStream extends Stream&lt;String&gt; {
   Stream&lt;String&gt; _source;
@@ -589,8 +574,7 @@ class LineStream extends Stream&lt;String&gt; {
     if (!_remainder.isEmpty) _controller.add(_remainder);
     _controller.close();
   }
-}
-</pre>
+}</pre>
 
 <p>Notice that while our stream here extends Stream,
 it doesn’t implement listener handling and pausing itself.
@@ -628,9 +612,7 @@ before the <code class="highlighter-rouge">subscription</code> variable (a
 <a href="https://api.dartlang.org/dev/dart-async/StreamSubscription-class.html">StreamSubscription</a>)
 has a valid value.</p>
 
-    <pre class="prettyprint lang-dart">
-subscription = stream.listen(handler);
-</pre>
+    <pre class="prettyprint lang-dart">subscription = stream.listen(handler);</pre>
   </li>
   <li>
     <p>The <code class="highlighter-rouge">onListen</code>, <code class="highlighter-rouge">onPause</code>, <code class="highlighter-rouge">onResume</code>, and <code class="highlighter-rouge">onCancel</code>
@@ -668,7 +650,7 @@ or during the call of another state change handler.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

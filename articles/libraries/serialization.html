@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/libraries/serialization" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/libraries/serialization" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -95,8 +95,10 @@ ga('send', 'pageview');
 </nav>
 
   
-  <div class="alert alert-danger">
-    <h4 class="text-center">Content of this page might be obsolete.</h4>
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
   </div>
   
 </header>
@@ -243,17 +245,19 @@ ga('send', 'pageview');
 
             <h1>Serialization in Dart</h1>
           </div>
-          <aside class="alert alert-info">
-  <p><strong>Note:</strong> This article is a bit outdated. Its general information and approach
-are still useful, but it doesn’t cover new software such as the
-<a href="https://pub.dartlang.org/packages/built_value">built_value package</a>.
-For more up-to-date information and discussion of Dart serialization
-solutions, see the unofficial repo
-<a href="https://github.com/matanlurey/dart_serialize_proposal">matanlurey/dart_serialize_proposals</a>.</p>
-</aside>
+          <p><em>Written by Nicolas Garnier<br>
+February 2015 (note updated July 2018)</em></p>
 
-<p><em>Written by Nicolas Garnier<br>
-February 2015 (note added March 2017)</em></p>
+<aside class="alert alert-warning">
+  <p>This article’s general information and approach
+  are still useful, but it doesn’t cover new software such as the
+  <a href="https://pub.dartlang.org/packages/built_value">built_value</a> and 
+  <a href="https://pub.dartlang.org/packages/json_serializable">json_serializable</a>
+  packages.
+  A more up-to-date discussion of Dart serialization solutions is
+  in the unofficial repo
+  <a href="https://github.com/matanlurey/dart_serialize_proposal">matanlurey/dart_serialize_proposal.</a></p>
+</aside>
 
 <p>Being able to serialize and deserialize objects is a common task in web apps.
 Here are a few typical cases of using serialization:</p>
@@ -720,19 +724,16 @@ featuring code from examples in
 <p>The examples serialize and deserialize Person objects.
 When defined in Dart code, the Person class looks like this:</p>
 
-<pre class="prettyprint lang-dart">
-class Person {
+<pre class="prettyprint lang-dart">class Person {
   int id;
   String name;
   DateTime dateOfBirth;
   List&lt;Person&gt; children;
-}
-</pre>
+}</pre>
 
 <p>Dart code might create Person objects like this:</p>
 
-<pre class="prettyprint lang-dart">
-Person jerome = new Person()
+<pre class="prettyprint lang-dart">Person jerome = new Person()
   ..id = 228
   ..name = "Jerome Dole"
   ..dateOfBirth = new DateTime(2013, 1, 19);
@@ -746,15 +747,13 @@ Person bob = new Person()
   ..id = 123
   ..name = "Bob Dole"
   ..dateOfBirth = new DateTime(1980, 3, 16)
-  ..children = (new List()..add(jerome)..add(sarah));
-</pre>
+  ..children = (new List()..add(jerome)..add(sarah));</pre>
 
 <p>The <code class="highlighter-rouge">bob</code> object,
 when serialized using simple JSON,
 looks something like this:</p>
 
-<pre class="prettyprint lang-yaml">
-{
+<pre class="prettyprint lang-yaml">{
     "id": 123,
     "name": "Bob Dole",
     "dateOfBirth": "1980-03-16T00:00:00Z",
@@ -768,8 +767,7 @@ looks something like this:</p>
         "name": "Sarah Dole",
         "dateOfBirth": "2011-04-09T00:00:00Z"
     }]
-}
-</pre>
+}</pre>
 
 <h3 id="dartson-example">
 <a id="dartson-1" class="anchor" href="#dartson-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>dartson</h3>
@@ -779,34 +777,28 @@ looks something like this:</p>
     <p>Edit the project’s <code class="highlighter-rouge">pubspec.yaml</code>,
   adding a dependency on the dartson package and its pub transformer:</p>
 
-    <pre class="prettyprint lang-yaml">
-...
+    <pre class="prettyprint lang-yaml">...
 dependencies:
   dartson: "&gt;=0.2.0 &lt;0.3.0"
 transformers:
-- dartson
-</pre>
+- dartson</pre>
   </li>
 
 <li>
     <p>Annotate your serializable classes with <code class="highlighter-rouge">@Entity()</code>. For example:</p>
 
-    <pre class="prettyprint lang-dart">
-@Entity()
+    <pre class="prettyprint lang-dart">@Entity()
 class Person {
   ...
-}
-</pre>
+}</pre>
   </li>
 
 <li>
     <p>Import <code class="highlighter-rouge">dartson.dart</code> and the libraries for any type transformers
   that you need.</p>
 
-    <pre class="prettyprint lang-dart">
-import 'package:dartson/dartson.dart';
-import 'package:dartson/transformers/date_time.dart';
-</pre>
+    <pre class="prettyprint lang-dart">import 'package:dartson/dartson.dart';
+import 'package:dartson/transformers/date_time.dart';</pre>
   </li>
 
 <li>
@@ -814,10 +806,8 @@ import 'package:dartson/transformers/date_time.dart';
   <a href="https://www.dartdocs.org/documentation/dartson/latest/index.html">Dartson</a>,
   and add any type transformers you need:</p>
 
-    <pre class="prettyprint lang-dart">
-var dson = new Dartson.JSON();
-dson.addTransformer(new DateTimeParser(), DateTime);
-</pre>
+    <pre class="prettyprint lang-dart">var dson = new Dartson.JSON();
+dson.addTransformer(new DateTimeParser(), DateTime);</pre>
   </li>
 
 <li>
@@ -826,24 +816,18 @@ dson.addTransformer(new DateTimeParser(), DateTime);
     <p>For example, the following code serializes the <code class="highlighter-rouge">bob</code> Person object,
   along with the two Person objects that are children of <code class="highlighter-rouge">bob</code>:</p>
 
-    <pre class="prettyprint lang-dart">
-String personString = dson.encode(bob);
-print("Serialized Person: $personString");
-</pre>
+    <pre class="prettyprint lang-dart">String personString = dson.encode(bob);
+print("Serialized Person: $personString");</pre>
 
     <p>Here’s the output of that print:</p>
 
-    <pre class="prettyprint lang-sh">
-Serialized Person: {"id":123,"name":"Bob Dole","dateOfBirth":"1980-03-16T00:00:00Z","children":[{"id":228,"name":"Jerome Dole","dateOfBirth":"2013-01-19T00:00:00Z"},{"id":201,"name":"Sarah Dole","dateOfBirth":"2011-04-09T00:00:00Z"}]}
-</pre>
+    <pre class="prettyprint lang-sh">Serialized Person: {"id":123,"name":"Bob Dole","dateOfBirth":"1980-03-16T00:00:00Z","children":[{"id":228,"name":"Jerome Dole","dateOfBirth":"2013-01-19T00:00:00Z"},{"id":201,"name":"Sarah Dole","dateOfBirth":"2011-04-09T00:00:00Z"}]}</pre>
   </li>
 
 <li>
     <p>Deserialize objects using Dartson’s <code class="highlighter-rouge">decode()</code> method:</p>
 
-    <pre class="prettyprint lang-dart">
-Person deserializedPerson = dson.decode(personString, new Person());
-</pre>
+    <pre class="prettyprint lang-dart">Person deserializedPerson = dson.decode(personString, new Person());</pre>
   </li>
 </ol>
 
@@ -888,45 +872,37 @@ and clone it or download its ZIP file.</li>
     <p>The <code class="highlighter-rouge">.proto</code> file describes the data types.
   For example, here is a simple <code class="highlighter-rouge">.proto</code> file for Person objects:</p>
 
-    <pre class="prettyprint lang-dart">
-message Person {
+    <pre class="prettyprint lang-dart">message Person {
     required int32 id = 1;
     required string name = 2;
     required uint64 date_of_birth = 3;
     repeated Person children = 4;
-}
-</pre>
+}</pre>
 
     <p>Note that the Person object can’t use DateTime.
 Instead, the <code class="highlighter-rouge">.proto</code> file uses a 64-bit integer for the field.
 The Dart code for creating a Person object looks like this:</p>
 
-    <pre class="prettyprint lang-dart">
-Person bob = new Person()
+    <pre class="prettyprint lang-dart">Person bob = new Person()
   ..id = 123
   ..name = "Bob Dole"
   ..dateOfBirth = new Int64(new DateTime(1980, 3, 16).millisecondsSinceEpoch)
   ..children.add(jerome)
-  ..children.add(sarah);
-</pre>
+  ..children.add(sarah);</pre>
   </li>
 
 <li>
     <p>In your project’s <code class="highlighter-rouge">pubspec.yaml</code> file,
   add protobuf as a dependency:</p>
 
-    <pre class="prettyprint lang-yaml">
-dependencies:
-  protobuf: "&gt;=0.3.4 &lt;0.4.0"
-</pre>
+    <pre class="prettyprint lang-yaml">dependencies:
+  protobuf: "&gt;=0.3.4 &lt;0.4.0"</pre>
   </li>
 
 <li>
     <p>Compile your <code class="highlighter-rouge">.proto</code> file:</p>
 
-    <pre class="prettyprint lang-sh">
-protoc --dart_out=. person.proto
-</pre>
+    <pre class="prettyprint lang-sh">protoc --dart_out=. person.proto</pre>
 
     <p>This generates a Dart file containing
   serialization and deserialization rules.</p>
@@ -935,9 +911,7 @@ protoc --dart_out=. person.proto
 <li>
     <p>Import the newly created file in your code.</p>
 
-    <pre class="prettyprint lang-dart">
-import 'person.pb.dart'; // This is the file generated by protoc.
-</pre>
+    <pre class="prettyprint lang-dart">import 'person.pb.dart'; // This is the file generated by protoc.</pre>
   </li>
 
 <li>
@@ -945,10 +919,8 @@ import 'person.pb.dart'; // This is the file generated by protoc.
   which you can find in the
   <a href="https://www.dartdocs.org/documentation/protobuf/latest/protobuf/GeneratedMessage-class.html">GeneratedMessage class API docs</a>.</p>
 
-    <pre class="prettyprint lang-dart">
-Uint8List personBuffer = bob.writeToBuffer();
-String personJson = bob.writeToJson();
-</pre>
+    <pre class="prettyprint lang-dart">Uint8List personBuffer = bob.writeToBuffer();
+String personJson = bob.writeToJson();</pre>
   </li>
 
 <li>
@@ -956,10 +928,8 @@ String personJson = bob.writeToJson();
   These constructors are named like the
   <a href="https://www.dartdocs.org/documentation/protobuf/latest/protobuf/GeneratedMessage-class.html">GeneratedMessage</a> constructors.</p>
 
-    <pre class="prettyprint lang-dart">
-Person deserializedPerson1 = new Person.fromBuffer(personBuffer);
-Person deserializedPerson2 = new Person.fromJson(personJson);
-</pre>
+    <pre class="prettyprint lang-dart">Person deserializedPerson1 = new Person.fromBuffer(personBuffer);
+Person deserializedPerson2 = new Person.fromJson(personJson);</pre>
   </li>
 </ol>
 
@@ -1120,7 +1090,7 @@ To find more solutions,
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/native-extensions" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/native-extensions" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -327,15 +327,13 @@ API, show the native code, and show what happens when the extension is called.</
 <p>Here is the Dart part of the synchronous extension, called
 <b>sample_synchronous_extension.dart</b>:</p>
 
-<pre class="prettyprint lang-dart">
-library sample_synchronous_extension;
+<pre class="prettyprint lang-dart">library sample_synchronous_extension;
 
 import 'dart-ext:sample_extension';
 
 // The simplest way to call native code: top-level functions.
 int systemRand() native "SystemRand";
-bool systemSrand(int seed) native "SystemSrand";
-</pre>
+bool systemSrand(int seed) native "SystemSrand";</pre>
 
 <p>The code that implements a native extension executes at two different times.
 First, it runs when the native extension is loaded. Later, it runs when a
@@ -393,9 +391,7 @@ using them are in the unit test file
 <p>A native function to be called from Dart must have the
 type <strong>Dart_NativeFunction</strong>, which is defined in dart_api.h as:</p>
 
-<pre class="prettyprint lang-cpp">
-typedef void (*Dart_NativeFunction)(Dart_NativeArguments arguments);
-</pre>
+<pre class="prettyprint lang-cpp">typedef void (*Dart_NativeFunction)(Dart_NativeArguments arguments);</pre>
 
 <p>So a Dart_NativeFunction is a pointer to a function taking a
 Dart_NativeArguments object, and returning no value. The arguments object is a
@@ -448,8 +444,7 @@ initialization function, then the native function implementations, and ending
 with the name resolution function. The two native functions implementing the
 asynchronous extension are shown later.</p>
 
-<pre class="prettyprint lang-cpp">
-#include &lt;string.h&gt;
+<pre class="prettyprint lang-cpp">#include &lt;string.h&gt;
 #include "dart_api.h"
 // Forward declaration of ResolveName function.
 Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_scope);
@@ -505,8 +500,7 @@ Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_sco
   if (strcmp("SystemRand", cname) == 0) result = SystemRand;
   if (strcmp("SystemSrand", cname) == 0) result = SystemSrand;
   return result;
-}
-</pre>
+}</pre>
 
 <p>Here is the sequence of events that happens at runtime, when the function
 systemRand() (defined in sample_synchronous_extension.dart) is called for the
@@ -570,8 +564,7 @@ reinterpret_cast) that creates an array of random bytes,
 given a seed and a length.  It returns the data in a newly allocated array,
 which will be freed by the wrapper:</p>
 
-<pre class="prettyprint lang-cpp">
-uint8_t* random_array(int seed, int length) {
+<pre class="prettyprint lang-cpp">uint8_t* random_array(int seed, int length) {
   if (length &lt;= 0 || length &gt; 10000000) return NULL;
 
   uint8_t* values = reinterpret_cast&lt;uint8_t*&gt;(malloc(length));
@@ -582,8 +575,7 @@ uint8_t* random_array(int seed, int length) {
     values[i] = rand() % 256;
   }
   return values;
-}
-</pre>
+}</pre>
 
 <p>To call this from Dart, we put it in a wrapper that unpacks the Dart_CObject
 containing seed and length, and that packs the result values into a
@@ -595,8 +587,7 @@ containing a union. Look in dart_api.h to see the fields and tags used to access
 the union’s members. After the Dart_CObject is posted, it and all its resources
 can be freed, since they have been copied into Dart objects on the Dart heap.</p>
 
-<pre class="prettyprint lang-cpp">
-void wrappedRandomArray(Dart_Port dest_port_id,
+<pre class="prettyprint lang-cpp">void wrappedRandomArray(Dart_Port dest_port_id,
                         Dart_Port reply_port_id,
                         Dart_CObject* message) {
   if (message-&gt;type == Dart_CObject::kArray &amp;&amp;
@@ -627,8 +618,7 @@ void wrappedRandomArray(Dart_Port dest_port_id,
   Dart_CObject result;
   result.type = Dart_CObject::kNull;
   Dart_PostCObject(reply_port_id, &amp;result);
-}
-</pre>
+}</pre>
 
 <p>Dart_PostCObject() is the only Dart Embedding API function that should be called
 from the wrapper or the C function. Most of the API is illegal to call here,
@@ -644,8 +634,7 @@ by sending a message. We create a native port that calls this function, and
 return a send port connected to that port. The Dart library gets the port from
 this function, and forwards calls to the port.</p>
 
-<pre class="prettyprint lang-cpp">
-void randomArrayServicePort(Dart_NativeArguments arguments) {
+<pre class="prettyprint lang-cpp">void randomArrayServicePort(Dart_NativeArguments arguments) {
   Dart_SetReturnValue(arguments, Dart_Null());
   Dart_Port service_port =
       Dart_NewNativePort("RandomArrayService", wrappedRandomArray, true);
@@ -653,8 +642,7 @@ void randomArrayServicePort(Dart_NativeArguments arguments) {
     Dart_Handle send_port = Dart_NewSendPort(service_port);
     Dart_SetReturnValue(arguments, send_port);
   }
-}
-</pre>
+}</pre>
 
 <h3 id="calling-the-native-port-from-dart">
 <a id="calling-the-native-port-from-dart" class="anchor" href="#calling-the-native-port-from-dart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Calling the native port from Dart</h3>
@@ -664,8 +652,7 @@ to it when a Dart asynchronous function with a callback is called. The Dart
 class gets the port the first time the function is called, caching it in the
 usual way. Here is the Dart library for the asynchronous extension:</p>
 
-<pre class="prettyprint lang-dart">
-library sample_asynchronous_extension;
+<pre class="prettyprint lang-dart">library sample_asynchronous_extension;
 
 import 'dart-ext:sample_extension';
 
@@ -694,8 +681,7 @@ class RandomArray {
   }
 
   SendPort _newServicePort() native "RandomArray_ServicePort";
-}
-</pre>
+}</pre>
 
 <h2 id="conclusion-and-further-resources">
 <a id="conclusion-and-further-resources" class="anchor" href="#conclusion-and-further-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion and further resources</h2>
@@ -730,16 +716,12 @@ sample extension.</p>
 
 <p>On Linux, you can compile the code in the samples/sample_extension directory like this:</p>
 
-<pre>
-g++ -fPIC -m32 -I{path to SDK include directory} -DDART_SHARED_LIB -c sample_extension.cc
-</pre>
+<pre>g++ -fPIC -m32 -I{path to SDK include directory} -DDART_SHARED_LIB -c sample_extension.cc</pre>
 
 <p>To create the shared library from the object file:</p>
 
-<pre>
-gcc -shared -m32 -Wl,-soname,libsample_extension.so -o
-libsample_extension.so sample_extension.o
-</pre>
+<pre>gcc -shared -m32 -Wl,-soname,libsample_extension.so -o
+libsample_extension.so sample_extension.o</pre>
 
 <p>Remove the -m32 to build a 64-bit library that runs with the 64-bit Dart standalone VM.</p>
 
@@ -810,7 +792,7 @@ generated when building dart and is included in the Dart SDK.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

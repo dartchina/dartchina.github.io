@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/package-layout" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/package-layout" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -276,8 +276,7 @@ package, and how to name things.</p>
 that uses every corner of these guidelines
 might look like:</p>
 
-<pre>
-enchilada/
+<pre>enchilada/
   .dart_tool/ *
   .packages *
   pubspec.yaml
@@ -309,8 +308,7 @@ enchilada/
   web/
     index.html
     main.dart
-    style.css
-</pre>
+    style.css</pre>
 
 <p>* The <code class="highlighter-rouge">.dart_tool</code> directory and <code class="highlighter-rouge">.packages</code> file exist after you’ve run
    <code class="highlighter-rouge">pub get</code>. Don’t check them into source control.</p>
@@ -332,11 +330,9 @@ enchilada/
 <h2 id="the-basics">
 <a id="the-basics" class="anchor" href="#the-basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>The basics</h2>
 
-<pre>
-enchilada/
+<pre>enchilada/
   pubspec.yaml
-  pubspec.lock
-</pre>
+  pubspec.lock</pre>
 
 <p>Every package has a <a href="/tools/pub/pubspec"><em>pubspec</em></a>, a file named
 <code class="highlighter-rouge">pubspec.yaml</code>, in the root directory of the package. That’s what <em>makes</em> it a
@@ -349,10 +345,8 @@ package.</p>
 package</a>, check the lockfile into source
 control. Otherwise, don’t.</p>
 
-<pre>
-enchilada/
-  .packages
-</pre>
+<pre>enchilada/
+  .packages</pre>
 
 <p>Running pub also generates a <code class="highlighter-rouge">.packages</code> file.
 Don’t check this into source control.</p>
@@ -366,10 +360,8 @@ of those, they can go in the top level of the package too.</p>
 <h2 id="readme">
 <a id="readme" class="anchor" href="#readme" aria-hidden="true"><span class="octicon octicon-link"></span></a>README</h2>
 
-<pre>
-enchilada/
-  README.md
-</pre>
+<pre>enchilada/
+  README.md</pre>
 
 <p>One file that’s very common in open source is a README file that
 describes the project. This is especially important in pub. When you upload
@@ -383,10 +375,8 @@ your code.</p>
 <h2 id="changelog">
 <a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>CHANGELOG</h2>
 
-<pre>
-enchilada/
-  CHANGELOG.md
-</pre>
+<pre>enchilada/
+  CHANGELOG.md</pre>
 
 <p>To show users the latest changes to your package, you can include a changelog
 file where you can write a short note about the changes in your latest
@@ -410,12 +400,10 @@ appears in the changelog tab.</p>
 
 <p>The following directory structure shows the <code class="highlighter-rouge">lib</code> portion of enchilada:</p>
 
-<pre>
-enchilada/
+<pre>enchilada/
   lib/
     enchilada.dart
-    tortilla.dart
-</pre>
+    tortilla.dart</pre>
 
 <p>Many packages are <a href="/tools/pub/glossary#library-package"><em>library
 packages</em></a>: they
@@ -430,28 +418,22 @@ libraries with whatever names make sense for your package.</p>
 <p>When you do, users can import these libraries using the name of the
 package and the library file, like so:</p>
 
-<pre class="prettyprint lang-dart">
-import 'package:enchilada/enchilada.dart';
-import 'package:enchilada/tortilla.dart';
-</pre>
+<pre class="prettyprint lang-dart">import 'package:enchilada/enchilada.dart';
+import 'package:enchilada/tortilla.dart';</pre>
 
 <p>If you want to organize your public libraries, you can also create
 subdirectories inside <code class="highlighter-rouge">lib</code>. If you do that, users will specify that path
 when they import it. Say you have the following file hierarchy:</p>
 
-<pre>
-enchilada/
+<pre>enchilada/
   lib/
     some/
       path/
-        olives.dart
-</pre>
+        olives.dart</pre>
 
 <p>Users import <code class="highlighter-rouge">olives.dart</code> as follows:</p>
 
-<pre class="prettyprint lang-dart">
-import 'package:enchilada/some/path/olives.dart';
-</pre>
+<pre class="prettyprint lang-dart">import 'package:enchilada/some/path/olives.dart';</pre>
 
 <p>Note that only <em>libraries</em> should be in <code class="highlighter-rouge">lib</code>.
 <em>Entrypoints</em>—Dart scripts with a <code class="highlighter-rouge">main()</code> function—cannot
@@ -490,11 +472,9 @@ scripts in <code class="highlighter-rouge">bin</code>.</p>
 <h2 id="public-assets">
 <a id="public-assets" class="anchor" href="#public-assets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Public assets</h2>
 
-<pre>
-enchilada/
+<pre>enchilada/
   lib/
-    guacamole.css
-</pre>
+    guacamole.css</pre>
 
 <p>While most library packages exist to let you reuse Dart code, you can also
 reuse other kinds of content. For example, a package for
@@ -515,13 +495,11 @@ Old code might refer to assets using <code class="highlighter-rouge">/packages/&
 <h2 id="implementation-files">
 <a id="implementation-files" class="anchor" href="#implementation-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementation files</h2>
 
-<pre>
-enchilada/
+<pre>enchilada/
   lib/
     src/
       beans.dart
-      queso.dart
-</pre>
+      queso.dart</pre>
 
 <p>The libraries inside <code class="highlighter-rouge">lib</code> are publicly visible: other packages are free to
 import them. But much of a package’s code is internal implementation libraries
@@ -538,9 +516,7 @@ ways that could break your code.</p>
 <p>When you use libraries from within your own package, even code in <code class="highlighter-rouge">src</code>, you
 can (and should) still use <code class="highlighter-rouge">package:</code> to import them. For example:</p>
 
-<pre class="prettyprint lang-dart">
-import 'package:enchilada/src/beans.dart';
-</pre>
+<pre class="prettyprint lang-dart">import 'package:enchilada/src/beans.dart';</pre>
 
 <p>The name you use here (in this case <code class="highlighter-rouge">enchilada</code>) is the name you specify for
 your package in its <a href="/tools/pub/pubspec">pubspec</a>.</p>
@@ -548,13 +524,11 @@ your package in its <a href="/tools/pub/pubspec">pubspec</a>.</p>
 <h2 id="web-files">
 <a id="web-files" class="anchor" href="#web-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Web files</h2>
 
-<pre>
-enchilada/
+<pre>enchilada/
   web/
     index.html
     main.dart
-    style.css
-</pre>
+    style.css</pre>
 
 <p>For web packages, place entrypoint code—Dart scripts that include
 <code class="highlighter-rouge">main()</code> and supporting files, such as CSS or HTML—under <code class="highlighter-rouge">web</code>.
@@ -570,11 +544,9 @@ such as images.</p>
 <h2 id="command-line-apps">
 <a id="command-line-apps" class="anchor" href="#command-line-apps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command-line apps</h2>
 
-<pre>
-enchilada/
+<pre>enchilada/
   bin/
-    enchilada
-</pre>
+    enchilada</pre>
 
 <p>Some packages define programs that can be run directly from the command
 line.  These can be shell scripts or any other scripting language,
@@ -589,12 +561,10 @@ using
 <h2 id="tests-and-benchmarks">
 <a id="tests-and-benchmarks" class="anchor" href="#tests-and-benchmarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests and benchmarks</h2>
 
-<pre>
-enchilada/
+<pre>enchilada/
   test/
     enchilada_test.dart
-    tortilla_test.dart
-</pre>
+    tortilla_test.dart</pre>
 
 <p>Every package should have tests. With pub, the convention is
 that these go in a <code class="highlighter-rouge">test</code> directory (or some directory inside it if you like)
@@ -603,11 +573,9 @@ and have <code class="highlighter-rouge">_test</code> at the end of their file n
 <p>Typically, these use the <a href="https://pub.dartlang.org/packages/test">test</a>
 package.</p>
 
-<pre>
-enchilada/
+<pre>enchilada/
   benchmark/
-    make_lunch.dart
-</pre>
+    make_lunch.dart</pre>
 
 <p>Packages that have performance critical code may also include <em>benchmarks</em>.
 These test the API not for correctness but for speed (or memory use, or maybe
@@ -616,12 +584,10 @@ other empirical metrics).</p>
 <h2 id="documentation">
 <a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h2>
 
-<pre>
-enchilada/
+<pre>enchilada/
   doc/
     api/
-    getting_started.md
-</pre>
+    getting_started.md</pre>
 
 <p>If you’ve got code and tests, the next piece you might want
 is good documentation. That goes inside a directory named <code class="highlighter-rouge">doc</code>.</p>
@@ -638,11 +604,9 @@ that you author.  Use whatever markup format that you prefer.</p>
 <h2 id="examples">
 <a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
 
-<pre>
-enchilada/
+<pre>enchilada/
   example/
-    main.dart
-</pre>
+    main.dart</pre>
 
 <p>Code, tests, docs, what else
 could your users want? Standalone example programs that use your package, of
@@ -673,11 +637,9 @@ For example, the json_serializable package contains a file named
 <h2 id="internal-tools-and-scripts">
 <a id="internal-tools-and-scripts" class="anchor" href="#internal-tools-and-scripts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Internal tools and scripts</h2>
 
-<pre>
-enchilada/
+<pre>enchilada/
   tool/
-    generate_docs.dart
-</pre>
+    generate_docs.dart</pre>
 
 <p>Mature packages often have little helper scripts and programs that people
 run while developing the package itself. Think things like test runners,
@@ -712,7 +674,7 @@ If you have any of these, place them in a directory called <code class="highligh
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

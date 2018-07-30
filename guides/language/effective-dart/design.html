@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/effective-dart/design" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/effective-dart/design" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -437,20 +437,16 @@ The following best practices can help you achieve that goal.</p>
 already exists outside your API that users are likely to know, follow that
 precedent.</p>
 
-<pre class="prettyprint lang-dart good-style">
-pageCount         // A field.
+<pre class="prettyprint lang-dart good-style">pageCount         // A field.
 updatePageCount() // Consistent with pageCount.
 toSomething()     // Consistent with Iterable's toList().
 asSomething()     // Consistent with List's asMap().
-Point             // A familiar concept.
-</pre>
+Point             // A familiar concept.</pre>
 
-<pre class="prettyprint lang-dart bad-style">
-renumberPages()      // Confusingly different from pageCount.
+<pre class="prettyprint lang-dart bad-style">renumberPages()      // Confusingly different from pageCount.
 convertToSomething() // Inconsistent with toX() precedent.
 wrappedAsSomething() // Inconsistent with asX() precedent.
-Cartesian            // Unfamiliar to most users.
-</pre>
+Cartesian            // Unfamiliar to most users.</pre>
 
 <p>The goal is to take advantage of what the user already knows. This includes
 their knowledge of the problem domain itself, the conventions of the core
@@ -464,19 +460,15 @@ productive.</p>
 <p>Unless the abbreviation is more common than the unabbreviated term, don’t
 abbreviate. If you do abbreviate, <a href="/guides/language/effective-dart/style#identifiers">capitalize it correctly</a>.</p>
 
-<pre class="prettyprint lang-dart good-style">
-pageCount
+<pre class="prettyprint lang-dart good-style">pageCount
 buildRectangles
 IOStream
-HttpRequest
-</pre>
+HttpRequest</pre>
 
-<pre class="prettyprint lang-dart bad-style">
-numPages    // "num" is an abbreviation of number(of)
+<pre class="prettyprint lang-dart bad-style">numPages    // "num" is an abbreviation of number(of)
 buildRects
 InputOutputStream
-HypertextTransferProtocolRequest
-</pre>
+HypertextTransferProtocolRequest</pre>
 
 <h3 id="prefer-putting-the-most-descriptive-noun-last">
 <a id="prefer-putting-the-most-descriptive-noun-last" class="anchor" href="#prefer-putting-the-most-descriptive-noun-last" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER putting the most descriptive noun last.</h3>
@@ -484,18 +476,14 @@ HypertextTransferProtocolRequest
 <p>The last word should be the most descriptive of what the thing is. You can
 prefix it with other words, such as adjectives, to further describe the thing.</p>
 
-<pre class="prettyprint lang-dart good-style">
-pageCount             // A count (of pages).
+<pre class="prettyprint lang-dart good-style">pageCount             // A count (of pages).
 ConversionSink        // A sink for doing conversions.
 ChunkedConversionSink // A ConversionSink that's chunked.
-CssFontFaceRule       // A rule for font faces in CSS.
-</pre>
+CssFontFaceRule       // A rule for font faces in CSS.</pre>
 
-<pre class="prettyprint lang-dart bad-style">
-numPages                  // Not a collection of pages.
+<pre class="prettyprint lang-dart bad-style">numPages                  // Not a collection of pages.
 CanvasRenderingContext2D  // Not a "2D".
-RuleFontFaceCss           // Not a CSS.
-</pre>
+RuleFontFaceCss           // Not a CSS.</pre>
 
 <h3 id="consider-making-the-code-read-like-a-sentence">
 <a id="consider-making-the-code-read-like-a-sentence" class="anchor" href="#consider-making-the-code-read-like-a-sentence" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER making the code read like a sentence.</h3>
@@ -504,39 +492,33 @@ RuleFontFaceCss           // Not a CSS.
 it like a sentence.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (code-like-prose)"?>
-<pre class="prettyprint lang-dart good-style">
-// "If errors is empty..."
+<pre class="prettyprint lang-dart good-style">// "If errors is empty..."
 if (errors.isEmpty) ...
 
 // "Hey, subscription, cancel!"
 subscription.cancel();
 
 // "Get the monsters where the monster has claws."
-monsters.where((monster) =&gt; monster.hasClaws);
-</pre>
+monsters.where((monster) =&gt; monster.hasClaws);</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (code-like-prose)" replace="/ as bool//g"?>
-<pre class="prettyprint lang-dart bad-style">
-// Telling errors to empty itself, or asking if it is?
+<pre class="prettyprint lang-dart bad-style">// Telling errors to empty itself, or asking if it is?
 if (errors.empty) ...
 
 // Toggle what? To what?
 subscription.toggle();
 
 // Filter the monsters with claws *out* or include *only* those?
-monsters.filter((monster) =&gt; monster.hasClaws);
-</pre>
+monsters.filter((monster) =&gt; monster.hasClaws);</pre>
 
 <p>It’s helpful to try out your API and see how it “reads” when used in code, but
 you can go too far. It’s not helpful to add articles and other parts of speech
 to force your names to <em>literally</em> read like a grammatically correct sentence.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (code-like-prose-overdone)"?>
-<pre class="prettyprint lang-dart bad-style">
-if (theCollectionOfErrors.isEmpty) ...
+<pre class="prettyprint lang-dart bad-style">if (theCollectionOfErrors.isEmpty) ...
 
-monsters.producesANewSequenceWhereEach((monster) =&gt; monster.hasClaws);
-</pre>
+monsters.producesANewSequenceWhereEach((monster) =&gt; monster.hasClaws);</pre>
 
 <h3 id="prefer-a-noun-phrase-for-a-non-boolean-property-or-variable">
 <a id="prefer-a-noun-phrase-for-a-non-boolean-property-or-variable" class="anchor" href="#prefer-a-noun-phrase-for-a-non-boolean-property-or-variable" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER a noun phrase for a non-boolean property or variable.</h3>
@@ -545,15 +527,11 @@ monsters.producesANewSequenceWhereEach((monster) =&gt; monster.hasClaws);
 <em>how</em> a property is determined, then it should probably be a method with a
 verb phrase name.</p>
 
-<pre class="prettyprint lang-dart good-style">
-list.length
+<pre class="prettyprint lang-dart good-style">list.length
 context.lineWidth
-quest.rampagingSwampBeast
-</pre>
+quest.rampagingSwampBeast</pre>
 
-<pre class="prettyprint lang-dart bad-style">
-list.deleteItems
-</pre>
+<pre class="prettyprint lang-dart bad-style">list.deleteItems</pre>
 
 <h3 id="prefer-a-non-imperative-verb-phrase-for-a-boolean-property-or-variable">
 <a id="prefer-a-non-imperative-verb-phrase-for-a-boolean-property-or-variable" class="anchor" href="#prefer-a-non-imperative-verb-phrase-for-a-boolean-property-or-variable" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER a non-imperative verb phrase for a boolean property or variable.</h3>
@@ -561,10 +539,8 @@ list.deleteItems
 <p>Boolean names are often used as conditions in control flow, so you want a name
 that reads well there. Compare:</p>
 
-<pre class="prettyprint lang-dart">
-if (window.closeable) ...  // Adjective.
-if (window.canClose) ...   // Verb.
-</pre>
+<pre class="prettyprint lang-dart">if (window.closeable) ...  // Adjective.
+if (window.canClose) ...   // Verb.</pre>
 
 <p>Good names tend to start with one of a few kinds of verbs:</p>
 
@@ -593,23 +569,19 @@ object to do something, because accessing a property doesn’t change the object
 (If the property <em>does</em> modify the object in a meaningful way, it should be a
 method.)</p>
 
-<pre class="prettyprint lang-dart good-style">
-isEmpty
+<pre class="prettyprint lang-dart good-style">isEmpty
 hasElements
 canClose
 closesWindow
 canShowPopup
-hasShownPopup
-</pre>
+hasShownPopup</pre>
 
-<pre class="prettyprint lang-dart bad-style">
-empty         // Adjective or verb?
+<pre class="prettyprint lang-dart bad-style">empty         // Adjective or verb?
 withElements  // Sounds like it might hold elements.
 closeable     // Sounds like an interface.
               // "canClose" reads better as a sentence.
 closingWindow // Returns a bool or a window?
-showPopup     // Sounds like it shows the popup.
-</pre>
+showPopup     // Sounds like it shows the popup.</pre>
 
 <aside class="alert alert-info">
   <p>There is one exception to this rule. Input properties in <a href="https://webdev.dartlang.org/angular">Angular</a>
@@ -626,11 +598,9 @@ is often just as clear without the verb, and the code reads better at the call
 site.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (omit-verb-for-bool-param)"?>
-<pre class="prettyprint lang-dart good-style">
-Isolate.spawn(entryPoint, message, paused: false);
+<pre class="prettyprint lang-dart good-style">Isolate.spawn(entryPoint, message, paused: false);
 var copy = List.from(elements, growable: true);
-var regExp = RegExp(pattern, caseSensitive: false);
-</pre>
+var regExp = RegExp(pattern, caseSensitive: false);</pre>
 
 <h3 id="prefer-the-positive-name-for-a-boolean-property-or-variable">
 <a id="prefer-the-positive-name-for-a-boolean-property-or-variable" class="anchor" href="#prefer-the-positive-name-for-a-boolean-property-or-variable" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER the “positive” name for a boolean property or variable.</h3>
@@ -649,18 +619,14 @@ it’s harder for the reader to mentally perform the double negation and
 understand what the code means.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (positive)"?>
-<pre class="prettyprint lang-dart good-style">
-if (socket.isConnected &amp;&amp; database.hasData) {
+<pre class="prettyprint lang-dart good-style">if (socket.isConnected &amp;&amp; database.hasData) {
   socket.write(database.read());
-}
-</pre>
+}</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (positive)"?>
-<pre class="prettyprint lang-dart bad-style">
-if (!socket.isDisconnected &amp;&amp; !database.isEmpty) {
+<pre class="prettyprint lang-dart bad-style">if (!socket.isDisconnected &amp;&amp; !database.isEmpty) {
   socket.write(database.read());
-}
-</pre>
+}</pre>
 
 <p>An exception to this rule is properties where the negative form is what users
 overwhelmingly need to use. Choosing the positive case would force them to
@@ -684,11 +650,9 @@ produce some output, or talk to the outside world.</p>
 clarifies the work the member performs.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (verb-for-func-with-side-effect)"?>
-<pre class="prettyprint lang-dart good-style">
-list.add("element");
+<pre class="prettyprint lang-dart good-style">list.add("element");
 queue.removeFirst();
-window.refresh();
-</pre>
+window.refresh();</pre>
 
 <p>This way, an invocation reads like a command to do that work.</p>
 
@@ -706,11 +670,9 @@ property, and should be named as such using a phrase that describes <em>what</em
 member returns.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (noun-for-func-returning-value)"?>
-<pre class="prettyprint lang-dart good-style">
-var element = list.elementAt(3);
+<pre class="prettyprint lang-dart good-style">var element = list.elementAt(3);
 var first = list.firstWhere(test);
-var char = string.codeUnitAt(4);
-</pre>
+var char = string.codeUnitAt(4);</pre>
 
 <p>This guideline is deliberately softer than the previous one. Sometimes a method
 has no side effects but is still simpler to name with a verb phrase like
@@ -728,10 +690,8 @@ the member is doing, give the member a verb phrase name that describes that
 work.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (verb-for-func-with-work)"?>
-<pre class="prettyprint lang-dart good-style">
-var table = database.downloadData();
-var packageVersions = packageGraph.solveConstraints();
-</pre>
+<pre class="prettyprint lang-dart good-style">var table = database.downloadData();
+var packageVersions = packageGraph.solveConstraints();</pre>
 
 <p>Note, though, that this guideline is softer than the previous two. The work an
 operation performs is often an implementation detail that isn’t relevant to the
@@ -773,11 +733,9 @@ named starting with <code class="highlighter-rouge">to</code> followed by the ki
 <p>If you define a conversion method, it’s helpful to follow that convention.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (to___)"?>
-<pre class="prettyprint lang-dart good-style">
-list.toSet();
+<pre class="prettyprint lang-dart good-style">list.toSet();
 stackTrace.toString();
-dateTime.toLocal();
-</pre>
+dateTime.toLocal();</pre>
 
 <h3 id="prefer-naming-a-method-as___-if-it-returns-a-different-representation-backed-by-the-original-object">
 <a id="prefer-naming-a-method-as___-if-it-returns-a-different-representation-backed-by-the-original-object" class="anchor" href="#prefer-naming-a-method-as___-if-it-returns-a-different-representation-backed-by-the-original-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER naming a method <code class="highlighter-rouge">as___()</code> if it returns a different representation backed by the original object.</h3>
@@ -790,11 +748,9 @@ original. Later changes to the original object are reflected in the view.</p>
 <p>The core library convention for you to follow is <code class="highlighter-rouge">as___()</code>.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (as___)"?>
-<pre class="prettyprint lang-dart good-style">
-var map = table.asMap();
+<pre class="prettyprint lang-dart good-style">var map = table.asMap();
 var list = bytes.asFloat32List();
-var future = subscription.asFuture();
-</pre>
+var future = subscription.asFuture();</pre>
 
 <h3 id="avoid-describing-the-parameters-in-the-functions-or-methods-name">
 <a id="avoid-describing-the-parameters-in-the-functions-or-methods-name" class="anchor" href="#avoid-describing-the-parameters-in-the-functions-or-methods-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID describing the parameters in the function’s or method’s name.</h3>
@@ -803,24 +759,18 @@ var future = subscription.asFuture();
 readability to also refer to it in the name itself.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (avoid-desc-param-in-func)"?>
-<pre class="prettyprint lang-dart good-style">
-list.add(element);
-map.remove(key);
-</pre>
+<pre class="prettyprint lang-dart good-style">list.add(element);
+map.remove(key);</pre>
 
-<pre class="prettyprint lang-dart bad-style">
-list.addElement(element)
-map.removeKey(key)
-</pre>
+<pre class="prettyprint lang-dart bad-style">list.addElement(element)
+map.removeKey(key)</pre>
 
 <p>However, it can be useful to mention a parameter to disambiguate it from other
 similarly-named methods that take different types:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (desc-param-in-func-ok)"?>
-<pre class="prettyprint lang-dart good-style">
-map.containsKey(key);
-map.containsValue(value);
-</pre>
+<pre class="prettyprint lang-dart good-style">map.containsKey(key);
+map.containsValue(value);</pre>
 
 <h3 id="do-follow-existing-mnemonic-conventions-when-naming-type-parameters">
 <a id="do-follow-existing-mnemonic-conventions-when-naming-type-parameters" class="anchor" href="#do-follow-existing-mnemonic-conventions-when-naming-type-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO follow existing mnemonic conventions when naming type parameters.</h3>
@@ -880,8 +830,7 @@ on <code class="highlighter-rouge">Future&lt;T&gt;</code>.</p>
 mnemonic name or a descriptive name is fine:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (type-parameter-graph)"?>
-<pre class="prettyprint lang-dart good-style">
-class Graph&lt;N, E&gt; {
+<pre class="prettyprint lang-dart good-style">class Graph&lt;N, E&gt; {
   final List&lt;N&gt; nodes = [];
   final List&lt;E&gt; edges = [];
 }
@@ -889,8 +838,7 @@ class Graph&lt;N, E&gt; {
 class Graph&lt;Node, Edge&gt; {
   final List&lt;Node&gt; nodes = [];
   final List&lt;Edge&gt; edges = [];
-}
-</pre>
+}</pre>
 
 <p>In practice, the existing conventions cover most type parameters.</p>
 
@@ -951,16 +899,12 @@ with a meaningless name like <code class="highlighter-rouge">call</code> or <cod
 just want a function.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (one-member-abstract-class)"?>
-<pre class="prettyprint lang-dart good-style">
-typedef Predicate&lt;E&gt; = bool Function(E element);
-</pre>
+<pre class="prettyprint lang-dart good-style">typedef Predicate&lt;E&gt; = bool Function(E element);</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (one-member-abstract-class)"?>
-<pre class="prettyprint lang-dart bad-style">
-abstract class Predicate&lt;E&gt; {
+<pre class="prettyprint lang-dart bad-style">abstract class Predicate&lt;E&gt; {
   bool test(E element);
-}
-</pre>
+}</pre>
 
 <h3 id="avoid-defining-a-class-that-contains-only-static-members">
 <a id="avoid-defining-a-class-that-contains-only-static-members" class="anchor" href="#avoid-defining-a-class-that-contains-only-static-members" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID defining a class that contains only static members.</h3>
@@ -981,17 +925,14 @@ level. If you’re worried about name collisions, give it a more precise name or
 move it to a separate library that can be imported with a prefix.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (class-only-static)"?>
-<pre class="prettyprint lang-dart good-style">
-DateTime mostRecent(List&lt;DateTime&gt; dates) {
+<pre class="prettyprint lang-dart good-style">DateTime mostRecent(List&lt;DateTime&gt; dates) {
   return dates.reduce((a, b) =&gt; a.isAfter(b) ? a : b);
 }
 
-const _favoriteMammal = 'weasel';
-</pre>
+const _favoriteMammal = 'weasel';</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (class-only-static)"?>
-<pre class="prettyprint lang-dart bad-style">
-class DateUtils {
+<pre class="prettyprint lang-dart bad-style">class DateUtils {
   static DateTime mostRecent(List&lt;DateTime&gt; dates) {
     return dates.reduce((a, b) =&gt; a.isAfter(b) ? a : b);
   }
@@ -999,8 +940,7 @@ class DateUtils {
 
 class _Favorites {
   static const mammal = 'weasel';
-}
-</pre>
+}</pre>
 
 <p>In idiomatic Dart, classes define <em>kinds of objects</em>. A type that is never
 instantiated is a code smell.</p>
@@ -1009,15 +949,13 @@ instantiated is a code smell.</p>
 natural to group them in a class.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (class-only-static-exception)"?>
-<pre class="prettyprint lang-dart good-style">
-class Color {
+<pre class="prettyprint lang-dart good-style">class Color {
   static const red = '#f00';
   static const green = '#0f0';
   static const blue = '#00f';
   static const black = '#000';
   static const white = '#fff';
-}
-</pre>
+}</pre>
 
 <h3 id="avoid-extending-a-class-that-isnt-intended-to-be-subclassed">
 <a id="avoid-extending-a-class-that-isnt-intended-to-be-subclassed" class="anchor" href="#avoid-extending-a-class-that-isnt-intended-to-be-subclassed" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID extending a class that isn’t intended to be subclassed.</h3>
@@ -1122,25 +1060,21 @@ When users want a new instance of your class, they expect a constructor to be
 the normal way to create one.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (named-ctr)"?>
-<pre class="prettyprint lang-dart good-style">
-class Point {
+<pre class="prettyprint lang-dart good-style">class Point {
   num x, y;
   Point(this.x, this.y);
   Point.polar(num theta, num radius)
       : x = radius * cos(theta),
         y = radius * sin(theta);
-}
-</pre>
+}</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (named-ctr)"?>
-<pre class="prettyprint lang-dart bad-style">
-class Point {
+<pre class="prettyprint lang-dart bad-style">class Point {
   num x, y;
   Point(this.x, this.y);
   static Point polar(num theta, num radius) =&gt;
       Point(radius * cos(theta), radius * sin(theta));
-}
-</pre>
+}</pre>
 
 <h3 id="consider-making-your-constructor-const-if-the-class-supports-it">
 <a id="consider-making-your-constructor-const-if-the-class-supports-it" class="anchor" href="#consider-making-your-constructor-const-if-the-class-supports-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER making your constructor <code class="highlighter-rouge">const</code> if the class supports it.</h3>
@@ -1261,12 +1195,10 @@ like few members would survive that gauntlet, but surprisingly many do. Many
 operations just do some computation on some state and most of those can and
 should be getters.</p>
 
-<pre class="prettyprint lang-dart good-style">
-rectangle.area;
+<pre class="prettyprint lang-dart good-style">rectangle.area;
 collection.isEmpty;
 button.canShow;
-dataSet.minimumValue;
-</pre>
+dataSet.minimumValue;</pre>
 
 <h3 id="do-use-setters-for-operations-that-conceptually-change-properties">
 <a id="do-use-setters-for-operations-that-conceptually-change-properties" class="anchor" href="#do-use-setters-for-operations-that-conceptually-change-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use setters for operations that conceptually change properties.</h3>
@@ -1293,10 +1225,8 @@ call does nothing.</p>
   </li>
 </ul>
 
-<pre class="prettyprint lang-dart good-style">
-rectangle.width = 3;
-button.visible = false;
-</pre>
+<pre class="prettyprint lang-dart good-style">rectangle.width = 3;
+button.visible = false;</pre>
 
 <h3 id="dont-define-a-setter-without-a-corresponding-getter">
 <a id="dont-define-a-setter-without-a-corresponding-getter" class="anchor" href="#dont-define-a-setter-without-a-corresponding-getter" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T define a setter without a corresponding getter.</h3>
@@ -1340,20 +1270,16 @@ clearly, including the conditions under which <code class="highlighter-rouge">nu
 <p>Method cascades are a better solution for chaining method calls.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (cascades)"?>
-<pre class="prettyprint lang-dart good-style">
-var buffer = StringBuffer()
+<pre class="prettyprint lang-dart good-style">var buffer = StringBuffer()
   ..write('one')
   ..write('two')
-  ..write('three');
-</pre>
+  ..write('three');</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (cascades)"?>
-<pre class="prettyprint lang-dart bad-style">
-var buffer = StringBuffer()
+<pre class="prettyprint lang-dart bad-style">var buffer = StringBuffer()
     .write('one')
     .write('two')
-    .write('three');
-</pre>
+    .write('three');</pre>
 
 <h2 id="types">
 <a id="types" class="anchor" href="#types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Types</h2>
@@ -1369,12 +1295,10 @@ the following example, <code class="highlighter-rouge">bool</code> and <code cla
 the static declarative structure of the code and aren’t “executed” at runtime.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (annotate-declaration)"?>
-<pre class="prettyprint lang-dart">
-bool isEmpty(String parameter) {
+<pre class="prettyprint lang-dart">bool isEmpty(String parameter) {
   bool result = parameter.length == 0;
   return result;
-}
-</pre>
+}</pre>
 
 <p>A generic invocation is a collection literal, a call to a generic class’s
 constructor, or an invocation of a generic method. In the next example, <code class="highlighter-rouge">num</code>
@@ -1383,19 +1307,15 @@ they are first-class entities that get reified and passed to the invocation at
 runtime.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (annotate-invocation)"?>
-<pre class="prettyprint lang-dart">
-var lists = &lt;num&gt;[1, 2];
+<pre class="prettyprint lang-dart">var lists = &lt;num&gt;[1, 2];
 lists.addAll(List&lt;num&gt;.filled(3, 4));
-lists.cast&lt;int&gt;();
-</pre>
+lists.cast&lt;int&gt;();</pre>
 
 <p>We stress the “generic invocation” part here, because type arguments can <em>also</em>
 appear in type annotations:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (annotate-type-arg)"?>
-<pre class="prettyprint lang-dart">
-List&lt;int&gt; ints = [1, 2];
-</pre>
+<pre class="prettyprint lang-dart">List&lt;int&gt; ints = [1, 2];</pre>
 
 <p>Here, <code class="highlighter-rouge">int</code> is a type argument, but it appears inside a type annotation, not a
 generic invocation. You usually don’t need to worry about this distinction, but
@@ -1476,24 +1396,18 @@ They form boundaries between regions of a program to isolate the source of a
 type error. Consider:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (type_annotate_public_apis)"?>
-<pre class="prettyprint lang-dart bad-style">
-install(id, destination) =&gt; ...
-</pre>
+<pre class="prettyprint lang-dart bad-style">install(id, destination) =&gt; ...</pre>
 
 <p>Here, it’s unclear what <code class="highlighter-rouge">id</code> is. A string? And what is <code class="highlighter-rouge">destination</code>? A string
 or a <code class="highlighter-rouge">File</code> object? Is this method synchronous or asynchronous? This is clearer:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (type_annotate_public_apis)"?>
-<pre class="prettyprint lang-dart good-style">
-Future&lt;bool&gt; install(PackageId id, String destination) =&gt; ...
-</pre>
+<pre class="prettyprint lang-dart good-style">Future&lt;bool&gt; install(PackageId id, String destination) =&gt; ...</pre>
 
 <p>In some cases, though, the type is so obvious that writing it is pointless:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (inferred)"?>
-<pre class="prettyprint lang-dart good-style">
-const screenWidth = 640; // Inferred as int.
-</pre>
+<pre class="prettyprint lang-dart good-style">const screenWidth = 640; // Inferred as int.</pre>
 
 <p>“Obvious” isn’t precisely defined, but these are all good candidates:</p>
 
@@ -1534,8 +1448,7 @@ have very little scope. Omitting the type focuses the reader’s attention on th
 more important <em>name</em> of the variable and its initialized value.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (omit-types-on-locals)"?>
-<pre class="prettyprint lang-dart good-style">
-List&lt;List&lt;Ingredient&gt;&gt; possibleDesserts(Set&lt;Ingredient&gt; pantry) {
+<pre class="prettyprint lang-dart good-style">List&lt;List&lt;Ingredient&gt;&gt; possibleDesserts(Set&lt;Ingredient&gt; pantry) {
   var desserts = &lt;List&lt;Ingredient&gt;&gt;[];
   for (var recipe in cookbook) {
     if (pantry.containsAll(recipe)) {
@@ -1544,12 +1457,10 @@ List&lt;List&lt;Ingredient&gt;&gt; possibleDesserts(Set&lt;Ingredient&gt; pantry
   }
 
   return desserts;
-}
-</pre>
+}</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (omit-types-on-locals)"?>
-<pre class="prettyprint lang-dart bad-style">
-List&lt;List&lt;Ingredient&gt;&gt; possibleDesserts(Set&lt;Ingredient&gt; pantry) {
+<pre class="prettyprint lang-dart bad-style">List&lt;List&lt;Ingredient&gt;&gt; possibleDesserts(Set&lt;Ingredient&gt; pantry) {
   List&lt;List&lt;Ingredient&gt;&gt; desserts = &lt;List&lt;Ingredient&gt;&gt;[];
   for (List&lt;Ingredient&gt; recipe in cookbook) {
     if (pantry.containsAll(recipe)) {
@@ -1558,22 +1469,19 @@ List&lt;List&lt;Ingredient&gt;&gt; possibleDesserts(Set&lt;Ingredient&gt; pantry
   }
 
   return desserts;
-}
-</pre>
+}</pre>
 
 <p>If the local variable doesn’t have an initializer, then its type can’t be
 inferred. In that case, it <em>is</em> a good idea to annotate. Otherwise, you get
 <code class="highlighter-rouge">dynamic</code> and lose the benefits of static type checking.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (uninitialized-local)"?>
-<pre class="prettyprint lang-dart good-style">
-List&lt;AstNode&gt; parameters;
+<pre class="prettyprint lang-dart good-style">List&lt;AstNode&gt; parameters;
 if (node is Constructor) {
   parameters = node.signature;
 } else if (node is Method) {
   parameters = node.parameters;
-}
-</pre>
+}</pre>
 
 <h3 id="avoid-annotating-inferred-parameter-types-on-function-expressions">
 <a id="avoid-annotating-inferred-parameter-types-on-function-expressions" class="anchor" href="#avoid-annotating-inferred-parameter-types-on-function-expressions" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID annotating inferred parameter types on function expressions.</h3>
@@ -1589,14 +1497,10 @@ function’s parameter type is inferred based on the type of callback that <code
 expects:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (func-expr-no-param-type)"?>
-<pre class="prettyprint lang-dart good-style">
-var names = people.map((person) =&gt; person.name);
-</pre>
+<pre class="prettyprint lang-dart good-style">var names = people.map((person) =&gt; person.name);</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (func-expr-no-param-type)"?>
-<pre class="prettyprint lang-dart bad-style">
-var names = people.map((Person person) =&gt; person.name);
-</pre>
+<pre class="prettyprint lang-dart bad-style">var names = people.map((Person person) =&gt; person.name);</pre>
 
 <p>In rare cases, the surrounding context is not precise enough to provide a type
 for one or more of the function’s parameters. In those cases, you may need to
@@ -1610,14 +1514,10 @@ invocation is the initializer for a type-annotated variable, or is an argument
 to a function, then inference usually fills in the type for you:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (redundant)"?>
-<pre class="prettyprint lang-dart good-style">
-Set&lt;String&gt; things = Set();
-</pre>
+<pre class="prettyprint lang-dart good-style">Set&lt;String&gt; things = Set();</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (redundant)"?>
-<pre class="prettyprint lang-dart bad-style">
-Set&lt;String&gt; things = Set&lt;String&gt;();
-</pre>
+<pre class="prettyprint lang-dart bad-style">Set&lt;String&gt; things = Set&lt;String&gt;();</pre>
 
 <p>Here, the type annotation on the variable is used to infer the type argument of
 constructor call in the initializer.</p>
@@ -1626,14 +1526,10 @@ constructor call in the initializer.</p>
 should write the type argument:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (explicit)"?>
-<pre class="prettyprint lang-dart good-style">
-var things = Set&lt;String&gt;();
-</pre>
+<pre class="prettyprint lang-dart good-style">var things = Set&lt;String&gt;();</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (explicit)"?>
-<pre class="prettyprint lang-dart bad-style">
-var things = Set();
-</pre>
+<pre class="prettyprint lang-dart bad-style">var things = Set();</pre>
 
 <p>Here, since the variable has no type annotation, there isn’t enough context to
 determine what kind of <code class="highlighter-rouge">Set</code> to create, so the type argument should be provided
@@ -1647,26 +1543,22 @@ want a variable’s type to be a supertype of the initializer’s type so that y
 can later assign some other sibling type to the variable:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (inferred-wrong)"?>
-<pre class="prettyprint lang-dart good-style">
-num highScore(List&lt;num&gt; scores) {
+<pre class="prettyprint lang-dart good-style">num highScore(List&lt;num&gt; scores) {
   num highest = 0;
   for (var score in scores) {
     if (score &gt; highest) highest = score;
   }
   return highest;
-}
-</pre>
+}</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (inferred-wrong)" replace="/ +\/\/ ignore: .*?\n//g"?>
-<pre class="prettyprint lang-dart bad-style">
-num highScore(List&lt;num&gt; scores) {
+<pre class="prettyprint lang-dart bad-style">num highScore(List&lt;num&gt; scores) {
   var highest = 0;
   for (var score in scores) {
     if (score &gt; highest) highest = score;
   }
   return highest;
-}
-</pre>
+}</pre>
 
 <p>Here, if <code class="highlighter-rouge">scores</code> contains doubles, like <code class="highlighter-rouge">[1.2]</code>, then the assignment to
 <code class="highlighter-rouge">highest</code> will fail since its inferred type is <code class="highlighter-rouge">int</code>, not <code class="highlighter-rouge">num</code>. In these cases,
@@ -1689,14 +1581,10 @@ annotation.</p>
 clear.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (prefer-dynamic)"?>
-<pre class="prettyprint lang-dart good-style">
-dynamic mergeJson(dynamic original, dynamic changes) =&gt; ...
-</pre>
+<pre class="prettyprint lang-dart good-style">dynamic mergeJson(dynamic original, dynamic changes) =&gt; ...</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (prefer-dynamic)"?>
-<pre class="prettyprint lang-dart bad-style">
-mergeJson(original, changes) =&gt; ...
-</pre>
+<pre class="prettyprint lang-dart bad-style">mergeJson(original, changes) =&gt; ...</pre>
 
 <aside class="alert alert-info">
 
@@ -1719,14 +1607,10 @@ a full function type that includes the parameters and return type of the
 function.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (avoid-Function)" replace="/(void )?Function(\(.*?\))?/[!$&!]/g"?>
-<pre class="prettyprint lang-dart good-style">
-bool isValid(String value, bool <span class="highlight">Function(String)</span> test) =&gt; ...
-</pre>
+<pre class="prettyprint lang-dart good-style">bool isValid(String value, bool <span class="highlight">Function(String)</span> test) =&gt; ...</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (avoid-Function)" replace="/Function/[!$&!]/g"?>
-<pre class="prettyprint lang-dart bad-style">
-bool isValid(String value, <span class="highlight">Function</span> test) =&gt; ...
-</pre>
+<pre class="prettyprint lang-dart bad-style">bool isValid(String value, <span class="highlight">Function</span> test) =&gt; ...</pre>
 
 <p>One exception to this guideline is if you want a type that represents the union
 of multiple different function types. For example, you may accept a function
@@ -1735,8 +1619,7 @@ types, there’s no way to precisely type that and you’d normally have to use
 <code class="highlighter-rouge">dynamic</code>. <code class="highlighter-rouge">Function</code> is at least a little more helpful than that:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (function-arity)" replace="/(void )?Function(\(.*?\))?/[!$&!]/g"?>
-<pre class="prettyprint lang-dart good-style">
-void handleError(<span class="highlight">void Function()</span> operation, <span class="highlight">Function</span> errorHandler) {
+<pre class="prettyprint lang-dart good-style">void handleError(<span class="highlight">void Function()</span> operation, <span class="highlight">Function</span> errorHandler) {
   try {
     operation();
   } catch (err, stack) {
@@ -1748,8 +1631,7 @@ void handleError(<span class="highlight">void Function()</span> operation, <span
       throw ArgumentError("errorHandler has wrong signature.");
     }
   }
-}
-</pre>
+}</pre>
 
 <h3 id="dont-specify-a-return-type-for-a-setter">
 <a id="dont-specify-a-return-type-for-a-setter" class="anchor" href="#dont-specify-a-return-type-for-a-setter" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T specify a return type for a setter.</h3>
@@ -1757,14 +1639,10 @@ void handleError(<span class="highlight">void Function()</span> operation, <span
 <p>Setters always return <code class="highlighter-rouge">void</code> in Dart. Writing the word is pointless.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (avoid_return_types_on_setters)"?>
-<pre class="prettyprint lang-dart bad-style">
-void set foo(Foo value) { ... }
-</pre>
+<pre class="prettyprint lang-dart bad-style">void set foo(Foo value) { ... }</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (avoid_return_types_on_setters)"?>
-<pre class="prettyprint lang-dart good-style">
-set foo(Foo value) { ... }
-</pre>
+<pre class="prettyprint lang-dart good-style">set foo(Foo value) { ... }</pre>
 
 <h3 id="dont-use-the-legacy-typedef-syntax">
 <a id="dont-use-the-legacy-typedef-syntax" class="anchor" href="#dont-use-the-legacy-typedef-syntax" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T use the legacy typedef syntax.</h3>
@@ -1773,9 +1651,7 @@ set foo(Foo value) { ... }
 original syntax looks like:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (old-typedef)"?>
-<pre class="prettyprint lang-dart bad-style">
-typedef int Comparison&lt;T&gt;(T a, T b);
-</pre>
+<pre class="prettyprint lang-dart bad-style">typedef int Comparison&lt;T&gt;(T a, T b);</pre>
 
 <p>That syntax has a couple of problems:</p>
 
@@ -1805,16 +1681,12 @@ long-standing source of errors in Dart.</p>
 <p>The new syntax looks like this:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (new-typedef)"?>
-<pre class="prettyprint lang-dart good-style">
-typedef Comparison&lt;T&gt; = int Function(T, T);
-</pre>
+<pre class="prettyprint lang-dart good-style">typedef Comparison&lt;T&gt; = int Function(T, T);</pre>
 
 <p>If you want to include a parameter’s name, you can do that too:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (new-typedef-param-name)"?>
-<pre class="prettyprint lang-dart good-style">
-typedef Comparison&lt;T&gt; = int Function(T a, T b);
-</pre>
+<pre class="prettyprint lang-dart good-style">typedef Comparison&lt;T&gt; = int Function(T a, T b);</pre>
 
 <p>The new syntax can express anything the old syntax could express and more, and
 lacks the error-prone misfeature where a single identifier is treated as the
@@ -1833,8 +1705,7 @@ generic type argument, you had to first define a typedef for it. Dart 2 supports
 a function type syntax that can be used anywhere a type annotation is allowed:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (function-type)"  replace="/(bool|void) Function\(Event\)/[!$&!]/g"?>
-<pre class="prettyprint lang-dart good-style">
-class FilteredObservable {
+<pre class="prettyprint lang-dart good-style">class FilteredObservable {
   final <span class="highlight">bool Function(Event)</span> _predicate;
   final List&lt;<span class="highlight">void Function(Event)</span>&gt; _observers;
 
@@ -1851,8 +1722,7 @@ class FilteredObservable {
 
     return last;
   }
-}
-</pre>
+}</pre>
 
 <p>It may still be worth defining a typedef if the function type is particularly
 long or frequently used. But in most cases, users want to see what the function
@@ -1867,9 +1737,7 @@ Sort of like in C, you surround the parameter’s name with the function’s ret
 type and parameter signature:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (function-type-param)"?>
-<pre class="prettyprint lang-dart">
-Iterable&lt;T&gt; where(bool predicate(T element)) =&gt; ...
-</pre>
+<pre class="prettyprint lang-dart">Iterable&lt;T&gt; where(bool predicate(T element)) =&gt; ...</pre>
 
 <p>Before Dart 2 added function type syntax, this was the only way to give a
 parameter a function type without defining a typedef. Now that Dart has a
@@ -1877,9 +1745,7 @@ general notation for function types, you can use it for function-typed
 parameters as well:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (function-type-param)"?>
-<pre class="prettyprint lang-dart good-style">
-Iterable&lt;T&gt; where(bool Function(T) predicate) =&gt; ...
-</pre>
+<pre class="prettyprint lang-dart good-style">Iterable&lt;T&gt; where(bool Function(T) predicate) =&gt; ...</pre>
 
 <p>The new syntax is a little more verbose, but is consistent with other locations
 where you must use the new syntax.</p>
@@ -1900,8 +1766,7 @@ the static type system, or that you explicitly want runtime dynamism at that
 point in the program.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (Object-vs-dynamic)"?>
-<pre class="prettyprint lang-dart good-style">
-void log(Object object) {
+<pre class="prettyprint lang-dart good-style">void log(Object object) {
   print(object.toString());
 }
 
@@ -1911,8 +1776,7 @@ bool convertToBool(dynamic arg) {
   if (arg is bool) return arg;
   if (arg is String) return arg == 'true';
   throw ArgumentError('Cannot convert $arg to a bool.');
-}
-</pre>
+}</pre>
 
 <h3 id="do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values">
 <a id="do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values" class="anchor" href="#do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use <code class="highlighter-rouge">Future&lt;void&gt;</code> as the return type of asynchronous members that do not produce values.</h3>
@@ -1942,17 +1806,13 @@ is either always asynchronous or always synchronous, but a function that can be
 either is hard to use correctly.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (future-or)"?>
-<pre class="prettyprint lang-dart good-style">
-Future&lt;int&gt; triple(FutureOr&lt;int&gt; value) async =&gt; (await value) * 3;
-</pre>
+<pre class="prettyprint lang-dart good-style">Future&lt;int&gt; triple(FutureOr&lt;int&gt; value) async =&gt; (await value) * 3;</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (future-or)"?>
-<pre class="prettyprint lang-dart bad-style">
-FutureOr&lt;int&gt; triple(FutureOr&lt;int&gt; value) {
+<pre class="prettyprint lang-dart bad-style">FutureOr&lt;int&gt; triple(FutureOr&lt;int&gt; value) {
   if (value is int) return value * 3;
   return (value as Future&lt;int&gt;).then((v) =&gt; v * 3);
-}
-</pre>
+}</pre>
 
 <p>The more precise formulation of this guideline is to <em>only use <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> in
 <a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)">contravariant</a> positions.</em> Parameters are contravariant and return types are
@@ -1962,14 +1822,12 @@ now in contravariant position and the callback’s parameters are covariant. Thi
 means it’s OK for a <em>callback’s</em> type to return <code class="highlighter-rouge">FutureOr&lt;T&gt;</code>:</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (future-or-contra)" replace="/FutureOr.S./[!$&!]/g"?>
-<pre class="prettyprint lang-dart good-style">
-Stream&lt;S&gt; asyncMap&lt;T, S&gt;(
+<pre class="prettyprint lang-dart good-style">Stream&lt;S&gt; asyncMap&lt;T, S&gt;(
     Iterable&lt;T&gt; iterable, <span class="highlight">FutureOr&lt;S&gt;</span> Function(T) callback) async* {
   for (var element in iterable) {
     yield await callback(element);
   }
-}
-</pre>
+}</pre>
 
 <h2 id="parameters">
 <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h2>
@@ -1984,31 +1842,25 @@ numbers are usually wrapped in named constants, but we usually just pass around
 <code class="highlighter-rouge">true</code> and <code class="highlighter-rouge">false</code> directly. That can make callsites unreadable if it isn’t
 clear what the boolean represents:</p>
 
-<pre class="prettyprint lang-dart bad-style">
-new Task(true);
+<pre class="prettyprint lang-dart bad-style">new Task(true);
 new Task(false);
 new ListBox(false, true, true);
-new Button(false);
-</pre>
+new Button(false);</pre>
 
 <p>Instead, consider using named arguments, named constructors, or named constants
 to clarify what the call is doing.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (avoid-positional-bool-param)"?>
-<pre class="prettyprint lang-dart good-style">
-Task.oneShot();
+<pre class="prettyprint lang-dart good-style">Task.oneShot();
 Task.repeating();
 ListBox(scroll: true, showScrollbars: true);
-Button(ButtonState.enabled);
-</pre>
+Button(ButtonState.enabled);</pre>
 
 <p>Note that this doesn’t apply to setters, where the name makes it clear what the
 value represents:</p>
 
-<pre class="prettyprint lang-dart good-style">
-listBox.canScroll = true;
-button.isEnabled = false;
-</pre>
+<pre class="prettyprint lang-dart good-style">listBox.canScroll = true;
+button.isEnabled = false;</pre>
 
 <h3 id="avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters">
 <a id="avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters" class="anchor" href="#avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID optional positional parameters if the user may want to omit earlier parameters.</h3>
@@ -2019,8 +1871,7 @@ never need to explicitly pass a “hole” to omit an earlier positional argumen
 pass later one. You’re better off using named arguments for that.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (omit-optional-positional)"?>
-<pre class="prettyprint lang-dart good-style">
-String.fromCharCodes(Iterable&lt;int&gt; charCodes, [int start = 0, int end]);
+<pre class="prettyprint lang-dart good-style">String.fromCharCodes(Iterable&lt;int&gt; charCodes, [int start = 0, int end]);
 
 DateTime(int year,
     [int month = 1,
@@ -2037,8 +1888,7 @@ Duration(
     int minutes = 0,
     int seconds = 0,
     int milliseconds = 0,
-    int microseconds = 0});
-</pre>
+    int microseconds = 0});</pre>
 
 <h3 id="avoid-mandatory-parameters-that-accept-a-special-no-argument-value">
 <a id="avoid-mandatory-parameters-that-accept-a-special-no-argument-value" class="anchor" href="#avoid-mandatory-parameters-that-accept-a-special-no-argument-value" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID mandatory parameters that accept a special “no argument” value.</h3>
@@ -2052,14 +1902,10 @@ value like <code class="highlighter-rouge">null</code> is accidentally passed wh
 providing a real value.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (avoid-mandatory-param)"?>
-<pre class="prettyprint lang-dart good-style">
-var rest = string.substring(start);
-</pre>
+<pre class="prettyprint lang-dart good-style">var rest = string.substring(start);</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (avoid-mandatory-param)"?>
-<pre class="prettyprint lang-dart bad-style">
-var rest = string.substring(start, null);
-</pre>
+<pre class="prettyprint lang-dart bad-style">var rest = string.substring(start, null);</pre>
 
 <h3 id="do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range">
 <a id="do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range" class="anchor" href="#do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use inclusive start and exclusive end parameters to accept a range.</h3>
@@ -2072,10 +1918,8 @@ than the index of the last item.</p>
 <p>This is consistent with core libraries that do the same thing.</p>
 
 <?code-excerpt "misc/test/effective_dart_test.dart (param-range)" replace="/expect\(//g; /, \/\*\*\// \/\//g; /\);//g"?>
-<pre class="prettyprint lang-dart good-style">
-[0, 1, 2, 3].sublist(1, 3) // [1, 2]
-'abcd'.substring(1, 3) // 'bc'
-</pre>
+<pre class="prettyprint lang-dart good-style">[0, 1, 2, 3].sublist(1, 3) // [1, 2]
+'abcd'.substring(1, 3) // 'bc'</pre>
 
 <p>It’s particularly important to be consistent here because these parameters are
 usually unnamed. If your API takes a length instead of an end point, the
@@ -2141,24 +1985,20 @@ true.</p>
 method is called only if the right-hand side is not <code class="highlighter-rouge">null</code>.</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (eq-dont-check-for-null)" replace="/operator ==/[!$&!]/g" plaster?>
-<pre class="prettyprint lang-dart good-style">
-class Person {
+<pre class="prettyprint lang-dart good-style">class Person {
   final String name;
   // ···
   <span class="highlight">operator ==</span>(other) =&gt; other is Person &amp;&amp; name == other.name;
 
   int get hashCode =&gt; name.hashCode;
-}
-</pre>
+}</pre>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (eq-dont-check-for-null)" replace="/\w+ != null/[!$&!]/g" plaster?>
-<pre class="prettyprint lang-dart bad-style">
-class Person {
+<pre class="prettyprint lang-dart bad-style">class Person {
   final String name;
   // ···
   operator ==(other) =&gt; <span class="highlight">other != null</span> &amp;&amp; ...
-}
-</pre>
+}</pre>
 
 
           
@@ -2200,7 +2040,7 @@ class Person {
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

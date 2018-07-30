@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/libraries/create-library-packages" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/libraries/create-library-packages" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -323,8 +323,7 @@ library packages:</p>
 <p>Directly under lib, the main library file,
 <code class="highlighter-rouge">shelf.dart</code>, exports several files from lib/src:</p>
 
-<pre class="prettyprint lang-dart">
-export 'src/cascade.dart';
+<pre class="prettyprint lang-dart">export 'src/cascade.dart';
 export 'src/handler.dart';
 export 'src/handlers/logger.dart';
 export 'src/hijack_exception.dart';
@@ -333,8 +332,7 @@ export 'src/pipeline.dart';
 export 'src/request.dart';
 export 'src/response.dart';
 export 'src/server.dart';
-export 'src/server_handler.dart';
-</pre>
+export 'src/server_handler.dart';</pre>
 
 <p>The shelf package also contains a mini library: shelf_io.
 This adapter handles HttpRequest objects from dart:io.</p>
@@ -355,9 +353,7 @@ Also, avoid imports of <code>package:<em>package_name</em>/src/...</code>.</p>
 <p>When importing a library file, you can use the
 the <code class="highlighter-rouge">package:</code> directive to specify the URI of that file.</p>
 
-<pre class="prettyprint lang-dart">
-import 'package:utilities/utilities.dart';
-</pre>
+<pre class="prettyprint lang-dart">import 'package:utilities/utilities.dart';</pre>
 
 <p>You can import a library using a relative path when
 both files are inside of lib,
@@ -404,7 +400,7 @@ This goes into the <code class="highlighter-rouge">example</code> directory at t
 public use go into the <code class="highlighter-rouge">tool</code> directory.</p>
 
 <p>Other files that are required if you publish your library to
-pub.dartlang.com, such as a README and a CHANGELOG, are
+pub.dartlang.org, such as a README and a CHANGELOG, are
 described in <a href="/tools/pub/publishing">Publishing a Package</a>.
 Also see
 <a href="/tools/pub/package-layout">Pub Package Layout Conventions</a>
@@ -420,12 +416,10 @@ Dartdoc parses the source looking for
 <a href="/guides/language/effective-dart/documentation#doc-comments">documentation comments</a>,
 which use the <code class="highlighter-rouge">///</code> syntax:</p>
 
-<pre class="prettyprint lang-dart">
-/// The event handler responsible for updating the badge in the UI.
+<pre class="prettyprint lang-dart">/// The event handler responsible for updating the badge in the UI.
 void updateBadge() {
   ...
-}
-</pre>
+}</pre>
 
 <p>For an example of generated docs, see the
 <a href="https://www.dartdocs.org/documentation/shelf/latest/shelf/shelf-library.html">shelf documentation</a>.</p>
@@ -518,7 +512,7 @@ to show best practices. Consider studying these examples:
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

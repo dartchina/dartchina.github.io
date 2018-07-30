@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/samples/" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/samples/" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -265,11 +265,9 @@ also want to check out the language and library tours.</p>
 To display text on the console, you can use the top-level <code class="highlighter-rouge">print()</code> function:</p>
 
 <?code-excerpt "misc/test/samples_test.dart (hello-world)"?>
-<pre class="prettyprint lang-dart">
-void main() {
+<pre class="prettyprint lang-dart">void main() {
   print('Hello, World!');
-}
-</pre>
+}</pre>
 
 <h2 id="variables">
 <a id="variables" class="anchor" href="#variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variables</h2>
@@ -278,16 +276,14 @@ void main() {
 thanks to type inference:</p>
 
 <?code-excerpt "misc/test/samples_test.dart (var)"?>
-<pre class="prettyprint lang-dart">
-var name = 'Voyager I';
+<pre class="prettyprint lang-dart">var name = 'Voyager I';
 var year = 1977;
 var antennaDiameter = 3.7;
 var flybyObjects = ['Jupiter', 'Saturn', 'Uranus', 'Neptune'];
 var image = {
   'tags': ['saturn'],
   'url': '//path/to/saturn.jpg'
-};
-</pre>
+};</pre>
 
 <p><a href="/guides/language/language-tour#variables">Read more</a> about variables in Dart, including default values, the <code class="highlighter-rouge">final</code> and <code class="highlighter-rouge">const</code> keywords, and static types.</p>
 
@@ -297,8 +293,7 @@ var image = {
 <p>Dart supports the usual control flow statements:</p>
 
 <?code-excerpt "misc/test/samples_test.dart (control-flow)"?>
-<pre class="prettyprint lang-dart">
-if (year &gt;= 2001) {
+<pre class="prettyprint lang-dart">if (year &gt;= 2001) {
   print('21st century');
 } else if (year &gt;= 1901) {
   print('20th century');
@@ -314,8 +309,7 @@ for (int month = 1; month &lt;= 12; month++) {
 
 while (year &lt; 2016) {
   year += 1;
-}
-</pre>
+}</pre>
 
 <p><a href="/guides/language/language-tour#control-flow-statements">Read more</a> about control flow statements in Dart,
 including <code class="highlighter-rouge">break</code> and <code class="highlighter-rouge">continue</code>, <code class="highlighter-rouge">switch</code> and <code class="highlighter-rouge">case</code>, and <code class="highlighter-rouge">assert</code>.</p>
@@ -327,23 +321,19 @@ including <code class="highlighter-rouge">break</code> and <code class="highligh
 specifying the types of each function’s arguments and return value:</p>
 
 <?code-excerpt "misc/test/samples_test.dart (functions)"?>
-<pre class="prettyprint lang-dart">
-int fibonacci(int n) {
+<pre class="prettyprint lang-dart">int fibonacci(int n) {
   if (n == 0 || n == 1) return n;
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-var result = fibonacci(20);
-</pre>
+var result = fibonacci(20);</pre>
 
 <p>A shorthand <code class="highlighter-rouge">=&gt;</code> (<em>fat arrow</em>) syntax is handy for functions that
 contain a single statement.
 This syntax is especially useful when passing anonymous functions as arguments:</p>
 
 <?code-excerpt "misc/test/samples_test.dart (fat arrow)"?>
-<pre class="prettyprint lang-dart">
-flybyObjects.where((name) =&gt; name.contains('turn')).forEach(print);
-</pre>
+<pre class="prettyprint lang-dart">flybyObjects.where((name) =&gt; name.contains('turn')).forEach(print);</pre>
 
 <p>Besides showing an anonymous function (the argument to <code class="highlighter-rouge">where()</code>),
 this code shows that you can use a function as an argument:
@@ -357,15 +347,13 @@ including optional parameters, default parameter values, and lexical scope.</p>
 
 <p>Dart comments usually start with <code class="highlighter-rouge">//</code>.</p>
 
-<pre class="prettyprint lang-dart">
-// This is a normal, one-line comment.
+<pre class="prettyprint lang-dart">// This is a normal, one-line comment.
 
 /// This is a documentation comment, used to document libraries,
 /// classes, and their members. Tools like IDEs and dartdoc treat
 /// doc comments specially.
 
-/* Comments like these are also supported. */
-</pre>
+/* Comments like these are also supported. */</pre>
 
 <p><a href="/guides/language/language-tour#comments">Read more</a> about comments in Dart,
 including how the documentation tooling works.</p>
@@ -376,8 +364,7 @@ including how the documentation tooling works.</p>
 <p>To access APIs defined in other libraries, use <code class="highlighter-rouge">import</code>.</p>
 
 <?code-excerpt "misc/test/samples_test.dart (import)" replace="/'.*?' as \w+/'path\/to\/my_other_file.dart'/g"?>
-<pre class="prettyprint lang-dart">
-// Importing core libraries
+<pre class="prettyprint lang-dart">// Importing core libraries
 import 'dart:async';
 import 'dart:math';
 
@@ -386,8 +373,7 @@ import 'package:test/test.dart';
 
 // Importing files
 import 'path/to/my_other_file.dart';
-import '../lib/samples/spacecraft.dart';
-</pre>
+import '../lib/samples/spacecraft.dart';</pre>
 
 <p><a href="/guides/language/language-tour#libraries-and-visibility">Read more</a> about libraries and visibility in Dart,
 including library prefixes, <code class="highlighter-rouge">show</code> and <code class="highlighter-rouge">hide</code>, and lazy loading through the <code class="highlighter-rouge">deferred</code> keyword.</p>
@@ -400,8 +386,7 @@ and a method. One of the properties can’t be set directly, so it’s
 defined using a getter method (instead of a variable).</p>
 
 <?code-excerpt "misc/lib/samples/spacecraft.dart (class)"?>
-<pre class="prettyprint lang-dart">
-class Spacecraft {
+<pre class="prettyprint lang-dart">class Spacecraft {
   String name;
   DateTime launchDate;
 
@@ -428,19 +413,16 @@ class Spacecraft {
       print('Unlaunched');
     }
   }
-}
-</pre>
+}</pre>
 
 <p>You might use the <code class="highlighter-rouge">Spacecraft</code> class like this:</p>
 
 <?code-excerpt "misc/test/samples_test.dart (use class)"?>
-<pre class="prettyprint lang-dart">
-var voyager = Spacecraft('Voyager I', DateTime(1977, 9, 5));
+<pre class="prettyprint lang-dart">var voyager = Spacecraft('Voyager I', DateTime(1977, 9, 5));
 voyager.describe();
 
 var voyager3 = Spacecraft.unlaunched('Voyager III');
-voyager3.describe();
-</pre>
+voyager3.describe();</pre>
 
 <p><a href="/guides/language/language-tour#classes">Read more</a> about classes in Dart,
 including initializer lists, optional <code class="highlighter-rouge">new</code> and <code class="highlighter-rouge">const</code>, redirecting constructors,
@@ -452,13 +434,11 @@ including initializer lists, optional <code class="highlighter-rouge">new</code>
 <p>Dart has single inheritance.</p>
 
 <?code-excerpt "misc/lib/samples/spacecraft.dart (extends)"?>
-<pre class="prettyprint lang-dart">
-class Orbiter extends Spacecraft {
+<pre class="prettyprint lang-dart">class Orbiter extends Spacecraft {
   num altitude;
   Orbiter(String name, DateTime launchDate, this.altitude)
       : super(name, launchDate);
-}
-</pre>
+}</pre>
 
 <p><a href="/guides/language/language-tour#extending-a-class">Read more</a> about extending classes, the optional <code class="highlighter-rouge">@override</code> annotation, and more.</p>
 
@@ -468,23 +448,19 @@ class Orbiter extends Spacecraft {
 <p>Mixins are a way of reusing code in multiple class hierarchies. The following class can act as a mixin:</p>
 
 <?code-excerpt "misc/lib/samples/spacecraft.dart (mixin)"?>
-<pre class="prettyprint lang-dart">
-class Piloted {
+<pre class="prettyprint lang-dart">class Piloted {
   int astronauts = 1;
   void describeCrew() {
     print('Number of astronauts: $astronauts');
   }
-}
-</pre>
+}</pre>
 
 <p>To add a mixin’s capabilities to a class, just extend the class with the mixin.</p>
 
 <?code-excerpt "misc/lib/samples/spacecraft.dart (mixin use)" replace="/with/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-class PilotedCraft extends Spacecraft <span class="highlight">with</span> Piloted {
+<pre class="prettyprint lang-dart">class PilotedCraft extends Spacecraft <span class="highlight">with</span> Piloted {
   // ···
-}
-</pre>
+}</pre>
 
 <p><code class="highlighter-rouge">Orbiter</code> now has the <code class="highlighter-rouge">astronauts</code> field as well as the <code class="highlighter-rouge">describeCrew()</code> method.</p>
 
@@ -496,19 +472,16 @@ class PilotedCraft extends Spacecraft <span class="highlight">with</span> Pilote
 <p>Dart has no <code class="highlighter-rouge">interface</code> keyword. Instead, all classes implicitly define an interface. Therefore, you can implement any class.</p>
 
 <?code-excerpt "misc/lib/samples/spacecraft.dart (implements)"?>
-<pre class="prettyprint lang-dart">
-class MockSpaceship implements Spacecraft {
+<pre class="prettyprint lang-dart">class MockSpaceship implements Spacecraft {
   // ···
-}
-</pre>
+}</pre>
 
 <p><a href="/guides/language/language-tour#implicit-interfaces">Read more</a> about implicit interfaces.</p>
 
 <p>You can create an abstract class to be extended (or implemented) by a concrete class. Abstract classes can contain abstract methods (with empty bodies).</p>
 
 <?code-excerpt "misc/lib/samples/spacecraft.dart (abstract)" replace="/abstract/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-<span class="highlight">abstract</span> class Describable {
+<pre class="prettyprint lang-dart"><span class="highlight">abstract</span> class Describable {
   void describe();
 
   void describeWithEmphasis() {
@@ -516,8 +489,7 @@ class MockSpaceship implements Spacecraft {
     describe();
     print('=========');
   }
-}
-</pre>
+}</pre>
 
 <p>Any class extending <code class="highlighter-rouge">Describable</code> has the <code class="highlighter-rouge">describeWithEmphasis()</code> method, which calls the extender’s implementation of <code class="highlighter-rouge">describe()</code>.</p>
 
@@ -530,32 +502,27 @@ class MockSpaceship implements Spacecraft {
 using <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code>.</p>
 
 <?code-excerpt "misc/test/samples_test.dart (async)" replace="/async/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-const oneSecond = Duration(seconds: 1);
+<pre class="prettyprint lang-dart">const oneSecond = Duration(seconds: 1);
 // ···
 Future&lt;Null&gt; printWithDelay(String message) <span class="highlight">async</span> {
   await Future.delayed(oneSecond);
   print(message);
-}
-</pre>
+}</pre>
 
 <p>The method above is equivalent to:</p>
 
 <?code-excerpt "misc/test/samples_test.dart (Future.then)"?>
-<pre class="prettyprint lang-dart">
-Future&lt;Null&gt; printWithDelay(String message) {
+<pre class="prettyprint lang-dart">Future&lt;Null&gt; printWithDelay(String message) {
   return Future.delayed(oneSecond).then((_) {
     print(message);
   });
-}
-</pre>
+}</pre>
 
 <p>As the next example shows, <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code> help make asynchronous code
 easy to read.</p>
 
 <?code-excerpt "misc/test/samples_test.dart (await)"?>
-<pre class="prettyprint lang-dart">
-Future&lt;Null&gt; createDescriptions(Iterable&lt;String&gt; objects) async {
+<pre class="prettyprint lang-dart">Future&lt;Null&gt; createDescriptions(Iterable&lt;String&gt; objects) async {
   for (var object in objects) {
     try {
       var file = File('$object.txt');
@@ -571,20 +538,17 @@ Future&lt;Null&gt; createDescriptions(Iterable&lt;String&gt; objects) async {
       print('Cannot create description for $object: $e');
     }
   }
-}
-</pre>
+}</pre>
 
 <p>You can also use <code class="highlighter-rouge">async*</code>, which gives you a nice, readable way to build streams.</p>
 
 <?code-excerpt "misc/test/samples_test.dart (async*)"?>
-<pre class="prettyprint lang-dart">
-Stream&lt;String&gt; report(Spacecraft craft, Iterable&lt;String&gt; objects) async* {
+<pre class="prettyprint lang-dart">Stream&lt;String&gt; report(Spacecraft craft, Iterable&lt;String&gt; objects) async* {
   for (var object in objects) {
     await Future.delayed(oneSecond);
     yield '${craft.name} flies by $object';
   }
-}
-</pre>
+}</pre>
 
 <p><a href="/guides/language/language-tour#asynchrony-support">Read more</a> about
 asynchrony support, including async functions, <code class="highlighter-rouge">Future</code>, <code class="highlighter-rouge">Stream</code>,
@@ -596,17 +560,14 @@ and the asynchronous loop (<code class="highlighter-rouge">await for</code>).</p
 <p>To raise an exception, use <code class="highlighter-rouge">throw</code>:</p>
 
 <?code-excerpt "misc/test/samples_test.dart (throw)"?>
-<pre class="prettyprint lang-dart">
-if (astronauts == 0) {
+<pre class="prettyprint lang-dart">if (astronauts == 0) {
   throw StateError('No astronauts.');
-}
-</pre>
+}</pre>
 
 <p>To catch an exception, use a <code class="highlighter-rouge">try</code> statement with <code class="highlighter-rouge">on</code> or <code class="highlighter-rouge">catch</code> (or both):</p>
 
 <?code-excerpt "misc/test/samples_test.dart (try)"?>
-<pre class="prettyprint lang-dart">
-try {
+<pre class="prettyprint lang-dart">try {
   for (var object in flybyObjects) {
     var description = await File('$object.txt').readAsString();
     print(description);
@@ -615,8 +576,7 @@ try {
   print('Could not describe object: $e');
 } finally {
   flybyObjects.clear();
-}
-</pre>
+}</pre>
 
 <p>Note that the code above is asynchronous;
 <code class="highlighter-rouge">try</code> works for both synchronous code and code in an async function.</p>
@@ -659,7 +619,7 @@ which often contains examples.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

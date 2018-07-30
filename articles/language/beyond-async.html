@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/language/beyond-async" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/language/beyond-async" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -95,8 +95,10 @@ ga('send', 'pageview');
 </nav>
 
   
-  <div class="alert alert-danger">
-    <h4 class="text-center">Content of this page might be obsolete.</h4>
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
   </div>
   
 </header>
@@ -300,12 +302,10 @@ manually.</p>
 <p>Suppose we want to produce the first <em>n</em> natural numbers.
 It is quite easy to do this with a synchronous generator.</p>
 
-<pre class="prettyprint lang-dart">
-Iterable naturalsTo(n) <span class="highlight">sync*</span> {
+<pre class="prettyprint lang-dart">Iterable naturalsTo(n) <span class="highlight">sync*</span> {
   int k = 0;
   <span class="highlight">while</span> (k &lt; n) <span class="highlight">yield</span> k++;
-}
-</pre>
+}</pre>
 
 <p>When called, <code class="highlighter-rouge">naturalsTo</code> immediately returns an iterable
 (much like a function marked <strong>async</strong> immediately returns
@@ -355,12 +355,10 @@ identifies the function as an asynchronous generator.</p>
 
 <p>Let’s try generating natural numbers again, asynchronously this time.</p>
 
-<pre class="prettyprint lang-dart">
-Stream asynchronousNaturalsTo(n) <span class="highlight">async*</span> {
+<pre class="prettyprint lang-dart">Stream asynchronousNaturalsTo(n) <span class="highlight">async*</span> {
   int k = 0;
   <span class="highlight">while</span> (k &lt; n) <span class="highlight">yield</span> k++;
-}
-</pre>
+}</pre>
 
 <p>Invoking this function immediately returns a stream—just as invoking a
 <strong>sync*</strong> function immediately returns an iterable,
@@ -381,11 +379,9 @@ the stream pushes the value to the listener function at its pleasure.</p>
 
 <p>As a variant, consider</p>
 
-<pre class="prettyprint lang-dart">
-Stream <span class="highlight">get</span> naturals <span class="highlight">async*</span> {
+<pre class="prettyprint lang-dart">Stream <span class="highlight">get</span> naturals <span class="highlight">async*</span> {
   int k = 0; <span class="highlight">while</span> (<span class="highlight">true</span>) { <span class="highlight">yield await</span> k++; }
-}
-</pre>
+}</pre>
 
 <p>This example raises an interesting question: since the code runs in a tight,
 infinite loop and <strong>yield</strong> doesn’t suspend,
@@ -413,9 +409,7 @@ loop is designed to play well with streams.</p>
 
 <p>Given a stream, one can loop over its values:</p>
 
-<pre class="prettyprint lang-dart">
-<span class="highlight">await for</span> (int i <span class="highlight">in</span> naturals) { print(‘event loop $i’); }
-</pre>
+<pre class="prettyprint lang-dart"><span class="highlight">await for</span> (int i <span class="highlight">in</span> naturals) { print(‘event loop $i’); }</pre>
 
 <p>Every time an element is added to the stream, the loop body is run. After each
 iteration, the function enclosing the loop suspends until the next element is
@@ -430,14 +424,12 @@ If you are writing a recursive function, you can get quadratic behavior.
 Consider the following function,
 designed to count backwards from <em>n</em> to 1.</p>
 
-<pre class="prettyprint lang-dart">
-Iterable naturalsDownFrom(n) <span class="highlight">sync*</span> {
+<pre class="prettyprint lang-dart">Iterable naturalsDownFrom(n) <span class="highlight">sync*</span> {
   <span class="highlight">if</span> (n &gt; 0) {
      <span class="highlight">yield</span> n;
      <span class="highlight">for</span> (int i in naturalsDownFrom(n-1)) { <span class="highlight">yield</span> i; }
   }
-}
-</pre>
+}</pre>
 
 <p>The code above is functionally correct, but runs in quadratic time.
 Notice that <code class="highlighter-rouge">yield i;</code> is executed <em>n − 1</em> times for the
@@ -457,14 +449,12 @@ of the subsequence into the sequence currently being constructed,
 as if we had an individual <code class="highlighter-rouge">yield</code> for each element.
 We can rewrite our code using yield-each as follows:</p>
 
-<pre class="prettyprint lang-dart">
-Iterable naturalsDownFrom(n) <span class="highlight">sync*</span> {
+<pre class="prettyprint lang-dart">Iterable naturalsDownFrom(n) <span class="highlight">sync*</span> {
   <span class="highlight">if</span> ( n &gt; 0) {
     <span class="highlight">yield</span> n;
     <span class="highlight">yield*</span> naturalsDownFrom(n-1);
  }
-}
-</pre>
+}</pre>
 
 <p>The latter version runs in linear time.</p>
 
@@ -506,7 +496,7 @@ In that case, <strong>yield*</strong> skips over it without suspending.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

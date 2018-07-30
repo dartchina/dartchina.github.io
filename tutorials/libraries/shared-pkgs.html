@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/libraries/shared-pkgs" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/libraries/shared-pkgs" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -271,7 +271,6 @@ in a well-built package.</p>
   your Flutter and web or server-side apps.
   For more information, see the
   <a href="https://flutter.io/using-packages/">Flutter package documentation.</a></p>
-
 </aside>
 
 <h2 id="about-the-pubspecyaml-file">
@@ -287,15 +286,16 @@ with valid pubspec.yaml files and directory structures.
 Stagehand works either at the command line or (behind the scenes) in an IDE
 such as IntelliJ or WebStorm.</p>
 
-<p>Install Stagehand using <a href="/tools/pub/cmd/pub-global">pub global activate</a>:</p>
+<p>Install or update Stagehand using
+<a href="/tools/pub/cmd/pub-global">pub global activate</a>:</p>
 
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> pub global activate stagehand
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span> pub global activate stagehand
 </code></pre></div></div>
 
 <p>Now run the <code class="highlighter-rouge">stagehand</code> command to see what kinds of template files
 it can generate:</p>
 
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> stagehand
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span> stagehand
 </code></pre></div></div>
 
 <p>You’ll see a list of generators, including various web and server-side apps.
@@ -304,9 +304,9 @@ One of the generators is named <strong>console-full</strong>.</p>
 <p>In a new directory named <code class="highlighter-rouge">vector_victor</code>,
 use Stagehand to generate a command-line app:</p>
 
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">mkdir </span>vector_victor
-<span class="gp">$</span> <span class="nb">cd </span>vector_victor
-<span class="gp">$</span> stagehand console-full
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span> <span class="nb">mkdir </span>vector_victor
+<span class="gp">&gt;</span> <span class="nb">cd </span>vector_victor
+<span class="gp">&gt;</span> stagehand console-full
 </code></pre></div></div>
 
 <p>The pubspec.yaml file contains the package specification written in YAML.
@@ -314,19 +314,17 @@ use Stagehand to generate a command-line app:</p>
 for in-depth coverage.)
 The contents of your pubspec.yaml file should look something like this:</p>
 
-<pre class="prettyprint lang-yaml">
-name: vector_victor
+<pre class="prettyprint lang-yaml">name: vector_victor
 description: A sample command-line application.
 
 environment:
-  sdk: '&gt;=2.0.0-dev.66.0 &lt;2.0.0'
+  sdk: '&gt;=2.0.0-dev.69.4 &lt;3.0.0'
 
 #dependencies:
 #  path: ^1.4.1
 
 dev_dependencies:
-  test: ^1.0.0
-</pre>
+  test: ^1.0.0</pre>
 
 <h2 id="name-the-package-dependencies">
 <a id="name-the-package-dependencies" class="anchor" href="#name-the-package-dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Name the package dependencies</h2>
@@ -364,22 +362,18 @@ The entry should look something like this:</p>
     <p>Edit <code class="highlighter-rouge">pubspec.yaml</code>.</p>
   </li>
   <li>
-    <p>In the dependencies section,
-add the string you copied from pub.dartlang.org.
-Be careful to keep the indentation the same;
-YAML is picky!
-For example:</p>
+    <p>In the dependencies section, add the string you copied from
+pub.dartlang.org. Be careful to keep the indentation the same; YAML is
+picky! For example:</p>
 
-    <pre class="prettyprint lang-yaml">
-environment:
-  sdk: '&gt;=2.0.0-dev.66.0 &lt;2.0.0'
+    <pre class="prettyprint lang-yaml">environment:
+  sdk: '&gt;=2.0.0-dev.69.4 &lt;3.0.0'
 
 dependencies:
   vector_math: ^2.0.7
 
 dev_dependencies:
-  test: ^1.0.0
-</pre>
+  test: ^1.0.0</pre>
   </li>
 </ol>
 
@@ -404,8 +398,8 @@ it might automatically install the packages your app depends on.</p>
 <p>If not, do it yourself by running
 <a href="/tools/pub/cmd/pub-get">pub get</a>:</p>
 
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> pub get
-<span class="go">Resolving dependencies... 
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span> pub get
+<span class="go">Resolving dependencies...
 + vector_math 2.0.7
 Changed 1 dependency!
 Precompiling executables...
@@ -527,7 +521,7 @@ which you can find from the pub.dartlang.org entry.</p>
 
     <aside class="alert alert-info">
       <p><strong>Note:</strong> You specify a filename, not a library name,
-when you import a library from a package.</p>
+  when you import a library from a package.</p>
     </aside>
   </li>
 </ol>
@@ -574,7 +568,7 @@ for more information on using and sharing packages.</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

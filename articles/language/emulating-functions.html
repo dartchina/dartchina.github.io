@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/language/emulating-functions" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/language/emulating-functions" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -95,8 +95,10 @@ ga('send', 'pageview');
 </nav>
 
   
-  <div class="alert alert-danger">
-    <h4 class="text-center">Content of this page might be obsolete.</h4>
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
   </div>
   
 </header>
@@ -242,20 +244,16 @@ that behave like functions.</p>
 <p>In the following example, we have an ordinary class <code class="highlighter-rouge">WannabeFunction</code> that
 happens to define a method named <code class="highlighter-rouge">call()</code>.</p>
 
-<pre class="prettyprint lang-dart">
-class WannabeFunction {
+<pre class="prettyprint lang-dart">class WannabeFunction {
   call(int a, int b) =&gt; a + b;
-}
-</pre>
+}</pre>
 
 <p>The call() method is special, in that anyone who defines a call() method is
 presumed to dynamically emulate a function. This allows us to use instances of
 WannabeFunction as if they were functions that take two integer arguments:</p>
 
-<pre class="prettyprint lang-dart">
-var wf = new WannabeFunction();
-wf(3, 4); // 7
-</pre>
+<pre class="prettyprint lang-dart">var wf = new WannabeFunction();
+wf(3, 4); // 7</pre>
 
 <p>The example above is rather trivial, and we would be better off writing a
 function directly. However, there are cases where this ability can be quite
@@ -287,11 +285,9 @@ a closure.</p>
 <p>The class Function defines the static method <code class="highlighter-rouge">apply()</code>
 with the following signature:</p>
 
-<pre class="prettyprint lang-dart">
-static apply(Function function,
+<pre class="prettyprint lang-dart">static apply(Function function,
                       List positionalArguments,
-                      [Map&lt;Symbol, dynamic&gt; namedArguments]);
-</pre>
+                      [Map&lt;Symbol, dynamic&gt; namedArguments]);</pre>
 
 <p>The apply() function allows functions to be called in generic fashion. The
 last argument is positional, and is only needed if the function we mean to
@@ -304,15 +300,11 @@ via instances of class <a href="https://api.dartlang.org/dev/dart-core/Symbol-cl
 
 <p>You can create symbols from strings:</p>
 
-<pre class="prettyprint lang-dart">
-new Symbol('myFavoriteMethodName');
-</pre>
+<pre class="prettyprint lang-dart">new Symbol('myFavoriteMethodName');</pre>
 
 <p>If possible, create constant symbol objects:</p>
 
-<pre class="prettyprint lang-dart">
-const Symbol('myFavoriteMethodName');
-</pre>
+<pre class="prettyprint lang-dart">const Symbol('myFavoriteMethodName');</pre>
 
 <p>Using constant symbols helps dart2js minify your code.</p>
 
@@ -323,11 +315,9 @@ const Symbol('myFavoriteMethodName');
 system.  To simulate functions properly, we want them to be members of the
 appropriate function type:</p>
 
-<pre class="prettyprint lang-dart">
-typedef BinaryFunction(a,b);
+<pre class="prettyprint lang-dart">typedef BinaryFunction(a,b);
 ...
-new WannabeFunction() is BinaryFunction; // true
-</pre>
+new WannabeFunction() is BinaryFunction; // true</pre>
 
 <p>Therefore, we decree that an object is a member of a function type if the
 object’s class has a call() method and that method is a member of the function
@@ -340,13 +330,11 @@ type.</p>
 defined in their class chain by overriding noSuchMethod(). Here’s an example
 showing how you could use function emulation inside noSuchMethod():</p>
 
-<pre class="prettyprint lang-dart">
-noSuchMethod(Invocation invocation) =&gt;
+<pre class="prettyprint lang-dart">noSuchMethod(Invocation invocation) =&gt;
   invocation.memberName == #foo ? Function.apply(baz,
                              invocation.positionalArguments,
                              invocation.namedArguments)
-                        : super.noSuchMethod(invocation);
-</pre>
+                        : super.noSuchMethod(invocation);</pre>
 
 <p>The first branch handles the case where you want to forward just the parameters to
 another function. If you know <code class="highlighter-rouge">baz</code> doesn’t take any named arguments,
@@ -452,7 +440,7 @@ have the class implement the <strong>Function</strong> interface.</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

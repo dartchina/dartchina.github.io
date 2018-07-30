@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/dart-2.html" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/dart-2.html" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -297,8 +297,7 @@ Instead, use the <a href="https://github.com/dart-lang/build/tree/master/docs">n
   </li>
 </ul>
 
-<p><a id="migration"></a></p>
-<h2 id="migrating-your-code">
+<h2 id="migration">
 <a id="migrating-your-code" class="anchor" href="#migrating-your-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Migrating your code</h2>
 
 <p>First, see the migration guide for your platform:</p>
@@ -331,7 +330,7 @@ from either Dart 1.x or an earlier version of Dart 2.</p>
     <ul>
       <li>Flutter: <a href="https://flutter.io/using-packages/#updating-package-dependencies"><code class="highlighter-rouge">flutter packages upgrade</code></a>
 </li>
-      <li>Dart VM or web: <a href="/tools/pub/get-started#upgrading-a-dependency"><code class="highlighter-rouge">pub upgrade</code></a>
+      <li>Server-side or web: <a href="/tools/pub/get-started#upgrading-a-dependency"><code class="highlighter-rouge">pub upgrade</code></a>
 </li>
     </ul>
   </li>
@@ -339,11 +338,12 @@ from either Dart 1.x or an earlier version of Dart 2.</p>
 <strong>Run the <a href="https://github.com/dart-lang/dart2_fix">dart2_fix tool.</a></strong> It helps migrate some
 usages of deprecated Dart 1.x APIs to Dart 2.</li>
   <li>
-<strong>Run the analyzer</strong> to find <a href="/guides/language/sound-problems#static-errors-and-warnings">compile-time errors</a>.
+<strong>Run the analyzer</strong> to find <a href="/guides/language/sound-problems#static-errors-and-warnings">compile-time errors</a>
+and deprecation hints.
     <ul>
       <li>Flutter: <a href="https://flutter.io/debugging/#the-dart-analyzer"><code class="highlighter-rouge">flutter analyze</code></a>
 </li>
-      <li>Dart VM or web: <a href="https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer"><code class="highlighter-rouge">dartanalyzer</code></a> with
+      <li>Server-side or web: <a href="https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer"><code class="highlighter-rouge">dartanalyzer</code></a> with
 <a href="/guides/language/analysis-options#enabling-dart-2-semantics">Dart 2 semantics</a>
 </li>
     </ul>
@@ -360,6 +360,15 @@ Consider adding automated tests to catch issues that you find.</li>
     </ul>
   </li>
   <li><strong>Fix issues until your code works.</strong></li>
+  <li>
+<em>Optional:</em> <strong>Remove <code class="highlighter-rouge">new</code> and unnecessary <code class="highlighter-rouge">const</code>.</strong>
+    <ul>
+      <li>You can remove these by hand or use a tool such as <code class="highlighter-rouge">dartfmt --fix</code>.</li>
+      <li>To find occurrences of <code class="highlighter-rouge">new</code> and unnecessary <code class="highlighter-rouge">const</code>, add the rules
+<code class="highlighter-rouge">unnecessary_new</code> and <code class="highlighter-rouge">unnecessary_const</code> to the <code class="highlighter-rouge">linter</code> section of your
+<a href="/guides/language/analysis-options#the-analysis-options-file">analysis options file</a>.</li>
+    </ul>
+  </li>
 </ol>
 
 <p>Each time the SDK has a significant release, repeat the process.</p>
@@ -372,6 +381,7 @@ Consider adding automated tests to catch issues that you find.</li>
 <ul>
   <li>Follow the migration tips for the platforms that your package supports
 (see above).</li>
+  <li>Make sure your package passes Dart 2 analysis (see <strong>Run the analyzer</strong> above)</li>
   <li>Make sure your package’s users know how to report issues.</li>
   <li>Respond quickly to issue reports.</li>
   <li>If code changes aren’t backward compatible,
@@ -389,46 +399,42 @@ or (if an API has been removed) to use an alternative 1.x API.</p>
 <p>If a backward-compatible change isn’t possible,
 <strong>update the lower <a href="/tools/pub/pubspec#sdk-constraints">SDK constraint.</a></strong></p>
 
-<aside class="alert alert-warning">
-  <p><strong>Specify SDK constraints carefully!</strong>
-  Incorrect lower constraints can cause problems for users of the stable SDK.</p>
-</aside>
-
 <p><a href="/guides/testing">Test your changes</a> to make sure that your package works as expected.</p>
 
-<h4 id="upper-constraints-on-the-sdk-version">
+<h4 id="upper-constraint">
 <a id="upper-constraints-on-the-sdk-version" class="anchor" href="#upper-constraints-on-the-sdk-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upper constraints on the SDK version</h4>
 
-<p>Don’t update an already-published package
-solely to indicate that it can be used with Dart 2 pre-releases.
-As long as a package has either no <a href="/tools/pub/pubspec#sdk-constraints">SDK constraints</a>
-or an upper constraint of <code class="highlighter-rouge">&lt;2.0.0</code>,
-<code class="highlighter-rouge">pub get</code> and similar pub commands in any Dart 2 pre-release
-can download the package.
-(The package won’t be usable with Dart 2 stable releases,
-but you can fix that later.)</p>
+<p>Once your package passes Dart 2 analysis, update the upper constraint
+to declare that the package is compatible with Dart 2:</p>
 
-<p>When you update an existing package or publish a new one,
-specify an upper constraint of <code class="highlighter-rouge">&lt;2.0.0</code> for the SDK version. Examples:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Works in Dart 1 (starting with 1.20.1), and works in Dart 2</span>
+<span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=1.20.1</span><span class="nv"> </span><span class="s">&lt;3.0.0'</span>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Works in 1.20.1+; might work in 2.0.0-dev:</span>
-<span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=1.20.1</span><span class="nv"> </span><span class="s">&lt;2.0.0'</span>
-
-<span class="c1"># Backward incompatible change requires at least 2.0.0-dev.1.2:</span>
-<span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=2.0.0-dev.1.2</span><span class="nv"> </span><span class="s">&lt;2.0.0'</span>
+<span class="c1"># Works in Dart 2 only, starting with Dart 2 dev build 61</span>
+<span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=2.0.0-dev.61.0</span><span class="nv"> </span><span class="s">&lt;3.0.0'</span>
 </code></pre></div></div>
 
-<p>Eventually, you’ll need to publish new versions of your packages to
-declare Dart 2 compatibility, most likely using a <code class="highlighter-rouge">&lt;3.0.0</code> SDK constraint.
-Because incompatible changes might occur in any Dart 2 pre-release,
-don’t declare Dart 2 compatibility until we announce that it’s safe to do so.</p>
+<aside class="alert alert-warning">
+  <p>Packages that declare an upper constraint of <code class="highlighter-rouge">&lt;2.0.0</code> can still be consumed by
+  Dart 2 dev builds, as those have lax upper constraint checking. However,
+  once Dart 2 ships on the stable channel, those constraints will no longer
+  resolve, and <strong>only packages that declare an upper constraint of <code class="highlighter-rouge">&lt;3.0.0</code> will
+  work with Dart 2</strong>.</p>
+</aside>
 
 <h2 id="more-resources">
 <a id="more-resources" class="anchor" href="#more-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>More resources</h2>
 
 <ul>
+  <li><a href="/tools/dartpad">DartPad</a></li>
+  <li>
+<a href="/guides/language/spec#dart-2-changes">Dart 2 changes</a> section of the <a href="/guides/language/spec">Dart Language Specification</a> page</li>
   <li><a href="/tools/sdk#about-release-channels-and-version-strings">About Dart SDK release channels and version strings</a></li>
   <li><a href="/tools/pub/pubspec#sdk-constraints">SDK constraints</a></li>
+  <li>
+<a href="https://medium.com/@filiph/updating-your-pub-package-to-dart-2-cd8ca343b1be">Updating your pub package to Dart 2,</a>
+an article that includes tips for updating your code and
+using Travis to perform continuous integration (CI) testing</li>
 </ul>
 
 
@@ -458,7 +464,7 @@ don’t declare Dart 2 compatibility until we announce that it’s safe to do so
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

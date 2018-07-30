@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/io" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/io" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -95,8 +95,10 @@ ga('send', 'pageview');
 </nav>
 
   
-  <div class="alert alert-danger">
-    <h4 class="text-center">Content of this page might be obsolete.</h4>
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
   </div>
   
 </header>
@@ -272,23 +274,19 @@ no more pending operations are in the event queue
 and the VM terminates.</p>
 
 <!--- BEGIN(io_timer) -->
-<pre class="prettyprint lang-dart">
-import 'dart:async';
+<pre class="prettyprint lang-dart">import 'dart:async';
 
 main() {
   new Timer(new Duration(seconds: 1), () =&gt; print('timer'));
   print('end of main');
-}
-</pre>
+}</pre>
 <!--- END(io_timer) -->
 
 <p>Running this example at the command line, we get:</p>
 
-<pre>
-$ dart timer.dart
+<pre>$ dart timer.dart
 end of main
-timer
-</pre>
+timer</pre>
 
 <p>Had we made the timer repeating by using the Timer.periodic() constructor,
 the VM would not terminate
@@ -308,16 +306,14 @@ we use the
 class.</p>
 
 <!--- BEGIN(io_file_system) -->
-<pre class="prettyprint lang-dart">
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 import 'dart:async';
 import 'dart:convert';
 
 main() async {
   var file = new File(Platform.script.toFilePath());
   print("${await (file.readAsString(encoding: ASCII))}");
-}
-</pre>
+}</pre>
 <!--- END(io_file_system) -->
 
 <p>Notice that the readAsString() method is asynchronous;
@@ -341,8 +337,7 @@ The code opens the file for reading and then reads one byte at a time
 until it encounters the char code for ‘;’.</p>
 
 <!--- BEGIN(io_random_access) -->
-<pre class="prettyprint lang-dart">
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 
 main() async {
   var semicolon = ';'.codeUnitAt(0);
@@ -362,8 +357,7 @@ main() async {
     }
   }
   onByte(await file.readByte());
-}
-</pre>
+}</pre>
 <!--- END(io_random_access) -->
 
 <p>When you see a use of <code class="highlighter-rouge">async</code> or <code class="highlighter-rouge">await</code>, you are seeing a Future in action.
@@ -380,8 +374,7 @@ as a stream of lists of bytes. Like all streams in Dart you listen on
 this stream (using <code class="highlighter-rouge">await for</code>) and the data is given in chunks.</p>
 
 <!--- BEGIN(io_stream) -->
-<pre class="prettyprint lang-dart">
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 import 'dart:async';
 
 main() async {
@@ -400,8 +393,7 @@ main() async {
       }
     }
   }
-}
-</pre>
+}</pre>
 <!--- END(io_stream) -->
 
 <p>The stream subscription is implicitly handled by <code class="highlighter-rouge">await for</code>.
@@ -423,16 +415,14 @@ and collect its output. Use <code class="highlighter-rouge">run()</code> when yo
 need interactive control over the process.</p>
 
 <!--- BEGIN(io_process) -->
-<pre class="prettyprint lang-dart">
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 
 main() async {
   // List all files in the current directory,
   // in UNIX-like operating systems.
   ProcessResult results = await Process.run('ls', ['-l']);
   print(results.stdout);
-}
-</pre>
+}</pre>
 <!--- END(io_process) -->
 
 <p>You can also start a process by creating a
@@ -455,8 +445,7 @@ which decodes chunks of bytes into strings followed by a
 which splits the strings at line boundaries.</p>
 
 <!--- BEGIN(io_process_transform) -->
-<pre class="prettyprint lang-dart">
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 import 'dart:convert';
 
 main() async {
@@ -470,8 +459,7 @@ main() async {
 
   process.stderr.drain();
   print('exit code: ${await process.exitCode}');
-}
-</pre>
+}</pre>
 <!--- END(io_process_transform) -->
 
 <p>Notice that exitCode can complete before all of the lines of output
@@ -486,8 +474,7 @@ we can use the streaming classes
 to pipe the output of the process to a file.</p>
 
 <!--- BEGIN(io_process_stdio) -->
-<pre class="prettyprint lang-dart">
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 
 main() async {
   var output = new File('output.txt').openWrite();
@@ -495,8 +482,7 @@ main() async {
   process.stdout.pipe(output);
   process.stderr.drain();
   print('exit code: ${await process.exitCode}');
-}
-</pre>
+}</pre>
 <!--- END(io_process_stdio) -->
 
 <h2 id="writing-web-servers">
@@ -512,8 +498,7 @@ and hook up a listener (using <code class="highlighter-rouge">await for</code>) 
 that just answers ‘Hello, world’ to any request.</p>
 
 <!--- BEGIN(io_http_server) -->
-<pre class="prettyprint lang-dart">
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 
 main() async {
   HttpServer server = await HttpServer.bind('127.0.0.1', 8082);
@@ -521,8 +506,7 @@ main() async {
     request.response.write('Hello, world');
     request.response.close();
   }
-}
-</pre>
+}</pre>
 <!--- END(io_http_server) -->
 
 <p>Running this application
@@ -540,8 +524,7 @@ We make use of the streaming interface
 to pipe all the data read from a file directly to the response stream.</p>
 
 <!--- BEGIN(io_http_server_file) -->
-<pre class="prettyprint lang-dart">
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 
 _sendNotFound(HttpResponse response) {
   response.statusCode = HttpStatus.NOT_FOUND;
@@ -572,8 +555,7 @@ main() {
   // script and then start the server.
   File script = new File(Platform.script.toFilePath());
   startServer(script.parent.path);
-}
-</pre>
+}</pre>
 <!--- END(io_http_server_file) -->
 
 <p>Writing HTTP clients is very similar to using the
@@ -623,7 +605,7 @@ use the Area-IO label in the issue tracker at
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

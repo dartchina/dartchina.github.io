@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/libraries/futures-error-handling" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/libraries/futures-error-handling" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -95,8 +95,10 @@ ga('send', 'pageview');
 </nav>
 
   
-  <div class="alert alert-danger">
-    <h4 class="text-center">Content of this page might be obsolete.</h4>
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
   </div>
   
 </header>
@@ -276,8 +278,7 @@ handling</a>—<code class="highlighter-rouge">try</code>, <code class="highligh
 and <code class="highlighter-rouge">finally</code>—to handle errors in code that uses async functions
 and await expressions. For example:</p>
 
-<pre class="prettyprint lang-dart">
-Future main() async {
+<pre class="prettyprint lang-dart">Future main() async {
   var dir = new Directory('/tmp');
 
   <span class="highlight">try</span> {
@@ -292,8 +293,7 @@ Future main() async {
   } <span class="highlight">catch</span> (e) {
     print(e.toString());
   }
-}
-</pre>
+}</pre>
 
 <p>The rest of this guide addresses handling errors when using the Future API.</p>
 
@@ -303,11 +303,8 @@ Future main() async {
 <p>Functions that use the Future API register callbacks that handle
 the value (or the error) that completes a Future. For example:</p>
 
-<pre class="prettyprint lang-dart">
-myFunc().then(processValue)
-        .catchError(handleError);
-
-</pre>
+<pre class="prettyprint lang-dart">myFunc().then(processValue)
+        .catchError(handleError);</pre>
 
 <p>The registered callbacks fire based on the following rules: <code class="highlighter-rouge">then()</code>’s
 callback fires if it is invoked on a Future that completes with a value;
@@ -335,15 +332,13 @@ try-catch blocks.</p>
 <p>The following example deals with throwing an exception from within <code class="highlighter-rouge">then()</code>’s
 callback and demonstrates <code class="highlighter-rouge">catchError()</code>’s versatility as an error handler:</p>
 
-<pre class="prettyprint lang-dart">
-myFunc()
+<pre class="prettyprint lang-dart">myFunc()
   .then((value) {
     doSomethingWith(value);
     ...
     throw("some arbitrary error");
   })
-  .catchError(handleError);
-</pre>
+  .catchError(handleError);</pre>
 
 <p>If <code class="highlighter-rouge">myFunc()</code>’s Future completes with a value, <code class="highlighter-rouge">then()</code>’s callback fires. If
 code within <code class="highlighter-rouge">then()</code>’s callback throws (as it does in the example above),
@@ -363,22 +358,18 @@ with that error. The error is also handled by <code class="highlighter-rouge">ca
 callback within <code class="highlighter-rouge">then()</code> to handle Futures completed with errors. Here is
 <code class="highlighter-rouge">then()</code>’s signature:</p>
 
-<pre class="prettyprint lang-dart">
-abstract Future then(onValue(T value), {onError(AsyncError asyncError)})
-</pre>
+<pre class="prettyprint lang-dart">abstract Future then(onValue(T value), {onError(AsyncError asyncError)})</pre>
 
 <p>Register the optional onError callback only if you want to differentiate
 between an error forwarded <em>to</em> <code class="highlighter-rouge">then()</code>, and an error generated <em>within</em>
 <code class="highlighter-rouge">then()</code>:</p>
 
-<pre class="prettyprint lang-dart">
-funcThatThrows()
+<pre class="prettyprint lang-dart">funcThatThrows()
   .then(successCallback, onError: (e) {
     handleError(e);          // Original error.
     anotherFuncThatThrows(); // Oops, new error.
   })
-  .catchError(handleError);  // Error from within then() handled.
-</pre>
+  .catchError(handleError);  // Error from within then() handled.</pre>
 
 <p>In the example above, <code class="highlighter-rouge">funcThatThrows()</code>’s Future’s error is handled with the
 <code class="highlighter-rouge">onError</code> callback; <code class="highlighter-rouge">anotherFuncThatThrows()</code> causes <code class="highlighter-rouge">then()</code>’s Future to
@@ -394,8 +385,7 @@ to catch the error within <code class="highlighter-rouge">then()</code>.</p>
 <p>It is common to have a succession of <code class="highlighter-rouge">then()</code> calls, and catch errors
 generated from any part of the chain using <code class="highlighter-rouge">catchError()</code>:</p>
 
-<pre class="prettyprint lang-dart">
-Future&lt;String&gt; one()   =&gt; new Future.value("from one");
+<pre class="prettyprint lang-dart">Future&lt;String&gt; one()   =&gt; new Future.value("from one");
 Future&lt;String&gt; two()   =&gt; new Future.error("error from two");
 Future&lt;String&gt; three() =&gt; new Future.value("from three");
 Future&lt;String&gt; four()  =&gt; new Future.value("from four");
@@ -417,8 +407,7 @@ void main() {
 
 // Output of this program:
 //   Got error: error from two
-//   The value is 42
-</pre>
+//   The value is 42</pre>
 
 <p>In the code above, <code class="highlighter-rouge">one()</code>’s Future completes with a value, but <code class="highlighter-rouge">two()</code>’s
 Future completes with an error. When <code class="highlighter-rouge">then()</code> is invoked on a Future that
@@ -436,9 +425,7 @@ handled within <code class="highlighter-rouge">catchError()</code>.</p>
 <p><code class="highlighter-rouge">catchError()</code> takes an optional named argument, <code class="highlighter-rouge">test</code>, that
 allows us to query the kind of error thrown.</p>
 
-<pre class="prettyprint lang-dart">
-abstract Future catchError(onError(AsyncError asyncError), {bool test(Object error)})
-</pre>
+<pre class="prettyprint lang-dart">abstract Future catchError(onError(AsyncError asyncError), {bool test(Object error)})</pre>
 
 <p>Consider <code class="highlighter-rouge">handleAuthResponse(params)</code>, a function that authenticates a user
 based on the params provided, and redirects the user to an appropriate URL.
@@ -446,16 +433,14 @@ Given the complex workflow, <code class="highlighter-rouge">handleAuthResponse()
 errors and exceptions, and you should handle them differently. Here’s
 how you can use <code class="highlighter-rouge">test</code> to do that:</p>
 
-<pre class="prettyprint lang-dart">
-void main() {
+<pre class="prettyprint lang-dart">void main() {
   handleAuthResponse({'username': 'johncage', 'age': 92})
     .then((_) =&gt; ...)
     .catchError(handleFormatException,
                 test: (e) =&gt; e is FormatException)
     .catchError(handleAuthorizationException,
                 test: (e) =&gt; e is AuthorizationException);
-}
-</pre>
+}</pre>
 
 <h2 id="async-try-catch-finally-using-whencomplete">
 <a id="async-try-catch-finally-using-whencomplete" class="anchor" href="#async-try-catch-finally-using-whencomplete" aria-hidden="true"><span class="octicon octicon-link"></span></a>Async try-catch-finally using whenComplete()</h2>
@@ -465,13 +450,11 @@ equivalent of ‘finally’. The callback registered within <code class="highlig
 called when <code class="highlighter-rouge">whenComplete()</code>’s receiver completes, whether it does so with a
 value or with an error:</p>
 
-<pre class="prettyprint lang-dart">
-var server = connectToServer();
+<pre class="prettyprint lang-dart">var server = connectToServer();
 server.post(myUrl, fields: {"name": "john", "profession": "juggler"})
       .then(handleResponse)
       .catchError(handleError)
-      .whenComplete(server.close);
-</pre>
+      .whenComplete(server.close);</pre>
 
 <p>We want to call <code class="highlighter-rouge">server.close</code> regardless of whether <code class="highlighter-rouge">server.post()</code> produces
 a valid response, or an error. We ensure this happens by placing it inside
@@ -487,22 +470,19 @@ easiest to understand through examples.</p>
 <p>In the code below, <code class="highlighter-rouge">then()</code>’s Future completes with an error, so
 <code class="highlighter-rouge">whenComplete()</code>’s Future also completes with that error.</p>
 
-<pre class="prettyprint lang-dart">
-void main() {
+<pre class="prettyprint lang-dart">void main() {
   funcThatThrows()
     .then((_) =&gt; print("won't reach here"))    // Future completes with an error.
     .whenComplete(() =&gt; print('reaches here')) // Future completes with the same error.
     .then((_) =&gt; print("won't reach here"))    // Future completes with the same error.
     .catchError(handleError);                  // Error is handled here.
-}
-</pre>
+}</pre>
 
 <p>In the code below, <code class="highlighter-rouge">then()</code>’s Future completes with an error, which is now
 handled by <code class="highlighter-rouge">catchError()</code>.  Because <code class="highlighter-rouge">catchError()</code>’s Future completes with
 <code class="highlighter-rouge">someObject</code>, <code class="highlighter-rouge">whenComplete()</code>’s Future completes with that same object.</p>
 
-<pre class="prettyprint lang-dart">
-void main() {
+<pre class="prettyprint lang-dart">void main() {
   funcThatThrows()
     .then((_) =&gt; ...)         // Future completes with an error.
     .catchError((e) {
@@ -511,22 +491,19 @@ void main() {
       return someObject;
     })                                   // Future completes with someObject.
     .whenComplete(() =&gt; print("Done!")); // Future completes with someObject.
-}
-</pre>
+}</pre>
 
 <h3 id="errors-originating-within-whencomplete">
 <a id="errors-originating-within-whencomplete" class="anchor" href="#errors-originating-within-whencomplete" aria-hidden="true"><span class="octicon octicon-link"></span></a>Errors originating within whenComplete()</h3>
 <p>If <code class="highlighter-rouge">whenComplete()</code>’s callback throws an error, then <code class="highlighter-rouge">whenComplete()</code>’s Future
 completes with that error:</p>
 
-<pre class="prettyprint lang-dart">
-void main() {
+<pre class="prettyprint lang-dart">void main() {
   funcThatThrows()
     .catchError(handleError)               // Future completes with a value.
     .whenComplete(() =&gt; throw "new error") // Future completes with an error.
     .catchError(handleError);              // Error is handled.
-}
-</pre>
+}</pre>
 
 <h2 id="potential-problem-failing-to-register-error-handlers-early">
 <a id="potential-problem-failing-to-register-error-handlers-early" class="anchor" href="#potential-problem-failing-to-register-error-handlers-early" aria-hidden="true"><span class="octicon octicon-link"></span></a>Potential problem: failing to register error handlers early</h2>
@@ -536,8 +513,7 @@ this avoids scenarios where a Future completes with an error, the error
 handler is not yet attached, and the error accidentally propagates. Consider
 this code:</p>
 
-<pre class="prettyprint lang-dart">
-void main() {
+<pre class="prettyprint lang-dart">void main() {
   Future future = funcThatThrows();
 
   // BAD. Too late to handle funcThatThrows() exception.
@@ -545,8 +521,7 @@ void main() {
     future.then(...)
           .catchError(...);
   });
-}
-</pre>
+}</pre>
 
 <p>In the code above, <code class="highlighter-rouge">catchError()</code> is not registered until half a second after
 <code class="highlighter-rouge">funcThatThrows()</code> is called, and the error goes unhandled.</p>
@@ -554,14 +529,12 @@ void main() {
 <p>The problem goes away if <code class="highlighter-rouge">funcThatThrows()</code> is called within the
 <code class="highlighter-rouge">Future.delayed()</code> callback:</p>
 
-<pre class="prettyprint lang-dart">
-void main() {
+<pre class="prettyprint lang-dart">void main() {
   new Future.delayed(const Duration(milliseconds: 500), () {
     funcThatThrows().then(processValue)
                     .catchError(handleError)); // We get here.
   });
-}
-</pre>
+}</pre>
 
 <h2 id="potential-problem-accidentally-mixing-synchronous-and-asynchronous-errors">
 <a id="potential-problem-accidentally-mixing-synchronous-and-asynchronous-errors" class="anchor" href="#potential-problem-accidentally-mixing-synchronous-and-asynchronous-errors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Potential problem: accidentally mixing synchronous and asynchronous errors</h2>
@@ -571,15 +544,13 @@ future. Since we do not want the caller of such functions to have to
 implement multiple error-handling scenarios, we want to prevent any synchronous
 errors from leaking out. Consider this code:</p>
 
-<pre class="prettyprint lang-dart">
-Future&lt;int&gt; parseAndRead(data) {
+<pre class="prettyprint lang-dart">Future&lt;int&gt; parseAndRead(data) {
   var filename = obtainFileName(data);         // Could throw.
   File file = new File(filename);
   return file.readAsString().then((contents) {
     return parseFileData(contents);            // Could throw.
   });
-}
-</pre>
+}</pre>
 
 <p>Two functions in that code could potentially throw synchronously:
 <code class="highlighter-rouge">obtainFileName()</code> and <code class="highlighter-rouge">parseFileData()</code>. Because <code class="highlighter-rouge">parseFileData()</code> executes
@@ -591,8 +562,7 @@ successfully handled by <code class="highlighter-rouge">catchError()</code>.</p>
 <p>But <code class="highlighter-rouge">obtainFileName()</code> is not called within a <code class="highlighter-rouge">then()</code> callback; if <em>it</em>
 throws, a synchronous error propagates:</p>
 
-<pre class="prettyprint lang-dart">
-void main() {
+<pre class="prettyprint lang-dart">void main() {
   parseAndRead(data).catchError((e) {
     print("inside catchError");
     print(e.error);
@@ -602,8 +572,7 @@ void main() {
 // Program Output:
 //   Unhandled exception:
 //   &lt;error from obtainFileName&gt;
-//   ...
-</pre>
+//   ...</pre>
 
 <p>Because using <code class="highlighter-rouge">catchError()</code> does not capture the error, a client of
 <code class="highlighter-rouge">parseAndRead()</code> would implement a separate error-handling strategy for this
@@ -616,8 +585,7 @@ error.</p>
 thrown from a function is to wrap the function body inside a <code class="highlighter-rouge">new Future.sync()</code>
 callback:</p>
 
-<pre class="prettyprint lang-dart">
-Future&lt;int&gt; parseAndRead(data) {
+<pre class="prettyprint lang-dart">Future&lt;int&gt; parseAndRead(data) {
   return new Future.sync(() {
     var filename = obtainFileName(data);         // Could throw.
     File file = new File(filename);
@@ -625,8 +593,7 @@ Future&lt;int&gt; parseAndRead(data) {
       return parseFileData(contents);            // Could throw.
     });
   });
-}
-</pre>
+}</pre>
 
 <p>If the callback returns a non-Future value, <code class="highlighter-rouge">Future.sync()</code>’s Future completes
 with that value. If the callback throws (as it does in the example
@@ -636,8 +603,7 @@ Future.</p>
 
 <p>With code wrapped within <code class="highlighter-rouge">Future.sync()</code>, <code class="highlighter-rouge">catchError()</code> can handle all errors:</p>
 
-<pre class="prettyprint lang-dart">
-void main() {
+<pre class="prettyprint lang-dart">void main() {
   parseAndRead(data).catchError((e) {
     print("inside catchError");
     print(e.error);
@@ -646,22 +612,19 @@ void main() {
 
 // Program Output:
 //   inside catchError
-//   &lt;error from obtainFileName&gt;
-</pre>
+//   &lt;error from obtainFileName&gt;</pre>
 
 <p><code class="highlighter-rouge">Future.sync()</code> makes your code resilient against uncaught exceptions. If your
 function has a lot of code packed into it, chances are that you could be doing
 something dangerous without realizing it:</p>
 
-<pre class="prettyprint lang-dart">
-Future fragileFunc() {
+<pre class="prettyprint lang-dart">Future fragileFunc() {
   return new Future.sync(() {
     var x = someFunc();     // Unexpectedly throws in some rare cases.
     var y = 10 / x;         // x should not equal 0.
     ...
   });
-}
-</pre>
+}</pre>
 
 <p><code class="highlighter-rouge">Future.sync()</code> not only allows you to handle errors you know might occur, but
 also prevents errors from <em>accidentally</em> leaking out of your function.</p>
@@ -705,7 +668,7 @@ an article that describes how to schedule tasks using Futures</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

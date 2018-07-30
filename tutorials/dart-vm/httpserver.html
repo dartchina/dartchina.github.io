@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/dart-vm/httpserver" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/dart-vm/httpserver" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -401,8 +401,7 @@ classes both for server-side programs and for
 client-side programs (but not for web apps).</p>
 
 <?code-excerpt "httpserver/bin/hello_world_server.dart" replace="/.*?dart:io.*/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-<span class="highlight">import 'dart:io';</span>
+<pre class="prettyprint lang-dart"><span class="highlight">import 'dart:io';</span>
 import 'dart:async';
 
 Future main() async {
@@ -417,8 +416,7 @@ Future main() async {
       ..write('Hello, world!')
       ..close();
   }
-}
-</pre>
+}</pre>
 <div class="prettify-filename">hello_world_server.dart</div>
 
 <p>The next few sections cover server-side binding,
@@ -435,12 +433,10 @@ listening, and responding.</p>
 <a href="https://api.dartlang.org/dev/dart-io/HttpServer-class.html">HttpServer</a> object and bind it to a host and port.</p>
 
 <?code-excerpt "httpserver/bin/hello_world_server.dart (bind)"?>
-<pre class="prettyprint lang-dart">
-var server = await HttpServer.bind(
+<pre class="prettyprint lang-dart">var server = await HttpServer.bind(
   InternetAddress.loopbackIPv4,
   4040,
-);
-</pre>
+);</pre>
 <div class="prettify-filename">hello_world_server.dart</div>
 
 <p>The code uses <code class="highlighter-rouge">await</code> to call the <code class="highlighter-rouge">bind</code> method asynchronously.</p>
@@ -495,13 +491,11 @@ the connection for your server will be refused.</p>
 For each request received, the code sends a “Hello, world!” response.</p>
 
 <?code-excerpt "httpserver/bin/hello_world_server.dart (listen)"?>
-<pre class="prettyprint lang-dart">
-await for (HttpRequest request in server) {
+<pre class="prettyprint lang-dart">await for (HttpRequest request in server) {
   request.response
     ..write('Hello, world!')
     ..close();
-}
-</pre>
+}</pre>
 <div class="prettify-filename">hello_world_server.dart</div>
 
 <p>You’ll learn more about what the <a href="https://api.dartlang.org/dev/dart-io/HttpRequest-class.html">HttpRequest</a> object contains
@@ -573,8 +567,7 @@ It might also include elements that build a query string.</p>
 <p>Here’s the form HTML from <code class="highlighter-rouge">make_a_guess.html</code>:</p>
 
 <?code-excerpt "httpserver/web/make_a_guess.html (form)" replace="/(action|method|name|type)=(.).*?\2/[!$&!]/g"?>
-<pre class="prettyprint lang-html">
-&lt;form <span class="highlight">action="http://localhost:4041"</span> <span class="highlight">method="GET"</span>&gt;
+<pre class="prettyprint lang-html">&lt;form <span class="highlight">action="http://localhost:4041"</span> <span class="highlight">method="GET"</span>&gt;
   &lt;select <span class="highlight">name="q"</span>&gt;
     &lt;option value="0"&gt;0&lt;/option&gt;
     &lt;option value="1"&gt;1&lt;/option&gt;
@@ -583,8 +576,7 @@ It might also include elements that build a query string.</p>
     &lt;option value="9"&gt;9&lt;/option&gt;
   &lt;/select&gt;
   &lt;input <span class="highlight">type="submit"</span> value="Guess"&gt;
-&lt;/form&gt;
-</pre>
+&lt;/form&gt;</pre>
 <div class="prettify-filename">make_a_guess.html</div>
 
 <p>Here’s how the form works:</p>
@@ -637,8 +629,7 @@ request received. Because HttpServer implements <a href="https://api.dartlang.or
 you can use <code class="highlighter-rouge">await for</code> to process the requests.</p>
 
 <?code-excerpt "httpserver/bin/number_thinker.dart (main)" replace="/handleRequest/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-import 'dart:async';
+<pre class="prettyprint lang-dart">import 'dart:async';
 import 'dart:io';
 import 'dart:math' show Random;
 
@@ -655,16 +646,14 @@ Future main() async {
   await for (var request in server) {
     <span class="highlight">handleRequest</span>(request);
   }
-}
-</pre>
+}</pre>
 <div class="prettify-filename">number_thinker.dart</div>
 
 <p>When a <code class="highlighter-rouge">GET</code> request arrives, the <code class="highlighter-rouge">handleRequest()</code> method calls
 <code class="highlighter-rouge">handleGet()</code> to process the request.</p>
 
 <?code-excerpt "httpserver/bin/number_thinker.dart (handleRequest)" replace="/handleGet/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-void handleRequest(HttpRequest request) {
+<pre class="prettyprint lang-dart">void handleRequest(HttpRequest request) {
   try {
     if (request.method == 'GET') {
       <span class="highlight">handleGet</span>(request);
@@ -675,8 +664,7 @@ void handleRequest(HttpRequest request) {
     print('Exception in handleRequest: $e');
   }
   print('Request handled.');
-}
-</pre>
+}</pre>
 <div class="prettify-filename">number_thinker.dart</div>
 
 <p>An <a href="https://api.dartlang.org/dev/dart-io/HttpRequest-class.html">HttpRequest</a> object has many properties that provide
@@ -718,16 +706,14 @@ property to determine what kind of request has been received.
 This server handles only GET requests.</p>
 
 <?code-excerpt "httpserver/bin/number_thinker.dart (request-method)" replace="/handleGet/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-if (request.method == 'GET') {
+<pre class="prettyprint lang-dart">if (request.method == 'GET') {
   <span class="highlight">handleGet</span>(request);
 } else {
   request.response
     ..statusCode = HttpStatus.methodNotAllowed
     ..write('Unsupported request: ${request.method}.')
     ..close();
-}
-</pre>
+}</pre>
 <div class="prettify-filename">number_thinker.dart</div>
 
 <h3 id="using-the-uri-property">
@@ -739,12 +725,10 @@ It can send a minimal amount of data along with the request
 through a query string attached to the URI.</p>
 
 <?code-excerpt "httpserver/bin/number_thinker.dart (uri)" replace="/request.uri/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-void handleGet(HttpRequest request) {
+<pre class="prettyprint lang-dart">void handleGet(HttpRequest request) {
   final guess = <span class="highlight">request.uri</span>.queryParameters['q'];
   // ···
-}
-</pre>
+}</pre>
 <div class="prettify-filename">number_thinker.dart</div>
 
 <p>Use the <code class="highlighter-rouge">uri</code> property from the HttpRequest object to get a <a href="https://api.dartlang.org/dev/dart-core/Uri-class.html">Uri</a> object
@@ -765,14 +749,12 @@ to indicate that the request was successful and the response is complete,
 the number thinker server sets the HttpResponse status code to <code class="highlighter-rouge">HttpStatus.OK</code>.</p>
 
 <?code-excerpt "httpserver/bin/number_thinker.dart (statusCode)" replace="/response.statusCode.*?;/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-void handleGet(HttpRequest request) {
+<pre class="prettyprint lang-dart">void handleGet(HttpRequest request) {
   final guess = request.uri.queryParameters['q'];
   final response = request.response;
   <span class="highlight">response.statusCode = HttpStatus.ok;</span>
   // ···
-}
-</pre>
+}</pre>
 <div class="prettify-filename">number_thinker.dart</div>
 
 <p><code class="highlighter-rouge">HttpStatus.OK</code> and <code class="highlighter-rouge">HttpStatus.METHOD_NOT_ALLOWED</code> are
@@ -826,8 +808,7 @@ Closing the HttpResponse object
 sends the data back to the client.</p>
 
 <?code-excerpt "httpserver/bin/number_thinker.dart (write)" replace="/\.\..*/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-void handleGet(HttpRequest request) {
+<pre class="prettyprint lang-dart">void handleGet(HttpRequest request) {
   // ···
   if (guess == myNumber.toString()) {
     response
@@ -836,8 +817,7 @@ void handleGet(HttpRequest request) {
       <span class="highlight">..close();</span>
     // ···
   }
-}
-</pre>
+}</pre>
 <div class="prettify-filename">number_thinker.dart</div>
 
 <h2 id="making-post">
@@ -927,8 +907,7 @@ an HttpClientResponse object.</p>
 </ul>
 
 <?code-excerpt "httpserver/bin/basic_writer_client.dart" replace="/\/\*.\*\/|post|headers|write|close|utf8.\w+/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-import 'dart:async';
+<pre class="prettyprint lang-dart">import 'dart:async';
 import 'dart:io';
 import 'dart:convert';
 
@@ -949,8 +928,7 @@ Future main() async {
     ..<span class="highlight">write</span>(jsonEncode(jsonData)); <span class="highlight">/*3*/</span>
   HttpClientResponse response = await request.<span class="highlight">close</span>(); <span class="highlight">/*4*/</span>
   await response.transform(<span class="highlight">utf8.decoder</span> <span class="highlight">/*5*/</span>).forEach(print);
-}
-</pre>
+}</pre>
 <div class="prettify-filename">basic_writer_client.dart</div>
 
 <ol class="code-notes">
@@ -1026,8 +1004,7 @@ join() method in Stream to concatenate the string values of those chunks.</p>
 a server that follows this pattern.</p>
 
 <?code-excerpt "httpserver/bin/basic_writer_server.dart" replace="/\/\*\d\*\/|contentType.*? == \S+|(content|data) = [^;]*|req\.uri[^ ]*/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-import 'dart:async';
+<pre class="prettyprint lang-dart">import 'dart:async';
 import 'dart:io';
 import 'dart:convert';
 
@@ -1063,8 +1040,7 @@ Future main() async {
     }
     response.close();
   }
-}
-</pre>
+}</pre>
 <div class="prettify-filename">basic_writer_server.dart</div>
 
 <ol class="code-notes">
@@ -1103,15 +1079,13 @@ Use CORS headers with caution,
 because they can open your network up to security risks.</p>
 
 <?code-excerpt "httpserver/bin/note_server.dart (addCorsHeaders)"?>
-<pre class="prettyprint lang-dart">
-void addCorsHeaders(HttpResponse response) {
+<pre class="prettyprint lang-dart">void addCorsHeaders(HttpResponse response) {
   response.headers.add('Access-Control-Allow-Origin', '*');
   response.headers
       .add('Access-Control-Allow-Methods', 'POST, OPTIONS');
   response.headers.add('Access-Control-Allow-Headers',
       'Origin, X-Requested-With, Content-Type, Accept');
-}
-</pre>
+}</pre>
 <div class="prettify-filename">note_server.dart</div>
 
 <p>For more information, refer to Wikipedia’s article
@@ -1163,8 +1137,7 @@ The server displays an HTML file:</p>
 <p>Here’s the code for mini file server:</p>
 
 <?code-excerpt "httpserver/bin/mini_file_server.dart"?>
-<pre class="prettyprint lang-dart">
-import 'dart:async';
+<pre class="prettyprint lang-dart">import 'dart:async';
 import 'dart:io';
 
 File targetFile = File('index.html');
@@ -1196,8 +1169,7 @@ Future main() async {
         ..close();
     }
   }
-}
-</pre>
+}</pre>
 <div class="prettify-filename">mini_file_server.dart</div>
 
 <p>This code determines whether the file exists,
@@ -1231,8 +1203,7 @@ The server displays the same index.html file as the previous:</p>
 because the <a href="https://www.dartdocs.org/documentation/http_server/latest/http_server/VirtualDirectory-class.html">VirtualDirectory</a> class handles the details of serving the file.</p>
 
 <?code-excerpt "httpserver/bin/basic_file_server.dart" replace="/staticFiles\..*/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-import 'dart:async';
+<pre class="prettyprint lang-dart">import 'dart:async';
 import 'dart:io';
 import 'package:http_server/http_server.dart';
 
@@ -1246,8 +1217,7 @@ Future main() async {
   await for (var request in serverRequests) {
     <span class="highlight">staticFiles.serveFile(targetFile, request);</span>
   }
-}
-</pre>
+}</pre>
 <div class="prettify-filename">basic_file_server.dart</div>
 
 <p>Here, the requested resource, index.html, is served by
@@ -1267,8 +1237,7 @@ Change <code class="highlighter-rouge">file.txt</code> to other filenames within
 <p>Here is the code for <code class="highlighter-rouge">static_file_server.dart</code>.</p>
 
 <?code-excerpt "httpserver/bin/static_file_server.dart" replace="/\/\*\d\*\//[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-import 'dart:async';
+<pre class="prettyprint lang-dart">import 'dart:async';
 import 'dart:io';
 import 'package:http_server/http_server.dart';
 import 'package:path/path.dart';
@@ -1286,8 +1255,7 @@ Future main() async {
   var server = await HttpServer.bind(InternetAddress.loopbackIPv4, 4048);
   print('Listening on port 4048');
   await server.forEach(staticFiles.serveRequest); <span class="highlight">/*4*/</span>
-}
-</pre>
+}</pre>
 <div class="prettify-filename">static_file_server.dart</div>
 
 <ol class="code-notes">
@@ -1330,8 +1298,7 @@ a certificate created by the Dart team for testing.
 You <strong>must</strong> provide your own certificates for your servers.</p>
 
 <?code-excerpt "httpserver/bin/hello_world_server_secure.dart" replace="/\S.*\/\*\d\*\//[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-import 'dart:async';
+<pre class="prettyprint lang-dart">import 'dart:async';
 import 'dart:io';
 
 String certificateChain = 'server_chain.pem';
@@ -1353,8 +1320,7 @@ Future main() async {
       ..write('Hello, world!')
       ..close();
   }
-}
-</pre>
+}</pre>
 <div class="prettify-filename">hello_world_server_secure.dart</div>
 
 <ol class="code-notes">
@@ -1495,7 +1461,7 @@ including servers.</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

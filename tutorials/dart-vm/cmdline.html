@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/dart-vm/cmdline" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/dart-vm/cmdline" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -323,11 +323,9 @@ by name.</p>
 <li>
     <p>Create a file called <code class="highlighter-rouge">helloworld.dart</code> that contains this code:</p>
 
-    <pre class="prettyprint lang-dart">
-void main() {
+    <pre class="prettyprint lang-dart">void main() {
   print('Hello, World!');
-}
-</pre>
+}</pre>
   </li>
 
 <li>
@@ -421,9 +419,7 @@ parser support for transforming raw command-line arguments
 into a set of options, flags, and additional values.
 Import the library as follows:</p>
 
-<pre class="prettyprint lang-dart">
-import 'package:args/args.dart';
-</pre>
+<pre class="prettyprint lang-dart">import 'package:args/args.dart';</pre>
 
 <p>The args library contains two classes:</p>
 
@@ -538,10 +534,8 @@ The standard I/O streams are defined at the top level of the dart:io library,</p
 
 <p>Import the dart:io and dart:async libraries as follows:</p>
 
-<pre class="prettyprint lang-dart">
-import 'dart:io';
-import 'dart:async';
-</pre>
+<pre class="prettyprint lang-dart">import 'dart:io';
+import 'dart:async';</pre>
 
 <p>Only command-line applications, not web applications, can use the dart:io library.
 The <code class="highlighter-rouge">async</code>, <code class="highlighter-rouge">await</code>, and <code class="highlighter-rouge">await for</code> keywords are built into the Dart language,
@@ -553,13 +547,11 @@ but you must import dart:async to refer to the Future or Stream class.</p>
 <p>Here’s the code from the <code class="highlighter-rouge">dcat</code> program that writes the line number to
 the <code class="highlighter-rouge">stdout</code> (if the -n flag is set) followed by the line from the file.</p>
 
-<pre class="prettyprint lang-dart">
-if (showLineNumbers) {
+<pre class="prettyprint lang-dart">if (showLineNumbers) {
   <span class="highlight">stdout.write('${lineNumber++} ');</span>
 }
 
-<span class="highlight">stdout.writeln(line);</span>
-</pre>
+<span class="highlight">stdout.writeln(line);</span></pre>
 
 <p>The <code class="highlighter-rouge">write()</code> and <code class="highlighter-rouge">writeln()</code> methods take an object of any type,
 convert it to a string, and print it. The <code class="highlighter-rouge">writeln()</code> method
@@ -589,13 +581,11 @@ or programmatically to different destinations.</p>
 <p>This code from <code class="highlighter-rouge">dcat</code> prints an error message if the user
 tries to list a directory.</p>
 
-<pre class="prettyprint lang-dart">
-if (await FileSystemEntity.isDirectory(path)) {
+<pre class="prettyprint lang-dart">if (await FileSystemEntity.isDirectory(path)) {
   <span class="highlight">stderr.writeln('error: $path is a directory');</span>
 } else {
   exitCode = 2;
-}
-</pre>
+}</pre>
 
 <h3 id="stdin">
 <a id="stdin" class="anchor" href="#stdin" aria-hidden="true"><span class="octicon octicon-link"></span></a>stdin</h3>
@@ -608,15 +598,13 @@ output of another program.</p>
 
 <p>Here’s a small program that reads a single line from <code class="highlighter-rouge">stdin</code>:</p>
 
-<pre class="prettyprint lang-dart">
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 
 void main() {
   stdout.writeln('Type something');
   String input = stdin.readLineSync();
   stdout.writeln('You typed: $input');
-}
-</pre>
+}</pre>
 
 <p>The <code class="highlighter-rouge">readLineSync()</code> method reads text from the standard input stream,
 blocking until the user types in text and presses return.
@@ -627,9 +615,7 @@ if the user does not provide a filename on the command line,
 the program instead reads synchronously from stdin
 using the <code class="highlighter-rouge">pipe()</code> method.</p>
 
-<pre class="prettyprint lang-dart">
-<span class="highlight">stdin</span>.pipe(stdout);
-</pre>
+<pre class="prettyprint lang-dart"><span class="highlight">stdin</span>.pipe(stdout);</pre>
 
 <p>In this case,
 the user types in lines of text and the program copies them to stdout.
@@ -660,13 +646,11 @@ The Future returns a boolean that indicates if the path is a directory or not.
 Because the check is asynchronous, the code calls <code class="highlighter-rouge">isDirectory()</code>
 using <code class="highlighter-rouge">await</code>.</p>
 
-<pre class="prettyprint lang-dart">
-if (await <span class="highlight">FileSystemEntity.isDirectory(path)</span>) {
+<pre class="prettyprint lang-dart">if (await <span class="highlight">FileSystemEntity.isDirectory(path)</span>) {
   stderr.writeln('error: $path is a directory');
 } else {
   exitCode = 2;
-}
-</pre>
+}</pre>
 
 <p>Other interesting methods in the <code class="highlighter-rouge">FileSystemEntity</code> class
 include <code class="highlighter-rouge">isFile()</code>, <code class="highlighter-rouge">exists()</code>, <code class="highlighter-rouge">stat()</code>, <code class="highlighter-rouge">delete()</code>,
@@ -683,8 +667,7 @@ The <code class="highlighter-rouge">await for</code> block waits for the file to
 asynchronously. The data prints to stdout when it
 becomes available on the stream.</p>
 
-<pre class="prettyprint lang-dart">
-for (var path in paths) {
+<pre class="prettyprint lang-dart">for (var path in paths) {
   int lineNumber = 1;
   Stream lines = new File(path)
       .openRead()
@@ -700,16 +683,14 @@ for (var path in paths) {
   } catch (_) {
     _handleError(path);
   }
-}
-</pre>
+}</pre>
 
 <p>The following shows the rest of the code, which uses two decoders that
 transform the data before making it available in the <code class="highlighter-rouge">await for</code> block.
 The UTF8 decoder converts the data into Dart strings.
 <code class="highlighter-rouge">LineSplitter</code> splits the data at newlines.</p>
 
-<pre class="prettyprint lang-dart">
-for (var path in paths) {
+<pre class="prettyprint lang-dart">for (var path in paths) {
   int lineNumber = 1;
   Stream lines = new File(path)
       .openRead()
@@ -725,16 +706,13 @@ for (var path in paths) {
   } catch (_) {
     _handleError(path);
   }
-}
-</pre>
+}</pre>
 
 <p>The dart:convert library contains these and other data converters,
 including one for JSON.
 To use these converters you need to import the dart:convert library:</p>
 
-<pre class="prettyprint lang-dart">
-import 'dart:convert';
-</pre>
+<pre class="prettyprint lang-dart">import 'dart:convert';</pre>
 
 <h2 id="writing-a-file">
 <a id="writing-a-file" class="anchor" href="#writing-a-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing a file</h2>
@@ -743,8 +721,7 @@ import 'dart:convert';
 <a href="https://api.dartlang.org/dev/dart-io/File-class.html" target="_blank">File</a>
 object and use the <code class="highlighter-rouge">writeAsString()</code> method:</p>
 
-<pre class="prettyprint lang-dart">
-File quotesFile = new File('quotes.txt');
+<pre class="prettyprint lang-dart">File quotesFile = new File('quotes.txt');
 String stronger = 'That which does not kill us makes us stronger. -Nietzsche';
 
 try {
@@ -752,8 +729,7 @@ try {
   print('Data written.');
 } catch (e) {
   print('Oops!');
-}
-</pre>
+}</pre>
 
 <p>The <code class="highlighter-rouge">writeAsString()</code> method writes the data asynchronously.
 It opens the file before writing and closes the file when done.
@@ -768,15 +744,13 @@ You can continue to write to the file until done,
 at which time, you must close the file.
 The <code class="highlighter-rouge">close()</code> method is asynchronous and returns a Future.</p>
 
-<pre class="prettyprint lang-dart">
-IOSink quotes = new File('quotes.txt').openWrite(mode: FileMode.append);
+<pre class="prettyprint lang-dart">IOSink quotes = new File('quotes.txt').openWrite(mode: FileMode.append);
 
 quotes.write('A woman is like a tea bag; ');
 quotes.write('you never know how strong it is until it\'s in hot water.');
 quotes.writeln(' -Eleanor Roosevelt');
 await quotes.close();
-print('Done!');
-</pre>
+print('Done!');</pre>
 
 <h2 id="getting-environment-information">
 <a id="getting-environment-information" class="anchor" href="#getting-environment-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting environment information</h2>
@@ -792,13 +766,11 @@ not from the dart:html library.</p>
 variables in an immutable map. If you need a mutable map (modifiable copy) you
 can use <code class="highlighter-rouge">Map.from(Platform.environment)</code>.</p>
 
-<pre class="prettyprint lang-dart">
-Map environmentVars = Platform.environment;
+<pre class="prettyprint lang-dart">Map environmentVars = Platform.environment;
 
 print('PWD = ${environmentVars["PWD"]}');
 print('LOGNAME = ${environmentVars["LOGNAME"]}');
-print('PATH = ${environmentVars["PATH"]}');
-</pre>
+print('PATH = ${environmentVars["PATH"]}');</pre>
 
 <p><code class="highlighter-rouge">Platform</code> provides other useful properties that give
 information about the machine, OS, and currently
@@ -826,15 +798,13 @@ execution of the program.</p>
 in the <code class="highlighter-rouge">_handleError()</code> function to indicate that an error
 occcurred during execution.</p>
 
-<pre class="prettyprint lang-dart">
-Future _handleError(String path) async {
+<pre class="prettyprint lang-dart">Future _handleError(String path) async {
   if (await FileSystemEntity.isDirectory(path)) {
     stderr.writeln('error: $path is a directory');
   } else {
     <span class="highlight">exitCode = 2;</span>
   }
-}
-</pre>
+}</pre>
 
 <p>An exit code of 2 indicates that the program encountered an error.</p>
 
@@ -1021,7 +991,7 @@ check out the next tutorial,
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

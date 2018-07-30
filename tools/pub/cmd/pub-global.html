@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/cmd/pub-global" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/cmd/pub-global" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -374,10 +374,8 @@ but you still can’t run the command:</p>
 <p>Verify that the <code class="highlighter-rouge">bin</code> directory for the system cache is in your path.
 The following path, on macOS, includes the system cache.</p>
 
-<pre>
-$ echo $PATH
-<span class="highlight">/Users/&lt;user&gt;/.pub-cache/bin</span>:/Users/&lt;user&gt;/homebrew/bin:/usr/local/bin:/usr/bin:/bin
-</pre>
+<pre>$ echo $PATH
+<span class="highlight">/Users/&lt;user&gt;/.pub-cache/bin</span>:/Users/&lt;user&gt;/homebrew/bin:/usr/local/bin:/usr/bin:/bin</pre>
 
 <p>If this directory is missing from your path,
 locate the file for your platform and add it.</p>
@@ -407,11 +405,9 @@ may vary for different versions of Windows.</p>
 
 <p>You can now directly invoke the command:</p>
 
-<pre>
-$ mkdir angular_project
+<pre>$ mkdir angular_project
 $ cd angular_project
-$ <span class="highlight">stagehand web-angular</span>
-</pre>
+$ <span class="highlight">stagehand web-angular</span></pre>
 
 <p>If the script still fails to run from the command line, the
 package may not be <a href="#configuring-package-executables">configured</a> for
@@ -445,12 +441,10 @@ entry of the pubspec file.  For example, the following pubspec file
 identifies <code class="highlighter-rouge">bin/helloworld.dart</code> as an executable for the helloworld
 package:</p>
 
-<pre class="prettyprint lang-yaml">
-name: helloworld
+<pre class="prettyprint lang-yaml">name: helloworld
 
 executables:
-  helloworld:
-</pre>
+  helloworld:</pre>
 
 <p>Failing to list a script under the <code class="highlighter-rouge">executables</code> tag reduces the script’s
 usability: unlisted scripts can be executed using <code class="highlighter-rouge">pub global run</code>, but not
@@ -558,7 +552,7 @@ the new executable overwrites the previously activated executable.</dd>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

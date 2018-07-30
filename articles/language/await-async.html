@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/language/await-async" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/language/await-async" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -95,8 +95,10 @@ ga('send', 'pageview');
 </nav>
 
   
-  <div class="alert alert-danger">
-    <h4 class="text-center">Content of this page might be obsolete.</h4>
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
   </div>
   
 </header>
@@ -254,9 +256,7 @@ it won’t be an issue.</p>
 <p>An <strong>async</strong> function is a function whose body is marked with an <strong>async</strong>
 modifier.</p>
 
-<pre class="prettyprint lang-dart">
-foo() <span class="highlight">async</span> =&gt; 42;
-</pre>
+<pre class="prettyprint lang-dart">foo() <span class="highlight">async</span> =&gt; 42;</pre>
 
 <p>When you call an <strong>async</strong> function, it immediately returns a Future;
 the body of the function is scheduled for execution later.
@@ -268,9 +268,7 @@ The Future eventually completes with the number 42.</p>
 
 <p>You could have written a similar function without the async modifier:</p>
 
-<pre class="prettyprint lang-dart">
-foo() =&gt; new Future(() =&gt; 42);
-</pre>
+<pre class="prettyprint lang-dart">foo() =&gt; new Future(() =&gt; 42);</pre>
 
 <p>The modifier saves you some boilerplate, but the real point is that it
 allows you to use <strong>await</strong> expressions inside the function, as we’ll
@@ -287,15 +285,11 @@ file. (For details on files, see the
 <a href="https://api.dartlang.org/dev/dart-io/dart-io-library.html"><code class="highlighter-rouge">dart:io</code></a>.)
 You decide to copy it to a new location <code class="highlighter-rouge">newPath</code>, declared as</p>
 
-<pre class="prettyprint lang-dart">
-String newPath = '/some/where/out/there';
-</pre>
+<pre class="prettyprint lang-dart">String newPath = '/some/where/out/there';</pre>
 
 <p>You’d expect the following to be true:</p>
 
-<pre class="prettyprint lang-dart">
-myFile.copy(newPath).path == newPath;
-</pre>
+<pre class="prettyprint lang-dart">myFile.copy(newPath).path == newPath;</pre>
 
 <p>Unfortunately, that won’t work. Since Dart’s I/O API is asynchronous,
 the copy operation returns a <a href="https://api.dartlang.org/dev/dart-async/Future-class.html">Future</a>,
@@ -303,18 +297,14 @@ and you can’t call <code class="highlighter-rouge">path</code> on that. You mu
 Future returned from <code class="highlighter-rouge">copy()</code>, and that callback performs the
 comparison with its incoming parameter <code class="highlighter-rouge">f</code>:</p>
 
-<pre class="prettyprint lang-dart">
-myFile.copy(newPath).then((f) =&gt; f.path == newPath);
-</pre>
+<pre class="prettyprint lang-dart">myFile.copy(newPath).then((f) =&gt; f.path == newPath);</pre>
 
 <p>This is a tad tedious, but gets much worse the more involved your code is.
 What you really want to do is to wait until the asynchronous file copy
 operations completes, get the result, and resume execution.
 An <code class="highlighter-rouge">await</code> expression lets you do exactly that:</p>
 
-<pre class="prettyprint lang-dart">
-(<span class="highlight">await</span> myFile.copy(newPath)).path == newPath;
-</pre>
+<pre class="prettyprint lang-dart">(<span class="highlight">await</span> myFile.copy(newPath)).path == newPath;</pre>
 
 <p>When the <strong>await</strong> expression runs, <code class="highlighter-rouge">myFile.copy()</code> is invoked, yielding
 a Future. Execution then suspends, waiting for the Future to complete.
@@ -375,9 +365,7 @@ function, it wouldn’t be synchronous anymore.</p>
 <p>First, notice that the modifier goes between the function signature and
 its body. We could also have written <code class="highlighter-rouge">foo()</code> as</p>
 
-<pre class="prettyprint lang-dart">
-foo() <span class="highlight">async</span> { return 42; }
-</pre>
+<pre class="prettyprint lang-dart">foo() <span class="highlight">async</span> { return 42; }</pre>
 
 <p>In short, the modifier comes before the =&gt; or the curly brace that opens
 the function body.</p>
@@ -427,8 +415,7 @@ on every frame.</p>
 <p>Without using <strong>async</strong> and <strong>await</strong>, the code might look something like
 this:</p>
 
-<pre class="prettyprint lang-dart">
-import "dart:html";
+<pre class="prettyprint lang-dart">import "dart:html";
 
 main() {
   var context = querySelector("canvas").context2D;
@@ -442,8 +429,7 @@ main() {
   }
 
   window.animationFrame.then(tick);
-}
-</pre>
+}</pre>
 
 <p>It’s not too complicated, but not totally simple either. We produce a frame;
 when the frame is done, we expect to invoke a callback function, <code class="highlighter-rouge">tick()</code>,
@@ -454,8 +440,7 @@ all know how intuitive and easy continuations are.</p>
 
 <p>Using our new language features, we can write the following instead:</p>
 
-<pre class="prettyprint lang-dart">
-import "dart:html";
+<pre class="prettyprint lang-dart">import "dart:html";
 
 main() async {
   var context = querySelector("canvas").context2D;
@@ -466,8 +451,7 @@ main() async {
     context.clearRect(0, 0, 500, 500);
     context.fillRect(time % 450, 20, 50, 50);
   }
-}
-</pre>
+}</pre>
 
 <p>Here the code is self explanatory. While the animation is running, we
 compute a frame. The choice is yours; pick whichever version you find
@@ -506,7 +490,7 @@ easier to understand.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

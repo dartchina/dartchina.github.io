@@ -56,7 +56,7 @@ ga('send', 'pageview');
 
 </head>
 
-  <body class="default obsolete">
+  <body class="default">
     <header id="page-header">
   <nav id="mainnav">
   <div id="menu-toggle"><i class="icon icon-menu"></i></div>
@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/simd" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/simd" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -94,10 +94,6 @@ ga('send', 'pageview');
   </ul>
 </nav>
 
-  
-  <div class="alert alert-danger">
-    <h4 class="text-center">Content of this page might be obsolete.</h4>
-  </div>
   
 </header>
 
@@ -255,9 +251,15 @@ ga('send', 'pageview');
             <h1>Using SIMD in Dart</h1>
           </div>
           <p><em>Written by John McCutchan <br>
-August 2013</em></p>
+August 2013 (note added July 2018)</em></p>
 
-<p>Programs written in Dart can use new numeric types
+<aside class="alert alert-info">
+  <p>This article’s content is still relevant in Dart 2.
+  However, the examples haven’t been tested recently,
+  and they use the now-optional <code class="highlighter-rouge">new</code> keyword.</p>
+</aside>
+
+<p>Programs written in Dart can use numeric types
 that take advantage of
 <a href="http://en.wikipedia.org/wiki/SIMD">Single Instruction Multiple Data (SIMD)</a>
 instruction sets.
@@ -445,9 +447,7 @@ from the return values of Float32x4 methods.
 To create an explicit selection mask,
 you can use the Int32x4.bool() constructor:</p>
 
-<pre class="prettyprint lang-dart">
-Int32x4.bool(bool x, bool y, bool z, bool w);
-</pre>
+<pre class="prettyprint lang-dart">Int32x4.bool(bool x, bool y, bool z, bool w);</pre>
 
 <p>This constructor creates a new Int32x4 instance
 with 0xFFFFFFFF in lanes where the boolean parameter is true
@@ -479,11 +479,9 @@ For a complete list of methods and constructors, see the
 arithmetic on double or integer numbers in Dart.
 Example:</p>
 
-<pre class="prettyprint lang-dart">
-var a = new Float32x4(1.0, 2.0, 3.0, 4.0);
+<pre class="prettyprint lang-dart">var a = new Float32x4(1.0, 2.0, 3.0, 4.0);
 var b = new Float32x4(5.0, 6.0, 7.0, 8.0);
-var sum = a + b;
-</pre>
+var sum = a + b;</pre>
 
 <h3 id="reading-the-value-of-individual-lanes">
 <a id="reading-the-value-of-individual-lanes" class="anchor" href="#reading-the-value-of-individual-lanes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading the value of individual lanes</h3>
@@ -496,11 +494,9 @@ var sum = a + b;
 <p>You can read individual lanes using the getters x, y, z, and w.
 For example:</p>
 
-<pre class="prettyprint lang-dart">
-double addXY(Float32x4 v) {
+<pre class="prettyprint lang-dart">double addXY(Float32x4 v) {
   return v.x + v.y;
-}
-</pre>
+}</pre>
 
 <h3 id="writing-the-value-of-individual-lanes">
 <a id="writing-the-value-of-individual-lanes" class="anchor" href="#writing-the-value-of-individual-lanes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing the value of individual lanes</h3>
@@ -517,10 +513,8 @@ using the lane values from an existing instance,
 while altering the value in one lane.
 For example:</p>
 
-<pre class="prettyprint lang-dart">
-Float32x4 v = ...;
-v = v.withX(x); // Change the value in the x lane of v.
-</pre>
+<pre class="prettyprint lang-dart">Float32x4 v = ...;
+v = v.withX(x); // Change the value in the x lane of v.</pre>
 
 <h3 id="shuffling-or-re-ordering">
 <a id="shuffling-or-re-ordering" class="anchor" href="#shuffling-or-re-ordering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shuffling or re-ordering</h3>
@@ -529,23 +523,19 @@ v = v.withX(x); // Change the value in the x lane of v.
 without resorting to code that looks like this:</p>
 
 <div class="bad">
-<pre class="prettyprint lang-dart">
-Float32x4 v = ...;
+<pre class="prettyprint lang-dart">Float32x4 v = ...;
 double x = v.x;
 double y = v.y;
 double z = v.z;
 double w = v.w;
-Float32x4 v2 = new Float32x4(w, z, y, x); // Reverse the order of the values.
-</pre>
+Float32x4 v2 = new Float32x4(w, z, y, x); // Reverse the order of the values.</pre>
 </div>
 
 <p>Instead, simply use one of the many fields
 that returns a new object with values in the specified order:</p>
 
 <div class="good">
-<pre class="prettyprint lang-dart">
-Float32x4 v2 = v.shuffle(Float32x4.WZYX);  // Reverse the order of the values.
-</pre>
+<pre class="prettyprint lang-dart">Float32x4 v2 = v.shuffle(Float32x4.WZYX);  // Reverse the order of the values.</pre>
 </div>
 
 <p>Not only is the code easier to read,
@@ -558,8 +548,7 @@ but the performance is significantly better, too.</p>
 Consider the following code snippet:</p>
 
 <div class="bad">
-<pre class="prettyprint lang-dart">
-Float32x4 a = ...;
+<pre class="prettyprint lang-dart">Float32x4 a = ...;
 Float32x4 b = ...;
 Float32x4 c;
 
@@ -567,8 +556,7 @@ if (a &gt; b) {
   c = a;
 } else {
   c = b;
-}
-</pre>
+}</pre>
 </div>
 
 <p>It has a problem:
@@ -580,14 +568,12 @@ Because of this,
 Float32x4 does not support the standard comparison operators;
 instead it defines the following methods:</p>
 
-<pre class="prettyprint lang-dart">
-Int32x4 greaterThan(Float32x4 other);
+<pre class="prettyprint lang-dart">Int32x4 greaterThan(Float32x4 other);
 Int32x4 greaterThanOrEqual(Float32x4 other);
 Int32x4 lessThan(Float32x4 other);
 Int32x4 lessThanOrEqual(Float32x4 other);
 Int32x4 equal(Float32x4 other);
-Int32x4 notEqual(Float32x4 other);
-</pre>
+Int32x4 notEqual(Float32x4 other);</pre>
 
 <p>Each method returns a Int32x4,
 where the lane values are 0xFFFFFFFF when the comparison is true
@@ -598,19 +584,15 @@ lane by lane.
 Here is the preceding code snippet rewritten for SIMD:</p>
 
 <div class="good">
-<pre class="prettyprint lang-dart">
-Float32x4 a = ...;
+<pre class="prettyprint lang-dart">Float32x4 a = ...;
 Float32x4 b = ...;
 Int32x4 mask = a.greaterThan(b);  // Create selection mask.
-Float32x4 c = mask.select(a, b);   // Select.
-</pre>
+Float32x4 c = mask.select(a, b);   // Select.</pre>
 </div>
 
 <p>The select() method is defined in the Int32x4 class as follows:</p>
 
-<pre class="prettyprint lang-dart">
-Float32x4 select(Float32x4 trueValue, Float32x4 falseValue);
-</pre>
+<pre class="prettyprint lang-dart">Float32x4 select(Float32x4 trueValue, Float32x4 falseValue);</pre>
 
 <p>If the mask has 0xFFFFFFFF in a lane,
 the result has the lane value from <em>trueValue</em>;
@@ -634,8 +616,7 @@ You can then use that mask to merge the updated lanes
 with the original value.
 For example:</p>
 
-<pre class="prettyprint lang-dart">
-// v = [2.0, 3.0, 4.0, 5.0]
+<pre class="prettyprint lang-dart">// v = [2.0, 3.0, 4.0, 5.0]
 Float32x4 v = new Float32x4(2.0, 3.0, 4.0, 5.0);
 
 // mask = [0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x0]
@@ -645,8 +626,7 @@ Int32x4 mask = new Int32x4.bool(true, true, true, false);
 Float32x4 r = v * v;
 
 // v = [4.0, 9.0, 16.0, 5.0].
-v = mask.select(r, v);
-</pre>
+v = mask.select(r, v);</pre>
 
 <h2 id="examples">
 <a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
@@ -663,8 +643,7 @@ Outside of the loop,
 the four sub-sums are summed together,
 resulting in the true sum of the numbers.</p>
 
-<pre class="prettyprint lang-dart">
-double computeAverage(Float32x4List list) {
+<pre class="prettyprint lang-dart">double computeAverage(Float32x4List list) {
   Float32x4 sum = new Float32x4.zero();
   for (int i = 0; i &lt; list.length; i++) {
     sum += list[i];
@@ -672,8 +651,7 @@ double computeAverage(Float32x4List list) {
   // Perform horizontal operations once.
   double average = sum.x + sum.y + sum.z + sum.w;
   return average / (list.length*4);
-}
-</pre>
+}</pre>
 
 <h3 id="example-2-4x4-matrix-multiplication">
 <a id="example-2-4x4-matrix-multiplication" class="anchor" href="#example-2-4x4-matrix-multiplication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example #2: 4x4 matrix multiplication</h3>
@@ -681,8 +659,7 @@ double computeAverage(Float32x4List list) {
 <p>This example multiplies two 4x4 matrices, A and B.
 The result of the multiplication is stored into R.</p>
 
-<pre class="prettyprint lang-dart">
-// R = A * B;
+<pre class="prettyprint lang-dart">// R = A * B;
 void multiplyMatrices(Float32x4List A, Float32x4List B, Float32x4List R) {
     var a0 = A[0];
     var a1 = A[1];
@@ -697,8 +674,7 @@ void multiplyMatrices(Float32x4List A, Float32x4List B, Float32x4List R) {
     R[2] = b2.shuffle(Float32x4.XXXX) * a0 + b2.shuffle(Float32x4.YYYY) * a1 + b2.shuffle(Float32x4.ZZZZ) * a2 + b2.shuffle(Float32x4.WWWW) * a3;
     var b3 = B[3];
     R[3] = b3.shuffle(Float32x4.XXXX) * a0 + b3.shuffle(Float32x4.YYYY) * a1 + b3.shuffle(Float32x4.ZZZZ) * a2 + b3.shuffle(Float32x4.WWWW) * a3;
-}
-</pre>
+}</pre>
 
 <h3 id="example-3-largest-number">
 <a id="example-3-largest-number" class="anchor" href="#example-3-largest-number" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example #3: Largest number</h3>
@@ -708,8 +684,7 @@ First, the loop determines the largest number in each lane.
 Then, outside of the loop,
 the largest of those 4 largest numbers is determined.</p>
 
-<pre class="prettyprint lang-dart">
-double findLargestNumber(Float32x4List list) {
+<pre class="prettyprint lang-dart">double findLargestNumber(Float32x4List list) {
   Float32x4 largest = list[0];
   for (int i = 1; i &lt; list.length; i++) {
     largest = largest.max(list[i]);
@@ -722,8 +697,7 @@ double findLargestNumber(Float32x4List list) {
   double t0 = Math.max(x, y);
   double t1 = Math.max(z, w);
   return Math.max(t0, t1);
-}
-</pre>
+}</pre>
 
 <h2 id="more-information">
 <a id="more-information" class="anchor" href="#more-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h2>
@@ -780,7 +754,7 @@ and how they affect performance</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

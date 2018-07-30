@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/libraries/library-tour" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/libraries/library-tour" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -206,25 +206,25 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h4"><a href="#构建-uri">构建 URI</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#dates-and-times">Dates and times</a></li>
-<li class="toc-entry toc-h3"><a href="#utility-classes">Utility classes</a>
+<li class="toc-entry toc-h3"><a href="#dates-和-times">Dates 和 times</a></li>
+<li class="toc-entry toc-h3"><a href="#工具类">工具类</a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#comparing-objects">Comparing objects</a></li>
+<li class="toc-entry toc-h4"><a href="#比较对象">比较对象</a></li>
 <li class="toc-entry toc-h4"><a href="#implementing-map-keys">Implementing map keys</a></li>
-<li class="toc-entry toc-h4"><a href="#iteration">Iteration</a></li>
+<li class="toc-entry toc-h4"><a href="#迭代">迭代</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#exceptions">Exceptions</a></li>
+<li class="toc-entry toc-h3"><a href="#异常">异常</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#dartasync---asynchronous-programming">dart:async - asynchronous programming</a>
+<li class="toc-entry toc-h2"><a href="#dartasync---异步编程">dart:async - 异步编程</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#future">Future</a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#using-await">Using await</a></li>
-<li class="toc-entry toc-h4"><a href="#basic-usage">Basic usage</a></li>
-<li class="toc-entry toc-h4"><a href="#chaining-multiple-asynchronous-methods">Chaining multiple asynchronous methods</a></li>
-<li class="toc-entry toc-h4"><a href="#waiting-for-multiple-futures">Waiting for multiple futures</a></li>
+<li class="toc-entry toc-h4"><a href="#使用-await">使用 await</a></li>
+<li class="toc-entry toc-h4"><a href="#基本用法">基本用法</a></li>
+<li class="toc-entry toc-h4"><a href="#链式异步编程">链式异步编程</a></li>
+<li class="toc-entry toc-h4"><a href="#等待多个-future">等待多个 Future</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#stream">Stream</a>
@@ -358,10 +358,8 @@ ga('send', 'pageview');
 到控制台。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (print)"?>
-<pre class="prettyprint lang-dart">
-print(anObject);
-print('I drink $tea.');
-</pre>
+<pre class="prettyprint lang-dart">print(anObject);
+print('I drink $tea.');</pre>
 
 <p>有关基本字符串和 <code class="highlighter-rouge">toString()</code> 的更多信息，参考
 <a href="/guides/language/language-tour#strings">Strings</a> in the language tour.</p>
@@ -375,35 +373,28 @@ print('I drink $tea.');
 <p>使用 int 和 double 的 <code class="highlighter-rouge">parse()</code> 方法将字符串转换为整型或双浮点型对象：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (int|double.parse)"?>
-<pre class="prettyprint lang-dart">
-assert(int.parse('42') == 42);
+<pre class="prettyprint lang-dart">assert(int.parse('42') == 42);
 assert(int.parse('0x42') == 66);
-assert(double.parse('0.50') == 0.5);
-</pre>
+assert(double.parse('0.50') == 0.5);</pre>
 
 <p>或者使用 num 的 parse() 方法，该方法可能会创建一个整型，否则为浮点型对象：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (num-parse)"?>
-<pre class="prettyprint lang-dart">
-assert(num.parse('42') is int);
+<pre class="prettyprint lang-dart">assert(num.parse('42') is int);
 assert(num.parse('0x42') is int);
-assert(num.parse('0.50') is double);
-</pre>
+assert(num.parse('0.50') is double);</pre>
 
 <p>通过添加 <code class="highlighter-rouge">radix</code> 参数，指定整数的进制基数：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (radix)"?>
-<pre class="prettyprint lang-dart">
-assert(int.parse('42', radix: 16) == 66);
-</pre>
+<pre class="prettyprint lang-dart">assert(int.parse('42', radix: 16) == 66);</pre>
 
 <p>使用 <code class="highlighter-rouge">toString()</code> 方法将整型或双精度浮点类型转换为字符串类型。
 使用 <a href="https://api.dartlang.org/dev/dart-core/num/toStringAsFixed.html">toStringAsFixed().</a> 指定小数点右边的位数，
 使用 <a href="https://api.dartlang.org/dev/dart-core/num/toStringAsPrecision.html">toStringAsPrecision():</a> 指定字符串中的有效数字的位数。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (toString())"?>
-<pre class="prettyprint lang-dart">
-// 整型转换为字符串类型。
+<pre class="prettyprint lang-dart">// 整型转换为字符串类型。
 assert(42.toString() == '42');
 
 // 双浮点型转换为字符串类型。
@@ -414,8 +405,7 @@ assert(123.456.toStringAsFixed(2) == '123.46');
 
 // 指定有效数字的位数。
 assert(123.456.toStringAsPrecision(2) == '1.2e+2');
-assert(double.parse('1.2e+2') == 120.0);
-</pre>
+assert(double.parse('1.2e+2') == 120.0);</pre>
 
 <p>更多详情， 参考
 <a href="https://api.dartlang.org/dev/dart-core/int-class.html">int，</a> <a href="https://api.dartlang.org/dev/dart-core/double-class.html">double，</a> 和 <a href="https://api.dartlang.org/dev/dart-core/num-class.html">num</a> 的相关 API 文档。
@@ -438,8 +428,7 @@ assert(double.parse('1.2e+2') == 120.0);
 以及检查字符串是否以特定字符串作为开头或结尾。例如：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (contains-etc)"?>
-<pre class="prettyprint lang-dart">
-// 检查一个字符串是否包含另一个字符串。
+<pre class="prettyprint lang-dart">// 检查一个字符串是否包含另一个字符串。
 assert('Never odd or even'.contains('odd'));
 
 // 一个字符串是否以另一个字符串为开头?
@@ -449,8 +438,7 @@ assert('Never odd or even'.startsWith('Never'));
 assert('Never odd or even'.endsWith('even'));
 
 // 查找一个字符串在另一个字符串中的位置。
-assert('Never odd or even'.indexOf('odd') == 6);
-</pre>
+assert('Never odd or even'.indexOf('odd') == 6);</pre>
 
 <h4 id="从字符串中提取数据">
 <a id="从字符串中提取数据" class="anchor" href="#%E4%BB%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%8F%90%E5%8F%96%E6%95%B0%E6%8D%AE" aria-hidden="true"><span class="octicon octicon-link"></span></a>从字符串中提取数据</h4>
@@ -462,8 +450,7 @@ assert('Never odd or even'.indexOf('odd') == 6);
 <p>你也可以获取字符串中的子字符串或者将一个字符串分割为子字符串列表：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (substring-etc)"?>
-<pre class="prettyprint lang-dart">
-// 抓取一个子字符串。
+<pre class="prettyprint lang-dart">// 抓取一个子字符串。
 assert('Never odd or even'.substring(6, 9) == 'odd');
 
 // 使用字符串模式分割字符串。
@@ -484,8 +471,7 @@ for (var char in 'hello'.split('')) {
 // 获取一个字符串的所有 UTF-16 编码单元。
 var codeUnitList =
     'Never odd or even'.codeUnits.toList();
-assert(codeUnitList[0] == 78);
-</pre>
+assert(codeUnitList[0] == 78);</pre>
 
 <h4 id="首字母大小写转换">
 <a id="首字母大小写转换" class="anchor" href="#%E9%A6%96%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%B0%8F%E5%86%99%E8%BD%AC%E6%8D%A2" aria-hidden="true"><span class="octicon octicon-link"></span></a>首字母大小写转换</h4>
@@ -493,15 +479,13 @@ assert(codeUnitList[0] == 78);
 <p>可以轻松的对字符串的首字母大小写进行转换：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (toUpperCase-toLowerCase)"?>
-<pre class="prettyprint lang-dart">
-// 转换为首字母大写。
+<pre class="prettyprint lang-dart">// 转换为首字母大写。
 assert('structured web apps'.toUpperCase() ==
     'STRUCTURED WEB APPS');
 
 // 转换为首字母小写。
 assert('STRUCTURED WEB APPS'.toLowerCase() ==
-    'structured web apps');
-</pre>
+    'structured web apps');</pre>
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
@@ -516,16 +500,14 @@ assert('STRUCTURED WEB APPS'.toLowerCase() ==
 使用 <code class="highlighter-rouge">isEmpty</code> 检查一个字符串是否为空（长度为0）。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (trim-etc)"?>
-<pre class="prettyprint lang-dart">
-// Trim a string.
+<pre class="prettyprint lang-dart">// Trim a string.
 assert('  hello  '.trim() == 'hello');
 
 // 检查字符串是否为空。
 assert(''.isEmpty);
 
 // 空格字符串不是空字符串。
-assert('  '.isNotEmpty);
-</pre>
+assert('  '.isNotEmpty);</pre>
 
 <h4 id="替换部分字符串">
 <a id="替换部分字符串" class="anchor" href="#%E6%9B%BF%E6%8D%A2%E9%83%A8%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>替换部分字符串</h4>
@@ -537,14 +519,12 @@ assert('  '.isNotEmpty);
 并没有改变原始字符串：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (replace)"?>
-<pre class="prettyprint lang-dart">
-var greetingTemplate = 'Hello, NAME!';
+<pre class="prettyprint lang-dart">var greetingTemplate = 'Hello, NAME!';
 var greeting =
     greetingTemplate.replaceAll(RegExp('NAME'), 'Bob');
 
 // greetingTemplate 没有改变。
-assert(greeting != greetingTemplate);
-</pre>
+assert(greeting != greetingTemplate);</pre>
 
 <h4 id="构建一个字符串">
 <a id="构建一个字符串" class="anchor" href="#%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>构建一个字符串</h4>
@@ -555,8 +535,7 @@ assert(greeting != greetingTemplate);
 本例中使用空格作为分隔符。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (StringBuffer)"?>
-<pre class="prettyprint lang-dart">
-var sb = StringBuffer();
+<pre class="prettyprint lang-dart">var sb = StringBuffer();
 sb
   ..write('Use a StringBuffer for ')
   ..writeAll(['efficient', 'string', 'creation'], ' ')
@@ -565,8 +544,7 @@ sb
 var fullString = sb.toString();
 
 assert(fullString ==
-    'Use a StringBuffer for efficient string creation.');
-</pre>
+    'Use a StringBuffer for efficient string creation.');</pre>
 
 <h4 id="正则表达式">
 <a id="正则表达式" class="anchor" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>正则表达式</h4>
@@ -575,8 +553,7 @@ assert(fullString ==
 使用正则表达式可以对字符串进行高效搜索和模式匹配。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (RegExp)"?>
-<pre class="prettyprint lang-dart">
-// 下面正则表达式用于匹配一个或多个数字。
+<pre class="prettyprint lang-dart">// 下面正则表达式用于匹配一个或多个数字。
 var numbers = RegExp(r'\d+');
 
 var allCharacters = 'llamas live fifteen to twenty years';
@@ -588,15 +565,13 @@ assert(someDigits.contains(numbers));
 
 // 替换所有匹配对象为另一个字符串。
 var exedOut = someDigits.replaceAll(numbers, 'XX');
-assert(exedOut == 'llamas live XX to XX years');
-</pre>
+assert(exedOut == 'llamas live XX to XX years');</pre>
 
 <p>你也可以直接使用RegExp类。
 Match 类提供对正则表达式匹配对象的访问。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (match)"?>
-<pre class="prettyprint lang-dart">
-var numbers = RegExp(r'\d+');
+<pre class="prettyprint lang-dart">var numbers = RegExp(r'\d+');
 var someDigits = 'llamas live 15 to 20 years';
 
 // 检查正则表达式是否在字符串中匹配到对象。
@@ -605,8 +580,7 @@ assert(numbers.hasMatch(someDigits));
 // 迭代所有匹配对象
 for (var match in numbers.allMatches(someDigits)) {
   print(match.group(0)); // 15, then 20
-}
-</pre>
+}</pre>
 
 <h4 id="更多信息">
 <a id="更多信息" class="anchor" href="#%E6%9B%B4%E5%A4%9A%E4%BF%A1%E6%81%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>更多信息</h4>
@@ -630,8 +604,7 @@ for (var match in numbers.allMatches(someDigits)) {
 List 类还定义了若干方法，用于向列表添加或删除项目。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (List)"?>
-<pre class="prettyprint lang-dart">
-// 使用 List 构造函数。
+<pre class="prettyprint lang-dart">// 使用 List 构造函数。
 var vegetables = List();
 
 // 或者仅使用一个 list 字面量。
@@ -653,21 +626,18 @@ assert(fruits.length == 4);
 
 // 移除多个元素到 list 对象。
 fruits.clear();
-assert(fruits.length == 0);
-</pre>
+assert(fruits.length == 0);</pre>
 
 <p>使用 <code class="highlighter-rouge">indexOf()</code> 方法查找一个对象在 list 中的下标值。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (indexOf)"?>
-<pre class="prettyprint lang-dart">
-var fruits = ['apples', 'oranges'];
+<pre class="prettyprint lang-dart">var fruits = ['apples', 'oranges'];
 
 // 使用下标访问 list 中的元素
 assert(fruits[0] == 'apples');
 
 // 查找一个元素在 list 中的下标。
-assert(fruits.indexOf('apples') == 0);
-</pre>
+assert(fruits.indexOf('apples') == 0);</pre>
 
 <p>使用 <code class="highlighter-rouge">sort()</code> 方法排序一个 list 。
 你可以提供一个排序函数用于比较两个对象。
@@ -677,20 +647,17 @@ assert(fruits.indexOf('apples') == 0);
 并被 String 类实现。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (compareTo)"?>
-<pre class="prettyprint lang-dart">
-var fruits = ['bananas', 'apples', 'oranges'];
+<pre class="prettyprint lang-dart">var fruits = ['bananas', 'apples', 'oranges'];
 
 // 排序一个 list 。
 fruits.sort((a, b) =&gt; a.compareTo(b));
-assert(fruits[0] == 'apples');
-</pre>
+assert(fruits[0] == 'apples');</pre>
 
 <p>list 是参数化类型，
 因此可以指定 list 应该包含的元素类型：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (ListOfString)"?>
-<pre class="prettyprint lang-dart">
-// 这个 list 只能包含字符串类型。
+<pre class="prettyprint lang-dart">// 这个 list 只能包含字符串类型。
 var fruits = List&lt;String&gt;();
 
 fruits.add('apples');
@@ -698,8 +665,7 @@ var fruit = fruits[0];
 assert(fruit is String);
 
 // 产生静态分析警告，num 不是字符串类型。
-fruits.add(5); // BAD: Throws exception in checked mode.
-</pre>
+fruits.add(5); // BAD: Throws exception in checked mode.</pre>
 
 <aside class="alert alert-info">
   <p><strong>Dart 2 note</strong>:
@@ -716,8 +682,7 @@ fruits.add(5); // BAD: Throws exception in checked mode.
 因为一个 set 是无序的，所以无法通过下标（位置）获取 set 中的元素。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (Set)"?>
-<pre class="prettyprint lang-dart">
-var ingredients = Set();
+<pre class="prettyprint lang-dart">var ingredients = Set();
 ingredients.addAll(['gold', 'titanium', 'xenon']);
 assert(ingredients.length == 3);
 
@@ -727,36 +692,31 @@ assert(ingredients.length == 3);
 
 // 从 set 中移除一个元素。
 ingredients.remove('gold');
-assert(ingredients.length == 2);
-</pre>
+assert(ingredients.length == 2);</pre>
 
 <p>使用 <code class="highlighter-rouge">contains()</code> 和 <code class="highlighter-rouge">containsAll()</code> 来检查一个或多个元素是否在 set 中。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (contains)"?>
-<pre class="prettyprint lang-dart">
-var ingredients = Set();
+<pre class="prettyprint lang-dart">var ingredients = Set();
 ingredients.addAll(['gold', 'titanium', 'xenon']);
 
 // 检查一个元素是否在该 set 中。
 assert(ingredients.contains('titanium'));
 
 // 检查多个元素是否在该 set 中。
-assert(ingredients.containsAll(['titanium', 'xenon']));
-</pre>
+assert(ingredients.containsAll(['titanium', 'xenon']));</pre>
 
 <p>交集是另外两个 set 中的公共元素组成的 set 。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (intersection)"?>
-<pre class="prettyprint lang-dart">
-var ingredients = Set();
+<pre class="prettyprint lang-dart">var ingredients = Set();
 ingredients.addAll(['gold', 'titanium', 'xenon']);
 
 // 创建两个 set 的交集。
 var nobleGases = Set.from(['xenon', 'argon']);
 var intersection = ingredients.intersection(nobleGases);
 assert(intersection.length == 1);
-assert(intersection.contains('xenon'));
-</pre>
+assert(intersection.contains('xenon'));</pre>
 
 <p>全部的方法介绍 ，请参考 <a href="https://api.dartlang.org/dev/dart-core/Set-class.html">Set API docs</a> 。</p>
 
@@ -769,8 +729,7 @@ map 将 kay 与 value 关联，以便于检索。和 JavaScript 不同，Dart �
 <p>声明 map 可以使用简洁的字面量语法，也可以使用传统构造函数：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (Map)"?>
-<pre class="prettyprint lang-dart">
-// map 通常使用字符串作为 key。
+<pre class="prettyprint lang-dart">// map 通常使用字符串作为 key。
 var hawaiianBeaches = {
   'Oahu': ['Waikiki', 'Kailua', 'Waimanalo'],
   'Big Island': ['Wailea Bay', 'Pololu Beach'],
@@ -782,15 +741,13 @@ var searchTerms = Map();
 
 // map 是参数化类型；
 // 可以指定一个 map 中 key 和 value 的类型。
-var nobleGases = Map&lt;int, String&gt;();
-</pre>
+var nobleGases = Map&lt;int, String&gt;();</pre>
 
 <p>通过大括号语法可以为 map 添加，获取，设置元素。
 使用 <code class="highlighter-rouge">remove()</code> 方法从 map 中移除键值对。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (remove)"?>
-<pre class="prettyprint lang-dart">
-var nobleGases = {54: 'xenon'};
+<pre class="prettyprint lang-dart">var nobleGases = {54: 'xenon'};
 
 // 使用 key 检索 value 。
 assert(nobleGases[54] == 'xenon');
@@ -800,14 +757,12 @@ assert(nobleGases.containsKey(54));
 
 // 移除一个 key 及其 value。
 nobleGases.remove(54);
-assert(!nobleGases.containsKey(54));
-</pre>
+assert(!nobleGases.containsKey(54));</pre>
 
 <p>可以从一个 map 中检索出所有的 key 或所有的 value：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (keys)"?>
-<pre class="prettyprint lang-dart">
-var hawaiianBeaches = {
+<pre class="prettyprint lang-dart">var hawaiianBeaches = {
   'Oahu': ['Waikiki', 'Kailua', 'Waimanalo'],
   'Big Island': ['Wailea Bay', 'Pololu Beach'],
   'Kauai': ['Hanalei', 'Poipu']
@@ -824,36 +779,31 @@ assert(Set.from(keys).contains('Oahu'));
 // (可迭代 list 对象).
 var values = hawaiianBeaches.values;
 assert(values.length == 3);
-assert(values.any((v) =&gt; v.contains('Waikiki')));
-</pre>
+assert(values.any((v) =&gt; v.contains('Waikiki')));</pre>
 
 <p>使用 <code class="highlighter-rouge">containsKey()</code> 方法检查一个 map 中是否包含某个key 。
 因为 map 中的 value 可能会是 null ，
 所有通过 key 获取 value，并通过判断 value 是否为 null 来判断 key 是否存在是不可靠的。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (containsKey)"?>
-<pre class="prettyprint lang-dart">
-var hawaiianBeaches = {
+<pre class="prettyprint lang-dart">var hawaiianBeaches = {
   'Oahu': ['Waikiki', 'Kailua', 'Waimanalo'],
   'Big Island': ['Wailea Bay', 'Pololu Beach'],
   'Kauai': ['Hanalei', 'Poipu']
 };
 
 assert(hawaiianBeaches.containsKey('Oahu'));
-assert(!hawaiianBeaches.containsKey('Florida'));
-</pre>
+assert(!hawaiianBeaches.containsKey('Florida'));</pre>
 
 <p>如果当且仅当该 key 不存在于 map 中，且要为这个 key 赋值，
 可使用<code class="highlighter-rouge">putIfAbsent（）</code>方法。
 该方法需要一个方法返回这个 value 。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (putIfAbsent)"?>
-<pre class="prettyprint lang-dart">
-var teamAssignments = {};
+<pre class="prettyprint lang-dart">var teamAssignments = {};
 teamAssignments.putIfAbsent(
     'Catcher', () =&gt; pickToughestKid());
-assert(teamAssignments['Catcher'] != null);
-</pre>
+assert(teamAssignments['Catcher'] != null);</pre>
 
 <p>全部的方法介绍 ，请参考 <a href="https://api.dartlang.org/dev/dart-core/Map-class.html">Map API docs</a> 。</p>
 
@@ -873,42 +823,34 @@ assert(teamAssignments['Catcher'] != null);
 <p>使用 <code class="highlighter-rouge">isEmpty</code> 和 <code class="highlighter-rouge">isNotEmpty</code> 方法可以检查 list， set 或 map 对象中是否包含元素：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (isEmpty)"?>
-<pre class="prettyprint lang-dart">
-var coffees = [];
+<pre class="prettyprint lang-dart">var coffees = [];
 var teas = ['green', 'black', 'chamomile', 'earl grey'];
 assert(coffees.isEmpty);
-assert(teas.isNotEmpty);
-</pre>
+assert(teas.isNotEmpty);</pre>
 
 <p>使用 <code class="highlighter-rouge">forEach()</code> 可以让 list， set 或 map 对象中的每个元素都使用一个方法。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (List.forEach)"?>
-<pre class="prettyprint lang-dart">
-var teas = ['green', 'black', 'chamomile', 'earl grey'];
+<pre class="prettyprint lang-dart">var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
-teas.forEach((tea) =&gt; print('I drink $tea'));
-</pre>
+teas.forEach((tea) =&gt; print('I drink $tea'));</pre>
 
 <p>当在 map 对象上调用 `forEach() 方法时，函数必须带两个参数（key 和 value）：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (Map.forEach)"?>
-<pre class="prettyprint lang-dart">
-hawaiianBeaches.forEach((k, v) {
+<pre class="prettyprint lang-dart">hawaiianBeaches.forEach((k, v) {
   print('I want to visit $k and swim at $v');
   // 我想去瓦胡岛并且在
   // [Waikiki, Kailua, Waimanalo]游泳， 等等。
-});
-</pre>
+});</pre>
 
 <p>Iterable 提供 <code class="highlighter-rouge">map()</code> 方法，这个方法将所有结果返回到一个对象中。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (List.map)"?>
-<pre class="prettyprint lang-dart">
-var teas = ['green', 'black', 'chamomile', 'earl grey'];
+<pre class="prettyprint lang-dart">var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
 var loudTeas = teas.map((tea) =&gt; tea.toUpperCase());
-loudTeas.forEach(print);
-</pre>
+loudTeas.forEach(print);</pre>
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
@@ -920,17 +862,14 @@ loudTeas.forEach(print);
 可以强制在每个项目上立即调用函数。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (toList)"?>
-<pre class="prettyprint lang-dart">
-var loudTeas =
-    teas.map((tea) =&gt; tea.toUpperCase()).toList();
-</pre>
+<pre class="prettyprint lang-dart">var loudTeas =
+    teas.map((tea) =&gt; tea.toUpperCase()).toList();</pre>
 
 <p>使用 Iterable 的 <code class="highlighter-rouge">where()</code> 方法可以获取所有匹配条件的元素。
 使用 Iterable 的 <code class="highlighter-rouge">any()</code> 和 <code class="highlighter-rouge">every()</code> 方法可以检查部分或者所有元素是否匹配某个条件。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (where-etc)"?>
-<pre class="prettyprint lang-dart">
-var teas = ['green', 'black', 'chamomile', 'earl grey'];
+<pre class="prettyprint lang-dart">var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
 // 洋甘菊不含咖啡因。
 bool isDecaffeinated(String teaName) =&gt;
@@ -946,8 +885,7 @@ var decaffeinatedTeas =
 assert(teas.any(isDecaffeinated));
 
 // 使用 every() 来检查集合中是否所有元素满足条件。
-assert(!teas.every(isDecaffeinated));
-</pre>
+assert(!teas.every(isDecaffeinated));</pre>
 
 <p>有关方法的完整列表，请参考 <a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable API docs,</a> 以及
 <a href="https://api.dartlang.org/dev/dart-core/List-class.html">List,</a> <a href="https://api.dartlang.org/dev/dart-core/Set-class.html">Set,</a> and <a href="https://api.dartlang.org/dev/dart-core/Map-class.html">Map.</a></p>
@@ -967,16 +905,14 @@ Uri 类还可以解析和处理 URI—host，port，scheme等组件。</p>
 这些方法非常适合编解码完整合法的 URI，并保留 URI 中的特殊字符。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (encodeFull)"?>
-<pre class="prettyprint lang-dart">
-var uri = 'http://example.org/api?foo=some message';
+<pre class="prettyprint lang-dart">var uri = 'http://example.org/api?foo=some message';
 
 var encoded = Uri.encodeFull(uri);
 assert(encoded ==
     'http://example.org/api?foo=some%20message');
 
 var decoded = Uri.decodeFull(encoded);
-assert(uri == decoded);
-</pre>
+assert(uri == decoded);</pre>
 
 <p>注意上面代码只编码了 <code class="highlighter-rouge">some</code> 和 <code class="highlighter-rouge">message</code> 之间的空格。</p>
 
@@ -987,149 +923,134 @@ assert(uri == decoded);
 对 URI 中具有特殊含义的所有字符串字符，特殊字符包括（但不限于）<code class="highlighter-rouge">/</code>， <code class="highlighter-rouge">&amp;</code>， 和  <code class="highlighter-rouge">:</code>。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (encodeComponent)"?>
-<pre class="prettyprint lang-dart">
-var uri = 'http://example.org/api?foo=some message';
+<pre class="prettyprint lang-dart">var uri = 'http://example.org/api?foo=some message';
 
 var encoded = Uri.encodeComponent(uri);
 assert(encoded ==
     'http%3A%2F%2Fexample.org%2Fapi%3Ffoo%3Dsome%20message');
 
 var decoded = Uri.decodeComponent(encoded);
-assert(uri == decoded);
-</pre>
+assert(uri == decoded);</pre>
 
 <p>注意上面代码编码了所有的字符。例如 <code class="highlighter-rouge">/</code> 被编码为 <code class="highlighter-rouge">%2F</code>。</p>
 
 <h4 id="解析-uri">
 <a id="解析-uri" class="anchor" href="#%E8%A7%A3%E6%9E%90-uri" aria-hidden="true"><span class="octicon octicon-link"></span></a>解析 URI</h4>
 
-<p>可以使用 Uri 对象的字段（例如 <code class="highlighter-rouge">path</code>），
+<p>使用 Uri 对象的字段（例如 <code class="highlighter-rouge">path</code>），
 来获取一个 Uri 对象或者 URI 字符串的一部分。
 使用 <code class="highlighter-rouge">parse()</code> 静态方法，可以使用字符串创建 Uri 对象。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (Uri.parse)"?>
-<pre class="prettyprint lang-dart">
-var uri =
+<pre class="prettyprint lang-dart">var uri =
     Uri.parse('http://example.org:8080/foo/bar#frag');
 
 assert(uri.scheme == 'http');
 assert(uri.host == 'example.org');
 assert(uri.path == '/foo/bar');
 assert(uri.fragment == 'frag');
-assert(uri.origin == 'http://example.org:8080');
-</pre>
+assert(uri.origin == 'http://example.org:8080');</pre>
 
 <p>有关 URI 组件的更多内容，参考 <a href="https://api.dartlang.org/dev/dart-core/Uri-class.html">Uri API docs</a> 。</p>
 
 <h4 id="构建-uri">
 <a id="构建-uri" class="anchor" href="#%E6%9E%84%E5%BB%BA-uri" aria-hidden="true"><span class="octicon octicon-link"></span></a>构建 URI</h4>
 
-<p>可以使用 <code class="highlighter-rouge">Uri()</code> 构造函数，可以将各组件部分构建成 URI 。</p>
+<p>使用 <code class="highlighter-rouge">Uri()</code> 构造函数，可以将各组件部分构建成 URI 。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (Uri)"?>
-<pre class="prettyprint lang-dart">
-var uri = Uri(
+<pre class="prettyprint lang-dart">var uri = Uri(
     scheme: 'http',
     host: 'example.org',
     path: '/foo/bar',
     fragment: 'frag');
 assert(
-    uri.toString() == 'http://example.org/foo/bar#frag');
-</pre>
+    uri.toString() == 'http://example.org/foo/bar#frag');</pre>
 
-<h3 id="dates-and-times">
-<a id="dates-and-times" class="anchor" href="#dates-and-times" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dates and times</h3>
+<h3 id="dates-和-times">
+<a id="dates-和-times" class="anchor" href="#dates-%E5%92%8C-times" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dates 和 times</h3>
 
-<p>A DateTime object is a point in time. The time zone is either UTC or the
-local time zone.</p>
+<p>DateTime 对象代表某个时刻，时区可以是 UTC 或者 本地时区。</p>
 
-<p>You can create DateTime objects using several constructors:</p>
+<p>DateTime 对象可以通过若干构造函数创建：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (DateTime)"?>
-<pre class="prettyprint lang-dart">
-// Get the current date and time.
+<pre class="prettyprint lang-dart">// 获取当前时刻。
 var now = DateTime.now();
 
-// Create a new DateTime with the local time zone.
+// 更具本地时区创建 DateTime 对象。
 var y2k = DateTime(2000); // January 1, 2000
 
-// Specify the month and day.
+// 指定年月日。
 y2k = DateTime(2000, 1, 2); // January 2, 2000
 
-// Specify the date as a UTC time.
+// 将日期指定为 UTC 时区。
 y2k = DateTime.utc(2000); // 1/1/2000, UTC
 
-// Specify a date and time in ms since the Unix epoch.
+// 指定自Unix纪元以来，以毫秒为单位的日期和时间。
 y2k = DateTime.fromMillisecondsSinceEpoch(946684800000,
     isUtc: true);
 
-// Parse an ISO 8601 date.
-y2k = DateTime.parse('2000-01-01T00:00:00Z');
-</pre>
+// 解析ISO 8601日期。
+y2k = DateTime.parse('2000-01-01T00:00:00Z');</pre>
 
-<p>The <code class="highlighter-rouge">millisecondsSinceEpoch</code> property of a date returns the number of
-milliseconds since the “Unix epoch”—January 1, 1970, UTC:</p>
+<p>日期中 <code class="highlighter-rouge">millisecondsSinceEpoch</code> 属性返回自 “Unix纪元（January 1, 1970, UTC）“以来的毫秒数：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (millisecondsSinceEpoch)"?>
-<pre class="prettyprint lang-dart">
-// 1/1/2000, UTC
+<pre class="prettyprint lang-dart">// 1/1/2000, UTC
 var y2k = DateTime.utc(2000);
 assert(y2k.millisecondsSinceEpoch == 946684800000);
 
 // 1/1/1970, UTC
 var unixEpoch = DateTime.utc(1970);
-assert(unixEpoch.millisecondsSinceEpoch == 0);
-</pre>
+assert(unixEpoch.millisecondsSinceEpoch == 0);</pre>
 
-<p>Use the Duration class to calculate the difference between two dates and
-to shift a date forward or backward:</p>
+<p>使用 Duration 类来计算两个日期的查，也可以对时刻进行前移和后移操作：</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (Duration)"?>
-<pre class="prettyprint lang-dart">
-var y2k = DateTime.utc(2000);
+<pre class="prettyprint lang-dart">var y2k = DateTime.utc(2000);
 
-// Add one year.
+// 增加一年。
 var y2001 = y2k.add(const Duration(days: 366));
 assert(y2001.year == 2001);
 
-// Subtract 30 days.
+// 减少30天。
 var december2000 =
     y2001.subtract(const Duration(days: 30));
 assert(december2000.year == 2000);
 assert(december2000.month == 12);
 
-// Calculate the difference between two dates.
-// Returns a Duration object.
+// 计算两个时刻之间的查，
+// 返回 Duration 对象。
 var duration = y2001.difference(y2k);
-assert(duration.inDays == 366); // y2k was a leap year.
-</pre>
+assert(duration.inDays == 366); // y2k was a leap year.</pre>
 
 <div class="alert alert-warning">
-  <p><strong>Warning:</strong>
-Using a Duration to shift a DateTime by days can be problematic, due
-to clock shifts (to daylight saving time, for example). Use UTC dates
-if you must shift days.</p>
+  <p><strong>警告：</strong>
+由于时钟转换（例如，夏令时）的原因，
+使用 Duration 对 DateTime 按天移动可能会有问题。 
+如果要按照天数来位移时间，请使用 UTC 日期。</p>
 </div>
 
-<p>Refer to the API docs for <a href="https://api.dartlang.org/dev/dart-core/DateTime-class.html">DateTime</a> and <a href="https://api.dartlang.org/dev/dart-core/Duration-class.html">Duration</a> for a full list of methods.</p>
+<p>参考 <a href="https://api.dartlang.org/dev/dart-core/DateTime-class.html">DateTime</a> 和 <a href="https://api.dartlang.org/dev/dart-core/Duration-class.html">Duration</a> API 文档了解全部方法列表。</p>
 
-<h3 id="utility-classes">
-<a id="utility-classes" class="anchor" href="#utility-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Utility classes</h3>
+<h3 id="工具类">
+<a id="工具类" class="anchor" href="#%E5%B7%A5%E5%85%B7%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>工具类</h3>
 
-<p>The core library contains various utility classes, useful for sorting,
-mapping values, and iterating.</p>
+<p>核心库包含各种工具类，可用于排序，映射值以及迭代。</p>
 
-<h4 id="comparing-objects">
-<a id="comparing-objects" class="anchor" href="#comparing-objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Comparing objects</h4>
+<h4 id="比较对象">
+<a id="比较对象" class="anchor" href="#%E6%AF%94%E8%BE%83%E5%AF%B9%E8%B1%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>比较对象</h4>
 
-<p>Implement the <a href="https://api.dartlang.org/dev/dart-core/Comparable-class.html">Comparable</a>
-interface to indicate that an object can be compared to another object,
-usually for sorting. The <code class="highlighter-rouge">compareTo()</code> method returns &lt; 0 for
-<em>smaller</em>, 0 for the <em>same</em>, and &gt; 0 for <em>bigger</em>.</p>
+<p>如果实现了 <a href="https://api.dartlang.org/dev/dart-core/Comparable-class.html">Comparable</a> 接口，
+也就是说可以将该对象与另一个对象进行比较，
+通常用于排序。
+<code class="highlighter-rouge">compareTo()</code> 方法在 <em>小于</em> 时返回 &lt; 0，
+在 <em>相等</em> 时返回 0，
+在 <em>大于</em> 时返回  &gt; 0。</p>
 
 <?code-excerpt "misc/lib/library_tour/core/comparable.dart"?>
-<pre class="prettyprint lang-dart">
-class Line implements Comparable&lt;Line&gt; {
+<pre class="prettyprint lang-dart">class Line implements Comparable&lt;Line&gt; {
   final int length;
   const Line(this.length);
 
@@ -1141,28 +1062,26 @@ void main() {
   var short = const Line(1);
   var long = const Line(100);
   assert(short.compareTo(long) &lt; 0);
-}
-</pre>
+}</pre>
 
 <h4 id="implementing-map-keys">
 <a id="implementing-map-keys" class="anchor" href="#implementing-map-keys" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementing map keys</h4>
 
-<p>Each object in Dart automatically provides an integer hash code, and
-thus can be used as a key in a map. However, you can override the
-<code class="highlighter-rouge">hashCode</code> getter to generate a custom hash code. If you do, you might
-also want to override the <code class="highlighter-rouge">==</code> operator. Objects that are equal (via
-<code class="highlighter-rouge">==</code>) must have identical hash codes. A hash code doesn’t have to be
-unique, but it should be well distributed.</p>
+<p>在 Dart 中每个对象会默认提供一个整数的哈希值，
+因此在 map 中可以作为 key 来使用，
+重写 <code class="highlighter-rouge">hashCode</code> 的 getter 方法来生成自定义哈希值。
+如果重写 <code class="highlighter-rouge">hashCode</code> 的 getter 方法，那么可能还需要重写 <code class="highlighter-rouge">==</code> 运算符。
+相等的（通过 <code class="highlighter-rouge">==</code> ）对象必须拥有相同的哈希值。
+哈希值并不要求是唯一的， 但是应该具有良好的分布形态。。</p>
 
 <?code-excerpt "misc/lib/library_tour/core/hash_code.dart"?>
-<pre class="prettyprint lang-dart">
-class Person {
+<pre class="prettyprint lang-dart">class Person {
   final String firstName, lastName;
 
   Person(this.firstName, this.lastName);
 
-  // Override hashCode using strategy from Effective Java,
-  // Chapter 11.
+  // 重写 hashCode，实现策略源于  Effective Java，
+  // 第11章。
   @override
   int get hashCode {
     int result = 17;
@@ -1171,8 +1090,7 @@ class Person {
     return result;
   }
 
-  // You should generally implement operator == if you
-  // override hashCode.
+  // 如果重写了 hashCode，通常应该从新实现 == 操作符。
   @override
   bool operator ==(dynamic other) {
     if (other is! Person) return false;
@@ -1189,20 +1107,17 @@ void main() {
   assert(p1.hashCode == p2.hashCode);
   assert(p1 == p2);
   assert(p1 != p3);
-}
-</pre>
+}</pre>
 
-<h4 id="iteration">
-<a id="iteration" class="anchor" href="#iteration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iteration</h4>
+<h4 id="迭代">
+<a id="迭代" class="anchor" href="#%E8%BF%AD%E4%BB%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>迭代</h4>
 
-<p>The <a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a> and <a href="https://api.dartlang.org/dev/dart-core/Iterator-class.html">Iterator</a> classes
-support for-in loops. Extend (if possible) or implement Iterable
-whenever you create a class that can provide Iterators for use in for-in
-loops. Implement Iterator to define the actual iteration ability.</p>
+<p>Iterable][] 和 <a href="https://api.dartlang.org/dev/dart-core/Iterator-class.html">Iterator</a> 类支持 for-in 循环。
+当创建一个类的时候，继承或者实现 Iterable，可以为该类提供用于 for-in 循环的 Iterators。
+实现 Iterator 来定义实际的遍历操作。</p>
 
 <?code-excerpt "misc/lib/library_tour/core/iterator.dart"?>
-<pre class="prettyprint lang-dart">
-class Process {
+<pre class="prettyprint lang-dart">class Process {
   // Represents a process...
 }
 
@@ -1225,201 +1140,179 @@ void main() {
   for (var process in Processes()) {
     // Do something with the process.
   }
-}
-</pre>
+}</pre>
 
-<h3 id="exceptions">
-<a id="exceptions" class="anchor" href="#exceptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exceptions</h3>
+<h3 id="异常">
+<a id="异常" class="anchor" href="#%E5%BC%82%E5%B8%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>异常</h3>
 
-<p>The Dart core library defines many common exceptions and errors.
-Exceptions are considered conditions that you can plan ahead for and
-catch. Errors are conditions that you don’t expect or plan for.</p>
+<p>Dart 核心库定义了很多公共的异常和错误类。
+异常通常是一些可以预见和预知的情况。
+错误是无法预见或者预防的情况。</p>
 
-<p>A couple of the most common errors are:</p>
+<p>两个最常见的错误：</p>
 
 <dl>
   <dt><a href="https://api.dartlang.org/dev/dart-core/NoSuchMethodError-class.html">NoSuchMethodError</a></dt>
   <dd>
-    <p>Thrown when a receiving object (which might be null) does not
-implement a method.</p>
+    <p>当方法的接受对象（可能为null）没有实现该方法时抛出。</p>
   </dd>
   <dt><a href="https://api.dartlang.org/dev/dart-core/ArgumentError-class.html">ArgumentError</a></dt>
   <dd>
-    <p>Can be thrown by a method that encounters an unexpected argument.</p>
+    <p>当方法在接受到一个不合法参数时抛出。</p>
   </dd>
 </dl>
 
-<p>Throwing an application-specific exception is a common way to indicate
-that an error has occurred. You can define a custom exception by
-implementing the Exception interface:</p>
+<p>通常通过抛出一个应用特定的异常，来表示应用发生了错误。
+通过实现 Exception 接口来自定义异常。</p>
 
 <?code-excerpt "misc/lib/library_tour/core/exception.dart"?>
-<pre class="prettyprint lang-dart">
-class FooException implements Exception {
+<pre class="prettyprint lang-dart">class FooException implements Exception {
   final String msg;
 
   const FooException([this.msg]);
 
   @override
   String toString() =&gt; msg ?? 'FooException';
-}
-</pre>
+}</pre>
 
-<p>For more information, see <a href="#exceptions">Exceptions</a> and the <a href="https://api.dartlang.org/dev/dart-core/Exception-class.html">Exception API docs.</a></p>
+<p>更多内容，参考 <a href="#exceptions">Exceptions</a> 以及 <a href="https://api.dartlang.org/dev/dart-core/Exception-class.html">Exception API 文档。</a></p>
 
-<h2 id="dartasync---asynchronous-programming">
-<a id="dartasync---asynchronous-programming" class="anchor" href="#dartasync---asynchronous-programming" aria-hidden="true"><span class="octicon octicon-link"></span></a>dart:async - asynchronous programming</h2>
+<h2 id="dartasync---异步编程">
+<a id="dartasync---异步编程" class="anchor" href="#dartasync---%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>dart:async - 异步编程</h2>
 
-<p>Asynchronous programming often uses callback functions, but Dart
-provides alternatives: <a href="https://api.dartlang.org/dev/dart-async/Future-class.html">Future</a> and <a href="https://api.dartlang.org/dev/dart-async/Stream-class.html">Stream</a> objects. A
-Future is like a promise for a result to be provided sometime in the
-future. A Stream is a way to get a sequence of values, such as events.
-Future, Stream, and more are in the
-dart:async library (<a href="https://api.dartlang.org/dev/dart-async/dart-async-library.html">API reference</a>).</p>
+<p>异步编程通常使用回调方法来实现，但是 Dart
+提供了其它方案：<a href="https://api.dartlang.org/dev/dart-async/Future-class.html">Future</a> 和 <a href="https://api.dartlang.org/dev/dart-async/Stream-class.html">Stream</a> 对象。
+Future 类似与 JavaScript 中的 Promise ，
+代表在将来某个时刻会返回一个结果。
+Stream 类可以用来获取一系列的值，比如，一些列事件。
+Future， Stream，以及更多内容，参考
+dart:async library (<a href="https://api.dartlang.org/dev/dart-async/dart-async-library.html">API reference</a>)。</p>
 
 <div class="alert alert-info">
-  <p><strong>Note:</strong>
-You don’t always need to use the Future or Stream APIs directly.
-The Dart language supports asynchronous coding
-using keywords such as <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code>.
-See <a href="/guides/language/language-tour#asynchrony-support">Asynchrony support</a>
-in the language tour for details.</p>
+  <p><strong>提示：</strong>
+你并不总是需要直接使用 Future 或 Stream 的 API。
+Dart 语言支持使用关键字（例如，<code class="highlighter-rouge">async</code> 和 <code class="highlighter-rouge">await</code> ）来实现异步编程。
+更多详情，参考语言概览中 <a href="/guides/language/language-tour#asynchrony-support">Asynchrony support</a>。</p>
 </div>
 
-<p>The dart:async library works in both web apps and command-line apps. To
-use it, import dart:async:</p>
+<p>dart:async 库可以工作在 web 应用及 command-line 应用。
+通过 import dart:async 来使用。</p>
 
 <?code-excerpt "misc/lib/library_tour/async/future.dart (import)"?>
-<pre class="prettyprint lang-dart">
-import 'dart:async';
-</pre>
+<pre class="prettyprint lang-dart">import 'dart:async';</pre>
 
 <h3 id="future">
 <a id="future" class="anchor" href="#future" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future</h3>
 
-<p>Future objects appear throughout the Dart libraries, often as the object
-returned by an asynchronous method. When a future <em>completes</em>, its value
-is ready to use.</p>
+<p>在 Dart 库中随处可见 Future 对象，通常异步函数返回的对象就是一个 Future。
+当一个 future <em>完成执行后</em>，future 中的值就已经可以使用了。</p>
 
-<h4 id="using-await">
-<a id="using-await" class="anchor" href="#using-await" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using await</h4>
+<h4 id="使用-await">
+<a id="使用-await" class="anchor" href="#%E4%BD%BF%E7%94%A8-await" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用 await</h4>
 
-<p>Before you directly use the Future API, consider using <code class="highlighter-rouge">await</code> instead.
-Code that uses <code class="highlighter-rouge">await</code> expressions can be easier to understand
-than code that uses the Future API.</p>
+<p>在直接使用 Future API 前，首先应该考虑 <code class="highlighter-rouge">await</code> 来替代。
+代码中使用 <code class="highlighter-rouge">await</code> 表达式会比直接使用 Future API 更容易理解。</p>
 
-<p>Consider the following function.  It uses Future’s <code class="highlighter-rouge">then()</code> method
-to execute three asynchronous functions in a row,
-waiting for each one to complete before executing the next one.</p>
+<p>阅读思考下面代码。
+代码使用 Future 的 <code class="highlighter-rouge">then()</code> 方法在同一行执行了三个异步函数，
+要等待上一个执行完成，再执行下一个任务之。</p>
 
 <?code-excerpt "misc/lib/library_tour/async/future.dart (runUsingFuture)"?>
-<pre class="prettyprint lang-dart">
-runUsingFuture() {
+<pre class="prettyprint lang-dart">runUsingFuture() {
   // ...
   findEntryPoint().then((entryPoint) {
     return runExecutable(entryPoint, args);
   }).then(flushThenExit);
-}
-</pre>
+}</pre>
 
-<p>The equivalent code with await expressions
-looks more like synchronous code:</p>
+<p>通过 await 表达式实现等价的代码，
+看起来非常像同步代码：</p>
 
 <?code-excerpt "misc/lib/library_tour/async/future.dart (runUsingAsyncAwait)"?>
-<pre class="prettyprint lang-dart">
-runUsingAsyncAwait() async {
+<pre class="prettyprint lang-dart">runUsingAsyncAwait() async {
   // ...
   var entryPoint = await findEntryPoint();
   var exitCode = await runExecutable(entryPoint, args);
   await flushThenExit(exitCode);
-}
-</pre>
+}</pre>
 
-<p>An async function can catch exceptions from Futures.
-For example:</p>
+<p>async 函数能够捕获来自 Future 的异常。
+例如：</p>
 
 <?code-excerpt "misc/lib/library_tour/async/future.dart (catch)"?>
-<pre class="prettyprint lang-dart">
-var entryPoint = await findEntryPoint();
+<pre class="prettyprint lang-dart">var entryPoint = await findEntryPoint();
 try {
   var exitCode = await runExecutable(entryPoint, args);
   await flushThenExit(exitCode);
 } catch (e) {
   // Handle the error...
-}
-</pre>
+}</pre>
 
 <div class="alert alert-warning">
-  <p><strong>Important:</strong>
-Async functions return Futures.
-If you don’t want your function to return a future,
-then use a different solution.
-For example, you might call an async function from your function.</p>
+  <p><strong>重要：</strong>
+async 函数 返回 Future 对象。
+如果你不希望你的函数返回一个 future 对象，
+可以使用其他方案。
+例如，你可以在你的方法中调用一个 async 方法。</p>
 </div>
 
-<p>For more information on using <code class="highlighter-rouge">await</code> and related Dart language features,
-see <a href="/guides/language/language-tour#asynchrony-support">Asynchrony support</a>.</p>
+<p>更多关于 <code class="highlighter-rouge">await</code> 的使用及相关的 Dart 语言特征，参考
+<a href="/guides/language/language-tour#asynchrony-support">Asynchrony support</a>。</p>
 
-<h4 id="basic-usage">
-<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic usage</h4>
+<h4 id="基本用法">
+<a id="基本用法" class="anchor" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>基本用法</h4>
 
-<p>You can use <code class="highlighter-rouge">then()</code> to schedule code that runs when the future completes. For
-example, <code class="highlighter-rouge">HttpRequest.getString()</code> returns a Future, since HTTP requests
-can take a while. Using <code class="highlighter-rouge">then()</code> lets you run some code when that Future
-has completed and the promised string value is available:</p>
+<p>当 future 执行完成后，<code class="highlighter-rouge">then()</code> 中的代码会被执行。</p>
+
+<p><code class="highlighter-rouge">then()</code> 中的代码会在 future 完成后被执行。
+例如，
+<code class="highlighter-rouge">HttpRequest.getString()</code> 返回一个 future 对象，因为 HTTP 请求可能需要一段时间。
+当 Future 完成并且保证字符串值有效后，使用 <code class="highlighter-rouge">then()</code> 来执行你需要的代码：</p>
 
 <?code-excerpt "misc/lib/library_tour/async/basic.dart (then)"?>
-<pre class="prettyprint lang-dart">
-HttpRequest.getString(url).then((String result) {
+<pre class="prettyprint lang-dart">HttpRequest.getString(url).then((String result) {
   print(result);
-});
-</pre>
+});</pre>
 
-<p>Use <code class="highlighter-rouge">catchError()</code> to handle any errors or exceptions that a Future
-object might throw.</p>
+<p>使用 <code class="highlighter-rouge">catchError()</code> 来处理一些 Future 对象可能抛出的错误或者异常。</p>
 
 <?code-excerpt "misc/lib/library_tour/async/basic.dart (catchError)"?>
-<pre class="prettyprint lang-dart">
-HttpRequest.getString(url).then((String result) {
+<pre class="prettyprint lang-dart">HttpRequest.getString(url).then((String result) {
   print(result);
 }).catchError((e) {
   // Handle or ignore the error.
-});
-</pre>
+});</pre>
 
-<p>The <code class="highlighter-rouge">then().catchError()</code> pattern is the asynchronous version of
-<code class="highlighter-rouge">try</code>-<code class="highlighter-rouge">catch</code>.</p>
+<p><code class="highlighter-rouge">then().catchError()</code> 组合是 <code class="highlighter-rouge">try</code>-<code class="highlighter-rouge">catch</code> 的异步版本。</p>
 
 <div class="alert alert-warning">
-  <p><strong>Important:</strong>
-Be sure to invoke <code class="highlighter-rouge">catchError()</code> on the result of <code class="highlighter-rouge">then()</code>—not on the
-result of the original Future. Otherwise, the <code class="highlighter-rouge">catchError()</code> can
-handle errors only from the original Future’s computation, but not
-from the handler registered by <code class="highlighter-rouge">then()</code>.</p>
+  <p><strong>重要：</strong>
+确保调用 <code class="highlighter-rouge">catchError()</code> 方式在 <code class="highlighter-rouge">then()</code> 的结果上，而不是在原来的 Future 对象上调用。
+否则的话，<code class="highlighter-rouge">catchError()</code> 就只能处理原来 Future 对象抛出的异常，
+而无法处理 <code class="highlighter-rouge">then()</code> 代码里面的异常。</p>
 </div>
 
-<h4 id="chaining-multiple-asynchronous-methods">
-<a id="chaining-multiple-asynchronous-methods" class="anchor" href="#chaining-multiple-asynchronous-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chaining multiple asynchronous methods</h4>
+<h4 id="链式异步编程">
+<a id="链式异步编程" class="anchor" href="#%E9%93%BE%E5%BC%8F%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>链式异步编程</h4>
 
-<p>The <code class="highlighter-rouge">then()</code> method returns a Future, providing a useful way to run
-multiple asynchronous functions in a certain order. If the callback
-registered with <code class="highlighter-rouge">then()</code> returns a Future, <code class="highlighter-rouge">then()</code> returns an
-equivalent Future. If the callback returns a value of any other type,
-<code class="highlighter-rouge">then()</code> creates a new Future that completes with the value.</p>
+<p><code class="highlighter-rouge">then()</code> 方法返回一个 Future 对象， 
+这样就提供了一个非常好的方式让多个异步方法按顺序依次执行。
+如果用 <code class="highlighter-rouge">then()</code> 注册的回调返回一个 Future ，
+那么 <code class="highlighter-rouge">then()</code> 返回一个等价的 Future 。 
+如果回调返回任何其它类型的值，
+那么 <code class="highlighter-rouge">then()</code> 会创建一个以该值完成的新 Future 。</p>
 
 <?code-excerpt "misc/lib/library_tour/async/future.dart (then-chain)"?>
-<pre class="prettyprint lang-dart">
-Future result = costlyQuery(url);
+<pre class="prettyprint lang-dart">Future result = costlyQuery(url);
 result
     .then((value) =&gt; expensiveWork(value))
     .then((_) =&gt; lengthyComputation())
     .then((_) =&gt; print('Done!'))
     .catchError((exception) {
   /* Handle exception... */
-});
-</pre>
+});</pre>
 
-<p>In the preceding example, the methods run in the following order:</p>
+<p>在上面的示例中，方法按下面顺序执行：</p>
 
 <ol>
   <li><code class="highlighter-rouge">costlyQuery()</code></li>
@@ -1427,30 +1320,27 @@ result
   <li><code class="highlighter-rouge">lengthyComputation()</code></li>
 </ol>
 
-<p>Here is the same code written using await:</p>
+<p>这是使用 await 编写的等效代码：</p>
 
 <?code-excerpt "misc/lib/library_tour/async/future.dart (then-chain-as-await)"?>
-<pre class="prettyprint lang-dart">
-try {
+<pre class="prettyprint lang-dart">try {
   final value = await costlyQuery(url);
   await expensiveWork(value);
   await lengthyComputation();
   print('Done!');
 } catch (e) {
   /* Handle exception... */
-}
-</pre>
+}</pre>
 
-<h4 id="waiting-for-multiple-futures">
-<a id="waiting-for-multiple-futures" class="anchor" href="#waiting-for-multiple-futures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Waiting for multiple futures</h4>
+<h4 id="等待多个-future">
+<a id="等待多个-future" class="anchor" href="#%E7%AD%89%E5%BE%85%E5%A4%9A%E4%B8%AA-future" aria-hidden="true"><span class="octicon octicon-link"></span></a>等待多个 Future</h4>
 
-<p>Sometimes your algorithm needs to invoke many asynchronous functions and
-wait for them all to complete before continuing. Use the <a href="https://api.dartlang.org/dev/dart-async/Future/wait.html">Future.wait()</a>
-static method to manage multiple Futures and wait for them to complete:</p>
+<p>有时代码逻辑需要调用多个异步函数，
+并等待它们全部完成后再继续执行。
+使用 <a href="https://api.dartlang.org/dev/dart-async/Future/wait.html">Future.wait()</a> 静态方法管理多个 Future 以及等待它们完成：</p>
 
 <?code-excerpt "misc/lib/library_tour/async/future.dart (wait)" replace="/elideBody;/\/* ... *\//g"?>
-<pre class="prettyprint lang-dart">
-Future deleteLotsOfFiles() async =&gt;  ...
+<pre class="prettyprint lang-dart">Future deleteLotsOfFiles() async =&gt;  ...
 Future copyLotsOfFiles() async =&gt;  ...
 Future checksumLotsOfOtherFiles() async =&gt;  ...
 
@@ -1459,8 +1349,7 @@ await Future.wait([
   copyLotsOfFiles(),
   checksumLotsOfOtherFiles(),
 ]);
-print('Done with all the long steps!');
-</pre>
+print('Done with all the long steps!');</pre>
 
 <h3 id="stream">
 <a id="stream" class="anchor" href="#stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stream</h3>
@@ -1482,8 +1371,7 @@ passing in a function literal that searches each file or directory.</p>
 
 <!-- OLD dart-tutorials-samples/cmdline/bin/dgrep.dart -->
 <?code-excerpt "misc/lib/library_tour/async/stream.dart (listen)" replace="/listen/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-void main(List&lt;String&gt; arguments) {
+<pre class="prettyprint lang-dart">void main(List&lt;String&gt; arguments) {
   // ...
   FileSystemEntity.isDirectory(searchPath).then((isDir) {
     if (isDir) {
@@ -1501,16 +1389,14 @@ void main(List&lt;String&gt; arguments) {
       searchFile(File(searchPath), searchTerms);
     }
   });
-}
-</pre>
+}</pre>
 
 <p>The equivalent code with await expressions,
 including an asynchronous for loop (<code class="highlighter-rouge">await for</code>),
 looks more like synchronous code:</p>
 
 <?code-excerpt "misc/lib/library_tour/async/stream.dart (await-for)" replace="/await for/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-Future main(List&lt;String&gt; arguments) async {
+<pre class="prettyprint lang-dart">Future main(List&lt;String&gt; arguments) async {
   // ...
   if (await FileSystemEntity.isDirectory(searchPath)) {
     final startingDir = Directory(searchPath);
@@ -1524,8 +1410,7 @@ Future main(List&lt;String&gt; arguments) async {
   } else {
     searchFile(File(searchPath), searchTerms);
   }
-}
-</pre>
+}</pre>
 
 <div class="alert alert-warning">
   <p><strong>Important:</strong>
@@ -1548,13 +1433,11 @@ Dart language features, see
 subscribe to the stream using the <code class="highlighter-rouge">listen()</code> method:</p>
 
 <?code-excerpt "misc/lib/library_tour/async/stream_web.dart (listen)" replace="/await for/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-// Find a button by ID and add an event handler.
+<pre class="prettyprint lang-dart">// Find a button by ID and add an event handler.
 querySelector('#submitInfo').onClick.listen((e) {
   // When the button is clicked, it runs this code.
   submitData();
-});
-</pre>
+});</pre>
 
 <p>In this example, the <code class="highlighter-rouge">onClick</code> property is a Stream object provided by
 the “submitInfo” button.</p>
@@ -1574,11 +1457,9 @@ use it. Use the <code class="highlighter-rouge">transform()</code> method to pro
 different type of data:</p>
 
 <?code-excerpt "misc/lib/library_tour/async/stream.dart (transform)"?>
-<pre class="prettyprint lang-dart">
-var lines = inputStream
+<pre class="prettyprint lang-dart">var lines = inputStream
     .transform(utf8.decoder)
-    .transform(LineSplitter());
-</pre>
+    .transform(LineSplitter());</pre>
 
 <p>This example uses two transformers. First it uses utf8.decoder to
 transform the stream of integers into a stream of strings. Then it uses
@@ -1599,8 +1480,7 @@ Code that executes after the stream is closed
 goes after the asynchronous for loop.</p>
 
 <?code-excerpt "misc/lib/library_tour/async/stream.dart (readFileAwaitFor)" replace="/try|catch/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-Future readFileAwaitFor() async {
+<pre class="prettyprint lang-dart">Future readFileAwaitFor() async {
   var config = File('config.txt');
   Stream&lt;List&lt;int&gt;&gt; inputStream = config.openRead();
 
@@ -1615,8 +1495,7 @@ Future readFileAwaitFor() async {
   } <span class="highlight">catch</span> (e) {
     print(e);
   }
-}
-</pre>
+}</pre>
 
 <p>If you use the Stream API,
 then handle errors by registering an <code class="highlighter-rouge">onError</code> listener.
@@ -1624,8 +1503,7 @@ Run code after the stream is closed by registering
 an <code class="highlighter-rouge">onDone</code> listener.</p>
 
 <?code-excerpt "misc/lib/library_tour/async/stream.dart (onDone)" replace="/onDone|onError/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-var config = File('config.txt');
+<pre class="prettyprint lang-dart">var config = File('config.txt');
 Stream&lt;List&lt;int&gt;&gt; inputStream = config.openRead();
 
 inputStream
@@ -1637,8 +1515,7 @@ inputStream
   print('file is now closed');
 }, <span class="highlight">onError</span>: (e) {
   print(e);
-});
-</pre>
+});</pre>
 
 <h3 id="more-information">
 <a id="more-information" class="anchor" href="#more-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h3>
@@ -1668,9 +1545,7 @@ examples use the prefix <code class="highlighter-rouge">math</code> to make clea
 and constants are from the Math library:</p>
 
 <?code-excerpt "misc/test/library_tour/math_test.dart (import)"?>
-<pre class="prettyprint lang-dart">
-import 'dart:math';
-</pre>
+<pre class="prettyprint lang-dart">import 'dart:math';</pre>
 
 <h3 id="trigonometry">
 <a id="trigonometry" class="anchor" href="#trigonometry" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trigonometry</h3>
@@ -1678,8 +1553,7 @@ import 'dart:math';
 <p>The Math library provides basic trigonometric functions:</p>
 
 <?code-excerpt "misc/test/library_tour/math_test.dart (trig)"?>
-<pre class="prettyprint lang-dart">
-// Cosine
+<pre class="prettyprint lang-dart">// Cosine
 assert(cos(pi) == -1.0);
 
 // Sine
@@ -1688,8 +1562,7 @@ var radians = degrees * (pi / 180);
 // radians is now 0.52359.
 var sinOf30degrees = sin(radians);
 // sin 30° = 0.5
-assert((sinOf30degrees - 0.5).abs() &lt; 0.01);
-</pre>
+assert((sinOf30degrees - 0.5).abs() &lt; 0.01);</pre>
 
 <div class="alert alert-info">
   <p><strong>Note:</strong>
@@ -1702,10 +1575,8 @@ These functions use radians, not degrees!</p>
 <p>The Math library provides <code class="highlighter-rouge">max()</code> and <code class="highlighter-rouge">min()</code> methods:</p>
 
 <?code-excerpt "misc/test/library_tour/math_test.dart (min-max)"?>
-<pre class="prettyprint lang-dart">
-assert(max(1, 1000) == 1000);
-assert(min(1, -1000) == -1000);
-</pre>
+<pre class="prettyprint lang-dart">assert(max(1, 1000) == 1000);
+assert(min(1, -1000) == -1000);</pre>
 
 <h3 id="math-constants">
 <a id="math-constants" class="anchor" href="#math-constants" aria-hidden="true"><span class="octicon octicon-link"></span></a>Math constants</h3>
@@ -1713,12 +1584,10 @@ assert(min(1, -1000) == -1000);
 <p>Find your favorite constants—<em>pi</em>, <em>e</em>, and more—in the Math library:</p>
 
 <?code-excerpt "misc/test/library_tour/math_test.dart (constants)"?>
-<pre class="prettyprint lang-dart">
-// See the Math library for additional constants.
+<pre class="prettyprint lang-dart">// See the Math library for additional constants.
 print(e); // 2.718281828459045
 print(pi); // 3.141592653589793
-print(sqrt2); // 1.4142135623730951
-</pre>
+print(sqrt2); // 1.4142135623730951</pre>
 
 <h3 id="random-numbers">
 <a id="random-numbers" class="anchor" href="#random-numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Random numbers</h3>
@@ -1727,19 +1596,15 @@ print(sqrt2); // 1.4142135623730951
 optionally provide a seed to the Random constructor.</p>
 
 <?code-excerpt "misc/test/library_tour/math_test.dart (Random)"?>
-<pre class="prettyprint lang-dart">
-var random = Random();
+<pre class="prettyprint lang-dart">var random = Random();
 random.nextDouble(); // Between 0.0 and 1.0: [0, 1)
-random.nextInt(10); // Between 0 and 9.
-</pre>
+random.nextInt(10); // Between 0 and 9.</pre>
 
 <p>You can even generate random booleans:</p>
 
 <?code-excerpt "misc/test/library_tour/math_test.dart (Random-bool)"?>
-<pre class="prettyprint lang-dart">
-var random = Random();
-random.nextBool(); // true or false
-</pre>
+<pre class="prettyprint lang-dart">var random = Random();
+random.nextBool(); // true or false</pre>
 
 <h3 id="more-information-1">
 <a id="more-information-1" class="anchor" href="#more-information-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h3>
@@ -1761,9 +1626,7 @@ set.</p>
 To use it, import dart:convert.</p>
 
 <?code-excerpt "misc/test/library_tour/convert_test.dart (import)"?>
-<pre class="prettyprint lang-dart">
-import 'dart:convert';
-</pre>
+<pre class="prettyprint lang-dart">import 'dart:convert';</pre>
 
 <h3 id="decoding-and-encoding-json">
 <a id="decoding-and-encoding-json" class="anchor" href="#decoding-and-encoding-json" aria-hidden="true"><span class="octicon octicon-link"></span></a>Decoding and encoding JSON</h3>
@@ -1771,8 +1634,7 @@ import 'dart:convert';
 <p>Decode a JSON-encoded string into a Dart object with <code class="highlighter-rouge">jsonDecode()</code>:</p>
 
 <?code-excerpt "misc/test/library_tour/convert_test.dart (json-decode)"?>
-<pre class="prettyprint lang-dart">
-// NOTE: Be sure to use double quotes ("),
+<pre class="prettyprint lang-dart">// NOTE: Be sure to use double quotes ("),
 // not single quotes ('), inside the JSON string.
 // This string is JSON, not Dart.
 var jsonString = '''
@@ -1787,15 +1649,13 @@ assert(scores is List);
 
 var firstScore = scores[0];
 assert(firstScore is Map);
-assert(firstScore['score'] == 40);
-</pre>
+assert(firstScore['score'] == 40);</pre>
 
 <p>Encode a supported Dart object into a JSON-formatted string with
 <code class="highlighter-rouge">jsonEncode()</code>:</p>
 
 <?code-excerpt "misc/test/library_tour/convert_test.dart (json-encode)"?>
-<pre class="prettyprint lang-dart">
-var scores = [
+<pre class="prettyprint lang-dart">var scores = [
   {'score': 40},
   {'score': 80},
   {'score': 100, 'overtime': true, 'special_guest': null}
@@ -1805,8 +1665,7 @@ var jsonText = jsonEncode(scores);
 assert(jsonText ==
     '[{"score":40},{"score":80},'
     '{"score":100,"overtime":true,'
-    '"special_guest":null}]');
-</pre>
+    '"special_guest":null}]');</pre>
 
 <p>Only objects of type int, double, String, bool, null, List, or Map (with
 string keys) are directly encodable into JSON. List and Map objects are
@@ -1824,8 +1683,7 @@ the object’s <code class="highlighter-rouge">toJson()</code> method.</p>
 <p>Use <code class="highlighter-rouge">utf8.decode()</code> to decode UTF8-encoded bytes to a Dart string:</p>
 
 <?code-excerpt "misc/test/library_tour/convert_test.dart (utf8-decode)" replace="/ \/\/line-br.*//g"?>
-<pre class="prettyprint lang-dart">
-List&lt;int&gt; utf8Bytes = [
+<pre class="prettyprint lang-dart">List&lt;int&gt; utf8Bytes = [
   0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9,
   0x72, 0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3,
   0xae, 0xc3, 0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4,
@@ -1835,15 +1693,13 @@ List&lt;int&gt; utf8Bytes = [
 
 var funnyWord = utf8.decode(utf8Bytes);
 
-assert(funnyWord == 'Îñţérñåţîöñåļîžåţîờñ');
-</pre>
+assert(funnyWord == 'Îñţérñåţîöñåļîžåţîờñ');</pre>
 
 <p>To convert a stream of UTF-8 characters into a Dart string, specify
 <code class="highlighter-rouge">utf8.decoder</code> to the Stream <code class="highlighter-rouge">transform()</code> method:</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (utf8-decoder)" replace="/utf8.decoder/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-var lines = inputStream
+<pre class="prettyprint lang-dart">var lines = inputStream
     .transform(<span class="highlight">utf8.decoder</span>)
     .transform(LineSplitter());
 try {
@@ -1853,21 +1709,18 @@ try {
   print('file is now closed');
 } catch (e) {
   print(e);
-}
-</pre>
+}</pre>
 
 <p>Use <code class="highlighter-rouge">utf8.encode()</code> to encode a Dart string as a list of UTF8-encoded
 bytes:</p>
 
 <?code-excerpt "misc/test/library_tour/convert_test.dart (utf8-encode)" replace="/ \/\/line-br.*//g"?>
-<pre class="prettyprint lang-dart">
-List&lt;int&gt; encoded = utf8.encode('Îñţérñåţîöñåļîžåţîờñ');
+<pre class="prettyprint lang-dart">List&lt;int&gt; encoded = utf8.encode('Îñţérñåţîöñåļîžåţîờñ');
 
 assert(encoded.length == utf8Bytes.length);
 for (int i = 0; i &lt; encoded.length; i++) {
   assert(encoded[i] == utf8Bytes[i]);
-}
-</pre>
+}</pre>
 
 <h3 id="other-functionality">
 <a id="other-functionality" class="anchor" href="#other-functionality" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other functionality</h3>
@@ -1924,7 +1777,7 @@ sampling of what you can install using pub.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/27 19:45 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

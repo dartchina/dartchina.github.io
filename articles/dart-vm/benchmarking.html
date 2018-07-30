@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/benchmarking" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/benchmarking" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -95,8 +95,10 @@ ga('send', 'pageview');
 </nav>
 
   
-  <div class="alert alert-danger">
-    <h4 class="text-center">Content of this page might be obsolete.</h4>
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
   </div>
   
 </header>
@@ -232,13 +234,19 @@ ga('send', 'pageview');
             <h1>Benchmarking the Dart VM</h1>
           </div>
           <p><em>Written by John McCutchan <br>
-October 2012 (updated November 2012)</em></p>
+October 2012 (updated November 2012; note updated July 2018)</em></p>
 
-<aside class="alert alert-info">
-  <p><strong>Note:</strong>
-This article was initially targeted for the standalone VM under the
-1.x Dart SDK.  It does not reflect the Flutter VM,
-nor does it reflect the changes that are coming in <a href="/dart-2">Dart 2</a>.</p>
+<aside class="alert alert-warning">
+  <p>This article still has valid information, but it was initially targeted for
+  the standalone VM under the 1.x Dart SDK.  It does not reflect Flutter,
+  nor does it reflect changes in <a href="/dart-2">Dart 2</a>.
+  For example, this article mentions Dartium, which
+  <a href="https://webdev.dartlang.org/dart-2#tools">doesn’t work with Dart 2.</a>
+  Also, checked mode and production mode no longer exist; development modes vary
+  by platform, as you can see from the
+  <a href="/guides/language/language-tour#assert">assert section</a> of the language tour.
+  For information about Flutter benchmarking, see the
+  <a href="https://flutter.io/ui-performance/">Flutter performance page.</a></p>
 </aside>
 
 <p>Programmers often create benchmarks that exercise an important algorithm in a
@@ -270,18 +278,15 @@ for the Dart VM’s optimizer.</p>
 <li>
     <p>Add the following to your pubspec.yaml, and run <code class="highlighter-rouge">pub get</code>:</p>
 
-    <pre class="prettyprint lang-yaml">
-dependencies:
-  benchmark_harness: "&gt;=1.0.0 &lt;2.0.0"
-</pre>
+    <pre class="prettyprint lang-yaml">dependencies:
+  benchmark_harness: "&gt;=1.0.0 &lt;2.0.0"</pre>
   </li>
 
 <li>
     <p>Copy the following template, which creates a class extending
     <code class="highlighter-rouge">BenchmarkBase</code>:</p>
 
-    <pre class="prettyprint lang-dart">
-// Import BenchmarkBase class.
+    <pre class="prettyprint lang-dart">// Import BenchmarkBase class.
 import 'package:benchmark_harness/benchmark_harness.dart';
 
 // Create a new benchmark by extending BenchmarkBase.
@@ -307,8 +312,7 @@ class TemplateBenchmark extends BenchmarkBase {
 main() {
   // Run TemplateBenchmark.
   TemplateBenchmark.main();
-}
-</pre>
+}</pre>
   </li>
 </ol>
 
@@ -387,7 +391,7 @@ Happy benchmarking!</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/language/futures" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/language/futures" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -283,8 +283,7 @@ represent asynchronous operations.</p>
 <p>Let’s look at some code that could possibly cause a program to freeze:</p>
 
 <?code-excerpt "misc/lib/tutorial/daily_news.dart (sync)" replace="/Sync(\(\))/$1/g"?>
-<pre class="prettyprint lang-dart">
-// Synchronous code
+<pre class="prettyprint lang-dart">// Synchronous code
 printDailyNewsDigest() {
   String news = gatherNewsReports(); // Can take a while.
   print(news);
@@ -295,8 +294,7 @@ main() {
   printWinningLotteryNumbers();
   printWeatherForecast();
   printBaseballScore();
-}
-</pre>
+}</pre>
 
 <p>Our program gathers the news of the day, prints it, and then prints a bunch of
 other items of interest to the user:</p>
@@ -414,16 +412,14 @@ the Future that it originally returned completes, and the app exits.</li>
 capture that error.  Async functions can use try-catch to capture the error.</p>
 
 <?code-excerpt "misc/lib/tutorial/daily_news.dart (try-catch)"?>
-<pre class="prettyprint lang-dart">
-printDailyNewsDigest() async {
+<pre class="prettyprint lang-dart">printDailyNewsDigest() async {
   try {
     String news = await gatherNewsReports();
     print(news);
   } catch (e) {
     // Handle error...
   }
-}
-</pre>
+}</pre>
 
 <p>The try-catch code behaves in the same way with asynchronous code that it does
 for synchronous code: If the code within the <code class="highlighter-rouge">try</code> block throws an exception,
@@ -436,14 +432,12 @@ the code inside the <code class="highlighter-rouge">catch</code> clause executes
 completes before executing the next statement:</p>
 
 <?code-excerpt "misc/lib/tutorial/misc.dart (multiple-await)"?>
-<pre class="prettyprint lang-dart">
-// Sequential processing using async and await.
+<pre class="prettyprint lang-dart">// Sequential processing using async and await.
 main() async {
   await expensiveA();
   await expensiveB();
   doSomethingWith(await expensiveC());
-}
-</pre>
+}</pre>
 
 <p>The <code class="highlighter-rouge">expensiveB()</code> function will not execute until <code class="highlighter-rouge">expensiveA()</code> has
 finished, and so on.</p>
@@ -504,11 +498,11 @@ following:</p>
 
     <?code-excerpt "misc/lib/tutorial/daily_news.dart (main-future-api-using-braces)"?>
     <pre class="prettyprint lang-dart">printDailyNewsDigest() {
-final future = gatherNewsReports();
-future.then((news) {
-  print(news);
-  // Do something else...
-});
+  final future = gatherNewsReports();
+  future.then((news) {
+    print(news);
+    // Do something else...
+  });
 }</pre>
   </li>
   <li>
@@ -518,7 +512,7 @@ argument—the completed value of the Future.  Try this version of
 
     <?code-excerpt "misc/lib/tutorial/daily_news.dart (main-future-api-pass-print)"?>
     <pre class="prettyprint lang-dart">printDailyNewsDigest() =&gt;
-  gatherNewsReports().then(print);</pre>
+    gatherNewsReports().then(print);</pre>
   </li>
 </ul>
 
@@ -528,12 +522,10 @@ argument—the completed value of the Future.  Try this version of
 <p>With the Future API, you can capture an error using <code class="highlighter-rouge">catchError()</code>:</p>
 
 <?code-excerpt "misc/lib/tutorial/daily_news.dart (future-api-try-catch)"?>
-<pre class="prettyprint lang-dart">
-printDailyNewsDigest() =&gt;
+<pre class="prettyprint lang-dart">printDailyNewsDigest() =&gt;
     gatherNewsReports()
         .then((news) =&gt; print(news))
-        .catchError((e) =&gt; handleError(e));
-</pre>
+        .catchError((e) =&gt; handleError(e));</pre>
 
 <p>If the news stream isn’t available for reading, the
 code above executes as follows:</p>
@@ -575,12 +567,10 @@ fluid enough to deal with both use cases.</p>
 calls:</p>
 
 <?code-excerpt "misc/lib/tutorial/misc.dart (chaining)"?>
-<pre class="prettyprint lang-dart">
-expensiveA()
+<pre class="prettyprint lang-dart">expensiveA()
     .then((aValue) =&gt; expensiveB())
     .then((bValue) =&gt; expensiveC())
-    .then((cValue) =&gt; doSomethingWith(cValue));
-</pre>
+    .then((cValue) =&gt; doSomethingWith(cValue));</pre>
 
 <p>Nested callbacks also work, but they’re harder to read and not as Dart-y.</p>
 
@@ -595,11 +585,9 @@ with a value, <code class="highlighter-rouge">Future.wait()</code> returns a new
 with a list containing the values produced by each function.</p>
 
 <?code-excerpt "misc/lib/tutorial/misc.dart (Future.wait)"?>
-<pre class="prettyprint lang-dart">
-Future.wait([expensiveA(), expensiveB(), expensiveC()])
+<pre class="prettyprint lang-dart">Future.wait([expensiveA(), expensiveB(), expensiveC()])
     .then((List responses) =&gt; chooseBestResponse(responses))
-    .catchError((e) =&gt; handleError(e));
-</pre>
+    .catchError((e) =&gt; handleError(e));</pre>
 
 <p>If any of the invoked functions completes with an error, the Future returned
 by <code class="highlighter-rouge">Future.wait()</code> also completes with an error. Use <code class="highlighter-rouge">catchError()</code> to handle
@@ -676,7 +664,7 @@ how to work with an event stream.</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

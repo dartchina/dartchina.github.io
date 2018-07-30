@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/reflection-with-mirrors" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/reflection-with-mirrors" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -95,8 +95,10 @@ ga('send', 'pageview');
 </nav>
 
   
-  <div class="alert alert-danger">
-    <h4 class="text-center">Content of this page might be obsolete.</h4>
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
   </div>
   
 </header>
@@ -261,15 +263,12 @@ The introspection API has been largely implemented on the Dart VM.</p>
 <p>The introspection API is declared in the library named <code class="highlighter-rouge">dart:mirrors</code>.
 If you wish to use introspection, import it:</p>
 
-<pre class="prettyprint lang-dart">
-import 'dart:mirrors';
-</pre>
+<pre class="prettyprint lang-dart">import 'dart:mirrors';</pre>
 
 <p>For the sake of illustration,
 we’ll assume you’ve defined the following class:</p>
 
-<pre class="prettyprint lang-dart">
-class MyClass {
+<pre class="prettyprint lang-dart">class MyClass {
   int i, j;
   int sum() =&gt; i + j;
 
@@ -278,8 +277,7 @@ class MyClass {
   static noise() =&gt; 42;
 
   static var s;
-}
-</pre>
+}</pre>
 
 <p>The easiest way to get a mirror is to call the top-level function
 <a href="https://api.dartlang.org/dev/dart-mirrors/reflect.html">reflect()</a>.</p>
@@ -296,19 +294,15 @@ across isolates.</p>
 <a href="https://api.dartlang.org/dev/dart-mirrors/InstanceMirror-class.html">InstanceMirror</a>
 on it.</p>
 
-<pre class="prettyprint lang-dart">
-InstanceMirror myClassInstanceMirror = reflect(new MyClass(3, 4));
-</pre>
+<pre class="prettyprint lang-dart">InstanceMirror myClassInstanceMirror = reflect(new MyClass(3, 4));</pre>
 
 <p>InstanceMirror is a subclass of
 <a href="https://api.dartlang.org/dev/dart-mirrors/Mirror-class.html">Mirror</a>,
 the root of the mirror hierarchy.
 An InstanceMirror allows one to invoke dynamically chosen code on an object.</p>
 
-<pre class="prettyprint lang-dart">
-InstanceMirror f = myClassInstanceMirror.invoke(#sum, []);
-// Returns an InstanceMirror on 7.
-</pre>
+<pre class="prettyprint lang-dart">InstanceMirror f = myClassInstanceMirror.invoke(#sum, []);
+// Returns an InstanceMirror on 7.</pre>
 
 <p>The invoke() method takes a symbol (in this case, #sum)
 representing the method name,
@@ -335,24 +329,18 @@ You’ll need a
 which as you’d expect reflects a class.
 One way to get a class mirror is from an instance mirror.</p>
 
-<pre class="prettyprint lang-dart">
-ClassMirror MyClassMirror = myClassInstanceMirror.type; // Reflects MyClass
-</pre>
+<pre class="prettyprint lang-dart">ClassMirror MyClassMirror = myClassInstanceMirror.type; // Reflects MyClass</pre>
 
 <p>Another way is to use the top-level function
 <a href="https://api.dartlang.org/dev/dart-mirrors/reflectClass.html">reflectClass()</a>.</p>
 
-<pre class="prettyprint lang-dart">
-ClassMirror cm = reflectClass(MyClass); // Reflects MyClass
-</pre>
+<pre class="prettyprint lang-dart">ClassMirror cm = reflectClass(MyClass); // Reflects MyClass</pre>
 
 <p>Once we’ve obtained a class mirror <code class="highlighter-rouge">cm</code> by whatever means,
 we can print out the names of all declarations of the class
 reflected by <code class="highlighter-rouge">cm</code>.</p>
 
-<pre class="prettyprint lang-dart">
-for (var m in cm.declarations.values) print(MirrorSystem.getName(m.simpleName));
-</pre>
+<pre class="prettyprint lang-dart">for (var m in cm.declarations.values) print(MirrorSystem.getName(m.simpleName));</pre>
 
 <p>ClassMirror has a getter
 <a href="https://api.dartlang.org/dev/dart-mirrors/ClassMirror/declarations.html">declarations</a>
@@ -380,11 +368,9 @@ does that for us.</p>
 the point is that the <code class="highlighter-rouge">for</code> loop above works for any class mirror,
 and therefore we can use it to print the declarations of any class.</p>
 
-<pre class="prettyprint lang-dart">
-printAllDeclarationsOf(ClassMirror cm) {
+<pre class="prettyprint lang-dart">printAllDeclarationsOf(ClassMirror cm) {
   for (var m in cm.declarations.values) print(MirrorSystem.getName(m.simpleName));
-}
-</pre>
+}</pre>
 
 <p>A number of methods in the mirror API
 return maps in a similar fashion.
@@ -392,18 +378,14 @@ The maps allow you to look up members by name,
 to iterate over all the names, or to iterate over all the members.
 In fact, there is a simpler way to accomplish what we just did.</p>
 
-<pre class="prettyprint lang-dart">
-printAllDeclarationsOf(ClassMirror cm) {
+<pre class="prettyprint lang-dart">printAllDeclarationsOf(ClassMirror cm) {
   for (var k in cm.declarations.keys) print(MirrorSystem.getName(k));
-}
-</pre>
+}</pre>
 
 <p>What if we want to invoke static code reflectively?
 We can call invoke() on a ClassMirror as well.</p>
 
-<pre class="prettyprint lang-dart">
-cm.invoke(#noise, []); // Returns an InstanceMirror on 42
-</pre>
+<pre class="prettyprint lang-dart">cm.invoke(#noise, []); // Returns an InstanceMirror on 42</pre>
 
 <p>In fact, invoke() is defined in class
 <a href="https://api.dartlang.org/dev/dart-mirrors/ObjectMirror-class.html">ObjectMirror</a>,
@@ -413,8 +395,7 @@ such as regular instances, classes, libraries, and so on.</p>
 
 <p>Here is a complete example incorporating what we’ve done so far:</p>
 
-<pre class="prettyprint lang-dart">
-import 'dart:mirrors';
+<pre class="prettyprint lang-dart">import 'dart:mirrors';
 
 class MyClass {
   int i, j;
@@ -456,13 +437,11 @@ main() {
 
   MyClassMirror.setField(#s, 91);
   print(MyClass.s);
-}
-</pre>
+}</pre>
 
 <p>And here’s the output:</p>
 
-<pre class="prettyprint">
-sum = 7
+<pre class="prettyprint">sum = 7
 noise = InstanceMirror on 42
 
 Methods:
@@ -481,8 +460,7 @@ my_method
 sum
 noise
 MyClass
-91
-</pre>
+91</pre>
 
 <p>At this point we’ve shown you enough to get started.
 Some more things you should be aware of follow.</p>
@@ -607,7 +585,7 @@ Screencast of a lecture at HPI Potsdam in January 2010.  57 minutes.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

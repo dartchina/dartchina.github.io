@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/troubleshoot" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/troubleshoot" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -248,29 +248,23 @@ ga('send', 'pageview');
 
 <p>You receive the following error when running <code class="highlighter-rouge">pub publish</code>:</p>
 
-<pre>
-HTTP error 403: Forbidden
+<pre>HTTP error 403: Forbidden
 ...
-You aren't an uploader for package '&lt;foo&gt;'
-</pre>
+You aren't an uploader for package '&lt;foo&gt;'</pre>
 
 <p>This problem can occur if one of your accounts was granted permission to
 publish a package, but the pub client registers you with another account.</p>
 
 <p>You can reset pub’s authentication process by removing the credentials file:</p>
 
-<pre class="prettyprint lang-sh">
-rm ~/.pub-cache/credentials.json
-</pre>
+<pre class="prettyprint lang-sh">rm ~/.pub-cache/credentials.json</pre>
 
 <h2 id="pub-publish-unauthorized">
 <a id="getting-an-unauthorizedaccess-error-when-publishing-a-package" class="anchor" href="#getting-an-unauthorizedaccess-error-when-publishing-a-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting an “UnauthorizedAccess” error when publishing a package</h2>
 
 <p>You receive the following error when running <code class="highlighter-rouge">pub publish</code>:</p>
 
-<pre>
-UnauthorizedAccess: Unauthorized user: &lt;username&gt; is not allowed to upload versions to package '&lt;foo&gt;'..
-</pre>
+<pre>UnauthorizedAccess: Unauthorized user: &lt;username&gt; is not allowed to upload versions to package '&lt;foo&gt;'..</pre>
 
 <p>You will see this message if you are not on the list of people
 authorized to publish new versions of a package.
@@ -282,12 +276,10 @@ See <a href="publishing#authors-versus-uploaders">Authors versus uploaders</a>.<
 <p>You receive an HttpException error similar to the following when
 running <code class="highlighter-rouge">pub build</code>:</p>
 
-<pre>
-Pub build failed, [1] IsolateSpawnException: 'HttpException: Connection closed while receiving data,
+<pre>Pub build failed, [1] IsolateSpawnException: 'HttpException: Connection closed while receiving data,
 ...
 library handler failed
-...
-</pre>
+...</pre>
 
 <p>This can happen as a result of some antivirus software, such as the
 AVG 2013 Internet security suite. Check the manual for your security
@@ -304,29 +296,21 @@ You can set the proxy server environment variable as follows.</p>
 
 <p>On Linux/macOS:</p>
 
-<pre class="prettyprint lang-sh">
-$ export https_proxy=hostname:port
-</pre>
+<pre class="prettyprint lang-sh">$ export https_proxy=hostname:port</pre>
 
 <p>On Windows:</p>
 
-<pre class="prettyprint lang-sh">
-&gt; set https_proxy=hostname:port
-</pre>
+<pre class="prettyprint lang-sh">&gt; set https_proxy=hostname:port</pre>
 
 <p>If the proxy requires credentials, you can set them as follows.</p>
 
 <p>On Linux/macOS:</p>
 
-<pre class="prettyprint lang-sh">
-$ export https_proxy=username:password@hostname:port
-</pre>
+<pre class="prettyprint lang-sh">$ export https_proxy=username:password@hostname:port</pre>
 
 <p>On Windows:</p>
 
-<pre class="prettyprint lang-sh">
-&gt; set https_proxy=username:password@hostname:port
-</pre>
+<pre class="prettyprint lang-sh">&gt; set https_proxy=username:password@hostname:port</pre>
 
 
           
@@ -355,7 +339,7 @@ $ export https_proxy=username:password@hostname:port
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

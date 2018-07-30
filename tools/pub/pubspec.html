@@ -24,7 +24,7 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Pubspec Format" />
   <meta property="og:description" content="Dart is a platform for building structured apps. It includes a language, a VM, libraries, tools, and compilers to many targets, including JavaScript." />
-  <meta property="og:url" content="https://www.dartlang.org/tools/pub/pubspec" />
+  <meta property="og:url" content="https://www.dartlang.org/tools/pub/pubspec.html" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/pubspec" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/pubspec.html" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -249,7 +249,7 @@ ga('send', 'pageview');
     </a>
   </li>
   <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Pubspec Format' page issue&body=From URL: https://www.dartlang.org/tools/pub/pubspec"
+    <a href="https://github.com/dart-lang/site-www/issues/new?title='Pubspec Format' page issue&body=From URL: https://www.dartlang.org/tools/pub/pubspec.html"
       class="no-automatic-external"
       title="Report a bug on this page" target="_blank" rel="noopener">
       <i class="fas fa-bug fa-sm"></i>
@@ -337,8 +337,7 @@ for managing assets.</p>
 
 <p>A simple but complete pubspec looks something like the following:</p>
 
-<pre class="prettyprint lang-yaml">
-name: newtify
+<pre class="prettyprint lang-yaml">name: newtify
 version: 1.2.3
 description: &gt;-
   Have you been turned into a newt?  Would you like to be?
@@ -355,8 +354,7 @@ dev_dependencies:
   test: '&gt;=0.6.0 &lt;0.12.0'
 dependency_overrides:
   transmogrify:
-    path: ../transmogrify_patch/
-</pre>
+    path: ../transmogrify_patch/</pre>
 
 <h2 id="details">
 <a id="details" class="anchor" href="#details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Details</h2>
@@ -420,11 +418,9 @@ person wrote the package. Each author can either be a single name
 (<code class="highlighter-rouge">Natalie Weizenbaum</code>) or a name and an email address
 (<code class="highlighter-rouge">Natalie Weizenbaum &lt;nweiz@google.com&gt;</code>). For example:</p>
 
-<pre class="prettyprint lang-yaml">
-authors:
+<pre class="prettyprint lang-yaml">authors:
 - Natalie Weizenbaum &lt;nweiz@google.com&gt;
-- Bob Nystrom &lt;rnystrom@google.com&gt;
-</pre>
+- Bob Nystrom &lt;rnystrom@google.com&gt;</pre>
 
 <p>If anyone uploads your package to pub.dartlang.org, your email address is
 public.</p>
@@ -449,7 +445,7 @@ with that URL. If provided, a link to it is shown on your package’s page.</p>
 
 <p>If you specify the <code class="highlighter-rouge">documentation:</code> field with a blank value,
 documentation is created automatically for you, and is linked to from
-<a href="https://pub.dartlang.org/">pub.dartlang.com</a>.</p>
+<a href="https://pub.dartlang.org">pub.dartlang.org</a>.</p>
 
 <h3 id="dependencies">
 <a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h3>
@@ -475,17 +471,13 @@ can be run directly from the command line. To make a script publicly
 available, list it under the <code class="highlighter-rouge">executables</code> field.
 Entries are listed as key/value pairs:</p>
 
-<pre>
-&lt;name-of-executable&gt;: &lt;Dart-script-from-bin&gt;
-</pre>
+<pre>&lt;name-of-executable&gt;: &lt;Dart-script-from-bin&gt;</pre>
 
 <p>For example, the following pubspec entry lists two scripts:</p>
 
-<pre class="prettyprint lang-yaml">
-executables:
+<pre class="prettyprint lang-yaml">executables:
   polymer-new-element: new_element
-  useful-script:
-</pre>
+  useful-script:</pre>
 
 <p>Once the package is activated using <code class="highlighter-rouge">pub global activate</code>,
 typing <code class="highlighter-rouge">polymer-new-element</code> executes <code class="highlighter-rouge">bin/new_element.dart</code>.
@@ -503,9 +495,7 @@ a package from being published. This setting can be used to specify a
 <a href="https://github.com/dart-lang/pub-dartlang-dart/">custom pub package server</a>
 to publish.</p>
 
-<pre class="prettyprint lang-yaml">
-publish_to: none
-</pre>
+<pre class="prettyprint lang-yaml">publish_to: none</pre>
 
 <h3 id="sdk-constraints">
 <a id="sdk-constraints" class="anchor" href="#sdk-constraints" aria-hidden="true"><span class="octicon octicon-link"></span></a>SDK constraints</h3>
@@ -521,22 +511,20 @@ separate top-level <code class="highlighter-rouge">environment</code> field in t
 dependencies.</p>
 
 <p>For example, the following constraint says that this package
-works with any 1.x Dart SDK that’s version 1.23.0 or higher:</p>
+works with any <strong>Dart 2</strong> SDK that’s version 2.0.0-dev.67.0 or higher:</p>
 
-<pre class="prettyprint lang-yaml">
-environment:
-  sdk: '&gt;=1.23.0 &lt;2.0.0'
-</pre>
+<pre class="prettyprint lang-yaml">environment:
+  sdk: '&gt;=2.0.0-dev.67.0 &lt;3.0.0'</pre>
 
 <p>Pub tries to find the latest version of a package whose SDK constraint works
 with the version of the Dart SDK that you have installed.</p>
 
 <aside class="alert alert-warning">
   <p><strong>Don’t use caret syntax</strong> (<code class="highlighter-rouge">^</code>) for the SDK constraint,
-and <strong>do include an upper bound</strong> (<code class="highlighter-rouge">&lt;2.0.0</code>, usually).
-Packages that break these rules might stop working in the future
-and, for that reason, might not be allowed on pub.dartlang.org.
-For more information, see <a href="/dart-2">Dart 2 Updates.</a></p>
+  and <strong>do include an upper bound</strong> (<code class="highlighter-rouge">&lt;3.0.0</code>, usually).
+  Packages that break these rules might stop working in the future
+  and, for that reason, might not be allowed on pub.dartlang.org.
+  For more information, see <a href="/dart-2">Dart 2 Updates.</a></p>
 </aside>
 
 <h4 id="flutter-sdk-constraints">
@@ -545,11 +533,9 @@ For more information, see <a href="/dart-2">Dart 2 Updates.</a></p>
 <p>As of Dart 1.19.0,
 pub supports Flutter SDK constraints under the <code class="highlighter-rouge">environment:</code> field, like so:</p>
 
-<pre class="prettyprint lang-yaml">
-environment:
-  sdk: '&gt;=1.19.0 &lt;2.0.0'
-  flutter: ^0.1.2
-</pre>
+<pre class="prettyprint lang-yaml">environment:
+  sdk: '&gt;=1.19.0 &lt;3.0.0'
+  flutter: ^0.1.2</pre>
 
 <p>A Flutter SDK constraint is only satisfied if pub is running in the
 context of the <code class="highlighter-rouge">flutter</code> executable, and the Flutter SDK’s
@@ -588,7 +574,7 @@ accidentally install packages that need Flutter.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

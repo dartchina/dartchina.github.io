@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/dependencies" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/dependencies" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -277,19 +277,15 @@ and any additional <em>description</em> that the source needs to find the packag
 <p>Based on what data you want to provide, you can specify dependencies in two
 ways. The shortest way is to just specify a name:</p>
 
-<pre class="prettyprint lang-yaml">
-dependencies:
-  transmogrify:
-</pre>
+<pre class="prettyprint lang-yaml">dependencies:
+  transmogrify:</pre>
 
 <p>This creates a dependency on <code class="highlighter-rouge">transmogrify</code> that  allows any version, and looks
 it up using the default source, which is pub.dartlang.org. To limit the
 dependency to a range of versions, you can provide a <em>version constraint</em>:</p>
 
-<pre class="prettyprint lang-yaml">
-dependencies:
-  transmogrify: ^1.0.0
-</pre>
+<pre class="prettyprint lang-yaml">dependencies:
+  transmogrify: ^1.0.0</pre>
 
 <p>This creates a dependency on <code class="highlighter-rouge">transmogrify</code> using the default source and
 allowing any version from <code class="highlighter-rouge">1.0.0</code> to <code class="highlighter-rouge">2.0.0</code> (but not including <code class="highlighter-rouge">2.0.0</code>). See
@@ -298,13 +294,11 @@ for details on the version constraint syntax.</p>
 
 <p>If you want to specify a source, the syntax looks a bit different:</p>
 
-<pre class="prettyprint lang-yaml">
-dependencies:
+<pre class="prettyprint lang-yaml">dependencies:
   transmogrify:
     hosted:
       name: transmogrify
-      url: http://some-package-server.com
-</pre>
+      url: http://some-package-server.com</pre>
 
 <p>This depends on the <code class="highlighter-rouge">transmogrify</code> package using the <code class="highlighter-rouge">hosted</code> source.
 Everything under the source key (here, just a map with a <code class="highlighter-rouge">url:</code> key) is the
@@ -313,14 +307,12 @@ format, detailed below.</p>
 
 <p>You can also provide a version constraint:</p>
 
-<pre class="prettyprint lang-yaml">
-dependencies:
+<pre class="prettyprint lang-yaml">dependencies:
   transmogrify:
     hosted:
       name: transmogrify
       url: http://some-package-server.com
-    version: ^1.0.0
-</pre>
+    version: ^1.0.0</pre>
 
 <p>This long form is used when you don’t use the default source or when you have a
 complex description you need to specify.
@@ -342,12 +334,10 @@ Currently, Flutter is the only SDK that is supported.</p>
 
 <p>The syntax looks like this:</p>
 
-<pre class="prettyprint lang-yaml">
-dependencies:
+<pre class="prettyprint lang-yaml">dependencies:
   flutter_driver:
     sdk: flutter
-    version: ^0.0.1
-</pre>
+    version: ^0.0.1</pre>
 
 <p>The identifier after <code class="highlighter-rouge">sdk:</code> indicates which SDK the package comes from.
 If it’s <code class="highlighter-rouge">flutter</code>, the dependency is satisfiable as long as:</p>
@@ -372,10 +362,8 @@ install packages that have <code class="highlighter-rouge">sdk</code> dependenci
 (or another HTTP server that speaks the same API). Here’s an example
 of declaring a dependency on a hosted package:</p>
 
-<pre class="prettyprint lang-yaml">
-dependencies:
-  transmogrify: ^1.4.0
-</pre>
+<pre class="prettyprint lang-yaml">dependencies:
+  transmogrify: ^1.4.0</pre>
 
 <p>This example specifies that your package depends on a hosted package named
 <code class="highlighter-rouge">transmogrify</code> and will work with any version from 1.4.0 to 2.0.0
@@ -384,14 +372,12 @@ dependencies:
 <p>If you want to use your own package server, you can use a description that
 specifies its URL:</p>
 
-<pre class="prettyprint lang-yaml">
-dependencies:
+<pre class="prettyprint lang-yaml">dependencies:
   transmogrify:
     hosted:
       name: transmogrify
       url: http://your-package-server.com
-    version: ^1.4.0
-</pre>
+    version: ^1.4.0</pre>
 
 <h3 id="git-packages">
 <a id="git-packages" class="anchor" href="#git-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git packages</h3>
@@ -402,11 +388,9 @@ development and is using other packages that are being developed at the
 same time. To make that easier, you can depend directly on a package
 stored in a <a href="http://git-scm.com/">Git</a> repository.</p>
 
-<pre class="prettyprint lang-yaml">
-dependencies:
+<pre class="prettyprint lang-yaml">dependencies:
   kittens:
-    git: git://github.com/munificent/kittens.git
-</pre>
+    git: git://github.com/munificent/kittens.git</pre>
 
 <p>The <code class="highlighter-rouge">git</code> here says this package is found using Git, and the URL after that is
 the Git URL that can be used to clone the package.</p>
@@ -414,26 +398,22 @@ the Git URL that can be used to clone the package.</p>
 <p>If you want to depend on a specific commit, branch, or tag, you can also
 provide a <code class="highlighter-rouge">ref</code> argument:</p>
 
-<pre class="prettyprint lang-yaml">
-dependencies:
+<pre class="prettyprint lang-yaml">dependencies:
   kittens:
     git:
       url: git://github.com/munificent/kittens.git
-      ref: some-branch
-</pre>
+      ref: some-branch</pre>
 
 <p>The ref can be anything that Git allows to <a href="http://www.kernel.org/pub/software/scm/git/docs/user-manual.html#naming-commits">identify a commit</a>.</p>
 
 <p>Pub assumes that the package is in the root of the Git repository.  To specify a different
 location in the repo use the <code class="highlighter-rouge">path</code> argument:</p>
 
-<pre class="prettyprint lang-yaml">
-dependencies:
+<pre class="prettyprint lang-yaml">dependencies:
   kittens:
     git:
       url: git://github.com/munificent/cats.git
-      path: path/to/kittens
-</pre>
+      path: path/to/kittens</pre>
 
 <p>The path is relative to the Git repo’s root.</p>
 
@@ -448,11 +428,9 @@ package are instantly picked up by the one that depends on it.</p>
 
 <p>To handle that, pub supports <em>path dependencies</em>.</p>
 
-<pre class="prettyprint lang-yaml">
-dependencies:
+<pre class="prettyprint lang-yaml">dependencies:
   transmogrify:
-    path: /Users/me/transmogrify
-</pre>
+    path: /Users/me/transmogrify</pre>
 
 <p>This says the root directory for <code class="highlighter-rouge">transmogrify</code> is <code class="highlighter-rouge">/Users/me/transmogrify</code>.
 For this dependency, pub generates a symlink directly to the <code class="highlighter-rouge">lib</code> directory
@@ -553,22 +531,18 @@ For example, <code class="highlighter-rouge">^1.2.3</code> is equivalent to <cod
 <code class="highlighter-rouge">^0.1.2</code> is equivalent to <code class="highlighter-rouge">'&gt;=0.1.2 &lt;0.2.0'</code>.
 The following is an example of caret syntax:</p>
 
-<pre class="prettyprint lang-yaml">
-dependencies:
+<pre class="prettyprint lang-yaml">dependencies:
   path: ^1.3.0
   collection: ^1.1.0
-  string_scanner: ^0.1.2
-</pre>
+  string_scanner: ^0.1.2</pre>
 
 <p>Note that caret syntax was added in Dart 1.8.3. Older versions of Dart
 don’t understand it, so you’ll need to include an SDK constraint (using
 traditional syntax) to ensure that older versions of pub will not try
 to process it. For example:</p>
 
-<pre class="prettyprint lang-yaml">
-environment:
-  sdk: '&gt;=1.8.3 &lt;2.0.0'
-</pre>
+<pre class="prettyprint lang-yaml">environment:
+  sdk: '&gt;=1.8.3 &lt;3.0.0'</pre>
 
 <h2 id="dev-dependencies">
 <a id="dev-dependencies" class="anchor" href="#dev-dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dev dependencies</h2>
@@ -582,10 +556,8 @@ in its tests. If someone just wants to use <code class="highlighter-rouge">trans
 libraries—it doesn’t actually need <code class="highlighter-rouge">test</code>. In this case, it specifies
 <code class="highlighter-rouge">test</code> as a dev dependency. Its pubspec will have something like:</p>
 
-<pre class="prettyprint lang-yaml">
-dev_dependencies:
-  test: '&gt;=0.5.0 &lt;0.12.0'
-</pre>
+<pre class="prettyprint lang-yaml">dev_dependencies:
+  test: '&gt;=0.5.0 &lt;0.12.0'</pre>
 
 <p>Pub gets every package that your package depends on, and everything <em>those</em>
 packages depend on, transitively. It also gets your package’s dev dependencies,
@@ -619,14 +591,12 @@ copy of the package.</p>
 
 <p>The pubspec would look something like the following:</p>
 
-<pre class="prettyprint lang-yaml">
-name: my_app
+<pre class="prettyprint lang-yaml">name: my_app
 dependencies:
   transmogrify: ^1.2.0
 dependency_overrides:
   transmogrify:
-    path: ../transmogrify_patch/
-</pre>
+    path: ../transmogrify_patch/</pre>
 
 <p>When you run <code class="highlighter-rouge">pub get</code>, the pubspec’s lockfile is updated to reflect the
 new path to your dependency and, whereever transmogrify is used, pub
@@ -635,13 +605,11 @@ uses the local version instead.</p>
 <p>You can also use <code class="highlighter-rouge">dependency_overrides</code> to specify a particular
 version of a package:</p>
 
-<pre class="prettyprint lang-yaml">
-name: my_app
+<pre class="prettyprint lang-yaml">name: my_app
 dependencies:
   transmogrify: ^1.2.0
 dependency_overrides:
-  transmogrify: '3.2.1'
-</pre>
+  transmogrify: '3.2.1'</pre>
 
 <p><em>Caution:</em> Using a dependency override involves some risk. For example,
 using an override to specify a version outside the range that the
@@ -686,7 +654,7 @@ to differentiate versions. <a href="#fnref:semver">↩</a></p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

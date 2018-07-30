@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/dart-vm/io-library-tour" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/dart-vm/io-library-tour" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -257,9 +257,7 @@ with a Sync suffix on the method name. Synchronous methods aren’t covered here
 
 <p>To use the dart:io library you must import it:
 <?code-excerpt "misc/test/library_tour/io_test.dart (import)"?></p>
-<pre class="prettyprint lang-dart">
-import 'dart:io';
-</pre>
+<pre class="prettyprint lang-dart">import 'dart:io';</pre>
 
 <h2 id="files-and-directories">
 <a id="files-and-directories" class="anchor" href="#files-and-directories" aria-hidden="true"><span class="octicon octicon-link"></span></a>Files and directories</h2>
@@ -282,8 +280,7 @@ is returned that provides the contents of the file as one or more
 strings.</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (readAsString)" replace="/\btest_data\///g"?>
-<pre class="prettyprint lang-dart">
-Future main() async {
+<pre class="prettyprint lang-dart">Future main() async {
   var config = File('config.txt');
   var contents;
 
@@ -294,8 +291,7 @@ Future main() async {
   // Put each line of the file into its own string.
   contents = await config.readAsLines();
   print('The file is ${contents.length} lines long.');
-}
-</pre>
+}</pre>
 
 <h3 id="reading-a-file-as-binary">
 <a id="reading-a-file-as-binary" class="anchor" href="#reading-a-file-as-binary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading a file as binary</h3>
@@ -305,14 +301,12 @@ The call to <code class="highlighter-rouge">readAsBytes()</code> returns a Futur
 when it’s available.</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (readAsBytes)" replace="/\btest_data\///g"?>
-<pre class="prettyprint lang-dart">
-Future main() async {
+<pre class="prettyprint lang-dart">Future main() async {
   var config = File('config.txt');
 
   var contents = await config.readAsBytes();
   print('The file is ${contents.length} bytes long.');
-}
-</pre>
+}</pre>
 
 <h3 id="handling-errors">
 <a id="handling-errors" class="anchor" href="#handling-errors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling errors</h3>
@@ -322,8 +316,7 @@ register a <code class="highlighter-rouge">catchError</code> handler on the Futu
 or (in an async function) use try-catch:</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (try-catch)" replace="/does-not-exist/config/g"?>
-<pre class="prettyprint lang-dart">
-Future main() async {
+<pre class="prettyprint lang-dart">Future main() async {
   var config = File('config.txt');
   try {
     var contents = await config.readAsString();
@@ -331,8 +324,7 @@ Future main() async {
   } catch (e) {
     print(e);
   }
-}
-</pre>
+}</pre>
 
 <h3 id="streaming-file-contents">
 <a id="streaming-file-contents" class="anchor" href="#streaming-file-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming file contents</h3>
@@ -343,8 +335,7 @@ or <code class="highlighter-rouge">await for</code>, part of Dart’s
 <a href="/guides/language/language-tour#asynchrony-support">asynchrony support.</a></p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (read-from-stream)" replace="/_?test_\w*\/?//g"?>
-<pre class="prettyprint lang-dart">
-import 'dart:async';
+<pre class="prettyprint lang-dart">import 'dart:async';
 import 'dart:io';
 import 'dart:convert';
 
@@ -363,8 +354,7 @@ Future main() async {
   } catch (e) {
     print(e);
   }
-}
-</pre>
+}</pre>
 
 <h3 id="writing-file-contents">
 <a id="writing-file-contents" class="anchor" href="#writing-file-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing file contents</h3>
@@ -375,21 +365,17 @@ that you can write to. The default mode, <code class="highlighter-rouge">FileMod
 overwrites existing data in the file.</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (write-file)" replace="/\btest_data\///g"?>
-<pre class="prettyprint lang-dart">
-var logFile = File('log.txt');
+<pre class="prettyprint lang-dart">var logFile = File('log.txt');
 var sink = logFile.openWrite();
 sink.write('FILE ACCESSED ${DateTime.now()}\n');
 await sink.flush();
-await sink.close();
-</pre>
+await sink.close();</pre>
 
 <p>To add to the end of the file, use the optional <code class="highlighter-rouge">mode</code> parameter to
 specify <code class="highlighter-rouge">FileMode.append</code>:</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (append)" replace="/_?test_\w*\/?//g"?>
-<pre class="prettyprint lang-dart">
-var sink = logFile.openWrite(mode: FileMode.append);
-</pre>
+<pre class="prettyprint lang-dart">var sink = logFile.openWrite(mode: FileMode.append);</pre>
 
 <p>To write binary data, use <code class="highlighter-rouge">add(List&lt;int&gt; data)</code>.</p>
 
@@ -401,8 +387,7 @@ operation. The <code class="highlighter-rouge">list()</code> method returns a St
 when a file or directory is encountered.</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (list-dir)" replace="/\btest_data\b/tmp/g"?>
-<pre class="prettyprint lang-dart">
-Future main() async {
+<pre class="prettyprint lang-dart">Future main() async {
   var dir = Directory('tmp');
 
   try {
@@ -417,8 +402,7 @@ Future main() async {
   } catch (e) {
     print(e.toString());
   }
-}
-</pre>
+}</pre>
 
 <h3 id="other-common-functionality">
 <a id="other-common-functionality" class="anchor" href="#other-common-functionality" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other common functionality</h3>
@@ -455,8 +439,7 @@ responding to requests for the path <code class="highlighter-rouge">/dart</code>
 the response is status code 404 (page not found).</p>
 
 <?code-excerpt "misc/lib/library_tour/io/http_server.dart" replace="/\b_//g"?>
-<pre class="prettyprint lang-dart">
-Future main() async {
+<pre class="prettyprint lang-dart">Future main() async {
   final requests = await HttpServer.bind('localhost', 8888);
   await for (var request in requests) {
     processRequest(request);
@@ -477,8 +460,7 @@ void processRequest(HttpRequest request) {
     response.statusCode = HttpStatus.notFound;
   }
   response.close();
-}
-</pre>
+}</pre>
 
 <h3 id="http-client">
 <a id="http-client" class="anchor" href="#http-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP client</h3>
@@ -492,8 +474,7 @@ apps. When programming in the browser, use the
 Here’s an example of using HttpClient:</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (client)"?>
-<pre class="prettyprint lang-dart">
-Future main() async {
+<pre class="prettyprint lang-dart">Future main() async {
   var url = Uri.parse('http://localhost:8888/dart');
   var httpClient = HttpClient();
   var request = await httpClient.getUrl(url);
@@ -501,8 +482,7 @@ Future main() async {
   var data = await response.transform(utf8.decoder).toList();
   print('Response ${response.statusCode}: $data');
   httpClient.close();
-}
-</pre>
+}</pre>
 
 <h2 id="more-information">
 <a id="more-information" class="anchor" href="#more-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h2>
@@ -513,8 +493,8 @@ provides APIs for <a href="https://api.dartlang.org/dev/dart-io/Process-class.ht
 <a href="https://api.dartlang.org/dev/dart-io/WebSocket-class.html">web sockets.</a>
 To find more examples of using dart:io, go to the
 <a href="https://github.com/dart-lang/dart-samples">dart-samples repo.</a>
-For more information about the Dart VM, see the
-<a href="/dart-vm">VM overview.</a></p>
+For more information about server-side and command-line app development, see the
+<a href="/dart-vm">server-side Dart overview.</a></p>
 
 <p>For information on other dart:* libraries, see the
 <a href="/guides/libraries/library-tour">library tour.</a></p>
@@ -546,7 +526,7 @@ For more information about the Dart VM, see the
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

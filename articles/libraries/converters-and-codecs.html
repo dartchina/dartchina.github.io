@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/libraries/converters-and-codecs" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/libraries/converters-and-codecs" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -95,8 +95,10 @@ ga('send', 'pageview');
 </nav>
 
   
-  <div class="alert alert-danger">
-    <h4 class="text-center">Content of this page might be obsolete.</h4>
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
   </div>
   
 </header>
@@ -275,8 +277,7 @@ they had been used separately.</p>
 <p>A codec is a combination of two converters where one encodes
 and the other one decodes:</p>
 
-<pre class="prettyprint lang-dart">
-abstract class Codec&lt;S, T&gt; {
+<pre class="prettyprint lang-dart">abstract class Codec&lt;S, T&gt; {
   const Codec();
 
   T encode(S input) =&gt; encoder.convert(input);
@@ -287,8 +288,7 @@ abstract class Codec&lt;S, T&gt; {
 
   Codec&lt;S, dynamic&gt; fuse(Codec&lt;T, dynamic&gt; other) { .. }
   Codec&lt;T, S&gt; get inverted =&gt; ...;
-}
-</pre>
+}</pre>
 
 <p>As can be seen, codecs provide convenience methods such as <code class="highlighter-rouge">encode()</code> and
 <code class="highlighter-rouge">decode()</code> that are expressed in terms of the encoder and decoder. The <code class="highlighter-rouge">fuse()</code>
@@ -307,19 +307,15 @@ arguments. For example, the
 adds named arguments to <code class="highlighter-rouge">encode()</code> and <code class="highlighter-rouge">decode()</code>
 to make these methods more useful:</p>
 
-<pre class="prettyprint lang-dart">
-dynamic decode(String source, {reviver(var key, var value)}) { … }
-String encode(Object value, {toEncodable(var object)}) { … }
-</pre>
+<pre class="prettyprint lang-dart">dynamic decode(String source, {reviver(var key, var value)}) { … }
+String encode(Object value, {toEncodable(var object)}) { … }</pre>
 
 <p>The codec can be instantiated with arguments that are used as default
 values, unless they are overridden by the named arguments during the
 <code class="highlighter-rouge">encode()</code>/<code class="highlighter-rouge">decode()</code> call.</p>
 
-<pre class="prettyprint lang-dart">
-const JsonCodec({reviver(var key, var value), toEncodable(var object)})
-  ...
-</pre>
+<pre class="prettyprint lang-dart">const JsonCodec({reviver(var key, var value), toEncodable(var object)})
+  ...</pre>
 
 <p>As a general rule: if a codec can be configured, it should add named arguments
 to the <code class="highlighter-rouge">encode()</code>/<code class="highlighter-rouge">decode()</code> methods and allow their defaults to be
@@ -332,9 +328,7 @@ When possible, codec constructors should be <code class="highlighter-rouge">cons
 <p>Converters, and in particular their <code class="highlighter-rouge">convert()</code> methods, are
 where the real conversions happen:</p>
 
-<pre class="prettyprint lang-dart">
-T convert(S input);  // where T is the target and S the source type.
-</pre>
+<pre class="prettyprint lang-dart">T convert(S input);  // where T is the target and S the source type.</pre>
 
 <p>A minimal converter implementation only needs to extend the
 <a href="https://api.dartlang.org/dev/dart-convert/Converter-class.html">Converter</a> class and
@@ -352,9 +346,7 @@ interface and can thus be given to the <code class="highlighter-rouge">Stream.tr
 <p>Probably the most common use case is the decoding of UTF-8 with
 <a href="https://api.dartlang.org/dev/dart-convert/Utf8Codec-class.html">utf8.decoder</a>:</p>
 
-<pre class="prettyprint lang-dart">
-File.openRead().transform(utf8.decoder).
-</pre>
+<pre class="prettyprint lang-dart">File.openRead().transform(utf8.decoder).</pre>
 
 <h2 id="chunked-conversion">
 <a id="chunked-conversion" class="anchor" href="#chunked-conversion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chunked conversion</h2>
@@ -414,8 +406,7 @@ has the same signature as
 HtmlEscape: String→String. In this case each individual output chunk
 represents one line.</string></p>
 
-<pre class="prettyprint lang-dart">
-import 'dart:convert';
+<pre class="prettyprint lang-dart">import 'dart:convert';
 import 'dart:async';
 
 main() async {
@@ -434,8 +425,7 @@ main() async {
   var stream2 = new Stream.fromIterable(["fo", "o\nb", "ar"]);
   print("${await (stream2.transform(const LineSplitter())
                           .toList())}");
-}
-</pre>
+}</pre>
 
 <p>In general, the type of the chunked conversion is determined by the most
 useful case when used as a StreamTransformer.</p>
@@ -472,12 +462,11 @@ accepts a list (which may not be held onto), the sub-range that the converter
 operates on, and a boolean <code class="highlighter-rouge">isLast</code>, which can be set instead of calling
 <code class="highlighter-rouge">close()</code>.</p>
 
-<pre class="prettyprint lang-dart">
-import 'dart:convert';
+<pre class="prettyprint lang-dart">import 'dart:convert';
 
 main() {
   var outSink = new ChunkedConversionSink.withCallback((chunks) {
-    print(chunks.single); // �
+    print(chunks.single); // 𝅘𝅥𝅯
   });
 
   var inSink = utf8.decoder.startChunkedConversion(outSink);
@@ -487,8 +476,7 @@ main() {
   list[0] = 0x85;
   list[1] = 0xA1;
   inSink.addSlice(list, 0, 2, true);
-}
-</pre>
+}</pre>
 
 <p>As a user of the chunked conversion sink (which is used both as input and output
 of converters), this simply provides more choice. The fact that the list is not
@@ -516,8 +504,7 @@ converter and how a custom ChunkedConversionSink can improve performance.</p>
 <p>Let’s start with the simple synchronous converter,
 whose encryption routine simply rotates bytes by the given key:</p>
 
-<pre class="prettyprint lang-dart">
-import 'dart:convert';
+<pre class="prettyprint lang-dart">import 'dart:convert';
 
 /// A simple extension of Rot13 to bytes and a key.
 class RotConverter extends Converter&lt;List&lt;int&gt;, List&lt;int&gt;&gt; {
@@ -532,13 +519,11 @@ class RotConverter extends Converter&lt;List&lt;int&gt;, List&lt;int&gt;&gt; {
     }
     return result;
   }
-}
-</pre>
+}</pre>
 
 <p>The corresponding Codec class is also simple:</p>
 
-<pre class="prettyprint lang-dart">
-class Rot extends Codec&lt;List&lt;int&gt;, List&lt;int&gt;&gt; {
+<pre class="prettyprint lang-dart">class Rot extends Codec&lt;List&lt;int&gt;, List&lt;int&gt;&gt; {
   final _key;
   const Rot(this._key);
 
@@ -554,16 +539,14 @@ class Rot extends Codec&lt;List&lt;int&gt;, List&lt;int&gt;&gt; {
 
   RotConverter get encoder =&gt; new RotConverter(_key);
   RotConverter get decoder =&gt; new RotConverter(-_key);
-}
-</pre>
+}</pre>
 
 <p>We can (and should) avoid some of the <code class="highlighter-rouge">new</code> allocations, but for simplicity we
 allocate a new instance of RotConverter every time one is needed.</p>
 
 <p>This is how we use the Rot codec:</p>
 
-<pre class="prettyprint lang-dart">
-const Rot ROT128 = const Rot(128);
+<pre class="prettyprint lang-dart">const Rot ROT128 = const Rot(128);
 const Rot ROT1 = const Rot(1);
 main() {
 
@@ -573,15 +556,13 @@ main() {
 
   print(ROT1.decode(ROT1.encode([0, 128, 255, 1])));          // [0, 128, 255, 1]
   print(ROT128.decode(ROT128.encode([0, 128, 255, 1])));      // [0, 128, 255, 1]
-}
-</pre>
+}</pre>
 
 <p>We are on the right track. The codec works, but it is still missing the chunked
 encoding part. Because each byte is encoded separately we can fall back to
 the synchronous conversion method:</p>
 
-<pre class="prettyprint lang-dart">
-class RotConverter {
+<pre class="prettyprint lang-dart">class RotConverter {
   ...
   RotSink startChunkedConversion(sink) {
     return new RotSink(_key, sink);
@@ -600,15 +581,12 @@ class RotSink extends ChunkedConversionSink&lt;List&lt;int&gt;&gt; {
   void close() {
     _outSink.close();
   }
-}
-
-</pre>
+}</pre>
 
 <p>Now, we can use the converter with chunked conversions or even for stream
 transformations:</p>
 
-<pre class="prettyprint lang-dart">
-// Requires to import dart:io.
+<pre class="prettyprint lang-dart">// Requires to import dart:io.
 main(args) {
   String inFile = args[0];
   String outFile = args[1];
@@ -617,8 +595,7 @@ main(args) {
     .openRead()
     .transform(new RotConverter(key))
     .pipe(new File(outFile).openWrite());
-}
-</pre>
+}</pre>
 
 <h3 id="specialized-chunkedconversionsinks">
 <a id="specialized-chunkedconversionsinks" class="anchor" href="#specialized-chunkedconversionsinks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Specialized ChunkedConversionSinks</h3>
@@ -642,8 +619,7 @@ cheaper.</p>
 the following version of RotSink, we add a new method <code class="highlighter-rouge">addModifiable()</code> that
 does exactly that:</p>
 
-<pre class="prettyprint lang-dart">
-class RotSink extends ChunkedConversionSink&lt;List&lt;int&gt;&gt; {
+<pre class="prettyprint lang-dart">class RotSink extends ChunkedConversionSink&lt;List&lt;int&gt;&gt; {
   final _key;
   final ChunkedConversionSink&lt;List&lt;int&gt;&gt; _outSink;
   RotSink(this._key, this._outSink);
@@ -662,8 +638,7 @@ class RotSink extends ChunkedConversionSink&lt;List&lt;int&gt;&gt; {
   void close() {
     _outSink.close();
   }
-}
-</pre>
+}</pre>
 
 <p>For simplicity we propose a new method that consumes a complete list. A more
 advanced method (for example <code class="highlighter-rouge">addModifiableSlice()</code>) would take range arguments
@@ -672,9 +647,7 @@ advanced method (for example <code class="highlighter-rouge">addModifiableSlice(
 <p>This new method is not yet used by transformers, but we can already use it when
 invoking <code class="highlighter-rouge">startChunkedConversion</code> explicitly.</p>
 
-<pre class="prettyprint lang-dart">
-
-main() {
+<pre class="prettyprint lang-dart">main() {
   var outSink = new ChunkedConversionSink.withCallback((chunks) {
     print(chunks); // [[31, 32, 33], [24, 25, 26]]
   });
@@ -682,8 +655,7 @@ main() {
   inSink.addModifiable([1, 2, 3]);
   inSink.addModifiable([250, 251, 252]);
   inSink.close();
-}
-</pre>
+}</pre>
 
 <p>In this small example, performance isn’t visibly different,
 but internally the
@@ -701,8 +673,7 @@ such a converter would be the potential source of hard-to-track bugs. Instead,
 we write a converter that does the unmodifiable-to-modifiable conversion
 explicitly, and then fuse the two converters.</p>
 
-<pre class="prettyprint lang-dart">
-class ToModifiableConverter extends Converter&lt;List&lt;int&gt;, List&lt;int&gt;&gt; {
+<pre class="prettyprint lang-dart">class ToModifiableConverter extends Converter&lt;List&lt;int&gt;, List&lt;int&gt;&gt; {
   List&lt;int&gt; convert(List&lt;int&gt; data) =&gt; data;
   ToModifiableSink startChunkedConversion(RotSink sink) {
     return new ToModifiableSink(sink);
@@ -716,14 +687,12 @@ class ToModifiableSink
 
   void add(List&lt;int&gt; data) { sink.addModifiable(data); }
   void close() { sink.close(); }
-}
-</pre>
+}</pre>
 
 <p>ToModifiableSink just signals the next sink that the incoming chunk
 is modifiable. We can use this to make our pipeline more efficient:</p>
 
-<pre class="prettyprint lang-dart">
-main(args) {
+<pre class="prettyprint lang-dart">main(args) {
   String inFile = args[0];
   String outFile = args[1];
   int key = int.parse(args[2]);
@@ -732,8 +701,7 @@ main(args) {
       .transform(
           new ToModifiableConverter().fuse(new RotConverter(key)))
       .pipe(new File(outFile).openWrite());
-}
-</pre>
+}</pre>
 
 <p>On my machine, this small modification brought the encryption time of an 11MB
 file from 450ms down to 260ms. We achieved this speed up without losing
@@ -745,12 +713,10 @@ converters and not just with our Rot cipher. We should therefore make an
 interface that generalizes the concept. For simplicity, we named it
 <code class="highlighter-rouge">CipherSink</code>, although it has, of course, uses outside the encryption world.</p>
 
-<pre class="prettyprint lang-dart">
-abstract class CipherSink
+<pre class="prettyprint lang-dart">abstract class CipherSink
     extends ChunkedConversionSink&lt;List&lt;int&gt;, List&lt;int&gt;&gt; {
   void addModifiable(List&lt;int&gt; data) { add(data); }
-}
-</pre>
+}</pre>
 
 <p>We can then make our RotSink private and expose the CipherSink instead.
 Other developers can now reuse our work (CipherSink and ToModifiableConverter)
@@ -762,8 +728,7 @@ and benefit from it.</p>
 we can improve the output side of our Rot converter.
 Take, for instance, the fusion of two encryptions:</p>
 
-<pre class="prettyprint lang-dart">
-main(args) {
+<pre class="prettyprint lang-dart">main(args) {
   String inFile = args[0];
   String outFile = args[1];
   int key = int.parse(args[2]);
@@ -775,8 +740,7 @@ main(args) {
       .openRead()
       .transform(transformer)
       .pipe(new File(outFile).openWrite());
-}
-</pre>
+}</pre>
 
 <p>Since the first RotConverter invokes <code class="highlighter-rouge">outSink.add()</code>, the second RotConverter
 assumes that input cannot be modified and allocates a copy. We can work around
@@ -803,22 +767,19 @@ CipherSink startChunkedConversion(
 
 <p>_CipherSinkAdapter is simply:</p>
 
-<pre class="prettyprint lang-dart">
-class _CipherSinkAdapter implements CipherSink {
+<pre class="prettyprint lang-dart">class _CipherSinkAdapter implements CipherSink {
   ChunkedConversionSink&lt;List&lt;int&gt;, List&lt;int&gt;&gt; sink;
   _CipherSinkAdapter(this.sink);
 
   void add(data) { sink.add(data); }
   void addModifiable(data) { sink.add(data); }
   void close() { sink.close(); }
-}
-</pre>
+}</pre>
 
 <p>We now only need to change the _RotSink to take advantage of the fact that it
 always receives a CipherSink as an argument to its constructor:</p>
 
-<pre class="prettyprint lang-dart">
-class _RotSink extends CipherSink {
+<pre class="prettyprint lang-dart">class _RotSink extends CipherSink {
   final _key;
   final CipherSink _outSink;  // &lt;= always a CipherSink.
   _RotSink(this._key, this._outSink);
@@ -837,8 +798,7 @@ class _RotSink extends CipherSink {
   void close() {
     _outSink.close();
   }
-}
-</pre>
+}</pre>
 
 <p>With these changes our super secure, double cipher won’t allocate any new lists
 and our work is done.</p>
@@ -872,7 +832,7 @@ were a great help in writing this article.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

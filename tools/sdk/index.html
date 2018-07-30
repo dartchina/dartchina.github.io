@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/sdk/" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/sdk/" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -252,23 +252,32 @@ Dart apps. To learn about other tools you can use for Dart development, see
 <aside class="alert alert-info">
   <p><strong>Note:</strong> This site’s documentation and examples use
    the <strong>dev channel</strong> 
-  version <a href="https://api.dartlang.org/dev/2.0.0-dev.68.0" class="no-automatic-external">2.0.0-dev.68.0</a>
+  version <a href="https://api.dartlang.org/dev/2.0.0-dev.69.4/index.html" class="no-automatic-external">2.0.0-dev.69.4</a>
   of the <strong>Dart SDK</strong>.</p>
 </aside>
 
 <h2 id="install">
 <a id="install-the-sdk" class="anchor" href="#install-the-sdk" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install the SDK</h2>
 
-<p>A package manager can help you easily install and update the Dart SDK.
-Don’t want to use a package manager? Other options are
-<a href="https://github.com/dart-lang/sdk/wiki/Building">building the SDK from source</a> and
-<a href="/tools/sdk/archive">downloading the SDK as a zip file</a>.
-If you use either of these options, remember to
-add the SDK’s <code class="highlighter-rouge">bin</code> directory to your <code class="highlighter-rouge">PATH</code>.</p>
+<p>As the following instructions show,
+you can use a package manager
+to easily install and update the Dart SDK.
+Alternatively, you can
+<a href="https://github.com/dart-lang/sdk/wiki/Building">build the SDK from source</a> or
+<a href="/tools/sdk/archive">download the SDK as a zip file</a>.</p>
 
 <aside class="alert alert-warning">
-  <p><strong>Important:</strong> The <strong>Dart 2</strong> SDK is available from the <strong>dev channel</strong> only.</p>
+  <p><strong>Important:</strong>
+  The <strong>Dart 2</strong> SDK is available from the <strong>dev channel</strong> only.</p>
+
+  <p>Dart tools may send usage metrics and crash reports to Google.
+By downloading the Dart SDK, you agree to the
+<a href="https://policies.google.com/terms">Google Terms of Service.</a>
+Note: The <a href="https://policies.google.com/privacy">Google Privacy Policy</a>
+describes how data is handled in this service.</p>
+
 </aside>
+
 <ul class="tabs__top-bar">
   <li class="tab-link current" data-tab="tab-sdk-install-windows">Windows</li>
   <li class="tab-link" data-tab="tab-sdk-install-linux">Linux</li>
@@ -285,24 +294,24 @@ add the SDK’s <code class="highlighter-rouge">bin</code> directory to your <co
   <h4 id="install-using-chocolatey">
 <a id="install-using-chocolatey" class="anchor" href="#install-using-chocolatey" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install using Chocolatey</h4>
 
-  <p>To use <a href="https://chocolatey.org">Chocolatey</a> to install a stable release of the Dart SDK, run this
+  <p>To use <a href="https://chocolatey.org">Chocolatey</a> to install a <strong>dev</strong> release of the Dart SDK, run this
 command:</p>
-
-  <div class="language-terminal highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="gp">C:\&gt;</span> choco <span class="nb">install </span>dart-sdk
-</code></pre></div>  </div>
-
-  <p>To install a <strong>dev</strong> release, run this command:</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">C:\&gt;</span> choco <span class="nb">install </span>dart-sdk <span class="nt">--pre</span>
 </code></pre></div>  </div>
 
-  <p>To <strong>upgrade</strong> the Dart SDK, run this command
-(add <code class="highlighter-rouge">--pre</code> to upgrade the dev release):</p>
+  <p>To install a <strong>stable</strong> release, run this command:</p>
 
   <div class="language-terminal highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="gp">C:\&gt;</span> choco upgrade dart-sdk
+<div class="highlight"><pre class="highlight"><code><span class="gp">C:\&gt;</span> choco <span class="nb">install </span>dart-sdk
+</code></pre></div>  </div>
+
+  <p>To <strong>upgrade</strong> the dev release of the Dart SDK, run this command:
+(remove the <code class="highlighter-rouge">--pre</code> to upgrade the stable release):</p>
+
+  <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">C:\&gt;</span> choco upgrade dart-sdk <span class="nt">--pre</span>
 </code></pre></div>  </div>
 
   <h4 id="install-using-a-setup-wizard">
@@ -335,21 +344,25 @@ versions are released.</p>
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>apt-get update
 <span class="gp">$</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>apt-transport-https
 <span class="gp">$</span> <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'</span>
-<span class="gp">$</span> <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list &gt; /etc/apt/sources.list.d/dart_stable.list'</span>
+<span class="gp">$</span> <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_unstable.list &gt; /etc/apt/sources.list.d/dart_unstable.list'</span>
 </code></pre></div>  </div>
 
-  <p>Then <strong>install</strong> the Dart SDK:</p>
+  <p>Then install the
+<strong>dev</strong>
+release of the Dart SDK:</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>apt-get update
 <span class="gp">$</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>dart
 </code></pre></div>  </div>
 
-  <p>To setup for a <strong>dev channel</strong> release, run the one-time setup commands
-followed by:</p>
+  <p>Or, to install the
+<strong>stable</strong>
+release of the Dart SDK,
+run the one-time setup commands followed by:</p>
 
   <div class="language-terminal highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_unstable.list &gt; /etc/apt/sources.list.d/dart_unstable.list'</span>
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list &gt; /etc/apt/sources.list.d/dart_stable.list'</span>
 <span class="gp">$</span> <span class="nb">sudo </span>apt-get update
 <span class="gp">$</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>dart
 </code></pre></div>  </div>
@@ -370,13 +383,14 @@ followed by:</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew tap dart-lang/dart
-<span class="gp">$</span> brew <span class="nb">install </span>dart
+<span class="gp">$</span> brew <span class="nb">install </span>dart <span class="nt">--devel</span>
 </code></pre></div>  </div>
 
-  <p>To install a <strong>dev channel</strong> release use <code class="highlighter-rouge">--devel</code>:</p>
+  <p>To install a <strong>stable channel</strong> release,
+don’t use <code class="highlighter-rouge">--devel</code>:</p>
 
   <div class="language-terminal highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew <span class="nb">install </span>dart <span class="nt">--devel</span>
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew <span class="nb">install </span>dart
 </code></pre></div>  </div>
 
   <h3 id="upgrade">
@@ -388,10 +402,19 @@ followed by:</p>
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew upgrade dart
 </code></pre></div>  </div>
 
-  <p>To upgrade to a dev channel release when a stable release is currently active run:</p>
+  <p>To upgrade to a dev channel release when a stable release is
+currently active, run:</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew upgrade dart <span class="nt">--devel</span> <span class="nt">--force</span>
+</code></pre></div>  </div>
+
+  <p>To install the most recent stable channel release when
+a more recent dev release is currently active, run:</p>
+
+  <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew uninstall dart
+<span class="gp">$</span> brew <span class="nb">install </span>dart
 </code></pre></div>  </div>
 
   <h3 id="switch-release">
@@ -411,8 +434,8 @@ followed by:</p>
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew info dart
 </code></pre></div>  </div>
 
-  <p>The command output includes the latest stable and dev versions at the top, and
-your locally installed versions are listed after that.</p>
+  <p>The command output lists the latest stable and dev versions at the top,
+followed by your locally installed versions.</p>
 
 </div>
 
@@ -526,7 +549,7 @@ Here are some handy searches:</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

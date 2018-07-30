@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/sound-dart" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/sound-dart" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -282,16 +282,14 @@ classes. The most common generic classes are the collection types
 and <code class="highlighter-rouge">main()</code> creates a list and passes it to <code class="highlighter-rouge">printInts()</code>.</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (opening-example)" replace="/list(?=\))/[!$&!]/g"?>
-<pre class="prettyprint lang-dart fails-sa">
-void printInts(List&lt;int&gt; a) =&gt; print(a);
+<pre class="prettyprint lang-dart fails-sa">void printInts(List&lt;int&gt; a) =&gt; print(a);
 
 void main() {
   var list = [];
   list.add(1);
   list.add("2");
   printInts(<span class="highlight">list</span>);
-}
-</pre>
+}</pre>
 
 <p>The preceding code results in a type error on <code class="highlighter-rouge">list</code> (highlighted
 above) at the call of <code class="highlighter-rouge">printInts(list)</code>:</p>
@@ -313,16 +311,14 @@ an <code class="highlighter-rouge">int</code> parameter. Removing the quotes in 
 in code that passes static analysis and runs with no errors or warnings.</p>
 
 <?code-excerpt "strong/test/strong_test.dart (opening-example)" replace="/<int.(?=\[)|2/[!$&!]/g"?>
-<pre class="prettyprint lang-dart passes-sa">
-void printInts(List&lt;int&gt; a) =&gt; print(a);
+<pre class="prettyprint lang-dart passes-sa">void printInts(List&lt;int&gt; a) =&gt; print(a);
 
 void main() {
   var list = <span class="highlight">&lt;int&gt;</span>[];
   list.add(1);
   list.add(<span class="highlight">2</span>);
   printInts(list);
-}
-</pre>
+}</pre>
 
 <h2 id="what-is-soundness">
 <a id="what-is-soundness" class="anchor" href="#what-is-soundness" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is soundness?</h2>
@@ -397,32 +393,26 @@ subtype of the return type of the method in the superclass. Consider
 the getter method in the Animal class:</p>
 
 <?code-excerpt "strong/lib/animal.dart (Animal)" replace="/Animal get.*/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-class Animal {
+<pre class="prettyprint lang-dart">class Animal {
   void chase(Animal a) { ... }
   <span class="highlight">Animal get parent =&gt; ...</span>
-}
-</pre>
+}</pre>
 
 <p>The <code class="highlighter-rouge">parent</code> getter method returns an Animal. In the HoneyBadger subclass,
 you can replace the getter’s return type with HoneyBadger (or any other subtype
 of Animal), but an unrelated type is not allowed.</p>
 
 <?code-excerpt "strong/lib/animal.dart (HoneyBadger)" replace="/(\w+)(?= get)/[!$&!]/g"?>
-<pre class="prettyprint lang-dart passes-sa">
-class HoneyBadger extends Animal {
+<pre class="prettyprint lang-dart passes-sa">class HoneyBadger extends Animal {
   void chase(Animal a) { ... }
   <span class="highlight">HoneyBadger</span> get parent =&gt; ...
-}
-</pre>
+}</pre>
 
 <?code-excerpt "strong/lib/animal_bad.dart (HoneyBadger)" replace="/(\w+)(?= get)/[!$&!]/g"?>
-<pre class="prettyprint lang-dart fails-sa">
-class HoneyBadger extends Animal {
+<pre class="prettyprint lang-dart fails-sa">class HoneyBadger extends Animal {
   void chase(Animal a) { ... }
   <span class="highlight">Root</span> get parent =&gt; ...
-}
-</pre>
+}</pre>
 
 <p><a name="use-proper-param-types"></a></p>
 <h3 id="use-sound-parameter-types-when-overriding-methods">
@@ -441,44 +431,36 @@ subtype of the original parameter.</p>
 <p>Consider the <code class="highlighter-rouge">chase(Animal)</code> method for the Animal class:</p>
 
 <?code-excerpt "strong/lib/animal.dart (Animal)" replace="/void chase.*/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-class Animal {
+<pre class="prettyprint lang-dart">class Animal {
   <span class="highlight">void chase(Animal a) { ... }</span>
   Animal get parent =&gt; ...
-}
-</pre>
+}</pre>
 
 <p>The <code class="highlighter-rouge">chase()</code> method takes an Animal. A HoneyBadger chases anything.
 It’s OK to override the <code class="highlighter-rouge">chase()</code> method to take anything (Object).</p>
 
 <?code-excerpt "strong/lib/animal.dart (chase-Object)" replace="/Object/[!$&!]/g"?>
-<pre class="prettyprint lang-dart passes-sa">
-class HoneyBadger extends Animal {
+<pre class="prettyprint lang-dart passes-sa">class HoneyBadger extends Animal {
   void chase(<span class="highlight">Object</span> a) { ... }
   Animal get parent =&gt; ...
-}
-</pre>
+}</pre>
 
 <p>The following code tightens the parameter on the <code class="highlighter-rouge">chase()</code> method
 from Animal to Mouse, a subclass of Animal.</p>
 
 <?code-excerpt "strong/lib/animal_bad.dart (chase-Mouse)" replace="/(\w+)(?= x)/[!$&!]/g"?>
-<pre class="prettyprint lang-dart fails-sa">
-class Mouse extends Animal {...}
+<pre class="prettyprint lang-dart fails-sa">class Mouse extends Animal {...}
 
 class Cat extends Animal {
   void chase(<span class="highlight">Mouse</span> x) { ... }
-}
-</pre>
+}</pre>
 
 <p>This code is not type safe because it would then be possible to define
 a cat and send it after an alligator:</p>
 
 <?code-excerpt "strong/lib/animal_bad.dart (chase-Alligator)" replace="/Alligator/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-Animal a = Cat();
-a.chase(<span class="highlight">Alligator</span>()); // Not type safe or feline safe
-</pre>
+<pre class="prettyprint lang-dart">Animal a = Cat();
+a.chase(<span class="highlight">Alligator</span>()); // Not type safe or feline safe</pre>
 
 <h3 id="dont-use-a-dynamic-list-as-a-typed-list">
 <a id="dont-use-a-dynamic-list-as-a-typed-list" class="anchor" href="#dont-use-a-dynamic-list-as-a-typed-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Don’t use a dynamic list as a typed list</h3>
@@ -493,16 +475,14 @@ dynamic list as a typed list.</p>
 a list of type Cat, which generates an error during static analysis.</p>
 
 <?code-excerpt "strong/lib/animal_bad.dart (dynamic-list)" replace="/.dynamic.(?!.*OK)/[!$&!]/g"?>
-<pre class="prettyprint lang-dart fails-sa">
-class Cat extends Animal { ... }
+<pre class="prettyprint lang-dart fails-sa">class Cat extends Animal { ... }
 
 class Dog extends Animal { ... }
 
 void main() {
   List&lt;Cat&gt; foo = <span class="highlight">&lt;dynamic&gt;</span>[Dog()]; // Error
   List&lt;dynamic&gt; bar = &lt;dynamic&gt;[Dog(), Cat()]; // OK
-}
-</pre>
+}</pre>
 
 <h2 id="runtime-checks">
 <a id="runtime-checks" class="anchor" href="#runtime-checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Runtime checks</h2>
@@ -514,12 +494,10 @@ deal with type safety issues that the analyzer can’t catch.</p>
 to assign a list of Dogs to a list of Cats:</p>
 
 <?code-excerpt "strong/test/strong_test.dart (runtime-checks)" replace="/cats[^;]*/[!$&!]/g"?>
-<pre class="prettyprint lang-dart runtime-fail">
-void main() {
+<pre class="prettyprint lang-dart runtime-fail">void main() {
   List&lt;Animal&gt; animals = [Dog()];
   List&lt;Cat&gt; <span class="highlight">cats = animals</span>;
-}
-</pre>
+}</pre>
 
 <h2 id="type-inference">
 <a id="type-inference" class="anchor" href="#type-inference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Type inference</h2>
@@ -536,16 +514,12 @@ pairs string keys with values of various types.</p>
 <p>If you explicitly type the variable, you might write this:</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (type-inference-1-orig)" replace="/Map<String, dynamic\x3E/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-<span class="highlight">Map&lt;String, dynamic&gt;</span> arguments = {'argA': 'hello', 'argB': 42};
-</pre>
+<pre class="prettyprint lang-dart"><span class="highlight">Map&lt;String, dynamic&gt;</span> arguments = {'argA': 'hello', 'argB': 42};</pre>
 
 <p>Alternatively, you can use <code class="highlighter-rouge">var</code> and let Dart infer the type:</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (type-inference-1)" replace="/var/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-<span class="highlight">var</span> arguments = {'argA': 'hello', 'argB': 42}; // Map&lt;String, Object&gt;
-</pre>
+<pre class="prettyprint lang-dart"><span class="highlight">var</span> arguments = {'argA': 'hello', 'argB': 42}; // Map&lt;String, Object&gt;</pre>
 
 <p>The map literal infers its type from its entries,
 and then the variable infers its type from the map literal’s type.
@@ -581,16 +555,12 @@ This may mean that too precise a type may be inferred.
 If so, you can add a type annotation.</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (local-var-type-inference-error)"?>
-<pre class="prettyprint lang-dart fails-sa">
-var x = 3; // x is inferred as an int
-x = 4.0;
-</pre>
+<pre class="prettyprint lang-dart fails-sa">var x = 3; // x is inferred as an int
+x = 4.0;</pre>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (local-var-type-inference-ok)"?>
-<pre class="prettyprint lang-dart passes-sa">
-num y = 3; // a num can be double or int
-y = 4.0;
-</pre>
+<pre class="prettyprint lang-dart passes-sa">num y = 3; // a num can be double or int
+y = 4.0;</pre>
 
 <h3 id="type-argument-inference">
 <a id="type-argument-inference" class="anchor" href="#type-argument-inference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Type argument inference</h3>
@@ -603,16 +573,14 @@ or generic method. If inference is not doing what you want or expect,
 you can always explicitly specify the type arguments.</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (type-arg-inference)"?>
-<pre class="prettyprint lang-dart passes-sa">
-// Inferred as if you wrote &lt;int&gt;[].
+<pre class="prettyprint lang-dart passes-sa">// Inferred as if you wrote &lt;int&gt;[].
 List&lt;int&gt; listOfInt = [];
 
 // Inferred as if you wrote &lt;double&gt;[3.0].
 var listOfDouble = [3.0];
 
 // Inferred as Iterable&lt;int&gt;
-var ints = listOfDouble.map((x) =&gt; x.toInt());
-</pre>
+var ints = listOfDouble.map((x) =&gt; x.toInt());</pre>
 
 <p>In the last example, <code class="highlighter-rouge">x</code> is inferred as <code class="highlighter-rouge">double</code> using downward information.
 The return type of the closure is inferred as <code class="highlighter-rouge">int</code> using upward information.
@@ -654,9 +622,7 @@ or a producer.</p>
 is a <em>producer</em>:</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (Cat-Cat-ok)"?>
-<pre class="prettyprint lang-dart">
-Cat c = Cat();
-</pre>
+<pre class="prettyprint lang-dart">Cat c = Cat();</pre>
 
 <p>In a consuming position, it’s safe to replace something that consumes a
 specific type (<code class="highlighter-rouge">Cat</code>) with something that consumes anything (<code class="highlighter-rouge">Animal</code>),
@@ -664,27 +630,21 @@ so replacing <code class="highlighter-rouge">Cat c</code> with <code class="high
 a supertype of Cat.</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (Animal-Cat-ok)"?>
-<pre class="prettyprint lang-dart passes-sa">
-Animal c = Cat();
-</pre>
+<pre class="prettyprint lang-dart passes-sa">Animal c = Cat();</pre>
 
 <p>But replacing <code class="highlighter-rouge">Cat c</code> with <code class="highlighter-rouge">MaineCoon c</code> breaks type safety, because the
 superclass may provide a type of Cat with different behaviors, such
 as Lion:</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (MaineCoon-Cat-err)"?>
-<pre class="prettyprint lang-dart fails-sa">
-MaineCoon c = Cat();
-</pre>
+<pre class="prettyprint lang-dart fails-sa">MaineCoon c = Cat();</pre>
 
 <p>In a producing position, it’s safe to replace something that produces a
 type (Cat) with a more specific type (MaineCoon). So, the following
 is allowed:</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (Cat-MaineCoon-ok)"?>
-<pre class="prettyprint lang-dart passes-sa">
-Cat c = MaineCoon();
-</pre>
+<pre class="prettyprint lang-dart passes-sa">Cat c = MaineCoon();</pre>
 
 <h3 id="generic-type-assignment">
 <a id="generic-type-assignment" class="anchor" href="#generic-type-assignment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generic type assignment</h3>
@@ -699,24 +659,18 @@ Animal, and a supertype of a List of MaineCoon:</p>
 <code class="highlighter-rouge">List&lt;MaineCoon&gt;</code> is a subtype of <code class="highlighter-rouge">List&lt;Cat&gt;</code>:</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (generic-type-assignment-MaineCoon)" replace="/MaineCoon/[!$&!]/g"?>
-<pre class="prettyprint lang-dart passes-sa">
-List&lt;Cat&gt; myCats = List&lt;<span class="highlight">MaineCoon</span>&gt;();
-</pre>
+<pre class="prettyprint lang-dart passes-sa">List&lt;Cat&gt; myCats = List&lt;<span class="highlight">MaineCoon</span>&gt;();</pre>
 
 <p>What about going in the other direction? Can you assign an <code class="highlighter-rouge">Animal</code> list to a <code class="highlighter-rouge">List&lt;Cat&gt;</code>?</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (generic-type-assignment-Animal)" replace="/Animal/[!$&!]/g"?>
-<pre class="prettyprint lang-dart passes-sa">
-List&lt;Cat&gt; myCats = List&lt;<span class="highlight">Animal</span>&gt;();
-</pre>
+<pre class="prettyprint lang-dart passes-sa">List&lt;Cat&gt; myCats = List&lt;<span class="highlight">Animal</span>&gt;();</pre>
 
 <p>This assignment passes static analysis,
 but it creates an implicit cast. It is equivalent to:</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (generic-type-assignment-implied-cast)" replace="/as.*(?=;)/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-List&lt;Cat&gt; myCats = List&lt;Animal&gt;() <span class="highlight">as List&lt;Cat&gt;</span>;
-</pre>
+<pre class="prettyprint lang-dart">List&lt;Cat&gt; myCats = List&lt;Animal&gt;() <span class="highlight">as List&lt;Cat&gt;</span>;</pre>
 
 <p>The code may fail at runtime. You can disallow implicit casts
 by specifying <code class="highlighter-rouge">implicit-casts: false</code> in the <a href="/guides/language/analysis-options">analysis options file.</a></p>
@@ -783,7 +737,7 @@ options file.</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/language/mixins" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/language/mixins" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -310,8 +310,7 @@ parameters up the inheritance chain.</p>
 
 <p>Example 1:</p>
 
-<pre class="prettyprint lang-dart">
-abstract class Collection&lt;E&gt; {
+<pre class="prettyprint lang-dart">abstract class Collection&lt;E&gt; {
   Collection&lt;E&gt; newInstance();
   Collection&lt;E&gt; map((f) {
     var result = newInstance();
@@ -330,8 +329,7 @@ abstract class DOMElementList&lt;E&gt; = DOMList with Collection&lt;E&gt;;
 
 abstract class DOMElementSet&lt;E&gt; = DOMSet with Collection&lt;E&gt;;
 
-// ... 28 more variants
-</pre>
+// ... 28 more variants</pre>
 
 <p>Here, Collection&lt;E&gt; is a normal class that is used to declare a mixin.
 Both the classes DOMElementList and DOMElementSet are mixin applications.
@@ -370,15 +368,13 @@ to the superclass named in the extends clause,
 producing an anonymous superclass.
 Taking the same examples again, we would have:</p>
 
-<pre class="prettyprint lang-dart">
-class DOMElementList&lt;E&gt; extends DOMList with Collection&lt;E&gt; {
+<pre class="prettyprint lang-dart">class DOMElementList&lt;E&gt; extends DOMList with Collection&lt;E&gt; {
    DOMElementList&lt;E&gt; newInstance() =&gt; new DOMElementList&lt;E&gt;();
 }
 
 class DOMElementSet&lt;E&gt; extends DOMSet with Collection&lt;E&gt; {
   DOMElementSet&lt;E&gt; newInstance() =&gt; new DOMElementSet&lt;E&gt;();
-}
-</pre>
+}</pre>
 
 <p>Here, DOMElementList is not the application <em>Collection mixin |&gt; DOMList.</em>
 Instead, it is a new class whose superclass is such an application.
@@ -389,12 +385,10 @@ so these classes can be instantiated directly.</p>
 
 <p>Consider what happens if DOMList has a non-trivial constructor:</p>
 
-<pre class="prettyprint lang-dart">
-class DOMElementList&lt;E&gt; extends DOMList with Collection&lt;E&gt; {
+<pre class="prettyprint lang-dart">class DOMElementList&lt;E&gt; extends DOMList with Collection&lt;E&gt; {
   DOMElementList&lt;E&gt; newInstance() =&gt; new DOMElementList&lt;E&gt;(0);
   DOMElementList(size): super(size);
-}
-</pre>
+}</pre>
 
 <p>Each mixin has its own constructor called independently,
 and so does the superclass.
@@ -414,16 +408,14 @@ that allows multiple mixins to be mixed into a class
 without the need to introduce multiple intermediate declarations.
 For example:</p>
 
-<pre class="prettyprint lang-dart">
-class Person {
+<pre class="prettyprint lang-dart">class Person {
   String name;
   Person(this.name);
 }
 
 class Maestro extends Person with Musical, Aggressive, Demented {
   Maestro(name):super(name);
-}
-</pre>
+}</pre>
 
 <p>Here, the superclass is the mixin application:</p>
 
@@ -487,8 +479,7 @@ Dart places extra requirements on classes that use <code class="highlighter-roug
 <em>M</em> was derived from a class <em>K</em>, then <em>A</em> must support the direct
 superinterfaces of <em>K</em>.</p>
 
-<pre class="prettyprint lang-dart">
-class S {
+<pre class="prettyprint lang-dart">class S {
   twice(int x) =&gt; 2 * x;
 }
 
@@ -506,8 +497,7 @@ class K extends S implements I, J {
 class B {
   twice(x) =&gt; x + x;
 }
-class A = B with K;
-</pre>
+class A = B with K;</pre>
 
 <p>In particular, <em>A</em> must support the implicit interface of the superclass
 <em>S</em> of <em>K</em>.  This ensures that <em>A</em> is indeed a subtype of <em>M</em>, even though
@@ -524,13 +514,11 @@ satisfy the requirements of  <em>I</em>, <em>J</em> as well as <em>S</em>.</p>
 
 <p>In contrast, given class <em>D</em>:</p>
 
-<pre class="prettyprint lang-dart">
-class D {
+<pre class="prettyprint lang-dart">class D {
    double(x) =&gt; x+x;
 }
 
-class E = D with K;
-</pre>
+class E = D with K;</pre>
 
 <p>we will get a warning, because class <em>E</em> does not have a twice method,
 and so does not conform to either <em>I</em> or <em>S</em> and so cannot be used where
@@ -569,7 +557,7 @@ its mixin necessarily has identical type parameters.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

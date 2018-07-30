@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/sdk/archive/" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/sdk/archive/" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -250,18 +250,29 @@ and the <a href="https://api.dartlang.org/dev">Dart API documentation.</a></p>
 <p>Want to install Dart with your OS’s package manager?
 Go to the <a href="/tools/sdk">Dart SDK page</a>.</p>
 
-<aside class="alert alert-info">
-  <p><strong>Note:</strong> Many Dart 1.x releases include the Dartium browser
-  as a downloadable item. Dartium is no longer supported.
-  For more information, see the
-  <a href="https://webdev.dartlang.org/tools/dartium">Dart 2 migration guide for web developers.</a></p>
+<aside class="alert alert-warning">
+  <p>Dart tools may send usage metrics and crash reports to Google.
+By downloading the Dart SDK, you agree to the
+<a href="https://policies.google.com/terms">Google Terms of Service.</a>
+Note: The <a href="https://policies.google.com/privacy">Google Privacy Policy</a>
+describes how data is handled in this service.</p>
 
 </aside>
 
 <h2 id="stable-channel">
 <a id="stable-channel" class="anchor" href="#stable-channel" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stable channel</h2>
 
-<p>Stable channel builds are tested and approved for production use.</p>
+<p>The stable channel currently contains 1.x and earlier versions of Dart.
+We recommend using Dart 2 instead,
+which is available in the dev channel.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong> Many Dart 1.x releases include the Dartium browser
+  as a downloadable item. Dartium is no longer supported.
+  For more information, see the
+  <a href="https://webdev.dartlang.org/dart-2#tools">Dart 2 migration guide for web developers.</a></p>
+
+</aside>
 
 <form class="form-inline">
   <div class="form-group select">
@@ -304,9 +315,9 @@ Go to the <a href="/tools/sdk">Dart SDK page</a>.</p>
 <h2 id="dev-channel">
 <a id="dev-channel" class="anchor" href="#dev-channel" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dev channel</h2>
 
-<p>Dev channel builds may contain bugs and can provide early access
-to new features. We do not recommended dev channel builds for
-production use.</p>
+<p>We strongly encourage you to use the most recent dev channel release,
+so that your code will work when Dart 2 is released to the stable channel.
+For more information, see the <a href="/dart-2">Dart 2 page</a>.</p>
 
 <form class="form-inline">
   <div class="form-group select">
@@ -352,17 +363,13 @@ production use.</p>
 <p>You can find the zip files at predictable URLs using the
 following pattern:</p>
 
-<pre>
-https://storage.googleapis.com/dart-archive/channels/&lt;<span class="highlight">stable|dev</span>&gt;/release/&lt;<span class="highlight">release</span>&gt;/sdk/dartsdk-&lt;<span class="highlight">platform</span>&gt;-&lt;<span class="highlight">architecture</span>&gt;-release.zip
-</pre>
+<pre>https://storage.googleapis.com/dart-archive/channels/&lt;<span class="highlight">stable|dev</span>&gt;/release/&lt;<span class="highlight">release</span>&gt;/sdk/dartsdk-&lt;<span class="highlight">platform</span>&gt;-&lt;<span class="highlight">architecture</span>&gt;-release.zip</pre>
 
 <p>Examples:</p>
 
-<pre>
-https://storage.googleapis.com/dart-archive/channels/stable/release/1.24.0/sdk/dartsdk-windows-ia32-release.zip
+<pre>https://storage.googleapis.com/dart-archive/channels/stable/release/1.24.0/sdk/dartsdk-windows-ia32-release.zip
 https://storage.googleapis.com/dart-archive/channels/stable/release/1.24.3/sdk/dartsdk-macos-x64-release.zip
-https://storage.googleapis.com/dart-archive/channels/dev/release/2.0.0-dev.44.0/sdk/dartsdk-linux-x64-release.zip
-</pre>
+https://storage.googleapis.com/dart-archive/channels/dev/release/2.0.0-dev.44.0/sdk/dartsdk-linux-x64-release.zip</pre>
 
           
 
@@ -390,7 +397,7 @@ https://storage.googleapis.com/dart-archive/channels/dev/release/2.0.0-dev.44.0/
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 11:54 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

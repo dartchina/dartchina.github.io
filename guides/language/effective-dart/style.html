@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/effective-dart/style" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/effective-dart/style" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -182,6 +182,7 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#do-name-other-identifiers-using-lowercamelcase">DO name other identifiers using lowerCamelCase.</a></li>
 <li class="toc-entry toc-h3"><a href="#prefer-using-lowercamelcase-for-constant-names">PREFER using lowerCamelCase for constant names.</a></li>
 <li class="toc-entry toc-h3"><a href="#do-capitalize-acronyms-and-abbreviations-longer-than-two-letters-like-words">DO capitalize acronyms and abbreviations longer than two letters like words.</a></li>
+<li class="toc-entry toc-h3"><a href="#dont-use-prefix-letters">DON’T use prefix letters</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#ordering">Ordering</a>
@@ -285,6 +286,7 @@ code.</p>
       <li><a href="#do-name-other-identifiers-using-lowercamelcase" id="markdown-toc-do-name-other-identifiers-using-lowercamelcase">DO name other identifiers using <code class="highlighter-rouge">lowerCamelCase</code>.</a></li>
       <li><a href="#prefer-using-lowercamelcase-for-constant-names" id="markdown-toc-prefer-using-lowercamelcase-for-constant-names">PREFER using <code class="highlighter-rouge">lowerCamelCase</code> for constant names.</a></li>
       <li><a href="#do-capitalize-acronyms-and-abbreviations-longer-than-two-letters-like-words" id="markdown-toc-do-capitalize-acronyms-and-abbreviations-longer-than-two-letters-like-words">DO capitalize acronyms and abbreviations longer than two letters like words.</a></li>
+      <li><a href="#dont-use-prefix-letters" id="markdown-toc-dont-use-prefix-letters">DON’T use prefix letters</a></li>
     </ul>
   </li>
   <li>
@@ -333,19 +335,16 @@ and separate words with <code class="highlighter-rouge">_</code>.</p>
 of each word (including the first word), and use no separators.</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (type-names)"?>
-<pre class="prettyprint lang-dart good-style">
-class SliderMenu { ... }
+<pre class="prettyprint lang-dart good-style">class SliderMenu { ... }
 
 class HttpRequest { ... }
 
-typedef Predicate = bool Function&lt;T&gt;(T value);
-</pre>
+typedef Predicate = bool Function&lt;T&gt;(T value);</pre>
 
 <p>This even includes classes intended to be used in metadata annotations.</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (annotation-type-names)"?>
-<pre class="prettyprint lang-dart good-style">
-class Foo {
+<pre class="prettyprint lang-dart good-style">class Foo {
   const Foo([arg]);
 }
 
@@ -353,19 +352,16 @@ class Foo {
 class A { ... }
 
 @Foo()
-class B { ... }
-</pre>
+class B { ... }</pre>
 
 <p>If the annotation class’s constructor takes no parameters, you might want to
 create a separate <code class="highlighter-rouge">lowerCamelCase</code> constant for it.</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (annotation-const)"?>
-<pre class="prettyprint lang-dart good-style">
-const foo = Foo();
+<pre class="prettyprint lang-dart good-style">const foo = Foo();
 
 @foo
-class C { ... }
-</pre>
+class C { ... }</pre>
 
 <h3 id="do-name-libraries-and-source-files-using-lowercase_with_underscores">
 <a id="do-name-libraries-and-source-files-using-lowercase_with_underscores" class="anchor" href="#do-name-libraries-and-source-files-using-lowercase_with_underscores" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO name libraries and source files using <code class="highlighter-rouge">lowercase_with_underscores</code>.</h3>
@@ -377,20 +373,16 @@ a valid Dart identifier, which may be helpful if the language later supports
 symbolic imports.</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_lib_good.dart" replace="/foo\///g"?>
-<pre class="prettyprint lang-dart good-style">
-library peg_parser.source_scanner;
+<pre class="prettyprint lang-dart good-style">library peg_parser.source_scanner;
 
 import 'file_system.dart';
-import 'slider_menu.dart';
-</pre>
+import 'slider_menu.dart';</pre>
 
 <?code-excerpt "misc/lib/effective_dart/style_lib_good.dart" replace="/foo\///g;/file./file-/g;/slider_menu/SliderMenu/g;/source_scanner/SourceScanner/g;/peg_parser/pegparser/g"?>
-<pre class="prettyprint lang-dart bad-style">
-library pegparser.SourceScanner;
+<pre class="prettyprint lang-dart bad-style">library pegparser.SourceScanner;
 
 import 'file-system.dart';
-import 'SliderMenu.dart';
-</pre>
+import 'SliderMenu.dart';</pre>
 
 <aside class="alert alert-info">
   <p><strong>Note:</strong> This guideline specifies <em>how</em> to name a library <em>if you choose to
@@ -401,20 +393,16 @@ import 'SliderMenu.dart';
 <a id="do-name-import-prefixes-using-lowercase_with_underscores" class="anchor" href="#do-name-import-prefixes-using-lowercase_with_underscores" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO name import prefixes using <code class="highlighter-rouge">lowercase_with_underscores</code>.</h3>
 
 <?code-excerpt "misc/lib/effective_dart/style_lib_good.dart (import-as)" replace="/(package):examples[^']*/$1:angular_components\/angular_components/g"?>
-<pre class="prettyprint lang-dart good-style">
-import 'dart:math' as math;
+<pre class="prettyprint lang-dart good-style">import 'dart:math' as math;
 import 'package:angular_components/angular_components'
     as angular_components;
-import 'package:js/js.dart' as js;
-</pre>
+import 'package:js/js.dart' as js;</pre>
 
 <?code-excerpt "misc/lib/effective_dart/style_lib_good.dart (import-as)" replace="/(package):examples[^']*/$1:angular_components\/angular_components/g;/as angular_components/as angularComponents/g;/ math/ Math/g;/as js/as JS/g"?>
-<pre class="prettyprint lang-dart bad-style">
-import 'dart:math' as Math;
+<pre class="prettyprint lang-dart bad-style">import 'dart:math' as Math;
 import 'package:angular_components/angular_components'
     as angularComponents;
-import 'package:js/js.dart' as JS;
-</pre>
+import 'package:js/js.dart' as JS;</pre>
 
 <h3 id="do-name-other-identifiers-using-lowercamelcase">
 <a id="do-name-other-identifiers-using-lowercamelcase" class="anchor" href="#do-name-other-identifiers-using-lowercamelcase" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO name other identifiers using <code class="highlighter-rouge">lowerCamelCase</code>.</h3>
@@ -424,15 +412,13 @@ parameters should capitalize the first letter of each word <em>except</em> the f
 word, and use no separators.</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (misc-names)"?>
-<pre class="prettyprint lang-dart good-style">
-var item;
+<pre class="prettyprint lang-dart good-style">var item;
 
 HttpRequest httpRequest;
 
 void align(bool clearItems) {
   // ...
-}
-</pre>
+}</pre>
 
 <h3 id="prefer-using-lowercamelcase-for-constant-names">
 <a id="prefer-using-lowercamelcase-for-constant-names" class="anchor" href="#prefer-using-lowercamelcase-for-constant-names" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER using <code class="highlighter-rouge">lowerCamelCase</code> for constant names.</h3>
@@ -442,26 +428,22 @@ In existing code that uses <code class="highlighter-rouge">SCREAMING_CAPS</code>
 stay consistent.</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (const-names)"?>
-<pre class="prettyprint lang-dart good-style">
-const pi = 3.14;
+<pre class="prettyprint lang-dart good-style">const pi = 3.14;
 const defaultTimeout = 1000;
 final urlScheme = RegExp('^([a-z]+):');
 
 class Dice {
   static final numberGenerator = Random();
-}
-</pre>
+}</pre>
 
 <?code-excerpt "misc/lib/effective_dart/style_bad.dart (const-names)"?>
-<pre class="prettyprint lang-dart bad-style">
-const PI = 3.14;
-const kDefaultTimeout = 1000;
+<pre class="prettyprint lang-dart bad-style">const PI = 3.14;
+const DefaultTimeout = 1000;
 final URL_SCHEME = RegExp('^([a-z]+):');
 
 class Dice {
   static final NUMBER_GENERATOR = Random();
-}
-</pre>
+}</pre>
 
 <aside class="alert alert-info">
   <p><strong>Note:</strong> We initially used Java’s <code class="highlighter-rouge">SCREAMING_CAPS</code> style for constants. We
@@ -491,23 +473,32 @@ except for two-letter acronyms. (Two-letter <em>abbreviations</em> like
 ID and Mr. are still capitalized like words.)</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (acronyms and abbreviations)" replace="/,//g"?>
-<pre class="prettyprint lang-dart good-style">
-HttpConnectionInfo
+<pre class="prettyprint lang-dart good-style">HttpConnectionInfo
 uiHandler
 IOStream
 HttpRequest
 Id
-DB
-</pre>
+DB</pre>
 
-<pre class="prettyprint lang-dart bad-style">
-HTTPConnection
+<pre class="prettyprint lang-dart bad-style">HTTPConnection
 UiHandler
 IoStream
 HTTPRequest
 ID
-Db
-</pre>
+Db</pre>
+
+<h3 id="dont-use-prefix-letters">
+<a id="dont-use-prefix-letters" class="anchor" href="#dont-use-prefix-letters" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T use prefix letters</h3>
+
+<p><a href="https://en.wikipedia.org/wiki/Hungarian_notation">Hungarian notation</a> and
+other schemes arose in the time of BCPL, when the compiler didn’t do much to
+help you understand your code. Because Dart can tell you the type, scope,
+mutability, and other properties of your declarations, there’s no reason to
+encode those properties in identifier names.</p>
+
+<pre class="prettyprint lang-dart good-style">defaultTimeout</pre>
+
+<pre class="prettyprint lang-dart bad-style">kDefaultTimeout</pre>
 
 <h2 id="ordering">
 <a id="ordering" class="anchor" href="#ordering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ordering</h2>
@@ -519,24 +510,20 @@ directives should appear in. Each “section” should be separated by a blank l
 <a id="do-place-dart-imports-before-other-imports" class="anchor" href="#do-place-dart-imports-before-other-imports" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO place “dart:” imports before other imports.</h3>
 
 <?code-excerpt "misc/lib/effective_dart/style_lib_good.dart (dart-import-first)" replace="/\w+\/effective_dart\///g"?>
-<pre class="prettyprint lang-dart good-style">
-import 'dart:async';
+<pre class="prettyprint lang-dart good-style">import 'dart:async';
 import 'dart:html';
 
 import 'package:bar/bar.dart';
-import 'package:foo/foo.dart';
-</pre>
+import 'package:foo/foo.dart';</pre>
 
 <h3 id="do-place-package-imports-before-relative-imports">
 <a id="do-place-package-imports-before-relative-imports" class="anchor" href="#do-place-package-imports-before-relative-imports" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO place “package:” imports before relative imports.</h3>
 
 <?code-excerpt "misc/lib/effective_dart/style_lib_good.dart (pkg-import-before-local)" replace="/\w+\/effective_dart\///g;/'foo/'util/g"?>
-<pre class="prettyprint lang-dart good-style">
-import 'package:bar/bar.dart';
+<pre class="prettyprint lang-dart good-style">import 'package:bar/bar.dart';
 import 'package:foo/foo.dart';
 
-import 'util.dart';
-</pre>
+import 'util.dart';</pre>
 
 <h3 id="prefer-placing-third-party-package-imports-before-other-imports">
 <a id="prefer-placing-third-party-package-imports-before-other-imports" class="anchor" href="#prefer-placing-third-party-package-imports-before-other-imports" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER placing “third-party” “package:” imports before other imports.</h3>
@@ -545,51 +532,41 @@ import 'util.dart';
 third-party packages, place yours in a separate section after the external ones.</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_lib_good.dart (third-party)" replace="/\w+\/effective_dart\///g;/(package):foo(.dart)/$1:my_package\/util$2/g"?>
-<pre class="prettyprint lang-dart good-style">
-import 'package:bar/bar.dart';
+<pre class="prettyprint lang-dart good-style">import 'package:bar/bar.dart';
 import 'package:foo/foo.dart';
 
-import 'package:my_package/util.dart';
-</pre>
+import 'package:my_package/util.dart';</pre>
 
 <h3 id="do-specify-exports-in-a-separate-section-after-all-imports">
 <a id="do-specify-exports-in-a-separate-section-after-all-imports" class="anchor" href="#do-specify-exports-in-a-separate-section-after-all-imports" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO specify exports in a separate section after all imports.</h3>
 
 <?code-excerpt "misc/lib/effective_dart/style_lib_good.dart (export)"?>
-<pre class="prettyprint lang-dart good-style">
-import 'src/error.dart';
+<pre class="prettyprint lang-dart good-style">import 'src/error.dart';
 import 'src/foo_bar.dart';
 
-export 'src/error.dart';
-</pre>
+export 'src/error.dart';</pre>
 
 <?code-excerpt "misc/lib/effective_dart/style_lib_bad.dart (export)"?>
-<pre class="prettyprint lang-dart bad-style">
-import 'src/error.dart';
+<pre class="prettyprint lang-dart bad-style">import 'src/error.dart';
 export 'src/error.dart';
-import 'src/foo_bar.dart';
-</pre>
+import 'src/foo_bar.dart';</pre>
 
 <h3 id="do-sort-sections-alphabetically">
 <a id="do-sort-sections-alphabetically" class="anchor" href="#do-sort-sections-alphabetically" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO sort sections alphabetically.</h3>
 
 <?code-excerpt "misc/lib/effective_dart/style_lib_good.dart (sorted)" replace="/\w+\/effective_dart\///g"?>
-<pre class="prettyprint lang-dart good-style">
-import 'package:bar/bar.dart';
+<pre class="prettyprint lang-dart good-style">import 'package:bar/bar.dart';
 import 'package:foo/foo.dart';
 
 import 'foo.dart';
-import 'foo/foo.dart';
-</pre>
+import 'foo/foo.dart';</pre>
 
 <?code-excerpt "misc/lib/effective_dart/style_lib_bad.dart (sorted)" replace="/\w+\/effective_dart\///g"?>
-<pre class="prettyprint lang-dart bad-style">
-import 'package:foo/foo.dart';
+<pre class="prettyprint lang-dart bad-style">import 'package:foo/foo.dart';
 import 'package:bar/bar.dart';
 
 import 'foo/foo.dart';
-import 'foo.dart';
-</pre>
+import 'foo.dart';</pre>
 
 <h2 id="formatting">
 <a id="formatting" class="anchor" href="#formatting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Formatting</h2>
@@ -653,37 +630,29 @@ a given path.</p>
 <p>Doing so avoids the <a href="http://en.wikipedia.org/wiki/Dangling_else">dangling else</a> problem.</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (curly-braces)"?>
-<pre class="prettyprint lang-dart good-style">
-if (isWeekDay) {
+<pre class="prettyprint lang-dart good-style">if (isWeekDay) {
   print('Bike to work!');
 } else {
   print('Go dancing or read a book!');
-}
-</pre>
+}</pre>
 
 <p>There is one exception to this: an <code class="highlighter-rouge">if</code> statement with no <code class="highlighter-rouge">else</code> clause where
 the entire <code class="highlighter-rouge">if</code> statement and the then body all fit in one line. In that case,
 you may leave off the braces if you prefer:</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (one-line-if)"?>
-<pre class="prettyprint lang-dart good-style">
-if (arg == null) return defaultValue;
-</pre>
+<pre class="prettyprint lang-dart good-style">if (arg == null) return defaultValue;</pre>
 
 <p>If the body wraps to the next line, though, use braces:</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (one-line-if-wrap)"?>
-<pre class="prettyprint lang-dart good-style">
-if (overflowChars != other.overflowChars) {
+<pre class="prettyprint lang-dart good-style">if (overflowChars != other.overflowChars) {
   return overflowChars &lt; other.overflowChars;
-}
-</pre>
+}</pre>
 
 <?code-excerpt "misc/lib/effective_dart/style_bad.dart (one-line-if-wrap)"?>
-<pre class="prettyprint lang-dart bad-style">
-if (overflowChars != other.overflowChars)
-  return overflowChars &lt; other.overflowChars;
-</pre>
+<pre class="prettyprint lang-dart bad-style">if (overflowChars != other.overflowChars)
+  return overflowChars &lt; other.overflowChars;</pre>
 
           
 <nav id="subnav">
@@ -726,7 +695,7 @@ if (overflowChars != other.overflowChars)
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

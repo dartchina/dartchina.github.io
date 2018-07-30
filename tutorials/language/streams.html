@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/language/streams" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.68.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/language/streams" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -285,15 +285,13 @@ iterates over the events of a stream like the <strong>for loop</strong> iterates
 over an Iterable. For example:</p>
 
 <?code-excerpt "misc/lib/tutorial/sum_stream.dart (sumStream)" replace="/async|await for/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">
-Future&lt;int&gt; sumStream(Stream&lt;int&gt; stream) <span class="highlight">async</span> {
+<pre class="prettyprint lang-dart">Future&lt;int&gt; sumStream(Stream&lt;int&gt; stream) <span class="highlight">async</span> {
   var sum = 0;
   <span class="highlight">await for</span> (var value in stream) {
     sum += value;
   }
   return sum;
-}
-</pre>
+}</pre>
 
 <p>This code simply receives each event of a stream of integer events,
 adds them up, and returns (a future of) the sum.
@@ -359,10 +357,8 @@ For example, you can find the last positive integer in a stream using
 <code class="highlighter-rouge">lastWhere()</code> from the Stream API.</p>
 
 <?code-excerpt "misc/lib/tutorial/misc.dart (lastPositive)"?>
-<pre class="prettyprint lang-dart">
-Future&lt;int&gt; lastPositive(Stream&lt;int&gt; stream) =&gt;
-    stream.lastWhere((x) =&gt; x &gt;= 0);
-</pre>
+<pre class="prettyprint lang-dart">Future&lt;int&gt; lastPositive(Stream&lt;int&gt; stream) =&gt;
+    stream.lastWhere((x) =&gt; x &gt;= 0);</pre>
 
 <h2 id="two-kinds-of-streams">
 <a id="two-kinds-of-streams" class="anchor" href="#two-kinds-of-streams" aria-hidden="true"><span class="octicon octicon-link"></span></a>Two kinds of streams</h2>
@@ -405,8 +401,7 @@ subscription.</p>
 result:</p>
 
 <?code-excerpt "misc/lib/tutorial/stream_interface.dart (main-stream-members)" remove="/^\s*Stream/"?>
-<pre class="prettyprint lang-dart">
-Future&lt;T&gt; get first;
+<pre class="prettyprint lang-dart">Future&lt;T&gt; get first;
 Future&lt;bool&gt; get isEmpty;
 Future&lt;T&gt; get last;
 Future&lt;int&gt; get length;
@@ -425,8 +420,7 @@ Future pipe(StreamConsumer&lt;T&gt; streamConsumer);
 Future&lt;T&gt; reduce(T Function(T previous, T element) combine);
 Future&lt;T&gt; singleWhere(bool Function(T element) test, {T Function() orElse});
 Future&lt;List&lt;T&gt;&gt; toList();
-Future&lt;Set&lt;T&gt;&gt; toSet();
-</pre>
+Future&lt;Set&lt;T&gt;&gt; toSet();</pre>
 
 <p>All of these functions, except <code class="highlighter-rouge">drain()</code> and <code class="highlighter-rouge">pipe()</code>,
 correspond to a similar function on <a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable.</a>
@@ -435,8 +429,7 @@ with an <strong>await for</strong> loop (or just using one of the other methods)
 For example, some implementations could be:</p>
 
 <?code-excerpt "misc/lib/tutorial/misc.dart (mock-stream-method-implementations)"?>
-<pre class="prettyprint lang-dart">
-Future&lt;bool&gt; contains(Object needle) async {
+<pre class="prettyprint lang-dart">Future&lt;bool&gt; contains(Object needle) async {
   await for (var event in this) {
     if (event == needle) return true;
   }
@@ -456,8 +449,7 @@ Future&lt;List&lt;T&gt;&gt; toList() async {
 }
 
 Future&lt;String&gt; join([String separator = ""]) async =&gt;
-    (await this.toList()).join(separator);
-</pre>
+    (await this.toList()).join(separator);</pre>
 
 <p>(The actual implementations are slightly more complex,
 but mainly for historical reasons.)</p>
@@ -471,8 +463,7 @@ Each one waits until someone listens on the new stream before
 listening on the original.</p>
 
 <?code-excerpt "misc/lib/tutorial/stream_interface.dart (main-stream-members)" remove="/async\w+|distinct|transform/" retain="/^\s*Stream/"?>
-<pre class="prettyprint lang-dart">
-Stream&lt;R&gt; cast&lt;R&gt;();
+<pre class="prettyprint lang-dart">Stream&lt;R&gt; cast&lt;R&gt;();
 Stream&lt;S&gt; expand&lt;S&gt;(Iterable&lt;S&gt; Function(T element) convert);
 Stream&lt;S&gt; map&lt;S&gt;(S Function(T event) convert);
 Stream&lt;R&gt; retype&lt;R&gt;();
@@ -480,8 +471,7 @@ Stream&lt;T&gt; skip(int count);
 Stream&lt;T&gt; skipWhile(bool Function(T element) test);
 Stream&lt;T&gt; take(int count);
 Stream&lt;T&gt; takeWhile(bool Function(T element) test);
-Stream&lt;T&gt; where(bool Function(T event) test);
-</pre>
+Stream&lt;T&gt; where(bool Function(T event) test);</pre>
 
 <p>The preceding methods correspond to similar methods on <a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a>
 which transform an iterable into another iterable.
@@ -489,11 +479,9 @@ All of these can be written easily using an async function
 with an <strong>await for</strong> loop.</p>
 
 <?code-excerpt "misc/lib/tutorial/stream_interface.dart (main-stream-members)" remove="/transform/" retain="/async\w+|distinct/"?>
-<pre class="prettyprint lang-dart">
-Stream&lt;E&gt; asyncExpand&lt;E&gt;(Stream&lt;E&gt; Function(T event) convert);
+<pre class="prettyprint lang-dart">Stream&lt;E&gt; asyncExpand&lt;E&gt;(Stream&lt;E&gt; Function(T event) convert);
 Stream&lt;E&gt; asyncMap&lt;E&gt;(FutureOr&lt;E&gt; Function(T event) convert);
-Stream&lt;T&gt; distinct([bool Function(T previous, T next) equals]);
-</pre>
+Stream&lt;T&gt; distinct([bool Function(T previous, T next) equals]);</pre>
 
 <p>The <code class="highlighter-rouge">asyncExpand()</code> and <code class="highlighter-rouge">asyncMap()</code> functions are similar to
 <code class="highlighter-rouge">expand()</code> and <code class="highlighter-rouge">map()</code>,
@@ -501,12 +489,10 @@ but allow their function argument to be an asynchronous function.
 The <code class="highlighter-rouge">distinct()</code> function doesn’t exist on <code class="highlighter-rouge">Iterable</code>, but it could have.</p>
 
 <?code-excerpt "misc/lib/tutorial/stream_interface.dart (special-stream-members)"?>
-<pre class="prettyprint lang-dart">
-Stream&lt;T&gt; handleError(Function onError, {bool test(error)});
+<pre class="prettyprint lang-dart">Stream&lt;T&gt; handleError(Function onError, {bool test(error)});
 Stream&lt;T&gt; timeout(Duration timeLimit,
     {void Function(EventSink&lt;T&gt; sink) onTimeout});
-Stream&lt;S&gt; transform&lt;S&gt;(StreamTransformer&lt;T, S&gt; streamTransformer);
-</pre>
+Stream&lt;S&gt; transform&lt;S&gt;(StreamTransformer&lt;T, S&gt; streamTransformer);</pre>
 
 <p>The final three functions are more special.
 They involve error handling which an <strong>await for</strong> loop
@@ -530,8 +516,7 @@ A transformer requires only one function, <a href="https://api.dartlang.org/dev/
 easily implemented by an async function.</p>
 
 <?code-excerpt "misc/lib/tutorial/misc.dart (mapLogErrors)"?>
-<pre class="prettyprint lang-dart">
-Stream&lt;S&gt; mapLogErrors&lt;S, T&gt;(
+<pre class="prettyprint lang-dart">Stream&lt;S&gt; mapLogErrors&lt;S, T&gt;(
   Stream&lt;T&gt; stream,
   S Function(T event) convert,
 ) async* {
@@ -539,8 +524,7 @@ Stream&lt;S&gt; mapLogErrors&lt;S, T&gt;(
   await for (var event in streamWithoutErrors) {
     yield convert(event);
   }
-}
-</pre>
+}</pre>
 
 <h3 id="reading-decoding-file">
 <a id="reading-and-decoding-a-file" class="anchor" href="#reading-and-decoding-a-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading and decoding a file</h3>
@@ -551,8 +535,7 @@ a <a href="https://api.dartlang.org/dev/dart-convert/LineSplitter-class.html">Li
 All lines are printed, except any that begin with a hashtag, <code class="highlighter-rouge">#</code>.</p>
 
 <?code-excerpt "misc/lib/tutorial/cat_no_hash.dart"?>
-<pre class="prettyprint lang-dart">
-import 'dart:async';
+<pre class="prettyprint lang-dart">import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -565,8 +548,7 @@ Future&lt;void&gt; main(List&lt;String&gt; args) async {
   await for (var line in lines) {
     if (!line.startsWith('#')) print(line);
   }
-}
-</pre>
+}</pre>
 
 <h2 id="listen-method">
 <a id="the-listen-method" class="anchor" href="#the-listen-method" aria-hidden="true"><span class="octicon octicon-link"></span></a>The listen() method</h2>
@@ -575,10 +557,8 @@ Future&lt;void&gt; main(List&lt;String&gt; args) async {
 method—all other stream functions are defined in terms of <code class="highlighter-rouge">listen()</code>.</p>
 
 <?code-excerpt "misc/lib/tutorial/stream_interface.dart (listen)"?>
-<pre class="prettyprint lang-dart">
-StreamSubscription&lt;T&gt; listen(void Function(T event) onData,
-    {Function onError, void Function() onDone, bool cancelOnError});
-</pre>
+<pre class="prettyprint lang-dart">StreamSubscription&lt;T&gt; listen(void Function(T event) onData,
+    {Function onError, void Function() onDone, bool cancelOnError});</pre>
 
 <p>To create a new <code class="highlighter-rouge">Stream</code> type, you can just extend the <code class="highlighter-rouge">Stream</code>
 class and implement the <code class="highlighter-rouge">listen()</code> method—all other methods
@@ -665,7 +645,7 @@ a section in the <a href="/guides/language/language-tour">language tour</a>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/07/23 12:00 CST"
+                 title="Site built on 2018/07/30 13:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
