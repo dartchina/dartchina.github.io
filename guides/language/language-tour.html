@@ -701,7 +701,7 @@ assert(lineCount == null);</pre>
 <h3 id="final-和-const">
 <a id="final-和-const" class="anchor" href="#final-%E5%92%8C-const" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final 和 const</h3>
 
-<p>使用过程中从来不会被修改的变量， 可以使用 <code class="highlighter-rouge">final</code> 或 <code class="highlighter-rouge">const</code>, 而不是 <code class="highlighter-rouge">var</code> 或者其它类型，
+<p>使用过程中从来不会被修改的变量， 可以使用 <code class="highlighter-rouge">final</code> 或 <code class="highlighter-rouge">const</code>, 而不是 <code class="highlighter-rouge">var</code> 或者其他类型，
 final 变量的值只能被设置一次；
 const 变量在编译时就已经固定 (Const 变量
 是隐式 final 的类型.) 最高级 final 变量或类变量在第一次使用时被初始化。</p>
@@ -1173,7 +1173,7 @@ add <code class="highlighter-rouge">const</code> before the map literal:</p>
 <p>Dart 是一门真正面向对象的语言，
 甚至其中的函数也是对象，并且有它的类型 
 <a href="https://api.dartlang.org/dev/dart-core/Function-class.html">Function</a> 。
-这也意味着函数可以被赋值给变量或者作为参数传递给其它函数。
+这也意味着函数可以被赋值给变量或者作为参数传递给其他函数。
 也可以把 Dart 类的实例当做方法来调用。
 有关更多信息，参考 <a href="#callable-classes">Callable classes</a>.</p>
 
@@ -1250,7 +1250,7 @@ void enableFlags({bool bold, bool hidden}) {...}</pre>
 <p>此时 <code class="highlighter-rouge">Scrollbar</code> 是一个构造函数， 当 <code class="highlighter-rouge">child</code> 参数缺少是，分析器会提示错误。</p>
 
 <p><a href="https://pub.dartlang.org/documentation/meta/latest/meta/required-constant.html">Required</a> 被定义在 <a href="https://pub.dartlang.org/packages/meta">meta</a> package。 无论是直接引入（import）
-<code class="highlighter-rouge">package:meta/meta.dart</code> ，或者引入了其它 package，而这个 package 输出（export）了
+<code class="highlighter-rouge">package:meta/meta.dart</code> ，或者引入了其他 package，而这个 package 输出（export）了
 <code class="highlighter-rouge">meta</code>，比如 Flutter 的 <code class="highlighter-rouge">package:flutter/material.dart</code>。</p>
 
 <h4 id="位置可选参数">
@@ -2099,7 +2099,7 @@ assert((value &gt;&gt; 4) == 0x02); // Shift right</pre>
 <?code-excerpt "misc/test/language_tour/operators_test.dart (if-null)"?>
 <pre class="prettyprint lang-dart">String playerName(String name) =&gt; name ?? 'Guest';</pre>
 
-<p>下面给出了其它两种实现方式，
+<p>下面给出了其他两种实现方式，
 但并不简洁：</p>
 
 <?code-excerpt "misc/test/language_tour/operators_test.dart (if-null-alt)"?>
@@ -2462,7 +2462,7 @@ assert 语句只在开发环境中有效，
 Flutter 中的 assert 只在 <a href="https://flutter.io/debugging/#debug-mode-assertions">debug 模式</a> 中有效。
 开发用的工具，例如 <a href="https://webdev.dartlang.org/tools/dartdevc">dartdevc</a>
 默认是开启 assert 功能。
-其它的一些工具， 例如 <a href="/dart-vm/tools/dart-vm">dart</a> 和 <a href="https://webdev.dartlang.org/tools/dart2js">dart2js,</a>
+其他的一些工具， 例如 <a href="/dart-vm/tools/dart-vm">dart</a> 和 <a href="https://webdev.dartlang.org/tools/dart2js">dart2js,</a>
 支持通过命令行开启 assert ： <code class="highlighter-rouge">--enable-asserts</code>。</p>
 </div>
 
@@ -2512,7 +2512,7 @@ Flutter 中的 assert 只在 <a href="https://flutter.io/debugging/#debug-mode-a
 </div>
 
 <p>因为抛出异常是一个表达式，
-所以可以在 =&gt; 语句中使用，也可以在其它使用表达式的地方抛出异常：</p>
+所以可以在 =&gt; 语句中使用，也可以在其他使用表达式的地方抛出异常：</p>
 
 <?code-excerpt "misc/lib/language_tour/exceptions.dart (throw-is-an-expression)"?>
 <pre class="prettyprint lang-dart">void distanceTo(Point other) =&gt; throw UnimplementedError();</pre>
@@ -2624,14 +2624,14 @@ void main() {
 <p>Dart 是一种基于类和 mixin 继承机制的面向对象的语言。
 每个对象都是一个类的实例，所有的类都继承于 <a href="https://api.dartlang.org/dev/dart-core/Object-class.html">Object.</a> 。
 基于 * Mixin 继承* 意味着每个类（除 Object 外） 都只有一个超类，
-一个类中的代码可以在其它多个继承类中重复使用。</p>
+一个类中的代码可以在其他多个继承类中重复使用。</p>
 
 <h3 id="使用类的成员变量">
 <a id="使用类的成员变量" class="anchor" href="#%E4%BD%BF%E7%94%A8%E7%B1%BB%E7%9A%84%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用类的成员变量</h3>
 
 <p>对象的由函数和数据（即方法和实例变量）组成。 
 方法的调用要通过对象来完成：
-调用的方法可以访问其对象的其它函数和数据。</p>
+调用的方法可以访问其对象的其他函数和数据。</p>
 
 <p>使用 (<code class="highlighter-rouge">.</code>) 来引用实例对象的变量和方法：</p>
 
@@ -2855,7 +2855,7 @@ Dart 自身的语法糖精简了这些代码：</p>
 </ol>
 
 <p>如果父类中没有匿名无参的构造函数， 
-则需要手工调用父类的其它构造函数。 
+则需要手工调用父类的其他构造函数。 
 在当前构造函数冒号 (<code class="highlighter-rouge">:</code>) 之后，函数体之前，声明调用父类构造函数。</p>
 
 <p>下面的示例中，Employee 类的构造函数调用了父类 Person 的命名构造函数。 
@@ -3067,7 +3067,7 @@ void main() {
 <a id="抽象方法" class="anchor" href="#%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>抽象方法</h4>
 
 <p>实例方法， getter， 和 setter 方法可以是抽象的， 
-只定义接口不进行实现，而是留给其它类去实现。 
+只定义接口不进行实现，而是留给其他类去实现。 
 抽象方法只存在于 <a href="#abstract-classes">抽象类</a> 中。</p>
 
 <p>定义一个抽象函数，使用分号 (;) 来代替函数体：</p>
@@ -4276,7 +4276,7 @@ documentation.</a>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/01 15:08 CST"
+                 title="Site built on 2018/08/04 01:30 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

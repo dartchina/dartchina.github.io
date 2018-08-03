@@ -251,7 +251,7 @@ ga('send', 'pageview');
 <ul>
 <li class="toc-entry toc-h3"><a href="#编解码json">编解码JSON</a></li>
 <li class="toc-entry toc-h3"><a href="#编解码-utf-8-字符">编解码 UTF-8 字符</a></li>
-<li class="toc-entry toc-h3"><a href="#其它功能">其它功能</a></li>
+<li class="toc-entry toc-h3"><a href="#其他功能">其他功能</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#总结">总结</a></li>
@@ -304,7 +304,7 @@ ga('send', 'pageview');
 
 <dl>
   <dt><a href="#dartcore---numbers-collections-strings-and-more">dart:core</a></dt>
-  <dd>内置类型，集合和其它核心功能。 
+  <dd>内置类型，集合和其他核心功能。 
 该库会被自动导入到所有的 Dart 程序。</dd>
   <dt><a href="#dartasync---asynchronous-programming">dart:async</a></dt>
   <dd>支持异步编程，包括Future和Stream等类。</dd>
@@ -1181,7 +1181,7 @@ void main() {
 <a id="dartasync---异步编程" class="anchor" href="#dartasync---%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>dart:async - 异步编程</h2>
 
 <p>异步编程通常使用回调方法来实现，但是 Dart
-提供了其它方案：<a href="https://api.dartlang.org/dev/dart-async/Future-class.html">Future</a> 和 <a href="https://api.dartlang.org/dev/dart-async/Stream-class.html">Stream</a> 对象。
+提供了其他方案：<a href="https://api.dartlang.org/dev/dart-async/Future-class.html">Future</a> 和 <a href="https://api.dartlang.org/dev/dart-async/Stream-class.html">Stream</a> 对象。
 Future 类似与 JavaScript 中的 Promise ，
 代表在将来某个时刻会返回一个结果。
 Stream 类可以用来获取一系列的值，比如，一些列事件。
@@ -1299,7 +1299,7 @@ async 函数 返回 Future 对象。
 这样就提供了一个非常好的方式让多个异步方法按顺序依次执行。
 如果用 <code class="highlighter-rouge">then()</code> 注册的回调返回一个 Future ，
 那么 <code class="highlighter-rouge">then()</code> 返回一个等价的 Future 。 
-如果回调返回任何其它类型的值，
+如果回调返回任何其他类型的值，
 那么 <code class="highlighter-rouge">then()</code> 会创建一个以该值完成的新 Future 。</p>
 
 <?code-excerpt "misc/lib/library_tour/async/future.dart (then-chain)"?>
@@ -1606,7 +1606,7 @@ random.nextBool(); // true or false</pre>
 <a id="dartconvert---编解码jsonutf-8等" class="anchor" href="#dartconvert---%E7%BC%96%E8%A7%A3%E7%A0%81jsonutf-8%E7%AD%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>dart:convert - 编解码JSON，UTF-8等</h2>
 
 <p>dart:convert 库 （<a href="https://api.dartlang.org/dev/dart-convert/dart-convert-library.html">API reference</a>）提供 JSON 和 UTF-8 转换器，
-以及创建其它转换器。
+以及创建其他转换器。
 <a href="https://www.json.org/">JSON</a> 是一种用于表示结构化对象和集合的简单文本格式。
 <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a> 是一种常见的可变宽度编码，可以表示Unicode字符集中的每个字符。</p>
 
@@ -1706,8 +1706,8 @@ for (int i = 0; i &lt; encoded.length; i++) {
   assert(encoded[i] == utf8Bytes[i]);
 }</pre>
 
-<h3 id="其它功能">
-<a id="其它功能" class="anchor" href="#%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>其它功能</h3>
+<h3 id="其他功能">
+<a id="其他功能" class="anchor" href="#%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>其他功能</h3>
 
 <p>dart:convert 库同样包含 ASCII 和 ISO-8859-1 (Latin1) 转换器。
 更多详情，参考 <a href="https://api.dartlang.org/dev/dart-convert/dart-convert-library.html">API docs for the dart:convert library。</a></p>
@@ -1757,7 +1757,7 @@ for (int i = 0; i &lt; encoded.length; i++) {
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/01 15:08 CST"
+                 title="Site built on 2018/08/04 01:30 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

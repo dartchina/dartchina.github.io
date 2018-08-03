@@ -12,30 +12,30 @@
 ### Style
 
 
-**Identifiers**
+**标识符**
 
-* <a href='/guides/language/effective-dart/style#do-name-types-using-uppercamelcase'>DO name types using <code>UpperCamelCase</code>.</a>
-* <a href='/guides/language/effective-dart/style#do-name-libraries-and-source-files-using-lowercase_with_underscores'>DO name libraries and source files using <code>lowercase_with_underscores</code>.</a>
-* <a href='/guides/language/effective-dart/style#do-name-import-prefixes-using-lowercase_with_underscores'>DO name import prefixes using <code>lowercase_with_underscores</code>.</a>
-* <a href='/guides/language/effective-dart/style#do-name-other-identifiers-using-lowercamelcase'>DO name other identifiers using <code>lowerCamelCase</code>.</a>
-* <a href='/guides/language/effective-dart/style#prefer-using-lowercamelcase-for-constant-names'>PREFER using <code>lowerCamelCase</code> for constant names.</a>
-* <a href='/guides/language/effective-dart/style#do-capitalize-acronyms-and-abbreviations-longer-than-two-letters-like-words'>DO capitalize acronyms and abbreviations longer than two letters like words.</a>
-* <a href='/guides/language/effective-dart/style#dont-use-prefix-letters'>DON’T use prefix letters.</a>
+* <a href='/guides/language/effective-dart/style#%E8%A6%81-%E4%BD%BF%E7%94%A8-uppercamelcase-%E9%A3%8E%E6%A0%BC%E5%91%BD%E5%90%8D%E7%B1%BB%E5%9E%8B'><strong>要</strong> 使用 <code>UpperCamelCase</code> 风格命名类型。</a>
+* <a href='/guides/language/effective-dart/style#%E8%A6%81-%E7%94%A8-lowercase_with_underscores-%E9%A3%8E%E6%A0%BC%E5%91%BD%E5%90%8D%E5%BA%93%E5%92%8C%E6%BA%90%E6%96%87%E4%BB%B6%E5%90%8D'><strong>要</strong> 用 <code>lowercase_with_underscores</code> 风格命名库和源文件名。</a>
+* <a href='/guides/language/effective-dart/style#%E8%A6%81-%E4%BD%BF%E7%94%A8-lowercase_with_underscores-%E9%A3%8E%E6%A0%BC%E5%91%BD%E5%90%8D%E5%AF%BC%E5%85%A5%E7%9A%84%E5%89%8D%E7%BC%80'><strong>要</strong> 使用 <code>lowercase_with_underscores</code> 风格命名导入的前缀。</a>
+* <a href='/guides/language/effective-dart/style#%E8%A6%81-%E4%BD%BF%E7%94%A8-lowercamelcase-%E9%A3%8E%E6%A0%BC%E6%9D%A5%E5%91%BD%E5%90%8D%E5%85%B6%E4%BB%96%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6'><strong>要</strong> 使用 <code>lowerCamelCase</code> 风格来命名其他的标识符。</a>
+* <a href='/guides/language/effective-dart/style#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-lowercamelcase-%E6%9D%A5%E5%91%BD%E5%90%8D%E5%B8%B8%E9%87%8F'><strong>推荐</strong> 使用 <code>lowerCamelCase</code> 来命名常量。</a>
+* <a href='/guides/language/effective-dart/style#%E8%A6%81-%E6%8A%8A%E8%B6%85%E8%BF%87%E4%B8%A4%E4%B8%AA%E5%AD%97%E6%AF%8D%E7%9A%84%E9%A6%96%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%86%99%E7%BC%A9%E7%95%A5%E8%AF%8D%E5%92%8C%E7%BC%A9%E5%86%99%E8%AF%8D%E5%BD%93%E5%81%9A%E4%B8%80%E8%88%AC%E5%8D%95%E8%AF%8D%E6%9D%A5%E5%AF%B9%E5%BE%85'><strong>要</strong> 把超过两个字母的首字母大写缩略词和缩写词当做一般单词来对待。</a>
+* <a href='/guides/language/effective-dart/style#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%89%8D%E7%BC%80%E5%AD%97%E6%AF%8D'><strong>不要</strong> 使用前缀字母</a>
 
-**Ordering**
+**顺序**
 
-* <a href='/guides/language/effective-dart/style#do-place-dart-imports-before-other-imports'>DO place "dart:" imports before other imports.</a>
-* <a href='/guides/language/effective-dart/style#do-place-package-imports-before-relative-imports'>DO place "package:" imports before relative imports.</a>
-* <a href='/guides/language/effective-dart/style#prefer-placing-third-party-package-imports-before-other-imports'>PREFER placing "third-party" "package:" imports before other imports.</a>
-* <a href='/guides/language/effective-dart/style#do-specify-exports-in-a-separate-section-after-all-imports'>DO specify exports in a separate section after all imports.</a>
-* <a href='/guides/language/effective-dart/style#do-sort-sections-alphabetically'>DO sort sections alphabetically.</a>
+* <a href='/guides/language/effective-dart/style#%E8%A6%81-%E6%8A%8A-dart-%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E6%94%BE%E5%88%B0%E5%85%B6%E4%BB%96%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E4%B9%8B%E5%89%8D'><strong>要</strong> 把 "dart:" 导入语句放到其他导入语句之前。</a>
+* <a href='/guides/language/effective-dart/style#%E8%A6%81-%E6%8A%8A-package-%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E6%94%BE%E5%88%B0%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E4%B9%8B%E5%89%8D'><strong>要</strong> 把 "package:" 导入语句放到项目相关导入语句之前。</a>
+* <a href='/guides/language/effective-dart/style#%E6%8E%A8%E8%8D%90-%E6%8A%8A%E7%AC%AC%E4%B8%89%E6%96%B9-package-%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E6%94%BE%E5%88%B0%E5%85%B6%E4%BB%96%E8%AF%AD%E5%8F%A5%E4%B9%8B%E5%89%8D'><strong>推荐</strong> 把"第三方" "package:" 导入语句放到其他语句之前。</a>
+* <a href='/guides/language/effective-dart/style#%E8%A6%81-%E6%8A%8A%E5%AF%BC%E5%87%BAexport%E8%AF%AD%E5%8F%A5%E4%BD%9C%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%8D%95%E7%8B%AC%E7%9A%84%E9%83%A8%E5%88%86%E6%94%BE%E5%88%B0%E6%89%80%E6%9C%89%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E4%B9%8B%E5%90%8E'><strong>要</strong> 把导出（export）语句作为一个单独的部分放到所有导入语句之后。</a>
+* <a href='/guides/language/effective-dart/style#%E8%A6%81-%E6%8C%89%E7%85%A7%E5%AD%97%E6%AF%8D%E9%A1%BA%E5%BA%8F%E6%9D%A5%E6%8E%92%E5%BA%8F%E6%AF%8F%E4%B8%AA%E9%83%A8%E5%88%86%E4%B8%AD%E7%9A%84%E8%AF%AD%E5%8F%A5'><strong>要</strong> 按照字母顺序来排序每个部分中的语句。</a>
 
-**Formatting**
+**格式化**
 
-* <a href='/guides/language/effective-dart/style#do-format-your-code-using-dartfmt'>DO format your code using <code>dartfmt</code>.</a>
-* <a href='/guides/language/effective-dart/style#consider-changing-your-code-to-make-it-more-formatter-friendly'>CONSIDER changing your code to make it more formatter-friendly.</a>
-* <a href='/guides/language/effective-dart/style#avoid-lines-longer-than-80-characters'>AVOID lines longer than 80 characters.</a>
-* <a href='/guides/language/effective-dart/style#do-use-curly-braces-for-all-flow-control-structures'>DO use curly braces for all flow control structures.</a>
+* <a href='/guides/language/effective-dart/style#%E8%A6%81-%E4%BD%BF%E7%94%A8-dartfmt-%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BD%A0%E7%9A%84%E4%BB%A3%E7%A0%81'><strong>要</strong> 使用 <code>dartfmt</code> 格式化你的代码。</a>
+* <a href='/guides/language/effective-dart/style#%E8%80%83%E8%99%91-changing-your-code-to-make-it-more-formatter-friendly'><strong>考虑</strong> changing your code to make it more formatter-friendly.</a>
+* <a href='/guides/language/effective-dart/style#%E9%81%BF%E5%85%8D-%E5%8D%95%E8%A1%8C%E8%B6%85%E8%BF%87-80-%E4%B8%AA%E5%AD%97%E7%AC%A6'><strong>避免</strong> 单行超过 80 个字符。</a>
+* <a href='/guides/language/effective-dart/style#%E8%A6%81-%E5%AF%B9%E6%89%80%E6%9C%89%E6%B5%81%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84%E4%BD%BF%E7%94%A8%E8%8A%B1%E6%8B%AC%E5%8F%B7'><strong>要</strong> 对所有流控制结构使用花括号。</a>
 
 </div>
 <div class='effective_dart--summary_column' markdown='1'>
