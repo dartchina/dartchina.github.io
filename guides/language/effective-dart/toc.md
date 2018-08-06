@@ -44,39 +44,39 @@
 ### Documentation
 
 
-**Comments**
+**注释**
 
-* <a href='/guides/language/effective-dart/documentation#do-format-comments-like-sentences'>DO format comments like sentences.</a>
-* <a href='/guides/language/effective-dart/documentation#dont-use-block-comments-for-documentation'>DON'T use block comments for documentation.</a>
+* <a href='/guides/language/effective-dart/documentation#%E8%A6%81-%E5%83%8F%E5%8F%A5%E5%AD%90%E4%B8%80%E6%A0%B7%E6%9D%A5%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%B3%A8%E9%87%8A'><strong>要</strong> 像句子一样来格式化注释。</a>
+* <a href='/guides/language/effective-dart/documentation#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%9D%97%E6%B3%A8%E9%87%8A%E4%BD%9C%E7%94%A8%E4%BD%9C%E8%A7%A3%E9%87%8A%E8%AF%B4%E6%98%8E'><strong>不要</strong> 使用块注释作用作解释说明。</a>
 
-**Doc comments**
+**文档注释**
 
-* <a href='/guides/language/effective-dart/documentation#do-use--doc-comments-to-document-members-and-types'>DO use <code>///</code> doc comments to document members and types.</a>
-* <a href='/guides/language/effective-dart/documentation#prefer-writing-doc-comments-for-public-apis'>PREFER writing doc comments for public APIs.</a>
-* <a href='/guides/language/effective-dart/documentation#consider-writing-a-library-level-doc-comment'>CONSIDER writing a library-level doc comment.</a>
-* <a href='/guides/language/effective-dart/documentation#consider-writing-doc-comments-for-private-apis'>CONSIDER writing doc comments for private APIs.</a>
-* <a href='/guides/language/effective-dart/documentation#do-start-doc-comments-with-a-single-sentence-summary'>DO start doc comments with a single-sentence summary.</a>
-* <a href='/guides/language/effective-dart/documentation#do-separate-the-first-sentence-of-a-doc-comment-into-its-own-paragraph'>DO separate the first sentence of a doc comment into its own paragraph.</a>
-* <a href='/guides/language/effective-dart/documentation#avoid-redundancy-with-the-surrounding-context'>AVOID redundancy with the surrounding context.</a>
-* <a href='/guides/language/effective-dart/documentation#prefer-starting-function-or-method-comments-with-third-person-verbs'>PREFER starting function or method comments with third-person verbs.</a>
-* <a href='/guides/language/effective-dart/documentation#prefer-starting-variable-getter-or-setter-comments-with-noun-phrases'>PREFER starting variable, getter, or setter comments with noun phrases.</a>
-* <a href='/guides/language/effective-dart/documentation#prefer-starting-library-or-type-comments-with-noun-phrases'>PREFER starting library or type comments with noun phrases.</a>
-* <a href='/guides/language/effective-dart/documentation#consider-including-code-samples-in-doc-comments'>CONSIDER including code samples in doc comments.</a>
-* <a href='/guides/language/effective-dart/documentation#do-use-square-brackets-in-doc-comments-to-refer-to-in-scope-identifiers'>DO use square brackets in doc comments to refer to in-scope identifiers.</a>
-* <a href='/guides/language/effective-dart/documentation#do-use-prose-to-explain-parameters-return-values-and-exceptions'>DO use prose to explain parameters, return values, and exceptions.</a>
-* <a href='/guides/language/effective-dart/documentation#do-put-doc-comments-before-metadata-annotations'>DO put doc comments before metadata annotations.</a>
+* <a href='/guides/language/effective-dart/documentation#%E8%A6%81-%E4%BD%BF%E7%94%A8--%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E6%9D%A5%E6%B3%A8%E9%87%8A%E6%88%90%E5%91%98%E5%92%8C%E7%B1%BB%E5%9E%8B'><strong>要</strong> 使用 <code>///</code> 文档注释来注释成员和类型。</a>
+* <a href='/guides/language/effective-dart/documentation#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E5%85%AC%E5%BC%80%E5%8F%91%E5%B8%83%E7%9A%84-api-%E7%BC%96%E5%86%99%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A'><strong>推荐</strong> 为公开发布的 API 编写文档注释。</a>
+* <a href='/guides/language/effective-dart/documentation#%E8%80%83%E8%99%91-%E7%BC%96%E5%86%99%E5%BA%93%E7%BA%A7%E5%88%ABlibrary-level%E7%9A%84%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A'><strong>考虑</strong> 编写库级别（library-level）的文档注释。</a>
+* <a href='/guides/language/effective-dart/documentation#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%A7%81%E6%9C%89api-%E7%BC%96%E5%86%99%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A'><strong>推荐</strong> 为私有API 编写文档注释。</a>
+* <a href='/guides/language/effective-dart/documentation#%E8%A6%81-%E8%A6%81%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E5%BC%80%E5%A4%B4%E6%9C%89%E4%B8%80%E4%B8%AA%E5%8D%95%E5%8F%A5%E6%80%BB%E7%BB%93'><strong>要</strong> 要在文档注释开头有一个单句总结。</a>
+* <a href='/guides/language/effective-dart/documentation#%E8%A6%81-%E8%AE%A9%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E5%8F%A5%E4%BB%8E%E6%AE%B5%E8%90%BD%E4%B8%AD%E5%88%86%E5%BC%80'><strong>要</strong> 让文档注释的第一句从段落中分开。</a>
+* <a href='/guides/language/effective-dart/documentation#%E9%81%BF%E5%85%8D-%E4%B8%8E%E5%91%A8%E5%9B%B4%E4%B8%8A%E4%B8%8B%E6%96%87%E5%86%97%E4%BD%99'><strong>避免</strong> 与周围上下文冗余。</a>
+* <a href='/guides/language/effective-dart/documentation#%E6%8E%A8%E8%8D%90-%E7%94%A8%E7%AC%AC%E4%B8%89%E4%BA%BA%E7%A7%B0%E6%9D%A5%E5%BC%80%E5%A7%8B%E5%87%BD%E6%95%B0%E6%88%96%E8%80%85%E6%96%B9%E6%B3%95%E7%9A%84%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A'><strong>推荐</strong> 用第三人称来开始函数或者方法的文档注释。</a>
+* <a href='/guides/language/effective-dart/documentation#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E5%90%8D%E8%AF%8D%E7%9F%AD%E8%AF%AD%E6%9D%A5%E5%BC%80%E5%A7%8B%E5%8F%98%E9%87%8Fgettersetter-%E7%9A%84%E6%B3%A8%E9%87%8A'><strong>推荐</strong> 使用名词短语来开始变量、getter、setter 的注释。</a>
+* <a href='/guides/language/effective-dart/documentation#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E5%90%8D%E8%AF%8D%E7%9F%AD%E8%AF%AD%E6%9D%A5%E5%BC%80%E5%A7%8B%E5%BA%93%E5%92%8C%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A'><strong>推荐</strong> 使用名词短语来开始库和类型注释。</a>
+* <a href='/guides/language/effective-dart/documentation#%E8%80%83%E8%99%91-%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81'><strong>考虑</strong> 在文档注释中添加示例代码。</a>
+* <a href='/guides/language/effective-dart/documentation#%E8%A6%81-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%8B%AC%E5%8F%B7%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E4%B8%AD%E5%BC%95%E7%94%A8%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%86%85%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6'><strong>要</strong> 使用方括号在文档注释中引用作用域内的标识符。</a>
+* <a href='/guides/language/effective-dart/documentation#%E8%A6%81-%E4%BD%BF%E7%94%A8%E6%95%A3%E6%96%87%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9D%A5%E6%8F%8F%E8%BF%B0%E5%8F%82%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC%E4%BB%A5%E5%8F%8A%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF'><strong>要</strong> 使用散文的方式来描述参数、返回值以及异常信息。</a>
+* <a href='/guides/language/effective-dart/documentation#%E8%A6%81-%E6%8A%8A%E6%B3%A8%E9%87%8A%E6%96%87%E6%A1%A3%E6%94%BE%E5%88%B0%E6%B3%A8%E8%A7%A3%E4%B9%8B%E5%89%8D'><strong>要</strong> 把注释文档放到注解之前。</a>
 
 **Markdown**
 
-* <a href='/guides/language/effective-dart/documentation#avoid-using-markdown-excessively'>AVOID using markdown excessively.</a>
-* <a href='/guides/language/effective-dart/documentation#avoid-using-html-for-formatting'>AVOID using HTML for formatting.</a>
-* <a href='/guides/language/effective-dart/documentation#prefer-backtick-fences-for-code-blocks'>PREFER backtick fences for code blocks.</a>
+* <a href='/guides/language/effective-dart/documentation#%E9%81%BF%E5%85%8D-%E8%BF%87%E5%BA%A6%E4%BD%BF%E7%94%A8-markdown'><strong>避免</strong> 过度使用 markdown。</a>
+* <a href='/guides/language/effective-dart/documentation#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8-html-%E6%9D%A5%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%96%87%E5%AD%97'><strong>避免</strong> 使用 HTML 来格式化文字。</a>
+* <a href='/guides/language/effective-dart/documentation#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E5%8F%8D%E5%BC%95%E5%8F%B7%E6%A0%87%E6%B3%A8%E4%BB%A3%E7%A0%81'><strong>推荐</strong> 使用反引号标注代码。</a>
 
-**Writing**
+**如何写注释**
 
-* <a href='/guides/language/effective-dart/documentation#prefer-brevity'>PREFER brevity.</a>
-* <a href='/guides/language/effective-dart/documentation#avoid-abbreviations-and-acronyms-unless-they-are-obvious'>AVOID abbreviations and acronyms unless they are obvious.</a>
-* <a href='/guides/language/effective-dart/documentation#prefer-using-this-instead-of-the-to-refer-to-a-members-instance'>PREFER using "this" instead of "the" to refer to a member's instance.</a>
+* <a href='/guides/language/effective-dart/documentation#%E6%8E%A8%E8%8D%90-%E7%AE%80%E6%B4%81'><strong>推荐</strong> 简洁.</a>
+* <a href='/guides/language/effective-dart/documentation#%E9%81%BF%E5%85%8D-%E7%BC%A9%E5%86%99%E5%92%8C%E9%A6%96%E5%AD%97%E6%AF%8D%E7%BC%A9%E5%86%99%E8%AF%8D%E9%99%A4%E9%9D%9E%E5%BE%88%E5%B8%B8%E8%A7%81'><strong>避免</strong> 缩写和首字母缩写词，除非很常见。</a>
+* <a href='/guides/language/effective-dart/documentation#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-this-%E8%80%8C%E4%B8%8D%E6%98%AF-the-%E6%9D%A5%E5%BC%95%E7%94%A8%E5%AE%9E%E4%BE%8B%E6%88%90%E5%91%98'><strong>推荐</strong> 使用 "this" 而不是 "the" 来引用实例成员。</a>
 
 </div>
 <div style='clear:both'></div>
@@ -88,21 +88,39 @@
 
 **Libraries**
 
+
+**库**
+
 * <a href='/guides/language/effective-dart/usage#do-use-strings-in-part-of-directives'>DO use strings in <code>part of</code> directives.</a>
+* <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E5%9C%A8-part-of-%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2'><strong>要</strong> 在 <code>part of</code> 中使用字符串。</a>
 * <a href='/guides/language/effective-dart/usage#dont-import-libraries-that-are-inside-the-src-directory-of-another-package'>DON'T import libraries that are inside the <code>src</code> directory of another package.</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E5%AF%BC%E5%85%A5-package-%E4%B8%AD-src-%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%BA%93'><strong>不要</strong> 导入 package 中 <code>src</code> 目录下的库。</a>
 * <a href='/guides/language/effective-dart/usage#prefer-relative-paths-when-importing-libraries-within-your-own-packages-lib-directory'>PREFER relative paths when importing libraries within your own package's <code>lib</code> directory.</a>
+* <a href='/guides/language/effective-dart/usage#%E5%BB%BA%E8%AE%AE-%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%9C%A8%E5%AF%BC%E5%85%A5%E4%BD%A0%E8%87%AA%E5%B7%B1-package-%E4%B8%AD%E7%9A%84-lib-%E7%9B%AE%E5%BD%95'><strong>建议</strong> 使用相对路径在导入你自己 package 中的 <code>lib</code> 目录。</a>
 
 **Strings**
 
+
+**字符串**
+
 * <a href='/guides/language/effective-dart/usage#do-use-adjacent-strings-to-concatenate-string-literals'>DO use adjacent strings to concatenate string literals.</a>
+* <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E4%BD%BF%E7%94%A8%E4%B8%B4%E8%BF%91%E5%AD%97%E7%AC%A6%E5%AD%97%E7%9A%84%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5%E5%AD%97%E9%9D%A2%E9%87%8F%E5%AD%97%E7%AC%A6%E4%B8%B2'><strong>要</strong> 使用临近字符字的方式连接字面量字符串。</a>
 * <a href='/guides/language/effective-dart/usage#prefer-using-interpolation-to-compose-strings-and-values'>PREFER using interpolation to compose strings and values.</a>
+* <a href='/guides/language/effective-dart/usage#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E6%8F%92%E5%80%BC%E7%9A%84%E5%BD%A2%E5%BC%8F%E6%9D%A5%E7%BB%84%E5%90%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%80%BC'><strong>推荐</strong> 使用插值的形式来组合字符串和值。</a>
 * <a href='/guides/language/effective-dart/usage#avoid-using-curly-braces-in-interpolation-when-not-needed'>AVOID using curly braces in interpolation when not needed.</a>
+* <a href='/guides/language/effective-dart/usage#%E9%81%BF%E5%85%8D-%E5%9C%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8F%92%E5%80%BC%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%A4%A7%E6%8B%AC%E5%8F%B7'><strong>避免</strong> 在字符串插值中使用不必要的大括号。</a>
 
 **Collections**
 
+
+**集合**
+
 * <a href='/guides/language/effective-dart/usage#do-use-collection-literals-when-possible'>DO use collection literals when possible.</a>
+* <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88%E5%AD%97%E9%9D%A2%E9%87%8F'><strong>要</strong> 尽可能的使用集合字面量。</a>
 * <a href='/guides/language/effective-dart/usage#dont-use-length-to-see-if-a-collection-is-empty'>DON'T use <code>.length</code> to see if a collection is empty.</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-length-%E6%9D%A5%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E9%9B%86%E5%90%88%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA'><strong>不要</strong> 使用 <code>.length</code> 来判断一个集合是否为空。</a>
 * <a href='/guides/language/effective-dart/usage#consider-using-higher-order-methods-to-transform-a-sequence'>CONSIDER using higher-order methods to transform a sequence.</a>
+* <a href='/guides/language/effective-dart/usage#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6higher-order%E5%87%BD%E6%95%B0%E6%9D%A5%E8%BD%AC%E6%8D%A2%E9%9B%86%E5%90%88%E6%95%B0%E6%8D%AE'><strong>考虑</strong> 使用高阶（higher-order）函数来转换集合数据。</a>
 * <a href='/guides/language/effective-dart/usage#avoid-using-iterableforeach-with-a-function-literal'>AVOID using <code>Iterable.forEach()</code> with a function literal.</a>
 * <a href='/guides/language/effective-dart/usage#dont-use-listfrom-unless-you-intend-to-change-the-type-of-the-result'>DON'T use <code>List.from()</code> unless you intend to change the type of the result.</a>
 * <a href='/guides/language/effective-dart/usage#do-use-wheretype-to-filter-a-collection-by-type'>DO use <code>whereType()</code> to filter a collection by type.</a>

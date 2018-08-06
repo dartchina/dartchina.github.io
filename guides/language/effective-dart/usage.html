@@ -174,25 +174,25 @@ ga('send', 'pageview');
       <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
     </h4>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#libraries">Libraries</a>
+<li class="toc-entry toc-h2"><a href="#库">库</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#do-use-strings-in-part-of-directives">DO use strings in part of directives.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-import-libraries-that-are-inside-the-src-directory-of-another-package">DON’T import libraries that are inside the src directory of another package.</a></li>
-<li class="toc-entry toc-h3"><a href="#prefer-relative-paths-when-importing-libraries-within-your-own-packages-lib-directory">PREFER relative paths when importing libraries within your own package’s lib directory.</a></li>
+<li class="toc-entry toc-h3"><a href="#要-在-part-of-中使用字符串">要 在 part of 中使用字符串。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-导入-package-中-src-目录下的库">不要 导入 package 中 src 目录下的库。</a></li>
+<li class="toc-entry toc-h3"><a href="#建议-使用相对路径在导入你自己-package-中的-lib-目录">建议 使用相对路径在导入你自己 package 中的 lib 目录。</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#strings">Strings</a>
+<li class="toc-entry toc-h2"><a href="#字符串">字符串</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#do-use-adjacent-strings-to-concatenate-string-literals">DO use adjacent strings to concatenate string literals.</a></li>
-<li class="toc-entry toc-h3"><a href="#prefer-using-interpolation-to-compose-strings-and-values">PREFER using interpolation to compose strings and values.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-using-curly-braces-in-interpolation-when-not-needed">AVOID using curly braces in interpolation when not needed.</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用临近字符字的方式连接字面量字符串">要 使用临近字符字的方式连接字面量字符串。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-使用插值的形式来组合字符串和值">推荐 使用插值的形式来组合字符串和值。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-在字符串插值中使用不必要的大括号">避免 在字符串插值中使用不必要的大括号。</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#collections">Collections</a>
+<li class="toc-entry toc-h2"><a href="#集合">集合</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#do-use-collection-literals-when-possible">DO use collection literals when possible.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-use-length-to-see-if-a-collection-is-empty">DON’T use .length to see if a collection is empty.</a></li>
-<li class="toc-entry toc-h3"><a href="#consider-using-higher-order-methods-to-transform-a-sequence">CONSIDER using higher-order methods to transform a sequence.</a></li>
+<li class="toc-entry toc-h3"><a href="#要-尽可能的使用集合字面量">要 尽可能的使用集合字面量。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用-length-来判断一个集合是否为空">不要 使用 .length 来判断一个集合是否为空。</a></li>
+<li class="toc-entry toc-h3"><a href="#考虑-使用高阶higher-order函数来转换集合数据">考虑 使用高阶（higher-order）函数来转换集合数据。</a></li>
 <li class="toc-entry toc-h3"><a href="#avoid-using-iterableforeach-with-a-function-literal">AVOID using Iterable.forEach() with a function literal.</a></li>
 <li class="toc-entry toc-h3"><a href="#dont-use-listfrom-unless-you-intend-to-change-the-type-of-the-result">DON’T use List.from() unless you intend to change the type of the result.</a></li>
 <li class="toc-entry toc-h3"><a href="#do-use-wheretype-to-filter-a-collection-by-type">DO use whereType() to filter a collection by type.</a></li>
@@ -323,31 +323,31 @@ ga('send', 'pageview');
   </p>
 </div>
 
-<p>This is the most “blue-collar” guide in Effective Dart. You’ll apply the
-guidelines here every day in the bodies of your Dart code. <em>Users</em> of your
-library may not be able to tell that you’ve internalized the ideas here, but
-<em>maintainers</em> of it sure will.</p>
+<p>该指南在 Effective Dart 中是最为基础的部分。
+每天在你写的 Dart 代码中都会应用到这些准则。
+库的<em>使用者</em>可能不需要知道你在其中的一些想法，
+但是<em>维护者</em>肯定是需要的。</p>
 
 <ul id="markdown-toc">
   <li>
-<a href="#libraries" id="markdown-toc-libraries">Libraries</a>    <ul>
-      <li><a href="#do-use-strings-in-part-of-directives" id="markdown-toc-do-use-strings-in-part-of-directives">DO use strings in <code class="highlighter-rouge">part of</code> directives.</a></li>
-      <li><a href="#dont-import-libraries-that-are-inside-the-src-directory-of-another-package" id="markdown-toc-dont-import-libraries-that-are-inside-the-src-directory-of-another-package">DON’T import libraries that are inside the <code class="highlighter-rouge">src</code> directory of another package.</a></li>
-      <li><a href="#prefer-relative-paths-when-importing-libraries-within-your-own-packages-lib-directory" id="markdown-toc-prefer-relative-paths-when-importing-libraries-within-your-own-packages-lib-directory">PREFER relative paths when importing libraries within your own package’s <code class="highlighter-rouge">lib</code> directory.</a></li>
+<a href="#%E5%BA%93" id="markdown-toc-库">库</a>    <ul>
+      <li><a href="#%E8%A6%81-%E5%9C%A8-part-of-%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2" id="markdown-toc-要-在-part-of-中使用字符串"><strong>要</strong> 在 <code class="highlighter-rouge">part of</code> 中使用字符串。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E5%AF%BC%E5%85%A5-package-%E4%B8%AD-src-%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%BA%93" id="markdown-toc-不要-导入-package-中-src-目录下的库"><strong>不要</strong> 导入 package 中 <code class="highlighter-rouge">src</code> 目录下的库。</a></li>
+      <li><a href="#%E5%BB%BA%E8%AE%AE-%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%9C%A8%E5%AF%BC%E5%85%A5%E4%BD%A0%E8%87%AA%E5%B7%B1-package-%E4%B8%AD%E7%9A%84-lib-%E7%9B%AE%E5%BD%95" id="markdown-toc-建议-使用相对路径在导入你自己-package-中的-lib-目录"><strong>建议</strong> 使用相对路径在导入你自己 package 中的 <code class="highlighter-rouge">lib</code> 目录。</a></li>
     </ul>
   </li>
   <li>
-<a href="#strings" id="markdown-toc-strings">Strings</a>    <ul>
-      <li><a href="#do-use-adjacent-strings-to-concatenate-string-literals" id="markdown-toc-do-use-adjacent-strings-to-concatenate-string-literals">DO use adjacent strings to concatenate string literals.</a></li>
-      <li><a href="#prefer-using-interpolation-to-compose-strings-and-values" id="markdown-toc-prefer-using-interpolation-to-compose-strings-and-values">PREFER using interpolation to compose strings and values.</a></li>
-      <li><a href="#avoid-using-curly-braces-in-interpolation-when-not-needed" id="markdown-toc-avoid-using-curly-braces-in-interpolation-when-not-needed">AVOID using curly braces in interpolation when not needed.</a></li>
+<a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2" id="markdown-toc-字符串">字符串</a>    <ul>
+      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E4%B8%B4%E8%BF%91%E5%AD%97%E7%AC%A6%E5%AD%97%E7%9A%84%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5%E5%AD%97%E9%9D%A2%E9%87%8F%E5%AD%97%E7%AC%A6%E4%B8%B2" id="markdown-toc-要-使用临近字符字的方式连接字面量字符串"><strong>要</strong> 使用临近字符字的方式连接字面量字符串。</a></li>
+      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E6%8F%92%E5%80%BC%E7%9A%84%E5%BD%A2%E5%BC%8F%E6%9D%A5%E7%BB%84%E5%90%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%80%BC" id="markdown-toc-推荐-使用插值的形式来组合字符串和值"><strong>推荐</strong> 使用插值的形式来组合字符串和值。</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8F%92%E5%80%BC%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%A4%A7%E6%8B%AC%E5%8F%B7" id="markdown-toc-避免-在字符串插值中使用不必要的大括号"><strong>避免</strong> 在字符串插值中使用不必要的大括号。</a></li>
     </ul>
   </li>
   <li>
-<a href="#collections" id="markdown-toc-collections">Collections</a>    <ul>
-      <li><a href="#do-use-collection-literals-when-possible" id="markdown-toc-do-use-collection-literals-when-possible">DO use collection literals when possible.</a></li>
-      <li><a href="#dont-use-length-to-see-if-a-collection-is-empty" id="markdown-toc-dont-use-length-to-see-if-a-collection-is-empty">DON’T use <code class="highlighter-rouge">.length</code> to see if a collection is empty.</a></li>
-      <li><a href="#consider-using-higher-order-methods-to-transform-a-sequence" id="markdown-toc-consider-using-higher-order-methods-to-transform-a-sequence">CONSIDER using higher-order methods to transform a sequence.</a></li>
+<a href="#%E9%9B%86%E5%90%88" id="markdown-toc-集合">集合</a>    <ul>
+      <li><a href="#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88%E5%AD%97%E9%9D%A2%E9%87%8F" id="markdown-toc-要-尽可能的使用集合字面量"><strong>要</strong> 尽可能的使用集合字面量。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-length-%E6%9D%A5%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E9%9B%86%E5%90%88%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA" id="markdown-toc-不要-使用-length-来判断一个集合是否为空"><strong>不要</strong> 使用 <code class="highlighter-rouge">.length</code> 来判断一个集合是否为空。</a></li>
+      <li><a href="#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6higher-order%E5%87%BD%E6%95%B0%E6%9D%A5%E8%BD%AC%E6%8D%A2%E9%9B%86%E5%90%88%E6%95%B0%E6%8D%AE" id="markdown-toc-考虑-使用高阶higher-order函数来转换集合数据"><strong>考虑</strong> 使用高阶（higher-order）函数来转换集合数据。</a></li>
       <li><a href="#avoid-using-iterableforeach-with-a-function-literal" id="markdown-toc-avoid-using-iterableforeach-with-a-function-literal">AVOID using <code class="highlighter-rouge">Iterable.forEach()</code> with a function literal.</a></li>
       <li><a href="#dont-use-listfrom-unless-you-intend-to-change-the-type-of-the-result" id="markdown-toc-dont-use-listfrom-unless-you-intend-to-change-the-type-of-the-result">DON’T use <code class="highlighter-rouge">List.from()</code> unless you intend to change the type of the result.</a></li>
       <li><a href="#do-use-wheretype-to-filter-a-collection-by-type" id="markdown-toc-do-use-wheretype-to-filter-a-collection-by-type">DO use <code class="highlighter-rouge">whereType()</code> to filter a collection by type.</a></li>
@@ -411,63 +411,57 @@ library may not be able to tell that you’ve internalized the ideas here, but
   </li>
 </ul>
 
-<h2 id="libraries">
-<a id="libraries" class="anchor" href="#libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Libraries</h2>
+<h2 id="库">
+<a id="库" class="anchor" href="#%E5%BA%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>库</h2>
 
-<p>These guidelines help you compose your program out of multiple files in a
-consistent, maintainable way. To keep these guidelines brief, they use “import”
-to cover <code class="highlighter-rouge">import</code> and <code class="highlighter-rouge">export</code> directives. The guidelines apply equally to both.</p>
+<p>这些准则可以帮助你在多个文件编写程序的情况下保证一致性和可维护性。
+为了让准则简洁，这里使用“import”来同事代表 <code class="highlighter-rouge">import</code> 和 <code class="highlighter-rouge">export</code> 。
+准则同时适用于这两者。</p>
 
-<h3 id="do-use-strings-in-part-of-directives">
-<a id="do-use-strings-in-part-of-directives" class="anchor" href="#do-use-strings-in-part-of-directives" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use strings in <code class="highlighter-rouge">part of</code> directives.</h3>
+<h3 id="要-在-part-of-中使用字符串">
+<a id="要-在-part-of-中使用字符串" class="anchor" href="#%E8%A6%81-%E5%9C%A8-part-of-%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 在 <code class="highlighter-rouge">part of</code> 中使用字符串。</h3>
 
-<p>Many Dart developers avoid using <code class="highlighter-rouge">part</code> entirely. They find it easier to reason
-about their code when each library is a single file. If you do choose to use
-<code class="highlighter-rouge">part</code> to split part of a library out into another file, Dart requires the other
-file to in turn indicate which library it’s a part of. For legacy reasons, Dart
-allows this <code class="highlighter-rouge">part of</code> directive to use the <em>name</em> of the library it’s a part of.
-That makes it harder for tools to physically find the main library file, and can
-make it ambiguous which library the part is actually part of.</p>
+<p>很多 Dart 开发者会避免直接使用 <code class="highlighter-rouge">part</code> 。他们发现当库仅有一个文件的时候很容易读懂代码。
+如果你确实要使用 <code class="highlighter-rouge">part</code> 将库的一部分拆分为另一个文件，则 Dart 要求另一个文件指示它所属库的路径。 
+由于遗留原因， Dart 允许 <code class="highlighter-rouge">part of</code> 指令使用它所属的库的<em>名称</em>。
+这使得工具很难直接查找到这个文件对应主库文件，使得库和文件之间的关系模糊不清。</p>
 
-<p>The preferred, modern syntax is to use a URI string that points directly to the
-library file, just like you use in other directives. If you have some library,
-<code class="highlighter-rouge">my_library.dart</code>, that contains:</p>
+<p>推荐的现代语法是使用 URI 字符串直接指向库文件。
+首选的现代语法是使用直接指向库文件的URI字符串，URI 的使用和其他指令中一样。
+如果你有一些库，<code class="highlighter-rouge">my_library.dart</code>，其中包含：</p>
 
 <?code-excerpt "misc/lib/effective_dart/my_library.dart"?>
 <pre class="prettyprint lang-dart">library my_library;
 
 part "some/other/file.dart";</pre>
 
-<p>Then the part file should look like:</p>
+<p>从库中拆分的文件应该如下所示：</p>
 
 <?code-excerpt "misc/lib/effective_dart/some/other/file.dart"?>
 <pre class="prettyprint lang-dart good-style">part of "../../my_library.dart";</pre>
 
-<p>And not:</p>
+<p>而不是：</p>
 
 <?code-excerpt "misc/lib/effective_dart/some/other/file_2.dart"?>
 <pre class="prettyprint lang-dart bad-style">part of my_library;</pre>
 
-<h3 id="dont-import-libraries-that-are-inside-the-src-directory-of-another-package">
-<a id="dont-import-libraries-that-are-inside-the-src-directory-of-another-package" class="anchor" href="#dont-import-libraries-that-are-inside-the-src-directory-of-another-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T import libraries that are inside the <code class="highlighter-rouge">src</code> directory of another package.</h3>
+<h3 id="不要-导入-package-中-src-目录下的库">
+<a id="不要-导入-package-中-src-目录下的库" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E5%AF%BC%E5%85%A5-package-%E4%B8%AD-src-%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%BA%93" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 导入 package 中 <code class="highlighter-rouge">src</code> 目录下的库。</h3>
 
-<p>The <code class="highlighter-rouge">src</code> directory under <code class="highlighter-rouge">lib</code> <a href="https://www.dartlang.org/tools/pub/package-layout">is specified</a> to contain
-libraries private to the package’s own implementation. The way package
-maintainers version their package takes this convention into account. They are
-free to make sweeping changes to code under <code class="highlighter-rouge">src</code> without it being a breaking
-change to the package.</p>
+<p><code class="highlighter-rouge">lib</code> 下的 <code class="highlighter-rouge">src</code> 目录<a href="https://www.dartlang.org/tools/pub/package-layout">被指定</a>为 package 自己实现的私有库。
+基于包维护者对版本的考虑，package 使用了这种约定。
+在不破坏 package 的情况下，维护者可以自由地对 <code class="highlighter-rouge">src</code> 目录下的代码进行修改。</p>
 
-<p>That means that if you import some other package’s private library, a minor,
-theoretically non-breaking point release of that package could break your code.</p>
+<p>这意味着，你如果导入了其中的私有库，
+按理论来讲，一个不破坏 package 的次版本就会影响到你的代码。</p>
 
-<h3 id="prefer-relative-paths-when-importing-libraries-within-your-own-packages-lib-directory">
-<a id="prefer-relative-paths-when-importing-libraries-within-your-own-packages-lib-directory" class="anchor" href="#prefer-relative-paths-when-importing-libraries-within-your-own-packages-lib-directory" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER relative paths when importing libraries within your own package’s <code class="highlighter-rouge">lib</code> directory.</h3>
+<h3 id="建议-使用相对路径在导入你自己-package-中的-lib-目录">
+<a id="建议-使用相对路径在导入你自己-package-中的-lib-目录" class="anchor" href="#%E5%BB%BA%E8%AE%AE-%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%9C%A8%E5%AF%BC%E5%85%A5%E4%BD%A0%E8%87%AA%E5%B7%B1-package-%E4%B8%AD%E7%9A%84-lib-%E7%9B%AE%E5%BD%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>建议</strong> 使用相对路径在导入你自己 package 中的 <code class="highlighter-rouge">lib</code> 目录。</h3>
 
-<p>When referencing a library inside your package’s <code class="highlighter-rouge">lib</code> directory from another
-library in that same package, either a relative URI or an explicit <code class="highlighter-rouge">package:</code>
-will work.</p>
+<p>在同一个 package 下其中一个库引用另一个 <code class="highlighter-rouge">lib</code> 目录下的库时，
+应该使用相对的 URI 或者直接使用 <code class="highlighter-rouge">package:</code>。</p>
 
-<p>For example, say your directory structure looks like:</p>
+<p>比如，下面是你的 package 目录结构：</p>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>my_package
 └─ lib
@@ -476,45 +470,42 @@ will work.</p>
    └─ api.dart
 </code></pre></div></div>
 
-<p>If <code class="highlighter-rouge">api.dart</code> wants to import <code class="highlighter-rouge">utils.dart</code>, it should do so using:</p>
+<p>如果 <code class="highlighter-rouge">api.dart</code> 想导入 <code class="highlighter-rouge">utils.dart</code> ，应该这样使用：</p>
 
 <pre class="prettyprint lang-dart good-style">import 'src/utils.dart';</pre>
 
-<p>And not:</p>
+<p>而不是:</p>
 
 <pre class="prettyprint lang-dart bad-style">import 'package:my_package/src/utils.dart';</pre>
 
-<p>There is no profound reason to prefer the former—it’s just shorter, and we want
-to be consistent.</p>
+<p>喜欢一种方式没有什么深奥的原因——这里仅仅是因为更精简，或者是能够保持一致。</p>
 
-<p>The “within your own package’s <code class="highlighter-rouge">lib</code> directory” part is important. Libraries
-inside <code class="highlighter-rouge">lib</code> can import other libraries inside <code class="highlighter-rouge">lib</code> (or in subdirectories of
-it). Libraries outside of <code class="highlighter-rouge">lib</code> can use relative imports to reach other
-libraries outside of <code class="highlighter-rouge">lib</code>. For example, you may have a test utility library
-under <code class="highlighter-rouge">test</code> that other libraries in <code class="highlighter-rouge">test</code> import.</p>
+<p>“让 package 的 <code class="highlighter-rouge">lib</code> 目录”独立分离非常重要。
+<code class="highlighter-rouge">lib</code> 中的库可以导入 <code class="highlighter-rouge">lib</code>（或其子目录）中的其他库。
+<code class="highlighter-rouge">lib</code> 之外的库可以使用相对导入的方式来访问<code class="highlighter-rouge">lib</code>之外的其他库。
+例如，<code class="highlighter-rouge">test</code> 下可能有一个测试实用程序库被其它在 <code class="highlighter-rouge">test</code> 下的库导入。</p>
 
-<p>But you can’t “cross the streams”. A library outside of <code class="highlighter-rouge">lib</code> should never use a
-relative import to reach a library under <code class="highlighter-rouge">lib</code>, or vice versa. Doing so will
-break Dart’s ability to correctly tell if two library URIs refer to the same
-library. Follow these two rules:</p>
+<p>但不能跨越导入。一个在 <code class="highlighter-rouge">lib</code> 外部的库应该永远不会引用一个在 <code class="highlighter-rouge">lib</code> 内部的库，反之亦然。
+这样做，会破坏 Dart 正确判断两个库的 URL 是否引用了同一个库的能力。
+遵循以下两条规则：</p>
 
 <ul>
-  <li>An import path should never contain <code class="highlighter-rouge">/lib/</code>.</li>
-  <li>A library under <code class="highlighter-rouge">lib</code> should never use <code class="highlighter-rouge">../</code> to escape the <code class="highlighter-rouge">lib</code> directory.</li>
+  <li>导入路径不应包含 <code class="highlighter-rouge">/lib/</code> 。</li>
+  <li>
+<code class="highlighter-rouge">lib</code> 下的库永远不应该使用 <code class="highlighter-rouge">../</code> 来跨越 <code class="highlighter-rouge">lib</code> 目录。</li>
 </ul>
 
-<h2 id="strings">
-<a id="strings" class="anchor" href="#strings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Strings</h2>
+<h2 id="字符串">
+<a id="字符串" class="anchor" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>字符串</h2>
 
-<p>Here are some best practices to keep in mind when composing strings in Dart.</p>
+<p>下面是一些需要记住的，关于在 Dart 中使用字符串的最佳实践。</p>
 
-<h3 id="do-use-adjacent-strings-to-concatenate-string-literals">
-<a id="do-use-adjacent-strings-to-concatenate-string-literals" class="anchor" href="#do-use-adjacent-strings-to-concatenate-string-literals" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use adjacent strings to concatenate string literals.</h3>
+<h3 id="要-使用临近字符字的方式连接字面量字符串">
+<a id="要-使用临近字符字的方式连接字面量字符串" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E4%B8%B4%E8%BF%91%E5%AD%97%E7%AC%A6%E5%AD%97%E7%9A%84%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5%E5%AD%97%E9%9D%A2%E9%87%8F%E5%AD%97%E7%AC%A6%E4%B8%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用临近字符字的方式连接字面量字符串。</h3>
 
-<p>If you have two string literals—not values, but the actual quoted literal
-form—you do not need to use <code class="highlighter-rouge">+</code> to concatenate them. Just like in C and
-C++, simply placing them next to each other does it. This is a good way to make
-a single long string that doesn’t fit on one line.</p>
+<p>如果你有两个字面量字符串（不是变量，是放在引号中的字符串），你不需要使用 <code class="highlighter-rouge">+</code> 来连接它们。
+应该想 C 和 C++ 一样，只需要将它们挨着在一起就可以了。
+这种方式非常适合不能放到一行的长字符串的创建。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (adjacent-strings-literals)"?>
 <pre class="prettyprint lang-dart good-style">raiseAlarm(
@@ -525,12 +516,11 @@ a single long string that doesn’t fit on one line.</p>
 <pre class="prettyprint lang-dart bad-style">raiseAlarm('ERROR: Parts of the spaceship are on fire. Other ' +
     'parts are overrun by martians. Unclear which are which.');</pre>
 
-<h3 id="prefer-using-interpolation-to-compose-strings-and-values">
-<a id="prefer-using-interpolation-to-compose-strings-and-values" class="anchor" href="#prefer-using-interpolation-to-compose-strings-and-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER using interpolation to compose strings and values.</h3>
+<h3 id="推荐-使用插值的形式来组合字符串和值">
+<a id="推荐-使用插值的形式来组合字符串和值" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E6%8F%92%E5%80%BC%E7%9A%84%E5%BD%A2%E5%BC%8F%E6%9D%A5%E7%BB%84%E5%90%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用插值的形式来组合字符串和值。</h3>
 
-<p>If you’re coming from other languages, you’re used to using long chains of <code class="highlighter-rouge">+</code>
-to build a string out of literals and other values. That does work in Dart, but
-it’s almost always cleaner and shorter to use interpolation:</p>
+<p>如果你之前使用过其他语言，你一定习惯使用大量 <code class="highlighter-rouge">+</code> 将字面量字符串以及字符串变量链接构建字符串。
+这种方式在 Dart 中同样有效，但是通常情况下使用插值会更清晰简短。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (string-interpolation)"?>
 <pre class="prettyprint lang-dart good-style">'Hello, $name! You are ${year - birth} years old.';</pre>
@@ -538,11 +528,10 @@ it’s almost always cleaner and shorter to use interpolation:</p>
 <?code-excerpt "misc/lib/effective_dart/usage_bad.dart (string-interpolation)"?>
 <pre class="prettyprint lang-dart bad-style">'Hello, ' + name + '! You are ' + (year - birth).toString() + ' y...';</pre>
 
-<h3 id="avoid-using-curly-braces-in-interpolation-when-not-needed">
-<a id="avoid-using-curly-braces-in-interpolation-when-not-needed" class="anchor" href="#avoid-using-curly-braces-in-interpolation-when-not-needed" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID using curly braces in interpolation when not needed.</h3>
+<h3 id="避免-在字符串插值中使用不必要的大括号">
+<a id="避免-在字符串插值中使用不必要的大括号" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8F%92%E5%80%BC%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%A4%A7%E6%8B%AC%E5%8F%B7" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 在字符串插值中使用不必要的大括号。</h3>
 
-<p>If you’re interpolating a simple identifier not immediately followed by more
-alphanumeric text, the <code class="highlighter-rouge">{}</code> should be omitted.</p>
+<p>如果要插入是一个简单的标识符，并且后面没有紧跟随在其他字母文本，则应省略 <code class="highlighter-rouge">{}</code> 。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (string-interpolation-avoid-curly)"?>
 <pre class="prettyprint lang-dart good-style">'Hi, $name!'
@@ -553,23 +542,22 @@ alphanumeric text, the <code class="highlighter-rouge">{}</code> should be omitt
 <pre class="prettyprint lang-dart bad-style">'Hi, ${name}!'
 "Wear your wildest ${decade}'s outfit."</pre>
 
-<h2 id="collections">
-<a id="collections" class="anchor" href="#collections" aria-hidden="true"><span class="octicon octicon-link"></span></a>Collections</h2>
+<h2 id="集合">
+<a id="集合" class="anchor" href="#%E9%9B%86%E5%90%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>集合</h2>
 
-<p>Out of the box, Dart supports four collection types: lists, maps, queues, and sets.
-The following best practices apply to collections.</p>
+<p>Dart 集合中原生支持了四种类型：list， map， queue， 和 set。
+下面是应用于集合的最佳实践。</p>
 
-<h3 id="do-use-collection-literals-when-possible">
-<a id="do-use-collection-literals-when-possible" class="anchor" href="#do-use-collection-literals-when-possible" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use collection literals when possible.</h3>
+<h3 id="要-尽可能的使用集合字面量">
+<a id="要-尽可能的使用集合字面量" class="anchor" href="#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88%E5%AD%97%E9%9D%A2%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 尽可能的使用集合字面量。</h3>
 
-<p>There are two ways to make an empty growable list: <code class="highlighter-rouge">[]</code> and <code class="highlighter-rouge">List()</code>.
-Likewise, there are three ways to make an empty linked hash map: <code class="highlighter-rouge">{}</code>,
-<code class="highlighter-rouge">Map()</code>, and <code class="highlighter-rouge">LinkedHashMap()</code>.</p>
+<p>有两种方式来构造一个空的可变 list ： <code class="highlighter-rouge">[]</code> 和 <code class="highlighter-rouge">List()</code> 。
+同样，有三总方式来构造一个空的链表哈希 map：<code class="highlighter-rouge">{}</code>，
+<code class="highlighter-rouge">Map()</code>， 和 <code class="highlighter-rouge">LinkedHashMap()</code> 。</p>
 
-<p>If you want to create a non-growable list, or some other custom collection type
-then, by all means, use a constructor. Otherwise, use the nice literal syntax.
-The core library exposes those constructors to ease adoption, but idiomatic Dart
-code does not use them.</p>
+<p>如果想创建一个固定不变的 list 或者其他自定义集合类型，这种情况下你需要使用构造函数。
+否则，使用字面量语法更加优雅。
+核心库中暴露这些构造函数易于扩展，但是通常在 Dart 代码中并不使用构造函数。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (collection-literals)"?>
 <pre class="prettyprint lang-dart good-style">var points = [];
@@ -579,7 +567,7 @@ var addresses = {};</pre>
 <pre class="prettyprint lang-dart bad-style">var points = List();
 var addresses = Map();</pre>
 
-<p>You can even provide a type argument for them if that matters.</p>
+<p>如果需要的话，你甚至可以为它们提供一个类型参数。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (generic-collection-literals)"?>
 <pre class="prettyprint lang-dart good-style">var points = &lt;Point&gt;[];
@@ -589,20 +577,18 @@ var addresses = &lt;String, Address&gt;{};</pre>
 <pre class="prettyprint lang-dart bad-style">var points = List&lt;Point&gt;();
 var addresses = Map&lt;String, Address&gt;();</pre>
 
-<p>Note that this doesn’t apply to the <em>named</em> constructors for those classes.
-<code class="highlighter-rouge">List.from()</code>, <code class="highlighter-rouge">Map.fromIterable()</code>, and friends all have their uses. Likewise,
-if you’re passing a size to <code class="highlighter-rouge">List()</code> to create a non-growable one, then it
-makes sense to use that.</p>
+<p>注意，对于集合类的 <em>命名</em> 构造函数则不适用上面的规则。
+<code class="highlighter-rouge">List.from()</code>、 <code class="highlighter-rouge">Map.fromIterable()</code> 都有其使用场景。 
+如果需要一个固定长度的结合，使用 <code class="highlighter-rouge">List()</code> 来创建一个固定长度的 list 也是合理的。</p>
 
-<h3 id="dont-use-length-to-see-if-a-collection-is-empty">
-<a id="dont-use-length-to-see-if-a-collection-is-empty" class="anchor" href="#dont-use-length-to-see-if-a-collection-is-empty" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T use <code class="highlighter-rouge">.length</code> to see if a collection is empty.</h3>
+<h3 id="不要-使用-length-来判断一个集合是否为空">
+<a id="不要-使用-length-来判断一个集合是否为空" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-length-%E6%9D%A5%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E9%9B%86%E5%90%88%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用 <code class="highlighter-rouge">.length</code> 来判断一个集合是否为空。</h3>
 
-<p>The <a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a> contract does not require that a collection know its length or
-be able to provide it in constant time. Calling <code class="highlighter-rouge">.length</code> just to see if the
-collection contains <em>anything</em> can be painfully slow.</p>
+<p><a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a> 合约并不要求集合知道其长度，也没要求在遍历的时候其长度不能改变。
+通过调用 <code class="highlighter-rouge">.length</code>  来判断集合是否包含内容是非常低效的。</p>
 
-<p>Instead, there are faster and more readable getters: <code class="highlighter-rouge">.isEmpty</code> and
-<code class="highlighter-rouge">.isNotEmpty</code>. Use the one that doesn’t require you to negate the result.</p>
+<p>相反，Dart 提供了更加高效率和易用的 getter 函数：<code class="highlighter-rouge">.isEmpty</code> 和<code class="highlighter-rouge">.isNotEmpty</code>。
+使用这些函数并不需要对结果再次取非。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (dont-use-length)"?>
 <pre class="prettyprint lang-dart good-style">if (lunchBox.isEmpty) return 'so hungry...';
@@ -612,24 +598,23 @@ if (words.isNotEmpty) return words.join(' ');</pre>
 <pre class="prettyprint lang-dart bad-style">if (lunchBox.length == 0) return 'so hungry...';
 if (!words.isEmpty) return words.join(' ');</pre>
 
-<h3 id="consider-using-higher-order-methods-to-transform-a-sequence">
-<a id="consider-using-higher-order-methods-to-transform-a-sequence" class="anchor" href="#consider-using-higher-order-methods-to-transform-a-sequence" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER using higher-order methods to transform a sequence.</h3>
+<h3 id="考虑-使用高阶higher-order函数来转换集合数据">
+<a id="考虑-使用高阶higher-order函数来转换集合数据" class="anchor" href="#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6higher-order%E5%87%BD%E6%95%B0%E6%9D%A5%E8%BD%AC%E6%8D%A2%E9%9B%86%E5%90%88%E6%95%B0%E6%8D%AE" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 使用高阶（higher-order）函数来转换集合数据。</h3>
 
-<p>If you have a collection and want to produce a new modified collection from it,
-it’s often shorter and more declarative to use <code class="highlighter-rouge">.map()</code>, <code class="highlighter-rouge">.where()</code>, and the
-other handy methods on <code class="highlighter-rouge">Iterable</code>.</p>
+<p>如果你有一个集合并且想要修改里面的内容转换为另外一个集合，
+使用 <code class="highlighter-rouge">.map()</code>、 <code class="highlighter-rouge">.where()</code> 以及 <code class="highlighter-rouge">Iterable</code> 提供的其他函数会让代码更加简洁。</p>
 
-<p>Using those instead of an imperative <code class="highlighter-rouge">for</code> loop makes it clear that your intent
-is to produce a new sequence and not to produce side effects.</p>
+<p>使用这些函数替代 <code class="highlighter-rouge">for</code> 循环会让代码更加可以表述你的意图，
+生成一个新的集合系列并不具有副作用。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (use-higher-order-func)"?>
 <pre class="prettyprint lang-dart good-style">var aquaticNames = animals
     .where((animal) =&gt; animal.isAquatic)
     .map((animal) =&gt; animal.name);</pre>
 
-<p>At the same time, this can be taken too far. If you are chaining or nesting
-many higher-order methods, it may be clearer to write a chunk of imperative
-code.</p>
+<p>与此同时，这可以非常长，
+如果你串联或者嵌套调用很多高阶函数，
+则使用一些命令式代码可能会更加清晰。</p>
 
 <h3 id="avoid-using-iterableforeach-with-a-function-literal">
 <a id="avoid-using-iterableforeach-with-a-function-literal" class="anchor" href="#avoid-using-iterableforeach-with-a-function-literal" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID using <code class="highlighter-rouge">Iterable.forEach()</code> with a function literal.</h3>
@@ -1657,7 +1642,7 @@ like a bare, synchronous value.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/04 01:30 CST"
+                 title="Site built on 2018/08/06 19:16 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
