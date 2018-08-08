@@ -140,21 +140,21 @@
 * <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-new-'><strong>不要</strong> 使用 <code>new</code> 。</a>
 * <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E5%86%97%E4%BD%99%E5%9C%B0%E4%BD%BF%E7%94%A8-const-'><strong>不要</strong> 冗余地使用 <code>const</code> 。</a>
 
-**Error handling**
+**错误处理**
 
-* <a href='/guides/language/effective-dart/usage#avoid-catches-without-on-clauses'>AVOID catches without <code>on</code> clauses.</a>
-* <a href='/guides/language/effective-dart/usage#dont-discard-errors-from-catches-without-on-clauses'>DON'T discard errors from catches without <code>on</code> clauses.</a>
-* <a href='/guides/language/effective-dart/usage#do-throw-objects-that-implement-error-only-for-programmatic-errors'>DO throw objects that implement <code>Error</code> only for programmatic errors.</a>
-* <a href='/guides/language/effective-dart/usage#dont-explicitly-catch-error-or-types-that-implement-it'>DON'T explicitly catch <code>Error</code> or types that implement it.</a>
-* <a href='/guides/language/effective-dart/usage#do-use-rethrow-to-rethrow-a-caught-exception'>DO use <code>rethrow</code> to rethrow a caught exception.</a>
+* <a href='/guides/language/effective-dart/usage#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8%E6%B2%A1%E6%9C%89-on-%E8%AF%AD%E5%8F%A5%E7%9A%84-catch'><strong>避免</strong> 使用没有 <code>on</code> 语句的 catch。</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E4%B8%A2%E5%BC%83%E6%B2%A1%E6%9C%89%E4%BD%BF%E7%94%A8-on-%E8%AF%AD%E5%8F%A5%E6%8D%95%E8%8E%B7%E7%9A%84%E5%BC%82%E5%B8%B8'><strong>不要</strong> 丢弃没有使用 <code>on</code> 语句捕获的异常。</a>
+* <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E5%8F%AA%E5%9C%A8%E4%BB%A3%E8%A1%A8%E7%BC%96%E7%A8%8B%E9%94%99%E8%AF%AF%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%89%8D%E6%8A%9B%E5%87%BA%E5%AE%9E%E7%8E%B0%E4%BA%86-error-%E7%9A%84%E5%BC%82%E5%B8%B8'><strong>要</strong> 只在代表编程错误的情况下才抛出实现了 <code>Error</code> 的异常。</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E6%98%BE%E7%A4%BA%E7%9A%84%E6%8D%95%E8%8E%B7-error-%E6%88%96%E8%80%85%E5%85%B6%E5%AD%90%E7%B1%BB'><strong>不要</strong> 显示的捕获 <code>Error</code> 或者其子类。</a>
+* <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E4%BD%BF%E7%94%A8-rethrow-%E6%9D%A5%E9%87%8D%E6%96%B0%E6%8A%9B%E5%87%BA%E6%8D%95%E8%8E%B7%E7%9A%84%E5%BC%82%E5%B8%B8'><strong>要</strong> 使用 <code>rethrow</code> 来重新抛出捕获的异常。</a>
 
-**Asynchrony**
+**异步**
 
-* <a href='/guides/language/effective-dart/usage#prefer-asyncawait-over-using-raw-futures'>PREFER async/await over using raw futures.</a>
-* <a href='/guides/language/effective-dart/usage#dont-use-async-when-it-has-no-useful-effect'>DON'T use <code>async</code> when it has no useful effect.</a>
-* <a href='/guides/language/effective-dart/usage#consider-using-higher-order-methods-to-transform-a-stream'>CONSIDER using higher-order methods to transform a stream.</a>
-* <a href='/guides/language/effective-dart/usage#avoid-using-completer-directly'>AVOID using Completer directly.</a>
-* <a href='/guides/language/effective-dart/usage#do-test-for-futuret-when-disambiguating-a-futureort-whose-type-argument-could-be-object'>DO test for <code>Future&lt;T&gt;</code> when disambiguating a <code>FutureOr&lt;T&gt;</code> whose type argument could be <code>Object</code>.</a>
+* <a href='/guides/language/effective-dart/usage#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-asyncawait-%E8%80%8C%E4%B8%8D%E6%98%AF%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%E5%BA%95%E5%B1%82%E7%9A%84%E7%89%B9%E6%80%A7'><strong>推荐</strong> 使用 async/await 而不是直接使用底层的特性。</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E6%B2%A1%E6%9C%89%E6%9C%89%E7%94%A8%E6%95%88%E6%9E%9C%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E4%BD%BF%E7%94%A8-async-'><strong>不要</strong> 在没有有用效果的情况下使用 <code>async</code> 。</a>
+* <a href='/guides/language/effective-dart/usage#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E6%9D%A5%E8%BD%AC%E6%8D%A2%E4%BA%8B%E4%BB%B6%E6%B5%81stream'><strong>考虑</strong> 使用高阶函数来转换事件流（stream）</a>
+* <a href='/guides/language/effective-dart/usage#%E9%81%BF%E5%85%8D-%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8-completer--'><strong>避免</strong> 直接使用 Completer  。</a>
+* <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E4%BD%BF%E7%94%A8-futuret-%E5%AF%B9-futureort-%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B6%88%E9%99%A4%E5%8F%82%E6%95%B0%E5%8F%AF%E8%83%BD%E6%98%AF-object-%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%AD%A7%E4%B9%89'><strong>要</strong> 使用 <code>Future&lt;T&gt;</code> 对 <code>FutureOr&lt;T&gt;</code> 参数进行测试，以消除参数可能是 <code>Object</code> 类型的歧义。</a>
 
 </div>
 <div class='effective_dart--summary_column' markdown='1'>

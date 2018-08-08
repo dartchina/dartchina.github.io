@@ -251,7 +251,7 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#不要-在没有有用效果的情况下使用-async-">不要 在没有有用效果的情况下使用 async 。</a></li>
 <li class="toc-entry toc-h3"><a href="#考虑-使用高阶函数来转换事件流stream">考虑 使用高阶函数来转换事件流（stream）</a></li>
 <li class="toc-entry toc-h3"><a href="#避免-直接使用-completer--">避免 直接使用 Completer  。</a></li>
-<li class="toc-entry toc-h3"><a href="#要-使用-futuret-对-futureort-参数进行测试在消除参数可能是-object-类型的歧义">要 使用 Future<T> 对 FutureOr<T> 参数进行测试，在消除参数可能是 Object 类型的歧义。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用-futuret-对-futureort-参数进行测试以消除参数可能是-object-类型的歧义">要 使用 Future<T> 对 FutureOr<T> 参数进行测试，以消除参数可能是 Object 类型的歧义。</a></li>
 </ul>
 </li>
 </ul>
@@ -406,7 +406,7 @@ ga('send', 'pageview');
       <li><a href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E6%B2%A1%E6%9C%89%E6%9C%89%E7%94%A8%E6%95%88%E6%9E%9C%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E4%BD%BF%E7%94%A8-async-" id="markdown-toc-不要-在没有有用效果的情况下使用-async-"><strong>不要</strong> 在没有有用效果的情况下使用 <code class="highlighter-rouge">async</code> 。</a></li>
       <li><a href="#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E6%9D%A5%E8%BD%AC%E6%8D%A2%E4%BA%8B%E4%BB%B6%E6%B5%81stream" id="markdown-toc-考虑-使用高阶函数来转换事件流stream"><strong>考虑</strong> 使用高阶函数来转换事件流（stream）</a></li>
       <li><a href="#%E9%81%BF%E5%85%8D-%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8-completer--" id="markdown-toc-避免-直接使用-completer--"><strong>避免</strong> 直接使用 Completer  。</a></li>
-      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-futuret-%E5%AF%B9-futureort-%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95%E5%9C%A8%E6%B6%88%E9%99%A4%E5%8F%82%E6%95%B0%E5%8F%AF%E8%83%BD%E6%98%AF-object-%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%AD%A7%E4%B9%89" id="markdown-toc-要-使用-futuret-对-futureort-参数进行测试在消除参数可能是-object-类型的歧义"><strong>要</strong> 使用 <code class="highlighter-rouge">Future&lt;T&gt;</code> 对 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 参数进行测试，在消除参数可能是 <code class="highlighter-rouge">Object</code> 类型的歧义。</a></li>
+      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-futuret-%E5%AF%B9-futureort-%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B6%88%E9%99%A4%E5%8F%82%E6%95%B0%E5%8F%AF%E8%83%BD%E6%98%AF-object-%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%AD%A7%E4%B9%89" id="markdown-toc-要-使用-futuret-对-futureort-参数进行测试以消除参数可能是-object-类型的歧义"><strong>要</strong> 使用 <code class="highlighter-rouge">Future&lt;T&gt;</code> 对 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 参数进行测试，以消除参数可能是 <code class="highlighter-rouge">Object</code> 类型的歧义。</a></li>
     </ul>
   </li>
 </ul>
@@ -651,12 +651,16 @@ var copy2 = List.from(iterable);</pre>
 <p>明显的区别是前一个更短。
 更<em>重要</em>的区别在于第一个保留了原始对象的类型参数：</p>
 
-<?code-excerpt "misc/test/effective_dart_test.dart (list-from-2)"?>
-<pre class="prettyprint lang-dart">// Creates a List&lt;int&gt;:
+<?code-excerpt "misc/test/effective_dart_test.dart (list-from-good)"?>
+<pre class="prettyprint lang-dart good-style">// Creates a List&lt;int&gt;:
 var iterable = [1, 2, 3];
 
 // Prints "List&lt;int&gt;":
-print(iterable.toList().runtimeType);
+print(iterable.toList().runtimeType);</pre>
+
+<?code-excerpt "misc/test/effective_dart_test.dart (list-from-bad)"?>
+<pre class="prettyprint lang-dart bad-style">// Creates a List&lt;int&gt;:
+var iterable = [1, 2, 3];
 
 // Prints "List&lt;dynamic&gt;":
 print(List.from(iterable).runtimeType);</pre>
@@ -664,7 +668,7 @@ print(List.from(iterable).runtimeType);</pre>
 <p>如果你<em>想要</em>改变类型，那么可以调用 <code class="highlighter-rouge">List.from()</code> ：</p>
 
 <?code-excerpt "misc/test/effective_dart_test.dart (list-from-3)"?>
-<pre class="prettyprint lang-dart">var numbers = [1, 2.3, 4]; // List&lt;num&gt;.
+<pre class="prettyprint lang-dart good-style">var numbers = [1, 2.3, 4]; // List&lt;num&gt;.
 numbers.removeAt(1); // Now it only contains integers.
 var ints = List&lt;int&gt;.from(numbers);</pre>
 
@@ -1529,8 +1533,8 @@ correctly.</p>
   return contents.contains('bear');
 }</pre>
 
-<h3 id="要-使用-futuret-对-futureort-参数进行测试在消除参数可能是-object-类型的歧义">
-<a id="要-使用-futuret-对-futureort-参数进行测试在消除参数可能是-object-类型的歧义" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-futuret-%E5%AF%B9-futureort-%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95%E5%9C%A8%E6%B6%88%E9%99%A4%E5%8F%82%E6%95%B0%E5%8F%AF%E8%83%BD%E6%98%AF-object-%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%AD%A7%E4%B9%89" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">Future&lt;T&gt;</code> 对 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 参数进行测试，在消除参数可能是 <code class="highlighter-rouge">Object</code> 类型的歧义。</h3>
+<h3 id="要-使用-futuret-对-futureort-参数进行测试以消除参数可能是-object-类型的歧义">
+<a id="要-使用-futuret-对-futureort-参数进行测试以消除参数可能是-object-类型的歧义" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-futuret-%E5%AF%B9-futureort-%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B6%88%E9%99%A4%E5%8F%82%E6%95%B0%E5%8F%AF%E8%83%BD%E6%98%AF-object-%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%AD%A7%E4%B9%89" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">Future&lt;T&gt;</code> 对 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 参数进行测试，以消除参数可能是 <code class="highlighter-rouge">Object</code> 类型的歧义。</h3>
 
 <p>在使用 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 执行任何有用的操作之前，
 通常需要做 <code class="highlighter-rouge">is</code> 检查，来确定你拥有的是 <code class="highlighter-rouge">Future&lt;T&gt;</code> 还是一个空的 <code class="highlighter-rouge">T</code>。
@@ -1613,7 +1617,7 @@ correctly.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/08 08:54 CST"
+                 title="Site built on 2018/08/08 10:51 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
