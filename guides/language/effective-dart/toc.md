@@ -86,77 +86,59 @@
 ### Usage
 
 
-**Libraries**
-
-
 **库**
 
-* <a href='/guides/language/effective-dart/usage#do-use-strings-in-part-of-directives'>DO use strings in <code>part of</code> directives.</a>
 * <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E5%9C%A8-part-of-%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2'><strong>要</strong> 在 <code>part of</code> 中使用字符串。</a>
-* <a href='/guides/language/effective-dart/usage#dont-import-libraries-that-are-inside-the-src-directory-of-another-package'>DON'T import libraries that are inside the <code>src</code> directory of another package.</a>
 * <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E5%AF%BC%E5%85%A5-package-%E4%B8%AD-src-%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%BA%93'><strong>不要</strong> 导入 package 中 <code>src</code> 目录下的库。</a>
-* <a href='/guides/language/effective-dart/usage#prefer-relative-paths-when-importing-libraries-within-your-own-packages-lib-directory'>PREFER relative paths when importing libraries within your own package's <code>lib</code> directory.</a>
 * <a href='/guides/language/effective-dart/usage#%E5%BB%BA%E8%AE%AE-%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%9C%A8%E5%AF%BC%E5%85%A5%E4%BD%A0%E8%87%AA%E5%B7%B1-package-%E4%B8%AD%E7%9A%84-lib-%E7%9B%AE%E5%BD%95'><strong>建议</strong> 使用相对路径在导入你自己 package 中的 <code>lib</code> 目录。</a>
-
-**Strings**
-
 
 **字符串**
 
-* <a href='/guides/language/effective-dart/usage#do-use-adjacent-strings-to-concatenate-string-literals'>DO use adjacent strings to concatenate string literals.</a>
 * <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E4%BD%BF%E7%94%A8%E4%B8%B4%E8%BF%91%E5%AD%97%E7%AC%A6%E5%AD%97%E7%9A%84%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5%E5%AD%97%E9%9D%A2%E9%87%8F%E5%AD%97%E7%AC%A6%E4%B8%B2'><strong>要</strong> 使用临近字符字的方式连接字面量字符串。</a>
-* <a href='/guides/language/effective-dart/usage#prefer-using-interpolation-to-compose-strings-and-values'>PREFER using interpolation to compose strings and values.</a>
 * <a href='/guides/language/effective-dart/usage#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E6%8F%92%E5%80%BC%E7%9A%84%E5%BD%A2%E5%BC%8F%E6%9D%A5%E7%BB%84%E5%90%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%80%BC'><strong>推荐</strong> 使用插值的形式来组合字符串和值。</a>
-* <a href='/guides/language/effective-dart/usage#avoid-using-curly-braces-in-interpolation-when-not-needed'>AVOID using curly braces in interpolation when not needed.</a>
 * <a href='/guides/language/effective-dart/usage#%E9%81%BF%E5%85%8D-%E5%9C%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8F%92%E5%80%BC%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%A4%A7%E6%8B%AC%E5%8F%B7'><strong>避免</strong> 在字符串插值中使用不必要的大括号。</a>
-
-**Collections**
-
 
 **集合**
 
-* <a href='/guides/language/effective-dart/usage#do-use-collection-literals-when-possible'>DO use collection literals when possible.</a>
 * <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88%E5%AD%97%E9%9D%A2%E9%87%8F'><strong>要</strong> 尽可能的使用集合字面量。</a>
-* <a href='/guides/language/effective-dart/usage#dont-use-length-to-see-if-a-collection-is-empty'>DON'T use <code>.length</code> to see if a collection is empty.</a>
 * <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-length-%E6%9D%A5%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E9%9B%86%E5%90%88%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA'><strong>不要</strong> 使用 <code>.length</code> 来判断一个集合是否为空。</a>
-* <a href='/guides/language/effective-dart/usage#consider-using-higher-order-methods-to-transform-a-sequence'>CONSIDER using higher-order methods to transform a sequence.</a>
 * <a href='/guides/language/effective-dart/usage#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6higher-order%E5%87%BD%E6%95%B0%E6%9D%A5%E8%BD%AC%E6%8D%A2%E9%9B%86%E5%90%88%E6%95%B0%E6%8D%AE'><strong>考虑</strong> 使用高阶（higher-order）函数来转换集合数据。</a>
-* <a href='/guides/language/effective-dart/usage#avoid-using-iterableforeach-with-a-function-literal'>AVOID using <code>Iterable.forEach()</code> with a function literal.</a>
-* <a href='/guides/language/effective-dart/usage#dont-use-listfrom-unless-you-intend-to-change-the-type-of-the-result'>DON'T use <code>List.from()</code> unless you intend to change the type of the result.</a>
-* <a href='/guides/language/effective-dart/usage#do-use-wheretype-to-filter-a-collection-by-type'>DO use <code>whereType()</code> to filter a collection by type.</a>
-* <a href='/guides/language/effective-dart/usage#dont-use-cast-when-a-nearby-operation-will-do'>DON'T use <code>cast()</code> when a nearby operation will do.</a>
-* <a href='/guides/language/effective-dart/usage#avoid-using-cast'>AVOID using <code>cast()</code>.</a>
+* <a href='/guides/language/effective-dart/usage#%E9%81%BF%E5%85%8D-%E5%9C%A8-iterableforeach-%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E9%9D%A2%E9%87%8F%E5%87%BD%E6%95%B0'><strong>避免</strong> 在 <code>Iterable.forEach()</code> 中使用字面量函数。</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-listfrom-%E9%99%A4%E9%9D%9E%E6%83%B3%E4%BF%AE%E6%94%B9%E7%BB%93%E6%9E%9C%E7%9A%84%E7%B1%BB%E5%9E%8B'><strong>不要</strong> 使用 <code>List.from()</code> 除非想修改结果的类型。</a>
+* <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E4%BD%BF%E7%94%A8-wheretype-%E6%8C%89%E7%B1%BB%E5%9E%8B%E8%BF%87%E6%BB%A4%E9%9B%86%E5%90%88'><strong>要</strong> 使用 <code>whereType()</code> 按类型过滤集合。</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-cast%E5%A6%82%E6%9E%9C%E6%9C%89%E6%9B%B4%E5%90%88%E9%80%82%E7%9A%84%E6%96%B9%E6%B3%95'><strong>不要</strong> 使用 <code>cast()</code>，如果有更合适的方法。</a>
+* <a href='/guides/language/effective-dart/usage#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8-cast-'><strong>避免</strong> 使用 <code>cast()</code> 。</a>
 
-**Functions**
+**函数**
 
-* <a href='/guides/language/effective-dart/usage#do-use-a-function-declaration-to-bind-a-function-to-a-name'>DO use a function declaration to bind a function to a name.</a>
-* <a href='/guides/language/effective-dart/usage#dont-create-a-lambda-when-a-tear-off-will-do'>DON'T create a lambda when a tear-off will do.</a>
+* <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E7%9A%84%E6%96%B9%E5%BC%8F%E4%B8%BA%E5%87%BD%E6%95%B0%E7%BB%91%E5%AE%9A%E5%90%8D%E7%A7%B0'><strong>要</strong> 使用函数声明的方式为函数绑定名称。</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9D%A5%E6%9B%BF%E4%BB%A3-tear-off'><strong>不要</strong> 使用 lambda 表达式来替代 tear-off。</a>
 
-**Parameters**
+**参数**
 
-* <a href='/guides/language/effective-dart/usage#do-use--to-separate-a-named-parameter-from-its-default-value'>DO use <code>=</code> to separate a named parameter from its default value.</a>
-* <a href='/guides/language/effective-dart/usage#dont-use-an-explicit-default-value-of-null'>DON'T use an explicit default value of <code>null</code>.</a>
+* <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E4%BD%BF%E7%94%A8--%E6%9D%A5%E5%88%86%E9%9A%94%E5%8F%82%E6%95%B0%E5%90%8D%E5%92%8C%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC'><strong>要</strong> 使用 <code>=</code> 来分隔参数名和参数默认值。</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E6%98%BE%E5%BC%8F%E7%9A%84%E4%B8%BA%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE-null-%E5%80%BC'><strong>不要</strong> 显式的为参数设置 <code>null</code> 值。</a>
 
-**Variables**
+**变量**
 
-* <a href='/guides/language/effective-dart/usage#dont-explicitly-initialize-variables-to-null'>DON'T explicitly initialize variables to <code>null</code>.</a>
-* <a href='/guides/language/effective-dart/usage#avoid-storing-what-you-can-calculate'>AVOID storing what you can calculate.</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E6%98%BE%E7%A4%BA%E7%9A%84%E4%B8%BA%E5%8F%82%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96-null-%E5%80%BC'><strong>不要</strong> 显示的为参数初始化 <code>null</code> 值。</a>
+* <a href='/guides/language/effective-dart/usage#%E9%81%BF%E5%85%8D-%E4%BF%9D%E5%AD%98%E5%8F%AF%E8%AE%A1%E7%AE%97%E7%9A%84%E7%BB%93%E6%9E%9C'><strong>避免</strong> 保存可计算的结果。</a>
 
-**Members**
+**成员**
 
-* <a href='/guides/language/effective-dart/usage#dont-wrap-a-field-in-a-getter-and-setter-unnecessarily'>DON'T wrap a field in a getter and setter unnecessarily.</a>
-* <a href='/guides/language/effective-dart/usage#prefer-using-a-final-field-to-make-a-read-only-property'>PREFER using a <code>final</code> field to make a read-only property.</a>
-* <a href='/guides/language/effective-dart/usage#consider-using--for-simple-members'>CONSIDER using <code>=&gt;</code> for simple members.</a>
-* <a href='/guides/language/effective-dart/usage#dont-use-this-when-not-needed-to-avoid-shadowing'>DON'T use <code>this.</code> when not needed to avoid shadowing.</a>
-* <a href='/guides/language/effective-dart/usage#do-initialize-fields-at-their-declaration-when-possible'>DO initialize fields at their declaration when possible.</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E4%B8%BA%E5%AD%97%E6%AE%B5%E5%88%9B%E5%BB%BA%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84-getter-%E5%92%8C-setter-%E6%96%B9%E6%B3%95'><strong>不要</strong> 为字段创建不必要的 getter 和 setter 方法。</a>
+* <a href='/guides/language/effective-dart/usage#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-final-%E5%85%B3%E9%94%AE%E5%AD%97%E6%9D%A5%E5%88%9B%E5%BB%BA%E5%8F%AA%E8%AF%BB%E5%B1%9E%E6%80%A7'><strong>推荐</strong> 使用 <code>final</code> 关键字来创建只读属性。</a>
+* <a href='/guides/language/effective-dart/usage#%E8%80%83%E8%99%91-%E5%AF%B9%E7%AE%80%E5%8D%95%E6%88%90%E5%91%98%E4%BD%BF%E7%94%A8--'><strong>考虑</strong> 对简单成员使用 <code>=&gt;</code> 。</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-this-%E9%99%A4%E9%9D%9E%E9%81%87%E5%88%B0%E4%BA%86%E5%8F%98%E9%87%8F%E5%86%B2%E7%AA%81%E7%9A%84%E6%83%85%E5%86%B5'><strong>不要</strong> 使用 <code>this.</code> ，除非遇到了变量冲突的情况。</a>
+* <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E5%9C%A8%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E7%9A%84%E6%97%B6%E5%80%99%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%98%E9%87%8F%E5%80%BC'><strong>要</strong> 尽可能的在定义变量的时候初始化变量值。</a>
 
-**Constructors**
+**构造函数**
 
-* <a href='/guides/language/effective-dart/usage#do-use-initializing-formals-when-possible'>DO use initializing formals when possible.</a>
-* <a href='/guides/language/effective-dart/usage#dont-type-annotate-initializing-formals'>DON'T type annotate initializing formals.</a>
-* <a href='/guides/language/effective-dart/usage#do-use--instead-of--for-empty-constructor-bodies'>DO use <code>;</code> instead of <code>{}</code> for empty constructor bodies.</a>
-* <a href='/guides/language/effective-dart/usage#dont-use-new'>DON'T use <code>new</code>.</a>
-* <a href='/guides/language/effective-dart/usage#dont-use-const-redundantly'>DON'T use <code>const</code> redundantly.</a>
+* <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BD%A2%E5%BC%8F'><strong>要</strong> 尽可能的使用初始化形式。</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BD%A2%E5%BC%8F%E4%B8%AD%E5%81%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A'><strong>不要</strong> 在初始化形式中做类型注释。</a>
+* <a href='/guides/language/effective-dart/usage#%E8%A6%81-%E7%94%A8--%E6%9D%A5%E6%9B%BF%E4%BB%A3%E7%A9%BA%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%BD%93-'><strong>要</strong> 用 <code>;</code> 来替代空的构造函数体 <code>{}</code>。</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-new-'><strong>不要</strong> 使用 <code>new</code> 。</a>
+* <a href='/guides/language/effective-dart/usage#%E4%B8%8D%E8%A6%81-%E5%86%97%E4%BD%99%E5%9C%B0%E4%BD%BF%E7%94%A8-const-'><strong>不要</strong> 冗余地使用 <code>const</code> 。</a>
 
 **Error handling**
 

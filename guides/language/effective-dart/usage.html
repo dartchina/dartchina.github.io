@@ -193,65 +193,65 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#要-尽可能的使用集合字面量">要 尽可能的使用集合字面量。</a></li>
 <li class="toc-entry toc-h3"><a href="#不要-使用-length-来判断一个集合是否为空">不要 使用 .length 来判断一个集合是否为空。</a></li>
 <li class="toc-entry toc-h3"><a href="#考虑-使用高阶higher-order函数来转换集合数据">考虑 使用高阶（higher-order）函数来转换集合数据。</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-using-iterableforeach-with-a-function-literal">AVOID using Iterable.forEach() with a function literal.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-use-listfrom-unless-you-intend-to-change-the-type-of-the-result">DON’T use List.from() unless you intend to change the type of the result.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-use-wheretype-to-filter-a-collection-by-type">DO use whereType() to filter a collection by type.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-use-cast-when-a-nearby-operation-will-do">DON’T use cast() when a nearby operation will do.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-using-cast">AVOID using cast().</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-在-iterableforeach-中使用字面量函数">避免 在 Iterable.forEach() 中使用字面量函数。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用-listfrom-除非想修改结果的类型">不要 使用 List.from() 除非想修改结果的类型。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用-wheretype-按类型过滤集合">要 使用 whereType() 按类型过滤集合。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用-cast如果有更合适的方法">不要 使用 cast()，如果有更合适的方法。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-使用-cast-">避免 使用 cast() 。</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#functions">Functions</a>
+<li class="toc-entry toc-h2"><a href="#函数">函数</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#do-use-a-function-declaration-to-bind-a-function-to-a-name">DO use a function declaration to bind a function to a name.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-create-a-lambda-when-a-tear-off-will-do">DON’T create a lambda when a tear-off will do.</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用函数声明的方式为函数绑定名称">要 使用函数声明的方式为函数绑定名称。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用-lambda-表达式来替代-tear-off">不要 使用 lambda 表达式来替代 tear-off。</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#parameters">Parameters</a>
+<li class="toc-entry toc-h2"><a href="#参数">参数</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#do-use--to-separate-a-named-parameter-from-its-default-value">DO use = to separate a named parameter from its default value.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-use-an-explicit-default-value-of-null">DON’T use an explicit default value of null.</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用--来分隔参数名和参数默认值">要 使用 = 来分隔参数名和参数默认值。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-显式的为参数设置-null-值">不要 显式的为参数设置 null 值。</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#variables">Variables</a>
+<li class="toc-entry toc-h2"><a href="#变量">变量</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#dont-explicitly-initialize-variables-to-null">DON’T explicitly initialize variables to null.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-storing-what-you-can-calculate">AVOID storing what you can calculate.</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-显示的为参数初始化-null-值">不要 显示的为参数初始化 null 值。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-保存可计算的结果">避免 保存可计算的结果。</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#members">Members</a>
+<li class="toc-entry toc-h2"><a href="#成员">成员</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#dont-wrap-a-field-in-a-getter-and-setter-unnecessarily">DON’T wrap a field in a getter and setter unnecessarily.</a></li>
-<li class="toc-entry toc-h3"><a href="#prefer-using-a-final-field-to-make-a-read-only-property">PREFER using a final field to make a read-only property.</a></li>
-<li class="toc-entry toc-h3"><a href="#consider-using--for-simple-members">CONSIDER using => for simple members.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-use-this-when-not-needed-to-avoid-shadowing">DON’T use this. when not needed to avoid shadowing.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-initialize-fields-at-their-declaration-when-possible">DO initialize fields at their declaration when possible.</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-为字段创建不必要的-getter-和-setter-方法">不要 为字段创建不必要的 getter 和 setter 方法。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-使用-final-关键字来创建只读属性">推荐 使用 final 关键字来创建只读属性。</a></li>
+<li class="toc-entry toc-h3"><a href="#考虑-对简单成员使用--">考虑 对简单成员使用 => 。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用-this-除非遇到了变量冲突的情况">不要 使用 this. ，除非遇到了变量冲突的情况。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-尽可能的在定义变量的时候初始化变量值">要 尽可能的在定义变量的时候初始化变量值。</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#constructors">Constructors</a>
+<li class="toc-entry toc-h2"><a href="#构造函数">构造函数</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#do-use-initializing-formals-when-possible">DO use initializing formals when possible.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-type-annotate-initializing-formals">DON’T type annotate initializing formals.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-use--instead-of--for-empty-constructor-bodies">DO use ; instead of {} for empty constructor bodies.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-use-new">DON’T use new.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-use-const-redundantly">DON’T use const redundantly.</a></li>
+<li class="toc-entry toc-h3"><a href="#要-尽可能的使用初始化形式">要 尽可能的使用初始化形式。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-在初始化形式中做类型注释">不要 在初始化形式中做类型注释。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-用--来替代空的构造函数体-">要 用 ; 来替代空的构造函数体 {}。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用-new-">不要 使用 new 。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-冗余地使用-const-">不要 冗余地使用 const 。</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#error-handling">Error handling</a>
+<li class="toc-entry toc-h2"><a href="#错误处理">错误处理</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#avoid-catches-without-on-clauses">AVOID catches without on clauses.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-discard-errors-from-catches-without-on-clauses">DON’T discard errors from catches without on clauses.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-throw-objects-that-implement-error-only-for-programmatic-errors">DO throw objects that implement Error only for programmatic errors.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-explicitly-catch-error-or-types-that-implement-it">DON’T explicitly catch Error or types that implement it.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-use-rethrow-to-rethrow-a-caught-exception">DO use rethrow to rethrow a caught exception.</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-使用没有-on-语句的-catch">避免 使用没有 on 语句的 catch。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-丢弃没有使用-on-语句捕获的异常">不要 丢弃没有使用 on 语句捕获的异常。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-只在代表编程错误的情况下才抛出实现了-error-的异常">要 只在代表编程错误的情况下才抛出实现了 Error 的异常。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-显示的捕获-error-或者其子类">不要 显示的捕获 Error 或者其子类。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用-rethrow-来重新抛出捕获的异常">要 使用 rethrow 来重新抛出捕获的异常。</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#asynchrony">Asynchrony</a>
+<li class="toc-entry toc-h2"><a href="#异步">异步</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#prefer-asyncawait-over-using-raw-futures">PREFER async/await over using raw futures.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-use-async-when-it-has-no-useful-effect">DON’T use async when it has no useful effect.</a></li>
-<li class="toc-entry toc-h3"><a href="#consider-using-higher-order-methods-to-transform-a-stream">CONSIDER using higher-order methods to transform a stream.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-using-completer-directly">AVOID using Completer directly.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-test-for-futuret-when-disambiguating-a-futureort-whose-type-argument-could-be-object">DO test for Future<T> when disambiguating a FutureOr<T> whose type argument could be Object.</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-使用-asyncawait-而不是直接使用底层的特性">推荐 使用 async/await 而不是直接使用底层的特性。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-在没有有用效果的情况下使用-async-">不要 在没有有用效果的情况下使用 async 。</a></li>
+<li class="toc-entry toc-h3"><a href="#考虑-使用高阶函数来转换事件流stream">考虑 使用高阶函数来转换事件流（stream）</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-直接使用-completer--">避免 直接使用 Completer  。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用-futuret-对-futureort-参数进行测试在消除参数可能是-object-类型的歧义">要 使用 Future<T> 对 FutureOr<T> 参数进行测试，在消除参数可能是 Object 类型的歧义。</a></li>
 </ul>
 </li>
 </ul>
@@ -348,65 +348,65 @@ ga('send', 'pageview');
       <li><a href="#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88%E5%AD%97%E9%9D%A2%E9%87%8F" id="markdown-toc-要-尽可能的使用集合字面量"><strong>要</strong> 尽可能的使用集合字面量。</a></li>
       <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-length-%E6%9D%A5%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E9%9B%86%E5%90%88%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA" id="markdown-toc-不要-使用-length-来判断一个集合是否为空"><strong>不要</strong> 使用 <code class="highlighter-rouge">.length</code> 来判断一个集合是否为空。</a></li>
       <li><a href="#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6higher-order%E5%87%BD%E6%95%B0%E6%9D%A5%E8%BD%AC%E6%8D%A2%E9%9B%86%E5%90%88%E6%95%B0%E6%8D%AE" id="markdown-toc-考虑-使用高阶higher-order函数来转换集合数据"><strong>考虑</strong> 使用高阶（higher-order）函数来转换集合数据。</a></li>
-      <li><a href="#avoid-using-iterableforeach-with-a-function-literal" id="markdown-toc-avoid-using-iterableforeach-with-a-function-literal">AVOID using <code class="highlighter-rouge">Iterable.forEach()</code> with a function literal.</a></li>
-      <li><a href="#dont-use-listfrom-unless-you-intend-to-change-the-type-of-the-result" id="markdown-toc-dont-use-listfrom-unless-you-intend-to-change-the-type-of-the-result">DON’T use <code class="highlighter-rouge">List.from()</code> unless you intend to change the type of the result.</a></li>
-      <li><a href="#do-use-wheretype-to-filter-a-collection-by-type" id="markdown-toc-do-use-wheretype-to-filter-a-collection-by-type">DO use <code class="highlighter-rouge">whereType()</code> to filter a collection by type.</a></li>
-      <li><a href="#dont-use-cast-when-a-nearby-operation-will-do" id="markdown-toc-dont-use-cast-when-a-nearby-operation-will-do">DON’T use <code class="highlighter-rouge">cast()</code> when a nearby operation will do.</a></li>
-      <li><a href="#avoid-using-cast" id="markdown-toc-avoid-using-cast">AVOID using <code class="highlighter-rouge">cast()</code>.</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8-iterableforeach-%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E9%9D%A2%E9%87%8F%E5%87%BD%E6%95%B0" id="markdown-toc-避免-在-iterableforeach-中使用字面量函数"><strong>避免</strong> 在 <code class="highlighter-rouge">Iterable.forEach()</code> 中使用字面量函数。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-listfrom-%E9%99%A4%E9%9D%9E%E6%83%B3%E4%BF%AE%E6%94%B9%E7%BB%93%E6%9E%9C%E7%9A%84%E7%B1%BB%E5%9E%8B" id="markdown-toc-不要-使用-listfrom-除非想修改结果的类型"><strong>不要</strong> 使用 <code class="highlighter-rouge">List.from()</code> 除非想修改结果的类型。</a></li>
+      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-wheretype-%E6%8C%89%E7%B1%BB%E5%9E%8B%E8%BF%87%E6%BB%A4%E9%9B%86%E5%90%88" id="markdown-toc-要-使用-wheretype-按类型过滤集合"><strong>要</strong> 使用 <code class="highlighter-rouge">whereType()</code> 按类型过滤集合。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-cast%E5%A6%82%E6%9E%9C%E6%9C%89%E6%9B%B4%E5%90%88%E9%80%82%E7%9A%84%E6%96%B9%E6%B3%95" id="markdown-toc-不要-使用-cast如果有更合适的方法"><strong>不要</strong> 使用 <code class="highlighter-rouge">cast()</code>，如果有更合适的方法。</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8-cast-" id="markdown-toc-避免-使用-cast-"><strong>避免</strong> 使用 <code class="highlighter-rouge">cast()</code> 。</a></li>
     </ul>
   </li>
   <li>
-<a href="#functions" id="markdown-toc-functions">Functions</a>    <ul>
-      <li><a href="#do-use-a-function-declaration-to-bind-a-function-to-a-name" id="markdown-toc-do-use-a-function-declaration-to-bind-a-function-to-a-name">DO use a function declaration to bind a function to a name.</a></li>
-      <li><a href="#dont-create-a-lambda-when-a-tear-off-will-do" id="markdown-toc-dont-create-a-lambda-when-a-tear-off-will-do">DON’T create a lambda when a tear-off will do.</a></li>
+<a href="#%E5%87%BD%E6%95%B0" id="markdown-toc-函数">函数</a>    <ul>
+      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E7%9A%84%E6%96%B9%E5%BC%8F%E4%B8%BA%E5%87%BD%E6%95%B0%E7%BB%91%E5%AE%9A%E5%90%8D%E7%A7%B0" id="markdown-toc-要-使用函数声明的方式为函数绑定名称"><strong>要</strong> 使用函数声明的方式为函数绑定名称。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9D%A5%E6%9B%BF%E4%BB%A3-tear-off" id="markdown-toc-不要-使用-lambda-表达式来替代-tear-off"><strong>不要</strong> 使用 lambda 表达式来替代 tear-off。</a></li>
     </ul>
   </li>
   <li>
-<a href="#parameters" id="markdown-toc-parameters">Parameters</a>    <ul>
-      <li><a href="#do-use--to-separate-a-named-parameter-from-its-default-value" id="markdown-toc-do-use--to-separate-a-named-parameter-from-its-default-value">DO use <code class="highlighter-rouge">=</code> to separate a named parameter from its default value.</a></li>
-      <li><a href="#dont-use-an-explicit-default-value-of-null" id="markdown-toc-dont-use-an-explicit-default-value-of-null">DON’T use an explicit default value of <code class="highlighter-rouge">null</code>.</a></li>
+<a href="#%E5%8F%82%E6%95%B0" id="markdown-toc-参数">参数</a>    <ul>
+      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8--%E6%9D%A5%E5%88%86%E9%9A%94%E5%8F%82%E6%95%B0%E5%90%8D%E5%92%8C%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC" id="markdown-toc-要-使用--来分隔参数名和参数默认值"><strong>要</strong> 使用 <code class="highlighter-rouge">=</code> 来分隔参数名和参数默认值。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E6%98%BE%E5%BC%8F%E7%9A%84%E4%B8%BA%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE-null-%E5%80%BC" id="markdown-toc-不要-显式的为参数设置-null-值"><strong>不要</strong> 显式的为参数设置 <code class="highlighter-rouge">null</code> 值。</a></li>
     </ul>
   </li>
   <li>
-<a href="#variables" id="markdown-toc-variables">Variables</a>    <ul>
-      <li><a href="#dont-explicitly-initialize-variables-to-null" id="markdown-toc-dont-explicitly-initialize-variables-to-null">DON’T explicitly initialize variables to <code class="highlighter-rouge">null</code>.</a></li>
-      <li><a href="#avoid-storing-what-you-can-calculate" id="markdown-toc-avoid-storing-what-you-can-calculate">AVOID storing what you can calculate.</a></li>
+<a href="#%E5%8F%98%E9%87%8F" id="markdown-toc-变量">变量</a>    <ul>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E6%98%BE%E7%A4%BA%E7%9A%84%E4%B8%BA%E5%8F%82%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96-null-%E5%80%BC" id="markdown-toc-不要-显示的为参数初始化-null-值"><strong>不要</strong> 显示的为参数初始化 <code class="highlighter-rouge">null</code> 值。</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E4%BF%9D%E5%AD%98%E5%8F%AF%E8%AE%A1%E7%AE%97%E7%9A%84%E7%BB%93%E6%9E%9C" id="markdown-toc-避免-保存可计算的结果"><strong>避免</strong> 保存可计算的结果。</a></li>
     </ul>
   </li>
   <li>
-<a href="#members" id="markdown-toc-members">Members</a>    <ul>
-      <li><a href="#dont-wrap-a-field-in-a-getter-and-setter-unnecessarily" id="markdown-toc-dont-wrap-a-field-in-a-getter-and-setter-unnecessarily">DON’T wrap a field in a getter and setter unnecessarily.</a></li>
-      <li><a href="#prefer-using-a-final-field-to-make-a-read-only-property" id="markdown-toc-prefer-using-a-final-field-to-make-a-read-only-property">PREFER using a <code class="highlighter-rouge">final</code> field to make a read-only property.</a></li>
-      <li><a href="#consider-using--for-simple-members" id="markdown-toc-consider-using--for-simple-members">CONSIDER using <code class="highlighter-rouge">=&gt;</code> for simple members.</a></li>
-      <li><a href="#dont-use-this-when-not-needed-to-avoid-shadowing" id="markdown-toc-dont-use-this-when-not-needed-to-avoid-shadowing">DON’T use <code class="highlighter-rouge">this.</code> when not needed to avoid shadowing.</a></li>
-      <li><a href="#do-initialize-fields-at-their-declaration-when-possible" id="markdown-toc-do-initialize-fields-at-their-declaration-when-possible">DO initialize fields at their declaration when possible.</a></li>
+<a href="#%E6%88%90%E5%91%98" id="markdown-toc-成员">成员</a>    <ul>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%B8%BA%E5%AD%97%E6%AE%B5%E5%88%9B%E5%BB%BA%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84-getter-%E5%92%8C-setter-%E6%96%B9%E6%B3%95" id="markdown-toc-不要-为字段创建不必要的-getter-和-setter-方法"><strong>不要</strong> 为字段创建不必要的 getter 和 setter 方法。</a></li>
+      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-final-%E5%85%B3%E9%94%AE%E5%AD%97%E6%9D%A5%E5%88%9B%E5%BB%BA%E5%8F%AA%E8%AF%BB%E5%B1%9E%E6%80%A7" id="markdown-toc-推荐-使用-final-关键字来创建只读属性"><strong>推荐</strong> 使用 <code class="highlighter-rouge">final</code> 关键字来创建只读属性。</a></li>
+      <li><a href="#%E8%80%83%E8%99%91-%E5%AF%B9%E7%AE%80%E5%8D%95%E6%88%90%E5%91%98%E4%BD%BF%E7%94%A8--" id="markdown-toc-考虑-对简单成员使用--"><strong>考虑</strong> 对简单成员使用 <code class="highlighter-rouge">=&gt;</code> 。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-this-%E9%99%A4%E9%9D%9E%E9%81%87%E5%88%B0%E4%BA%86%E5%8F%98%E9%87%8F%E5%86%B2%E7%AA%81%E7%9A%84%E6%83%85%E5%86%B5" id="markdown-toc-不要-使用-this-除非遇到了变量冲突的情况"><strong>不要</strong> 使用 <code class="highlighter-rouge">this.</code> ，除非遇到了变量冲突的情况。</a></li>
+      <li><a href="#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E5%9C%A8%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E7%9A%84%E6%97%B6%E5%80%99%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%98%E9%87%8F%E5%80%BC" id="markdown-toc-要-尽可能的在定义变量的时候初始化变量值"><strong>要</strong> 尽可能的在定义变量的时候初始化变量值。</a></li>
     </ul>
   </li>
   <li>
-<a href="#constructors" id="markdown-toc-constructors">Constructors</a>    <ul>
-      <li><a href="#do-use-initializing-formals-when-possible" id="markdown-toc-do-use-initializing-formals-when-possible">DO use initializing formals when possible.</a></li>
-      <li><a href="#dont-type-annotate-initializing-formals" id="markdown-toc-dont-type-annotate-initializing-formals">DON’T type annotate initializing formals.</a></li>
-      <li><a href="#do-use--instead-of--for-empty-constructor-bodies" id="markdown-toc-do-use--instead-of--for-empty-constructor-bodies">DO use <code class="highlighter-rouge">;</code> instead of <code class="highlighter-rouge">{}</code> for empty constructor bodies.</a></li>
-      <li><a href="#dont-use-new" id="markdown-toc-dont-use-new">DON’T use <code class="highlighter-rouge">new</code>.</a></li>
-      <li><a href="#dont-use-const-redundantly" id="markdown-toc-dont-use-const-redundantly">DON’T use <code class="highlighter-rouge">const</code> redundantly.</a></li>
+<a href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" id="markdown-toc-构造函数">构造函数</a>    <ul>
+      <li><a href="#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BD%A2%E5%BC%8F" id="markdown-toc-要-尽可能的使用初始化形式"><strong>要</strong> 尽可能的使用初始化形式。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BD%A2%E5%BC%8F%E4%B8%AD%E5%81%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A" id="markdown-toc-不要-在初始化形式中做类型注释"><strong>不要</strong> 在初始化形式中做类型注释。</a></li>
+      <li><a href="#%E8%A6%81-%E7%94%A8--%E6%9D%A5%E6%9B%BF%E4%BB%A3%E7%A9%BA%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%BD%93-" id="markdown-toc-要-用--来替代空的构造函数体-"><strong>要</strong> 用 <code class="highlighter-rouge">;</code> 来替代空的构造函数体 <code class="highlighter-rouge">{}</code>。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-new-" id="markdown-toc-不要-使用-new-"><strong>不要</strong> 使用 <code class="highlighter-rouge">new</code> 。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E5%86%97%E4%BD%99%E5%9C%B0%E4%BD%BF%E7%94%A8-const-" id="markdown-toc-不要-冗余地使用-const-"><strong>不要</strong> 冗余地使用 <code class="highlighter-rouge">const</code> 。</a></li>
     </ul>
   </li>
   <li>
-<a href="#error-handling" id="markdown-toc-error-handling">Error handling</a>    <ul>
-      <li><a href="#avoid-catches-without-on-clauses" id="markdown-toc-avoid-catches-without-on-clauses">AVOID catches without <code class="highlighter-rouge">on</code> clauses.</a></li>
-      <li><a href="#dont-discard-errors-from-catches-without-on-clauses" id="markdown-toc-dont-discard-errors-from-catches-without-on-clauses">DON’T discard errors from catches without <code class="highlighter-rouge">on</code> clauses.</a></li>
-      <li><a href="#do-throw-objects-that-implement-error-only-for-programmatic-errors" id="markdown-toc-do-throw-objects-that-implement-error-only-for-programmatic-errors">DO throw objects that implement <code class="highlighter-rouge">Error</code> only for programmatic errors.</a></li>
-      <li><a href="#dont-explicitly-catch-error-or-types-that-implement-it" id="markdown-toc-dont-explicitly-catch-error-or-types-that-implement-it">DON’T explicitly catch <code class="highlighter-rouge">Error</code> or types that implement it.</a></li>
-      <li><a href="#do-use-rethrow-to-rethrow-a-caught-exception" id="markdown-toc-do-use-rethrow-to-rethrow-a-caught-exception">DO use <code class="highlighter-rouge">rethrow</code> to rethrow a caught exception.</a></li>
+<a href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86" id="markdown-toc-错误处理">错误处理</a>    <ul>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8%E6%B2%A1%E6%9C%89-on-%E8%AF%AD%E5%8F%A5%E7%9A%84-catch" id="markdown-toc-避免-使用没有-on-语句的-catch"><strong>避免</strong> 使用没有 <code class="highlighter-rouge">on</code> 语句的 catch。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%B8%A2%E5%BC%83%E6%B2%A1%E6%9C%89%E4%BD%BF%E7%94%A8-on-%E8%AF%AD%E5%8F%A5%E6%8D%95%E8%8E%B7%E7%9A%84%E5%BC%82%E5%B8%B8" id="markdown-toc-不要-丢弃没有使用-on-语句捕获的异常"><strong>不要</strong> 丢弃没有使用 <code class="highlighter-rouge">on</code> 语句捕获的异常。</a></li>
+      <li><a href="#%E8%A6%81-%E5%8F%AA%E5%9C%A8%E4%BB%A3%E8%A1%A8%E7%BC%96%E7%A8%8B%E9%94%99%E8%AF%AF%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%89%8D%E6%8A%9B%E5%87%BA%E5%AE%9E%E7%8E%B0%E4%BA%86-error-%E7%9A%84%E5%BC%82%E5%B8%B8" id="markdown-toc-要-只在代表编程错误的情况下才抛出实现了-error-的异常"><strong>要</strong> 只在代表编程错误的情况下才抛出实现了 <code class="highlighter-rouge">Error</code> 的异常。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E6%98%BE%E7%A4%BA%E7%9A%84%E6%8D%95%E8%8E%B7-error-%E6%88%96%E8%80%85%E5%85%B6%E5%AD%90%E7%B1%BB" id="markdown-toc-不要-显示的捕获-error-或者其子类"><strong>不要</strong> 显示的捕获 <code class="highlighter-rouge">Error</code> 或者其子类。</a></li>
+      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-rethrow-%E6%9D%A5%E9%87%8D%E6%96%B0%E6%8A%9B%E5%87%BA%E6%8D%95%E8%8E%B7%E7%9A%84%E5%BC%82%E5%B8%B8" id="markdown-toc-要-使用-rethrow-来重新抛出捕获的异常"><strong>要</strong> 使用 <code class="highlighter-rouge">rethrow</code> 来重新抛出捕获的异常。</a></li>
     </ul>
   </li>
   <li>
-<a href="#asynchrony" id="markdown-toc-asynchrony">Asynchrony</a>    <ul>
-      <li><a href="#prefer-asyncawait-over-using-raw-futures" id="markdown-toc-prefer-asyncawait-over-using-raw-futures">PREFER async/await over using raw futures.</a></li>
-      <li><a href="#dont-use-async-when-it-has-no-useful-effect" id="markdown-toc-dont-use-async-when-it-has-no-useful-effect">DON’T use <code class="highlighter-rouge">async</code> when it has no useful effect.</a></li>
-      <li><a href="#consider-using-higher-order-methods-to-transform-a-stream" id="markdown-toc-consider-using-higher-order-methods-to-transform-a-stream">CONSIDER using higher-order methods to transform a stream.</a></li>
-      <li><a href="#avoid-using-completer-directly" id="markdown-toc-avoid-using-completer-directly">AVOID using Completer directly.</a></li>
-      <li><a href="#do-test-for-futuret-when-disambiguating-a-futureort-whose-type-argument-could-be-object" id="markdown-toc-do-test-for-futuret-when-disambiguating-a-futureort-whose-type-argument-could-be-object">DO test for <code class="highlighter-rouge">Future&lt;T&gt;</code> when disambiguating a <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> whose type argument could be <code class="highlighter-rouge">Object</code>.</a></li>
+<a href="#%E5%BC%82%E6%AD%A5" id="markdown-toc-异步">异步</a>    <ul>
+      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-asyncawait-%E8%80%8C%E4%B8%8D%E6%98%AF%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%E5%BA%95%E5%B1%82%E7%9A%84%E7%89%B9%E6%80%A7" id="markdown-toc-推荐-使用-asyncawait-而不是直接使用底层的特性"><strong>推荐</strong> 使用 async/await 而不是直接使用底层的特性。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E6%B2%A1%E6%9C%89%E6%9C%89%E7%94%A8%E6%95%88%E6%9E%9C%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E4%BD%BF%E7%94%A8-async-" id="markdown-toc-不要-在没有有用效果的情况下使用-async-"><strong>不要</strong> 在没有有用效果的情况下使用 <code class="highlighter-rouge">async</code> 。</a></li>
+      <li><a href="#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E6%9D%A5%E8%BD%AC%E6%8D%A2%E4%BA%8B%E4%BB%B6%E6%B5%81stream" id="markdown-toc-考虑-使用高阶函数来转换事件流stream"><strong>考虑</strong> 使用高阶函数来转换事件流（stream）</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8-completer--" id="markdown-toc-避免-直接使用-completer--"><strong>避免</strong> 直接使用 Completer  。</a></li>
+      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-futuret-%E5%AF%B9-futureort-%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95%E5%9C%A8%E6%B6%88%E9%99%A4%E5%8F%82%E6%95%B0%E5%8F%AF%E8%83%BD%E6%98%AF-object-%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%AD%A7%E4%B9%89" id="markdown-toc-要-使用-futuret-对-futureort-参数进行测试在消除参数可能是-object-类型的歧义"><strong>要</strong> 使用 <code class="highlighter-rouge">Future&lt;T&gt;</code> 对 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 参数进行测试，在消除参数可能是 <code class="highlighter-rouge">Object</code> 类型的歧义。</a></li>
     </ul>
   </li>
 </ul>
@@ -616,12 +616,12 @@ if (!words.isEmpty) return words.join(' ');</pre>
 如果你串联或者嵌套调用很多高阶函数，
 则使用一些命令式代码可能会更加清晰。</p>
 
-<h3 id="avoid-using-iterableforeach-with-a-function-literal">
-<a id="avoid-using-iterableforeach-with-a-function-literal" class="anchor" href="#avoid-using-iterableforeach-with-a-function-literal" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID using <code class="highlighter-rouge">Iterable.forEach()</code> with a function literal.</h3>
+<h3 id="避免-在-iterableforeach-中使用字面量函数">
+<a id="避免-在-iterableforeach-中使用字面量函数" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%9C%A8-iterableforeach-%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E9%9D%A2%E9%87%8F%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 在 <code class="highlighter-rouge">Iterable.forEach()</code> 中使用字面量函数。</h3>
 
-<p><code class="highlighter-rouge">forEach()</code> functions are widely used in JavaScript because the built in
-<code class="highlighter-rouge">for-in</code> loop doesn’t do what you usually want. In Dart, if you want to iterate
-over a sequence, the idiomatic way to do that is using a loop.</p>
+<p><code class="highlighter-rouge">forEach()</code> 函数在 JavaScript 中被广泛使用，
+这因为内置的 <code class="highlighter-rouge">for-in</code> 循环通常不能达到你想要的效果。
+在Dart中，如果要对序列进行迭代，惯用的方式是使用循环。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (avoid-forEach)"?>
 <pre class="prettyprint lang-dart good-style">for (var person in people) {
@@ -633,25 +633,23 @@ over a sequence, the idiomatic way to do that is using a loop.</p>
   ...
 });</pre>
 
-<p>The exception is if all you want to do is invoke some already existing function
-with each element as the argument. In that case, <code class="highlighter-rouge">forEach()</code> is handy.</p>
+<p>例外情况是，如果要执行的操作是调用一些已存在的并且将每个元素作为参数的函数，
+在这种情况下，<code class="highlighter-rouge">forEach()</code> 是很方便的。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (forEach-over-func)"?>
 <pre class="prettyprint lang-dart good-style">people.forEach(print);</pre>
 
-<h3 id="dont-use-listfrom-unless-you-intend-to-change-the-type-of-the-result">
-<a id="dont-use-listfrom-unless-you-intend-to-change-the-type-of-the-result" class="anchor" href="#dont-use-listfrom-unless-you-intend-to-change-the-type-of-the-result" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T use <code class="highlighter-rouge">List.from()</code> unless you intend to change the type of the result.</h3>
+<h3 id="不要-使用-listfrom-除非想修改结果的类型">
+<a id="不要-使用-listfrom-除非想修改结果的类型" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-listfrom-%E9%99%A4%E9%9D%9E%E6%83%B3%E4%BF%AE%E6%94%B9%E7%BB%93%E6%9E%9C%E7%9A%84%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用 <code class="highlighter-rouge">List.from()</code> 除非想修改结果的类型。</h3>
 
-<p>Given an Iterable, there are two obvious ways to produce a new List that
-contains the same elements:</p>
+<p>给定一个可迭代的对象，有两种常见方式来生成一个包含相同元素的 list：</p>
 
 <?code-excerpt "misc/test/effective_dart_test.dart (list-from-1)"?>
 <pre class="prettyprint lang-dart">var copy1 = iterable.toList();
 var copy2 = List.from(iterable);</pre>
 
-<p>The obvious difference is that the first one is shorter. The <em>important</em>
-difference is that the first one preserves the type argument of the original
-object:</p>
+<p>明显的区别是前一个更短。
+更<em>重要</em>的区别在于第一个保留了原始对象的类型参数：</p>
 
 <?code-excerpt "misc/test/effective_dart_test.dart (list-from-2)"?>
 <pre class="prettyprint lang-dart">// Creates a List&lt;int&gt;:
@@ -663,64 +661,66 @@ print(iterable.toList().runtimeType);
 // Prints "List&lt;dynamic&gt;":
 print(List.from(iterable).runtimeType);</pre>
 
-<p>If you <em>want</em> to change the type, then calling <code class="highlighter-rouge">List.from()</code> is useful:</p>
+<p>如果你<em>想要</em>改变类型，那么可以调用 <code class="highlighter-rouge">List.from()</code> ：</p>
 
 <?code-excerpt "misc/test/effective_dart_test.dart (list-from-3)"?>
 <pre class="prettyprint lang-dart">var numbers = [1, 2.3, 4]; // List&lt;num&gt;.
 numbers.removeAt(1); // Now it only contains integers.
 var ints = List&lt;int&gt;.from(numbers);</pre>
 
-<p>But if your goal is just to copy the iterable and preserve its original type, or
-you don’t care about the type, then use <code class="highlighter-rouge">toList()</code>.</p>
+<p>但是如果你的目的只是复制可迭代对象并且保留元素原始类型，
+或者并不在乎类型，那么请使用 <code class="highlighter-rouge">toList()</code> 。</p>
 
-<h3 id="do-use-wheretype-to-filter-a-collection-by-type">
-<a id="do-use-wheretype-to-filter-a-collection-by-type" class="anchor" href="#do-use-wheretype-to-filter-a-collection-by-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use <code class="highlighter-rouge">whereType()</code> to filter a collection by type.</h3>
+<h3 id="要-使用-wheretype-按类型过滤集合">
+<a id="要-使用-wheretype-按类型过滤集合" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-wheretype-%E6%8C%89%E7%B1%BB%E5%9E%8B%E8%BF%87%E6%BB%A4%E9%9B%86%E5%90%88" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">whereType()</code> 按类型过滤集合。</h3>
 
 <aside class="alert alert-warning">
-  <p><strong>Before using <code class="highlighter-rouge">whereType()</code>, make sure it’s implemented.</strong>
-  We expect <code class="highlighter-rouge">whereType()</code> to be added late in Dart 2 development.
-  For details, see
+  <p><strong>在使用 <code class="highlighter-rouge">whereType()</code> 前，确认它是否已经被实现。</strong>
+  我们期望 <code class="highlighter-rouge">whereType()</code> 会在后续的 Dart 2 中添加。
+  更多详情，参考
   <a href="https://github.com/dart-lang/sdk/issues/32463#issuecomment-402975456">SDK issue #32463.</a></p>
 </aside>
 
-<p>Let’s say you have a list containing a mixture of objects, and you want to get
-just the integers out of it. You could use <code class="highlighter-rouge">where()</code> like this:</p>
+<p>假设你有一个 list 里面包含了多种类型的对象，
+但是你指向从它里面获取整型类型的数据。
+那么你可以像下面这样使用 <code class="highlighter-rouge">where()</code> ：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_bad.dart (where-type)"?>
 <pre class="prettyprint lang-dart bad-style">var objects = [1, "a", 2, "b", 3];
 var ints = objects.where((e) =&gt; e is int);</pre>
 
-<p>This is verbose, but, worse, it returns an iterable whose type probably isn’t
-what you want. In the example here, it returns an <code class="highlighter-rouge">Iterable&lt;Object&gt;</code> even though
-you likely want an <code class="highlighter-rouge">Iterable&lt;int&gt;</code> since that’s the type you’re filtering it to.</p>
+<p>这个很罗嗦，但是更糟糕的是，它返回的可迭代对象类型可能并不是你想要的。
+在上面的例子中，虽然你想得到一个 <code class="highlighter-rouge">Iterable&lt;int&gt;</code>，然而它返回了一个 <code class="highlighter-rouge">Iterable&lt;Object&gt;</code>，
+这是因为，这是你过滤后得到的类型。</p>
 
-<p>Sometimes you see code that “corrects” the above error by adding <code class="highlighter-rouge">cast()</code>:</p>
+<p>有时候你会看到通过添加 <code class="highlighter-rouge">cast()</code> 来“修正”上面的错误：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_bad.dart (where-type-2)"?>
 <pre class="prettyprint lang-dart bad-style">var objects = [1, "a", 2, "b", 3];
 var ints = objects.where((e) =&gt; e is int).cast&lt;int&gt;();</pre>
 
-<p>That’s verbose and causes two wrappers to be created, with two layers of
-indirection and redundant runtime checking. Fortunately, the core library has
-the <a href="https://api.dartlang.org/dev/dart-core/Iterable/whereType.html"><code class="highlighter-rouge">whereType()</code></a> method for this exact use case:</p>
+<p>代码冗长，并导致创建了两个包装器，获取元素对象要间接通过两层，并进行两次多余的运行时检查。
+幸运的是，对于这个用例，核心库提供了 <code class="highlighter-rouge">whereType()</code>]<a href="https://api.dartlang.org/dev/dart-core/Iterable/whereType.html">where-type</a> 方法：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (where-type)"?>
 <pre class="prettyprint lang-dart good-style">var objects = [1, "a", 2, "b", 3];
 var ints = objects.whereType&lt;int&gt;();</pre>
 
-<p>Using <code class="highlighter-rouge">whereType()</code> is concise, produces an <a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a> of the desired type,
-and has no unnecessary levels of wrapping.</p>
+<p>使用 <code class="highlighter-rouge">whereType()</code> 简洁，
+生成所需的 <a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a>（可迭代）类型，
+并且没有不必要的层级包装。</p>
 
-<h3 id="dont-use-cast-when-a-nearby-operation-will-do">
-<a id="dont-use-cast-when-a-nearby-operation-will-do" class="anchor" href="#dont-use-cast-when-a-nearby-operation-will-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T use <code class="highlighter-rouge">cast()</code> when a nearby operation will do.</h3>
+<h3 id="不要-使用-cast如果有更合适的方法">
+<a id="不要-使用-cast如果有更合适的方法" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-cast%E5%A6%82%E6%9E%9C%E6%9C%89%E6%9B%B4%E5%90%88%E9%80%82%E7%9A%84%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用 <code class="highlighter-rouge">cast()</code>，如果有更合适的方法。</h3>
 
-<p>Often when you’re dealing with an iterable or stream, you perform several
-transformations on it. At the end, you want to produce an object with a certain
-type argument. Instead of tacking on a call to <code class="highlighter-rouge">cast()</code>, see if one of the
-existing transformations can change the type.</p>
+<p>通常，当处理可迭代对象或 stream 时，
+你可以对其执行多次转换。
+最后，生成所希望的具有特定类型参数的对象。
+尝试查看是否有已有的转换方法来改变类型，而不是去掉用 <code class="highlighter-rouge">cast()</code> 。
+而不是调用cast（），看看是否有一个现有的转换可以改变类型。</p>
 
-<p>If you’re already calling <code class="highlighter-rouge">toList()</code>, replace that with a call to
-<a href="https://api.dartlang.org/dev/dart-core/List/List.from.html"><code class="highlighter-rouge">List&lt;T&gt;.from()</code></a> where <code class="highlighter-rouge">T</code> is the type of resulting list you want.</p>
+<p>如果你已经使用了 <code class="highlighter-rouge">toList()</code> ，那么请使用 <a href="https://api.dartlang.org/dev/dart-core/List/List.from.html"><code class="highlighter-rouge">List&lt;T&gt;.from()</code></a> 替换，
+这里的 <code class="highlighter-rouge">T</code> 是你想要的返回值的类型。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (cast-list)"?>
 <pre class="prettyprint lang-dart good-style">var stuff = &lt;dynamic&gt;[1, 2];
@@ -730,10 +730,10 @@ var ints = List&lt;int&gt;.from(stuff);</pre>
 <pre class="prettyprint lang-dart bad-style">var stuff = &lt;dynamic&gt;[1, 2];
 var ints = stuff.toList().cast&lt;int&gt;();</pre>
 
-<p>If you are calling <code class="highlighter-rouge">map()</code>, give it an explicit type argument so that it
-produces an iterable of the desired type. Type inference often picks the correct
-type for you based on the function you pass to <code class="highlighter-rouge">map()</code>, but sometimes you need
-to be explicit.</p>
+<p>如果你正在调用 <code class="highlighter-rouge">map()</code> ，给它一个显式的类型参数，
+这样它就能产生一个所需类型的可迭代对象。
+类型推断通常根据传递给 <code class="highlighter-rouge">map()</code> 的函数选择出正确的类型，
+但有的时候需要明确指明。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (cast-map)" replace="/\(n as int\)/n/g"?>
 <pre class="prettyprint lang-dart good-style">var stuff = &lt;dynamic&gt;[1, 2];
@@ -743,37 +743,35 @@ var reciprocals = stuff.map&lt;double&gt;((n) =&gt; 1 / n);</pre>
 <pre class="prettyprint lang-dart bad-style">var stuff = &lt;dynamic&gt;[1, 2];
 var reciprocals = stuff.map((n) =&gt; 1 / n).cast&lt;double&gt;();</pre>
 
-<h3 id="avoid-using-cast">
-<a id="avoid-using-cast" class="anchor" href="#avoid-using-cast" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID using <code class="highlighter-rouge">cast()</code>.</h3>
+<h3 id="避免-使用-cast-">
+<a id="避免-使用-cast-" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8-cast-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 使用 <code class="highlighter-rouge">cast()</code> 。</h3>
 
-<p>This is the softer generalization of the previous rule. Sometimes there is no
-nearby operation you can use to fix the type of some object. Even then, when
-possible avoid using <code class="highlighter-rouge">cast()</code> to “change” a collection’s type.</p>
+<p>这是对先前规则的一个宽松的定义。
+有些时候，并没有合适的方式来修改对象类型，即便如此，
+也应该尽可能的避免使用 <code class="highlighter-rouge">cast()</code> 来“改变”集合中元素的类型。</p>
 
-<p>Prefer any of these options instead:</p>
+<p>推荐使用下面的方式来替代：</p>
 
 <ul>
   <li>
-    <p><strong>Create it with the right type.</strong> Change the code where the collection is
-first created so that it has the right type.</p>
+    <p><strong>用恰当的类型创建集合。</strong> 修改集合被首次创建时的代码，
+为集合提供有一个恰当的类型。</p>
   </li>
   <li>
-    <p><strong>Cast the elements on access.</strong> If you immediately iterate over the
-collection, cast each element inside the iteration.</p>
+    <p><strong>在访问元素时进行 cast 操作。</strong> 如果要立即对集合进行迭代，
+在迭代内部 cast 每个元素。</p>
   </li>
   <li>
-    <p><strong>Eagerly cast using <code class="highlighter-rouge">List.from()</code>.</strong> If you’ll eventually access most of
-the elements in the collection, and you don’t need the object to be backed
-by the original live object, convert it using <code class="highlighter-rouge">List.from()</code>.</p>
+    <p><strong>逼不得已进行 cast，请使用 <code class="highlighter-rouge">List.from()</code> 。</strong> 如果最终你会使用到集合中的大部分元素，
+并且不需要对象还原到原始的对象类型，使用 <code class="highlighter-rouge">List.from()</code> 来转换它。</p>
 
-    <p>The <code class="highlighter-rouge">cast()</code> method returns a lazy collection that checks the element type
-on <em>every operation</em>. If you perform only a few operations on only a few
-elements, that laziness can be good. But in many cases, the overhead of lazy
-validation and of wrapping outweighs the benefits.</p>
+    <p><code class="highlighter-rouge">cast()</code> 方法返回一个惰性集合（lazy collection），<em>每个操作</em>都会对元素进行检查。
+如果只对少数元素执行少量操作，那么这种惰性方式就非常合适。
+但在许多情况下，惰性验证和包裹（wrapping）所产生的开销已经超过了它们所带来的好处。</p>
   </li>
 </ul>
 
-<p>Here is an example of <strong>creating it with the right type:</strong></p>
+<p>下面是 <strong>用恰当的类型创建集合</strong> 的示例：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (cast-at-create)"?>
 <pre class="prettyprint lang-dart good-style">List&lt;int&gt; singletonList(int value) {
@@ -789,7 +787,7 @@ validation and of wrapping outweighs the benefits.</p>
   return list.cast&lt;int&gt;();
 }</pre>
 
-<p>Here is <strong>casting each element on access:</strong></p>
+<p>下面是 <strong>在访问元素时进行 cast 操作</strong> 的示例：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (cast-iterate)" replace="/\(n as int\)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart good-style">void printEvens(List&lt;Object&gt; objects) {
@@ -807,7 +805,7 @@ validation and of wrapping outweighs the benefits.</p>
   }
 }</pre>
 
-<p>Here is <strong>casting eagerly using <code class="highlighter-rouge">List.from()</code>:</strong></p>
+<p>下面是 <strong>使用 <code class="highlighter-rouge">List.from()</code> 进行 cast 操作</strong> 的示例：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (cast-from)"?>
 <pre class="prettyprint lang-dart good-style">int median(List&lt;Object&gt; objects) {
@@ -825,26 +823,24 @@ validation and of wrapping outweighs the benefits.</p>
   return ints[ints.length ~/ 2];
 }</pre>
 
-<p>These alternatives don’t always work, of course, and sometimes <code class="highlighter-rouge">cast()</code> is the
-right answer. But consider that method a little risky and undesirable—it
-can be slow and may fail at runtime if you aren’t careful.</p>
+<p>当然，这些替代方案并不总能解决问题，显然，这时候就应该选择 <code class="highlighter-rouge">cast()</code> 方式了。
+但是考虑到这种方式的风险和缺点——如果使用不当，可能会导致执行缓慢和运行失败。</p>
 
-<h2 id="functions">
-<a id="functions" class="anchor" href="#functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Functions</h2>
+<h2 id="函数">
+<a id="函数" class="anchor" href="#%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>函数</h2>
 
-<p>In Dart, even functions are objects. Here are some best practices
-involving functions.</p>
+<p>在 Dart 中，就连函数也是对象。以下是一些涉及函数的最佳实践。</p>
 
-<h3 id="do-use-a-function-declaration-to-bind-a-function-to-a-name">
-<a id="do-use-a-function-declaration-to-bind-a-function-to-a-name" class="anchor" href="#do-use-a-function-declaration-to-bind-a-function-to-a-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use a function declaration to bind a function to a name.</h3>
+<h3 id="要-使用函数声明的方式为函数绑定名称">
+<a id="要-使用函数声明的方式为函数绑定名称" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E7%9A%84%E6%96%B9%E5%BC%8F%E4%B8%BA%E5%87%BD%E6%95%B0%E7%BB%91%E5%AE%9A%E5%90%8D%E7%A7%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用函数声明的方式为函数绑定名称。</h3>
 
-<p>Modern languages have realized how useful local nested functions and closures
-are. It’s common to have a function defined inside another one. In many cases,
-this function is used as a callback immediately and doesn’t need a name. A
-function expression is great for that.</p>
+<p>现代语言已经意识到本地嵌套函数和闭包的益处。
+在一个函数中定义另一个函数非常常见。
+在许多情况下，这些函数被立即执行并返回结果，而且不需要名字。
+这种情况下非常适合使用函数表达式来实现。</p>
 
-<p>But, if you do need to give it a name, use a function declaration statement
-instead of binding a lambda to a variable.</p>
+<p>但是，如果你确实需要给方法一个名字，请使用方法定义而不是把
+lambda 赋值给一个变量。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (func-decl)"?>
 <pre class="prettyprint lang-dart good-style">void main() {
@@ -860,15 +856,15 @@ instead of binding a lambda to a variable.</p>
   };
 }</pre>
 
-<h3 id="dont-create-a-lambda-when-a-tear-off-will-do">
-<a id="dont-create-a-lambda-when-a-tear-off-will-do" class="anchor" href="#dont-create-a-lambda-when-a-tear-off-will-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T create a lambda when a tear-off will do.</h3>
+<h3 id="不要-使用-lambda-表达式来替代-tear-off">
+<a id="不要-使用-lambda-表达式来替代-tear-off" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9D%A5%E6%9B%BF%E4%BB%A3-tear-off" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用 lambda 表达式来替代 tear-off。</h3>
 
-<p>If you refer to a method on an object but omit the parentheses, Dart gives you
-a “tear-off”—a closure that takes the same parameters as the method and
-invokes it when you call it.</p>
+<p>如果你在一个对象上调用函数并省略了括号， 
+Dart 称之为”tear-off”—一个和函数使用同样参数的闭包，
+当你调用闭包的时候执行其中的函数。</p>
 
-<p>If you have a function that invokes a method with the same arguments as are
-passed to it, you don’t need to manually wrap the call in a lambda.</p>
+<p>如果你有一个方法，这个方法调用了参数相同的另一个方法。
+那么，你不需要人为将这个方法包装到一个 lambda 表达式中。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (use-tear-off)"?>
 <pre class="prettyprint lang-dart good-style">names.forEach(print);</pre>
@@ -878,15 +874,14 @@ passed to it, you don’t need to manually wrap the call in a lambda.</p>
   print(name);
 });</pre>
 
-<h2 id="parameters">
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h2>
+<h2 id="参数">
+<a id="参数" class="anchor" href="#%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>参数</h2>
 
-<h3 id="do-use--to-separate-a-named-parameter-from-its-default-value">
-<a id="do-use--to-separate-a-named-parameter-from-its-default-value" class="anchor" href="#do-use--to-separate-a-named-parameter-from-its-default-value" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use <code class="highlighter-rouge">=</code> to separate a named parameter from its default value.</h3>
+<h3 id="要-使用--来分隔参数名和参数默认值">
+<a id="要-使用--来分隔参数名和参数默认值" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8--%E6%9D%A5%E5%88%86%E9%9A%94%E5%8F%82%E6%95%B0%E5%90%8D%E5%92%8C%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">=</code> 来分隔参数名和参数默认值。</h3>
 
-<p>For legacy reasons, Dart allows both <code class="highlighter-rouge">:</code> and <code class="highlighter-rouge">=</code> as the default value separator
-for named parameters. For consistency with optional positional parameters, use
-<code class="highlighter-rouge">=</code>.</p>
+<p>由于遗留原因，Dart 同时支持 <code class="highlighter-rouge">:</code> 和 <code class="highlighter-rouge">=</code> 作为参数名和默认值的分隔符。
+为了与可选的位置参数保持一致，请使用 <code class="highlighter-rouge">=</code> 。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (default-separator)"?>
 <pre class="prettyprint lang-dart good-style">void insert(Object item, {int at = 0}) { ... }</pre>
@@ -894,11 +889,11 @@ for named parameters. For consistency with optional positional parameters, use
 <?code-excerpt "misc/lib/effective_dart/usage_bad.dart (default-separator)"?>
 <pre class="prettyprint lang-dart bad-style">void insert(Object item, {int at: 0}) { ... }</pre>
 
-<h3 id="dont-use-an-explicit-default-value-of-null">
-<a id="dont-use-an-explicit-default-value-of-null" class="anchor" href="#dont-use-an-explicit-default-value-of-null" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T use an explicit default value of <code class="highlighter-rouge">null</code>.</h3>
+<h3 id="不要-显式的为参数设置-null-值">
+<a id="不要-显式的为参数设置-null-值" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E6%98%BE%E5%BC%8F%E7%9A%84%E4%B8%BA%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE-null-%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 显式的为参数设置 <code class="highlighter-rouge">null</code> 值。</h3>
 
-<p>If you make a parameter optional but don’t give it a default value, the language
-implicitly uses <code class="highlighter-rouge">null</code> as the default, so there’s no need to write it.</p>
+<p>如果你创建了一个可选参数，那么就不要为其赋默认值，
+Dart 默认使用 <code class="highlighter-rouge">null</code> 作为默认值，所以这里不需要为其 <code class="highlighter-rouge">null</code> 赋值语句。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (default-value-null)"?>
 <pre class="prettyprint lang-dart good-style">void error([String message]) {
@@ -910,18 +905,17 @@ implicitly uses <code class="highlighter-rouge">null</code> as the default, so t
   stderr.write(message ?? '\n');
 }</pre>
 
-<h2 id="variables">
-<a id="variables" class="anchor" href="#variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variables</h2>
+<h2 id="变量">
+<a id="变量" class="anchor" href="#%E5%8F%98%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>变量</h2>
 
-<p>The following best practices describe how to best use variables in Dart.</p>
+<p>下面是关于如何在 Dart 中使用变量的的最佳实践。</p>
 
-<h3 id="dont-explicitly-initialize-variables-to-null">
-<a id="dont-explicitly-initialize-variables-to-null" class="anchor" href="#dont-explicitly-initialize-variables-to-null" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T explicitly initialize variables to <code class="highlighter-rouge">null</code>.</h3>
+<h3 id="不要-显示的为参数初始化-null-值">
+<a id="不要-显示的为参数初始化-null-值" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E6%98%BE%E7%A4%BA%E7%9A%84%E4%B8%BA%E5%8F%82%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96-null-%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 显示的为参数初始化 <code class="highlighter-rouge">null</code> 值。</h3>
 
-<p>In Dart, a variable or field that is not explicitly initialized automatically
-gets initialized to <code class="highlighter-rouge">null</code>. This is reliably specified by the language. There’s
-no concept of “uninitialized memory” in Dart. Adding <code class="highlighter-rouge">= null</code> is redundant and
-unneeded.</p>
+<p>在Dart中，未自动显式初始化的变量或字段将初始化为 <code class="highlighter-rouge">null</code> 。
+语言保证了赋值的可靠性。在 Dart 中没有“未初始化内存”的概念。
+所以使用 <code class="highlighter-rouge">= null</code> 是多余的。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (no-null-init)"?>
 <pre class="prettyprint lang-dart good-style">int _nextId;
@@ -951,12 +945,11 @@ class LazyId {
   }
 }</pre>
 
-<h3 id="avoid-storing-what-you-can-calculate">
-<a id="avoid-storing-what-you-can-calculate" class="anchor" href="#avoid-storing-what-you-can-calculate" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID storing what you can calculate.</h3>
+<h3 id="避免-保存可计算的结果">
+<a id="避免-保存可计算的结果" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%BF%9D%E5%AD%98%E5%8F%AF%E8%AE%A1%E7%AE%97%E7%9A%84%E7%BB%93%E6%9E%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 保存可计算的结果。</h3>
 
-<p>When designing a class, you often want to expose multiple views into the same
-underlying state. Often you see code that calculates all of those views in the
-constructor and then stores them:</p>
+<p>在设计类的时候，你常常希望暴露底层状态的多个表现属性。
+常常你会发现在类的构造函数中计算这些属性，然后保存起来：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_bad.dart (cacl-vs-store1)"?>
 <pre class="prettyprint lang-dart bad-style">class Circle {
@@ -970,18 +963,18 @@ constructor and then stores them:</p>
         circumference = pi * 2.0 * radius;
 }</pre>
 
-<p>This code has two things wrong with it. First, it’s likely wasting memory. The
-area and circumference, strictly speaking, are <em>caches</em>. They are stored
-calculations that we could recalculate from other data we already have. They are
-trading increased memory for reduced CPU usage. Do we know we have a performance
-problem that merits that trade-off?</p>
+<p>上面的代码有两个不妥之处。首先，这样浪费了内存。
+严格来说面积和周长是<em>缓存</em>数据。
+他们保存的结果可以通过已知的数据计算出来。
+他们减少了 CPU 消耗却增加了内存消耗。
+我们还没有权衡，到底存不存在性能问题？</p>
 
-<p>Worse, the code is <em>wrong</em>. The problem with caches is <em>invalidation</em>—how
-do you know when the cache is out of date and needs to be recalculated? Here, we
-never do, even though <code class="highlighter-rouge">radius</code> is mutable. You can assign a different value and
-the <code class="highlighter-rouge">area</code> and <code class="highlighter-rouge">circumference</code> will retain their previous, now incorrect values.</p>
+<p>更坏的情况是，上面的代码是 <em>错的</em> 。上面的缓存是<em>无效的</em>—
+你如何知道什么时候缓存失效了需要重新计算？
+在这里，我们永远不会从新计算，即使 <code class="highlighter-rouge">radius</code> 是可变的。
+你可以给 <code class="highlighter-rouge">radius</code> 设置一个不同的值，但是 <code class="highlighter-rouge">area</code> 和 <code class="highlighter-rouge">circumference</code> 还是之前的值。</p>
 
-<p>To correctly handle cache invalidation, we need to do this:</p>
+<p>为了正确处理缓存失效，我们需要这样做：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_bad.dart (cacl-vs-store2)"?>
 <pre class="prettyprint lang-dart bad-style">class Circle {
@@ -1008,8 +1001,8 @@ the <code class="highlighter-rouge">area</code> and <code class="highlighter-rou
   }
 }</pre>
 
-<p>That’s an awful lot of code to write, maintain, debug, and read. Instead, your
-first implementation should be:</p>
+<p>这需要编写、维护、调试以及阅读更多的代码。
+如果你一开始这样写代码：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (cacl-vs-store)"?>
 <pre class="prettyprint lang-dart good-style">class Circle {
@@ -1021,33 +1014,31 @@ first implementation should be:</p>
   num get circumference =&gt; pi * 2.0 * radius;
 }</pre>
 
-<p>This code is shorter, uses less memory, and is less error-prone. It stores the
-minimal amount of data needed to represent the circle. There are no fields to
-get out of sync because there is only a single source of truth.</p>
+<p>上面的代码更加简洁、使用更少的内存、减少出错的可能性。
+它尽可能少的保存了表示圆所需要的数据。
+这里没有字段需要同步，因为这里只有一个有效数据源。</p>
 
-<p>In some cases, you may need to cache the result of a slow calculation, but only
-do that after you know you have a performance problem, do it carefully, and
-leave a comment explaining the optimization.</p>
+<p>在某些情况下，当计算结果比较费时的时候可能需要缓存，
+但是只应该在你只有你有这样的性能问题的时候再去处理，
+处理时要仔细，并留下挂关于优化的注释。</p>
 
-<h2 id="members">
-<a id="members" class="anchor" href="#members" aria-hidden="true"><span class="octicon octicon-link"></span></a>Members</h2>
+<h2 id="成员">
+<a id="成员" class="anchor" href="#%E6%88%90%E5%91%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>成员</h2>
 
-<p>In Dart, objects have members which can be functions (methods) or data (instance
-variables). The following best practices apply to an object’s members.</p>
+<p>在 Dart 中，对象成员可以是函数（方法）或数据（实例变量）。
+下面是关于对象成员的最佳实践。</p>
 
-<h3 id="dont-wrap-a-field-in-a-getter-and-setter-unnecessarily">
-<a id="dont-wrap-a-field-in-a-getter-and-setter-unnecessarily" class="anchor" href="#dont-wrap-a-field-in-a-getter-and-setter-unnecessarily" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T wrap a field in a getter and setter unnecessarily.</h3>
+<h3 id="不要-为字段创建不必要的-getter-和-setter-方法">
+<a id="不要-为字段创建不必要的-getter-和-setter-方法" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%B8%BA%E5%AD%97%E6%AE%B5%E5%88%9B%E5%BB%BA%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84-getter-%E5%92%8C-setter-%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 为字段创建不必要的 getter 和 setter 方法。</h3>
 
-<p>In Java and C#, it’s common to hide all fields behind getters and setters (or
-properties in C#), even if the implementation just forwards to the field. That
-way, if you ever need to do more work in those members, you can without needing
-to touch the callsites. This is because calling a getter method is different
-than accessing a field in Java, and accessing a property isn’t binary-compatible
-with accessing a raw field in C#.</p>
+<p>在 Java 和 C# 中，通常情况下会将所有的字段隐藏到 getter 和 setter 方法中（在 C# 中被称为属性），
+即使实现中仅仅是指向这些字段。在这种方式下，即使你在这些成员上做多少的事情，你也不需要直接访问它们。
+这是因为，在 Java 中，调用 getter 方法和直接访问字段是不同的。
+在 C# 中，访问属性与访问字段不是二进制兼容的。</p>
 
-<p>Dart doesn’t have this limitation. Fields and getters/setters are completely
-indistinguishable. You can expose a field in a class and later wrap it in a
-getter and setter without having to touch any code that uses that field.</p>
+<p>Dart 不存在这个限制。字段和 getter/setter 是完全无法区分的。
+你可以在类中公开一个字段，然后将其包装在 getter 和 setter 中，
+而不会影响任何使用该字段的代码。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (dont-wrap-field)"?>
 <pre class="prettyprint lang-dart good-style">class Box {
@@ -1063,11 +1054,11 @@ getter and setter without having to touch any code that uses that field.</p>
   }
 }</pre>
 
-<h3 id="prefer-using-a-final-field-to-make-a-read-only-property">
-<a id="prefer-using-a-final-field-to-make-a-read-only-property" class="anchor" href="#prefer-using-a-final-field-to-make-a-read-only-property" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER using a <code class="highlighter-rouge">final</code> field to make a read-only property.</h3>
+<h3 id="推荐-使用-final-关键字来创建只读属性">
+<a id="推荐-使用-final-关键字来创建只读属性" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-final-%E5%85%B3%E9%94%AE%E5%AD%97%E6%9D%A5%E5%88%9B%E5%BB%BA%E5%8F%AA%E8%AF%BB%E5%B1%9E%E6%80%A7" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用 <code class="highlighter-rouge">final</code> 关键字来创建只读属性。</h3>
 
-<p>If you have a field that outside code should be able to see but not assign to, a
-simple solution that works in many cases is to simply mark it <code class="highlighter-rouge">final</code>.</p>
+<p>如果你有一个变量，对于外部代买来说只能读取不能修改，
+最简单的做法就是使用 <code class="highlighter-rouge">final</code> 关键字来标记这个变量。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (final)"?>
 <pre class="prettyprint lang-dart good-style">class Box {
@@ -1080,16 +1071,16 @@ simple solution that works in many cases is to simply mark it <code class="highl
   get contents =&gt; _contents;
 }</pre>
 
-<p>Of course, if you need to internally assign to the field outside of the
-constructor, you may need to do the “private field, public getter” pattern, but
-don’t reach for that until you need to.</p>
+<p>当然，如果你需要构造一个内部可以赋值，外部可以访问的字段，
+你可以需要这种“私有成员变量，公开访问函数”的模式，
+但是，如非必要，请不要使用这种模式。</p>
 
-<h3 id="consider-using--for-simple-members">
-<a id="consider-using--for-simple-members" class="anchor" href="#consider-using--for-simple-members" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER using <code class="highlighter-rouge">=&gt;</code> for simple members.</h3>
+<h3 id="考虑-对简单成员使用--">
+<a id="考虑-对简单成员使用--" class="anchor" href="#%E8%80%83%E8%99%91-%E5%AF%B9%E7%AE%80%E5%8D%95%E6%88%90%E5%91%98%E4%BD%BF%E7%94%A8--" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 对简单成员使用 <code class="highlighter-rouge">=&gt;</code> 。</h3>
 
-<p>In addition to using <code class="highlighter-rouge">=&gt;</code> for function expressions, Dart also lets you define
-members with it. That style is a good fit for simple members that just calculate
-and return a value.</p>
+<p>除了使用 <code class="highlighter-rouge">=&gt;</code> 可以用作函数表达式以外，
+Dart 还允许使用它来定义成员。
+这种风格非常适合，仅进行计算并返回结果的简单成员。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (use-arrow)"?>
 <pre class="prettyprint lang-dart good-style">double get area =&gt; (right - left) * (bottom - top);
@@ -1099,11 +1090,10 @@ bool isReady(num time) =&gt; minTime == null || minTime &lt;= time;
 String capitalize(String name) =&gt;
     '${name[0].toUpperCase()}${name.substring(1)}';</pre>
 
-<p>People <em>writing</em> code seem to love <code class="highlighter-rouge">=&gt;</code>, but it’s very easy to abuse it and end
-up with code that’s hard to <em>read</em>. If your declaration is more than a couple of
-lines or contains deeply nested expressions—cascades and conditional
-operators are common offenders—do yourself and everyone who has to read
-your code a favor and use a block body and some statements.</p>
+<p><em>编写</em>代码的人似乎很喜欢 <code class="highlighter-rouge">=&gt;</code> 语法，但是它很容易被滥用，最后导致代码不容易被<em>阅读</em>。
+如果你有很多行声明或包含深层的嵌套表达式（级联和条件运算符就是常见的罪魁祸首），
+你以及其他人有谁会愿意读这样的代码！
+你应该换做使用代码块和一些语句来实现。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (arrow-long)"?>
 <pre class="prettyprint lang-dart good-style">Treasure openChest(Chest chest, Point where) {
@@ -1120,26 +1110,23 @@ your code a favor and use a block body and some statements.</p>
     _opened.containsKey(chest) ? null : _opened[chest] = Treasure(where)
       ..addAll(chest.contents);</pre>
 
-<p>You can also use <code class="highlighter-rouge">=&gt;</code> on members that don’t return a value. This is idiomatic
-when a setter is small and has a corresponding getter that uses <code class="highlighter-rouge">=&gt;</code>.</p>
+<p>您还可以对不返回值的成员使用 <code class="highlighter-rouge">=&gt;</code> 。 
+这里有个惯例，就是当 setter 和 getter 都比较简单的时候使用 <code class="highlighter-rouge">=&gt;</code> 。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (arrow-setter)"?>
 <pre class="prettyprint lang-dart good-style">num get x =&gt; center.x;
 set x(num value) =&gt; center = Point(value, center.y);</pre>
 
-<p>It’s rarely a good idea to use <code class="highlighter-rouge">=&gt;</code> for non-setter void members. The <code class="highlighter-rouge">=&gt;</code>
-implies “returns a value”, so readers may misinterpret what the void member does
-if you use it.</p>
+<p>对非 setter，void 返回值的成员，使用 <code class="highlighter-rouge">=&gt;</code> 是一个不错的注意，
+<code class="highlighter-rouge">=&gt;</code> 语法暗示会“返回一个值”，如果你在 void 返回值的成员上使用，会让读代码的人误解成员的行为。</p>
 
-<h3 id="dont-use-this-when-not-needed-to-avoid-shadowing">
-<a id="dont-use-this-when-not-needed-to-avoid-shadowing" class="anchor" href="#dont-use-this-when-not-needed-to-avoid-shadowing" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T use <code class="highlighter-rouge">this.</code> when not needed to avoid shadowing.</h3>
+<h3 id="不要-使用-this-除非遇到了变量冲突的情况">
+<a id="不要-使用-this-除非遇到了变量冲突的情况" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-this-%E9%99%A4%E9%9D%9E%E9%81%87%E5%88%B0%E4%BA%86%E5%8F%98%E9%87%8F%E5%86%B2%E7%AA%81%E7%9A%84%E6%83%85%E5%86%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用 <code class="highlighter-rouge">this.</code> ，除非遇到了变量冲突的情况。</h3>
 
-<p>JavaScript requires an explicit <code class="highlighter-rouge">this.</code> to refer to members on the object whose
-method is currently being executed, but Dart—like C++, Java, and
-C#—doesn’t have that limitation.</p>
+<p>JavaScript 需要使用 <code class="highlighter-rouge">this.</code> 来引用对象的成员变量，
+但是 Dart—和 C++, Java, 以及C#—没有这种限制。</p>
 
-<p>The only time you need to use <code class="highlighter-rouge">this.</code> is when a local variable with the same
-name shadows the member you want to access.</p>
+<p>只有当局部变量和成员变量名字一样的时候，你才需要使用 <code class="highlighter-rouge">this.</code> 来访问成员变量。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_bad.dart (this-dot)"?>
 <pre class="prettyprint lang-dart bad-style">class Box {
@@ -1167,8 +1154,7 @@ name shadows the member you want to access.</p>
   }
 }</pre>
 
-<p>Note that constructor parameters never shadow fields in constructor
-initialization lists:</p>
+<p>注意，构造函数初始化列表中的字段有永远不会与构造函数参数列表参数产生冲突。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (param-dont-shadow-field-ctr-init)"?>
 <pre class="prettyprint lang-dart good-style">class Box extends BaseBox {
@@ -1179,15 +1165,15 @@ initialization lists:</p>
         super(value);
 }</pre>
 
-<p>This looks surprising, but works like you want. Fortunately, code like this is
-relatively rare thanks to initializing formals.</p>
+<p>这看起来很令人惊讶，但是实际结果是你想要的。
+幸运的是，由于初始化规则的特殊性，上面的代码很少见到。</p>
 
-<h3 id="do-initialize-fields-at-their-declaration-when-possible">
-<a id="do-initialize-fields-at-their-declaration-when-possible" class="anchor" href="#do-initialize-fields-at-their-declaration-when-possible" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO initialize fields at their declaration when possible.</h3>
+<h3 id="要-尽可能的在定义变量的时候初始化变量值">
+<a id="要-尽可能的在定义变量的时候初始化变量值" class="anchor" href="#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E5%9C%A8%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E7%9A%84%E6%97%B6%E5%80%99%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%98%E9%87%8F%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 尽可能的在定义变量的时候初始化变量值。</h3>
 
-<p>If a field doesn’t depend on any constructor parameters, it can and should be
-initialized at its declaration. It takes less code and makes sure you won’t
-forget to initialize it if the class has multiple constructors.</p>
+<p>如果一个字段不依赖于构造函数中的参数，
+则应该在定义的时候就初始化字段值。
+这样可以减少需要的代码并可以确保在有多个构造函数的时候你不会忘记初始化该字段。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_bad.dart (field-init-at-decl)"?>
 <pre class="prettyprint lang-dart bad-style">class Folder {
@@ -1207,18 +1193,18 @@ forget to initialize it if the class has multiple constructors.</p>
   Folder.temp() : name = 'temporary';
 }</pre>
 
-<p>Of course, if a field depends on constructor parameters, or is initialized
-differently by different constructors, then this guideline does not apply.</p>
+<p>当然，对于变量取值依赖构造函数参数的情况以及不同的构造函数取值也不一样的情况，
+则不适合本条规则。</p>
 
-<h2 id="constructors">
-<a id="constructors" class="anchor" href="#constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constructors</h2>
+<h2 id="构造函数">
+<a id="构造函数" class="anchor" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>构造函数</h2>
 
-<p>The following best practices apply to declaring constructors for a class.</p>
+<p>下面对于类的构造函数的最佳实践。</p>
 
-<h3 id="do-use-initializing-formals-when-possible">
-<a id="do-use-initializing-formals-when-possible" class="anchor" href="#do-use-initializing-formals-when-possible" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use initializing formals when possible.</h3>
+<h3 id="要-尽可能的使用初始化形式">
+<a id="要-尽可能的使用初始化形式" class="anchor" href="#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BD%A2%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 尽可能的使用初始化形式。</h3>
 
-<p>Many fields are initialized directly from a constructor parameter, like:</p>
+<p>许多字段直接使用构造函数参数来初始化，如：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_bad.dart (field-init-as-param)"?>
 <pre class="prettyprint lang-dart bad-style">class Point {
@@ -1229,7 +1215,7 @@ differently by different constructors, then this guideline does not apply.</p>
   }
 }</pre>
 
-<p>We’ve got to type <code class="highlighter-rouge">x</code> <em>four</em> times here define a field. Lame. We can do better:</p>
+<p>为了初始化一个字段，我们需要取_四_次 <code class="highlighter-rouge">x</code> 。使用下面的方式会更好：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (field-init-as-param)"?>
 <pre class="prettyprint lang-dart good-style">class Point {
@@ -1237,16 +1223,15 @@ differently by different constructors, then this guideline does not apply.</p>
   Point(this.x, this.y);
 }</pre>
 
-<p>This <code class="highlighter-rouge">this.</code> syntax before a constructor parameter is called an “initializing
-formal”. You can’t always take advantage of it. In particular, using it means
-the parameter is not visible in the initialization list. But, when you can, you
-should.</p>
+<p>这里的位于构造函数参数之前的 <code class="highlighter-rouge">this.</code> 语法被称之为初始化形式（initializing formal）。
+有些情况下这无法使用这种形式。特别是，这种形式下在初始化列表中无法看到变量。 
+但是如果能使用该方式，就应该尽量使用。</p>
 
-<h3 id="dont-type-annotate-initializing-formals">
-<a id="dont-type-annotate-initializing-formals" class="anchor" href="#dont-type-annotate-initializing-formals" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T type annotate initializing formals.</h3>
+<h3 id="不要-在初始化形式中做类型注释">
+<a id="不要-在初始化形式中做类型注释" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BD%A2%E5%BC%8F%E4%B8%AD%E5%81%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 在初始化形式中做类型注释。</h3>
 
-<p>If a constructor parameter is using <code class="highlighter-rouge">this.</code> to initialize a field, then the type
-of the parameter is understood to be the same type as the field.</p>
+<p>如果构造函数参数使用 <code class="highlighter-rouge">this.</code> 的方式来初始化字段，
+这时参数的类型被认为和字段类型相同。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (dont-type-init-formals)"?>
 <pre class="prettyprint lang-dart good-style">class Point {
@@ -1260,11 +1245,11 @@ of the parameter is understood to be the same type as the field.</p>
   Point(int this.x, int this.y);
 }</pre>
 
-<h3 id="do-use--instead-of--for-empty-constructor-bodies">
-<a id="do-use--instead-of--for-empty-constructor-bodies" class="anchor" href="#do-use--instead-of--for-empty-constructor-bodies" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use <code class="highlighter-rouge">;</code> instead of <code class="highlighter-rouge">{}</code> for empty constructor bodies.</h3>
+<h3 id="要-用--来替代空的构造函数体-">
+<a id="要-用--来替代空的构造函数体-" class="anchor" href="#%E8%A6%81-%E7%94%A8--%E6%9D%A5%E6%9B%BF%E4%BB%A3%E7%A9%BA%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%BD%93-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 用 <code class="highlighter-rouge">;</code> 来替代空的构造函数体 <code class="highlighter-rouge">{}</code>。</h3>
 
-<p>In Dart, a constructor with an empty body can be terminated with just a
-semicolon. (In fact, it’s required for const constructors.)</p>
+<p>在 Dart 中，没有具体函数体的构造函数可以使用分号结尾。
+（事实上，这是不可变构造函数的要求。）</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (semicolon-for-empty-body)"?>
 <pre class="prettyprint lang-dart good-style">class Point {
@@ -1278,15 +1263,15 @@ semicolon. (In fact, it’s required for const constructors.)</p>
   Point(this.x, this.y) {}
 }</pre>
 
-<h3 id="dont-use-new">
-<a id="dont-use-new" class="anchor" href="#dont-use-new" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T use <code class="highlighter-rouge">new</code>.</h3>
+<h3 id="不要-使用-new-">
+<a id="不要-使用-new-" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-new-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用 <code class="highlighter-rouge">new</code> 。</h3>
 
-<p>Dart 2 makes the <code class="highlighter-rouge">new</code> keyword optional. Even in Dart 1, its meaning was never
-clear because factory constructors mean a <code class="highlighter-rouge">new</code> invocation may still not
-actually return a new object.</p>
+<p>Dart 2 <code class="highlighter-rouge">new</code> 关键字成为可选项。
+即使在Dart 1中，其含义也从未明确过，
+以为在工厂构造函数中，调用 <code class="highlighter-rouge">new</code> 可能并不意味着一定会返回一个新对象。</p>
 
-<p>The language still permits <code class="highlighter-rouge">new</code> in order to make migration less painful, but
-consider it deprecated and remove it from your code.</p>
+<p>为了减少代码迁移时的痛苦， Dart 语言仍允许使用 <code class="highlighter-rouge">new</code> 关键字，
+但请考在你的代码中弃用和删除 <code class="highlighter-rouge">new</code> 。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (no-new)"?>
 <pre class="prettyprint lang-dart good-style">Widget build(BuildContext context) {
@@ -1312,27 +1297,24 @@ consider it deprecated and remove it from your code.</p>
   );
 }</pre>
 
-<h3 id="dont-use-const-redundantly">
-<a id="dont-use-const-redundantly" class="anchor" href="#dont-use-const-redundantly" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T use <code class="highlighter-rouge">const</code> redundantly.</h3>
+<h3 id="不要-冗余地使用-const-">
+<a id="不要-冗余地使用-const-" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E5%86%97%E4%BD%99%E5%9C%B0%E4%BD%BF%E7%94%A8-const-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 冗余地使用 <code class="highlighter-rouge">const</code> 。</h3>
 
-<p>In contexts where an expression <em>must</em> be constant, the <code class="highlighter-rouge">const</code> keyword is
-implicit, doesn’t need to be written, and shouldn’t. Those contexts are any
-expression inside:</p>
+<p>在表达式一定是常量的上下文中，<code class="highlighter-rouge">const</code> 关键字是隐式的，不需要写，也不应该。
+这里包括：</p>
 
 <ul>
-  <li>A const collection literal.</li>
-  <li>A const constructor call</li>
-  <li>A metadata annotation.</li>
-  <li>The initializer for a const variable declaration.</li>
-  <li>A switch case expression—the part right after <code class="highlighter-rouge">case</code> before the <code class="highlighter-rouge">:</code>, not
-the body of the case.</li>
+  <li>一个字面量常量集合。</li>
+  <li>调用一个常量构造函数。</li>
+  <li>元数据注解。</li>
+  <li>一个常量声明的初始化方法。</li>
+  <li>switch case 表达式—— <code class="highlighter-rouge">case</code> 和 <code class="highlighter-rouge">:</code> 中间的部分，不是 case 执行体。</li>
 </ul>
 
-<p>(Default values are not included in this list because future versions of Dart
-may support non-const default values.)</p>
+<p>（默认值并不包含在这个列表中，因为在 Dart 将来的版本中可能会在支持非常量的默认值。）</p>
 
-<p>Basically, any place where it would be an error to write <code class="highlighter-rouge">new</code> instead of
-<code class="highlighter-rouge">const</code>, Dart 2 allows you to omit the <code class="highlighter-rouge">const</code>.</p>
+<p>基本上，任何地方用 <code class="highlighter-rouge">new</code> 替代 <code class="highlighter-rouge">const</code> 的写法都是错的，
+因为 Dart 2 中允许省略 <code class="highlighter-rouge">const</code> 。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (no-const)"?>
 <pre class="prettyprint lang-dart good-style">const primaryColors = [
@@ -1348,71 +1330,59 @@ may support non-const default values.)</p>
   <span class="highlight">const</span> Color("blue", <span class="highlight">const</span> [0, 0, 255]),
 ];</pre>
 
-<h2 id="error-handling">
-<a id="error-handling" class="anchor" href="#error-handling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error handling</h2>
+<h2 id="错误处理">
+<a id="错误处理" class="anchor" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>错误处理</h2>
 
-<p>Dart uses exceptions when an error occurs in your program. The following
-best practices apply to catching and throwing exceptions.</p>
+<p>Dart 使用异常来表示程序执行错误。
+下面是关于如何捕获和抛出异常的最佳实践。</p>
 
-<h3 id="avoid-catches-without-on-clauses">
-<a id="avoid-catches-without-on-clauses" class="anchor" href="#avoid-catches-without-on-clauses" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID catches without <code class="highlighter-rouge">on</code> clauses.</h3>
+<h3 id="避免-使用没有-on-语句的-catch">
+<a id="避免-使用没有-on-语句的-catch" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8%E6%B2%A1%E6%9C%89-on-%E8%AF%AD%E5%8F%A5%E7%9A%84-catch" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 使用没有 <code class="highlighter-rouge">on</code> 语句的 catch。</h3>
 
-<p>A catch clause with no <code class="highlighter-rouge">on</code> qualifier catches <em>anything</em> thrown by the code in
-the try block. <a href="https://blog.codinghorror.com/new-programming-jargon/">Pokémon exception handling</a> is very likely not what you
-want. Does your code correctly handle <a href="https://api.dartlang.org/dev/dart-core/StackOverflowError-class.html">StackOverflowError</a> or
-<a href="https://api.dartlang.org/dev/dart-core/OutOfMemoryError-class.html">OutOfMemoryError</a>? If you incorrectly pass the wrong argument to a method in
-that try block do you want to have your debugger point you to the mistake or
-would you rather that helpful <a href="https://api.dartlang.org/dev/dart-core/ArgumentError-class.html">ArgumentError</a> get swallowed? Do you want any
-<code class="highlighter-rouge">assert()</code> statements inside that code to effectively vanish since you’re
-catching the thrown <a href="https://api.dartlang.org/dev/dart-core/AssertionError-class.html">AssertionError</a>s?</p>
+<p>没有 <code class="highlighter-rouge">on</code> 限定的 catch 语句会捕获 try 代码块中抛出的<em>任何</em>异常。
+<a href="https://blog.codinghorror.com/new-programming-jargon/">Pokémon exception handling</a> 可能并不是你想要的。
+你的代码是否正确的处理 <a href="https://api.dartlang.org/dev/dart-core/StackOverflowError-class.html">StackOverflowError</a> 或者 <a href="https://api.dartlang.org/dev/dart-core/OutOfMemoryError-class.html">OutOfMemoryError</a> 异常？
+如果你使用错误的参数调用函数，你是期望调试器定位出你的错误使用情况还是，
+把这个有用的 <a href="https://api.dartlang.org/dev/dart-core/ArgumentError-class.html">ArgumentError</a> 给吞噬了？
+由于你捕获了 <a href="https://api.dartlang.org/dev/dart-core/AssertionError-class.html">AssertionError</a> 异常，
+导致所有 try 块内的 <code class="highlighter-rouge">assert()</code> 语句都失效了，这是你需要的结果吗？</p>
 
-<p>The answer is probably “no”, in which case you should filter the types you
-catch. In most cases, you should have an <code class="highlighter-rouge">on</code> clause that limits you to the
-kinds of runtime failures you are aware of and are correctly handling.</p>
+<p>答案和可能是 “no”，在这种情况下，您应该过滤掉捕获的类型。
+在大多数情况下，您应该有一个 <code class="highlighter-rouge">on</code> 子句，
+这样它能够捕获程序在运行时你所关注的限定类型的异常并进行恰当处理。</p>
 
-<p>In rare cases, you may wish to catch any runtime error. This is usually in
-framework or low-level code that tries to insulate arbitrary application code
-from causing problems. Even here, it is usually better to catch <a href="https://api.dartlang.org/dev/dart-core/Exception-class.html">Exception</a>
-than to catch all types. Exception is the base class for all <em>runtime</em> errors
-and excludes errors that indicate <em>programmatic</em> bugs in the code.</p>
+<h3 id="不要-丢弃没有使用-on-语句捕获的异常">
+<a id="不要-丢弃没有使用-on-语句捕获的异常" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%B8%A2%E5%BC%83%E6%B2%A1%E6%9C%89%E4%BD%BF%E7%94%A8-on-%E8%AF%AD%E5%8F%A5%E6%8D%95%E8%8E%B7%E7%9A%84%E5%BC%82%E5%B8%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 丢弃没有使用 <code class="highlighter-rouge">on</code> 语句捕获的异常。</h3>
 
-<h3 id="dont-discard-errors-from-catches-without-on-clauses">
-<a id="dont-discard-errors-from-catches-without-on-clauses" class="anchor" href="#dont-discard-errors-from-catches-without-on-clauses" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T discard errors from catches without <code class="highlighter-rouge">on</code> clauses.</h3>
+<p>如果你真的期望捕获一段代码内的 <em>所有</em> 异常，
+请<em>在捕获异常的地方做些事情</em>。 记录下来并显示给用户，
+或者重新抛出（rethrow）异常信息，记得不要默默的丢弃该异常信息。</p>
 
-<p>If you really do feel you need to catch <em>everything</em> that can be thrown from a
-region of code, <em>do something</em> with what you catch. Log it, display it to the
-user or rethrow it, but do not silently discard it.</p>
+<h3 id="要-只在代表编程错误的情况下才抛出实现了-error-的异常">
+<a id="要-只在代表编程错误的情况下才抛出实现了-error-的异常" class="anchor" href="#%E8%A6%81-%E5%8F%AA%E5%9C%A8%E4%BB%A3%E8%A1%A8%E7%BC%96%E7%A8%8B%E9%94%99%E8%AF%AF%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%89%8D%E6%8A%9B%E5%87%BA%E5%AE%9E%E7%8E%B0%E4%BA%86-error-%E7%9A%84%E5%BC%82%E5%B8%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 只在代表编程错误的情况下才抛出实现了 <code class="highlighter-rouge">Error</code> 的异常。</h3>
 
-<h3 id="do-throw-objects-that-implement-error-only-for-programmatic-errors">
-<a id="do-throw-objects-that-implement-error-only-for-programmatic-errors" class="anchor" href="#do-throw-objects-that-implement-error-only-for-programmatic-errors" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO throw objects that implement <code class="highlighter-rouge">Error</code> only for programmatic errors.</h3>
+<p><a href="https://api.dartlang.org/dev/Error-class.html">Error</a> 类是所有 <em>编码</em> 错误的基类。当一个该类型或者其子类型，
+例如 <a href="https://api.dartlang.org/dev/dart-core/ArgumentError-class.html">ArgumentError</a> 对象被抛出了，这意味着是你代码中的一个 <em>bug</em>。
+当你的 API 想要告诉调用者使用错误的时候可以抛出一个 Error 来表明你的意图。</p>
 
-<p>The <a href="https://api.dartlang.org/dev/Error-class.html">Error</a> class is the base class for <em>programmatic</em> errors. When an object
-of that type or one of its subinterfaces like <a href="https://api.dartlang.org/dev/dart-core/ArgumentError-class.html">ArgumentError</a> is thrown, it
-means there is a <em>bug</em> in your code. When your API wants to report to a caller
-that it is being used incorrectly throwing an Error sends that signal clearly.</p>
+<p>同样的，如果一个异常表示为运行时异常而不是代码 bug， 则抛出 Error 则会误导调用者。
+应该抛出核心定义的 Exception 类或者其他类型。</p>
 
-<p>Conversely, if the exception is some kind of runtime failure that doesn’t
-indicate a bug in the code, then throwing an Error is misleading. Instead, throw
-one of the core Exception classes or some other type.</p>
+<h3 id="不要-显示的捕获-error-或者其子类">
+<a id="不要-显示的捕获-error-或者其子类" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E6%98%BE%E7%A4%BA%E7%9A%84%E6%8D%95%E8%8E%B7-error-%E6%88%96%E8%80%85%E5%85%B6%E5%AD%90%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 显示的捕获 <code class="highlighter-rouge">Error</code> 或者其子类。</h3>
 
-<h3 id="dont-explicitly-catch-error-or-types-that-implement-it">
-<a id="dont-explicitly-catch-error-or-types-that-implement-it" class="anchor" href="#dont-explicitly-catch-error-or-types-that-implement-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T explicitly catch <code class="highlighter-rouge">Error</code> or types that implement it.</h3>
+<p>本条衔接上一天内容。既然 Error 表示代码中的 bug，
+应该展开整个调用堆栈，暂停程序并打印堆栈跟踪，以便找到错误并修复。</p>
 
-<p>This follows from the above. Since an Error indicates a bug in your code, it
-should unwind the entire callstack, halt the program, and print a stack trace so
-you can locate and fix the bug.</p>
+<p>捕获这类错误打破了处理流程并且代码中有 bug。
+不要在这里使用错误处理代码，而是需要到导致该错误出现的地方修复你的代码。</p>
 
-<p>Catching errors of these types breaks that process and masks the bug. Instead of
-<em>adding</em> error-handling code to deal with this exception after the fact, go back
-and fix the code that is causing it to be thrown in the first place.</p>
+<h3 id="要-使用-rethrow-来重新抛出捕获的异常">
+<a id="要-使用-rethrow-来重新抛出捕获的异常" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-rethrow-%E6%9D%A5%E9%87%8D%E6%96%B0%E6%8A%9B%E5%87%BA%E6%8D%95%E8%8E%B7%E7%9A%84%E5%BC%82%E5%B8%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">rethrow</code> 来重新抛出捕获的异常。</h3>
 
-<h3 id="do-use-rethrow-to-rethrow-a-caught-exception">
-<a id="do-use-rethrow-to-rethrow-a-caught-exception" class="anchor" href="#do-use-rethrow-to-rethrow-a-caught-exception" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use <code class="highlighter-rouge">rethrow</code> to rethrow a caught exception.</h3>
-
-<p>If you decide to rethrow an exception, prefer using the <code class="highlighter-rouge">rethrow</code> statement
-instead of throwing the same exception object using <code class="highlighter-rouge">throw</code>.
-<code class="highlighter-rouge">rethrow</code> preserves the original stack trace of the exception. <code class="highlighter-rouge">throw</code> on the
-other hand resets the stack trace to the last thrown position.</p>
+<p>如果你想重新抛出一个异常，推荐使用 <code class="highlighter-rouge">rethrow</code> 语句。
+<code class="highlighter-rouge">rethrow</code> 保留了原来的异常堆栈信息。 
+而 <code class="highlighter-rouge">throw</code> 会把异常堆栈信息重置为最后抛出的位置。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_bad.dart (rethrow)"?>
 <pre class="prettyprint lang-dart bad-style">try {
@@ -1430,18 +1400,19 @@ other hand resets the stack trace to the last thrown position.</p>
   handle(e);
 }</pre>
 
-<h2 id="asynchrony">
-<a id="asynchrony" class="anchor" href="#asynchrony" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchrony</h2>
+<h2 id="异步">
+<a id="异步" class="anchor" href="#%E5%BC%82%E6%AD%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>异步</h2>
 
-<p>Dart has several language features to support asynchronous programming.
-The following best practices apply to asynchronous coding.</p>
+<p>Dart 具有几个语言特性来支持异步编程。
+下面是针对异步编程的最佳实践。</p>
 
-<h3 id="prefer-asyncawait-over-using-raw-futures">
-<a id="prefer-asyncawait-over-using-raw-futures" class="anchor" href="#prefer-asyncawait-over-using-raw-futures" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER async/await over using raw futures.</h3>
+<h3 id="推荐-使用-asyncawait-而不是直接使用底层的特性">
+<a id="推荐-使用-asyncawait-而不是直接使用底层的特性" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-asyncawait-%E8%80%8C%E4%B8%8D%E6%98%AF%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%E5%BA%95%E5%B1%82%E7%9A%84%E7%89%B9%E6%80%A7" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用 async/await 而不是直接使用底层的特性。</h3>
 
-<p>Asynchronous code is notoriously hard to read and debug, even when using a nice
-abstraction like futures. The <code class="highlighter-rouge">async</code>/<code class="highlighter-rouge">await</code> syntax improves readability and
-lets you use all of the Dart control flow structures within your async code.</p>
+<p>显式的异步代码是非常难以阅读和调试的，
+即使使用很好的抽象（比如 future）也是如此。
+这就是为何 Dart 提供了 <code class="highlighter-rouge">async</code>/<code class="highlighter-rouge">await</code>。
+这样可以显著的提高代码的可读性并且让你可以在异步代码中使用语言提供的所有流程控制语句。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (async-await)" replace="/async|await/[!$&!]/g"?>
 <pre class="prettyprint lang-dart good-style">Future&lt;int&gt; countActivePlayers(String teamName) <span class="highlight">async</span> {
@@ -1471,12 +1442,11 @@ lets you use all of the Dart control flow structures within your async code.</p>
   });
 }</pre>
 
-<h3 id="dont-use-async-when-it-has-no-useful-effect">
-<a id="dont-use-async-when-it-has-no-useful-effect" class="anchor" href="#dont-use-async-when-it-has-no-useful-effect" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T use <code class="highlighter-rouge">async</code> when it has no useful effect.</h3>
+<h3 id="不要-在没有有用效果的情况下使用-async-">
+<a id="不要-在没有有用效果的情况下使用-async-" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E6%B2%A1%E6%9C%89%E6%9C%89%E7%94%A8%E6%95%88%E6%9E%9C%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E4%BD%BF%E7%94%A8-async-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 在没有有用效果的情况下使用 <code class="highlighter-rouge">async</code> 。</h3>
 
-<p>It’s easy to get in the habit of using <code class="highlighter-rouge">async</code> on any function that does
-anything related to asynchrony. But in some cases, it’s extraneous. If you can
-omit the <code class="highlighter-rouge">async</code> without changing the behavior of the function, do so.</p>
+<p>当成为习惯之后，你可能会在所有和异步相关的函数使用 <code class="highlighter-rouge">async</code>。但是在有些情况下，
+如果可以忽略 <code class="highlighter-rouge">async</code>  而不改变方法的行为，则应该这么做：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (unnecessary-async)"?>
 <pre class="prettyprint lang-dart good-style">Future afterTwoThings(Future first, Future second) {
@@ -1488,19 +1458,20 @@ omit the <code class="highlighter-rouge">async</code> without changing the behav
   return Future.wait([first, second]);
 }</pre>
 
-<p>Cases where <code class="highlighter-rouge">async</code> <em>is</em> useful include:</p>
+<p>下面这些情况 <code class="highlighter-rouge">async</code> 是有用的：</p>
 
 <ul>
   <li>
-    <p>You are using <code class="highlighter-rouge">await</code>. (This is the obvious one.)</p>
+    <p>你使用了 <code class="highlighter-rouge">await</code>。 (这是一个很明显的例子。)</p>
   </li>
   <li>
-    <p>You are returning an error asynchronously. <code class="highlighter-rouge">async</code> and then <code class="highlighter-rouge">throw</code> is shorter
-than <code class="highlighter-rouge">return Future.error(...)</code>.</p>
+    <p>你在异步的抛出一个异常。 <code class="highlighter-rouge">async</code> 然后 <code class="highlighter-rouge">throw</code> 比 <code class="highlighter-rouge">return new Future.error(...)</code> 要简短很多。</p>
   </li>
   <li>
-    <p>You are returning a value and you want it implicitly wrapped in a future.
-<code class="highlighter-rouge">async</code> is shorter than <code class="highlighter-rouge">Future.value(...)</code>.</p>
+    <p>你在返回一个值，但是你希望他显式的使用 Future。<code class="highlighter-rouge">async</code> 比 <code class="highlighter-rouge">new Future.value(...)</code> 要简短很多。</p>
+  </li>
+  <li>
+    <p>你不希望在事件循环发生事件之前执行任何代码。</p>
   </li>
 </ul>
 
@@ -1515,19 +1486,19 @@ Future asyncError() async {
 
 Future asyncValue() async =&gt; 'value';</pre>
 
-<h3 id="consider-using-higher-order-methods-to-transform-a-stream">
-<a id="consider-using-higher-order-methods-to-transform-a-stream" class="anchor" href="#consider-using-higher-order-methods-to-transform-a-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER using higher-order methods to transform a stream.</h3>
+<h3 id="考虑-使用高阶函数来转换事件流stream">
+<a id="考虑-使用高阶函数来转换事件流stream" class="anchor" href="#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E6%9D%A5%E8%BD%AC%E6%8D%A2%E4%BA%8B%E4%BB%B6%E6%B5%81stream" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 使用高阶函数来转换事件流（stream）</h3>
 
 <p>This parallels the above suggestion on iterables. Streams support many of the
 same methods and also handle things like transmitting errors, closing, etc.
 correctly.</p>
 
-<h3 id="avoid-using-completer-directly">
-<a id="avoid-using-completer-directly" class="anchor" href="#avoid-using-completer-directly" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID using Completer directly.</h3>
+<h3 id="避免-直接使用-completer--">
+<a id="避免-直接使用-completer--" class="anchor" href="#%E9%81%BF%E5%85%8D-%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8-completer--" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 直接使用 Completer  。</h3>
 
-<p>Many people new to asynchronous programming want to write code that produces a
-future. The constructors in Future don’t seem to fit their need so they
-eventually find the Completer class and use that.</p>
+<p>很多异步编程的新手想要编写生成一个 future 的代码。
+而 Future 的构造函数看起来并不满足他们的要求，
+然后他们就发现 Completer 类并使用它：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_bad.dart (avoid-completer)"?>
 <pre class="prettyprint lang-dart bad-style">Future&lt;bool&gt; fileContainsBear(String path) {
@@ -1540,10 +1511,10 @@ eventually find the Completer class and use that.</p>
   return completer.future;
 }</pre>
 
-<p>Completer is needed for two kinds of low-level code: new asynchronous
-primitives, and interfacing with asynchronous code that doesn’t use futures.
-Most other code should use async/await or <a href="https://api.dartlang.org/dev/dart-async/Future/then.html"><code class="highlighter-rouge">Future.then()</code></a>, because
-they’re clearer and make error handling easier.</p>
+<p>Completer 是用于两种底层代码的：
+新的异步原子操作和集成没有使用 Future 的异步代码。
+大部分的代码都应该使用 async/await 或者 <a href="https://api.dartlang.org/dev/dart-async/Future/then.html"><code class="highlighter-rouge">Future.then()</code></a>，
+这样代码更加清晰并且异常处理更加容易。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (avoid-completer)"?>
 <pre class="prettyprint lang-dart good-style">Future&lt;bool&gt; fileContainsBear(String path) {
@@ -1558,20 +1529,20 @@ they’re clearer and make error handling easier.</p>
   return contents.contains('bear');
 }</pre>
 
-<h3 id="do-test-for-futuret-when-disambiguating-a-futureort-whose-type-argument-could-be-object">
-<a id="do-test-for-futuret-when-disambiguating-a-futureort-whose-type-argument-could-be-object" class="anchor" href="#do-test-for-futuret-when-disambiguating-a-futureort-whose-type-argument-could-be-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO test for <code class="highlighter-rouge">Future&lt;T&gt;</code> when disambiguating a <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> whose type argument could be <code class="highlighter-rouge">Object</code>.</h3>
+<h3 id="要-使用-futuret-对-futureort-参数进行测试在消除参数可能是-object-类型的歧义">
+<a id="要-使用-futuret-对-futureort-参数进行测试在消除参数可能是-object-类型的歧义" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-futuret-%E5%AF%B9-futureort-%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95%E5%9C%A8%E6%B6%88%E9%99%A4%E5%8F%82%E6%95%B0%E5%8F%AF%E8%83%BD%E6%98%AF-object-%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%AD%A7%E4%B9%89" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">Future&lt;T&gt;</code> 对 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 参数进行测试，在消除参数可能是 <code class="highlighter-rouge">Object</code> 类型的歧义。</h3>
 
-<p>Before you can do anything useful with a <code class="highlighter-rouge">FutureOr&lt;T&gt;</code>, you typically need to do
-an <code class="highlighter-rouge">is</code> check to see if you have a <code class="highlighter-rouge">Future&lt;T&gt;</code> or a bare <code class="highlighter-rouge">T</code>. If the type
-argument is some specific type as in <code class="highlighter-rouge">FutureOr&lt;int&gt;</code>, it doesn’t matter which
-test you use, <code class="highlighter-rouge">is int</code> or <code class="highlighter-rouge">is Future&lt;int&gt;</code>. Either works because those two types
-are disjoint.</p>
+<p>在使用 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 执行任何有用的操作之前，
+通常需要做 <code class="highlighter-rouge">is</code> 检查，来确定你拥有的是 <code class="highlighter-rouge">Future&lt;T&gt;</code> 还是一个空的 <code class="highlighter-rouge">T</code>。
+如果类型参数是某个特定类型，如 <code class="highlighter-rouge">FutureOr &lt;int&gt;</code>，
+使用 <code class="highlighter-rouge">is int</code> 或 <code class="highlighter-rouge">is Future&lt;int&gt;</code> 那种测试都可以。
+两者都有效，因为这两种类型是不相交的。</p>
 
-<p>However, if the value type is <code class="highlighter-rouge">Object</code> or a type parameter that could possibly
-be instantiated with <code class="highlighter-rouge">Object</code>, then the two branches overlap. <code class="highlighter-rouge">Future&lt;Object&gt;</code>
-itself implements <code class="highlighter-rouge">Object</code>, so <code class="highlighter-rouge">is Object</code> or <code class="highlighter-rouge">is T</code> where <code class="highlighter-rouge">T</code> is some type
-parameter that could be instantiated with <code class="highlighter-rouge">Object</code> returns true even when the
-object is a future. Instead, explicitly test for the <code class="highlighter-rouge">Future</code> case:</p>
+<p>但是，如果值的类型是 <code class="highlighter-rouge">Object</code> 或者可能使用 <code class="highlighter-rouge">Object</code> 实例化的类型参数，这时要分两种情况。
+<code class="highlighter-rouge">Future&lt;Object&gt;</code> 本身继承 <code class="highlighter-rouge">Object</code> ，使用 <code class="highlighter-rouge">is Object</code> 或 <code class="highlighter-rouge">is T</code> ，
+其中 <code class="highlighter-rouge">T</code> 表示参数的类型，该参数可能是 <code class="highlighter-rouge">Object</code> 的实例，
+在这种情况下，即使是 future 对象也会返回 true 。
+相反，下面是确切测试 <code class="highlighter-rouge">Future</code> 的例子：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (test-future-or)"?>
 <pre class="prettyprint lang-dart good-style">Future&lt;T&gt; logValue&lt;T&gt;(FutureOr&lt;T&gt; value) async {
@@ -1597,8 +1568,8 @@ object is a future. Instead, explicitly test for the <code class="highlighter-ro
   }
 }</pre>
 
-<p>In the bad example, if you pass it a <code class="highlighter-rouge">Future&lt;Object&gt;</code>, it incorrectly treats it
-like a bare, synchronous value.</p>
+<p>在错误的示例中，如果给它传一个 <code class="highlighter-rouge">Future&lt;Object&gt;</code> ，
+它会错误地将其视为一个空的同步对象值。</p>
 
 
           
@@ -1642,7 +1613,7 @@ like a bare, synchronous value.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/06 19:16 CST"
+                 title="Site built on 2018/08/08 08:54 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
