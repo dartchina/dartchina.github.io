@@ -432,14 +432,18 @@ directive, you can add one just to hang the doc comment off of it.）</p>
 
 <?code-excerpt "misc/lib/effective_dart/docs_good.dart (first-sentence)"?>
 <pre class="prettyprint lang-dart good-style">/// Deletes the file at [path] from the file system.
-void delete(String path) =&gt; ...</pre>
+void delete(String path) {
+  ...
+}</pre>
 
 <?code-excerpt "misc/lib/effective_dart/docs_bad.dart (first-sentence)"?>
 <pre class="prettyprint lang-dart bad-style">/// Depending on the state of the file system and the user's permissions,
 /// certain operations may or may not be possible. If there is no file at
 /// [path] or it can't be accessed, this function throws either [IOError]
 /// or [PermissionError], respectively. Otherwise, this deletes the file.
-void delete(String path) =&gt; ...</pre>
+void delete(String path) {
+  ...
+}</pre>
 
 <h3 id="要-让文档注释的第一句从段落中分开">
 <a id="要-让文档注释的第一句从段落中分开" class="anchor" href="#%E8%A6%81-%E8%AE%A9%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E5%8F%A5%E4%BB%8E%E6%AE%B5%E8%90%BD%E4%B8%AD%E5%88%86%E5%BC%80" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 让文档注释的第一句从段落中分开。</h3>
@@ -455,13 +459,17 @@ void delete(String path) =&gt; ...</pre>
 ///
 /// Throws an [IOError] if the file could not be found. Throws a
 /// [PermissionError] if the file is present but could not be deleted.
-void delete(String path) =&gt; ...</pre>
+void delete(String path) {
+  ...
+}</pre>
 
 <?code-excerpt "misc/lib/effective_dart/docs_bad.dart (first-sentence-a-paragraph)"?>
 <pre class="prettyprint lang-dart bad-style">/// Deletes the file at [path]. Throws an [IOError] if the file could not
 /// be found. Throws a [PermissionError] if the file is present but could
 /// not be deleted.
-void delete(String path) =&gt; ...</pre>
+void delete(String path) {
+  ...
+}</pre>
 
 <h3 id="避免-与周围上下文冗余">
 <a id="避免-与周围上下文冗余" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%B8%8E%E5%91%A8%E5%9B%B4%E4%B8%8A%E4%B8%8B%E6%96%87%E5%86%97%E4%BD%99" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 与周围上下文冗余。</h3>
@@ -475,14 +483,18 @@ void delete(String path) =&gt; ...</pre>
 <pre class="prettyprint lang-dart good-style">class RadioButtonWidget extends Widget {
   /// Sets the tooltip to [lines], which should have been word wrapped using
   /// the current font.
-  void tooltip(List&lt;String&gt; lines) =&gt; ...
+  void tooltip(List&lt;String&gt; lines) {
+    ...
+  }
 }</pre>
 
 <?code-excerpt "misc/lib/effective_dart/docs_bad.dart (redundant)"?>
 <pre class="prettyprint lang-dart bad-style">class RadioButtonWidget extends Widget {
   /// Sets the tooltip for this radio button widget to the list of strings in
   /// [lines].
-  void tooltip(List&lt;String&gt; lines) =&gt; ...
+  void tooltip(List&lt;String&gt; lines) {
+    ...
+  }
 }</pre>
 
 <h3 id="推荐-用第三人称来开始函数或者方法的文档注释">
@@ -495,7 +507,9 @@ void delete(String path) =&gt; ...</pre>
 bool all(bool predicate(T element)) =&gt; ...
 
 /// Starts the stopwatch if not already running.
-void start() =&gt; ...</pre>
+void start() {
+  ...
+}</pre>
 
 <h3 id="推荐-使用名词短语来开始变量gettersetter-的注释">
 <a id="推荐-使用名词短语来开始变量gettersetter-的注释" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E5%90%8D%E8%AF%8D%E7%9F%AD%E8%AF%AD%E6%9D%A5%E5%BC%80%E5%A7%8B%E5%8F%98%E9%87%8Fgettersetter-%E7%9A%84%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用名词短语来开始变量、getter、setter 的注释。</h3>
@@ -781,7 +795,7 @@ best practices for technical writing, in general, from articles such as
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/08 10:51 CST"
+                 title="Site built on 2018/08/09 22:33 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
