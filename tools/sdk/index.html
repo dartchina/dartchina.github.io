@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/sdk/" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/sdk/" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -194,16 +194,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 
@@ -250,9 +247,9 @@ Dart apps. To learn about other tools you can use for Dart development, see
 <a href="/tools">Dart Tools</a>.</p>
 
 <aside class="alert alert-info">
-  <p><strong>Note:</strong> This site’s documentation and examples use
-   the <strong>dev channel</strong> 
-  version <a href="https://api.dartlang.org/dev/2.0.0-dev.69.4/index.html" class="no-automatic-external">2.0.0-dev.69.4</a>
+  <p><strong>Note:</strong> This site’s documentation and examples use</p>
+
+  <p>version <a href="https://api.dartlang.org/stable/2.0.0/index.html" class="no-automatic-external">2.0.0</a>
   of the <strong>Dart SDK</strong>.</p>
 </aside>
 
@@ -267,8 +264,6 @@ Alternatively, you can
 <a href="/tools/sdk/archive">download the SDK as a zip file</a>.</p>
 
 <aside class="alert alert-warning">
-  <p><strong>Important:</strong>
-  The <strong>Dart 2</strong> SDK is available from the <strong>dev channel</strong> only.</p>
 
   <p>Dart tools may send usage metrics and crash reports to Google.
 By downloading the Dart SDK, you agree to the
@@ -294,24 +289,24 @@ describes how data is handled in this service.</p>
   <h4 id="install-using-chocolatey">
 <a id="install-using-chocolatey" class="anchor" href="#install-using-chocolatey" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install using Chocolatey</h4>
 
-  <p>To use <a href="https://chocolatey.org">Chocolatey</a> to install a <strong>dev</strong> release of the Dart SDK, run this
+  <p>To use <a href="https://chocolatey.org">Chocolatey</a> to install a <strong>stable</strong> release of the Dart SDK, run this
 command:</p>
-
-  <div class="language-terminal highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="gp">C:\&gt;</span> choco <span class="nb">install </span>dart-sdk <span class="nt">--pre</span>
-</code></pre></div>  </div>
-
-  <p>To install a <strong>stable</strong> release, run this command:</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">C:\&gt;</span> choco <span class="nb">install </span>dart-sdk
 </code></pre></div>  </div>
 
-  <p>To <strong>upgrade</strong> the dev release of the Dart SDK, run this command:
-(remove the <code class="highlighter-rouge">--pre</code> to upgrade the stable release):</p>
+  <p>To install a <strong>dev</strong> release, run this command:</p>
 
   <div class="language-terminal highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="gp">C:\&gt;</span> choco upgrade dart-sdk <span class="nt">--pre</span>
+<div class="highlight"><pre class="highlight"><code><span class="gp">C:\&gt;</span> choco <span class="nb">install </span>dart-sdk <span class="nt">--pre</span>
+</code></pre></div>  </div>
+
+  <p>To <strong>upgrade</strong> the Dart SDK, run this command
+(add <code class="highlighter-rouge">--pre</code> to upgrade the dev release):</p>
+
+  <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">C:\&gt;</span> choco upgrade dart-sdk
 </code></pre></div>  </div>
 
   <h4 id="install-using-a-setup-wizard">
@@ -344,11 +339,11 @@ versions are released.</p>
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>apt-get update
 <span class="gp">$</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>apt-transport-https
 <span class="gp">$</span> <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'</span>
-<span class="gp">$</span> <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_unstable.list &gt; /etc/apt/sources.list.d/dart_unstable.list'</span>
+<span class="gp">$</span> <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list &gt; /etc/apt/sources.list.d/dart_stable.list'</span>
 </code></pre></div>  </div>
 
   <p>Then install the
-<strong>dev</strong>
+<strong>stable</strong>
 release of the Dart SDK:</p>
 
   <div class="language-terminal highlighter-rouge">
@@ -357,12 +352,12 @@ release of the Dart SDK:</p>
 </code></pre></div>  </div>
 
   <p>Or, to install the
-<strong>stable</strong>
+<strong>dev</strong>
 release of the Dart SDK,
 run the one-time setup commands followed by:</p>
 
   <div class="language-terminal highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list &gt; /etc/apt/sources.list.d/dart_stable.list'</span>
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_unstable.list &gt; /etc/apt/sources.list.d/dart_unstable.list'</span>
 <span class="gp">$</span> <span class="nb">sudo </span>apt-get update
 <span class="gp">$</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>dart
 </code></pre></div>  </div>
@@ -383,14 +378,13 @@ run the one-time setup commands followed by:</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew tap dart-lang/dart
-<span class="gp">$</span> brew <span class="nb">install </span>dart <span class="nt">--devel</span>
+<span class="gp">$</span> brew <span class="nb">install </span>dart
 </code></pre></div>  </div>
 
-  <p>To install a <strong>stable channel</strong> release,
-don’t use <code class="highlighter-rouge">--devel</code>:</p>
+  <p>To install a <strong>dev channel</strong> release, use <code class="highlighter-rouge">--devel</code>:</p>
 
   <div class="language-terminal highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew <span class="nb">install </span>dart
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew <span class="nb">install </span>dart <span class="nt">--devel</span>
 </code></pre></div>  </div>
 
   <h3 id="upgrade">
@@ -549,7 +543,7 @@ Here are some handy searches:</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -574,7 +568,7 @@ Here are some handy searches:</p>
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

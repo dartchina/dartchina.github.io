@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/libraries/library-tour" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/libraries/library-tour" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -262,16 +262,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 
@@ -324,7 +321,7 @@ ga('send', 'pageview');
 <a href="https://pub.dartlang.org">pub.dartlang.org</a> 和
 <a href="https://webdev.dartlang.org/guides/web-programming">Dart web developer library guide.</a> 查找。
 所有 dart:* 库的 API 文档可以在
-<a href="https://api.dartlang.org/dev">Dart API reference</a> 查找， 如果使用的是 Flutter
+<a href="https://api.dartlang.org/stable">Dart API reference</a> 查找， 如果使用的是 Flutter
 可以在 <a href="https://docs.flutter.io/">Flutter API reference.</a> 查找。</p>
 
 <aside class="alert alert-info">
@@ -346,7 +343,7 @@ ga('send', 'pageview');
 <h2 id="dartcore---数字集合字符串等">
 <a id="dartcore---数字集合字符串等" class="anchor" href="#dartcore---%E6%95%B0%E5%AD%97%E9%9B%86%E5%90%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AD%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>dart:core - 数字，集合，字符串等</h2>
 
-<p>dart:core 库 (<a href="https://api.dartlang.org/dev/dart-core/dart-core-library.html">API reference</a>)
+<p>dart:core 库 (<a href="https://api.dartlang.org/stable/dart-core/dart-core-library.html">API reference</a>)
 提供了一个少量但是重要的内置功能集合。
 该库会被自动导入每个 Dart 程序。</p>
 
@@ -390,8 +387,8 @@ assert(num.parse('0.50') is double);</pre>
 <pre class="prettyprint lang-dart">assert(int.parse('42', radix: 16) == 66);</pre>
 
 <p>使用 <code class="highlighter-rouge">toString()</code> 方法将整型或双精度浮点类型转换为字符串类型。
-使用 <a href="https://api.dartlang.org/dev/dart-core/num/toStringAsFixed.html">toStringAsFixed().</a> 指定小数点右边的位数，
-使用 <a href="https://api.dartlang.org/dev/dart-core/num/toStringAsPrecision.html">toStringAsPrecision():</a> 指定字符串中的有效数字的位数。</p>
+使用 <a href="https://api.dartlang.org/stable/dart-core/num/toStringAsFixed.html">toStringAsFixed().</a> 指定小数点右边的位数，
+使用 <a href="https://api.dartlang.org/stable/dart-core/num/toStringAsPrecision.html">toStringAsPrecision():</a> 指定字符串中的有效数字的位数。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (toString())"?>
 <pre class="prettyprint lang-dart">// 整型转换为字符串类型。
@@ -408,7 +405,7 @@ assert(123.456.toStringAsPrecision(2) == '1.2e+2');
 assert(double.parse('1.2e+2') == 120.0);</pre>
 
 <p>更多详情， 参考
-<a href="https://api.dartlang.org/dev/dart-core/int-class.html">int，</a> <a href="https://api.dartlang.org/dev/dart-core/double-class.html">double，</a> 和 <a href="https://api.dartlang.org/dev/dart-core/num-class.html">num</a> 的相关 API 文档。
+<a href="https://api.dartlang.org/stable/dart-core/int-class.html">int，</a> <a href="https://api.dartlang.org/stable/dart-core/double-class.html">double，</a> 和 <a href="https://api.dartlang.org/stable/dart-core/num-class.html">num</a> 的相关 API 文档。
 也可参考 <a href="#dartmath---math-and-random">dart:math section</a>。</p>
 
 <h3 id="字符和正则表达式">
@@ -513,7 +510,7 @@ assert('  '.isNotEmpty);</pre>
 <a id="替换部分字符串" class="anchor" href="#%E6%9B%BF%E6%8D%A2%E9%83%A8%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>替换部分字符串</h4>
 
 <p>字符串是不可变的对象，也就是说字符串可以创建但是不能被修改。
-如果仔细阅读了 <a href="https://api.dartlang.org/dev/dart-core/String-class.html">String API docs,</a>
+如果仔细阅读了 <a href="https://api.dartlang.org/stable/dart-core/String-class.html">String API docs,</a>
 你会注意到，没有一个方法实际的改变了字符串的状态。
 例如，方法 <code class="highlighter-rouge">replaceAll()</code> 返回一个新字符串，
 并没有改变原始字符串：</p>
@@ -586,9 +583,9 @@ for (var match in numbers.allMatches(someDigits)) {
 <a id="更多信息" class="anchor" href="#%E6%9B%B4%E5%A4%9A%E4%BF%A1%E6%81%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>更多信息</h4>
 
 <p>有关完整的方法列表，
-请参考 <a href="https://api.dartlang.org/dev/dart-core/String-class.html">String API docs</a>。
-另请参考 <a href="https://api.dartlang.org/dev/dart-core/StringBuffer-class.html">StringBuffer，</a>
-<a href="https://api.dartlang.org/dev/dart-core/Pattern-class.html">Pattern，</a> <a href="https://api.dartlang.org/dev/dart-core/RegExp-class.html">RegExp，</a> 和 <a href="https://api.dartlang.org/dev/dart-core/Match-class.html">Match</a>
+请参考 <a href="https://api.dartlang.org/stable/dart-core/String-class.html">String API docs</a>。
+另请参考 <a href="https://api.dartlang.org/stable/dart-core/StringBuffer-class.html">StringBuffer，</a>
+<a href="https://api.dartlang.org/stable/dart-core/Pattern-class.html">Pattern，</a> <a href="https://api.dartlang.org/stable/dart-core/RegExp-class.html">RegExp，</a> 和 <a href="https://api.dartlang.org/stable/dart-core/Match-class.html">Match</a>
 的 API 文档。</p>
 
 <h3 id="集合">
@@ -643,7 +640,7 @@ assert(fruits.indexOf('apples') == 0);</pre>
 你可以提供一个排序函数用于比较两个对象。
 比较函数在 <em>小于</em> 时返回 \ &lt;0，<em>相等</em> 时返回 0，<em>bigger</em> 时返回 &gt; 0 。
 下面示例中使用 <code class="highlighter-rouge">compareTo()</code> 函数，
-该函数在 <a href="https://api.dartlang.org/dev/dart-core/Comparable-class.html">Comparable</a> 中定义，
+该函数在 <a href="https://api.dartlang.org/stable/dart-core/Comparable-class.html">Comparable</a> 中定义，
 并被 String 类实现。</p>
 
 <?code-excerpt "misc/test/library_tour/core_test.dart (compareTo)"?>
@@ -673,7 +670,7 @@ fruits.add(5); // BAD: Throws exception in checked mode.</pre>
   see <a href="/dart-2">Dart 2 Updates.</a></p>
 </aside>
 
-<p>全部的方法介绍 ，请参考 <a href="https://api.dartlang.org/dev/dart-core/List-class.html">List API docs</a> 。</p>
+<p>全部的方法介绍 ，请参考 <a href="https://api.dartlang.org/stable/dart-core/List-class.html">List API docs</a> 。</p>
 
 <h4 id="sets">
 <a id="sets" class="anchor" href="#sets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sets</h4>
@@ -718,7 +715,7 @@ var intersection = ingredients.intersection(nobleGases);
 assert(intersection.length == 1);
 assert(intersection.contains('xenon'));</pre>
 
-<p>全部的方法介绍 ，请参考 <a href="https://api.dartlang.org/dev/dart-core/Set-class.html">Set API docs</a> 。</p>
+<p>全部的方法介绍 ，请参考 <a href="https://api.dartlang.org/stable/dart-core/Set-class.html">Set API docs</a> 。</p>
 
 <h4 id="maps">
 <a id="maps" class="anchor" href="#maps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maps</h4>
@@ -805,7 +802,7 @@ teamAssignments.putIfAbsent(
     'Catcher', () =&gt; pickToughestKid());
 assert(teamAssignments['Catcher'] != null);</pre>
 
-<p>全部的方法介绍 ，请参考 <a href="https://api.dartlang.org/dev/dart-core/Map-class.html">Map API docs</a> 。</p>
+<p>全部的方法介绍 ，请参考 <a href="https://api.dartlang.org/stable/dart-core/Map-class.html">Map API docs</a> 。</p>
 
 <h4 id="公共集合方法">
 <a id="公共集合方法" class="anchor" href="#%E5%85%AC%E5%85%B1%E9%9B%86%E5%90%88%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>公共集合方法</h4>
@@ -887,13 +884,13 @@ assert(teas.any(isDecaffeinated));
 // 使用 every() 来检查集合中是否所有元素满足条件。
 assert(!teas.every(isDecaffeinated));</pre>
 
-<p>有关方法的完整列表，请参考 <a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable API docs,</a> 以及
-<a href="https://api.dartlang.org/dev/dart-core/List-class.html">List,</a> <a href="https://api.dartlang.org/dev/dart-core/Set-class.html">Set,</a> and <a href="https://api.dartlang.org/dev/dart-core/Map-class.html">Map.</a></p>
+<p>有关方法的完整列表，请参考 <a href="https://api.dartlang.org/stable/dart-core/Iterable-class.html">Iterable API docs,</a> 以及
+<a href="https://api.dartlang.org/stable/dart-core/List-class.html">List,</a> <a href="https://api.dartlang.org/stable/dart-core/Set-class.html">Set,</a> and <a href="https://api.dartlang.org/stable/dart-core/Map-class.html">Map.</a></p>
 
 <h3 id="uri">
 <a id="uri" class="anchor" href="#uri" aria-hidden="true"><span class="octicon octicon-link"></span></a>URI</h3>
 
-<p>在使用 URI（可能你会称它为 <em>URLs</em>） 时，<a href="https://api.dartlang.org/dev/dart-core/Uri-class.html">Uri 类</a> 提供对字符串的编解码操作。
+<p>在使用 URI（可能你会称它为 <em>URLs</em>） 时，<a href="https://api.dartlang.org/stable/dart-core/Uri-class.html">Uri 类</a> 提供对字符串的编解码操作。
 这些函数用来处理 URI 特有的字符，例如 <code class="highlighter-rouge">＆</code> 和 <code class="highlighter-rouge">=</code> 。
 Uri 类还可以解析和处理 URI—host，port，scheme等组件。</p>
 
@@ -951,7 +948,7 @@ assert(uri.path == '/foo/bar');
 assert(uri.fragment == 'frag');
 assert(uri.origin == 'http://example.org:8080');</pre>
 
-<p>有关 URI 组件的更多内容，参考 <a href="https://api.dartlang.org/dev/dart-core/Uri-class.html">Uri API docs</a> 。</p>
+<p>有关 URI 组件的更多内容，参考 <a href="https://api.dartlang.org/stable/dart-core/Uri-class.html">Uri API docs</a> 。</p>
 
 <h4 id="构建-uri">
 <a id="构建-uri" class="anchor" href="#%E6%9E%84%E5%BB%BA-uri" aria-hidden="true"><span class="octicon octicon-link"></span></a>构建 URI</h4>
@@ -1032,7 +1029,7 @@ assert(duration.inDays == 366); // y2k was a leap year.</pre>
 如果要按照天数来位移时间，请使用 UTC 日期。</p>
 </div>
 
-<p>参考 <a href="https://api.dartlang.org/dev/dart-core/DateTime-class.html">DateTime</a> 和 <a href="https://api.dartlang.org/dev/dart-core/Duration-class.html">Duration</a> API 文档了解全部方法列表。</p>
+<p>参考 <a href="https://api.dartlang.org/stable/dart-core/DateTime-class.html">DateTime</a> 和 <a href="https://api.dartlang.org/stable/dart-core/Duration-class.html">Duration</a> API 文档了解全部方法列表。</p>
 
 <h3 id="工具类">
 <a id="工具类" class="anchor" href="#%E5%B7%A5%E5%85%B7%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>工具类</h3>
@@ -1042,7 +1039,7 @@ assert(duration.inDays == 366); // y2k was a leap year.</pre>
 <h4 id="比较对象">
 <a id="比较对象" class="anchor" href="#%E6%AF%94%E8%BE%83%E5%AF%B9%E8%B1%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>比较对象</h4>
 
-<p>如果实现了 <a href="https://api.dartlang.org/dev/dart-core/Comparable-class.html">Comparable</a> 接口，
+<p>如果实现了 <a href="https://api.dartlang.org/stable/dart-core/Comparable-class.html">Comparable</a> 接口，
 也就是说可以将该对象与另一个对象进行比较，
 通常用于排序。
 <code class="highlighter-rouge">compareTo()</code> 方法在 <em>小于</em> 时返回 &lt; 0，
@@ -1112,7 +1109,7 @@ void main() {
 <h4 id="迭代">
 <a id="迭代" class="anchor" href="#%E8%BF%AD%E4%BB%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>迭代</h4>
 
-<p>Iterable][] 和 <a href="https://api.dartlang.org/dev/dart-core/Iterator-class.html">Iterator</a> 类支持 for-in 循环。
+<p>Iterable][] 和 <a href="https://api.dartlang.org/stable/dart-core/Iterator-class.html">Iterator</a> 类支持 for-in 循环。
 当创建一个类的时候，继承或者实现 Iterable，可以为该类提供用于 for-in 循环的 Iterators。
 实现 Iterator 来定义实际的遍历操作。</p>
 
@@ -1152,11 +1149,11 @@ void main() {
 <p>两个最常见的错误：</p>
 
 <dl>
-  <dt><a href="https://api.dartlang.org/dev/dart-core/NoSuchMethodError-class.html">NoSuchMethodError</a></dt>
+  <dt><a href="https://api.dartlang.org/stable/dart-core/NoSuchMethodError-class.html">NoSuchMethodError</a></dt>
   <dd>
     <p>当方法的接受对象（可能为null）没有实现该方法时抛出。</p>
   </dd>
-  <dt><a href="https://api.dartlang.org/dev/dart-core/ArgumentError-class.html">ArgumentError</a></dt>
+  <dt><a href="https://api.dartlang.org/stable/dart-core/ArgumentError-class.html">ArgumentError</a></dt>
   <dd>
     <p>当方法在接受到一个不合法参数时抛出。</p>
   </dd>
@@ -1175,18 +1172,18 @@ void main() {
   String toString() =&gt; msg ?? 'FooException';
 }</pre>
 
-<p>更多内容，参考 <a href="#exceptions">Exceptions</a> 以及 <a href="https://api.dartlang.org/dev/dart-core/Exception-class.html">Exception API 文档。</a></p>
+<p>更多内容，参考 <a href="#exceptions">Exceptions</a> 以及 <a href="https://api.dartlang.org/stable/dart-core/Exception-class.html">Exception API 文档。</a></p>
 
 <h2 id="dartasync---异步编程">
 <a id="dartasync---异步编程" class="anchor" href="#dartasync---%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>dart:async - 异步编程</h2>
 
 <p>异步编程通常使用回调方法来实现，但是 Dart
-提供了其他方案：<a href="https://api.dartlang.org/dev/dart-async/Future-class.html">Future</a> 和 <a href="https://api.dartlang.org/dev/dart-async/Stream-class.html">Stream</a> 对象。
+提供了其他方案：<a href="https://api.dartlang.org/stable/dart-async/Future-class.html">Future</a> 和 <a href="https://api.dartlang.org/stable/dart-async/Stream-class.html">Stream</a> 对象。
 Future 类似与 JavaScript 中的 Promise ，
 代表在将来某个时刻会返回一个结果。
 Stream 类可以用来获取一系列的值，比如，一些列事件。
 Future， Stream，以及更多内容，参考
-dart:async library (<a href="https://api.dartlang.org/dev/dart-async/dart-async-library.html">API reference</a>)。</p>
+dart:async library (<a href="https://api.dartlang.org/stable/dart-async/dart-async-library.html">API reference</a>)。</p>
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
@@ -1337,7 +1334,7 @@ result
 
 <p>有时代码逻辑需要调用多个异步函数，
 并等待它们全部完成后再继续执行。
-使用 <a href="https://api.dartlang.org/dev/dart-async/Future/wait.html">Future.wait()</a> 静态方法管理多个 Future 以及等待它们完成：</p>
+使用 <a href="https://api.dartlang.org/stable/dart-async/Future/wait.html">Future.wait()</a> 静态方法管理多个 Future 以及等待它们完成：</p>
 
 <?code-excerpt "misc/lib/library_tour/async/future.dart (wait)" replace="/elideBody;/\/* ... *\//g"?>
 <pre class="prettyprint lang-dart">Future deleteLotsOfFiles() async =&gt;  ...
@@ -1526,7 +1523,7 @@ inputStream
 <h2 id="dartmath---数学和随机数">
 <a id="dartmath---数学和随机数" class="anchor" href="#dartmath---%E6%95%B0%E5%AD%A6%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>dart:math - 数学和随机数</h2>
 
-<p>dart:math 库（<a href="https://api.dartlang.org/dev/dart-math/dart-math-library.html">API reference</a>）
+<p>dart:math 库（<a href="https://api.dartlang.org/stable/dart-math/dart-math-library.html">API reference</a>）
 提供通用的功能，例如，正弦和余弦，
 最大值和最小值，以及数学常数，例如 <em>pi</em> 和 <em>e</em>。
 大多数在 Math 库中的功能是作为顶级函数实现的。</p>
@@ -1582,7 +1579,7 @@ print(sqrt2); // 1.4142135623730951</pre>
 <h3 id="随机数">
 <a id="随机数" class="anchor" href="#%E9%9A%8F%E6%9C%BA%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>随机数</h3>
 
-<p>使用 <a href="https://api.dartlang.org/dev/dart-math/Random-class.html">Random</a> 类产生随机数。
+<p>使用 <a href="https://api.dartlang.org/stable/dart-math/Random-class.html">Random</a> 类产生随机数。
 可以为 Random 构造函数提供一个可选的种子参数。</p>
 
 <?code-excerpt "misc/test/library_tour/math_test.dart (Random)"?>
@@ -1599,13 +1596,13 @@ random.nextBool(); // true or false</pre>
 <h3 id="更多内容-1">
 <a id="更多内容-1" class="anchor" href="#%E6%9B%B4%E5%A4%9A%E5%86%85%E5%AE%B9-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>更多内容</h3>
 
-<p>完整方法列表参考 <a href="https://api.dartlang.org/dev/dart-math/dart-math-library.html">Math API docs</a>。
-在 API 文档中参考 <a href="https://api.dartlang.org/dev/dart-core/num-class.html">num,</a> <a href="https://api.dartlang.org/dev/dart-core/int-class.html">int,</a> 和 <a href="https://api.dartlang.org/dev/dart-core/double-class.html">double</a>。</p>
+<p>完整方法列表参考 <a href="https://api.dartlang.org/stable/dart-math/dart-math-library.html">Math API docs</a>。
+在 API 文档中参考 <a href="https://api.dartlang.org/stable/dart-core/num-class.html">num,</a> <a href="https://api.dartlang.org/stable/dart-core/int-class.html">int,</a> 和 <a href="https://api.dartlang.org/stable/dart-core/double-class.html">double</a>。</p>
 
 <h2 id="dartconvert---编解码jsonutf-8等">
 <a id="dartconvert---编解码jsonutf-8等" class="anchor" href="#dartconvert---%E7%BC%96%E8%A7%A3%E7%A0%81jsonutf-8%E7%AD%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>dart:convert - 编解码JSON，UTF-8等</h2>
 
-<p>dart:convert 库 （<a href="https://api.dartlang.org/dev/dart-convert/dart-convert-library.html">API reference</a>）提供 JSON 和 UTF-8 转换器，
+<p>dart:convert 库 （<a href="https://api.dartlang.org/stable/dart-convert/dart-convert-library.html">API reference</a>）提供 JSON 和 UTF-8 转换器，
 以及创建其他转换器。
 <a href="https://www.json.org/">JSON</a> 是一种用于表示结构化对象和集合的简单文本格式。
 <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a> 是一种常见的可变宽度编码，可以表示Unicode字符集中的每个字符。</p>
@@ -1710,14 +1707,14 @@ for (int i = 0; i &lt; encoded.length; i++) {
 <a id="其他功能" class="anchor" href="#%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>其他功能</h3>
 
 <p>dart:convert 库同样包含 ASCII 和 ISO-8859-1 (Latin1) 转换器。
-更多详情，参考 <a href="https://api.dartlang.org/dev/dart-convert/dart-convert-library.html">API docs for the dart:convert library。</a></p>
+更多详情，参考 <a href="https://api.dartlang.org/stable/dart-convert/dart-convert-library.html">API docs for the dart:convert library。</a></p>
 
 <h2 id="总结">
 <a id="总结" class="anchor" href="#%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
 
 <p>本页向您介绍了 Dart 内置库中最常用的功能。
 但是，并没有涵盖所有内置库。
-您可能想要查看的其他内容包括 <a href="https://api.dartlang.org/dev/dart-collection/dart-collection-library.html">dart:collection</a> 和 <a href="https://api.dartlang.org/dev/dart-typed_data/dart-typed_data-library.html">dart:typed_data,</a> ，
+您可能想要查看的其他内容包括 <a href="https://api.dartlang.org/stable/dart-collection/dart-collection-library.html">dart:collection</a> 和 <a href="https://api.dartlang.org/stable/dart-typed_data/dart-typed_data-library.html">dart:typed_data,</a> ，
 以及特定于平台的库，如 <a href="https://webdev.dartlang.org/guides/web-programming">Dart web development libraries</a> 和 <a href="https://docs.flutter.io/">Flutter libraries</a> 。</p>
 
 <p>您可以使用 <a href="/tools/pub">pub tool</a> 工具获得更多库。
@@ -1757,7 +1754,7 @@ for (int i = 0; i &lt; encoded.length; i++) {
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -1782,7 +1779,7 @@ for (int i = 0; i &lt; encoded.length; i++) {
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

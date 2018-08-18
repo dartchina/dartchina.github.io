@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/io" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/io" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -192,16 +192,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 
@@ -230,7 +227,7 @@ ga('send', 'pageview');
           <p><em>Written by Mads Ager <br>
 March 2012 (updated October 2012, February 2013, January 2014, and March 2015)</em></p>
 
-<p>The <a href="https://api.dartlang.org/dev/dart-io/dart-io-library.html">dart:io</a> library
+<p>The <a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html">dart:io</a> library
 is aimed at server-side code
 that runs on the standalone Dart VM.
 In this article we will give you a feel for
@@ -262,7 +259,7 @@ and no more pending operations are in the queue.</p>
 <p>One simple way to add an event to the event queue is to
 schedule a function to be called in the future.
 You can do this by creating a
-<a href="https://api.dartlang.org/dev/dart-async/Timer-class.html">Timer</a> object.
+<a href="https://api.dartlang.org/stable/dart-async/Timer-class.html">Timer</a> object.
 The following example registers a timer with the event queue
 and then drops off the end of main().
 Because a pending operation is in the event queue,
@@ -296,13 +293,13 @@ and would continue to print out ‘timer’ every second.</p>
 <a id="file-system-access" class="anchor" href="#file-system-access" aria-hidden="true"><span class="octicon octicon-link"></span></a>File system access</h2>
 
 <p>The dart:io library provides access to files and directories through the
-<a href="https://api.dartlang.org/dev/dart-io/File-class.html">File</a> and
-<a href="https://api.dartlang.org/dev/dart-io/Directory-class.html">Directory</a> classes.</p>
+<a href="https://api.dartlang.org/stable/dart-io/File-class.html">File</a> and
+<a href="https://api.dartlang.org/stable/dart-io/Directory-class.html">Directory</a> classes.</p>
 
 <p>The following example prints its own source code.
 To determine the location of the source code being executed,
 we use the
-<a href="https://api.dartlang.org/dev/dart-io/Platform-class.html">Platform</a>
+<a href="https://api.dartlang.org/stable/dart-io/Platform-class.html">Platform</a>
 class.</p>
 
 <!--- BEGIN(io_file_system) -->
@@ -317,7 +314,7 @@ main() async {
 <!--- END(io_file_system) -->
 
 <p>Notice that the readAsString() method is asynchronous;
-it returns a <a href="https://api.dartlang.org/dev/dart-async/Future-class.html">Future</a>
+it returns a <a href="https://api.dartlang.org/stable/dart-async/Future-class.html">Future</a>
 that returns the contents of the file
 once the file has been read from the underlying system.
 This asynchronicity allows the Dart thread to perform other work
@@ -329,7 +326,7 @@ only up to the first semicolon and then to print that.
 You could do this in two ways:
 either open the file for random access,
 or open a
-<a href="https://api.dartlang.org/dev/dart-async/Stream-class.html">Stream</a>
+<a href="https://api.dartlang.org/stable/dart-async/Stream-class.html">Stream</a>
 for the file and stream in the data.</p>
 
 <p>Here is a version that opens the file for random access operations.
@@ -401,7 +398,7 @@ Exiting from the function that contains <code class="highlighter-rouge">await fo
 
 <p><code class="highlighter-rouge">Stream&lt;List&lt;int&gt;&gt;</code> is used in multiple places in dart:io:
 when working with stdin, files, sockets, HTTP connections, and so on.
-Similarly, <a href="https://api.dartlang.org/dev/dart-io/IOSink-class.html">IOSink</a>s
+Similarly, <a href="https://api.dartlang.org/stable/dart-io/IOSink-class.html">IOSink</a>s
 are used to stream data to
 stdout, files, sockets, HTTP connections, and so on.</p>
 
@@ -409,7 +406,7 @@ stdout, files, sockets, HTTP connections, and so on.</p>
 <a id="interacting-with-processes" class="anchor" href="#interacting-with-processes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interacting with processes</h2>
 
 <p>For the simple case, use
-<a href="https://api.dartlang.org/dev/dart-io/Process/run.html">Process.run()</a>
+<a href="https://api.dartlang.org/stable/dart-io/Process/run.html">Process.run()</a>
 to run a process
 and collect its output. Use <code class="highlighter-rouge">run()</code> when you don’t
 need interactive control over the process.</p>
@@ -426,7 +423,7 @@ main() async {
 <!--- END(io_process) -->
 
 <p>You can also start a process by creating a
-<a href="https://api.dartlang.org/dev/dart-io/Process-class.html">Process</a> object
+<a href="https://api.dartlang.org/stable/dart-io/Process-class.html">Process</a> object
 using the Process.start() constructor.
 Once you have a Process object you can interact with the process
 by writing data to its stdin sink,
@@ -439,9 +436,9 @@ the exit code of the process.</p>
 and prints the output and the exit code for the process to stdout.
 Since we are interested in getting lines,
 we use a
-<a href="https://api.dartlang.org/dev/dart-convert/Utf8Decoder-class.html">Utf8Decoder</a>,
+<a href="https://api.dartlang.org/stable/dart-convert/Utf8Decoder-class.html">Utf8Decoder</a>,
 which decodes chunks of bytes into strings followed by a
-<a href="https://api.dartlang.org/dev/dart-convert/LineSplitter-class.html">LineSplitter</a>,
+<a href="https://api.dartlang.org/stable/dart-convert/LineSplitter-class.html">LineSplitter</a>,
 which splits the strings at line boundaries.</p>
 
 <!--- BEGIN(io_process_transform) -->
@@ -491,7 +488,7 @@ main() async {
 <p>dart:io makes it easy to write HTTP servers and clients.
 To write a simple web server,
 all you have to do is create an
-<a href="https://api.dartlang.org/dev/dart-io/HttpServer-class.html">HttpServer</a>
+<a href="https://api.dartlang.org/stable/dart-io/HttpServer-class.html">HttpServer</a>
 and hook up a listener (using <code class="highlighter-rouge">await for</code>) to its stream of <code class="highlighter-rouge">HttpRequest</code>s.</p>
 
 <p>Here is a simple web server
@@ -559,7 +556,7 @@ main() {
 <!--- END(io_http_server_file) -->
 
 <p>Writing HTTP clients is very similar to using the
-<a href="https://api.dartlang.org/dev/dart-io/HttpClient-class.html">HttpClient</a>
+<a href="https://api.dartlang.org/stable/dart-io/HttpClient-class.html">HttpClient</a>
 class.</p>
 
 <h2 id="feature-requests-welcome">
@@ -605,7 +602,7 @@ use the Area-IO label in the issue tracker at
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -630,7 +627,7 @@ use the Area-IO label in the issue tracker at
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

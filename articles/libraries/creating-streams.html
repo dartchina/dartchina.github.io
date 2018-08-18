@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/libraries/creating-streams" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/libraries/creating-streams" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -196,16 +196,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 
@@ -240,8 +237,8 @@ April 2013</em></p>
 
 <p>The dart:async library contains two types
 that are important for many Dart APIs:
-<a href="https://api.dartlang.org/dev/dart-async/Stream-class.html">Stream</a> and
-<a href="https://api.dartlang.org/dev/dart-async/Future-class.html">Future</a>.
+<a href="https://api.dartlang.org/stable/dart-async/Stream-class.html">Stream</a> and
+<a href="https://api.dartlang.org/stable/dart-async/Future-class.html">Future</a>.
 Where a Future represents the result of a single computation,
 a stream is a <em>sequence</em> of results.
 You listen on a stream to get notified of the results
@@ -306,14 +303,14 @@ counterStream2.listen(print);</pre>
 <p>Often, a transforming method is all you need.
 However, if you need more control over the transformation,
 you can specify a
-<a href="https://api.dartlang.org/dev/dart-async/StreamTransformer-class.html">StreamTransformer</a>
+<a href="https://api.dartlang.org/stable/dart-async/StreamTransformer-class.html">StreamTransformer</a>
 with Stream’s <code class="highlighter-rouge">transform()</code> method.</p>
 
 <h2 id="using-a-streamcontroller">
 <a id="using-a-streamcontroller" class="anchor" href="#using-a-streamcontroller" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using a StreamController</h2>
 
 <p>When you need to implement a stream, consider using
-<a href="https://api.dartlang.org/dev/dart-async/StreamController-class.html">StreamController</a>.
+<a href="https://api.dartlang.org/stable/dart-async/StreamController-class.html">StreamController</a>.
 Creating a StreamController gives you a new stream
 and allows you to add events to the stream.
 The stream has all the logic necessary to handle listeners and pausing.
@@ -596,7 +593,7 @@ keep these tips in mind:</p>
 one created using <code class="highlighter-rouge">new StreamController(sync: true)</code>.
 When you send an event on an unpaused synchronous controller
 (for example, using the add(), addError(), or close() methods
-defined by <a href="https://api.dartlang.org/dev/dart-async/EventSink-class.html">EventSink</a>),
+defined by <a href="https://api.dartlang.org/stable/dart-async/EventSink-class.html">EventSink</a>),
 the event is sent immediately to all listeners on the stream.
 Make sure your stream’s public methods
 are ready for event listeners to call them immediately.</p>
@@ -609,7 +606,7 @@ For example, in the following code,
 an onListen event fires
 (and <code class="highlighter-rouge">handler</code> is called)
 before the <code class="highlighter-rouge">subscription</code> variable (a
-<a href="https://api.dartlang.org/dev/dart-async/StreamSubscription-class.html">StreamSubscription</a>)
+<a href="https://api.dartlang.org/stable/dart-async/StreamSubscription-class.html">StreamSubscription</a>)
 has a valid value.</p>
 
     <pre class="prettyprint lang-dart">subscription = stream.listen(handler);</pre>
@@ -650,7 +647,7 @@ or during the call of another state change handler.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -675,7 +672,7 @@ or during the call of another state change handler.</p>
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/language/await-async" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/language/await-async" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -192,16 +192,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 
@@ -236,18 +233,15 @@ the most basic additions: <code class="highlighter-rouge">await</code> expressio
 These are the most commonly used features related to asynchrony.</p>
 
 <aside class="alert alert-info">
-  <p><strong>Note:</strong>
-This article assumes that you are already familiar with asynchronous
-programming in Dart.</p>
+  <p><strong>Note:</strong> This article assumes that you are already familiar with asynchronous
+  programming in Dart.</p>
 </aside>
 
 <aside class="alert alert-info">
-  <p><strong>Note for Dart 2:</strong>
-There is a slight breaking change for async in Dart 2.
-Instead of immediately suspending, async functions execute synchronously
-until the first await. In most cases, you won’t notice a change in
-behavior—as long as you await each time you call an async method,
-it won’t be an issue.</p>
+  <p><strong>Dart 2 note:</strong> In Dart 2, instead of immediately suspending, async functions
+  execute synchronously until the first await. In most cases, you won’t notice a
+  difference in behavior relative to Dart 1—as long as you await each time you
+  call an async method, it won’t be an issue.</p>
 </aside>
 
 <h2 id="async-functions">
@@ -281,8 +275,8 @@ more fully.</p>
 <p>Await expressions let you write asynchronous code almost as if it were
 synchronous. Suppose you have a variable <code class="highlighter-rouge">myFile</code> that refers to a
 file. (For details on files, see the
-<a href="https://api.dartlang.org/dev/dart-io/File-class.html">File</a> class in
-<a href="https://api.dartlang.org/dev/dart-io/dart-io-library.html"><code class="highlighter-rouge">dart:io</code></a>.)
+<a href="https://api.dartlang.org/stable/dart-io/File-class.html">File</a> class in
+<a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html"><code class="highlighter-rouge">dart:io</code></a>.)
 You decide to copy it to a new location <code class="highlighter-rouge">newPath</code>, declared as</p>
 
 <pre class="prettyprint lang-dart">String newPath = '/some/where/out/there';</pre>
@@ -292,7 +286,7 @@ You decide to copy it to a new location <code class="highlighter-rouge">newPath<
 <pre class="prettyprint lang-dart">myFile.copy(newPath).path == newPath;</pre>
 
 <p>Unfortunately, that won’t work. Since Dart’s I/O API is asynchronous,
-the copy operation returns a <a href="https://api.dartlang.org/dev/dart-async/Future-class.html">Future</a>,
+the copy operation returns a <a href="https://api.dartlang.org/stable/dart-async/Future-class.html">Future</a>,
 and you can’t call <code class="highlighter-rouge">path</code> on that. You must schedule a callback on the
 Future returned from <code class="highlighter-rouge">copy()</code>, and that callback performs the
 comparison with its incoming parameter <code class="highlighter-rouge">f</code>:</p>
@@ -490,7 +484,7 @@ easier to understand.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -515,7 +509,7 @@ easier to understand.</p>
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

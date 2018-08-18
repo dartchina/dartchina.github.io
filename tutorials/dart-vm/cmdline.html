@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/dart-vm/cmdline" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/dart-vm/cmdline" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -204,16 +204,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 <nav id="subnav">
@@ -283,9 +280,9 @@ Stream classes.</li>
 <aside class="alert alert-info">
   <p><strong>Prerequisite:</strong>
 This tutorial uses the <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code> language features, which rely on the
-<a href="https://api.dartlang.org/dev/dart-async/Future-class.html" target="_blank">Future</a>
+<a href="https://api.dartlang.org/stable/dart-async/Future-class.html" target="_blank">Future</a>
 and
-<a href="https://api.dartlang.org/dev/dart-async/Stream-class.html" target="_blank">Stream</a> classes for asynchronous support.
+<a href="https://api.dartlang.org/stable/dart-async/Stream-class.html" target="_blank">Stream</a> classes for asynchronous support.
 Refer to <a href="/tutorials/language/futures">Asynchronous Programming: Futures</a>
 and <a href="/tutorials/language/streams">Asynchronous Programming: Streams</a>
 to learn more about these features.</p>
@@ -518,15 +515,15 @@ The standard I/O streams are defined at the top level of the dart:io library,</p
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/stdout.html" target="_blank">stdout</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/stdout.html" target="_blank">stdout</a></td>
       <td>The standard output</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/stderr.html" target="_blank">stderr</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/stderr.html" target="_blank">stderr</a></td>
       <td>The standard error</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/stdin.html" target="_blank">stdin</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/stdin.html" target="_blank">stdin</a></td>
       <td>The standard input</td>
     </tr>
   </tbody>
@@ -630,7 +627,7 @@ The quick brown fox jumped over the lazy dog.
 <a id="getting-info-about-a-file" class="anchor" href="#getting-info-about-a-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting info about a file</h2>
 
 <p>The
-<a href="https://api.dartlang.org/dev/dart-io/FileSystemEntity-class.html" target="_blank">FileSystemEntity</a>
+<a href="https://api.dartlang.org/stable/dart-io/FileSystemEntity-class.html" target="_blank">FileSystemEntity</a>
 class in the dart:io library provides properties and static methods
 that help you inspect and manipulate the file system.</p>
 
@@ -718,7 +715,7 @@ To use these converters you need to import the dart:convert library:</p>
 <a id="writing-a-file" class="anchor" href="#writing-a-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing a file</h2>
 
 <p>The easiest way to write text to a file is to create a
-<a href="https://api.dartlang.org/dev/dart-io/File-class.html" target="_blank">File</a>
+<a href="https://api.dartlang.org/stable/dart-io/File-class.html" target="_blank">File</a>
 object and use the <code class="highlighter-rouge">writeAsString()</code> method:</p>
 
 <pre class="prettyprint lang-dart">File quotesFile = new File('quotes.txt');
@@ -756,7 +753,7 @@ print('Done!');</pre>
 <a id="getting-environment-information" class="anchor" href="#getting-environment-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting environment information</h2>
 
 <p>Use the
-<a href="https://api.dartlang.org/dev/dart-io/Platform-class.html" target="_blank">Platform</a>
+<a href="https://api.dartlang.org/stable/dart-io/Platform-class.html" target="_blank">Platform</a>
 class
 to get information about the machine and OS that the program is running on.
 Note: Use the Platform class from the dart:io library,
@@ -861,43 +858,43 @@ by convention, the codes in the table below have the following meanings:</p>
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/IOSink-class.html" target="_blank">IOSink</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/IOSink-class.html" target="_blank">IOSink</a></td>
       <td>Helper class for objects that consume data from streams.</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/File-class.html" target="_blank">File</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/File-class.html" target="_blank">File</a></td>
       <td>Represents a file on the native file system</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/Directory-class.html" target="_blank">Directory</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/Directory-class.html" target="_blank">Directory</a></td>
       <td>Represents a directory on the native file system</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/FileSystemEntity-class.html" target="_blank">FileSystemEntity</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/FileSystemEntity-class.html" target="_blank">FileSystemEntity</a></td>
       <td>Superclass for File and Directory</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/Platform-class.html" target="_blank">Platform</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/Platform-class.html" target="_blank">Platform</a></td>
       <td>Provides information about the machine and operating system</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/stdout.html" target="_blank">stdout</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/stdout.html" target="_blank">stdout</a></td>
       <td>The standard output</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/stderr.html" target="_blank">stderr</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/stderr.html" target="_blank">stderr</a></td>
       <td>The standard error</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/stdin.html" target="_blank">stdin</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/stdin.html" target="_blank">stdin</a></td>
       <td>The standard input</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/exitCode.html" target="_blank">exitCode</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/exitCode.html" target="_blank">exitCode</a></td>
       <td>Sets the exit code</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/exit.html" target="_blank">exit()</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/exit.html" target="_blank">exit()</a></td>
       <td>Sets the exit code and quits</td>
     </tr>
   </tbody>
@@ -931,9 +928,9 @@ by convention, the codes in the table below have the following meanings:</p>
 to find more resources related to writing command-line apps.</p>
 
 <p>Refer to the API docs for
-<a href="https://api.dartlang.org/dev/dart-io/dart-io-library.html" target="_blank">dart:io</a>,
-<a href="https://api.dartlang.org/dev/dart-async/dart-async-library.html" target="_blank">dart:async</a>,
-<a href="https://api.dartlang.org/dev/dart-convert/dart-convert-library.html" target="_blank">dart:convert</a>,
+<a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html" target="_blank">dart:io</a>,
+<a href="https://api.dartlang.org/stable/dart-async/dart-async-library.html" target="_blank">dart:async</a>,
+<a href="https://api.dartlang.org/stable/dart-convert/dart-convert-library.html" target="_blank">dart:convert</a>,
 and the
 <a href="https://www.dartdocs.org/documentation/args/latest/index.html" target="_blank">args</a>
 package for more classes, functions, and properties.</p>
@@ -991,7 +988,7 @@ check out the next tutorial,
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -1016,7 +1013,7 @@ check out the next tutorial,
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

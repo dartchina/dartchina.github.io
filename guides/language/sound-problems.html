@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/sound-problems" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/sound-problems" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -242,16 +242,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 
@@ -409,7 +406,7 @@ argument) and accesses its <code class="highlighter-rouge">collection</code> mem
 <pre class="console-output"><code class="language-nocode">error • The method 'add' isn't defined for the class 'Iterable' at lib/bounded/instantiate_to_bound.dart:7:5 • undefined_method
 </code></pre>
 
-<p>While the <a href="https://api.dartlang.org/dev/dart-core/List-class.html">List</a> type has an <code class="highlighter-rouge">add()</code> method, <a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a> does not.</p>
+<p>While the <a href="https://api.dartlang.org/stable/dart-core/List-class.html">List</a> type has an <code class="highlighter-rouge">add()</code> method, <a href="https://api.dartlang.org/stable/dart-core/Iterable-class.html">Iterable</a> does not.</p>
 
 <h4 id="fix-specify-type-arguments-or-fix-downstream-errors">
 <a id="fix-specify-type-arguments-or-fix-downstream-errors" class="anchor" href="#fix-specify-type-arguments-or-fix-downstream-errors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fix: Specify type arguments or fix downstream errors</h4>
@@ -728,13 +725,6 @@ implicitly (as if you wrote <code class="highlighter-rouge">as List&lt;String&gt
 <pre class="console-output"><code class="language-nocode">Exception: type 'List&lt;int&gt;' is not a subtype of type 'List&lt;String&gt;'
 </code></pre>
 
-<aside class="alert alert-warning">
-  <p><strong>Note for <code class="highlighter-rouge">dartdevc</code> users:</strong>
-  The <code class="highlighter-rouge">dartdevc</code> compiler in <code class="highlighter-rouge">2.0.0-dev</code> releases currently ignores <em>some</em>
-  common type errors to make migrations easier. We expect to enforce all
-  errors by the final release.</p>
-</aside>
-
 <h4 id="fix-tighten-or-correct-types">
 <a id="fix-tighten-or-correct-types" class="anchor" href="#fix-tighten-or-correct-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fix: Tighten or correct types</h4>
 
@@ -758,7 +748,7 @@ assumeStrings(list);</pre>
 
 <p>In cases where you are working with a collection that you don’t create, such
 as from JSON or an external data source, you can use the
-<a href="https://api.dartlang.org/dev/dart-core/List/cast.html">cast()</a> method
+<a href="https://api.dartlang.org/stable/dart-core/List/cast.html">cast()</a> method
 provided by <code class="highlighter-rouge">List</code> and other collection classes.</p>
 
 <p>Here’s an example of the preferred solution: tightening the object’s type.</p>
@@ -848,7 +838,7 @@ also supported on setters and fields.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -873,7 +863,7 @@ also supported on setters and fields.</p>
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/dart-2.html" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/dart-2.html" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -199,16 +199,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 
@@ -343,8 +340,7 @@ and deprecation hints.
     <ul>
       <li>Flutter: <a href="https://flutter.io/debugging/#the-dart-analyzer"><code class="highlighter-rouge">flutter analyze</code></a>
 </li>
-      <li>Server-side or web: <a href="https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer"><code class="highlighter-rouge">dartanalyzer</code></a> with
-<a href="/guides/language/analysis-options#enabling-dart-2-semantics">Dart 2 semantics</a>
+      <li>Server-side or web: <a href="https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer"><code class="highlighter-rouge">dartanalyzer</code></a>
 </li>
     </ul>
   </li>
@@ -407,19 +403,25 @@ or (if an API has been removed) to use an alternative 1.x API.</p>
 <p>Once your package passes Dart 2 analysis, update the upper constraint
 to declare that the package is compatible with Dart 2:</p>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Works in Dart 1 (starting with 1.20.1), and works in Dart 2</span>
-<span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=1.20.1</span><span class="nv"> </span><span class="s">&lt;3.0.0'</span>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">environment</span><span class="pi">:</span>
+  <span class="c1"># Works in Dart 2 only.</span>
+  <span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=2.0.0</span><span class="nv"> </span><span class="s">&lt;3.0.0'</span>
+</code></pre></div></div>
 
-<span class="c1"># Works in Dart 2 only, starting with Dart 2 dev build 61</span>
-<span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=2.0.0-dev.61.0</span><span class="nv"> </span><span class="s">&lt;3.0.0'</span>
+<p>If you plan to maintain compatibility with older versions of Dart, adjust the
+lower SDK constraint accordingly:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">environment</span><span class="pi">:</span>
+  <span class="c1"># Works in Dart 1 (starting with 1.20.1), and works in Dart 2.</span>
+  <span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=1.20.1</span><span class="nv"> </span><span class="s">&lt;3.0.0'</span>
 </code></pre></div></div>
 
 <aside class="alert alert-warning">
-  <p>Packages that declare an upper constraint of <code class="highlighter-rouge">&lt;2.0.0</code> can still be consumed by
-  Dart 2 dev builds, as those have lax upper constraint checking. However,
-  once Dart 2 ships on the stable channel, those constraints will no longer
-  resolve, and <strong>only packages that declare an upper constraint of <code class="highlighter-rouge">&lt;3.0.0</code> will
-  work with Dart 2</strong>.</p>
+  <p><strong>Packages must have an upper constraint of <code class="highlighter-rouge">&lt;3.0.0</code></strong> to work in
+  Dart 2 stable and subsequent Dart 2 releases.
+  Dart 2 dev builds <em>before</em> the stable release have
+  lax upper constraint checking and can use packages that have
+  no SDK constraints or an upper constraint of <code class="highlighter-rouge">&lt;2.0.0</code>.</p>
 </aside>
 
 <h2 id="more-resources">
@@ -464,7 +466,7 @@ using Travis to perform continuous integration (CI) testing</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -489,7 +491,7 @@ using Travis to perform continuous integration (CI) testing</li>
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

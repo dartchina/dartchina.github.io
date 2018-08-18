@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/effective-dart/usage" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/effective-dart/usage" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -261,16 +261,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 <nav id="subnav">
@@ -584,7 +581,7 @@ var addresses = Map&lt;String, Address&gt;();</pre>
 <h3 id="不要-使用-length-来判断一个集合是否为空">
 <a id="不要-使用-length-来判断一个集合是否为空" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-length-%E6%9D%A5%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E9%9B%86%E5%90%88%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用 <code class="highlighter-rouge">.length</code> 来判断一个集合是否为空。</h3>
 
-<p><a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a> 合约并不要求集合知道其长度，也没要求在遍历的时候其长度不能改变。
+<p><a href="https://api.dartlang.org/stable/dart-core/Iterable-class.html">Iterable</a> 合约并不要求集合知道其长度，也没要求在遍历的时候其长度不能改变。
 通过调用 <code class="highlighter-rouge">.length</code>  来判断集合是否包含内容是非常低效的。</p>
 
 <p>相反，Dart 提供了更加高效率和易用的 getter 函数：<code class="highlighter-rouge">.isEmpty</code> 和<code class="highlighter-rouge">.isNotEmpty</code>。
@@ -704,14 +701,14 @@ var ints = objects.where((e) =&gt; e is int);</pre>
 var ints = objects.where((e) =&gt; e is int).cast&lt;int&gt;();</pre>
 
 <p>代码冗长，并导致创建了两个包装器，获取元素对象要间接通过两层，并进行两次多余的运行时检查。
-幸运的是，对于这个用例，核心库提供了 <code class="highlighter-rouge">whereType()</code>]<a href="https://api.dartlang.org/dev/dart-core/Iterable/whereType.html">where-type</a> 方法：</p>
+幸运的是，对于这个用例，核心库提供了 <code class="highlighter-rouge">whereType()</code>]<a href="https://api.dartlang.org/stable/dart-core/Iterable/whereType.html">where-type</a> 方法：</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (where-type)"?>
 <pre class="prettyprint lang-dart good-style">var objects = [1, "a", 2, "b", 3];
 var ints = objects.whereType&lt;int&gt;();</pre>
 
 <p>使用 <code class="highlighter-rouge">whereType()</code> 简洁，
-生成所需的 <a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a>（可迭代）类型，
+生成所需的 <a href="https://api.dartlang.org/stable/dart-core/Iterable-class.html">Iterable</a>（可迭代）类型，
 并且没有不必要的层级包装。</p>
 
 <h3 id="不要-使用-cast如果有更合适的方法">
@@ -723,7 +720,7 @@ var ints = objects.whereType&lt;int&gt;();</pre>
 尝试查看是否有已有的转换方法来改变类型，而不是去掉用 <code class="highlighter-rouge">cast()</code> 。
 而不是调用cast（），看看是否有一个现有的转换可以改变类型。</p>
 
-<p>如果你已经使用了 <code class="highlighter-rouge">toList()</code> ，那么请使用 <a href="https://api.dartlang.org/dev/dart-core/List/List.from.html"><code class="highlighter-rouge">List&lt;T&gt;.from()</code></a> 替换，
+<p>如果你已经使用了 <code class="highlighter-rouge">toList()</code> ，那么请使用 <a href="https://api.dartlang.org/stable/dart-core/List/List.from.html"><code class="highlighter-rouge">List&lt;T&gt;.from()</code></a> 替换，
 这里的 <code class="highlighter-rouge">T</code> 是你想要的返回值的类型。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (cast-list)"?>
@@ -1345,10 +1342,10 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 
 <p>没有 <code class="highlighter-rouge">on</code> 限定的 catch 语句会捕获 try 代码块中抛出的<em>任何</em>异常。
 <a href="https://blog.codinghorror.com/new-programming-jargon/">Pokémon exception handling</a> 可能并不是你想要的。
-你的代码是否正确的处理 <a href="https://api.dartlang.org/dev/dart-core/StackOverflowError-class.html">StackOverflowError</a> 或者 <a href="https://api.dartlang.org/dev/dart-core/OutOfMemoryError-class.html">OutOfMemoryError</a> 异常？
+你的代码是否正确的处理 <a href="https://api.dartlang.org/stable/dart-core/StackOverflowError-class.html">StackOverflowError</a> 或者 <a href="https://api.dartlang.org/stable/dart-core/OutOfMemoryError-class.html">OutOfMemoryError</a> 异常？
 如果你使用错误的参数调用函数，你是期望调试器定位出你的错误使用情况还是，
-把这个有用的 <a href="https://api.dartlang.org/dev/dart-core/ArgumentError-class.html">ArgumentError</a> 给吞噬了？
-由于你捕获了 <a href="https://api.dartlang.org/dev/dart-core/AssertionError-class.html">AssertionError</a> 异常，
+把这个有用的 <a href="https://api.dartlang.org/stable/dart-core/ArgumentError-class.html">ArgumentError</a> 给吞噬了？
+由于你捕获了 <a href="https://api.dartlang.org/stable/dart-core/AssertionError-class.html">AssertionError</a> 异常，
 导致所有 try 块内的 <code class="highlighter-rouge">assert()</code> 语句都失效了，这是你需要的结果吗？</p>
 
 <p>答案和可能是 “no”，在这种情况下，您应该过滤掉捕获的类型。
@@ -1365,8 +1362,8 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 <h3 id="要-只在代表编程错误的情况下才抛出实现了-error-的异常">
 <a id="要-只在代表编程错误的情况下才抛出实现了-error-的异常" class="anchor" href="#%E8%A6%81-%E5%8F%AA%E5%9C%A8%E4%BB%A3%E8%A1%A8%E7%BC%96%E7%A8%8B%E9%94%99%E8%AF%AF%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%89%8D%E6%8A%9B%E5%87%BA%E5%AE%9E%E7%8E%B0%E4%BA%86-error-%E7%9A%84%E5%BC%82%E5%B8%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 只在代表编程错误的情况下才抛出实现了 <code class="highlighter-rouge">Error</code> 的异常。</h3>
 
-<p><a href="https://api.dartlang.org/dev/Error-class.html">Error</a> 类是所有 <em>编码</em> 错误的基类。当一个该类型或者其子类型，
-例如 <a href="https://api.dartlang.org/dev/dart-core/ArgumentError-class.html">ArgumentError</a> 对象被抛出了，这意味着是你代码中的一个 <em>bug</em>。
+<p><a href="https://api.dartlang.org/stable/Error-class.html">Error</a> 类是所有 <em>编码</em> 错误的基类。当一个该类型或者其子类型，
+例如 <a href="https://api.dartlang.org/stable/dart-core/ArgumentError-class.html">ArgumentError</a> 对象被抛出了，这意味着是你代码中的一个 <em>bug</em>。
 当你的 API 想要告诉调用者使用错误的时候可以抛出一个 Error 来表明你的意图。</p>
 
 <p>同样的，如果一个异常表示为运行时异常而不是代码 bug， 则抛出 Error 则会误导调用者。
@@ -1517,7 +1514,7 @@ correctly.</p>
 
 <p>Completer 是用于两种底层代码的：
 新的异步原子操作和集成没有使用 Future 的异步代码。
-大部分的代码都应该使用 async/await 或者 <a href="https://api.dartlang.org/dev/dart-async/Future/then.html"><code class="highlighter-rouge">Future.then()</code></a>，
+大部分的代码都应该使用 async/await 或者 <a href="https://api.dartlang.org/stable/dart-async/Future/then.html"><code class="highlighter-rouge">Future.then()</code></a>，
 这样代码更加清晰并且异常处理更加容易。</p>
 
 <?code-excerpt "misc/lib/effective_dart/usage_good.dart (avoid-completer)"?>
@@ -1617,7 +1614,7 @@ correctly.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -1642,7 +1639,7 @@ correctly.</p>
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

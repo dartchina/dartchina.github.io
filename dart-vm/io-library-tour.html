@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/dart-vm/io-library-tour" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/dart-vm/io-library-tour" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -199,16 +199,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 
@@ -236,7 +233,7 @@ ga('send', 'pageview');
           </div>
           <?code-excerpt plaster="none"?>
 
-<p>The <a href="https://api.dartlang.org/dev/dart-io/dart-io-library.html">dart:io</a> library provides APIs to deal with
+<p>The <a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html">dart:io</a> library provides APIs to deal with
 files, directories, processes, sockets, WebSockets, and HTTP
 clients and servers.</p>
 
@@ -359,7 +356,7 @@ Future main() async {
 <h3 id="writing-file-contents">
 <a id="writing-file-contents" class="anchor" href="#writing-file-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing file contents</h3>
 
-<p>You can use an <a href="https://api.dartlang.org/dev/dart-io/IOSink-class.html">IOSink</a> to
+<p>You can use an <a href="https://api.dartlang.org/stable/dart-io/IOSink-class.html">IOSink</a> to
 write data to a file. Use the File <code class="highlighter-rouge">openWrite()</code> method to get an IOSink
 that you can write to. The default mode, <code class="highlighter-rouge">FileMode.write</code>, completely
 overwrites existing data in the file.</p>
@@ -417,7 +414,7 @@ but not limited to:</p>
   <li>Getting random access to a file: <code class="highlighter-rouge">open()</code> in File</li>
 </ul>
 
-<p>Refer to the API docs for <a href="https://api.dartlang.org/dev/dart-io/File-class.html">File</a> and <a href="https://api.dartlang.org/dev/dart-io/Directory-class.html">Directory</a> for a full
+<p>Refer to the API docs for <a href="https://api.dartlang.org/stable/dart-io/File-class.html">File</a> and <a href="https://api.dartlang.org/stable/dart-io/Directory-class.html">Directory</a> for a full
 list of methods.</p>
 
 <h2 id="http-clients-and-servers">
@@ -429,7 +426,7 @@ accessing HTTP resources, as well as running HTTP servers.</p>
 <h3 id="http-server">
 <a id="http-server" class="anchor" href="#http-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP server</h3>
 
-<p>The <a href="https://api.dartlang.org/dev/dart-io/HttpServer-class.html">HttpServer</a> class
+<p>The <a href="https://api.dartlang.org/stable/dart-io/HttpServer-class.html">HttpServer</a> class
 provides the low-level functionality for building web servers. You can
 match request handlers, set headers, stream data, and more.</p>
 
@@ -465,12 +462,12 @@ void processRequest(HttpRequest request) {
 <h3 id="http-client">
 <a id="http-client" class="anchor" href="#http-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP client</h3>
 
-<p>The <a href="https://api.dartlang.org/dev/dart-io/HttpClient-class.html">HttpClient</a> class
+<p>The <a href="https://api.dartlang.org/stable/dart-io/HttpClient-class.html">HttpClient</a> class
 helps you connect to HTTP resources from your Dart command-line or
 server-side application. You can set headers, use HTTP methods, and read
 and write data. The HttpClient class does not work in browser-based
 apps. When programming in the browser, use the
-<a href="https://api.dartlang.org/dev/dart-html/HttpRequest-class.html">dart:html HttpRequest class.</a>
+<a href="https://api.dartlang.org/stable/dart-html/HttpRequest-class.html">dart:html HttpRequest class.</a>
 Here’s an example of using HttpClient:</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (client)"?>
@@ -487,10 +484,10 @@ Here’s an example of using HttpClient:</p>
 <h2 id="more-information">
 <a id="more-information" class="anchor" href="#more-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h2>
 
-<p>This page showed how to use the major features of the <a href="https://api.dartlang.org/dev/dart-io/dart-io-library.html">dart:io</a> library.
+<p>This page showed how to use the major features of the <a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html">dart:io</a> library.
 Besides the APIs discussed in this section, the dart:io library also
-provides APIs for <a href="https://api.dartlang.org/dev/dart-io/Process-class.html">processes,</a> <a href="https://api.dartlang.org/dev/dart-io/Socket-class.html">sockets,</a> and
-<a href="https://api.dartlang.org/dev/dart-io/WebSocket-class.html">web sockets.</a>
+provides APIs for <a href="https://api.dartlang.org/stable/dart-io/Process-class.html">processes,</a> <a href="https://api.dartlang.org/stable/dart-io/Socket-class.html">sockets,</a> and
+<a href="https://api.dartlang.org/stable/dart-io/WebSocket-class.html">web sockets.</a>
 To find more examples of using dart:io, go to the
 <a href="https://github.com/dart-lang/dart-samples">dart-samples repo.</a>
 For more information about server-side and command-line app development, see the
@@ -526,7 +523,7 @@ For more information about server-side and command-line app development, see the
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -551,7 +548,7 @@ For more information about server-side and command-line app development, see the
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/language-tour" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/language-tour" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -339,16 +339,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 
@@ -468,7 +465,7 @@ Dart 同样支持多行注释和文档注释。
 <ul>
   <li>
     <p>任何保存在变量中的都是一个 <em>对象</em> ， 并且所有的对象都是对应一个 <em>类</em> 的实例。
-无论是数字，函数和 <code class="highlighter-rouge">null</code> 都是对象。所有对象继承自 <a href="https://api.dartlang.org/dev/dart-core/Object-class.html">Object</a> 类。</p>
+无论是数字，函数和 <code class="highlighter-rouge">null</code> 都是对象。所有对象继承自 <a href="https://api.dartlang.org/stable/dart-core/Object-class.html">Object</a> 类。</p>
   </li>
   <li>
     <p>尽管 Dart 是强类型的，但是 Dart 可以推断类型，所以类型注释是可选的。 
@@ -787,7 +784,7 @@ const baz = []; // Equivalent to `const []`</pre>
 <p>Dart 语言的 numbers 有两种类型:</p>
 
 <dl>
-  <dt><a href="https://api.dartlang.org/dev/dart-core/int-class.html">int</a></dt>
+  <dt><a href="https://api.dartlang.org/stable/dart-core/int-class.html">int</a></dt>
   <dd>
     <p>整数值不大于64位，
 具体取决于平台。
@@ -797,19 +794,19 @@ Dart 被编译为 JavaScript 时，使用
 <a href="https://stackoverflow.com/questions/2802957/number-of-bits-in-javascript-numbers/2803010#2803010">JavaScript numbers,</a>
 值的范围从 -2<sup>53</sup> 到 2<sup>53</sup> - 1.</p>
   </dd>
-  <dt><a href="https://api.dartlang.org/dev/dart-core/double-class.html">double</a></dt>
+  <dt><a href="https://api.dartlang.org/stable/dart-core/double-class.html">double</a></dt>
   <dd>
     <p>64位（双精度）浮点数，依据 IEEE 754 标准。</p>
   </dd>
 </dl>
 
-<p><code class="highlighter-rouge">int</code> 和 <code class="highlighter-rouge">double</code> 都是 <a href="https://api.dartlang.org/dev/dart-core/num-class.html"><code class="highlighter-rouge">num</code>.</a> 的亚类型。
+<p><code class="highlighter-rouge">int</code> 和 <code class="highlighter-rouge">double</code> 都是 <a href="https://api.dartlang.org/stable/dart-core/num-class.html"><code class="highlighter-rouge">num</code>.</a> 的亚类型。
 num 类型包括基本运算 +， -， /， 和 *，
 以及 <code class="highlighter-rouge">abs()</code>，<code class="highlighter-rouge"> ceil()</code>，
 和 <code class="highlighter-rouge">floor()</code>， 等函数方法。
 （按位运算符，例如»，定义在 int 类中。）
 如果 num 及其亚类型找不到你想要的方法，
-尝试查找使用 <a href="https://api.dartlang.org/dev/dart-math">dart:math</a> 库。</p>
+尝试查找使用 <a href="https://api.dartlang.org/stable/dart-math">dart:math</a> 库。</p>
 
 <p>整数类型不包含小数点。
 下面是定义整数类型字面量的例子:</p>
@@ -981,7 +978,7 @@ assert(iMeantToDoThis.isNaN);</pre>
 <a id="lists" class="anchor" href="#lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists</h3>
 
 <p>几乎每种编程语言中最常见的集合可能是 <em>array</em> 或有序的对象集合。
-在 Dart 中的 <em>array</em> 就是 <a href="https://api.dartlang.org/dev/dart-core/List-class.html">List</a> 对象，
+在 Dart 中的 <em>array</em> 就是 <a href="https://api.dartlang.org/stable/dart-core/List-class.html">List</a> 对象，
 通常称之为 <em>lists</em> 。</p>
 
 <p>Dart 中的 list 字面量非常像 JavaScript 中的 array 字面量。 
@@ -1027,7 +1024,7 @@ assert(list[1] == 1);</pre>
 
 <p>通常来说， map 是用来关联 keys 和 values 的对象。
 keys 和 values 可以是任何类型的对象。在一个 map 对象中一个 <em>key</em> 只能出现一次。
-但是 <em>value</em> 可以出现多次。 Dart 中 map 通过 map 字面量 和 <a href="https://api.dartlang.org/dev/dart-core/Map-class.html">Map</a> 类型来实现。</p>
+但是 <em>value</em> 可以出现多次。 Dart 中 map 通过 map 字面量 和 <a href="https://api.dartlang.org/stable/dart-core/Map-class.html">Map</a> 类型来实现。</p>
 
 <p>下面是使用 map 字面量的两个简单例子：</p>
 
@@ -1131,7 +1128,7 @@ add <code class="highlighter-rouge">const</code> before the map literal:</p>
 把编码值放到大括号中即可。
 例如，emoji 的笑脸   (�) 是 <code class="highlighter-rouge">\u{1f600}</code>。</p>
 
-<p><a href="https://api.dartlang.org/dev/dart-core/String-class.html">String</a>
+<p><a href="https://api.dartlang.org/stable/dart-core/String-class.html">String</a>
 类有一些属性可以获得 rune 数据。
 属性 <code class="highlighter-rouge">codeUnitAt</code> 和 <code class="highlighter-rouge">codeUnit</code> 返回16位编码数据。
 属性 <code class="highlighter-rouge">runes</code> 获取字符串中的 runes 。</p>
@@ -1172,7 +1169,7 @@ add <code class="highlighter-rouge">const</code> before the map literal:</p>
 
 <p>Dart 是一门真正面向对象的语言，
 甚至其中的函数也是对象，并且有它的类型 
-<a href="https://api.dartlang.org/dev/dart-core/Function-class.html">Function</a> 。
+<a href="https://api.dartlang.org/stable/dart-core/Function-class.html">Function</a> 。
 这也意味着函数可以被赋值给变量或者作为参数传递给其他函数。
 也可以把 Dart 类的实例当做方法来调用。
 有关更多信息，参考 <a href="#callable-classes">Callable classes</a>.</p>
@@ -1834,7 +1831,7 @@ assert(a != b); // -1 != 0</pre>
 
 <p>要测试两个对象x和y是否表示相同的事物，
 使用 <code class="highlighter-rouge">==</code> 运算符。 (在极少数情况下，
-要确定两个对象是否完全相同，需要使用 <a href="https://api.dartlang.org/dev/dart-core/identical.html">identical()</a> 函数。)
+要确定两个对象是否完全相同，需要使用 <a href="https://api.dartlang.org/stable/dart-core/identical.html">identical()</a> 函数。)
 下面给出 <code class="highlighter-rouge">==</code> 运算符的工作原理：</p>
 
 <ol>
@@ -2287,7 +2284,7 @@ callbacks.forEach((c) =&gt; c());</pre>
 但是示例中的代码在 JavaScript 中会连续输出两个 <code class="highlighter-rouge">2</code> 。</p>
 
 <p>I如果要迭代一个实现了 Iterable 接口的对象， 
-可以使用 <a href="https://api.dartlang.org/dev/dart-core/Iterable/forEach.html">forEach()</a> 方法， 
+可以使用 <a href="https://api.dartlang.org/stable/dart-core/Iterable/forEach.html">forEach()</a> 方法， 
 如果不需要使用当前计数值，
 使用 <code class="highlighter-rouge">forEach()</code> 是非常棒的选择；</p>
 
@@ -2342,7 +2339,7 @@ for (var x in collection) {
   candidate.interview();
 }</pre>
 
-<p>如果对象实现了 <a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a> 接口 （例如，list 或者 set）。
+<p>如果对象实现了 <a href="https://api.dartlang.org/stable/dart-core/Iterable-class.html">Iterable</a> 接口 （例如，list 或者 set）。
 那么上面示例完全可以用另一种方式来实现：</p>
 
 <?code-excerpt "misc/lib/language_tour/control_flow.dart (where)"?>
@@ -2475,7 +2472,7 @@ Flutter 中的 assert 只在 <a href="https://flutter.io/debugging/#debug-mode-a
 <p>assert 的第一个参数可以是解析为布尔值的任何表达式。
 如果表达式结果为 true ， 则断言成功，并继续执行。
 如果表达式结果为 false ， 则断言失败，并抛出异常
-(<a href="https://api.dartlang.org/dev/dart-core/AssertionError-class.html">AssertionError</a>) 。</p>
+(<a href="https://api.dartlang.org/stable/dart-core/AssertionError-class.html">AssertionError</a>) 。</p>
 
 <h2 id="异常">
 <a id="异常" class="anchor" href="#%E5%BC%82%E5%B8%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>异常</h2>
@@ -2489,7 +2486,7 @@ Flutter 中的 assert 只在 <a href="https://flutter.io/debugging/#debug-mode-a
 方法不会声明它们抛出的异常，
 也不要求捕获任何异常。</p>
 
-<p>Dart 提供了 <a href="https://api.dartlang.org/dev/dart-core/Exception-class.html">Exception</a> 和 <a href="https://api.dartlang.org/dev/dart-core/Error-class.html">Error</a> 类型，
+<p>Dart 提供了 <a href="https://api.dartlang.org/stable/dart-core/Exception-class.html">Exception</a> 和 <a href="https://api.dartlang.org/stable/dart-core/Error-class.html">Error</a> 类型，
 以及一些子类型。 
 当然也可以定义自己的异常类型。
 但是，此外 Dart 程序可以抛出任何非 null 对象， 不仅限 Exception 和 Error 对象。</p>
@@ -2508,7 +2505,7 @@ Flutter 中的 assert 只在 <a href="https://flutter.io/debugging/#debug-mode-a
 <pre class="prettyprint lang-dart">throw 'Out of llamas!';</pre>
 
 <div class="alert alert-info">
-  <p><strong>提示：</strong> 高质量的生产环境代码通常会实现 <a href="https://api.dartlang.org/dev/dart-core/Error-class.html">Error</a> 或 <a href="https://api.dartlang.org/dev/dart-core/Exception-class.html">Exception</a> 类型的异常抛出。</p>
+  <p><strong>提示：</strong> 高质量的生产环境代码通常会实现 <a href="https://api.dartlang.org/stable/dart-core/Error-class.html">Error</a> 或 <a href="https://api.dartlang.org/stable/dart-core/Exception-class.html">Exception</a> 类型的异常抛出。</p>
 </div>
 
 <p>因为抛出异常是一个表达式，
@@ -2555,7 +2552,7 @@ Flutter 中的 assert 只在 <a href="https://flutter.io/debugging/#debug-mode-a
 
 <p><code class="highlighter-rouge">catch()</code> 函数可以指定1到2个参数，
 第一个参数为抛出的异常对象， 
-第二个为堆栈信息 ( 一个 <a href="https://api.dartlang.org/dev/dart-core/StackTrace-class.html">StackTrace</a> 对象 )。</p>
+第二个为堆栈信息 ( 一个 <a href="https://api.dartlang.org/stable/dart-core/StackTrace-class.html">StackTrace</a> 对象 )。</p>
 
 <?code-excerpt "misc/lib/language_tour/exceptions.dart (try-catch-2)" replace="/\(e.*?\)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">try {
@@ -2622,7 +2619,7 @@ void main() {
 <a id="类" class="anchor" href="#%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>类</h2>
 
 <p>Dart 是一种基于类和 mixin 继承机制的面向对象的语言。
-每个对象都是一个类的实例，所有的类都继承于 <a href="https://api.dartlang.org/dev/dart-core/Object-class.html">Object.</a> 。
+每个对象都是一个类的实例，所有的类都继承于 <a href="https://api.dartlang.org/stable/dart-core/Object-class.html">Object.</a> 。
 基于 * Mixin 继承* 意味着每个类（除 Object 外） 都只有一个超类，
 一个类中的代码可以在其他多个继承类中重复使用。</p>
 
@@ -2721,7 +2718,7 @@ const pointAndLine = {
 
 <p>使用对象的 <code class="highlighter-rouge">runtimeType</code> 属性，
 可以在运行时获取对象的类型，
-<code class="highlighter-rouge">runtimeType</code> 属性回返回一个 <a href="https://api.dartlang.org/dev/dart-core/Type-class.html">Type</a> 对象。</p>
+<code class="highlighter-rouge">runtimeType</code> 属性回返回一个 <a href="https://api.dartlang.org/stable/dart-core/Type-class.html">Type</a> 对象。</p>
 
 <?code-excerpt "misc/test/language_tour/classes_test.dart (runtimeType)"?>
 <pre class="prettyprint lang-dart">print('The type of a is ${a.runtimeType}');</pre>
@@ -3476,7 +3473,7 @@ void main() {
 <h2 id="泛型">
 <a id="泛型" class="anchor" href="#%E6%B3%9B%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>泛型</h2>
 
-<p>在 API 文档中你会发现基础数组类型 <a href="https://api.dartlang.org/dev/dart-core/List-class.html">List</a> 的实际类型是 <code class="highlighter-rouge">List&lt;E&gt;</code> 。
+<p>在 API 文档中你会发现基础数组类型 <a href="https://api.dartlang.org/stable/dart-core/List-class.html">List</a> 的实际类型是 <code class="highlighter-rouge">List&lt;E&gt;</code> 。
 &lt;…&gt; 符号将 List 标记为 <em>泛型</em> (或 <em>参数化</em>) 类型。
 这种类型具有形式化的参数。
 通常情况下，使用一个字母来代表类型参数， 例如 E, T, S, K, 和 V 等。</p>
@@ -3662,7 +3659,7 @@ print(foo); // Instance of 'Foo&lt;SomeBaseClass&gt;'</pre>
 <a id="使用库" class="anchor" href="#%E4%BD%BF%E7%94%A8%E5%BA%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用库</h3>
 
 <p>通过 <code class="highlighter-rouge">import</code> 指定一个库命名空间中的内如如何在另一个库中使用。
-例如，Dart Web应用程序通常使用 <a href="https://api.dartlang.org/dev/dart-html">dart:html</a> 库，它们可以像这样导入：</p>
+例如，Dart Web应用程序通常使用 <a href="https://api.dartlang.org/stable/dart-html">dart:html</a> 库，它们可以像这样导入：</p>
 
 <?code-excerpt "misc/test/language_tour/browser_test.dart (dart-html-import)"?>
 <pre class="prettyprint lang-dart">import 'dart:html';</pre>
@@ -3964,9 +3961,9 @@ Dart 内置支持两种生成器函数：</p>
 
 <ul>
   <li>
-<strong>Synchronous</strong> 生成器： 返回一个 <strong><a href="https://api.dartlang.org/dev/dart-core/Iterable-class.html">Iterable</a></strong> 对象。</li>
+<strong>Synchronous</strong> 生成器： 返回一个 <strong><a href="https://api.dartlang.org/stable/dart-core/Iterable-class.html">Iterable</a></strong> 对象。</li>
   <li>
-<strong>Asynchronous</strong> 生成器： 返回一个 <strong><a href="https://api.dartlang.org/dev/dart-async/Stream-class.html">Stream</a></strong> 对象。</li>
+<strong>Asynchronous</strong> 生成器： 返回一个 <strong><a href="https://api.dartlang.org/stable/dart-async/Stream-class.html">Stream</a></strong> 对象。</li>
 </ul>
 
 <p>通过在函数体标记 <code class="highlighter-rouge">sync*</code>，
@@ -4030,7 +4027,7 @@ Dart 内置支持两种生成器函数：</p>
 每个隔离区都有自己的内存堆，确保每个隔离区的状态都不会被其他隔离区访问。</p>
 
 <p>有关更多信息，请参考
-<a href="https://api.dartlang.org/dev/dart-isolate">dart:isolate library documentation.</a> 。</p>
+<a href="https://api.dartlang.org/stable/dart-isolate">dart:isolate library documentation.</a> 。</p>
 
 <h2 id="typedefs">
 <a id="typedefs" class="anchor" href="#typedefs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Typedefs</h2>
@@ -4232,7 +4229,7 @@ class Llama {
 
 <p>解析 Dart 代码并生成 HTML 文档，可以使用 SDK 中的
 <a href="https://github.com/dart-lang/dartdoc#dartdoc">documentation generation tool.</a>
-关于生成文档的实例，请参考 <a href="https://api.dartlang.org/dev">Dart API
+关于生成文档的实例，请参考 <a href="https://api.dartlang.org/stable">Dart API
 documentation.</a>
 关于文档结构的建议，请参考 
 <a href="/guides/language/effective-dart/documentation">Guidelines for Dart Doc Comments.</a></p>
@@ -4276,7 +4273,7 @@ documentation.</a>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -4301,7 +4298,7 @@ documentation.</a>
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

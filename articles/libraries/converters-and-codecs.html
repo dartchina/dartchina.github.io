@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/libraries/converters-and-codecs" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/libraries/converters-and-codecs" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -201,16 +201,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 
@@ -245,7 +242,7 @@ February 2014 (updated March 2015)</em></p>
 
 <p>Converting data between different representations is a common task in computer
 engineering. Dart is no exception and comes with
-<a href="https://api.dartlang.org/dev/dart-convert/dart-convert-library.html">dart:convert</a>, a
+<a href="https://api.dartlang.org/stable/dart-convert/dart-convert-library.html">dart:convert</a>, a
 core library that provides a set of converters
 and useful tools to build new converters.
 Examples of converters provided by the library include those
@@ -295,7 +292,7 @@ and the other one decodes:</p>
 method and <code class="highlighter-rouge">inverted</code> getter allow you to fuse converters and
 change the direction of a codec, respectively.
 The base implementation of
-<a href="https://api.dartlang.org/dev/dart-convert/Codec-class.html">Codec</a>
+<a href="https://api.dartlang.org/stable/dart-convert/Codec-class.html">Codec</a>
 for these two members
 provides a solid default implementation
 and implementers usually don’t need to worry about them.</p>
@@ -303,7 +300,7 @@ and implementers usually don’t need to worry about them.</p>
 <p>The <code class="highlighter-rouge">encode()</code> and <code class="highlighter-rouge">decode()</code>
 methods, too, may be left untouched, but they can be extended for additional
 arguments. For example, the
-<a href="https://api.dartlang.org/dev/dart-convert/JsonCodec-class.html">JsonCodec</a>
+<a href="https://api.dartlang.org/stable/dart-convert/JsonCodec-class.html">JsonCodec</a>
 adds named arguments to <code class="highlighter-rouge">encode()</code> and <code class="highlighter-rouge">decode()</code>
 to make these methods more useful:</p>
 
@@ -331,7 +328,7 @@ where the real conversions happen:</p>
 <pre class="prettyprint lang-dart">T convert(S input);  // where T is the target and S the source type.</pre>
 
 <p>A minimal converter implementation only needs to extend the
-<a href="https://api.dartlang.org/dev/dart-convert/Converter-class.html">Converter</a> class and
+<a href="https://api.dartlang.org/stable/dart-convert/Converter-class.html">Converter</a> class and
 implement the <code class="highlighter-rouge">convert()</code> method. Similar to the Codec class, converters can be
 made configurable by extending the constructors and adding named arguments to
 the <code class="highlighter-rouge">convert()</code> method.</p>
@@ -340,11 +337,11 @@ the <code class="highlighter-rouge">convert()</code> method.</p>
 does not work when used with chunks (either synchronously or asynchronously). In
 particular, such a simple converter doesn’t work as a transformer (one of the
 nicer features of Converters). A fully implemented converter implements the
-<a href="https://api.dartlang.org/dev/dart-async/StreamTransformer-class.html">StreamTransformer</a>
+<a href="https://api.dartlang.org/stable/dart-async/StreamTransformer-class.html">StreamTransformer</a>
 interface and can thus be given to the <code class="highlighter-rouge">Stream.transform()</code> method.</p>
 
 <p>Probably the most common use case is the decoding of UTF-8 with
-<a href="https://api.dartlang.org/dev/dart-convert/Utf8Codec-class.html">utf8.decoder</a>:</p>
+<a href="https://api.dartlang.org/stable/dart-convert/Utf8Codec-class.html">utf8.decoder</a>:</p>
 
 <pre class="prettyprint lang-dart">File.openRead().transform(utf8.decoder).</pre>
 
@@ -354,7 +351,7 @@ interface and can thus be given to the <code class="highlighter-rouge">Stream.tr
 <p>The concept of chunked conversions can be confusing, but at its core, it is
 relatively simple. When a chunked conversion (including a stream
 transformation) is started, the converter’s
-<a href="https://api.dartlang.org/dev/dart-convert/Converter/startChunkedConversion.html">startChunkedConversion</a>
+<a href="https://api.dartlang.org/stable/dart-convert/Converter/startChunkedConversion.html">startChunkedConversion</a>
 method is invoked with an output-
 sink as argument. The method then returns an input sink into which the caller
 puts data.</p>
@@ -394,11 +391,11 @@ is currently (January 2014) implemented.</p>
 
 <p>Interestingly, the type of chunked conversion cannot be extrapolated from its
 synchronous conversion. For example, the
-<a href="https://api.dartlang.org/dev/dart-convert/HtmlEscape-class.html">HtmlEscape</a>
+<a href="https://api.dartlang.org/stable/dart-convert/HtmlEscape-class.html">HtmlEscape</a>
 converter synchronously
 converts Strings to Strings, and asynchronously converts chunks of Strings to
 chunks of Strings (String→String). The
-<a href="https://api.dartlang.org/dev/dart-convert/LineSplitter-class.html">LineSplitter</a>
+<a href="https://api.dartlang.org/stable/dart-convert/LineSplitter-class.html">LineSplitter</a>
 converter synchronously
 converts Strings to List<string> (the individual lines). Despite the difference
 in the synchronous signature, the chunked version of the LineSplitter converter
@@ -433,17 +430,17 @@ useful case when used as a StreamTransformer.</p>
 <h3 id="chunkedconversionsink">
 <a id="chunkedconversionsink" class="anchor" href="#chunkedconversionsink" aria-hidden="true"><span class="octicon octicon-link"></span></a>ChunkedConversionSink</h3>
 
-<p><a href="https://api.dartlang.org/dev/dart-convert/ChunkedConversionSink-class.html">ChunkedConversionSinks</a>
+<p><a href="https://api.dartlang.org/stable/dart-convert/ChunkedConversionSink-class.html">ChunkedConversionSinks</a>
 are used to add new data to a
 converter or as output from converters. The basic ChunkedConversionSink comes
 with two methods: <code class="highlighter-rouge">add()</code> and <code class="highlighter-rouge">close()</code>. These have the same functionality as in
 all other sinks of the system such as
-<a href="https://api.dartlang.org/dev/dart-core/StringSink-class.html">StringSinks</a>
+<a href="https://api.dartlang.org/stable/dart-core/StringSink-class.html">StringSinks</a>
 or
-<a href="https://api.dartlang.org/dev/dart-async/StreamSink-class.html">StreamSinks</a>.</p>
+<a href="https://api.dartlang.org/stable/dart-async/StreamSink-class.html">StreamSinks</a>.</p>
 
 <p>The ChunkedConversionSinks semantics are similar to that of
-<a href="https://api.dartlang.org/dev/dart-io/IOSink-class.html">IOSinks</a>:
+<a href="https://api.dartlang.org/stable/dart-io/IOSink-class.html">IOSinks</a>:
 data added to the
 sink must not be modified unless it can be guaranteed that the data has been
 handled. For Strings this is not a problem (since they are immutable), but for
@@ -452,7 +449,7 @@ can be inefficient and the dart:convert library thus comes with subclasses of
 ChunkedConversionSink that support more efficient ways of passing data.</p>
 
 <p>For instance, the
-<a href="https://api.dartlang.org/dev/dart-convert/ByteConversionSink-class.html">ByteConversionSink</a>,
+<a href="https://api.dartlang.org/stable/dart-convert/ByteConversionSink-class.html">ByteConversionSink</a>,
 has the additional method</p>
 
 <p><code class="highlighter-rouge">addSlice(List&lt;int&gt; chunk, int start, int end, bool isLast)</code></p>
@@ -610,7 +607,7 @@ the cost of allocating a new list for every chunk is killing performance
 (a reasonable assumption).</p>
 
 <p>We start by making the allocation cost cheaper: by using a
-<a href="https://api.dartlang.org/dev/dart-typed_data/Uint8List-class.html">typed byte-list</a>
+<a href="https://api.dartlang.org/stable/dart-typed_data/Uint8List-class.html">typed byte-list</a>
 we can reduce the size of the allocated list by a factor of 8 (on 64-bit
 machines). This one line change doesn’t remove the allocation, but makes it much
 cheaper.</p>
@@ -832,7 +829,7 @@ were a great help in writing this article.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -857,7 +854,7 @@ were a great help in writing this article.</p>
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

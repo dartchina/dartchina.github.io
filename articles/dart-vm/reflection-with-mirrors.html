@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/reflection-with-mirrors" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/reflection-with-mirrors" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -188,16 +188,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 
@@ -280,7 +277,7 @@ we’ll assume you’ve defined the following class:</p>
 }</pre>
 
 <p>The easiest way to get a mirror is to call the top-level function
-<a href="https://api.dartlang.org/dev/dart-mirrors/reflect.html">reflect()</a>.</p>
+<a href="https://api.dartlang.org/stable/dart-mirrors/reflect.html">reflect()</a>.</p>
 
 <aside class="alert alert-warning">
   <p><strong>Caveat 2:</strong>
@@ -291,13 +288,13 @@ across isolates.</p>
 </aside>
 
 <p>The reflect() method takes an object and returns an
-<a href="https://api.dartlang.org/dev/dart-mirrors/InstanceMirror-class.html">InstanceMirror</a>
+<a href="https://api.dartlang.org/stable/dart-mirrors/InstanceMirror-class.html">InstanceMirror</a>
 on it.</p>
 
 <pre class="prettyprint lang-dart">InstanceMirror myClassInstanceMirror = reflect(new MyClass(3, 4));</pre>
 
 <p>InstanceMirror is a subclass of
-<a href="https://api.dartlang.org/dev/dart-mirrors/Mirror-class.html">Mirror</a>,
+<a href="https://api.dartlang.org/stable/dart-mirrors/Mirror-class.html">Mirror</a>,
 the root of the mirror hierarchy.
 An InstanceMirror allows one to invoke dynamically chosen code on an object.</p>
 
@@ -325,14 +322,14 @@ print out names of declarations as we’ll see below.</p>
 
 <p>Suppose you want to print out all the declarations in a class.
 You’ll need a
-<a href="https://api.dartlang.org/dev/dart-mirrors/ClassMirror-class.html">ClassMirror</a>,
+<a href="https://api.dartlang.org/stable/dart-mirrors/ClassMirror-class.html">ClassMirror</a>,
 which as you’d expect reflects a class.
 One way to get a class mirror is from an instance mirror.</p>
 
 <pre class="prettyprint lang-dart">ClassMirror MyClassMirror = myClassInstanceMirror.type; // Reflects MyClass</pre>
 
 <p>Another way is to use the top-level function
-<a href="https://api.dartlang.org/dev/dart-mirrors/reflectClass.html">reflectClass()</a>.</p>
+<a href="https://api.dartlang.org/stable/dart-mirrors/reflectClass.html">reflectClass()</a>.</p>
 
 <pre class="prettyprint lang-dart">ClassMirror cm = reflectClass(MyClass); // Reflects MyClass</pre>
 
@@ -343,7 +340,7 @@ reflected by <code class="highlighter-rouge">cm</code>.</p>
 <pre class="prettyprint lang-dart">for (var m in cm.declarations.values) print(MirrorSystem.getName(m.simpleName));</pre>
 
 <p>ClassMirror has a getter
-<a href="https://api.dartlang.org/dev/dart-mirrors/ClassMirror/declarations.html">declarations</a>
+<a href="https://api.dartlang.org/stable/dart-mirrors/ClassMirror/declarations.html">declarations</a>
 that returns a map from the names of the reflected class’ declarations
 to mirrors on those declarations.
 The map contains all declarations listed
@@ -361,7 +358,7 @@ the name of the declaration.
 The returned name is a Symbol,
 so we must convert it to a string in order to print it.
 The static method
-<a href="https://api.dartlang.org/dev/dart-mirrors/MirrorSystem/getName.html">MirrorSystem.getName</a>
+<a href="https://api.dartlang.org/stable/dart-mirrors/MirrorSystem/getName.html">MirrorSystem.getName</a>
 does that for us.</p>
 
 <p>Obviously, we know what the declarations in MyClass are in this case;
@@ -388,7 +385,7 @@ We can call invoke() on a ClassMirror as well.</p>
 <pre class="prettyprint lang-dart">cm.invoke(#noise, []); // Returns an InstanceMirror on 42</pre>
 
 <p>In fact, invoke() is defined in class
-<a href="https://api.dartlang.org/dev/dart-mirrors/ObjectMirror-class.html">ObjectMirror</a>,
+<a href="https://api.dartlang.org/stable/dart-mirrors/ObjectMirror-class.html">ObjectMirror</a>,
 a common superclass for mirror classes
 that reflect Dart entities that have state and executable code
 such as regular instances, classes, libraries, and so on.</p>
@@ -496,7 +493,7 @@ For example, one may attempt to reflectively invoke a method
 that exists in the source code,
 but has been optimized away because no non-reflective invocations exist.
 Such an invocation will result in a call to
-<a href="https://api.dartlang.org/dev/dart-core/Object/noSuchMethod.html">noSuchMethod()</a>.
+<a href="https://api.dartlang.org/stable/dart-core/Object/noSuchMethod.html">noSuchMethod()</a>.
 Tree shaking has implications for structural introspection as well.
 Again, what members a library or type has at runtime
 may be at variance with what the source code states.</p>
@@ -512,7 +509,7 @@ as if the method never existed in the source.</p>
 for programmers to specify that certain code
 may not be eliminated by tree shaking.
 Currently, you may use the
-<a href="https://api.dartlang.org/dev/dart-mirrors/MirrorsUsed-class.html">MirrorsUsed</a>
+<a href="https://api.dartlang.org/stable/dart-mirrors/MirrorsUsed-class.html">MirrorsUsed</a>
 annotation for this purpose
 but we expect the details to change significantly over time.</p>
 
@@ -525,7 +522,7 @@ If you use it, be prepared for breaking changes.</p>
 <p>The above should be enough to get you started using mirrors.
 There is a good deal more to the introspection API;
 you can
-<a href="https://api.dartlang.org/dev/dart-mirrors/dart-mirrors-library.html">explore the API</a>
+<a href="https://api.dartlang.org/stable/dart-mirrors/dart-mirrors-library.html">explore the API</a>
 to see what else is there.</p>
 
 <p>We’d like to support more powerful reflective features in the future.
@@ -585,7 +582,7 @@ Screencast of a lecture at HPI Potsdam in January 2010.  57 minutes.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -610,7 +607,7 @@ Screencast of a lecture at HPI Potsdam in January 2010.  57 minutes.</p>
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

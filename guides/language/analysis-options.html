@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/analysis-options" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/analysis-options" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -175,7 +175,6 @@ ga('send', 'pageview');
     </h4>
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#the-analysis-options-file">The analysis options file</a></li>
-<li class="toc-entry toc-h2"><a href="#enabling-dart-2-semantics-sdk-200-dev680">Enabling Dart 2 semantics (SDK <2.0.0-dev.68.0)</a></li>
 <li class="toc-entry toc-h2"><a href="#enabling-additional-type-checks">Enabling additional type checks</a></li>
 <li class="toc-entry toc-h2"><a href="#enabling-linter-rules">Enabling linter rules</a></li>
 <li class="toc-entry toc-h2"><a href="#excluding-files">Excluding files</a></li>
@@ -190,16 +189,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 
@@ -278,10 +274,11 @@ at the root of the package, in the same directory as the pubspec file.</p>
 
 <aside class="alert alert-warning">
   <p><strong>Breaking change:</strong> The conventional name for the analysis options file
-used to be <code class="highlighter-rouge">.analysis_options</code> (note the leading dot and missing <code class="highlighter-rouge">.yaml</code> suffix).
-We expect support for the <code class="highlighter-rouge">.analysis_options</code> name to go away in a future
-release, so we recommend that you <strong>rename your <code class="highlighter-rouge">.analysis_options</code> files to
-<code class="highlighter-rouge">analysis_options.yaml</code>.</strong></p>
+  used to be <code class="highlighter-rouge">.analysis_options</code> (note the leading dot and missing <code class="highlighter-rouge">.yaml</code> suffix).
+  We expect support for the <code class="highlighter-rouge">.analysis_options</code> name to go away in a future
+  release, so we recommend that you <strong>rename your <code class="highlighter-rouge">.analysis_options</code> files to
+  <code class="highlighter-rouge">analysis_options.yaml</code>.</strong></p>
+
 </aside>
 
 <p>Here’s a sample analysis options file:</p>
@@ -299,7 +296,9 @@ linter:
   rules:
     - avoid_empty_else
     - cancel_subscriptions
-    - close_sinks</pre>
+    - close_sinks
+    - unnecessary_const
+    - unnecessary_new</pre>
 
 <p>YAML is sensitive to whitespace—don’t use tabs in a YAML file,
 and use 2 spaces to denote each level of indentation.</p>
@@ -320,18 +319,6 @@ If no file is available, the analyzer defaults to standard checks.</p>
 <p>The analyzer will use file #1 to analyze the code in <code class="highlighter-rouge">my_other_package</code>
 and <code class="highlighter-rouge">my_other_other_package</code>, and file #2 to analyze the code in
 <code class="highlighter-rouge">my_package</code>.</p>
-
-<h2 id="enabling-dart-2-semantics">
-<a id="enabling-dart-2-semantics-sdk-200-dev680" class="anchor" href="#enabling-dart-2-semantics-sdk-200-dev680" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling Dart 2 semantics (SDK &lt;2.0.0-dev.68.0)</h2>
-
-<p>As of release 2.0.0-dev.68.0, <a href="/guides/language/sound-dart">Dart 2 semantics</a> are on by default.
-For earlier releases, the simplest way to enable Dart 2 semantics is to put
-<code class="highlighter-rouge">strong-mode: true</code> in the analysis-options file:</p>
-
-<pre class="prettyprint lang-yaml">analyzer:
-  strong-mode: true</pre>
-
-<p>Another way to enable Dart 2 semantics is to enable additional type checks.</p>
 
 <h2 id="enabling-additional-type-checks">
 <a id="enabling-additional-type-checks" class="anchor" href="#enabling-additional-type-checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling additional type checks</h2>
@@ -524,7 +511,7 @@ missing returns as errors, and only provide information about dead code.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -549,7 +536,7 @@ missing returns as errors, and only provide information about dead code.</p>
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

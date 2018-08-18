@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/pubspec.html" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/pubspec.html" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -201,16 +201,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 
@@ -311,7 +308,7 @@ a file named <code class="highlighter-rouge">pubspec.yaml</code> that’s writte
 <a href="#dependencies"><em>Learn more.</em></a>
 </dd>
   <dt><code class="highlighter-rouge">environment</code></dt>
-  <dd>Optional. Can be used to require a specific version of the Dart SDK.
+  <dd>Required as of Dart 2.
 <a href="#sdk-constraints"><em>Learn more.</em></a>
 </dd>
   <dt><code class="highlighter-rouge">executables</code></dt>
@@ -347,14 +344,13 @@ description: &gt;-
 author: Natalie Weizenbaum &lt;nweiz@google.com&gt;
 homepage: https://newtify.dartlang.org
 documentation: https://docs.newtify.com
+environment:
+  sdk: '&gt;=2.0.0 &lt;3.0.0'
 dependencies:
   efts: ^2.0.4
   transmogrify: ^0.4.0
 dev_dependencies:
-  test: '&gt;=0.6.0 &lt;0.12.0'
-dependency_overrides:
-  transmogrify:
-    path: ../transmogrify_patch/</pre>
+  test: '&gt;=0.6.0 &lt;0.12.0'</pre>
 
 <h2 id="details">
 <a id="details" class="anchor" href="#details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Details</h2>
@@ -500,21 +496,22 @@ to publish.</p>
 <h3 id="sdk-constraints">
 <a id="sdk-constraints" class="anchor" href="#sdk-constraints" aria-hidden="true"><span class="octicon octicon-link"></span></a>SDK constraints</h3>
 
-<p>A package can indicate which versions of its dependencies it supports, but there
-is another implicit dependency all packages have: the Dart SDK itself.
-Since the Dart platform evolves over time, a package may only work with certain
-versions of it.</p>
+<p>A package can indicate which versions of its dependencies it supports, but
+packages have another implicit dependency: the Dart platform itself.
+The Dart platform evolves over time, and a package might only work with certain
+versions of the platform.</p>
 
-<p>A package can specify that using an <em>SDK constraint</em>. This goes inside a
-separate top-level <code class="highlighter-rouge">environment</code> field in the pubspec and uses the same
+<p>A package can specify those versions using an <em>SDK constraint</em>. This
+constraint goes inside a separate top-level <code class="highlighter-rouge">environment</code> field in the pubspec
+and uses the same
 <a href="/tools/pub/dependencies#version-constraints">version constraint</a> syntax as
 dependencies.</p>
 
 <p>For example, the following constraint says that this package
-works with any <strong>Dart 2</strong> SDK that’s version 2.0.0-dev.67.0 or higher:</p>
+works with any <strong>Dart 2</strong> SDK that’s version 2.0.0 or higher:</p>
 
 <pre class="prettyprint lang-yaml">environment:
-  sdk: '&gt;=2.0.0-dev.67.0 &lt;3.0.0'</pre>
+  sdk: '&gt;=2.0.0 &lt;3.0.0'</pre>
 
 <p>Pub tries to find the latest version of a package whose SDK constraint works
 with the version of the Dart SDK that you have installed.</p>
@@ -522,8 +519,6 @@ with the version of the Dart SDK that you have installed.</p>
 <aside class="alert alert-warning">
   <p><strong>Don’t use caret syntax</strong> (<code class="highlighter-rouge">^</code>) for the SDK constraint,
   and <strong>do include an upper bound</strong> (<code class="highlighter-rouge">&lt;3.0.0</code>, usually).
-  Packages that break these rules might stop working in the future
-  and, for that reason, might not be allowed on pub.dartlang.org.
   For more information, see <a href="/dart-2">Dart 2 Updates.</a></p>
 </aside>
 
@@ -531,13 +526,13 @@ with the version of the Dart SDK that you have installed.</p>
 <a id="flutter-sdk-constraints" class="anchor" href="#flutter-sdk-constraints" aria-hidden="true"><span class="octicon octicon-link"></span></a>Flutter SDK constraints</h4>
 
 <p>As of Dart 1.19.0,
-pub supports Flutter SDK constraints under the <code class="highlighter-rouge">environment:</code> field, like so:</p>
+pub supports Flutter SDK constraints under the <code class="highlighter-rouge">environment:</code> field:</p>
 
 <pre class="prettyprint lang-yaml">environment:
   sdk: '&gt;=1.19.0 &lt;3.0.0'
   flutter: ^0.1.2</pre>
 
-<p>A Flutter SDK constraint is only satisfied if pub is running in the
+<p>A Flutter SDK constraint is satisfied only if pub is running in the
 context of the <code class="highlighter-rouge">flutter</code> executable, and the Flutter SDK’s
 <code class="highlighter-rouge">version</code> file matches the given version constraint. Otherwise,
 the package will not be selected.</p>
@@ -574,7 +569,7 @@ accidentally install packages that need Flutter.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -599,7 +594,7 @@ accidentally install packages that need Flutter.</p>
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/dart-vm/httpserver" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/dart-vm/httpserver" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -226,16 +226,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 <nav id="subnav">
@@ -294,7 +291,7 @@ ga('send', 'pageview');
 
 <aside class="alert alert-info">
   <p><strong>Prerequisite:</strong> HTTP servers and clients rely heavily on
-  <a href="https://api.dartlang.org/dev/dart-async/Future-class.html">Futures</a> and <a href="https://api.dartlang.org/dev/dart-async/Stream-class.html">Streams</a>, which are not explained in this
+  <a href="https://api.dartlang.org/stable/dart-async/Future-class.html">Futures</a> and <a href="https://api.dartlang.org/stable/dart-async/Stream-class.html">Streams</a>, which are not explained in this
   tutorial. Refer to
   <a href="/tutorials/language/futures">Asynchronous Programming: Futures</a> and
   <a href="/tutorials/language/streams">Asynchronous Programming: Streams</a>
@@ -326,7 +323,7 @@ as follows:</p>
   <li>Server finally ends (closes) the response(s).</li>
 </ul>
 
-<p>In Dart, the <a href="https://api.dartlang.org/dev/dart-io/dart-io-library.html">dart:io</a> library contains
+<p>In Dart, the <a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html">dart:io</a> library contains
 the classes and functions you need to write HTTP
 clients and servers. In addition, the <a href="https://pub.dartlang.org/packages/http_server">http_server</a> package
 contains some higher-level classes that make it easier to write
@@ -340,7 +337,7 @@ clients and servers.</p>
   work <em>only</em> with standalone, command-line programs.
   They do not work in the browser.
   To make HTTP requests from a browser-based client
-  refer to the <a href="https://api.dartlang.org/dev/dart-html/HttpRequest-class.html">dart:html HttpRequest</a> class.</p>
+  refer to the <a href="https://api.dartlang.org/stable/dart-html/HttpRequest-class.html">dart:html HttpRequest</a> class.</p>
 </aside>
 
 <p>This tutorial provides several examples that show how easy
@@ -379,7 +376,7 @@ with the string <code class="highlighter-rouge">Hello, world!</code></p>
 </span></code></pre></div></div>
 
 <p><i class="material-icons">open_in_browser</i>
-<strong>In any browser, visit</strong> <a href="localhost:4040">localhost:4040</a>.
+<strong>In any browser, visit</strong> <a href="http://localhost:4040">localhost:4040</a>.
 The browser displays <code class="highlighter-rouge">Hello, world!</code></p>
 
 <p><img src="/tutorials/dart-vm/images/hello_world_response.png" alt="The response from the hello world server."></p>
@@ -396,7 +393,7 @@ a browser-based client script, or a standalone program.</p>
 an HTTP server binds to a host and port,
 listens for HTTP requests, and writes a response.
 Note that the program imports
-the <a href="https://api.dartlang.org/dev/dart-io/dart-io-library.html">dart:io</a> library, which contains the HTTP-related
+the <a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html">dart:io</a> library, which contains the HTTP-related
 classes both for server-side programs and for
 client-side programs (but not for web apps).</p>
 
@@ -430,7 +427,7 @@ listening, and responding.</p>
 <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/httpserver/bin/hello_world_server.dart">hello_world_server.dart.</a></p>
 
 <p>The first statement in <code class="highlighter-rouge">main()</code> uses <code class="highlighter-rouge">HttpServer.bind()</code> to create an
-<a href="https://api.dartlang.org/dev/dart-io/HttpServer-class.html">HttpServer</a> object and bind it to a host and port.</p>
+<a href="https://api.dartlang.org/stable/dart-io/HttpServer-class.html">HttpServer</a> object and bind it to a host and port.</p>
 
 <?code-excerpt "httpserver/bin/hello_world_server.dart (bind)"?>
 <pre class="prettyprint lang-dart">var server = await HttpServer.bind(
@@ -446,7 +443,7 @@ listening, and responding.</p>
 <p>The first parameter of <code class="highlighter-rouge">bind()</code> specifies the hostname.
 You can specify a particular hostname or IP address as a String.
 Alternatively, you can specify the host using these predefined values
-provided by the <a href="https://api.dartlang.org/dev/dart-io/InternetAddress-class.html">InternetAddress</a> class:</p>
+provided by the <a href="https://api.dartlang.org/stable/dart-io/InternetAddress-class.html">InternetAddress</a> class:</p>
 
 <table class="table">
   <thead>
@@ -498,7 +495,7 @@ For each request received, the code sends a “Hello, world!” response.</p>
 }</pre>
 <div class="prettify-filename">hello_world_server.dart</div>
 
-<p>You’ll learn more about what the <a href="https://api.dartlang.org/dev/dart-io/HttpRequest-class.html">HttpRequest</a> object contains
+<p>You’ll learn more about what the <a href="https://api.dartlang.org/stable/dart-io/HttpRequest-class.html">HttpRequest</a> object contains
 and how to write the response in the section
 <a href="#httprequest-object">Listening for and handling requests</a>.
 But first, let’s look at one way a client generates a request.</p>
@@ -541,7 +538,7 @@ You should see something similar to the following:</p>
     <p><strong>Open the HTML page</strong></p>
 
     <p>In a browser, go to
-<a href="localhost:8080/make_a_guess.html">localhost:8080/make_a_guess.html</a>.</p>
+<a href="http://localhost:8080/make_a_guess.html">localhost:8080/make_a_guess.html</a>.</p>
   </li>
   <li>
     <p><strong>Make a guess</strong></p>
@@ -625,7 +622,7 @@ starting with <code class="highlighter-rouge">main()</code>.</p>
 
 <p>Once again the server binds to a host and port.
 Here, the top-level <code class="highlighter-rouge">handleRequest()</code> method is called for each
-request received. Because HttpServer implements <a href="https://api.dartlang.org/dev/dart-async/Stream-class.html">Stream,</a>
+request received. Because HttpServer implements <a href="https://api.dartlang.org/stable/dart-async/Stream-class.html">Stream,</a>
 you can use <code class="highlighter-rouge">await for</code> to process the requests.</p>
 
 <?code-excerpt "httpserver/bin/number_thinker.dart (main)" replace="/handleRequest/[!$&!]/g"?>
@@ -667,7 +664,7 @@ Future main() async {
 }</pre>
 <div class="prettify-filename">number_thinker.dart</div>
 
-<p>An <a href="https://api.dartlang.org/dev/dart-io/HttpRequest-class.html">HttpRequest</a> object has many properties that provide
+<p>An <a href="https://api.dartlang.org/stable/dart-io/HttpRequest-class.html">HttpRequest</a> object has many properties that provide
 information about the request.
 The following table lists some useful properties:</p>
 
@@ -685,15 +682,15 @@ The following table lists some useful properties:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">uri</code></td>
-      <td>A  <a href="https://api.dartlang.org/dev/dart-core/Uri-class.html">Uri</a> object: scheme, host, port, query string, and other information about the requested resource.</td>
+      <td>A  <a href="https://api.dartlang.org/stable/dart-core/Uri-class.html">Uri</a> object: scheme, host, port, query string, and other information about the requested resource.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">response</code></td>
-      <td>An <a href="https://api.dartlang.org/dev/dart-io/HttpResponse-class.html">HttpResponse</a> object: where the server writes its response.</td>
+      <td>An <a href="https://api.dartlang.org/stable/dart-io/HttpResponse-class.html">HttpResponse</a> object: where the server writes its response.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">headers</code></td>
-      <td>An <a href="https://api.dartlang.org/dev/dart-io/HttpHeaders-class.html">HttpHeaders</a> object: the headers for the request, including <a href="https://api.dartlang.org/dev/dart-io/ContentType-class.html">ContentType,</a> content length, date, and so on.</td>
+      <td>An <a href="https://api.dartlang.org/stable/dart-io/HttpHeaders-class.html">HttpHeaders</a> object: the headers for the request, including <a href="https://api.dartlang.org/stable/dart-io/ContentType-class.html">ContentType,</a> content length, date, and so on.</td>
     </tr>
   </tbody>
 </table>
@@ -731,7 +728,7 @@ through a query string attached to the URI.</p>
 }</pre>
 <div class="prettify-filename">number_thinker.dart</div>
 
-<p>Use the <code class="highlighter-rouge">uri</code> property from the HttpRequest object to get a <a href="https://api.dartlang.org/dev/dart-core/Uri-class.html">Uri</a> object
+<p>Use the <code class="highlighter-rouge">uri</code> property from the HttpRequest object to get a <a href="https://api.dartlang.org/stable/dart-core/Uri-class.html">Uri</a> object
 that contains the information about the URL typed by the user.
 The <code class="highlighter-rouge">queryParameters</code> property of the Uri object is a Map containing
 the components of the query string.
@@ -758,7 +755,7 @@ the number thinker server sets the HttpResponse status code to <code class="high
 <div class="prettify-filename">number_thinker.dart</div>
 
 <p><code class="highlighter-rouge">HttpStatus.OK</code> and <code class="highlighter-rouge">HttpStatus.METHOD_NOT_ALLOWED</code> are
-two of many predefined status codes in the <a href="https://api.dartlang.org/dev/dart-io/HttpStatus-class.html">HttpStatus</a> class.
+two of many predefined status codes in the <a href="https://api.dartlang.org/stable/dart-io/HttpStatus-class.html">HttpStatus</a> class.
 Another useful predefined status code is
 <code class="highlighter-rouge">HttpStatus.NOT_FOUND</code> (your classic 404).</p>
 
@@ -779,15 +776,15 @@ the HttpResponse object has other useful properties:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">cookies</code></td>
-      <td>A List of <a href="https://api.dartlang.org/dev/dart-io/Cookie-class.html">Cookies</a> to set in the client.</td>
+      <td>A List of <a href="https://api.dartlang.org/stable/dart-io/Cookie-class.html">Cookies</a> to set in the client.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">encoding</code></td>
-      <td>The <a href="https://api.dartlang.org/dev/dart-convert/Encoding-class.html">Encoding</a> used when writing strings, like JSON and UTF-8.</td>
+      <td>The <a href="https://api.dartlang.org/stable/dart-convert/Encoding-class.html">Encoding</a> used when writing strings, like JSON and UTF-8.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">headers</code></td>
-      <td>The response headers, an <a href="https://api.dartlang.org/dev/dart-io/HttpHeaders-class.html">HttpHeaders</a> object.</td>
+      <td>The response headers, an <a href="https://api.dartlang.org/stable/dart-io/HttpHeaders-class.html">HttpHeaders</a> object.</td>
     </tr>
   </tbody>
 </table>
@@ -835,11 +832,11 @@ you need to write a client program, of which there are two kinds:</p>
 
 <ul>
   <li>
-    <p>A standalone client program, which uses the <a href="https://api.dartlang.org/dev/dart-io/HttpClient-class.html">HttpClient</a>
+    <p>A standalone client program, which uses the <a href="https://api.dartlang.org/stable/dart-io/HttpClient-class.html">HttpClient</a>
 class from <code class="highlighter-rouge">dart:io</code>.</p>
   </li>
   <li>
-    <p>A browser-based client, which uses API from <a href="https://api.dartlang.org/dev/dart-html/dart-html-library.html">dart:html.</a>
+    <p>A browser-based client, which uses API from <a href="https://api.dartlang.org/stable/dart-html/dart-html-library.html">dart:html.</a>
 This tutorial does not cover browser-based clients.
 To look at code for a browser-based client and
 related server, see
@@ -934,28 +931,28 @@ Future main() async {
 <ol class="code-notes">
   <li>
     <p>The <code class="highlighter-rouge">post()</code> method requires the host, port, and the path to the requested
-resource. In addition to <code class="highlighter-rouge">post()</code>, the <a href="https://api.dartlang.org/dev/dart-io/HttpClient-class.html">HttpClient</a> class provides
+resource. In addition to <code class="highlighter-rouge">post()</code>, the <a href="https://api.dartlang.org/stable/dart-io/HttpClient-class.html">HttpClient</a> class provides
 functions for making other kinds of requests, including <code class="highlighter-rouge">postUrl()</code>,
 <code class="highlighter-rouge">get()</code>, and <code class="highlighter-rouge">open()</code>.</p>
   </li>
   <li>
-    <p>An <a href="https://api.dartlang.org/dev/dart-io/HttpClientRequest-class.html">HttpClientRequest</a> object has an <a href="https://api.dartlang.org/dev/dart-io/HttpHeaders-class.html">HttpHeaders</a> object, which
+    <p>An <a href="https://api.dartlang.org/stable/dart-io/HttpClientRequest-class.html">HttpClientRequest</a> object has an <a href="https://api.dartlang.org/stable/dart-io/HttpHeaders-class.html">HttpHeaders</a> object, which
 contains the request headers. For some headers, like <code class="highlighter-rouge">contentType</code>,
 HttpHeaders has a property specific to that header. For other headers, use
 the <code class="highlighter-rouge">set()</code> method to put the header in the HttpHeaders object.</p>
   </li>
   <li>
     <p>The client writes data to the request object using <code class="highlighter-rouge">write()</code>. The encoding,
-JSON in this example, matches the type specified in the <a href="https://api.dartlang.org/dev/dart-io/ContentType-class.html">ContentType</a>
+JSON in this example, matches the type specified in the <a href="https://api.dartlang.org/stable/dart-io/ContentType-class.html">ContentType</a>
 header.</p>
   </li>
   <li>
     <p>The <code class="highlighter-rouge">close()</code> method sends the request to the server and, when complete,
-returns an <a href="https://api.dartlang.org/dev/dart-io/HttpClientResponse-class.html">HttpClientResponse</a> object.</p>
+returns an <a href="https://api.dartlang.org/stable/dart-io/HttpClientResponse-class.html">HttpClientResponse</a> object.</p>
   </li>
   <li>
     <p>The UTF-8 response from the server is decoded. Use a transformer defined in
-the <a href="https://api.dartlang.org/dev/dart-convert/dart-convert-library.html">dart:convert</a> library to convert the data into regular Dart string
+the <a href="https://api.dartlang.org/stable/dart-convert/dart-convert-library.html">dart:convert</a> library to convert the data into regular Dart string
 format.</p>
   </li>
 </ol>
@@ -1057,11 +1054,11 @@ chunks together.</p>
   </li>
   <li>
     <p>The data sent by the client is JSON formatted. The server decodes it using
-the JSON codec available in the <a href="https://api.dartlang.org/dev/dart-convert/dart-convert-library.html">dart:convert</a> library.</p>
+the JSON codec available in the <a href="https://api.dartlang.org/stable/dart-convert/dart-convert-library.html">dart:convert</a> library.</p>
   </li>
   <li>
     <p>The URL for the request is
-<a href="localhost:4049/file.txt">localhost:4049/file.txt</a>. The code
+<a href="http://localhost:4049/file.txt">localhost:4049/file.txt</a>. The code
 <code class="highlighter-rouge">req.uri.pathSegments.last</code> extracts the file name from the URI:
 <code class="highlighter-rouge">file.txt</code>.</p>
   </li>
@@ -1127,7 +1124,7 @@ It responds to all requests by returning the contents of the
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Type <a href="localhost:4044">localhost:4044</a> into the browser.
+    <p>Type <a href="http://localhost:4044">localhost:4044</a> into the browser.
 The server displays an HTML file:</p>
 
     <p><img src="/tutorials/dart-vm/images/index_file.png" alt="The index.html file served by mini_file_server.dart."></p>
@@ -1192,7 +1189,7 @@ uses the <a href="https://pub.dartlang.org/packages/http_server">http_server</a>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Type <a href="localhost:4046">localhost:4046</a> into the browser.
+    <p>Type <a href="http://localhost:4046">localhost:4046</a> into the browser.
 The server displays the same index.html file as the previous:</p>
 
     <p><img src="/tutorials/dart-vm/images/index_file_4046.png" alt="The index.html file served by basic_file_server.dart."></p>
@@ -1359,43 +1356,43 @@ for further details about the classes and libraries discussed in this tutorial.<
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/HttpServer-class.html">HttpServer</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/HttpServer-class.html">HttpServer</a></td>
       <td>An HTTP server</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/HttpClient-class.html">HttpClient</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/HttpClient-class.html">HttpClient</a></td>
       <td>An HTTP client</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/HttpRequest-class.html">HttpRequest</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/HttpRequest-class.html">HttpRequest</a></td>
       <td>A server-side request object</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/HttpResponse-class.html">HttpResponse</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/HttpResponse-class.html">HttpResponse</a></td>
       <td>A server-side response object</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/HttpClientRequest-class.html">HttpClientRequest</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/HttpClientRequest-class.html">HttpClientRequest</a></td>
       <td>A client-side request object</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/HttpClientResponse-class.html">HttpClientResponse</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/HttpClientResponse-class.html">HttpClientResponse</a></td>
       <td>A client-side response object</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/HttpHeaders-class.html">HttpHeaders</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/HttpHeaders-class.html">HttpHeaders</a></td>
       <td>The headers for a request</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/HttpStatus-class.html">HttpStatus</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/HttpStatus-class.html">HttpStatus</a></td>
       <td>The status of the response</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/InternetAddress-class.html">InternetAddress</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/InternetAddress-class.html">InternetAddress</a></td>
       <td>An internet address</td>
     </tr>
     <tr>
-      <td><a href="https://api.dartlang.org/dev/dart-io/SecurityContext-class.html">SecurityContext</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/SecurityContext-class.html">SecurityContext</a></td>
       <td>Contains certificates, keys, and trust information for a secure connection</td>
     </tr>
     <tr>
@@ -1461,7 +1458,7 @@ including servers.</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -1486,7 +1483,7 @@ including servers.</li>
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>

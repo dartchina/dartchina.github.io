@@ -75,7 +75,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/simd" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0-dev.69.4&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/simd" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
 
         <li role="separator" class="divider"></li>
         <li><a href="/dart-2#migration">迁移指南</a></li>
@@ -215,16 +215,13 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
-<div class="banner alert alert-info">
+          <div class="banner alert alert-info">
   <p class="banner__text">
-    欢迎来到 <a href="/dart-2"><b>Dart 2</b></a>!
-    如果您仍在使用 Dart 1.x? 可访问查阅
-    <a href="https://v1-dartlang-org.firebaseapp.com" class="no-automatic-external" target="_blank" rel="noopener">存档站点</a>
-    或 <a href="/dart-2#migration">迁移指南</a>.
+    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
+    <a href="/dart-2#migration">迁移代码</a> 或
+    <a href="/install">安装 Dart</a>.
   </p>
 </div>
-
 
           
 
@@ -420,7 +417,7 @@ but it can reap performance wins.</p>
 <h2 id="types">
 <a id="types" class="anchor" href="#types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Types</h2>
 
-<p>The <a href="https://api.dartlang.org/dev/dart-typed_data/dart-typed_data-library.html">dart:typed_data library</a>
+<p>The <a href="https://api.dartlang.org/stable/dart-typed_data/dart-typed_data-library.html">dart:typed_data library</a>
 has four types to support SIMD:
 Float32x4, Int32x4, Float32x4List and Int32x4List.</p>
 
@@ -430,7 +427,7 @@ Float32x4, Int32x4, Float32x4List and Int32x4List.</p>
 <p>Each lane in a Float32x4 holds a single-precision (32-bit) floating-point value.
 Most of the examples in this article use Float32x4.
 For a complete list of methods and constructors,
-see the <a href="https://api.dartlang.org/dev/dart-typed_data/Float32x4-class.html">Float32x4 API reference</a>.</p>
+see the <a href="https://api.dartlang.org/stable/dart-typed_data/Float32x4-class.html">Float32x4 API reference</a>.</p>
 
 <h3 id="int32x4">
 <a id="int32x4" class="anchor" href="#int32x4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Int32x4</h3>
@@ -453,19 +450,19 @@ you can use the Int32x4.bool() constructor:</p>
 with 0xFFFFFFFF in lanes where the boolean parameter is true
 and 0x0 in lanes where the boolean parameter is false.</p>
 
-<p>The <a href="https://api.dartlang.org/dev/dart-typed_data/Int32x4-class.html">Int32x4 API reference</a>
+<p>The <a href="https://api.dartlang.org/stable/dart-typed_data/Int32x4-class.html">Int32x4 API reference</a>
 has a complete list of methods and constructors.</p>
 
 <h3 id="float32x4list">
 <a id="float32x4list" class="anchor" href="#float32x4list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Float32x4List</h3>
 
 <p>When you need a list of Float32x4 objects, use
-<a href="https://api.dartlang.org/dev/dart-typed_data/Float32x4List-class.html">Float32x4List</a>
+<a href="https://api.dartlang.org/stable/dart-typed_data/Float32x4List-class.html">Float32x4List</a>
 instead of List&lt;Float32x4&gt; whenever possible.
 See the <a href="#examples">Examples</a> section
 for code that uses Float32x4List.
 For a complete list of methods and constructors, see the
-<a href="https://api.dartlang.org/dev/dart-typed_data/Float32x4List-class.html">Float32x4List API reference</a>.</p>
+<a href="https://api.dartlang.org/stable/dart-typed_data/Float32x4List-class.html">Float32x4List API reference</a>.</p>
 
 <h2 id="common-techniques">
 <a id="common-techniques" class="anchor" href="#common-techniques" aria-hidden="true"><span class="octicon octicon-link"></span></a>Common techniques</h2>
@@ -706,9 +703,9 @@ the largest of those 4 largest numbers is determined.</p>
 
 <ul>
   <li>API reference documentation for
-<a href="https://api.dartlang.org/dev/dart-typed_data/Float32x4-class.html">Float32x4</a>,
-<a href="https://api.dartlang.org/dev/dart-typed_data/Int32x4-class.html">Int32x4</a>, and
-<a href="https://api.dartlang.org/dev/dart-typed_data/Float32x4List-class.html">Float32x4List</a>
+<a href="https://api.dartlang.org/stable/dart-typed_data/Float32x4-class.html">Float32x4</a>,
+<a href="https://api.dartlang.org/stable/dart-typed_data/Int32x4-class.html">Int32x4</a>, and
+<a href="https://api.dartlang.org/stable/dart-typed_data/Float32x4List-class.html">Float32x4List</a>
 </li>
   <li>Code that uses SIMD:
     <ul>
@@ -754,7 +751,7 @@ and how they affect performance</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/09 22:24 CST"
+                 title="Site built on 2018/08/18 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -779,7 +776,7 @@ and how they affect performance</li>
         <div class="content">
           <h4>资源</h4>
           <ul>
-            <li><a href="https://api.dartlang.org/dev">API 参考</a></li>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
             <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
             <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>
