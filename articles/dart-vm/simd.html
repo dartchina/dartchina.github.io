@@ -10,10 +10,10 @@
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
-  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
-  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
-  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
-  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
@@ -26,21 +26,10 @@
   <meta property="og:description" content="Get more out of your CPU: operate on four numbers in parallel, using the Float32x4 class from the dart:typed_data library." />
   <meta property="og:url" content="https://www.dartlang.org/articles/dart-vm/simd" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link type="text/css" rel="stylesheet" href="/assets/style.css">
-  
-  <!--
-    Why don't we use Dart here?
-
-    The only scripting we use here is stuff like the on-click footnotes on the
-    front page or resizing of the left nav. These happen to be use cases where
-    JavaScript and jQuery are doing just fine. Dart is here for application
-    programming, not page scripting.
-   -->
-  <script type="text/javascript" src="/assets/main.js"></script>
-  
+  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -61,7 +50,7 @@ ga('send', 'pageview');
   <nav id="mainnav">
   <div id="menu-toggle"><i class="icon icon-menu"></i></div>
   <a href="/" class="brand" title="Dart">
-    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
   </a>
   <ul>
     <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
@@ -71,14 +60,14 @@ ga('send', 'pageview');
     
     
     <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/simd" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/simd" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.0.0&nbsp;&nbsp;(stable)</a></li>
 
-        <li role="separator" class="divider"></li>
-        <li><a href="/dart-2#migration">迁移指南</a></li>
+        <li role="separator" class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
       </ul>
     </li>
     
@@ -101,7 +90,7 @@ ga('send', 'pageview');
       <div id="sidenav" class="">
   <div class="content">
     <a href="/" class="brand" title="Dart">
-      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
     </a>
 
     <div class="sidenav__search">
@@ -112,7 +101,7 @@ ga('send', 'pageview');
 
     <ul>
       <li>
-        <a class="btn btn-default" href="/guides/get-started">入门</a>
+        <a class="btn btn-light" href="/guides/get-started">入门</a>
       </li>
     </ul>
     <h4 ><a href="/guides/language" title="语言">语言</a></h4>
@@ -170,43 +159,19 @@ ga('send', 'pageview');
       
 <div id="toc">
   <div class="content">
-    <h4>目录
-      <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
-    </h4>
+    <header class="h4 text-uppercase">
+      目录
+      <a title="Back to top" class="back-to-top float-right mr-3">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </header>
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#performance-gains">Performance gains</a></li>
 <li class="toc-entry toc-h2"><a href="#implementation-status">Implementation status</a></li>
-<li class="toc-entry toc-h2"><a href="#thinking-in-simd">Thinking in SIMD</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#memory-model">Memory model</a></li>
-<li class="toc-entry toc-h3"><a href="#horizontal-operations">Horizontal operations</a></li>
-<li class="toc-entry toc-h3"><a href="#uniform-data">Uniform data</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#types">Types</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#float32x4">Float32x4</a></li>
-<li class="toc-entry toc-h3"><a href="#int32x4">Int32x4</a></li>
-<li class="toc-entry toc-h3"><a href="#float32x4list">Float32x4List</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#common-techniques">Common techniques</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#performing-arithmetic">Performing arithmetic</a></li>
-<li class="toc-entry toc-h3"><a href="#reading-the-value-of-individual-lanes">Reading the value of individual lanes</a></li>
-<li class="toc-entry toc-h3"><a href="#writing-the-value-of-individual-lanes">Writing the value of individual lanes</a></li>
-<li class="toc-entry toc-h3"><a href="#shuffling-or-re-ordering">Shuffling or re-ordering</a></li>
-<li class="toc-entry toc-h3"><a href="#branching">Branching</a></li>
-<li class="toc-entry toc-h3"><a href="#masking-lanes">Masking lanes</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#examples">Examples</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#example-1-average">Example #1: Average</a></li>
-<li class="toc-entry toc-h3"><a href="#example-2-4x4-matrix-multiplication">Example #2: 4x4 matrix multiplication</a></li>
-<li class="toc-entry toc-h3"><a href="#example-3-largest-number">Example #3: Largest number</a></li>
-</ul>
-</li>
+<li class="toc-entry toc-h2"><a href="#thinking-in-simd">Thinking in SIMD</a></li>
+<li class="toc-entry toc-h2"><a href="#types">Types</a></li>
+<li class="toc-entry toc-h2"><a href="#common-techniques">Common techniques</a></li>
+<li class="toc-entry toc-h2"><a href="#examples">Examples</a></li>
 <li class="toc-entry toc-h2"><a href="#more-information">More information</a></li>
 </ul>
   </div>
@@ -225,7 +190,6 @@ ga('send', 'pageview');
 
           
 
-          
           <div>
             <ul class="page-github-links-menu" role="group">
   <li>
@@ -359,8 +323,7 @@ is (6.0, 8.0, 10.0, 12.0).</p>
 
 <p>Remember that all four of the additions happen in parallel.</p>
 
-<h3 id="memory-model">
-<a id="memory-model" class="anchor" href="#memory-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Memory model</h3>
+<h3 id="memory-model">Memory model</h3>
 
 <p>Despite the fact that a Float32x4 is organized as
 four lanes holding distinct floating-point values,
@@ -370,8 +333,7 @@ that can be read individually.
 Instead, think of a Float32x4 as an immutable object
 with operations that create new immutable Float32x4 objects.</p>
 
-<h3 id="horizontal-operations">
-<a id="horizontal-operations" class="anchor" href="#horizontal-operations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Horizontal operations</h3>
+<h3 id="horizontal-operations">Horizontal operations</h3>
 
 <p>Horizontal operations read or write the individual lane values
 inside a Float32x4 or Int32x4 value.
@@ -380,8 +342,7 @@ adding the individual lane values together—is slow; avoid it.
 If you can’t avoid a horizontal operation entirely,
 adjust the code to perform the operation as few times as possible.</p>
 
-<h3 id="uniform-data">
-<a id="uniform-data" class="anchor" href="#uniform-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Uniform data</h3>
+<h3 id="uniform-data">Uniform data</h3>
 
 <p>Because operations performed on SIMD values affect all four lanes,
 the data you store in a Float32x4 should be uniform—for
@@ -421,16 +382,14 @@ but it can reap performance wins.</p>
 has four types to support SIMD:
 Float32x4, Int32x4, Float32x4List and Int32x4List.</p>
 
-<h3 id="float32x4">
-<a id="float32x4" class="anchor" href="#float32x4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Float32x4</h3>
+<h3 id="float32x4">Float32x4</h3>
 
 <p>Each lane in a Float32x4 holds a single-precision (32-bit) floating-point value.
 Most of the examples in this article use Float32x4.
 For a complete list of methods and constructors,
 see the <a href="https://api.dartlang.org/stable/dart-typed_data/Float32x4-class.html">Float32x4 API reference</a>.</p>
 
-<h3 id="int32x4">
-<a id="int32x4" class="anchor" href="#int32x4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Int32x4</h3>
+<h3 id="int32x4">Int32x4</h3>
 
 <p>Each lane in a Int32x4 API reference
 holds an unsigned, 32-bit integer value.
@@ -453,8 +412,7 @@ and 0x0 in lanes where the boolean parameter is false.</p>
 <p>The <a href="https://api.dartlang.org/stable/dart-typed_data/Int32x4-class.html">Int32x4 API reference</a>
 has a complete list of methods and constructors.</p>
 
-<h3 id="float32x4list">
-<a id="float32x4list" class="anchor" href="#float32x4list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Float32x4List</h3>
+<h3 id="float32x4list">Float32x4List</h3>
 
 <p>When you need a list of Float32x4 objects, use
 <a href="https://api.dartlang.org/stable/dart-typed_data/Float32x4List-class.html">Float32x4List</a>
@@ -469,8 +427,7 @@ For a complete list of methods and constructors, see the
 
 <p>This section shows code for some common tasks.</p>
 
-<h3 id="performing-arithmetic">
-<a id="performing-arithmetic" class="anchor" href="#performing-arithmetic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Performing arithmetic</h3>
+<h3 id="performing-arithmetic">Performing arithmetic</h3>
 
 <p>Arithmetic on instances of Float32x4 is no different than
 arithmetic on double or integer numbers in Dart.
@@ -480,8 +437,7 @@ Example:</p>
 var b = new Float32x4(5.0, 6.0, 7.0, 8.0);
 var sum = a + b;</pre>
 
-<h3 id="reading-the-value-of-individual-lanes">
-<a id="reading-the-value-of-individual-lanes" class="anchor" href="#reading-the-value-of-individual-lanes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading the value of individual lanes</h3>
+<h3 id="reading-the-value-of-individual-lanes">Reading the value of individual lanes</h3>
 
 <aside class="alert alert-warning">
   <p><strong>Warning:</strong>
@@ -495,8 +451,7 @@ For example:</p>
   return v.x + v.y;
 }</pre>
 
-<h3 id="writing-the-value-of-individual-lanes">
-<a id="writing-the-value-of-individual-lanes" class="anchor" href="#writing-the-value-of-individual-lanes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing the value of individual lanes</h3>
+<h3 id="writing-the-value-of-individual-lanes">Writing the value of individual lanes</h3>
 
 <aside class="alert alert-warning">
   <p><strong>Warning:</strong>
@@ -513,8 +468,7 @@ For example:</p>
 <pre class="prettyprint lang-dart">Float32x4 v = ...;
 v = v.withX(x); // Change the value in the x lane of v.</pre>
 
-<h3 id="shuffling-or-re-ordering">
-<a id="shuffling-or-re-ordering" class="anchor" href="#shuffling-or-re-ordering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shuffling or re-ordering</h3>
+<h3 id="shuffling-or-re-ordering">Shuffling or re-ordering</h3>
 
 <p>You can shuffle the order of values stored in a Float32x4 instance
 without resorting to code that looks like this:</p>
@@ -538,8 +492,7 @@ that returns a new object with values in the specified order:</p>
 <p>Not only is the code easier to read,
 but the performance is significantly better, too.</p>
 
-<h3 id="branching">
-<a id="branching" class="anchor" href="#branching" aria-hidden="true"><span class="octicon octicon-link"></span></a>Branching</h3>
+<h3 id="branching">Branching</h3>
 
 <p>Take care when writing code that branches.
 Consider the following code snippet:</p>
@@ -603,8 +556,7 @@ The following diagram demonstrates a selection:</p>
 execute both the true path and the false path.
 They then merge the results by performing a select operation.</p>
 
-<h3 id="masking-lanes">
-<a id="masking-lanes" class="anchor" href="#masking-lanes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Masking lanes</h3>
+<h3 id="masking-lanes">Masking lanes</h3>
 
 <p>Some algorithms compute updated values for some but not all of the lanes.
 Although you can’t operate on a fraction of the lanes of a Float32x4,
@@ -630,8 +582,7 @@ v = mask.select(r, v);</pre>
 
 <p>This section contains a few algorithms written to take advantage of SIMD.</p>
 
-<h3 id="example-1-average">
-<a id="example-1-average" class="anchor" href="#example-1-average" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example #1: Average</h3>
+<h3 id="example-1-average">Example #1: Average</h3>
 
 <p>This example computes the average of the individual floats
 stored in a Float32x4List.
@@ -650,8 +601,7 @@ resulting in the true sum of the numbers.</p>
   return average / (list.length*4);
 }</pre>
 
-<h3 id="example-2-4x4-matrix-multiplication">
-<a id="example-2-4x4-matrix-multiplication" class="anchor" href="#example-2-4x4-matrix-multiplication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example #2: 4x4 matrix multiplication</h3>
+<h3 id="example-2-4x4-matrix-multiplication">Example #2: 4x4 matrix multiplication</h3>
 
 <p>This example multiplies two 4x4 matrices, A and B.
 The result of the multiplication is stored into R.</p>
@@ -673,8 +623,7 @@ void multiplyMatrices(Float32x4List A, Float32x4List B, Float32x4List R) {
     R[3] = b3.shuffle(Float32x4.XXXX) * a0 + b3.shuffle(Float32x4.YYYY) * a1 + b3.shuffle(Float32x4.ZZZZ) * a2 + b3.shuffle(Float32x4.WWWW) * a3;
 }</pre>
 
-<h3 id="example-3-largest-number">
-<a id="example-3-largest-number" class="anchor" href="#example-3-largest-number" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example #3: Largest number</h3>
+<h3 id="example-3-largest-number">Example #3: Largest number</h3>
 
 <p>This example determines the largest floating point number in a Float32x4List.
 First, the loop determines the largest number in each lane.
@@ -733,10 +682,10 @@ and how they affect performance</li>
     <footer id="page-footer">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-3">
+      <div class="col-md-12 col-lg-3">
         <div class="content">
           <div class="brand">
-            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
           </div>
           <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
           <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
@@ -751,14 +700,14 @@ and how they affect performance</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/18 12:44 CST"
+                 title="Site built on 2018/09/10 11:49 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>技术</h4>
           <ul>
@@ -772,7 +721,7 @@ and how they affect performance</li>
         </div>
       </div>
 
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>资源</h4>
           <ul>
@@ -785,7 +734,7 @@ and how they affect performance</li>
         </div>
       </div>
 
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>社区</h4>
           <ul>

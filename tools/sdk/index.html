@@ -10,10 +10,10 @@
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
-  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
-  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
-  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
-  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
@@ -26,20 +26,10 @@
   <meta property="og:description" content="Dart libraries and command-line tools." />
   <meta property="og:url" content="https://www.dartlang.org/tools/sdk/" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link type="text/css" rel="stylesheet" href="/assets/style.css">
-  
-  <!--
-    Why don't we use Dart here?
-
-    The only scripting we use here is stuff like the on-click footnotes on the
-    front page or resizing of the left nav. These happen to be use cases where
-    JavaScript and jQuery are doing just fine. Dart is here for application
-    programming, not page scripting.
-   -->
-  <script type="text/javascript" src="/assets/main.js"></script>
+  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script defer src="/tools/sdk/archive/assets/install.js"></script>
   <script>
 
@@ -61,7 +51,7 @@ ga('send', 'pageview');
   <nav id="mainnav">
   <div id="menu-toggle"><i class="icon icon-menu"></i></div>
   <a href="/" class="brand" title="Dart">
-    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
   </a>
   <ul>
     <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
@@ -71,14 +61,14 @@ ga('send', 'pageview');
     
     
     <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/sdk/" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/sdk/" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.0.0&nbsp;&nbsp;(stable)</a></li>
 
-        <li role="separator" class="divider"></li>
-        <li><a href="/dart-2#migration">迁移指南</a></li>
+        <li role="separator" class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
       </ul>
     </li>
     
@@ -101,7 +91,7 @@ ga('send', 'pageview');
       <div id="sidenav" class="">
   <div class="content">
     <a href="/" class="brand" title="Dart">
-      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
     </a>
 
     <div class="sidenav__search">
@@ -112,7 +102,7 @@ ga('send', 'pageview');
 
     <ul>
       <li>
-        <a class="btn btn-default" href="/guides/get-started">入门</a>
+        <a class="btn btn-light" href="/guides/get-started">入门</a>
       </li>
     </ul>
     <h4 ><a href="/guides/language" title="语言">语言</a></h4>
@@ -170,20 +160,14 @@ ga('send', 'pageview');
       
 <div id="toc">
   <div class="content">
-    <h4>目录
-      <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
-    </h4>
+    <header class="h4 text-uppercase">
+      目录
+      <a title="Back to top" class="back-to-top float-right mr-3">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#install-the-sdk">Install the SDK</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#install-using-chocolatey">Install using Chocolatey</a></li>
-<li class="toc-entry toc-h4"><a href="#install-using-a-setup-wizard">Install using a setup wizard</a></li>
-<li class="toc-entry toc-h4"><a href="#install-using-apt-get">Install using apt-get</a></li>
-<li class="toc-entry toc-h4"><a href="#install-a-debian-package">Install a Debian package</a></li>
-<li class="toc-entry toc-h3"><a href="#upgrade">Upgrade</a></li>
-<li class="toc-entry toc-h3"><a href="#switch-release">Switch release</a></li>
-</ul>
-</li>
+<li class="toc-entry toc-h2"><a href="#install-the-sdk">Install the SDK</a></li>
 <li class="toc-entry toc-h2"><a href="#whats-in-the-sdk">What’s in the SDK</a></li>
 <li class="toc-entry toc-h2"><a href="#about-release-channels-and-version-strings">About release channels and version strings</a></li>
 <li class="toc-entry toc-h2"><a href="#filing-bugs-and-feature-requests">Filing bugs and feature requests</a></li>
@@ -204,27 +188,27 @@ ga('send', 'pageview');
 
           
 
-          <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
-  
-    <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
-      <a property="item" typeof="WebPage" href="/tools/">
-      <span property="name">Tools</span>
+          
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+  <li class="breadcrumb-item"
+      property="itemListElement" typeof="ListItem"><a href="/tools/" property="item" typeof="WebPage"><span property="name">Tools</span>
       </a>
       <meta property="position" content="1" />
     </li>
-  
-    <li class="breadcrumb-item active" property="itemListElement" typeof="ListItem">
-      
-      <span property="name">Dart SDK</span>
-      
+  <li class="breadcrumb-item active"
+      property="itemListElement" typeof="ListItem" aria-current="page"><a href="/tools/sdk/" property="item" typeof="WebPage"><span property="name">Dart SDK</span>
+      </a>
       <meta property="position" content="2" />
     </li>
   
   </ol>
+</nav>
           <div>
             <ul class="page-github-links-menu" role="group">
   <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/sdk/index.md"
+    <a href="https://github.com/dart-lang/site-shared/tree/master/src_zh_CN/tools/sdk/index.md"
       class="no-automatic-external"
       title="View page source"
       target="_blank" rel="noopener">
@@ -232,7 +216,7 @@ ga('send', 'pageview');
     </a>
   </li>
   <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart SDK' page issue&body=From URL: https://www.dartlang.org/tools/sdk/"
+    <a href="https://github.com/dart-lang/site-shared/issues/new?title='Dart SDK' page issue&body=From URL: https://www.dartlang.org/tools/sdk/"
       class="no-automatic-external"
       title="Report a bug on this page" target="_blank" rel="noopener">
       <i class="fas fa-bug fa-sm"></i>
@@ -247,9 +231,8 @@ Dart apps. To learn about other tools you can use for Dart development, see
 <a href="/tools">Dart Tools</a>.</p>
 
 <aside class="alert alert-info">
-  <p><strong>Note:</strong> This site’s documentation and examples use</p>
-
-  <p>version <a href="https://api.dartlang.org/stable/2.0.0/index.html" class="no-automatic-external">2.0.0</a>
+  <p><strong>Note:</strong> This site’s documentation and examples use
+  version <a href="https://api.dartlang.org/stable/2.0.0/index.html" class="no-automatic-external">2.0.0</a>
   of the <strong>Dart SDK</strong>.</p>
 </aside>
 
@@ -286,8 +269,7 @@ describes how data is handled in this service.</p>
     <li><a href="#install-using-a-setup-wizard">Install using a setup wizard</a></li>
   </ul>
 
-  <h4 id="install-using-chocolatey">
-<a id="install-using-chocolatey" class="anchor" href="#install-using-chocolatey" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install using Chocolatey</h4>
+  <h4 id="install-using-chocolatey">Install using Chocolatey</h4>
 
   <p>To use <a href="https://chocolatey.org">Chocolatey</a> to install a <strong>stable</strong> release of the Dart SDK, run this
 command:</p>
@@ -309,15 +291,14 @@ command:</p>
 <div class="highlight"><pre class="highlight"><code><span class="gp">C:\&gt;</span> choco upgrade dart-sdk
 </code></pre></div>  </div>
 
-  <h4 id="install-using-a-setup-wizard">
-<a id="install-using-a-setup-wizard" class="anchor" href="#install-using-a-setup-wizard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install using a setup wizard</h4>
+  <h4 id="install-using-a-setup-wizard">Install using a setup wizard</h4>
 
   <p>Alternatively, use the community-supported
 <a href="http://www.gekorm.com/dart-windows" target="_blank">Dart SDK installer for Windows.</a>
 You can use the wizard to install <strong>stable</strong> or
 <strong>dev</strong> versions of the Dart SDK.</p>
 
-  <p><img src="/assets/shared/dart/installer-screenshot-no.png" alt="Windows Dart Setup Wizard" class="text-center" width="250"></p>
+  <p><img src="/assets/shared/dart/installer-screenshot-no-272278ce31f0cd3b44fbd998c55b83c945cd6c1f774de0258bf81a6fa7dcc563.png" alt="Windows Dart Setup Wizard" class="text-center" width="250"></p>
 
 </div>
 <div id="tab-sdk-install-linux" class="tabs__content">
@@ -330,8 +311,7 @@ versions are released.</p>
     <li><a href="#install-a-debian-package">Install a Debian package</a></li>
   </ul>
 
-  <h4 id="install-using-apt-get">
-<a id="install-using-apt-get" class="anchor" href="#install-using-apt-get" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install using apt-get</h4>
+  <h4 id="install-using-apt-get">Install using apt-get</h4>
 
   <p>Perform the following <strong>one-time setup</strong>:</p>
 
@@ -362,8 +342,7 @@ run the one-time setup commands followed by:</p>
 <span class="gp">$</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>dart
 </code></pre></div>  </div>
 
-  <h4 id="install-a-debian-package">
-<a id="install-a-debian-package" class="anchor" href="#install-a-debian-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install a Debian package</h4>
+  <h4 id="install-a-debian-package">Install a Debian package</h4>
 
   <p>Alternatively, download Dart SDK as Debian package in the <code class="highlighter-rouge">.deb</code> package format.</p>
 
@@ -387,13 +366,19 @@ run the one-time setup commands followed by:</p>
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew <span class="nb">install </span>dart <span class="nt">--devel</span>
 </code></pre></div>  </div>
 
-  <h3 id="upgrade">
-<a id="upgrade" class="anchor" href="#upgrade" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrade</h3>
+  <h3 id="upgrade">Upgrade</h3>
 
   <p>To upgrade when a new release of Dart is available run:</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew upgrade dart
+</code></pre></div>  </div>
+  <p>To install a stable channel release when a dev release is currently active,
+run:</p>
+
+  <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew <span class="nb">unlink </span>dart
+<span class="gp">$</span> brew <span class="nb">install </span>dart
 </code></pre></div>  </div>
 
   <p>To upgrade to a dev channel release when a stable release is
@@ -403,23 +388,14 @@ currently active, run:</p>
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew upgrade dart <span class="nt">--devel</span> <span class="nt">--force</span>
 </code></pre></div>  </div>
 
-  <p>To install the most recent stable channel release when
-a more recent dev release is currently active, run:</p>
-
-  <div class="language-terminal highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew uninstall dart
-<span class="gp">$</span> brew <span class="nb">install </span>dart
-</code></pre></div>  </div>
-
-  <h3 id="switch-release">
-<a id="switch-release" class="anchor" href="#switch-release" aria-hidden="true"><span class="octicon octicon-link"></span></a>Switch release</h3>
+  <h3 id="switch-release">Switch release</h3>
 
   <p>To switch between locally installed dart releases run
 <code class="highlighter-rouge">brew switch dart &lt;version&gt;</code>. Examples:</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew switch dart 1.24.3
-<span class="gp">$</span> brew switch dart 2.0.0-dev.64.1
+<span class="gp">$</span> brew switch dart 2.0.0
 </code></pre></div>  </div>
 
   <p>If you aren’t sure which versions of dart you have installed, then run:</p>
@@ -440,7 +416,7 @@ followed by your locally installed versions.</p>
 directory that has these command-line tools:</p>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-lg-6">
     <dl>
       <dt><a href="/dart-vm">dart</a></dt>
       <dd>The standalone VM</dd>
@@ -453,7 +429,7 @@ directory that has these command-line tools:</p>
   (used only for web development)</dd>
     </dl>
   </div>
-<div class="col-md-6">
+<div class="col-lg-6">
     <dl>
       <dt><a href="https://github.com/dart-lang/dartdoc#dartdoc">dartdoc</a></dt>
       <dd>The API documentation generator</dd>
@@ -489,15 +465,13 @@ currently <code class="editor-build-rev-dev highlighter-rouge">[calculating]</co
   dev channel releases are not as heavily tested as the stable release.</p>
 </aside>
 
-<p>Most <strong>alpha</strong> releases of Flutter contain a <strong>dev</strong> channel release of Dart.</p>
-
-<p><strong>Stable</strong> channel releases of the Dart SDK have version strings like <code class="highlighter-rouge">1.24.2</code> and <code class="highlighter-rouge">2.0.0</code>.
+<p><strong>Stable</strong> channel releases of the Dart SDK have version strings like <code class="highlighter-rouge">1.24.3</code> and <code class="highlighter-rouge">2.0.0</code>.
 They consist of dot-separated integers, with no hyphens or letters.</p>
 
 <p><strong>Dev</strong> channel releases of the Dart SDK (pre-releases)
 have additional characters, starting with a hyphen (<code class="highlighter-rouge">-</code>).
-Dart 2 pre-releases have version numbers starting with
-<code class="highlighter-rouge">2.0.0-dev</code>—for example, <code class="highlighter-rouge">2.0.0-dev.42.0</code>.</p>
+For example, Dart 2 pre-releases have version numbers starting with
+<code class="highlighter-rouge">2.0.0-dev</code> such as <code class="highlighter-rouge">2.0.0-dev.69.5</code>.</p>
 
 <p>For more information, see <a href="/dart-2">Dart 2 Updates</a>.</p>
 
@@ -525,10 +499,10 @@ Here are some handy searches:</p>
     <footer id="page-footer">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-3">
+      <div class="col-md-12 col-lg-3">
         <div class="content">
           <div class="brand">
-            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
           </div>
           <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
           <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
@@ -543,14 +517,14 @@ Here are some handy searches:</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/18 12:44 CST"
+                 title="Site built on 2018/09/10 11:49 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>技术</h4>
           <ul>
@@ -564,7 +538,7 @@ Here are some handy searches:</p>
         </div>
       </div>
 
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>资源</h4>
           <ul>
@@ -577,7 +551,7 @@ Here are some handy searches:</p>
         </div>
       </div>
 
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>社区</h4>
           <ul>

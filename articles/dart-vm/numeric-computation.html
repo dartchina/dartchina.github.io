@@ -10,10 +10,10 @@
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
-  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
-  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
-  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
-  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
@@ -26,21 +26,10 @@
   <meta property="og:description" content="How you store and use numbers can have a big impact on your app's performance. This article focuses on the Dart VM." />
   <meta property="og:url" content="https://www.dartlang.org/articles/dart-vm/numeric-computation" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link type="text/css" rel="stylesheet" href="/assets/style.css">
-  
-  <!--
-    Why don't we use Dart here?
-
-    The only scripting we use here is stuff like the on-click footnotes on the
-    front page or resizing of the left nav. These happen to be use cases where
-    JavaScript and jQuery are doing just fine. Dart is here for application
-    programming, not page scripting.
-   -->
-  <script type="text/javascript" src="/assets/main.js"></script>
-  
+  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -61,7 +50,7 @@ ga('send', 'pageview');
   <nav id="mainnav">
   <div id="menu-toggle"><i class="icon icon-menu"></i></div>
   <a href="/" class="brand" title="Dart">
-    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
   </a>
   <ul>
     <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
@@ -71,14 +60,14 @@ ga('send', 'pageview');
     
     
     <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/numeric-computation" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/dart-vm/numeric-computation" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.0.0&nbsp;&nbsp;(stable)</a></li>
 
-        <li role="separator" class="divider"></li>
-        <li><a href="/dart-2#migration">迁移指南</a></li>
+        <li role="separator" class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
       </ul>
     </li>
     
@@ -107,7 +96,7 @@ ga('send', 'pageview');
       <div id="sidenav" class="">
   <div class="content">
     <a href="/" class="brand" title="Dart">
-      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
     </a>
 
     <div class="sidenav__search">
@@ -118,7 +107,7 @@ ga('send', 'pageview');
 
     <ul>
       <li>
-        <a class="btn btn-default" href="/guides/get-started">入门</a>
+        <a class="btn btn-light" href="/guides/get-started">入门</a>
       </li>
     </ul>
     <h4 ><a href="/guides/language" title="语言">语言</a></h4>
@@ -176,47 +165,15 @@ ga('send', 'pageview');
       
 <div id="toc">
   <div class="content">
-    <h4>目录
-      <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
-    </h4>
+    <header class="h4 text-uppercase">
+      目录
+      <a title="Back to top" class="back-to-top float-right mr-3">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#overview">Overview</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#integers">Integers</a></li>
-<li class="toc-entry toc-h3"><a href="#floating-point-numbers">Floating-point numbers</a></li>
-<li class="toc-entry toc-h3"><a href="#boxed-and-unboxed-numbers">Boxed and unboxed numbers</a></li>
-<li class="toc-entry toc-h3"><a href="#lists-of-numbers">Lists of numbers</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#object-lists">Object lists</a></li>
-<li class="toc-entry toc-h4"><a href="#typed-lists">Typed lists</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#pulling-back-the-curtains">Pulling back the curtains</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#integers-1">Integers</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#smis-and-mints">Smis and mints</a></li>
-<li class="toc-entry toc-h4"><a href="#optimally-shifting-to-the-left">Optimally shifting to the left</a></li>
-<li class="toc-entry toc-h4"><a href="#lists-of-integers">Lists of integers</a></li>
-<li class="toc-entry toc-h4"><a href="#bigints">Bigints</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#doubles">Doubles</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#lists-of-doubles">Lists of doubles</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#boxing">Boxing</a></li>
-<li class="toc-entry toc-h3"><a href="#lists">Lists</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#object-lists-instances-of-list">Object lists (instances of List)</a></li>
-<li class="toc-entry toc-h4"><a href="#typed-lists-1">Typed lists</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#pulling-back-the-curtains">Pulling back the curtains</a></li>
 </ul>
   </div>
 </div>
@@ -234,7 +191,6 @@ ga('send', 'pageview');
 
           
 
-          
           <div>
             <ul class="page-github-links-menu" role="group">
   <li>
@@ -308,8 +264,7 @@ double position = 32.43432;
 double hp = hitPoints.toDouble();
 </code></pre></div></div>
 
-<h3 id="integers">
-<a id="integers" class="anchor" href="#integers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integers</h3>
+<h3 id="integers">Integers</h3>
 
 <p>While the language specifies an arbitrarily sized integer,
 for performance reasons the VM has
@@ -358,14 +313,12 @@ graduates from smi to mint to bigint:</p>
 }
 </code></pre></div></div>
 
-<h3 id="floating-point-numbers">
-<a id="floating-point-numbers" class="anchor" href="#floating-point-numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Floating-point numbers</h3>
+<h3 id="floating-point-numbers">Floating-point numbers</h3>
 
 <p>The VM has a single representation for floating-point numbers, the
 <a href="http://en.wikipedia.org/wiki/Double_precision_floating-point_format">IEEE-754 double-precision floating-point number</a>.</p>
 
-<h3 id="boxed-and-unboxed-numbers">
-<a id="boxed-and-unboxed-numbers" class="anchor" href="#boxed-and-unboxed-numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boxed and unboxed numbers</h3>
+<h3 id="boxed-and-unboxed-numbers">Boxed and unboxed numbers</h3>
 
 <p>In Dart, everything is an Object, even numbers.
 If you come from a C/C++ background,
@@ -387,14 +340,12 @@ it can box and unbox smi values without
 allocating memory or loading the value from a object.
 More on this later.</p>
 
-<h3 id="lists-of-numbers">
-<a id="lists-of-numbers" class="anchor" href="#lists-of-numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists of numbers</h3>
+<h3 id="lists-of-numbers">Lists of numbers</h3>
 
 <p>Dart has two ways to store lists of numeric data:
 <em>object lists</em> and <em>typed lists</em>.</p>
 
-<h4 id="object-lists">
-<a id="object-lists" class="anchor" href="#object-lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Object lists</h4>
+<h4 id="object-lists">Object lists</h4>
 
 <p>A List stores a list of objects.
 Examples include:</p>
@@ -410,8 +361,7 @@ b[2] = 34;
 meaning it can store any object—for example, a String object or null.
 This means that each entry in a List is as wide as the CPU’s pointer type.</p>
 
-<h4 id="typed-lists">
-<a id="typed-lists" class="anchor" href="#typed-lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Typed lists</h4>
+<h4 id="typed-lists">Typed lists</h4>
 
 <p>Dart offers typed lists that store only numbers.
 These lists are available in the
@@ -448,15 +398,13 @@ More on this later.</p>
 This section covers the above concepts in more detail
 and provides actionable tips.</p>
 
-<h3 id="integers-1">
-<a id="integers-1" class="anchor" href="#integers-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integers</h3>
+<h3 id="integers-1">Integers</h3>
 
 <p>The Dart VM has multiple internal representations of integer values.
 The following sections explain each one
 and how to efficiently perform left shifts.</p>
 
-<h4 id="smis-and-mints">
-<a id="smis-and-mints" class="anchor" href="#smis-and-mints" aria-hidden="true"><span class="octicon octicon-link"></span></a>Smis and mints</h4>
+<h4 id="smis-and-mints">Smis and mints</h4>
 
 <p>Remember that the VM has three different integer representations,
 switching between them automatically depending on the size of an integer.
@@ -549,8 +497,7 @@ directly in the field instead of being fetched from memory.
 They also never require memory allocation.
 <strong>Note:</strong> The smi range depends on the CPU architecture.</p>
 
-<h4 id="optimally-shifting-to-the-left">
-<a id="optimally-shifting-to-the-left" class="anchor" href="#optimally-shifting-to-the-left" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optimally shifting to the left</h4>
+<h4 id="optimally-shifting-to-the-left">Optimally shifting to the left</h4>
 
 <p>Left shifts are used for both arithmetic and logical operations.
 When shifting to the left,
@@ -586,8 +533,7 @@ On a 32-bit machine,
 the largest negative number that is still a smi is -0x40000000;
 the largest positive number that is still a smi is 0x3FFFFFFF.</p>
 
-<h4 id="lists-of-integers">
-<a id="lists-of-integers" class="anchor" href="#lists-of-integers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists of integers</h4>
+<h4 id="lists-of-integers">Lists of integers</h4>
 
 <p>When a smi is loaded or stored into an object list (List)
 the smi value, unaltered, is copied into the list.
@@ -655,8 +601,7 @@ that are bigger than a smi on 32-bit architectures.
 Int64List and Uint64List can hold numbers that are bigger than a mint,
 resulting in a bigint on all platforms!</p>
 
-<h4 id="bigints">
-<a id="bigints" class="anchor" href="#bigints" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bigints</h4>
+<h4 id="bigints">Bigints</h4>
 
 <p>The third integer representation, bigint,
 holds an arbitrarily large signed integer.
@@ -670,14 +615,12 @@ Thus, bigints are significantly more expensive than smis or mints.</p>
 Avoid bigint whenever possible.
 The VM doesn’t optimize operations on bigint instances.</p>
 
-<h3 id="doubles">
-<a id="doubles" class="anchor" href="#doubles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Doubles</h3>
+<h3 id="doubles">Doubles</h3>
 
 <p>Computations involving double values are unboxed,
 making them very efficient.</p>
 
-<h4 id="lists-of-doubles">
-<a id="lists-of-doubles" class="anchor" href="#lists-of-doubles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists of doubles</h4>
+<h4 id="lists-of-doubles">Lists of doubles</h4>
 
 <p>When a double is stored into an object list,
 it must be boxed,
@@ -702,8 +645,7 @@ using an object list with doubles is always slower.</p>
 your application using both Float32List and Float64List
 to determine which performs best.</p>
 
-<h3 id="boxing">
-<a id="boxing" class="anchor" href="#boxing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boxing</h3>
+<h3 id="boxing">Boxing</h3>
 
 <p><em>Boxing</em> is the operation of moving a scalar value from a register
 and placing it inside a Dart object.
@@ -739,16 +681,14 @@ Unboxing requires a load.</p>
 
 <p><img src="images/6.png" alt="Illustration of boxing and unboxing 3.14159"></p>
 
-<h3 id="lists">
-<a id="lists" class="anchor" href="#lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists</h3>
+<h3 id="lists">Lists</h3>
 
 <p>Remember, two kinds of list can store numeric data—the
 object list and the typed list.
 This section tells you how list data is laid out in memory
 and how loading and storing work.</p>
 
-<h4 id="object-lists-instances-of-list">
-<a id="object-lists-instances-of-list" class="anchor" href="#object-lists-instances-of-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Object lists (instances of List)</h4>
+<h4 id="object-lists-instances-of-list">Object lists (instances of List)</h4>
 
 <p>At runtime, an object list (a List) is an array of pointers.
 Each entry in the array holds a pointer to the number stored in that entry.
@@ -789,8 +729,7 @@ the list backing store.</li>
 
 <p><img src="images/9.png" alt="Illustration of storing a number into an object list"></p>
 
-<h4 id="typed-lists-1">
-<a id="typed-lists-1" class="anchor" href="#typed-lists-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Typed lists</h4>
+<h4 id="typed-lists-1">Typed lists</h4>
 
 <p>At runtime, a typed list is an array of numeric values.
 Each entry in the array always holds the value directly.
@@ -859,10 +798,10 @@ This way you avoid the expense of dealing with a list of lists.</p>
     <footer id="page-footer">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-3">
+      <div class="col-md-12 col-lg-3">
         <div class="content">
           <div class="brand">
-            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
           </div>
           <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
           <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
@@ -877,14 +816,14 @@ This way you avoid the expense of dealing with a list of lists.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/18 12:44 CST"
+                 title="Site built on 2018/09/10 11:49 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>技术</h4>
           <ul>
@@ -898,7 +837,7 @@ This way you avoid the expense of dealing with a list of lists.</p>
         </div>
       </div>
 
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>资源</h4>
           <ul>
@@ -911,7 +850,7 @@ This way you avoid the expense of dealing with a list of lists.</p>
         </div>
       </div>
 
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>社区</h4>
           <ul>

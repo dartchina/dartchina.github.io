@@ -10,10 +10,10 @@
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
-  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
-  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
-  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
-  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
@@ -26,21 +26,10 @@
   <meta property="og:description" content="Common type issues you may have and how to fix them." />
   <meta property="og:url" content="https://www.dartlang.org/guides/language/sound-problems" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link type="text/css" rel="stylesheet" href="/assets/style.css">
-  
-  <!--
-    Why don't we use Dart here?
-
-    The only scripting we use here is stuff like the on-click footnotes on the
-    front page or resizing of the left nav. These happen to be use cases where
-    JavaScript and jQuery are doing just fine. Dart is here for application
-    programming, not page scripting.
-   -->
-  <script type="text/javascript" src="/assets/main.js"></script>
-  
+  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -61,7 +50,7 @@ ga('send', 'pageview');
   <nav id="mainnav">
   <div id="menu-toggle"><i class="icon icon-menu"></i></div>
   <a href="/" class="brand" title="Dart">
-    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
   </a>
   <ul>
     <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
@@ -71,14 +60,14 @@ ga('send', 'pageview');
     
     
     <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/sound-problems" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/sound-problems" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.0.0&nbsp;&nbsp;(stable)</a></li>
 
-        <li role="separator" class="divider"></li>
-        <li><a href="/dart-2#migration">迁移指南</a></li>
+        <li role="separator" class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
       </ul>
     </li>
     
@@ -101,7 +90,7 @@ ga('send', 'pageview');
       <div id="sidenav" class="">
   <div class="content">
     <a href="/" class="brand" title="Dart">
-      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
     </a>
 
     <div class="sidenav__search">
@@ -112,7 +101,7 @@ ga('send', 'pageview');
 
     <ul>
       <li>
-        <a class="btn btn-default" href="/guides/get-started">入门</a>
+        <a class="btn btn-light" href="/guides/get-started">入门</a>
       </li>
     </ul>
     <h4 ><a href="/guides/language" title="语言">语言</a></h4>
@@ -170,71 +159,17 @@ ga('send', 'pageview');
       
 <div id="toc">
   <div class="content">
-    <h4>目录
-      <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
-    </h4>
+    <header class="h4 text-uppercase">
+      目录
+      <a title="Back to top" class="back-to-top float-right mr-3">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#troubleshooting">Troubleshooting</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#am-i-really-using-type-safe-dart">Am I really using type-safe Dart?</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#static-errors-and-warnings">Static errors and warnings</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#undefined-member">Undefined member</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#example-1-a-variable-is-statically-known-to-be-some-supertype-but-the-code-assumes-a-subtype">Example 1: A variable is statically known to be some supertype, but the code assumes a subtype</a></li>
-<li class="toc-entry toc-h4"><a href="#fix-replace-the-definition-of-the-member-with-an-explicit-type-declaration-or-a-downcast">Fix: Replace the definition of the member with an explicit type declaration or a downcast</a></li>
-<li class="toc-entry toc-h4"><a href="#example-2-omitted-type-parameters-default-to-their-type-bounds">Example 2: Omitted type parameters default to their type bounds</a></li>
-<li class="toc-entry toc-h4"><a href="#fix-specify-type-arguments-or-fix-downstream-errors">Fix: Specify type arguments or fix downstream errors</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#invalid-method-override">Invalid method override</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#example">Example</a></li>
-<li class="toc-entry toc-h4"><a href="#fix-widen-the-methods-parameter-types">Fix: Widen the method’s parameter types</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#missing-type-arguments">Missing type arguments</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#example-1">Example</a></li>
-<li class="toc-entry toc-h4"><a href="#fix-specify-type-arguments-for-the-generic-subclass">Fix: Specify type arguments for the generic subclass</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#unexpected-collection-element-type">Unexpected collection element type</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#example-2">Example</a></li>
-<li class="toc-entry toc-h4"><a href="#fix-specify-the-type-explicitly">Fix: Specify the type explicitly</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#constructor-initialization-list-super-call">Constructor initialization list super() call</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#example-3">Example</a></li>
-<li class="toc-entry toc-h4"><a href="#fix-put-the-super-call-last">Fix: Put the super() call last</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#a-function-of-type--cant-be-assigned">A function of type … can’t be assigned</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#example-4">Example</a></li>
-<li class="toc-entry toc-h4"><a href="#fix-add-type-parameters-or-cast-from-dynamic-explicitly">Fix: Add type parameters or cast from dynamic explicitly</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#runtime-errors">Runtime errors</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#invalid-casts">Invalid casts</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#fix-tighten-or-correct-types">Fix: Tighten or correct types</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#appendix">Appendix</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#the-covariant-keyword">The covariant keyword</a></li>
-</ul>
-</li>
+<li class="toc-entry toc-h2"><a href="#troubleshooting">Troubleshooting</a></li>
+<li class="toc-entry toc-h2"><a href="#static-errors-and-warnings">Static errors and warnings</a></li>
+<li class="toc-entry toc-h2"><a href="#runtime-errors">Runtime errors</a></li>
+<li class="toc-entry toc-h2"><a href="#appendix">Appendix</a></li>
 </ul>
   </div>
 </div>
@@ -252,7 +187,6 @@ ga('send', 'pageview');
 
           
 
-          
           <div>
             <ul class="page-github-links-menu" role="group">
   <li>
@@ -296,8 +230,7 @@ and its correct equivalent.</p>
 <a id="troubleshooting" class="anchor" href="#troubleshooting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Troubleshooting</h2>
 
 <p><a name="am-i-using-strong-mode"></a></p>
-<h3 id="am-i-really-using-type-safe-dart">
-<a id="am-i-really-using-type-safe-dart" class="anchor" href="#am-i-really-using-type-safe-dart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Am I really using type-safe Dart?</h3>
+<h3 id="am-i-really-using-type-safe-dart">Am I really using type-safe Dart?</h3>
 
 <p>If you’re not seeing expected errors or warnings,
 make sure that you’re using the latest version of Dart.</p>
@@ -324,8 +257,7 @@ you might see from the analyzer or an IDE.</p>
 For help fixing errors that appear only at runtime,
 see <a href="#common-errors-and-warnings">Runtime errors</a>.</p>
 
-<h3 id="undefined-member">
-<a id="undefined-member" class="anchor" href="#undefined-member" aria-hidden="true"><span class="octicon octicon-link"></span></a>Undefined member</h3>
+<h3 id="undefined-member">Undefined member</h3>
 
 <?code-excerpt "strong/analyzer-2-results.txt" retain="/isn't defined for the class.*common_problems/" replace="/getter/<member\x3E/g; /'\w+'/'...'/g"?>
 <pre><code class="language-nocode">error • The &lt;member&gt; '...' isn't defined for the class '...' • undefined_&lt;member&gt;
@@ -339,8 +271,7 @@ see <a href="#common-errors-and-warnings">Runtime errors</a>.</p>
 expression of the class omits the type argument.</li>
 </ul>
 
-<h4 id="example-1-a-variable-is-statically-known-to-be-some-supertype-but-the-code-assumes-a-subtype">
-<a id="example-1-a-variable-is-statically-known-to-be-some-supertype-but-the-code-assumes-a-subtype" class="anchor" href="#example-1-a-variable-is-statically-known-to-be-some-supertype-but-the-code-assumes-a-subtype" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 1: A variable is statically known to be some supertype, but the code assumes a subtype</h4>
+<h4 id="example-1-a-variable-is-statically-known-to-be-some-supertype-but-the-code-assumes-a-subtype">Example 1: A variable is statically known to be some supertype, but the code assumes a subtype</h4>
 
 <p>In the following code, the analyzer complains that <code class="highlighter-rouge">context2D</code> is undefined:</p>
 
@@ -352,8 +283,7 @@ canvas.<span class="highlight">context2D</span>.lineTo(x, y);</pre>
 <pre class="console-output"><code class="language-nocode">error • The getter 'context2D' isn't defined for the class 'Element' • undefined_getter
 </code></pre>
 
-<h4 id="fix-replace-the-definition-of-the-member-with-an-explicit-type-declaration-or-a-downcast">
-<a id="fix-replace-the-definition-of-the-member-with-an-explicit-type-declaration-or-a-downcast" class="anchor" href="#fix-replace-the-definition-of-the-member-with-an-explicit-type-declaration-or-a-downcast" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fix: Replace the definition of the member with an explicit type declaration or a downcast</h4>
+<h4 id="fix-replace-the-definition-of-the-member-with-an-explicit-type-declaration-or-a-downcast">Fix: Replace the definition of the member with an explicit type declaration or a downcast</h4>
 
 <p>The <code class="highlighter-rouge">querySelector()</code> method statically returns an Element,
 but the code assumes it returns the subtype CanvasElement
@@ -383,8 +313,7 @@ canvas.context2D.lineTo(x, y);</pre>
 <pre class="prettyprint lang-dart passes-sa"><span class="highlight">dynamic</span> canvasOrImg = querySelector('canvas, img');
 var width = canvasOrImg.width;</pre>
 
-<h4 id="example-2-omitted-type-parameters-default-to-their-type-bounds">
-<a id="example-2-omitted-type-parameters-default-to-their-type-bounds" class="anchor" href="#example-2-omitted-type-parameters-default-to-their-type-bounds" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 2: Omitted type parameters default to their type bounds</h4>
+<h4 id="example-2-omitted-type-parameters-default-to-their-type-bounds">Example 2: Omitted type parameters default to their type bounds</h4>
 
 <p>Consider the following <strong>generic class</strong> with a <strong>bounded type parameter</strong> that extends
 <code class="highlighter-rouge">Iterable</code>:</p>
@@ -408,8 +337,7 @@ argument) and accesses its <code class="highlighter-rouge">collection</code> mem
 
 <p>While the <a href="https://api.dartlang.org/stable/dart-core/List-class.html">List</a> type has an <code class="highlighter-rouge">add()</code> method, <a href="https://api.dartlang.org/stable/dart-core/Iterable-class.html">Iterable</a> does not.</p>
 
-<h4 id="fix-specify-type-arguments-or-fix-downstream-errors">
-<a id="fix-specify-type-arguments-or-fix-downstream-errors" class="anchor" href="#fix-specify-type-arguments-or-fix-downstream-errors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fix: Specify type arguments or fix downstream errors</h4>
+<h4 id="fix-specify-type-arguments-or-fix-downstream-errors">Fix: Specify type arguments or fix downstream errors</h4>
 
 <p>In Dart 1.x, when a generic class is instantiated without explicit type
 arguments, <code class="highlighter-rouge">dynamic</code> is assumed. That is why, in the code excerpt above, <code class="highlighter-rouge">c</code> is
@@ -433,8 +361,7 @@ c.add(2);</pre>
 
 <hr>
 
-<h3 id="invalid-method-override">
-<a id="invalid-method-override" class="anchor" href="#invalid-method-override" aria-hidden="true"><span class="octicon octicon-link"></span></a>Invalid method override</h3>
+<h3 id="invalid-method-override">Invalid method override</h3>
 
 <?code-excerpt "strong/analyzer-2-results.txt" retain="/isn't a subtype of.*num.*common_problems/" replace="/'[\w\.]+'/'...'/g; /\('.*?'\)//g"?>
 <pre><code class="language-nocode">error • Invalid override. The type of '...'  isn't a subtype of '...'  • strong_mode_invalid_method_override
@@ -449,8 +376,7 @@ to specify a type. For more information, see
 <a href="#missing-type-arguments">Missing type arguments</a>.</p>
 </aside>
 
-<h4 id="example">
-<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h4>
+<h4 id="example">Example</h4>
 
 <p>In the following example, the parameters to the <code class="highlighter-rouge">add()</code> method are of type <code class="highlighter-rouge">int</code>,
 a subtype of <code class="highlighter-rouge">num</code>, which is the parameter type used in the parent class.</p>
@@ -477,8 +403,7 @@ adder.add(<span class="highlight">1.2</span>, <span class="highlight">3.4</span>
 
 <p>If the override were allowed, the code would raise an error at runtime.</p>
 
-<h4 id="fix-widen-the-methods-parameter-types">
-<a id="fix-widen-the-methods-parameter-types" class="anchor" href="#fix-widen-the-methods-parameter-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fix: Widen the method’s parameter types</h4>
+<h4 id="fix-widen-the-methods-parameter-types">Fix: Widen the method’s parameter types</h4>
 
 <p>The subclass’s method should accept every
 object that the superclass’s method takes.</p>
@@ -503,15 +428,13 @@ class MyAdder extends NumberAdder {
 
 <hr>
 
-<h3 id="missing-type-arguments">
-<a id="missing-type-arguments" class="anchor" href="#missing-type-arguments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Missing type arguments</h3>
+<h3 id="missing-type-arguments">Missing type arguments</h3>
 
 <?code-excerpt "strong/analyzer-2-results.txt" retain="/isn't a subtype of.*dynamic.*common_problems/" replace="/'\S+'/'...'/g; /\('.*?'\)//g"?>
 <pre><code class="language-nocode">error • Invalid override. The type of '...'  isn't a subtype of '...'  • strong_mode_invalid_method_override
 </code></pre>
 
-<h4 id="example-1">
-<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h4>
+<h4 id="example-1">Example</h4>
 
 <p>In the following example, <code class="highlighter-rouge">Subclass</code> extends <code class="highlighter-rouge">Superclass&lt;T&gt;</code> but doesn’t
 specify a type argument. The analyzer infers <code class="highlighter-rouge">Subclass&lt;dynamic&gt;</code>,
@@ -530,8 +453,7 @@ class Subclass extends Superclass {
 <pre class="console-output"><code class="language-nocode">error • Invalid override. The type of 'Subclass.method' ('(int) → void') isn't a subtype of 'Superclass&lt;dynamic&gt;.method' ('(dynamic) → void') • strong_mode_invalid_method_override
 </code></pre>
 
-<h4 id="fix-specify-type-arguments-for-the-generic-subclass">
-<a id="fix-specify-type-arguments-for-the-generic-subclass" class="anchor" href="#fix-specify-type-arguments-for-the-generic-subclass" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fix: Specify type arguments for the generic subclass</h4>
+<h4 id="fix-specify-type-arguments-for-the-generic-subclass">Fix: Specify type arguments for the generic subclass</h4>
 
 <p>When a generic subclass neglects to specify a type argument,
 the analyzer infers the <code class="highlighter-rouge">dynamic</code> type. This is likely to cause
@@ -551,8 +473,7 @@ class Subclass extends Superclass<span class="highlight">&lt;int&gt;</span> {
 <hr>
 
 <p><a id="assigning-mismatched-types"></a></p>
-<h3 id="unexpected-collection-element-type">
-<a id="unexpected-collection-element-type" class="anchor" href="#unexpected-collection-element-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unexpected collection element type</h3>
+<h3 id="unexpected-collection-element-type">Unexpected collection element type</h3>
 
 <?code-excerpt "strong/analyzer-2-results.txt" retain="/'double' can't be assigned to a variable of type 'int'.*common_problems/" replace="/'\S+'/'...'/g"?>
 <pre><code class="language-nocode">error • A value of type '...' can't be assigned to a variable of type '...' • invalid_assignment
@@ -562,8 +483,7 @@ class Subclass extends Superclass<span class="highlight">&lt;int&gt;</span> {
 and the analyzer infers the type in a way you didn’t expect.
 When you later add values of a different type, the analyzer reports an issue.</p>
 
-<h4 id="example-2">
-<a id="example-2" class="anchor" href="#example-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h4>
+<h4 id="example-2">Example</h4>
 
 <p>The following code initializes a map with several
 (String, int) pairs. The analyzer infers that map to be of type
@@ -579,8 +499,7 @@ map['d'] = <span class="highlight">1.5</span>; // a double is not an int</pre>
 <pre class="console-output"><code class="language-nocode">error • A value of type 'double' can't be assigned to a variable of type 'int' • invalid_assignment
 </code></pre>
 
-<h4 id="fix-specify-the-type-explicitly">
-<a id="fix-specify-the-type-explicitly" class="anchor" href="#fix-specify-the-type-explicitly" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fix: Specify the type explicitly</h4>
+<h4 id="fix-specify-the-type-explicitly">Fix: Specify the type explicitly</h4>
 
 <p>The example can be fixed by explicitly defining the map’s type to be
 <code class="highlighter-rouge">&lt;String, num&gt;</code>.</p>
@@ -594,8 +513,7 @@ map['d'] = 1.5;</pre>
 <hr>
 
 <p><a id="constructor-initialization-list"></a></p>
-<h3 id="constructor-initialization-list-super-call">
-<a id="constructor-initialization-list-super-call" class="anchor" href="#constructor-initialization-list-super-call" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constructor initialization list super() call</h3>
+<h3 id="constructor-initialization-list-super-call">Constructor initialization list super() call</h3>
 
 <?code-excerpt "strong/analyzer-2-results.txt" retain="/super call must be last.*common_problems/" replace="/'\S+'/'...'/g"?>
 <pre><code class="language-nocode">error • super call must be last in an initializer list (see https://goo.gl/EY6hDP): '...' • strong_mode_invalid_super_invocation
@@ -604,8 +522,7 @@ map['d'] = 1.5;</pre>
 <p>This error occurs when the <code class="highlighter-rouge">super()</code> call is not last in a constructor’s
 initialization list.</p>
 
-<h4 id="example-3">
-<a id="example-3" class="anchor" href="#example-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h4>
+<h4 id="example-3">Example</h4>
 
 <?code-excerpt "strong/lib/common_problems_analysis.dart (super-goes-last)" replace="/super/[!$&!]/g"?>
 <pre class="prettyprint lang-dart fails-sa">HoneyBadger(Eats food, String name)
@@ -616,8 +533,7 @@ initialization list.</p>
 <pre class="console-output"><code class="language-nocode">error • super call must be last in an initializer list (see https://goo.gl/EY6hDP): 'super(food)' • strong_mode_invalid_super_invocation
 </code></pre>
 
-<h4 id="fix-put-the-super-call-last">
-<a id="fix-put-the-super-call-last" class="anchor" href="#fix-put-the-super-call-last" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fix: Put the <code class="highlighter-rouge">super()</code> call last</h4>
+<h4 id="fix-put-the-super-call-last">Fix: Put the <code class="highlighter-rouge">super()</code> call last</h4>
 
 <p>The compiler can generate simpler code if it relies on the <code class="highlighter-rouge">super()</code> call appearing last.</p>
 
@@ -631,8 +547,7 @@ initialization list.</p>
 <hr>
 
 <p><a name="uses-dynamic-as-bottom"></a></p>
-<h3 id="a-function-of-type--cant-be-assigned">
-<a id="a-function-of-type--cant-be-assigned" class="anchor" href="#a-function-of-type--cant-be-assigned" aria-hidden="true"><span class="octicon octicon-link"></span></a>A function of type … can’t be assigned</h3>
+<h3 id="a-function-of-type--cant-be-assigned">A function of type … can’t be assigned</h3>
 
 <?code-excerpt "strong/analyzer-2-results.txt" retain="/The function expression type.*common_problems/" replace="/'\S+ → \S+'/'...'/g"?>
 <pre><code class="language-nocode">error • The function expression type '...' isn't of type '...'. This means its parameter or return type does not match what is expected. Consider changing parameter type(s) or the returned type(s) • strong_mode_invalid_cast_function_expr
@@ -648,8 +563,7 @@ function type with a parameter of <code class="highlighter-rouge">dynamic</code>
 type, such as <code class="highlighter-rouge">Object</code>, or a specific bottom type, such as <code class="highlighter-rouge">Null</code>) results
 in a compile-time error.</p>
 
-<h4 id="example-4">
-<a id="example-4" class="anchor" href="#example-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h4>
+<h4 id="example-4">Example</h4>
 
 <?code-excerpt "strong/lib/common_problems_analysis.dart (func-dynamic)" replace="/String/[!$&!]/g"?>
 <pre class="prettyprint lang-dart fails-sa">typedef Filter = bool Function(dynamic any);
@@ -660,8 +574,7 @@ Filter filter = (<span class="highlight">String</span> x) =&gt; x.contains('Hell
 error • A value of type '(String) → bool' can't be assigned to a variable of type '(dynamic) → bool' • invalid_assignment
 </code></pre>
 
-<h4 id="fix-add-type-parameters-or-cast-from-dynamic-explicitly">
-<a id="fix-add-type-parameters-or-cast-from-dynamic-explicitly" class="anchor" href="#fix-add-type-parameters-or-cast-from-dynamic-explicitly" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fix: Add type parameters <em>or</em> cast from dynamic explicitly</h4>
+<h4 id="fix-add-type-parameters-or-cast-from-dynamic-explicitly">Fix: Add type parameters <em>or</em> cast from dynamic explicitly</h4>
 
 <p>When possible, avoid this error by adding type parameters:</p>
 
@@ -701,8 +614,7 @@ static analysis errors in <a href="#unexpected-collection-element-type">Unexpect
 <p>The errors discussed in the remainder of this section are reported at
 <a href="sound-dart#runtime-checks">runtime</a>.</p>
 
-<h3 id="invalid-casts">
-<a id="invalid-casts" class="anchor" href="#invalid-casts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Invalid casts</h3>
+<h3 id="invalid-casts">Invalid casts</h3>
 
 <p>To ensure type safety, Dart needs to insert <em>runtime</em> checks in some cases. Consider:</p>
 
@@ -725,8 +637,7 @@ implicitly (as if you wrote <code class="highlighter-rouge">as List&lt;String&gt
 <pre class="console-output"><code class="language-nocode">Exception: type 'List&lt;int&gt;' is not a subtype of type 'List&lt;String&gt;'
 </code></pre>
 
-<h4 id="fix-tighten-or-correct-types">
-<a id="fix-tighten-or-correct-types" class="anchor" href="#fix-tighten-or-correct-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fix: Tighten or correct types</h4>
+<h4 id="fix-tighten-or-correct-types">Fix: Tighten or correct types</h4>
 
 <p>Sometimes, lack of a type, especially with empty collections, means that a <code class="highlighter-rouge">&lt;dynamic&gt;</code>
 collection is created, instead of the typed one you intended. Adding an explicit
@@ -775,8 +686,7 @@ assumeStrings(names<span class="highlight">.map((name) =&gt; name as String).toL
 <h2 id="appendix">
 <a id="appendix" class="anchor" href="#appendix" aria-hidden="true"><span class="octicon octicon-link"></span></a>Appendix</h2>
 
-<h3 id="the-covariant-keyword">
-<a id="the-covariant-keyword" class="anchor" href="#the-covariant-keyword" aria-hidden="true"><span class="octicon octicon-link"></span></a>The covariant keyword</h3>
+<h3 id="the-covariant-keyword">The covariant keyword</h3>
 
 <p>Some (rarely used) coding patterns rely on tightening a type
 by overriding a parameter’s type with a subtype, which is invalid.
@@ -820,10 +730,10 @@ also supported on setters and fields.</p>
     <footer id="page-footer">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-3">
+      <div class="col-md-12 col-lg-3">
         <div class="content">
           <div class="brand">
-            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
           </div>
           <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
           <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
@@ -838,14 +748,14 @@ also supported on setters and fields.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/18 12:44 CST"
+                 title="Site built on 2018/09/10 11:49 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>技术</h4>
           <ul>
@@ -859,7 +769,7 @@ also supported on setters and fields.</p>
         </div>
       </div>
 
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>资源</h4>
           <ul>
@@ -872,7 +782,7 @@ also supported on setters and fields.</p>
         </div>
       </div>
 
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>社区</h4>
           <ul>

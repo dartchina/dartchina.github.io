@@ -10,10 +10,10 @@
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
-  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
-  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
-  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
-  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
@@ -26,21 +26,10 @@
   <meta property="og:description" content="Dart 是一种针对 web 和移动设备开发进行了优化的编程语言。" />
   <meta property="og:url" content="https://www.dartlang.org/" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link type="text/css" rel="stylesheet" href="/assets/style.css">
-  
-  <!--
-    Why don't we use Dart here?
-
-    The only scripting we use here is stuff like the on-click footnotes on the
-    front page or resizing of the left nav. These happen to be use cases where
-    JavaScript and jQuery are doing just fine. Dart is here for application
-    programming, not page scripting.
-   -->
-  <script type="text/javascript" src="/assets/main.js"></script>
-  
+  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -61,7 +50,7 @@ ga('send', 'pageview');
   <nav id="mainnav">
   <div id="menu-toggle"><i class="icon icon-menu"></i></div>
   <a href="/" class="brand" title="Dart">
-    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
   </a>
   <ul>
     <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
@@ -71,14 +60,14 @@ ga('send', 'pageview');
     
     
     <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.0.0&nbsp;&nbsp;(stable)</a></li>
 
-        <li role="separator" class="divider"></li>
-        <li><a href="/dart-2#migration">迁移指南</a></li>
+        <li role="separator" class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
       </ul>
     </li>
     
@@ -101,7 +90,7 @@ ga('send', 'pageview');
       <div id="sidenav" class="">
   <div class="content">
     <a href="/" class="brand" title="Dart">
-      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
     </a>
 
     <div class="sidenav__search">
@@ -112,7 +101,7 @@ ga('send', 'pageview');
 
     <ul>
       <li>
-        <a class="btn btn-default" href="/guides/get-started">入门</a>
+        <a class="btn btn-light" href="/guides/get-started">入门</a>
       </li>
     </ul>
     <h4 ><a href="/guides/language" title="语言">语言</a></h4>
@@ -169,10 +158,10 @@ ga('send', 'pageview');
 
       <section id="code-sample-section">
 <div class="container">
-  <div class="row banner__frontpage-row">
-    <div class="col-sm-12">
-      <div class="content">
-        <div class="banner alert alert-info">
+    <div class="row banner__frontpage-row">
+      <div class="col-md-12">
+        <div class="content">
+          <div class="banner alert alert-info">
   <p class="banner__text">
     <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
     <a href="/dart-2#migration">迁移代码</a> 或
@@ -180,14 +169,16 @@ ga('send', 'pageview');
   </p>
 </div>
 
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-7 col-lg-6">
-      <div id="code-sample" class="content">
-        <a href="https://dartpad.dartlang.org/fae22cffa7b184b4d27cd96dd633a5af" class='codesample__open-in-dartpad no-automatic-external' target='_blank'>在DartPad中打开</a>
-        <pre class="prettyprint">
+    <div class="row">
+      <div class="col-md-7 col-xl-6">
+        <div id="code-sample" class="content">
+          <a href="https://dartpad.dartlang.org/fae22cffa7b184b4d27cd96dd633a5af"
+            class='codesample__open-in-dartpad no-automatic-external'
+            target='_blank'>在 DartPad 中打开</a>
+          <pre class="prettyprint">
 <a tabindex="0" role="button" data-toggle="popover" data-content="Dart has one canonical way to import libraries, and one canonical (and easy) way to install library packages.">import</a> 'dart:async';
 import '<a tabindex="0" role="button" data-toggle="popover" data-content="The whole standard library is meticulously maintained. It has been called “well-crafted” by none other than Erik Meijer.">dart:math</a>' show Random;
 
@@ -231,13 +222,13 @@ Stream<a tabindex="0" role="button" data-toggle="popover" data-content="Generics
 }
 </pre>
 
+        </div>
       </div>
-    </div>
-    <div class="col-sm-5 col-lg-6">
-      <div class="content">
-        <div class="frontpage-slogan-with-footnotes">
-          <div class="frontpage-slogan">
-            <h3>
+      <div class="col-md-5 col-xl-6">
+        <div class="content">
+          <div class="frontpage-slogan-with-footnotes">
+            <div class="frontpage-slogan">
+              <h3>
                 基于 Dart 的以下特点，您可以通过它在不同的设备上创作华丽的、
                 高品质体验的应用：
               <ul>
@@ -264,7 +255,7 @@ Stream<a tabindex="0" role="button" data-toggle="popover" data-content="Generics
 <section class="card-grid-section">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-md-12">
         <div class="content">
           <div class="card-grid">
             <div class="card">
@@ -289,15 +280,17 @@ Stream<a tabindex="0" role="button" data-toggle="popover" data-content="Generics
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-sm-5 col-lg-4">
+      <div class="col-md-5 col-xl-4">
         <div class="content">
           <h1>为什么使用 Dart ?</h1>
           <p class="lead">
-            Google及全球的其他开发者，使用 Dart 开发了一系列高质量、关键的 iOS、Android 和 web 应用。 Dart 非常适合移动和 web 应用的开发。
+            Google及全球的其他开发者，使用 Dart 开发了一系列高质量、
+			关键的 iOS、Android 和 web 应用。 
+			Dart 非常适合移动和 web 应用的开发。
           </p>
         </div>
       </div>
-      <div class="col-sm-7 col-lg-8">
+      <div class="col-md-7 col-xl-8">
         <div class="content">
 
           <h2 class="core-goals__first">高效</h2>
@@ -343,10 +336,10 @@ Stream<a tabindex="0" role="button" data-toggle="popover" data-content="Generics
     <footer id="page-footer">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-3">
+      <div class="col-md-12 col-lg-3">
         <div class="content">
           <div class="brand">
-            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
           </div>
           <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
           <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
@@ -361,14 +354,14 @@ Stream<a tabindex="0" role="button" data-toggle="popover" data-content="Generics
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/18 12:44 CST"
+                 title="Site built on 2018/09/10 11:49 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>技术</h4>
           <ul>
@@ -382,7 +375,7 @@ Stream<a tabindex="0" role="button" data-toggle="popover" data-content="Generics
         </div>
       </div>
 
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>资源</h4>
           <ul>
@@ -395,7 +388,7 @@ Stream<a tabindex="0" role="button" data-toggle="popover" data-content="Generics
         </div>
       </div>
 
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>社区</h4>
           <ul>

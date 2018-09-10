@@ -10,10 +10,10 @@
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
-  <link href="/assets/touch-icon-iphone.png" rel="apple-touch-icon">
-  <link href="/assets/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76">
-  <link href="/assets/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120">
-  <link href="/assets/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
@@ -26,21 +26,10 @@
   <meta property="og:description" content="A first look at Futures and how to use them to make your asynchronous code better." />
   <meta property="og:url" content="https://www.dartlang.org/tutorials/language/futures" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link type="text/css" rel="stylesheet" href="/assets/style.css">
-  
-  <!--
-    Why don't we use Dart here?
-
-    The only scripting we use here is stuff like the on-click footnotes on the
-    front page or resizing of the left nav. These happen to be use cases where
-    JavaScript and jQuery are doing just fine. Dart is here for application
-    programming, not page scripting.
-   -->
-  <script type="text/javascript" src="/assets/main.js"></script>
-  
+  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -61,7 +50,7 @@ ga('send', 'pageview');
   <nav id="mainnav">
   <div id="menu-toggle"><i class="icon icon-menu"></i></div>
   <a href="/" class="brand" title="Dart">
-    <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
   </a>
   <ul>
     <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
@@ -71,14 +60,14 @@ ga('send', 'pageview');
     
     
     <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2 <span class="caret"></span></a>
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/language/futures" class="no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active">2.0.0&nbsp;&nbsp;(beta)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/language/futures" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.0.0&nbsp;&nbsp;(stable)</a></li>
 
-        <li role="separator" class="divider"></li>
-        <li><a href="/dart-2#migration">迁移指南</a></li>
+        <li role="separator" class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
       </ul>
     </li>
     
@@ -101,7 +90,7 @@ ga('send', 'pageview');
       <div id="sidenav" class="">
   <div class="content">
     <a href="/" class="brand" title="Dart">
-      <img src="/assets/shared/dart/logo+text/horizontal/default.svg" alt="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
     </a>
 
     <div class="sidenav__search">
@@ -112,7 +101,7 @@ ga('send', 'pageview');
 
     <ul>
       <li>
-        <a class="btn btn-default" href="/guides/get-started">入门</a>
+        <a class="btn btn-light" href="/guides/get-started">入门</a>
       </li>
     </ul>
     <h4 ><a href="/guides/language" title="语言">语言</a></h4>
@@ -170,30 +159,17 @@ ga('send', 'pageview');
       
 <div id="toc">
   <div class="content">
-    <h4>目录
-      <a href="#page-content" title="Back to top" class="pull-right"><i class="icon icon-caret-up"></i></a>
-    </h4>
+    <header class="h4 text-uppercase">
+      目录
+      <a title="Back to top" class="back-to-top float-right mr-3">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h4"><a href="#whats-the-point">What's the point?</a></li>
 <li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
 <li class="toc-entry toc-h2"><a href="#what-is-a-future">What is a Future?</a></li>
-<li class="toc-entry toc-h2"><a href="#async-and-await">Async and await</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#handling-errors">Handling errors</a></li>
-<li class="toc-entry toc-h3"><a href="#sequential-processing">Sequential processing</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#the-future-api">The Future API</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#handling-errors-1">Handling errors</a></li>
-<li class="toc-entry toc-h3"><a href="#calling-multiple-functions-that-return-futures">Calling multiple functions that return Futures</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#chaining-function-calls-using-then">Chaining function calls using then()</a></li>
-<li class="toc-entry toc-h4"><a href="#waiting-on-multiple-futures-to-complete-using-futurewait">Waiting on multiple Futures to complete using Future.wait()</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-entry toc-h2"><a href="#async-and-await">Async and await</a></li>
+<li class="toc-entry toc-h2"><a href="#the-future-api">The Future API</a></li>
 <li class="toc-entry toc-h2"><a href="#other-resources">Other resources</a></li>
 <li class="toc-entry toc-h2"><a href="#what-next">What next?</a></li>
 </ul>
@@ -226,7 +202,6 @@ ga('send', 'pageview');
 </nav>
 
 
-          
           <div>
             <ul class="page-github-links-menu" role="group">
   <li>
@@ -253,8 +228,7 @@ ga('send', 'pageview');
 <?code-excerpt plaster="none"?>
 
 <div class="mini-toc">
-  <h4>
-<a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the point?</h4>
+  <h4>What's the point?</h4>
 
   <ul>
     <li>Dart is single-threaded.</li>
@@ -281,8 +255,8 @@ represent asynchronous operations.</p>
 
 <?code-excerpt "misc/lib/tutorial/daily_news.dart (sync)" replace="/Sync(\(\))/$1/g"?>
 <pre class="prettyprint lang-dart">// Synchronous code
-printDailyNewsDigest() {
-  String news = gatherNewsReports(); // Can take a while.
+void printDailyNewsDigest() {
+  var news = gatherNewsReports(); // Can take a while.
   print(news);
 }
 
@@ -316,17 +290,18 @@ Such functions return their value using a <a href="https://api.dartlang.org/stab
 <h2 id="what-is-a-future">
 <a id="what-is-a-future" class="anchor" href="#what-is-a-future" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is a Future?</h2>
 
-<p>A Future represents a means for getting a value sometime in the future. When a
-function that returns a Future is invoked, two things happen:</p>
+<p>A Future represents an asynchronous operation that returns a value (which
+can be <code class="highlighter-rouge">void</code>). When a function that returns a Future is invoked,
+two things happen:</p>
 
 <ol>
   <li>The function queues up work to be done and returns an uncompleted Future
 object.</li>
-  <li>Later, when a value is available, the Future object completes with that
-value (or with an error; we’ll discuss that later).</li>
+  <li>Later, when the operation is finished, the Future object
+completes with a value or with an error.</li>
 </ol>
 
-<p>To get the value that the Future represents, you have two options:</p>
+<p>When writing code that depends on a Future, you have two options:</p>
 
 <ul>
   <li>Use <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code>
@@ -340,19 +315,20 @@ value (or with an error; we’ll discuss that later).</li>
 <p>The <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code> keywords are part of the Dart language’s <a href="/guides/language/language-tour#asynchrony-support">asynchrony
 support</a>. They allow you
 to write asynchronous code that looks like synchronous code and doesn’t use
-the Future API.</p>
+the Future API. An <em>async function</em> is one that has the <code class="highlighter-rouge">async</code> keyword
+before its body. The <code class="highlighter-rouge">await</code> keyword works only in async functions.</p>
 
 <aside class="alert alert-info">
-  <p><strong>Dart 2 note:</strong> In Dart 2, instead of immediately suspending, async functions
-  execute synchronously until the first await. In most cases, you won’t notice a
-  difference in behavior relative to Dart 1—as long as you await each time you
-  call an async method, it won’t be an issue.</p>
+  <p><strong>Version note:</strong> In Dart 1.x, async functions immediately suspended
+  execution. In Dart 2, instead of immediately suspending, async functions
+  execute synchronously until the first <code class="highlighter-rouge">await</code>. If you use <code class="highlighter-rouge">await</code> each time
+  you call an async function, the behavior is the same in Dart 1.x and Dart 2.</p>
 </aside>
 
 <p>The following app simulates reading the news by using async and await to read
-the contents of a file on www.dartlang.org. Click run ( <img src="/assets/red-run.png" width="20" height="19" alt="red-run.png"> ) to start the app.</p>
+the contents of a file on www.dartlang.org. Click run <img alt="" src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png"> to start the app.</p>
 
-<iframe src="https://dartpad.dartlang.org/embed-dart.html?id=a345206b09cc09eee1753fab11ec006b&amp;horizontalRatio=99&amp;verticalRatio=73" width="100%" height="500px" style="border: 1px solid #ccc;">
+<iframe src="https://dartpad.dartlang.org/embed-inline.html?id=477fb799d21401f46f8c04462fd249c4&amp;horizontalRatio=99&amp;verticalRatio=73" width="100%" height="500px" style="border: 1px solid #ccc;">
 </iframe>
 
 <p>Notice that <code class="highlighter-rouge">printDailyNewsDigest()</code> is the first function called, but the news
@@ -369,6 +345,11 @@ program prints.  If <code class="highlighter-rouge">gatherNewsReports()</code> t
 work, no great harm is done: the user gets to read other things before the
 daily news digest is printed.</p>
 
+<p>Note the return types. The return type of <code class="highlighter-rouge">gatherNewsReports()</code> is
+<code class="highlighter-rouge">Future&lt;String&gt;</code>, which means that it returns a Future that completes with
+a String value. The <code class="highlighter-rouge">printDailyNewsDigest()</code> function, which doesn’t
+return a value, has the return type <code class="highlighter-rouge">Future&lt;void&gt;</code>.</p>
+
 <p>The following diagram shows the flow of execution through the code.  Each
 number corresponds to a step below.</p>
 
@@ -376,40 +357,49 @@ number corresponds to a step below.</p>
 
 <ol>
   <li>The app begins executing.</li>
-  <li>The main function calls <code class="highlighter-rouge">printDailyNewsDigest()</code>, which (because it’s
-marked <code class="highlighter-rouge">async</code>), immediately returns a Future, <em>before any code is
-executed</em>.</li>
+  <li>The <code class="highlighter-rouge">main()</code> function calls the async function <code class="highlighter-rouge">printDailyNewsDigest()</code>,
+which begins executing synchronously.</li>
+  <li>
+<code class="highlighter-rouge">printDailyNewsDigest()</code> uses <code class="highlighter-rouge">await</code> to call the async function
+<code class="highlighter-rouge">gatherNewsReports()</code>, which begins executing synchronously.</li>
+  <li>Because <code class="highlighter-rouge">gatherNewsReports()</code> is an async function, when it reaches its
+<code class="highlighter-rouge">return</code> statement it pauses its execution and returns an uncompleted
+Future (an instance of <code class="highlighter-rouge">Future&lt;String&gt;</code>).</li>
+  <li>Because <code class="highlighter-rouge">printDailyNewsDigest()</code> is an async function and is
+awaiting a value, it pauses its execution and returns an uncompleted
+Future (in this case, an instance of <code class="highlighter-rouge">Future&lt;void&gt;</code>)
+to its caller (<code class="highlighter-rouge">main()</code>).</li>
   <li>The remaining print functions execute. Because they’re synchronous, each
 function executes fully before moving on to the next print function. For
 example, the winning lottery numbers are all printed before the weather
 forecast is printed.</li>
-  <li>
-    <p>The body of the <code class="highlighter-rouge">printDailyNewsDigest()</code> function starts executing.</p>
-  </li>
-  <li>After reaching the await expression (<code class="highlighter-rouge">await gatherNewsReports()</code>) and
-calling <code class="highlighter-rouge">gatherNewsReports()</code>, the program pauses, waiting for the Future
-returned by <code class="highlighter-rouge">gatherNewsReports()</code> to complete.</li>
-  <li>Once that Future completes, execution of <code class="highlighter-rouge">printDailyNewsDigest()</code>
-continues, printing the news.</li>
-  <li>When the <code class="highlighter-rouge">printDailyNewsDigest()</code> function body has completed executing,
+  <li>When <code class="highlighter-rouge">main()</code> has finished executing, the asynchronous functions can resume
+execution. First, the Future returned by <code class="highlighter-rouge">gatherNewsReports()</code> completes.
+Then <code class="highlighter-rouge">printDailyNewsDigest()</code> continues executing, printing the news.</li>
+  <li>When the <code class="highlighter-rouge">printDailyNewsDigest()</code> function body finishes executing,
 the Future that it originally returned completes, and the app exits.</li>
 </ol>
 
-<aside class="alert alert-info">
-  <p><strong>Note:</strong> If an async function doesn’t explicitly return a value, it returns
-  a Future wrapped around a null value.</p>
-</aside>
+<p>Note that an async function starts executing right away (synchronously).
+The function pauses execution and returns an uncompleted Future
+when it reaches the first occurrence of any of the following:</p>
 
-<h3 id="handling-errors-async">
-<a id="handling-errors" class="anchor" href="#handling-errors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling errors</h3>
+<ul>
+  <li>The function’s first <code class="highlighter-rouge">await</code> expression (after the function
+gets the uncompleted Future from that expression).</li>
+  <li>Any <code class="highlighter-rouge">return</code> statement in the function.</li>
+  <li>The end of the function body.</li>
+</ul>
+
+<h3 id="handling-errors-async">Handling errors</h3>
 
 <p>If a Future-returning function completes with an error, you probably want to
-capture that error.  Async functions can use try-catch to capture the error.</p>
+capture that error. Async functions can handle errors using try-catch:</p>
 
 <?code-excerpt "misc/lib/tutorial/daily_news.dart (try-catch)"?>
-<pre class="prettyprint lang-dart">printDailyNewsDigest() async {
+<pre class="prettyprint lang-dart">Future&lt;void&gt; printDailyNewsDigest() async {
   try {
-    String news = await gatherNewsReports();
+    var news = await gatherNewsReports();
     print(news);
   } catch (e) {
     // Handle error...
@@ -420,8 +410,7 @@ capture that error.  Async functions can use try-catch to capture the error.</p>
 for synchronous code: If the code within the <code class="highlighter-rouge">try</code> block throws an exception,
 the code inside the <code class="highlighter-rouge">catch</code> clause executes.</p>
 
-<h3 id="sequential-processing-async">
-<a id="sequential-processing" class="anchor" href="#sequential-processing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sequential processing</h3>
+<h3 id="sequential-processing-async">Sequential processing</h3>
 
 <p>You can use multiple <code class="highlighter-rouge">await</code> expressions to ensure that each statement
 completes before executing the next statement:</p>
@@ -450,9 +439,9 @@ more functionality than async-await offers.</p>
 to register a callback.  This callback fires when the Future completes.</p>
 
 <p>The following app simulates reading the news by using the Future API to read
-the contents of a file on www.dartlang.org.  Click run ( <img src="/assets/red-run.png" width="20" height="19" alt="red-run.png"> ) to start the app.</p>
+the contents of a file on www.dartlang.org.  Click run ( <img src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png"> ) to start the app.</p>
 
-<iframe src="https://dartpad.dartlang.org/embed-dart.html?id=5e7eb16cd725f0a51926b85e3caa64b5&amp;horizontalRatio=99&amp;verticalRatio=73" width="100%" height="500px" style="border: 1px solid #ccc;">
+<iframe src="https://dartpad.dartlang.org/embed-inline.html?id=5ceabe371903b6672026bd3fb30cdf5b&amp;horizontalRatio=99&amp;verticalRatio=73" width="100%" height="500px" style="border: 1px solid #ccc;">
 </iframe>
 
 <p>Notice that <code class="highlighter-rouge">printDailyNewsDigest()</code> is the first function called, but the news
@@ -492,9 +481,9 @@ operation.  <strong>Try it!</strong> Replace the <code class="highlighter-rouge"
 following:</p>
 
     <?code-excerpt "misc/lib/tutorial/daily_news.dart (main-future-api-using-braces)"?>
-    <pre class="prettyprint lang-dart">printDailyNewsDigest() {
+    <pre class="prettyprint lang-dart">Future&lt;void&gt; printDailyNewsDigest() {
   final future = gatherNewsReports();
-  future.then((news) {
+  return future.then((news) {
     print(news);
     // Do something else...
   });
@@ -506,18 +495,29 @@ argument—the completed value of the Future.  Try this version of
 <code class="highlighter-rouge">printDailyNewsDigest()</code>:</p>
 
     <?code-excerpt "misc/lib/tutorial/daily_news.dart (main-future-api-pass-print)"?>
-    <pre class="prettyprint lang-dart">printDailyNewsDigest() =&gt;
+    <pre class="prettyprint lang-dart">Future&lt;void&gt; printDailyNewsDigest() =&gt;
     gatherNewsReports().then(print);</pre>
   </li>
 </ul>
 
-<h3 id="handling-errors-future-api">
-<a id="handling-errors-1" class="anchor" href="#handling-errors-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling errors</h3>
+<p>You need to provide an argument to <code class="highlighter-rouge">then()</code>’s callback,
+even if the Future is of type <code class="highlighter-rouge">Future&lt;void&gt;</code>:</p>
+
+<?code-excerpt "misc/lib/tutorial/daily_news.dart (main-future-api-then-no-arg)"?>
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">future</span> <span class="o">=</span> <span class="n">printDailyNewsDigest</span><span class="o">();</span>
+
+<span class="k">return</span> <span class="n">future</span><span class="o">.</span><span class="na">then</span><span class="o">((</span><span class="n">_</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// Code that doesn't use the `_` parameter...</span>
+  <span class="n">print</span><span class="o">(</span><span class="s">'All reports printed.'</span><span class="o">);</span>
+<span class="o">});</span>
+</code></pre></div></div>
+
+<h3 id="handling-errors-future-api">Handling errors</h3>
 
 <p>With the Future API, you can capture an error using <code class="highlighter-rouge">catchError()</code>:</p>
 
 <?code-excerpt "misc/lib/tutorial/daily_news.dart (future-api-try-catch)"?>
-<pre class="prettyprint lang-dart">printDailyNewsDigest() =&gt;
+<pre class="prettyprint lang-dart">Future&lt;void&gt; printDailyNewsDigest() =&gt;
     gatherNewsReports()
         .then((news) =&gt; print(news))
         .catchError((e) =&gt; handleError(e));</pre>
@@ -546,8 +546,7 @@ return value of its callback.</p>
 
 <p>For more details and examples, read <a href="/guides/libraries/futures-error-handling">Futures and Error Handling</a>.</p>
 
-<h3 id="calling-multiple-funcs">
-<a id="calling-multiple-functions-that-return-futures" class="anchor" href="#calling-multiple-functions-that-return-futures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Calling multiple functions that return Futures</h3>
+<h3 id="calling-multiple-funcs">Calling multiple functions that return Futures</h3>
 
 <p>Consider three functions, <code class="highlighter-rouge">expensiveA()</code>, <code class="highlighter-rouge">expensiveB()</code>, and <code class="highlighter-rouge">expensiveC()</code>,
 that return Futures.  You can invoke them sequentially (one function starts
@@ -555,8 +554,7 @@ when a previous one completes), or you can kick off all of them at the same
 time and do something once all the values return. The Future interface is
 fluid enough to deal with both use cases.</p>
 
-<h4 id="chaining-function-calls-using-then">
-<a id="chaining-function-calls-using-then" class="anchor" href="#chaining-function-calls-using-then" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chaining function calls using then()</h4>
+<h4 id="chaining-function-calls-using-then">Chaining function calls using then()</h4>
 
 <p>When Future-returning functions need to run in order, use chained <code class="highlighter-rouge">then()</code>
 calls:</p>
@@ -569,8 +567,7 @@ calls:</p>
 
 <p>Nested callbacks also work, but they’re harder to read and not as Dart-y.</p>
 
-<h4 id="waiting-on-multiple-futures-to-complete-using-futurewait">
-<a id="waiting-on-multiple-futures-to-complete-using-futurewait" class="anchor" href="#waiting-on-multiple-futures-to-complete-using-futurewait" aria-hidden="true"><span class="octicon octicon-link"></span></a>Waiting on multiple Futures to complete using Future.wait()</h4>
+<h4 id="waiting-on-multiple-futures-to-complete-using-futurewait">Waiting on multiple Futures to complete using Future.wait()</h4>
 
 <p>If the order of execution of the functions is not important, you can use
 <code class="highlighter-rouge">Future.wait()</code>.</p>
@@ -641,10 +638,10 @@ how to work with an event stream.</li>
     <footer id="page-footer">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-3">
+      <div class="col-md-12 col-lg-3">
         <div class="content">
           <div class="brand">
-            <img src="/assets/shared/dart/logo+text/horizontal/mono.svg" alt="Dart logo" class="brand"/>
+            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
           </div>
           <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
           <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
@@ -659,14 +656,14 @@ how to work with an event stream.</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/08/18 12:44 CST"
+                 title="Site built on 2018/09/10 11:49 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>技术</h4>
           <ul>
@@ -680,7 +677,7 @@ how to work with an event stream.</li>
         </div>
       </div>
 
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>资源</h4>
           <ul>
@@ -693,7 +690,7 @@ how to work with an event stream.</li>
         </div>
       </div>
 
-      <div class="col-sm-4 col-md-3">
+      <div class="col-md-4 col-lg-3">
         <div class="content">
           <h4>社区</h4>
           <ul>
