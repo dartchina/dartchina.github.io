@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -166,10 +166,38 @@ ga('send', 'pageview');
       </a>
     </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#general">General</a></li>
-<li class="toc-entry toc-h2"><a href="#language">Language</a></li>
-<li class="toc-entry toc-h2"><a href="#types">Types</a></li>
-<li class="toc-entry toc-h2"><a href="#usage-and-tools">Usage and tools</a></li>
+<li class="toc-entry toc-h2"><a href="#general">General</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#q-is-dart-an-open-standard">Q. Is Dart an open standard?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-how-are-you-taking-input-on-changes-to-the-dart-repository">Q. How are you taking input on changes to the Dart repository?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#language">Language</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#q-isnt-dart-a-lot-like-java">Q. Isn’t Dart a lot like Java?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-how-does-dart-relate-to-go">Q. How does Dart relate to Go?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-why-isnt-dart-more-like-haskell--smalltalk--python--scala--other-language">Q. Why isn’t Dart more like Haskell / Smalltalk / Python / Scala / other language?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-why-isnt-dart-syntax-more-exciting">Q. Why isn’t Dart syntax more exciting?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-does-dart-have-reflection-capabilities">Q. Does Dart have reflection capabilities?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-can-dart-add-tuples-pattern-matching-non-nullable-types-partial-evaluation-optional-semicolons-">Q. Can Dart add tuples, pattern matching, non-nullable types, partial evaluation, optional semicolons, …?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#types">Types</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#q-is-dart-a-statically-typed-language">Q. Is Dart a statically typed language?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-why-are-generics-covariant">Q. Why are generics covariant?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#usage-and-tools">Usage and tools</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#q-does-dart-support-json">Q. Does Dart support JSON?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-can-dart-run-on-the-server">Q. Can Dart run on the server?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-how-do-i-use-third-party-code-or-share-code">Q. How do I use third party code, or share code?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-do-i-need-to-use-a-particular-editor-or-ide-to-write-dart-code">Q. Do I need to use a particular editor or IDE to write Dart code?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-can-i-build-an-android-app-with-dart">Q. Can I build an Android app with Dart?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-what-are-some-real-world-production-deployments-of-dart">Q. What are some real-world production deployments of Dart?</a></li>
+</ul>
+</li>
 </ul>
   </div>
 </div>
@@ -177,34 +205,23 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/faq.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart FAQ' page issue&body=From URL: https://www.dartlang.org/faq.html"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/faq.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart FAQ' page issue&body=
+Page URL: https://www.dartlang.org/faq.html%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/faq.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Dart FAQ</h1>
           </div>
@@ -221,7 +238,8 @@ since Dart was open sourced. For other questions and answers, see:</p>
 <h2 id="general">
 <a id="general" class="anchor" href="#general" aria-hidden="true"><span class="octicon octicon-link"></span></a>General</h2>
 
-<h3 id="q-is-dart-an-open-standard">Q. Is Dart an open standard?</h3>
+<h3 id="q-is-dart-an-open-standard">
+<a id="q-is-dart-an-open-standard" class="anchor" href="#q-is-dart-an-open-standard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Is Dart an open standard?</h3>
 
 <p>Yes. <a href="http://news.dartlang.org/2013/12/ecma-forms-tc52-for-dart-standardization.html">Ecma TC52</a> owns, evolves, and publishes the <a href="http://www.ecma-international.org/publications/standards/Ecma-408.htm">standard
 specification</a> of the Dart language.  In addition, Google’s Dart team
@@ -230,7 +248,8 @@ example, Dart 2 is the result of work by Google’s Dart team, together with key
 users, to improve the language. We expect to have an updated formal
 specification available for Ecma TC52 in the coming quarters.</p>
 
-<h3 id="q-how-are-you-taking-input-on-changes-to-the-dart-repository">Q. How are you taking input on changes to the Dart repository?</h3>
+<h3 id="q-how-are-you-taking-input-on-changes-to-the-dart-repository">
+<a id="q-how-are-you-taking-input-on-changes-to-the-dart-repository" class="anchor" href="#q-how-are-you-taking-input-on-changes-to-the-dart-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. How are you taking input on changes to the Dart repository?</h3>
 
 <p>We listen to feedback and <a href="https://github.com/dart-lang/sdk/issues?q=is%3Aopen+is%3Aissue+label%3Aarea-language">issues</a>, and we review patches from contributors.
 A contributor with a good track record can become a committer to the repository.
@@ -241,20 +260,23 @@ welcomed distributed committers.</p>
 <h2 id="language">
 <a id="language" class="anchor" href="#language" aria-hidden="true"><span class="octicon octicon-link"></span></a>Language</h2>
 
-<h3 id="q-isnt-dart-a-lot-like-java">Q. Isn’t Dart a lot like Java?</h3>
+<h3 id="q-isnt-dart-a-lot-like-java">
+<a id="q-isnt-dart-a-lot-like-java" class="anchor" href="#q-isnt-dart-a-lot-like-java" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Isn’t Dart a lot like Java?</h3>
 
 <p>Dart has some similarities with Java. See the <a href="https://codelabs.developers.google.com/codelabs/from-java-to-dart/">Intro to Dart for Java
 Developers</a>
 codelab for examples of some of the differences between Dart and Java.</p>
 
-<h3 id="q-how-does-dart-relate-to-go">Q. How does Dart relate to Go?</h3>
+<h3 id="q-how-does-dart-relate-to-go">
+<a id="q-how-does-dart-relate-to-go" class="anchor" href="#q-how-does-dart-relate-to-go" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. How does Dart relate to Go?</h3>
 
 <p>Dart and Go are both language projects started at Google, but they
 are independent and have different goals. As a result,
 they make different choices, and the languages have very different
 natures, even while we all try to learn from each others’ work.</p>
 
-<h3 id="q-why-isnt-dart-more-like-haskell--smalltalk--python--scala--other-language">Q. Why isn’t Dart more like Haskell / Smalltalk / Python / Scala / other language?</h3>
+<h3 id="q-why-isnt-dart-more-like-haskell--smalltalk--python--scala--other-language">
+<a id="q-why-isnt-dart-more-like-haskell--smalltalk--python--scala--other-language" class="anchor" href="#q-why-isnt-dart-more-like-haskell--smalltalk--python--scala--other-language" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Why isn’t Dart more like Haskell / Smalltalk / Python / Scala / other language?</h3>
 
 <p>Various reasons, depending on the language being asked about.</p>
 
@@ -276,7 +298,8 @@ keeping breaking changes at an absolute minimum.</p>
 some of this arbitrary runtime modification for the goal of better performance
 and more productive tools.</p>
 
-<h3 id="q-why-isnt-dart-syntax-more-exciting">Q. Why isn’t Dart syntax more exciting?</h3>
+<h3 id="q-why-isnt-dart-syntax-more-exciting">
+<a id="q-why-isnt-dart-syntax-more-exciting" class="anchor" href="#q-why-isnt-dart-syntax-more-exciting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Why isn’t Dart syntax more exciting?</h3>
 
 <p>We did throw in some nice syntactic features such as <code class="highlighter-rouge">this.</code> constructor args
 and <code class="highlighter-rouge">=&gt;</code> for one-line functions, but we’d agree that Dart chooses
@@ -284,14 +307,16 @@ familiarity over excitement. One team member’s personal testimonial:
 “I wish it had a little more razzle dazzle but I can’t deny that
 literally on my first day of writing Dart code, I was productive in it.”</p>
 
-<h3 id="q-does-dart-have-reflection-capabilities">Q. Does Dart have reflection capabilities?</h3>
+<h3 id="q-does-dart-have-reflection-capabilities">
+<a id="q-does-dart-have-reflection-capabilities" class="anchor" href="#q-does-dart-have-reflection-capabilities" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Does Dart have reflection capabilities?</h3>
 
 <p>For servers and command-line scripts, we have reflection support from
 the <a href="/articles/libraries/reflection-with-mirrors">mirrors API</a>.
 There is no support for mirrors when using Dart to write web or
 Flutter apps (<a href="https://flutter.io/faq/#does-flutter-come-with-a-reflectionmirrors-system">more info</a>).</p>
 
-<h3 id="q-can-dart-add-tuples-pattern-matching-non-nullable-types-partial-evaluation-optional-semicolons-">Q. Can Dart add tuples, pattern matching, non-nullable types, partial evaluation, optional semicolons, …?</h3>
+<h3 id="q-can-dart-add-tuples-pattern-matching-non-nullable-types-partial-evaluation-optional-semicolons-">
+<a id="q-can-dart-add-tuples-pattern-matching-non-nullable-types-partial-evaluation-optional-semicolons-" class="anchor" href="#q-can-dart-add-tuples-pattern-matching-non-nullable-types-partial-evaluation-optional-semicolons-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Can Dart add tuples, pattern matching, non-nullable types, partial evaluation, optional semicolons, …?</h3>
 
 <p>Future releases might be able to include (some of) those features, although
 we can’t include everything. Some features don’t fit the basic nature of the
@@ -315,7 +340,8 @@ appreciation through careful design choices and fair communication about them.</
 <h2 id="types">
 <a id="types" class="anchor" href="#types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Types</h2>
 
-<h3 id="q-is-dart-a-statically-typed-language">Q. Is Dart a statically typed language?</h3>
+<h3 id="q-is-dart-a-statically-typed-language">
+<a id="q-is-dart-a-statically-typed-language" class="anchor" href="#q-is-dart-a-statically-typed-language" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Is Dart a statically typed language?</h3>
 
 <p>Yes, Dart 2 is statically typed. For more information, see <a href="/guides/language/sound-dart">Dart’s Type System</a>.</p>
 
@@ -329,7 +355,8 @@ The <code class="highlighter-rouge">dynamic</code> type itself is static, but ca
 Of course, that removes many of the benefits of a type-safe language
 for that variable.</p>
 
-<h3 id="q-why-are-generics-covariant">Q. Why are generics covariant?</h3>
+<h3 id="q-why-are-generics-covariant">
+<a id="q-why-are-generics-covariant" class="anchor" href="#q-why-are-generics-covariant" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Why are generics covariant?</h3>
 
 <p>Covariant generics fit a common intuition that programmers have, and very often
 this intuition is correct, such as in the common “read-only” use of a generic.
@@ -350,33 +377,39 @@ their benefit in Dart.</p>
 <h2 id="usage-and-tools">
 <a id="usage-and-tools" class="anchor" href="#usage-and-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage and tools</h2>
 
-<h3 id="q-does-dart-support-json">Q. Does Dart support JSON?</h3>
+<h3 id="q-does-dart-support-json">
+<a id="q-does-dart-support-json" class="anchor" href="#q-does-dart-support-json" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Does Dart support JSON?</h3>
 
 <p>Yes.  See the <a href="https://api.dartlang.org/stable/dart-convert/JsonCodec-class.html">JSON</a> converters in the dart:convert library.</p>
 
-<h3 id="q-can-dart-run-on-the-server">Q. Can Dart run on the server?</h3>
+<h3 id="q-can-dart-run-on-the-server">
+<a id="q-can-dart-run-on-the-server" class="anchor" href="#q-can-dart-run-on-the-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Can Dart run on the server?</h3>
 
 <p>Yes. See <a href="https://dart-lang.github.io/server/">Dart on the Server</a> for details.</p>
 
-<h3 id="q-how-do-i-use-third-party-code-or-share-code">Q. How do I use third party code, or share code?</h3>
+<h3 id="q-how-do-i-use-third-party-code-or-share-code">
+<a id="q-how-do-i-use-third-party-code-or-share-code" class="anchor" href="#q-how-do-i-use-third-party-code-or-share-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. How do I use third party code, or share code?</h3>
 
 <p>You can find many packages on <a href="https://pub.dartlang.org">pub.dartlang.org,</a> a service for hosting
 packages of Dart code. Use the <code class="highlighter-rouge">pub</code> command to package your code and upload
 to pub.dartlang.org.</p>
 
-<h3 id="q-do-i-need-to-use-a-particular-editor-or-ide-to-write-dart-code">Q. Do I need to use a particular editor or IDE to write Dart code?</h3>
+<h3 id="q-do-i-need-to-use-a-particular-editor-or-ide-to-write-dart-code">
+<a id="q-do-i-need-to-use-a-particular-editor-or-ide-to-write-dart-code" class="anchor" href="#q-do-i-need-to-use-a-particular-editor-or-ide-to-write-dart-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Do I need to use a particular editor or IDE to write Dart code?</h3>
 
 <p>Nope. You can try out Dart code with <a href="https://dartpad.dartlang.org">DartPad</a>, and then use your favorite
 editor or IDE for development. Some full-featured IDEs such as IntelliJ IDEA,
 WebStorm, and Visual Studio Code have Dart plugins. Open source Dart plugins
 also exist for a number of editors. For more information, see <a href="/tools/">Dart Tools</a>.</p>
 
-<h3 id="q-can-i-build-an-android-app-with-dart">Q. Can I build an Android app with Dart?</h3>
+<h3 id="q-can-i-build-an-android-app-with-dart">
+<a id="q-can-i-build-an-android-app-with-dart" class="anchor" href="#q-can-i-build-an-android-app-with-dart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Can I build an Android app with Dart?</h3>
 
 <p>Yes! You can build an Android app that also works on iOS from a single codebase
 using <a href="https://flutter.io">Flutter.</a></p>
 
-<h3 id="q-what-are-some-real-world-production-deployments-of-dart">Q. What are some real-world production deployments of Dart?</h3>
+<h3 id="q-what-are-some-real-world-production-deployments-of-dart">
+<a id="q-what-are-some-real-world-production-deployments-of-dart" class="anchor" href="#q-what-are-some-real-world-production-deployments-of-dart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. What are some real-world production deployments of Dart?</h3>
 
 <p>Google AdWords, AdSense, and AdMob all use Dart.
 More than 75% of Google’s revenue flows through these apps.
@@ -409,7 +442,7 @@ See <a href="/community/who-uses-dart.html">Who Uses Dart</a> for a more complet
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

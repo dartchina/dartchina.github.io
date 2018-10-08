@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -166,8 +166,19 @@ ga('send', 'pageview');
       </a>
     </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#dependency-sources">Dependency sources</a></li>
-<li class="toc-entry toc-h2"><a href="#version-constraints">Version constraints</a></li>
+<li class="toc-entry toc-h2"><a href="#dependency-sources">Dependency sources</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#sdk">SDK</a></li>
+<li class="toc-entry toc-h3"><a href="#hosted-packages">Hosted packages</a></li>
+<li class="toc-entry toc-h3"><a href="#git-packages">Git packages</a></li>
+<li class="toc-entry toc-h3"><a href="#path-packages">Path packages</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#version-constraints">Version constraints</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#caret-syntax">Caret syntax</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#dev-dependencies">Dev dependencies</a></li>
 <li class="toc-entry toc-h2"><a href="#dependency-overrides">Dependency overrides</a></li>
 </ul>
@@ -177,14 +188,7 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 
           
@@ -210,23 +214,19 @@ ga('send', 'pageview');
   </ol>
 </nav>
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/pub/dependencies.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Pub Dependencies' page issue&body=From URL: https://www.dartlang.org/tools/pub/dependencies"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/pub/dependencies.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Pub Dependencies' page issue&body=
+Page URL: https://www.dartlang.org/tools/pub/dependencies%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/pub/dependencies.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Pub Dependencies</h1>
           </div>
@@ -301,7 +301,8 @@ But in most cases, you’ll just use the simple
 <p>Here are the different sources pub can use to locate packages, and the
 descriptions they allow:</p>
 
-<h3 id="sdk">SDK</h3>
+<h3 id="sdk">
+<a id="sdk" class="anchor" href="#sdk" aria-hidden="true"><span class="octicon octicon-link"></span></a>SDK</h3>
 
 <p>The SDK source is used for any SDKs that are shipped along with packages,
 which may themselves be dependencies.
@@ -330,7 +331,8 @@ must have a Dart SDK constraint with a minimum version of at least 1.19.0.
 This constraint ensures that older versions of pub won’t
 install packages that have <code class="highlighter-rouge">sdk</code> dependencies.</p>
 
-<h3 id="hosted-packages">Hosted packages</h3>
+<h3 id="hosted-packages">
+<a id="hosted-packages" class="anchor" href="#hosted-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hosted packages</h3>
 
 <p>A <em>hosted</em> package is one that can be downloaded from pub.dartlang.org
 (or another HTTP server that speaks the same API). Here’s an example
@@ -353,7 +355,8 @@ specifies its URL:</p>
       url: http://your-package-server.com
     version: ^1.4.0</pre>
 
-<h3 id="git-packages">Git packages</h3>
+<h3 id="git-packages">
+<a id="git-packages" class="anchor" href="#git-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git packages</h3>
 
 <p>Sometimes you live on the bleeding edge and you need to use packages that
 haven’t been formally released yet. Maybe your package itself is still in
@@ -390,7 +393,8 @@ location in the repo use the <code class="highlighter-rouge">path</code> argumen
 
 <p>The path is relative to the Git repo’s root.</p>
 
-<h3 id="path-packages">Path packages</h3>
+<h3 id="path-packages">
+<a id="path-packages" class="anchor" href="#path-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path packages</h3>
 
 <p>Sometimes you find yourself working on multiple related packages at the same
 time. Maybe you are creating a framework while building an app that uses it.
@@ -491,7 +495,8 @@ For example, never use <code class="highlighter-rouge">&gt;=1.2.3 &lt;2.0.0</cod
 instead, use <code class="highlighter-rouge">'&gt;=1.2.3 &lt;2.0.0'</code> or <code class="highlighter-rouge">^1.2.3</code>.</p>
 </aside>
 
-<h3 id="caret-syntax">Caret syntax</h3>
+<h3 id="caret-syntax">
+<a id="caret-syntax" class="anchor" href="#caret-syntax" aria-hidden="true"><span class="octicon octicon-link"></span></a>Caret syntax</h3>
 
 <p><em>Caret syntax</em> provides a more compact way of expressing the most common
 sort of version constraint.
@@ -625,7 +630,7 @@ to differentiate versions. <a href="#fnref:semver">↩</a></p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -169,7 +169,12 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h2"><a href="#the-basics">The basics</a></li>
 <li class="toc-entry toc-h2"><a href="#readme">README</a></li>
 <li class="toc-entry toc-h2"><a href="#changelog">CHANGELOG</a></li>
-<li class="toc-entry toc-h2"><a href="#public-directories">Public directories</a></li>
+<li class="toc-entry toc-h2"><a href="#public-directories">Public directories</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#public-libraries">Public libraries</a></li>
+<li class="toc-entry toc-h3"><a href="#public-tools">Public tools</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#public-assets">Public assets</a></li>
 <li class="toc-entry toc-h2"><a href="#implementation-files">Implementation files</a></li>
 <li class="toc-entry toc-h2"><a href="#web-files">Web files</a></li>
@@ -185,14 +190,7 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 
           
@@ -218,23 +216,19 @@ ga('send', 'pageview');
   </ol>
 </nav>
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/pub/package-layout.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Pub Package Layout Conventions' page issue&body=From URL: https://www.dartlang.org/tools/pub/package-layout"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/pub/package-layout.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Pub Package Layout Conventions' page issue&body=
+Page URL: https://www.dartlang.org/tools/pub/package-layout%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/pub/package-layout.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Pub Package Layout Conventions</h1>
           </div>
@@ -377,7 +371,8 @@ appears in the changelog tab.</p>
 <code class="highlighter-rouge">bin</code>. You place <a href="#public-libraries">public libraries</a> in <code class="highlighter-rouge">lib</code> and
 <a href="#public-tools">public tools</a> in <code class="highlighter-rouge">bin</code>.</p>
 
-<h3 id="public-libraries">Public libraries</h3>
+<h3 id="public-libraries">
+<a id="public-libraries" class="anchor" href="#public-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Public libraries</h3>
 
 <p>The following directory structure shows the <code class="highlighter-rouge">lib</code> portion of enchilada:</p>
 
@@ -435,7 +430,8 @@ Also, avoid imports of <code>package:<em>package_name</em>/src/...</code>.</p>
 <p>For more information on library packages, see
 <a href="/guides/libraries/create-library-packages">Create Library Packages</a>.</p>
 
-<h3 id="public-tools">Public tools</h3>
+<h3 id="public-tools">
+<a id="public-tools" class="anchor" href="#public-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Public tools</h3>
 
 <p>Dart scripts placed inside of the <code class="highlighter-rouge">bin</code> directory are public. Any package
 that depends on your package can run scripts from your package’s <code class="highlighter-rouge">bin</code>
@@ -654,7 +650,7 @@ If you have any of these, place them in a directory called <code class="highligh
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

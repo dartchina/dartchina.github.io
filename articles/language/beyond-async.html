@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -173,7 +173,13 @@ ga('send', 'pageview');
     </header>
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#async-sync-and-all-the-rest">Async*, sync*, and all the rest</a></li>
-<li class="toc-entry toc-h2"><a href="#generators">Generators</a></li>
+<li class="toc-entry toc-h2"><a href="#generators">Generators</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#why-support-generators-in-the-language">Why support generators in the language?</a></li>
+<li class="toc-entry toc-h3"><a href="#synchronous-generators-sync">Synchronous generators: sync*</a></li>
+<li class="toc-entry toc-h3"><a href="#asynchronous-generators-async">Asynchronous generators: async*</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#await-for">await-for</a></li>
 <li class="toc-entry toc-h2"><a href="#yield">yield*</a></li>
 </ul>
@@ -183,34 +189,23 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/language/beyond-async.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart Language Asynchrony Support: Phase 2' page issue&body=From URL: https://www.dartlang.org/articles/language/beyond-async"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/language/beyond-async.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart Language Asynchrony Support: Phase 2' page issue&body=
+Page URL: https://www.dartlang.org/articles/language/beyond-async%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/language/beyond-async.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Dart Language Asynchrony Support: Phase 2</h1>
           </div>
@@ -235,7 +230,8 @@ produces values on demand—consumers pull the values from the generator. An
 asynchronous generator produces values at its own pace, and pushes them out
 where consumers can find them.</p>
 
-<h3 id="why-support-generators-in-the-language">Why support generators in the language?</h3>
+<h3 id="why-support-generators-in-the-language">
+<a id="why-support-generators-in-the-language" class="anchor" href="#why-support-generators-in-the-language" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why support generators in the language?</h3>
 
 <p>One can implement generators by hand, but that can be tricky and is certainly
 tedious.</p>
@@ -260,7 +256,8 @@ everything works when your stream gets paused or canceled, for example.</p>
 <p>Dart’s new built-in generator support makes  things much easier, as we’ll see
 below.</p>
 
-<h3 id="synchronous-generators-sync">Synchronous generators: sync*</h3>
+<h3 id="synchronous-generators-sync">
+<a id="synchronous-generators-sync" class="anchor" href="#synchronous-generators-sync" aria-hidden="true"><span class="octicon octicon-link"></span></a>Synchronous generators: sync*</h3>
 
 <p>Marking a function body with the <strong>sync*</strong> modifier identifies
 the function as a synchronous generator, and relieves the
@@ -311,7 +308,8 @@ Say you forget to use a modifier such as <strong>sync*</strong> on a function,
 and use a <strong>yield</strong> statement inside.
 The parser may get very confused and give rather bewildering error messages.</p>
 
-<h3 id="asynchronous-generators-async">Asynchronous generators: async*</h3>
+<h3 id="asynchronous-generators-async">
+<a id="asynchronous-generators-async" class="anchor" href="#asynchronous-generators-async" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous generators: async*</h3>
 
 <p>To asynchronously produce a sequence, we use streams. One can
 implement streams manually using <code class="highlighter-rouge">Stream</code> and allied classes.
@@ -460,7 +458,7 @@ In that case, <strong>yield*</strong> skips over it without suspending.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

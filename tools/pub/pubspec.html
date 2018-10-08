@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -168,7 +168,20 @@ ga('send', 'pageview');
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#supported-fields">Supported fields</a></li>
 <li class="toc-entry toc-h2"><a href="#example">Example</a></li>
-<li class="toc-entry toc-h2"><a href="#details">Details</a></li>
+<li class="toc-entry toc-h2"><a href="#details">Details</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#name">Name</a></li>
+<li class="toc-entry toc-h3"><a href="#version">Version</a></li>
+<li class="toc-entry toc-h3"><a href="#description">Description</a></li>
+<li class="toc-entry toc-h3"><a href="#authorauthors">Author/Authors</a></li>
+<li class="toc-entry toc-h3"><a href="#homepage">Homepage</a></li>
+<li class="toc-entry toc-h3"><a href="#documentation">Documentation</a></li>
+<li class="toc-entry toc-h3"><a href="#dependencies">Dependencies</a></li>
+<li class="toc-entry toc-h3"><a href="#executables">Executables</a></li>
+<li class="toc-entry toc-h3"><a href="#publish_to">Publish_to</a></li>
+<li class="toc-entry toc-h3"><a href="#sdk-constraints">SDK constraints</a></li>
+</ul>
+</li>
 </ul>
   </div>
 </div>
@@ -176,14 +189,7 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 
           
@@ -209,23 +215,19 @@ ga('send', 'pageview');
   </ol>
 </nav>
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/pub/pubspec.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Pubspec Format' page issue&body=From URL: https://www.dartlang.org/tools/pub/pubspec.html"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/pub/pubspec.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Pubspec Format' page issue&body=
+Page URL: https://www.dartlang.org/tools/pub/pubspec.html%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/pub/pubspec.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Pubspec Format</h1>
           </div>
@@ -330,7 +332,8 @@ dev_dependencies:
 
 <p>This section has more information about most of the pubspec fields.</p>
 
-<h3 id="name">Name</h3>
+<h3 id="name">
+<a id="name" class="anchor" href="#name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Name</h3>
 
 <p>Every package needs a name.  It’s how other packages refer to yours,
 and how it appears to the world, should you publish it.</p>
@@ -346,7 +349,8 @@ A quick search of packages on
 <a href="https://pub.dartlang.org/packages">pub.dartlang.org</a>
 to make sure that nothing else is using your name is recommended.</p>
 
-<h3 id="version">Version</h3>
+<h3 id="version">
+<a id="version" class="anchor" href="#version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version</h3>
 
 <p>Every package has a version. A version number is required to host your package
 on pub.dartlang.org, but can be omitted for local-only packages. If you omit
@@ -362,7 +366,8 @@ anymore. To make more changes, you’ll need a new version.</p>
 
 <p>When you select a version, follow <a href="http://semver.org/spec/v2.0.0-rc.1.html">semantic versioning</a>.</p>
 
-<h3 id="description">Description</h3>
+<h3 id="description">
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h3>
 
 <p>This is optional for your own personal packages, but if you intend to
 publish your package you must provide a description. This should
@@ -374,7 +379,8 @@ when they <a href="https://pub.dartlang.org/packages">browse for packages</a>.
 It should be simple plain text: no markdown or HTML.
 That’s what your README is for.</p>
 
-<h3 id="authorauthors">Author/Authors</h3>
+<h3 id="authorauthors">
+<a id="authorauthors" class="anchor" href="#authorauthors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Author/Authors</h3>
 
 <p>You’re encouraged to use these fields to describe the author(s) of your package
 and provide contact information. <code class="highlighter-rouge">author</code> should be used if your package has a
@@ -390,7 +396,8 @@ person wrote the package. Each author can either be a single name
 <p>If anyone uploads your package to pub.dartlang.org, your email address is
 public.</p>
 
-<h3 id="homepage">Homepage</h3>
+<h3 id="homepage">
+<a id="homepage" class="anchor" href="#homepage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homepage</h3>
 
 <p>This should be a URL pointing to the website for your package.
 For <a href="/tools/pub/dependencies#hosted-packages">hosted packages</a>,
@@ -400,7 +407,8 @@ helps users understand where your package is coming from. If nothing else, you
 can always use the URL where you host the source code, such as
 <a href="https://github.com">GitHub</a>.</p>
 
-<h3 id="documentation">Documentation</h3>
+<h3 id="documentation">
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h3>
 
 <p>Some packages may have a site that hosts documentation separate from the main
 homepage. If your package has that, you can also add a <code class="highlighter-rouge">documentation:</code> field
@@ -410,7 +418,8 @@ with that URL. If provided, a link to it is shown on your package’s page.</p>
 documentation is created automatically for you, and is linked to from
 <a href="https://pub.dartlang.org">pub.dartlang.org</a>.</p>
 
-<h3 id="dependencies">Dependencies</h3>
+<h3 id="dependencies">
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h3>
 
 <p><a href="/tools/pub/glossary#dependency">Dependencies</a> are the pubspec’s <em>raison d’être</em>.
 In this section you list each package that your package needs in order to work.</p>
@@ -425,7 +434,8 @@ a dependency.  You can do so using <code class="highlighter-rouge">dependency_ov
 
 <p>For more information, see <a href="/tools/pub/dependencies">Pub Dependencies</a>.</p>
 
-<h3 id="executables">Executables</h3>
+<h3 id="executables">
+<a id="executables" class="anchor" href="#executables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Executables</h3>
 
 <p>A package may expose one or more of its scripts as executables that
 can be run directly from the command line. To make a script publicly
@@ -448,7 +458,8 @@ If you don’t specify the value, it is inferred from the key.</p>
 <p>For more information, see
 <a href="/tools/pub/cmd/pub-global#running-a-script-from-your-path">pub global</a>.</p>
 
-<h3 id="publish_to">Publish_to</h3>
+<h3 id="publish_to">
+<a id="publish_to" class="anchor" href="#publish_to" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publish_to</h3>
 
 <p>The default is <code class="highlighter-rouge">https://pub.dartlang.org</code>. Specify <code class="highlighter-rouge">none</code> to prevent
 a package from being published. This setting can be used to specify a
@@ -457,7 +468,8 @@ to publish.</p>
 
 <pre class="prettyprint lang-yaml">publish_to: none</pre>
 
-<h3 id="sdk-constraints">SDK constraints</h3>
+<h3 id="sdk-constraints">
+<a id="sdk-constraints" class="anchor" href="#sdk-constraints" aria-hidden="true"><span class="octicon octicon-link"></span></a>SDK constraints</h3>
 
 <p>A package can indicate which versions of its dependencies it supports, but
 packages have another implicit dependency: the Dart platform itself.
@@ -482,7 +494,7 @@ with the version of the Dart SDK that you have installed.</p>
 <aside class="alert alert-warning">
   <p><strong>Don’t use caret syntax</strong> (<code class="highlighter-rouge">^</code>) for the SDK constraint,
   and <strong>do include an upper bound</strong> (<code class="highlighter-rouge">&lt;3.0.0</code>, usually).
-  For more information, see <a href="/dart-2">Dart 2 Updates.</a></p>
+  For more information, see the <a href="/dart-2">Dart 2 page</a>.</p>
 </aside>
 
 <h4 id="flutter-sdk-constraints">Flutter SDK constraints</h4>
@@ -531,7 +543,7 @@ accidentally install packages that need Flutter.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

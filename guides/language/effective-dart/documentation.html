@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -166,10 +166,44 @@ ga('send', 'pageview');
       </a>
     </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#注释">注释</a></li>
-<li class="toc-entry toc-h2"><a href="#文档注释">文档注释</a></li>
-<li class="toc-entry toc-h2"><a href="#markdown">Markdown</a></li>
-<li class="toc-entry toc-h2"><a href="#如何写注释">如何写注释</a></li>
+<li class="toc-entry toc-h2"><a href="#注释">注释</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#要-像句子一样来格式化注释">要 像句子一样来格式化注释。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用块注释作用作解释说明">不要 使用块注释作用作解释说明。</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#文档注释">文档注释</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#要-使用--文档注释来注释成员和类型">要 使用 /// 文档注释来注释成员和类型。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-为公开发布的-api-编写文档注释">推荐 为公开发布的 API 编写文档注释。</a></li>
+<li class="toc-entry toc-h3"><a href="#考虑-编写库级别library-level的文档注释">考虑 编写库级别（library-level）的文档注释。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-为私有api-编写文档注释">推荐 为私有API 编写文档注释。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-要在文档注释开头有一个单句总结">要 要在文档注释开头有一个单句总结。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-让文档注释的第一句从段落中分开">要 让文档注释的第一句从段落中分开。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-与周围上下文冗余">避免 与周围上下文冗余。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-用第三人称来开始函数或者方法的文档注释">推荐 用第三人称来开始函数或者方法的文档注释。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-使用名词短语来开始变量gettersetter-的注释">推荐 使用名词短语来开始变量、getter、setter 的注释。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-使用名词短语来开始库和类型注释">推荐 使用名词短语来开始库和类型注释。</a></li>
+<li class="toc-entry toc-h3"><a href="#考虑-在文档注释中添加示例代码">考虑 在文档注释中添加示例代码。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用方括号在文档注释中引用作用域内的标识符">要 使用方括号在文档注释中引用作用域内的标识符。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用散文的方式来描述参数返回值以及异常信息">要 使用散文的方式来描述参数、返回值以及异常信息。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-把注释文档放到注解之前">要 把注释文档放到注解之前。</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#markdown">Markdown</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#避免-过度使用-markdown">避免 过度使用 markdown。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-使用-html-来格式化文字">避免 使用 HTML 来格式化文字。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-使用反引号标注代码">推荐 使用反引号标注代码。</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#如何写注释">如何写注释</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#推荐-简洁">推荐 简洁.</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-缩写和首字母缩写词除非很常见">避免 缩写和首字母缩写词，除非很常见。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-使用-this-而不是-the-来引用实例成员">推荐 使用 “this” 而不是 “the” 来引用实例成员。</a></li>
+</ul>
+</li>
 </ul>
   </div>
 </div>
@@ -177,14 +211,7 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 <nav id="subnav">
   <ul>
@@ -203,36 +230,23 @@ ga('send', 'pageview');
 
 
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/language/effective-dart/documentation.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Effective Dart: 文档' page issue&body=From URL: https://www.dartlang.org/guides/language/effective-dart/documentation"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/language/effective-dart/documentation.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Effective Dart: 文档' page issue&body=
+Page URL: https://www.dartlang.org/guides/language/effective-dart/documentation%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/language/effective-dart/documentation.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Effective Dart: 文档</h1>
           </div>
-          <div class="banner">
-  <p class="banner__text">
-    <em>Effective Dart</em> 正在更新，
-    以提供关于 Dart 2 的最新实践。
-    如果你发现了一个 <a target="_blank" href="https://github.com/dart-lang/site-www/labels/EffectiveDart">known issue</a>
-    中没有提及的问题，
-    请报告这个 bug 。
-  </p>
-</div>
-
+          
 <p>你可能没有意识到，今天你很容易想出来的代码，有多么依赖你当时思路。
 人们不熟悉你的代码，甚至你也忘记了当时代码功能中有这样的思路。
 简明，扼要的注释只需花费几秒钟的时间去写，但可以让每个这样的人节约几个小时。</p>
@@ -289,7 +303,7 @@ ga('send', 'pageview');
 <p>下面的要点用于注释，这里的注释不包含生成的文档注释。</p>
 
 <h3 id="要-像句子一样来格式化注释">
-<strong>要</strong> 像句子一样来格式化注释。</h3>
+<a id="要-像句子一样来格式化注释" class="anchor" href="#%E8%A6%81-%E5%83%8F%E5%8F%A5%E5%AD%90%E4%B8%80%E6%A0%B7%E6%9D%A5%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 像句子一样来格式化注释。</h3>
 
 <?code-excerpt "misc/lib/effective_dart/docs_good.dart (comments-like-sentences)"?>
 <pre class="prettyprint lang-dart good-style">// Not if there is nothing before it.
@@ -300,7 +314,7 @@ if (_chunks.isEmpty) return false;</pre>
 文档注释，单行注释，甚至 TODO。即使它是一个句子的片段。</p>
 
 <h3 id="不要-使用块注释作用作解释说明">
-<strong>不要</strong> 使用块注释作用作解释说明。</h3>
+<a id="不要-使用块注释作用作解释说明" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%9D%97%E6%B3%A8%E9%87%8A%E4%BD%9C%E7%94%A8%E4%BD%9C%E8%A7%A3%E9%87%8A%E8%AF%B4%E6%98%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用块注释作用作解释说明。</h3>
 
 <?code-excerpt "misc/lib/effective_dart/docs_good.dart (block-comments)"?>
 <pre class="prettyprint lang-dart good-style">greet(name) {
@@ -324,7 +338,7 @@ if (_chunks.isEmpty) return false;</pre>
 文档注释包括所有出现在声明之前并使用 <code class="highlighter-rouge">///</code> 语法的注释，这些注释使用使用 dartdoc 检索。</p>
 
 <h3 id="要-使用--文档注释来注释成员和类型">
-<strong>要</strong> 使用 <code class="highlighter-rouge">///</code> 文档注释来注释成员和类型。</h3>
+<a id="要-使用--文档注释来注释成员和类型" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8--%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E6%9D%A5%E6%B3%A8%E9%87%8A%E6%88%90%E5%91%98%E5%92%8C%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">///</code> 文档注释来注释成员和类型。</h3>
 
 <p>使用文档注释可以让 <a href="https://github.com/dart-lang/dartdoc">dartdoc</a> 来为你生成代码 API 文档。</p>
 
@@ -344,13 +358,13 @@ int get length =&gt; ...</pre>
 <p>如果你现在还在使用 JavaDoc 风格格式，请考虑使用新的格式。</p>
 
 <h3 id="推荐-为公开发布的-api-编写文档注释">
-<strong>推荐</strong> 为公开发布的 API 编写文档注释。</h3>
+<a id="推荐-为公开发布的-api-编写文档注释" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E5%85%AC%E5%BC%80%E5%8F%91%E5%B8%83%E7%9A%84-api-%E7%BC%96%E5%86%99%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 为公开发布的 API 编写文档注释。</h3>
 
 <p>不必为所有独立的库，顶级变量，类型以及成员编写文档注释。
 但是它们大多数应该有文档注释。</p>
 
 <h3 id="考虑-编写库级别library-level的文档注释">
-<strong>考虑</strong> 编写库级别（library-level）的文档注释。</h3>
+<a id="考虑-编写库级别library-level的文档注释" class="anchor" href="#%E8%80%83%E8%99%91-%E7%BC%96%E5%86%99%E5%BA%93%E7%BA%A7%E5%88%ABlibrary-level%E7%9A%84%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 编写库级别（library-level）的文档注释。</h3>
 
 <p>与Java等类似的语言不同，Java 中类是程序组织的唯一单元。
 在 Dart 中，库本身就是一个实体，用户可以直接使用，导入及构思它。
@@ -372,13 +386,13 @@ int get length =&gt; ...</pre>
 directive, you can add one just to hang the doc comment off of it.）</p>
 
 <h3 id="推荐-为私有api-编写文档注释">
-<strong>推荐</strong> 为私有API 编写文档注释。</h3>
+<a id="推荐-为私有api-编写文档注释" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%A7%81%E6%9C%89api-%E7%BC%96%E5%86%99%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 为私有API 编写文档注释。</h3>
 
 <p>文档注释不仅仅适用于外部用户使用你库的公开 API.
 它也同样有助于理解那些私有成员，这些私有成员会被库的其他部分调用。</p>
 
 <h3 id="要-要在文档注释开头有一个单句总结">
-<strong>要</strong> 要在文档注释开头有一个单句总结。</h3>
+<a id="要-要在文档注释开头有一个单句总结" class="anchor" href="#%E8%A6%81-%E8%A6%81%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E5%BC%80%E5%A4%B4%E6%9C%89%E4%B8%80%E4%B8%AA%E5%8D%95%E5%8F%A5%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 要在文档注释开头有一个单句总结。</h3>
 
 <p>注释文档要以一个以用户为中心，简要的描述作为开始。
 通常句子片段就足够了。为读者提供足够的上下文来定位自己，
@@ -400,7 +414,7 @@ void delete(String path) {
 }</pre>
 
 <h3 id="要-让文档注释的第一句从段落中分开">
-<strong>要</strong> 让文档注释的第一句从段落中分开。</h3>
+<a id="要-让文档注释的第一句从段落中分开" class="anchor" href="#%E8%A6%81-%E8%AE%A9%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E5%8F%A5%E4%BB%8E%E6%AE%B5%E8%90%BD%E4%B8%AD%E5%88%86%E5%BC%80" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 让文档注释的第一句从段落中分开。</h3>
 
 <p>在第一句之后添加一个空行，将其拆分为自己的段落。 
 如果不止一个解释句子有用，请将其余部分放在后面的段落中。</p>
@@ -426,7 +440,7 @@ void delete(String path) {
 }</pre>
 
 <h3 id="避免-与周围上下文冗余">
-<strong>避免</strong> 与周围上下文冗余。</h3>
+<a id="避免-与周围上下文冗余" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%B8%8E%E5%91%A8%E5%9B%B4%E4%B8%8A%E4%B8%8B%E6%96%87%E5%86%97%E4%BD%99" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 与周围上下文冗余。</h3>
 
 <p>阅读类的文档注释的可以清楚地看到类的名称，它实现的接口等等。
 当读取成员的文档时，命名和封装它的类是显而易见的。 
@@ -452,7 +466,7 @@ void delete(String path) {
 }</pre>
 
 <h3 id="推荐-用第三人称来开始函数或者方法的文档注释">
-<strong>推荐</strong> 用第三人称来开始函数或者方法的文档注释。</h3>
+<a id="推荐-用第三人称来开始函数或者方法的文档注释" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E7%94%A8%E7%AC%AC%E4%B8%89%E4%BA%BA%E7%A7%B0%E6%9D%A5%E5%BC%80%E5%A7%8B%E5%87%BD%E6%95%B0%E6%88%96%E8%80%85%E6%96%B9%E6%B3%95%E7%9A%84%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 用第三人称来开始函数或者方法的文档注释。</h3>
 
 <p>注释应该关注于代码 <em>所实现的</em> 功能。</p>
 
@@ -466,7 +480,7 @@ void start() {
 }</pre>
 
 <h3 id="推荐-使用名词短语来开始变量gettersetter-的注释">
-<strong>推荐</strong> 使用名词短语来开始变量、getter、setter 的注释。</h3>
+<a id="推荐-使用名词短语来开始变量gettersetter-的注释" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E5%90%8D%E8%AF%8D%E7%9F%AD%E8%AF%AD%E6%9D%A5%E5%BC%80%E5%A7%8B%E5%8F%98%E9%87%8Fgettersetter-%E7%9A%84%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用名词短语来开始变量、getter、setter 的注释。</h3>
 
 <p>注释文档应该表述这个属性<em>是</em>什么。虽然 getter 函数会做些计算，
 但是也要求这样，调用者关心的是其<em>结果</em>而不是如何计算的。</p>
@@ -482,7 +496,7 @@ int get checkedCount =&gt; ...</pre>
 DartDoc 只会展示其中一个（getter上的文档注释）。</p>
 
 <h3 id="推荐-使用名词短语来开始库和类型注释">
-<strong>推荐</strong> 使用名词短语来开始库和类型注释。</h3>
+<a id="推荐-使用名词短语来开始库和类型注释" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E5%90%8D%E8%AF%8D%E7%9F%AD%E8%AF%AD%E6%9D%A5%E5%BC%80%E5%A7%8B%E5%BA%93%E5%92%8C%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用名词短语来开始库和类型注释。</h3>
 
 <p>在程序中，类的注释通常是最重要的文档。
 类的注释描述了类型的不变性、介绍其使用的术语、
@@ -496,7 +510,7 @@ DartDoc 只会展示其中一个（getter上的文档注释）。</p>
 class Chunk { ... }</pre>
 
 <h3 id="考虑-在文档注释中添加示例代码">
-<strong>考虑</strong> 在文档注释中添加示例代码。</h3>
+<a id="考虑-在文档注释中添加示例代码" class="anchor" href="#%E8%80%83%E8%99%91-%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 在文档注释中添加示例代码。</h3>
 
 <?code-excerpt "misc/lib/effective_dart/docs_good.dart (code-sample)"?>
 <pre class="prettyprint lang-dart good-style">/// Returns the lesser of two numbers.
@@ -510,7 +524,7 @@ num min(num a, num b) =&gt; ...</pre>
 一行最简单的示例代码都可以让 API 更易于理解。</p>
 
 <h3 id="要-使用方括号在文档注释中引用作用域内的标识符">
-<strong>要</strong> 使用方括号在文档注释中引用作用域内的标识符。</h3>
+<a id="要-使用方括号在文档注释中引用作用域内的标识符" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%8B%AC%E5%8F%B7%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E4%B8%AD%E5%BC%95%E7%94%A8%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%86%85%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用方括号在文档注释中引用作用域内的标识符。</h3>
 
 <p>如果给变量，方法，或类型等名称加上方括号，则 dartdoc 会查找名称并链接到相关的 API 文档。
 括号是可选的，但是当你在引用一个方法或者构造函数时，可以让注释更清晰。</p>
@@ -530,7 +544,7 @@ num min(num a, num b) =&gt; ...</pre>
 <pre class="good-style">/// To create a point, call [Point()] or use [Point.polar()] to ...</pre>
 
 <h3 id="要-使用散文的方式来描述参数返回值以及异常信息">
-<strong>要</strong> 使用散文的方式来描述参数、返回值以及异常信息。</h3>
+<a id="要-使用散文的方式来描述参数返回值以及异常信息" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E6%95%A3%E6%96%87%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9D%A5%E6%8F%8F%E8%BF%B0%E5%8F%82%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC%E4%BB%A5%E5%8F%8A%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用散文的方式来描述参数、返回值以及异常信息。</h3>
 
 <p>其他语言使用各种标签和额外的注释来描述参数和返回值。</p>
 
@@ -555,7 +569,7 @@ Flag addFlag(String name, String abbr) =&gt; ...</pre>
 Flag addFlag(String name, String abbr) =&gt; ...</pre>
 
 <h3 id="要-把注释文档放到注解之前">
-<strong>要</strong> 把注释文档放到注解之前。</h3>
+<a id="要-把注释文档放到注解之前" class="anchor" href="#%E8%A6%81-%E6%8A%8A%E6%B3%A8%E9%87%8A%E6%96%87%E6%A1%A3%E6%94%BE%E5%88%B0%E6%B3%A8%E8%A7%A3%E4%B9%8B%E5%89%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 把注释文档放到注解之前。</h3>
 
 <?code-excerpt "misc/lib/effective_dart/docs_good.dart (doc-before-meta)"?>
 <pre class="prettyprint lang-dart good-style">/// A button that can be flipped on and off.
@@ -635,20 +649,20 @@ dartdoc will process it accordingly using the <a href="https://pub.dartlang.org/
 /// #### If you need this many levels of headers, you're doing it wrong</pre>
 
 <h3 id="避免-过度使用-markdown">
-<strong>避免</strong> 过度使用 markdown。</h3>
+<a id="避免-过度使用-markdown" class="anchor" href="#%E9%81%BF%E5%85%8D-%E8%BF%87%E5%BA%A6%E4%BD%BF%E7%94%A8-markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 过度使用 markdown。</h3>
 
 <p>如果有格式缺少的问题，格式化已有的内容来阐明你的想法，而不是替换它，
 内容才是最重要的。</p>
 
 <h3 id="避免-使用-html-来格式化文字">
-<strong>避免</strong> 使用 HTML 来格式化文字。</h3>
+<a id="避免-使用-html-来格式化文字" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8-html-%E6%9D%A5%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%96%87%E5%AD%97" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 使用 HTML 来格式化文字。</h3>
 
 <p>例如表格，在极少数情况下它<em>可能</em>很有用。
 但几乎所有的情况下，在 Markdown 中表格的表示都非常复杂。
 这种情况下最好不要使用表格。</p>
 
 <h3 id="推荐-使用反引号标注代码">
-<strong>推荐</strong> 使用反引号标注代码。</h3>
+<a id="推荐-使用反引号标注代码" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E5%8F%8D%E5%BC%95%E5%8F%B7%E6%A0%87%E6%B3%A8%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用反引号标注代码。</h3>
 
 <p>Markdown 有两种方式来标注一块代码：
 每行代码缩进4个空格，或者在代码上下各标注三个反引号。
@@ -682,18 +696,18 @@ best practices for technical writing, in general, from articles such as
 <a href="https://en.wikiversity.org/wiki/Technical_writing_style">Technical writing style</a>.</p>
 
 <h3 id="推荐-简洁">
-<strong>推荐</strong> 简洁.</h3>
+<a id="推荐-简洁" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E7%AE%80%E6%B4%81" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 简洁.</h3>
 
 <p>要清晰和准确，并且简洁。</p>
 
 <h3 id="避免-缩写和首字母缩写词除非很常见">
-<strong>避免</strong> 缩写和首字母缩写词，除非很常见。</h3>
+<a id="避免-缩写和首字母缩写词除非很常见" class="anchor" href="#%E9%81%BF%E5%85%8D-%E7%BC%A9%E5%86%99%E5%92%8C%E9%A6%96%E5%AD%97%E6%AF%8D%E7%BC%A9%E5%86%99%E8%AF%8D%E9%99%A4%E9%9D%9E%E5%BE%88%E5%B8%B8%E8%A7%81" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 缩写和首字母缩写词，除非很常见。</h3>
 
 <p>很多人都不知道 “i.e.”、 “e.g.” 和 “et. al.” 的意思。
 你所在领域的首字母缩略词对于其他人可能并不了解。</p>
 
 <h3 id="推荐-使用-this-而不是-the-来引用实例成员">
-<strong>推荐</strong> 使用 “this” 而不是 “the” 来引用实例成员。</h3>
+<a id="推荐-使用-this-而不是-the-来引用实例成员" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-this-%E8%80%8C%E4%B8%8D%E6%98%AF-the-%E6%9D%A5%E5%BC%95%E7%94%A8%E5%AE%9E%E4%BE%8B%E6%88%90%E5%91%98" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用 “this” 而不是 “the” 来引用实例成员。</h3>
 
 <p>注释中提及到类的成员，通常是指被调用的对象实例的成员。
 使用 “the” 可能会导致混淆。</p>
@@ -749,7 +763,7 @@ best practices for technical writing, in general, from articles such as
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

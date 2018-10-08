@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -166,8 +166,23 @@ ga('send', 'pageview');
       </a>
     </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#files-and-directories">Files and directories</a></li>
-<li class="toc-entry toc-h2"><a href="#http-clients-and-servers">HTTP clients and servers</a></li>
+<li class="toc-entry toc-h2"><a href="#files-and-directories">Files and directories</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#reading-a-file-as-text">Reading a file as text</a></li>
+<li class="toc-entry toc-h3"><a href="#reading-a-file-as-binary">Reading a file as binary</a></li>
+<li class="toc-entry toc-h3"><a href="#handling-errors">Handling errors</a></li>
+<li class="toc-entry toc-h3"><a href="#streaming-file-contents">Streaming file contents</a></li>
+<li class="toc-entry toc-h3"><a href="#writing-file-contents">Writing file contents</a></li>
+<li class="toc-entry toc-h3"><a href="#listing-files-in-a-directory">Listing files in a directory</a></li>
+<li class="toc-entry toc-h3"><a href="#other-common-functionality">Other common functionality</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#http-clients-and-servers">HTTP clients and servers</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#http-server">HTTP server</a></li>
+<li class="toc-entry toc-h3"><a href="#http-client">HTTP client</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#more-information">More information</a></li>
 </ul>
   </div>
@@ -176,34 +191,23 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/dart-vm/io-library-tour.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='A Tour of the dart:io Library' page issue&body=From URL: https://www.dartlang.org/dart-vm/io-library-tour"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/dart-vm/io-library-tour.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='A Tour of the dart:io Library' page issue&body=
+Page URL: https://www.dartlang.org/dart-vm/io-library-tour%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/dart-vm/io-library-tour.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>A Tour of the dart:io Library</h1>
           </div>
@@ -243,7 +247,8 @@ large or you want to process it while reading it, you should use a
 Stream, as described in
 <a href="#streaming-file-contents">Streaming file contents</a>.</p>
 
-<h3 id="reading-a-file-as-text">Reading a file as text</h3>
+<h3 id="reading-a-file-as-text">
+<a id="reading-a-file-as-text" class="anchor" href="#reading-a-file-as-text" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading a file as text</h3>
 
 <p>When reading a text file encoded using UTF-8, you can read the entire
 file contents with <code class="highlighter-rouge">readAsString()</code>. When the individual lines are
@@ -265,7 +270,8 @@ strings.</p>
   print('The file is ${contents.length} lines long.');
 }</pre>
 
-<h3 id="reading-a-file-as-binary">Reading a file as binary</h3>
+<h3 id="reading-a-file-as-binary">
+<a id="reading-a-file-as-binary" class="anchor" href="#reading-a-file-as-binary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading a file as binary</h3>
 
 <p>The following code reads an entire file as bytes into a list of ints.
 The call to <code class="highlighter-rouge">readAsBytes()</code> returns a Future, which provides the result
@@ -279,7 +285,8 @@ when it’s available.</p>
   print('The file is ${contents.length} bytes long.');
 }</pre>
 
-<h3 id="handling-errors">Handling errors</h3>
+<h3 id="handling-errors">
+<a id="handling-errors" class="anchor" href="#handling-errors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling errors</h3>
 
 <p>To capture errors so they don’t result in uncaught exceptions, you can
 register a <code class="highlighter-rouge">catchError</code> handler on the Future,
@@ -296,7 +303,8 @@ or (in an async function) use try-catch:</p>
   }
 }</pre>
 
-<h3 id="streaming-file-contents">Streaming file contents</h3>
+<h3 id="streaming-file-contents">
+<a id="streaming-file-contents" class="anchor" href="#streaming-file-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Streaming file contents</h3>
 
 <p>Use a Stream to read a file, a little at a time.
 You can use either the <a href="/guides/libraries/library-tour#stream">Stream API</a>
@@ -325,7 +333,8 @@ Future main() async {
   }
 }</pre>
 
-<h3 id="writing-file-contents">Writing file contents</h3>
+<h3 id="writing-file-contents">
+<a id="writing-file-contents" class="anchor" href="#writing-file-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing file contents</h3>
 
 <p>You can use an <a href="https://api.dartlang.org/stable/dart-io/IOSink-class.html">IOSink</a> to
 write data to a file. Use the File <code class="highlighter-rouge">openWrite()</code> method to get an IOSink
@@ -347,7 +356,8 @@ specify <code class="highlighter-rouge">FileMode.append</code>:</p>
 
 <p>To write binary data, use <code class="highlighter-rouge">add(List&lt;int&gt; data)</code>.</p>
 
-<h3 id="listing-files-in-a-directory">Listing files in a directory</h3>
+<h3 id="listing-files-in-a-directory">
+<a id="listing-files-in-a-directory" class="anchor" href="#listing-files-in-a-directory" aria-hidden="true"><span class="octicon octicon-link"></span></a>Listing files in a directory</h3>
 
 <p>Finding all files and subdirectories for a directory is an asynchronous
 operation. The <code class="highlighter-rouge">list()</code> method returns a Stream that emits an object
@@ -371,7 +381,8 @@ when a file or directory is encountered.</p>
   }
 }</pre>
 
-<h3 id="other-common-functionality">Other common functionality</h3>
+<h3 id="other-common-functionality">
+<a id="other-common-functionality" class="anchor" href="#other-common-functionality" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other common functionality</h3>
 
 <p>The File and Directory classes contain other functionality, including
 but not limited to:</p>
@@ -392,7 +403,8 @@ list of methods.</p>
 <p>The dart:io library provides classes that command-line apps can use for
 accessing HTTP resources, as well as running HTTP servers.</p>
 
-<h3 id="http-server">HTTP server</h3>
+<h3 id="http-server">
+<a id="http-server" class="anchor" href="#http-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP server</h3>
 
 <p>The <a href="https://api.dartlang.org/stable/dart-io/HttpServer-class.html">HttpServer</a> class
 provides the low-level functionality for building web servers. You can
@@ -427,7 +439,8 @@ void processRequest(HttpRequest request) {
   response.close();
 }</pre>
 
-<h3 id="http-client">HTTP client</h3>
+<h3 id="http-client">
+<a id="http-client" class="anchor" href="#http-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP client</h3>
 
 <p>The <a href="https://api.dartlang.org/stable/dart-io/HttpClient-class.html">HttpClient</a> class
 helps you connect to HTTP resources from your Dart command-line or
@@ -490,7 +503,7 @@ For more information about server-side and command-line app development, see the
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

@@ -1,1 +1,5 @@
-# All robots welcome!
+User-agent: linkcheck
+Disallow:
+
+User-agent: *
+Disallow: /

@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -172,9 +172,21 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h2"><a href="#using-the-dart-embedding-api-from-native-code">Using the Dart Embedding API from native code</a></li>
 <li class="toc-entry toc-h2"><a href="#dart-handles">Dart handles</a></li>
 <li class="toc-entry toc-h2"><a href="#the-native-code-sample_extensioncc">The native code: sample_extension.cc</a></li>
-<li class="toc-entry toc-h2"><a href="#the-asynchronous-native-extension">The asynchronous native extension</a></li>
+<li class="toc-entry toc-h2"><a href="#the-asynchronous-native-extension">The asynchronous native extension</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#wrapping-the-c-function">Wrapping the C function</a></li>
+<li class="toc-entry toc-h3"><a href="#setting-up-the-native-port">Setting up the native port</a></li>
+<li class="toc-entry toc-h3"><a href="#calling-the-native-port-from-dart">Calling the native port from Dart</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#conclusion-and-further-resources">Conclusion and further resources</a></li>
-<li class="toc-entry toc-h2"><a href="#appendix-compiling-and-linking-extensions">Appendix: Compiling and linking extensions</a></li>
+<li class="toc-entry toc-h2"><a href="#appendix-compiling-and-linking-extensions">Appendix: Compiling and linking extensions</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#building-on-linux">Building on Linux</a></li>
+<li class="toc-entry toc-h3"><a href="#building-on-mac">Building on Mac</a></li>
+<li class="toc-entry toc-h3"><a href="#building-on-windows">Building on Windows</a></li>
+</ul>
+</li>
 </ul>
   </div>
 </div>
@@ -182,34 +194,23 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/dart-vm/native-extensions.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Native Extensions for the Standalone Dart VM' page issue&body=From URL: https://www.dartlang.org/articles/dart-vm/native-extensions"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/dart-vm/native-extensions.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Native Extensions for the Standalone Dart VM' page issue&body=
+Page URL: https://www.dartlang.org/articles/dart-vm/native-extensions%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/dart-vm/native-extensions.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Native Extensions for the Standalone Dart VM</h1>
           </div>
@@ -532,7 +533,8 @@ into C value types.</p>
   message.</li>
 </ol>
 
-<h3 id="wrapping-the-c-function">Wrapping the C function</h3>
+<h3 id="wrapping-the-c-function">
+<a id="wrapping-the-c-function" class="anchor" href="#wrapping-the-c-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wrapping the C function</h3>
 
 <p>Here is an example of a C function (actually, a C++ function, due to the use of
 reinterpret_cast) that creates an array of random bytes,
@@ -601,7 +603,8 @@ because there is no current isolate. No errors or exceptions can be thrown, so
 any error must be encoded in the reply message, to be decoded and thrown by the
 Dart part of the extension.</p>
 
-<h3 id="setting-up-the-native-port">Setting up the native port</h3>
+<h3 id="setting-up-the-native-port">
+<a id="setting-up-the-native-port" class="anchor" href="#setting-up-the-native-port" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up the native port</h3>
 
 <p>Now we set up the mechanism that calls this wrapped C function from Dart code,
 by sending a message. We create a native port that calls this function, and
@@ -618,7 +621,8 @@ this function, and forwards calls to the port.</p>
   }
 }</pre>
 
-<h3 id="calling-the-native-port-from-dart">Calling the native port from Dart</h3>
+<h3 id="calling-the-native-port-from-dart">
+<a id="calling-the-native-port-from-dart" class="anchor" href="#calling-the-native-port-from-dart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Calling the native port from Dart</h3>
 
 <p>On the Dart side, we need a class that stores this send port, sending messages
 to it when a Dart asynchronous function with a callback is called. The Dart
@@ -684,7 +688,8 @@ source repository, the sample code also includes a platform-independent build
 system, called gyp, and a build file sample_extension.gypi that builds the
 sample extension.</p>
 
-<h3 id="building-on-linux">Building on Linux</h3>
+<h3 id="building-on-linux">
+<a id="building-on-linux" class="anchor" href="#building-on-linux" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building on Linux</h3>
 
 <p>On Linux, you can compile the code in the samples/sample_extension directory like this:</p>
 
@@ -697,7 +702,8 @@ libsample_extension.so sample_extension.o</pre>
 
 <p>Remove the -m32 to build a 64-bit library that runs with the 64-bit Dart standalone VM.</p>
 
-<h3 id="building-on-mac">Building on Mac</h3>
+<h3 id="building-on-mac">
+<a id="building-on-mac" class="anchor" href="#building-on-mac" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building on Mac</h3>
 
 <ol>
   <li>Using Xcode (tested with Xcode 3.2.6), create a new project with the same name as the native extension, of type Framework &amp; Library/BSD C Library, type dynamic.</li>
@@ -714,7 +720,8 @@ libsample_extension.so sample_extension.o</pre>
 
 <p>The resulting lib[extension_name].dylib will be in the <b>build/</b> subdirectory of your project location, so copy it to the desired location (probably the location of the Dart library part of the extension).</p>
 
-<h3 id="building-on-windows">Building on Windows</h3>
+<h3 id="building-on-windows">
+<a id="building-on-windows" class="anchor" href="#building-on-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building on Windows</h3>
 
 <p>The Windows DLL compilation is complicated by the fact that we need to link with
 library file, dart.lib, that does not contain code itself, but specifies that
@@ -762,7 +769,7 @@ generated when building dart and is included in the Dart SDK.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -172,9 +172,27 @@ ga('send', 'pageview');
       </a>
     </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
-<li class="toc-entry toc-h2"><a href="#reviews">Reviews</a></li>
-<li class="toc-entry toc-h2"><a href="#examples">Examples</a></li>
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#why-do-mirrors-matter">Why do mirrors matter?</a></li>
+<li class="toc-entry toc-h3"><a href="#what-is-simple-json">What is simple JSON?</a></li>
+<li class="toc-entry toc-h3"><a href="#what-does-your-project-need">What does your project need?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#reviews">Reviews</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#dartson">dartson</a></li>
+<li class="toc-entry toc-h3"><a href="#serialization">serialization</a></li>
+<li class="toc-entry toc-h3"><a href="#protobuf">protobuf</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#examples">Examples</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#dartson-1">dartson</a></li>
+<li class="toc-entry toc-h3"><a href="#serialization-1">serialization</a></li>
+<li class="toc-entry toc-h3"><a href="#protobuf-1">protobuf</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#size-comparisons">Size comparisons</a></li>
 <li class="toc-entry toc-h2"><a href="#summary">Summary</a></li>
 </ul>
@@ -184,34 +202,23 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/libraries/serialization.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Serialization in Dart' page issue&body=From URL: https://www.dartlang.org/articles/libraries/serialization"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/libraries/serialization.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Serialization in Dart' page issue&body=
+Page URL: https://www.dartlang.org/articles/libraries/serialization%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/libraries/serialization.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Serialization in Dart</h1>
           </div>
@@ -321,7 +328,8 @@ are all dart2js-friendly—they
 don’t rely on mirrors,
 although some also provide a mirror-based implementation.</p>
 
-<h3 id="why-do-mirrors-matter">Why do mirrors matter?</h3>
+<h3 id="why-do-mirrors-matter">
+<a id="why-do-mirrors-matter" class="anchor" href="#why-do-mirrors-matter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why do mirrors matter?</h3>
 
 <p>As a rule, avoid mirrors in code that runs in the browser.
 When dart2js compiles Dart code to JavaScript,
@@ -333,7 +341,8 @@ a generated code size of 133KB for
 the mirrors version of dartson (with @MirrorsUsed annotations),
 compared to 56KB for the static, non-mirrors version.</p>
 
-<h3 id="simple-json">What is simple JSON?</h3>
+<h3 id="simple-json">
+<a id="what-is-simple-json" class="anchor" href="#what-is-simple-json" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is simple JSON?</h3>
 
 <p>We use <em>simple JSON</em> throughout this article to refer to
 the default object JSON serialization representation used in JavaScript.
@@ -350,7 +359,8 @@ that isn’t simple JSON.</p>
 <p>Simple JSON serialization is becoming a de facto standard,
 and is available in libraries for many programming languages.</p>
 
-<h3 id="what-does-your-project-need">What does your project need?</h3>
+<h3 id="what-does-your-project-need">
+<a id="what-does-your-project-need" class="anchor" href="#what-does-your-project-need" aria-hidden="true"><span class="octicon octicon-link"></span></a>What does your project need?</h3>
 
 <p>Here are some criteria that can affect
 your choice of a serialization solution,
@@ -429,7 +439,8 @@ This section reviews three solutions:</p>
   <li><a href="#protobuf-review">protobuf</a></li>
 </ul>
 
-<h3 id="dartson-review">dartson</h3>
+<h3 id="dartson-review">
+<a id="dartson" class="anchor" href="#dartson" aria-hidden="true"><span class="octicon octicon-link"></span></a>dartson</h3>
 
 <p>Recommended use cases:</p>
 
@@ -525,7 +536,8 @@ and thus should be used only with the Dart VM:</p>
 </li>
 </ul>
 
-<h3 id="serialization-review">serialization</h3>
+<h3 id="serialization-review">
+<a id="serialization" class="anchor" href="#serialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>serialization</h3>
 
 <p>Recommended use case:</p>
 
@@ -599,7 +611,8 @@ and only when both sides are built together.</li>
 </li>
 </ul>
 
-<h3 id="protobuf-review">protobuf</h3>
+<h3 id="protobuf-review">
+<a id="protobuf" class="anchor" href="#protobuf" aria-hidden="true"><span class="octicon octicon-link"></span></a>protobuf</h3>
 
 <p>Recommended use cases:</p>
 
@@ -733,7 +746,8 @@ looks something like this:</p>
     }]
 }</pre>
 
-<h3 id="dartson-example">dartson</h3>
+<h3 id="dartson-example">
+<a id="dartson-1" class="anchor" href="#dartson-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>dartson</h3>
 
 <ol>
 <li>
@@ -794,13 +808,15 @@ print("Serialized Person: $personString");</pre>
   </li>
 </ol>
 
-<h3 id="serialization-example">serialization</h3>
+<h3 id="serialization-example">
+<a id="serialization-1" class="anchor" href="#serialization-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>serialization</h3>
 
 <p>This package is still changing. See the
 <a href="https://pub.dartlang.org/packages/serialization">serialization package page</a>
 for the latest details.</p>
 
-<h3 id="protobuf-example">protobuf</h3>
+<h3 id="protobuf-example">
+<a id="protobuf-1" class="anchor" href="#protobuf-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>protobuf</h3>
 
 <ol>
 <li>
@@ -1051,7 +1067,7 @@ To find more solutions,
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

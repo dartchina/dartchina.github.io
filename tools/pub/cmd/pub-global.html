@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -166,8 +166,21 @@ ga('send', 'pageview');
       </a>
     </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#activating-a-package">Activating a package</a></li>
-<li class="toc-entry toc-h2"><a href="#running-a-script">Running a script</a></li>
+<li class="toc-entry toc-h2"><a href="#activating-a-package">Activating a package</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#activating-a-package-on-pubdartlangorg">Activating a package on pub.dartlang.org</a></li>
+<li class="toc-entry toc-h3"><a href="#activating-a-package-with-git">Activating a package with Git</a></li>
+<li class="toc-entry toc-h3"><a href="#activating-a-package-on-your-local-machine">Activating a package on your local machine</a></li>
+<li class="toc-entry toc-h3"><a href="#updating-an-activated-package">Updating an activated package</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#running-a-script">Running a script</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#running-a-script-from-your-path">Running a script from your PATH</a></li>
+<li class="toc-entry toc-h3"><a href="#running-a-script-using-pub-global-run">Running a script using pub global run</a></li>
+<li class="toc-entry toc-h3"><a href="#configuring-package-executables">Configuring package executables</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#deactivating-a-package">Deactivating a package</a></li>
 <li class="toc-entry toc-h2"><a href="#listing-active-packages">Listing active packages</a></li>
 <li class="toc-entry toc-h2"><a href="#options">Options</a></li>
@@ -178,14 +191,7 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 
           
@@ -216,23 +222,19 @@ ga('send', 'pageview');
   </ol>
 </nav>
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/pub/cmd/pub-global.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='pub global' page issue&body=From URL: https://www.dartlang.org/tools/pub/cmd/pub-global"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/pub/cmd/pub-global.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='pub global' page issue&body=
+Page URL: https://www.dartlang.org/tools/pub/cmd/pub-global%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/tools/pub/cmd/pub-global.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>pub global</h1>
           </div>
@@ -276,7 +278,8 @@ script</a> to run scripts from the package’s
 <p>When you activate a package you can specify an optional version
 constraint.  See the <a href="#options">constraint</a> flag for usage examples.</p>
 
-<h3 id="activating-a-package-on-pubdartlangorg">Activating a package on pub.dartlang.org</h3>
+<h3 id="activating-a-package-on-pubdartlangorg">
+<a id="activating-a-package-on-pubdartlangorg" class="anchor" href="#activating-a-package-on-pubdartlangorg" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activating a package on pub.dartlang.org</h3>
 
 <div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> pub global activate &lt;pub.dartlang package&gt;
 </code></pre></div></div>
@@ -286,7 +289,8 @@ constraint.  See the <a href="#options">constraint</a> flag for usage examples.<
 <div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> pub global activate markdown
 </code></pre></div></div>
 
-<h3 id="activating-a-package-with-git">Activating a package with Git</h3>
+<h3 id="activating-a-package-with-git">
+<a id="activating-a-package-with-git" class="anchor" href="#activating-a-package-with-git" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activating a package with Git</h3>
 
 <div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> pub global activate <span class="nt">--source</span> git &lt;Git URL&gt;
 <span class="gp">$</span> pub global activate <span class="nt">-sgit</span> &lt;Git URL&gt;
@@ -301,7 +305,8 @@ which activate the <code class="highlighter-rouge">async_await</code> package on
 <span class="gp">$</span> pub global activate <span class="nt">-sgit</span> https://github.com/dart-lang/async_await.git
 </code></pre></div></div>
 
-<h3 id="activating-a-package-on-your-local-machine">Activating a package on your local machine</h3>
+<h3 id="activating-a-package-on-your-local-machine">
+<a id="activating-a-package-on-your-local-machine" class="anchor" href="#activating-a-package-on-your-local-machine" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activating a package on your local machine</h3>
 
 <div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> pub global activate <span class="nt">--source</span> path &lt;path&gt;
 </code></pre></div></div>
@@ -313,7 +318,8 @@ The following example activates the <code class="highlighter-rouge">stopwatch</c
 <div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> pub global activate <span class="nt">--source</span> path ~/dart/stopwatch
 </code></pre></div></div>
 
-<h3 id="updating-an-activated-package">Updating an activated package</h3>
+<h3 id="updating-an-activated-package">
+<a id="updating-an-activated-package" class="anchor" href="#updating-an-activated-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Updating an activated package</h3>
 
 <p>Once a package has been activated, you can upgrade it by activating the
 package again.</p>
@@ -325,7 +331,8 @@ package again.</p>
 command line. If you are unable to run the script directly,
 you can also use <code class="highlighter-rouge">pub global run</code>.</p>
 
-<h3 id="running-a-script-from-your-path">Running a script from your PATH</h3>
+<h3 id="running-a-script-from-your-path">
+<a id="running-a-script-from-your-path" class="anchor" href="#running-a-script-from-your-path" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running a script from your PATH</h3>
 
 <p>To run a script directly from the command line, add the <code class="highlighter-rouge">bin</code> file
 for the <a href="/tools/pub/glossary#system-cache">system cache</a> to your path.</p>
@@ -380,7 +387,8 @@ $ <span class="highlight">stagehand web-angular</span></pre>
 package may not be <a href="#configuring-package-executables">configured</a> for
 this feature. You can still run the script using <code class="highlighter-rouge">pub global run</code>.</p>
 
-<h3 id="running-a-script-using-pub-global-run">Running a script using <code class="highlighter-rouge">pub global run</code>
+<h3 id="running-a-script-using-pub-global-run">
+<a id="running-a-script-using-pub-global-run" class="anchor" href="#running-a-script-using-pub-global-run" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running a script using <code class="highlighter-rouge">pub global run</code>
 </h3>
 
 <pre><code class="language-nocode">$ pub global run &lt;package&gt;:&lt;executable&gt; [args...]
@@ -394,7 +402,8 @@ The following command runs the <code class="highlighter-rouge">bin/bar.dart</cod
 <div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> pub global run foo:bar arg1 arg2
 </code></pre></div></div>
 
-<h3 id="configuring-package-executables">Configuring package executables</h3>
+<h3 id="configuring-package-executables">
+<a id="configuring-package-executables" class="anchor" href="#configuring-package-executables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuring package executables</h3>
 
 <p>If you are not a package developer, you can skip this section.</p>
 
@@ -517,7 +526,7 @@ the new executable overwrites the previously activated executable.</dd>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

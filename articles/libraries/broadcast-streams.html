@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -174,9 +174,22 @@ ga('send', 'pageview');
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
 <li class="toc-entry toc-h2"><a href="#subscriptions">Subscriptions</a></li>
-<li class="toc-entry toc-h2"><a href="#single-subscription-streams">Single-subscription streams</a></li>
-<li class="toc-entry toc-h2"><a href="#broadcast-streams">Broadcast streams</a></li>
-<li class="toc-entry toc-h2"><a href="#alternatives-to-asbroadcaststream">Alternatives to asBroadcastStream</a></li>
+<li class="toc-entry toc-h2"><a href="#single-subscription-streams">Single-subscription streams</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#creating-single-subscription-streams">Creating single-subscription streams</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#broadcast-streams">Broadcast streams</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#creating-broadcast-streams">Creating broadcast streams</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#alternatives-to-asbroadcaststream">Alternatives to asBroadcastStream</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#listener-swapping">Listener swapping</a></li>
+<li class="toc-entry toc-h3"><a href="#streamiterator">StreamIterator</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#conclusion">Conclusion</a></li>
 </ul>
   </div>
@@ -185,34 +198,23 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/libraries/broadcast-streams.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Single-Subscription vs. Broadcast Streams' page issue&body=From URL: https://www.dartlang.org/articles/libraries/broadcast-streams"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/libraries/broadcast-streams.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Single-Subscription vs. Broadcast Streams' page issue&body=
+Page URL: https://www.dartlang.org/articles/libraries/broadcast-streams%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/libraries/broadcast-streams.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Single-Subscription vs. Broadcast Streams</h1>
           </div>
@@ -401,7 +403,8 @@ the stream has already had a listener (the <code class="highlighter-rouge">isNot
 and no other listener is allowed.
 Similarly, the <code class="highlighter-rouge">first</code> getter can be invoked only once.</p>
 
-<h3 id="creating-single-subscription-streams">Creating single-subscription streams</h3>
+<h3 id="creating-single-subscription-streams">
+<a id="creating-single-subscription-streams" class="anchor" href="#creating-single-subscription-streams" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating single-subscription streams</h3>
 
 <p>The easiest way to create a stream is to use a StreamController
 where the default constructor instantiates a controller
@@ -502,7 +505,8 @@ so broadcast streams should document their closing behavior.
 Generally we assume that no documentation means that
 the stream has an infinite lifetime.</p>
 
-<h3 id="creating-broadcast-streams">Creating broadcast streams</h3>
+<h3 id="creating-broadcast-streams">
+<a id="creating-broadcast-streams" class="anchor" href="#creating-broadcast-streams" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating broadcast streams</h3>
 
 <p>The StreamController class comes with a factory constructor
 <code class="highlighter-rouge">StreamController.broadcast</code> that has been designed for broadcast streams.
@@ -582,7 +586,8 @@ such as <code class="highlighter-rouge">first</code> and <code class="highlighte
 As shown above this is a dangerous trade-off.
 This section shows some safer alternatives.</p>
 
-<h3 id="listener-swapping">Listener swapping</h3>
+<h3 id="listener-swapping">
+<a id="listener-swapping" class="anchor" href="#listener-swapping" aria-hidden="true"><span class="octicon octicon-link"></span></a>Listener swapping</h3>
 
 <p>Stream subscriptions allow exchanging their listeners.
 Instead of calling <code class="highlighter-rouge">first</code> multiple times on the stream,
@@ -621,7 +626,8 @@ can easily get rid of them.
 A popular abstraction is, for example, a state machine.
 Another one is the StreamIterator class.</p>
 
-<h3 id="streamiterator">StreamIterator</h3>
+<h3 id="streamiterator">
+<a id="streamiterator" class="anchor" href="#streamiterator" aria-hidden="true"><span class="octicon octicon-link"></span></a>StreamIterator</h3>
 
 <p>Frequently, different events of an asynchronous stream
 are destined for different parts of a system.
@@ -722,7 +728,7 @@ and Kathy Walrath for their suggestions and help to improve this article.</em></
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

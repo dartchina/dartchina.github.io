@@ -11287,6 +11287,8 @@ img {
   position: fixed;
   width: 225px;
   right: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
   z-index: 999; }
   #toc .content {
     padding-top: 20px;
@@ -11804,18 +11806,11 @@ ul.nav-list {
       font-size: 20px;
       margin-bottom: 0; }
 
-ul.page-github-links-menu {
-  padding: 0;
-  float: right;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem; }
-  ul.page-github-links-menu li {
-    display: inline;
-    padding-left: 0.5rem; }
-    ul.page-github-links-menu li:first-child {
-      padding-left: 0; }
-  ul.page-github-links-menu a {
-    font-size: 1.2rem; }
+#page-github-links {
+  float: right; }
+  #page-github-links .btn, #page-github-links input.gsc-search-button {
+    padding-left: 0.375rem;
+    padding-right: 0.375rem; }
 
 /* -----------------------------------------
   Templates

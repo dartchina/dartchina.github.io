@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -45,7 +45,7 @@ ga('send', 'pageview');
 
 </head>
 
-  <body class="default obsolete">
+  <body class="default">
     <header id="page-header">
   <nav id="mainnav">
   <div id="menu-toggle"><i class="icon icon-menu"></i></div>
@@ -83,12 +83,6 @@ ga('send', 'pageview');
   </ul>
 </nav>
 
-  
-  <div class="alert alert-warning">
-    <h4 class="text-center">
-      Some of the content of this page might be out of date.
-    </h4>
-  </div>
   
 </header>
 
@@ -173,8 +167,13 @@ ga('send', 'pageview');
     </header>
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#transforming-an-existing-stream">Transforming an existing stream</a></li>
-<li class="toc-entry toc-h2"><a href="#using-a-streamcontroller">Using a StreamController</a></li>
-<li class="toc-entry toc-h2"><a href="#extending-stream">Extending Stream</a></li>
+<li class="toc-entry toc-h2"><a href="#creating-a-stream-from-scratch">Creating a stream from scratch</a></li>
+<li class="toc-entry toc-h2"><a href="#using-a-streamcontroller">Using a StreamController</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#waiting-for-a-subscription">Waiting for a subscription</a></li>
+<li class="toc-entry toc-h3"><a href="#honoring-the-pause-state">Honoring the pause state</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#final-hints">Final hints</a></li>
 </ul>
   </div>
@@ -183,34 +182,23 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/libraries/creating-streams.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Creating Streams in Dart' page issue&body=From URL: https://www.dartlang.org/articles/libraries/creating-streams"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/libraries/creating-streams.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Creating Streams in Dart' page issue&body=
+Page URL: https://www.dartlang.org/articles/libraries/creating-streams%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/libraries/creating-streams.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Creating Streams in Dart</h1>
           </div>
@@ -219,35 +207,32 @@ ga('send', 'pageview');
 </style>
 
 <p><em>Written by Lasse Nielsen <br>
-April 2013</em></p>
+April 2013 (updated October 2018)</em></p>
 
 <p>The dart:async library contains two types
 that are important for many Dart APIs:
 <a href="https://api.dartlang.org/stable/dart-async/Stream-class.html">Stream</a> and
-<a href="https://api.dartlang.org/stable/dart-async/Future-class.html">Future</a>.
+<a href="https://api.dartlang.org/stable/dart-async/Future-class.html">Future.</a>
 Where a Future represents the result of a single computation,
 a stream is a <em>sequence</em> of results.
 You listen on a stream to get notified of the results
 (both data and errors)
 and of the stream shutting down.
-You can also pause the stream or stop listening to it.</p>
+You can also pause while listening or stop listening to the stream
+before it is complete.</p>
 
 <p>But this article is not about <em>using</em> streams.
 It’s about creating your own streams.
-You can create streams by transforming existing streams,
-by using a StreamController,
-or if necessary by extending Stream itself.
-This article shows the code for each approach
-and gives tips to help you implement your stream correctly.</p>
+You can create streams in a few ways:</p>
 
-<aside class="alert alert-info">
-  <p><strong>Note:</strong>
-This article was updated in October 2013
-to remove sections that used the obsolete EventTransformStream
-and StreamEventTransformer classes.
-For details on how stream transformers have changed, see the
-<a href="https://groups.google.com/a/dartlang.org/d/msg/misc/7sAIhWXfIKQ/PzYJy1QqtWUJ">breaking change notice</a>.</p>
-</aside>
+<ul>
+  <li>Transforming existing streams.</li>
+  <li>Creating a stream from scratch by using an <code class="highlighter-rouge">async*</code> function.</li>
+  <li>Creating a stream by using a <code class="highlighter-rouge">StreamController</code>.</li>
+</ul>
+
+<p>This article shows the code for each approach
+and gives tips to help you implement your stream correctly.</p>
 
 <p>For help on using streams, see
 <a href="/tutorials/language/streams">Asynchronous Programming: Streams</a>.</p>
@@ -255,85 +240,204 @@ For details on how stream transformers have changed, see the
 <h2 id="transforming-an-existing-stream">
 <a id="transforming-an-existing-stream" class="anchor" href="#transforming-an-existing-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Transforming an existing stream</h2>
 
-<p>If you already have a stream
-and just want to transform the events in some way,
-you can use Stream’s transforming methods
-such as <code class="highlighter-rouge">map()</code>, <code class="highlighter-rouge">where()</code>, <code class="highlighter-rouge">expand()</code>, and <code class="highlighter-rouge">take()</code>.
-If you need more control over the transformation,
-you can use Stream’s <code class="highlighter-rouge">transform()</code> method.</p>
+<p>The common case for creating streams is that you already have a stream,
+and you want to create a new stream based on the original stream’s events.
+For example you might have a stream of bytes that
+you want to convert to a stream of strings by UTF-8 decoding the input.
+The most general approach is to create a new stream that
+waits for events on the original stream and then
+outputs new events. Example:</p>
 
-<p>For example, say someone else has implemented a function called
-timedCounter() that returns a stream of steadily incrementing integers.
-To get and use the stream returned by the function,
-you use code like this
-(from <a href="code/stream_controller.dart">stream_controller.dart</a>):</p>
+<?code-excerpt "misc/lib/articles/creating-streams/line_stream_generator.dart (split into lines)"?>
+<pre class="prettyprint lang-dart">/// Splits a stream of consecutive strings into lines.
+///
+/// The input string is provided in smaller chunks through
+/// the `source` stream.
+Stream&lt;String&gt; lines(Stream&lt;String&gt; source) async* {
+  // Stores any partial line from the previous chunk.
+  var partial = '';
+  // Wait until a new chunk is available, then process it.
+  await for (var chunk in source) {
+    var lines = chunk.split('\n');
+    lines[0] = partial + lines[0]; // Prepend partial line.
+    partial = lines.removeLast(); // Remove new partial line.
+    for (var line in lines) {
+      yield line; // Add lines to output stream.
+    }
+  }
+  // Add final partial line to output stream, if any.
+  if (partial.isNotEmpty) yield partial;
+}</pre>
 
-<pre class="prettyprint lang-dart">Stream&lt;int&gt; counterStream = timedCounter(const Duration(seconds: 1), 15);
-counterStream.listen(print);      // Print an integer every second, 15 times.</pre>
+<p>For many common transformations,
+you can use <code class="highlighter-rouge">Stream</code>-supplied transforming methods
+such as <code class="highlighter-rouge">map()</code>, <code class="highlighter-rouge">where()</code>, <code class="highlighter-rouge">expand()</code>, and <code class="highlighter-rouge">take()</code>.</p>
 
-<p>To transform the stream,
-you can invoke a transforming method such as <code class="highlighter-rouge">map()</code>
-on the stream:</p>
+<p>For example, assume you have a stream, <code class="highlighter-rouge">counterStream</code>,
+that emits an increasing counter every second.
+Here’s how it might be implemented:</p>
 
-<pre class="prettyprint lang-dart">Stream&lt;int&gt; counterStream2 =
-    timedCounter(const Duration(seconds: 1), 15)
-    .map((int x) =&gt; x * 2);       // Double the integer in each event.
-counterStream2.listen(print);</pre>
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (basic usage)"?>
+<pre class="prettyprint lang-dart">var counterStream =
+    Stream&lt;int&gt;.periodic(Duration(seconds: 1), (x) =&gt; x).take(15);</pre>
 
-<p>Instead of <code class="highlighter-rouge">map()</code>, you could use any transforming method, such as:</p>
+<p>To quickly see the events, you can use code like this:</p>
 
-<pre class="prettyprint lang-dart">.where((int x) =&gt; x.isEven);      // Retain only even integer events.
-.expand((var x) =&gt; [x, x]);       // Duplicate each event.
-.take(5);                         // Stop after the first five events.</pre>
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (basic for each)"?>
+<pre class="prettyprint lang-dart">counterStream.forEach(print); // Print an integer every second, 15 times.</pre>
+
+<p>To transform the stream events, you can invoke a transforming method
+such as <code class="highlighter-rouge">map()</code> on the stream before listening to it.
+The method returns a new stream.</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (use-map)"?>
+<pre class="prettyprint lang-dart">// Double the integer in each event.
+var doubleCounterStream = counterStream.map((int x) =&gt; x * 2);
+doubleCounterStream.forEach(print);</pre>
+
+<p>Instead of <code class="highlighter-rouge">map()</code>, you could use any other transforming method,
+such as the following:</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (use-where)"?>
+<pre class="prettyprint lang-dart">.where((int x) =&gt; x.isEven) // Retain only even integer events.
+.expand((var x) =&gt; [x, x]) // Duplicate each event.
+.take(5) // Stop after the first five events.</pre>
 
 <p>Often, a transforming method is all you need.
-However, if you need more control over the transformation,
+However, if you need even more control over the transformation,
 you can specify a
 <a href="https://api.dartlang.org/stable/dart-async/StreamTransformer-class.html">StreamTransformer</a>
-with Stream’s <code class="highlighter-rouge">transform()</code> method.</p>
+with <code class="highlighter-rouge">Stream</code>’s <code class="highlighter-rouge">transform()</code> method.
+The platform libraries provide stream transformers for many common tasks.
+For example, the following code uses the <code class="highlighter-rouge">utf8.decoder</code> and <code class="highlighter-rouge">LineSplitter</code>
+transformers provided by the dart:convert library.</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (use-transform)"?>
+<pre class="prettyprint lang-dart">Stream&lt;List&lt;int&gt;&gt; content = File('someFile.txt').openRead();
+List&lt;String&gt; lines =
+    await content.transform(utf8.decoder).transform(LineSplitter()).toList();</pre>
+
+<h2 id="creating-a-stream-from-scratch">
+<a id="creating-a-stream-from-scratch" class="anchor" href="#creating-a-stream-from-scratch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a stream from scratch</h2>
+
+<p>One way to create a new stream is with
+an asynchronous generator (<code class="highlighter-rouge">async*</code>) function.
+The stream is created when the function is called,
+and the function’s body starts running when the stream is listened to.
+When the function returns, the stream closes.
+Until the function returns, it can emit events on the stream by
+using <code class="highlighter-rouge">yield</code> or <code class="highlighter-rouge">yield*</code> statements.</p>
+
+<p>Here’s a primitive example that emits numbers at regular intervals:</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (async-generator)" replace="/timedCounterGenerator/timedCounter/g"?>
+<pre class="prettyprint lang-dart">Stream&lt;int&gt; timedCounter(Duration interval, [int maxCount]) async* {
+  int i = 0;
+  while (true) {
+    await Future.delayed(interval);
+    yield i++;
+    if (i == maxCount) break;
+  }
+}</pre>
+
+<p><strong>[PENDING: show code that uses it, so we have some context for
+the mention of StreamSubscription?]</strong></p>
+
+<p>This function returns a <code class="highlighter-rouge">Stream</code>.
+When that stream is listened to, the body starts running.
+It repeatedly delays for the requested interval and then yields the next number.
+If the <code class="highlighter-rouge">count</code> parameter is omitted, there is no stop condition on the loop,
+so the stream outputs increasingly larger numbers forever -
+or until the listener cancels its subscription.</p>
+
+<p>When the listener cancels
+(by invoking <code class="highlighter-rouge">cancel()</code> on the <code class="highlighter-rouge">StreamSubscription</code>
+object returned by the <code class="highlighter-rouge">listen()</code> method),
+then the next time the body reaches a <code class="highlighter-rouge">yield</code> statement,
+the <code class="highlighter-rouge">yield</code> instead acts as a <code class="highlighter-rouge">return</code> statement.
+Any enclosing <code class="highlighter-rouge">finally</code> block is executed,
+and the function exits.
+If the function attempts to yield a value before exiting,
+that fails and acts as a return.</p>
+
+<p>When the function finally exits, the future returned by
+the <code class="highlighter-rouge">cancel()</code> method completes.
+If the function exits with an error, the future completes with that error;
+otherwise, it completes with <code class="highlighter-rouge">null</code>.</p>
+
+<p>Another, more useful example is a function that converts
+a sequence of futures to a stream:</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (stream-from-futures)"?>
+<pre class="prettyprint lang-dart">Stream&lt;T&gt; streamFromFutures&lt;T&gt;(Iterable&lt;Future&lt;T&gt;&gt; futures) async* {
+  for (var future in futures) {
+    var result = await future;
+    yield result;
+  }
+}</pre>
+
+<p>This function asks the <code class="highlighter-rouge">futures</code> iterable for a new future,
+waits for that future, emits the resulting value, and then loops.
+If a future completes with an error, then the stream completes with that error.</p>
+
+<p>It’s rare to have an <code class="highlighter-rouge">async*</code> function building a stream from nothing.
+It needs to get its data from somewhere,
+and most often that somewhere is another stream.
+In some cases, like the sequence of futures above,
+the data comes from other asynchronous event sources.
+In many cases, however, an <code class="highlighter-rouge">async*</code> function is too simplistic to
+easily handle multiple data sources.
+That’s where the <code class="highlighter-rouge">StreamController</code> class comes in.</p>
 
 <h2 id="using-a-streamcontroller">
 <a id="using-a-streamcontroller" class="anchor" href="#using-a-streamcontroller" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using a StreamController</h2>
 
-<p>When you need to implement a stream, consider using
-<a href="https://api.dartlang.org/stable/dart-async/StreamController-class.html">StreamController</a>.
-Creating a StreamController gives you a new stream
-and allows you to add events to the stream.
+<p>If the events of your stream comes from different parts of your program,
+and not just from a stream or futures that can traversed by an async function,
+then use a
+<a href="https://api.dartlang.org/stable/dart-async/StreamController-class.html">StreamController</a>
+to create and populate the stream.</p>
+
+<p>A <code class="highlighter-rouge">StreamController</code> gives you a new stream
+and a way to add events to the stream at any point, and from anywhere.
 The stream has all the logic necessary to handle listeners and pausing.
-You can then return the stream and keep the controller to yourself.</p>
+You return the stream and keep the controller to yourself.</p>
 
 <p>The following example
 (from <a href="code/stream_controller_bad.dart">stream_controller_bad.dart</a>)
-shows a basic, though flawed, usage of StreamController
-to implement the timedCounter() function from the previous examples.
+shows a basic, though flawed, usage of <code class="highlighter-rouge">StreamController</code>
+to implement the <code class="highlighter-rouge">timedCounter()</code> function from the previous examples.
 This code creates a stream to return,
-and then feeds data into it.</p>
+and then feeds data into it based on timer events,
+which are neither futures nor stream events.</p>
 
-<pre class="prettyprint lang-dart">// NOTE: This implementation is FLAWED!
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller_bad.dart (flawed stream)"?>
+<pre class="prettyprint lang-dart bad-style">// NOTE: This implementation is FLAWED!
 // It starts before it has subscribers, and it doesn't implement pause.
 Stream&lt;int&gt; timedCounter(Duration interval, [int maxCount]) {
-  StreamController&lt;int&gt; controller = new StreamController&lt;int&gt;();
+  var controller = StreamController&lt;int&gt;();
   int counter = 0;
   void tick(Timer timer) {
     counter++;
     controller.add(counter); // Ask stream to send counter values as event.
     if (maxCount != null &amp;&amp; counter &gt;= maxCount) {
       timer.cancel();
-      controller.close();    // Ask stream to shut down and tell listeners.
+      controller.close(); // Ask stream to shut down and tell listeners.
     }
   }
-  new Timer.periodic(interval, tick); // BAD: Starts before it has subscribers.
+
+  Timer.periodic(interval, tick); // BAD: Starts before it has subscribers.
   return controller.stream;
 }</pre>
 
-<p>As before, you can use the stream returned by timedCounter() like this:</p>
+<p>As before, you can use the stream returned by <code class="highlighter-rouge">timedCounter()</code> like this:
+<strong>[PENDING: Did we show this before?]</strong></p>
 
-<pre class="prettyprint lang-dart">main() {
-  Stream&lt;int&gt; counterStream = timedCounter(const Duration(seconds: 1), 15);
-  counterStream.listen(print);      // Print an integer every second, 15 times.
-}</pre>
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller_bad.dart (using stream)"?>
+<pre class="prettyprint lang-dart">var counterStream = timedCounter(const Duration(seconds: 1), 15);
+counterStream.listen(print); // Print an integer every second, 15 times.</pre>
 
-<p>This implementation of timedCounter() has
+<p>This implementation of <code class="highlighter-rouge">timedCounter()</code> has
 a couple of problems:</p>
 
 <ul>
@@ -344,64 +448,76 @@ a couple of problems:</p>
 <p>As the next sections show,
 you can fix both of these problems by specifying
 callbacks such as <code class="highlighter-rouge">onListen</code> and <code class="highlighter-rouge">onPause</code>
-when creating the StreamController.</p>
+when creating the <code class="highlighter-rouge">StreamController</code>.</p>
 
-<h3 id="waiting-for-a-subscription">Waiting for a subscription</h3>
+<h3 id="waiting-for-a-subscription">
+<a id="waiting-for-a-subscription" class="anchor" href="#waiting-for-a-subscription" aria-hidden="true"><span class="octicon octicon-link"></span></a>Waiting for a subscription</h3>
 
 <p>As a rule, streams should wait for subscribers before starting their work.
+An <code class="highlighter-rouge">async*</code> function does this automatically,
+but when using a <code class="highlighter-rouge">StreamController</code>,
+you are in full control and can add events even when you shouldn’t.
 When a stream has no subscriber,
-its StreamController buffers events,
+its <code class="highlighter-rouge">StreamController</code> buffers events,
 which can lead to a memory leak
 if the stream never gets a subscriber.</p>
 
-<p>Try changing main() to the following:</p>
+<p>Try changing the code that uses the stream to the following:</p>
 
-<pre class="prettyprint lang-dart">main() {
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller_bad.dart (pre-subscribe problem)"?>
+<pre class="prettyprint lang-dart">void listenAfterDelay() async {
   var counterStream = timedCounter(const Duration(seconds: 1), 15);
+  await Future.delayed(const Duration(seconds: 5));
 
   // After 5 seconds, add a listener.
-  new Timer(const Duration(seconds: 5), () =&gt; counterStream.listen(print));
+  await for (int n in counterStream) {
+    print(n); // Print an integer every second, 15 times.
+  }
 }</pre>
 
 <p>When this code runs,
 nothing is printed for the first 5 seconds,
 although the stream is doing work.
 Then the listener is added,
-and the first 10 or so events are printed all at once,
-since they were buffered by the StreamController.</p>
+and the first 5 or so events are printed all at once,
+since they were buffered by the <code class="highlighter-rouge">StreamController</code>.</p>
 
 <p>To be notified of subscriptions, specify an
-<code class="highlighter-rouge">onListen</code> argument when you create the StreamController.
-The onListen callback is called
+<code class="highlighter-rouge">onListen</code> argument when you create the <code class="highlighter-rouge">StreamController</code>.
+The <code class="highlighter-rouge">onListen</code> callback is called
 when the stream gets its first subscriber.
 If you specify an <code class="highlighter-rouge">onCancel</code> callback,
 it’s called when the controller loses its last subscriber.
 In the preceding example,
-<code class="highlighter-rouge">new Timer.periodic()</code>
-should move to an onListen handler,
+<code class="highlighter-rouge">Timer.periodic()</code>
+should move to an <code class="highlighter-rouge">onListen</code> handler,
 as shown in the next section.</p>
 
-<h3 id="honoring-the-pause-state">Honoring the pause state</h3>
+<h3 id="honoring-the-pause-state">
+<a id="honoring-the-pause-state" class="anchor" href="#honoring-the-pause-state" aria-hidden="true"><span class="octicon octicon-link"></span></a>Honoring the pause state</h3>
 
 <p>Avoid producing events when the listener has requested a pause.
-StreamController buffers events during the pause,
-but if the stream doesn’t respect the pause,
+An async* function automatically pauses at a <code class="highlighter-rouge">yield</code> statement
+while the stream subscription is paused.
+A <code class="highlighter-rouge">StreamController</code>, on the other hand, buffers events during the pause.
+If the code providing the events doesn’t respect the pause,
 the size of the buffer can grow indefinitely.
 Also, if the listener stops listening soon after pausing,
 then the work spent creating the buffer is wasted.</p>
 
 <p>To see what happens without pause support,
-try changing the main() method above to this:</p>
+try changing the code that uses the stream to the following:</p>
 
-<pre class="prettyprint lang-dart">main() {
-  Stream&lt;int&gt; counterStream = timedCounter(const Duration(seconds: 1), 15);
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller_bad.dart (pause problem)"?>
+<pre class="prettyprint lang-dart">void listenWithPause() {
+  var counterStream = timedCounter(const Duration(seconds: 1), 15);
   StreamSubscription&lt;int&gt; subscription;
+
   subscription = counterStream.listen((int counter) {
-    print(counter);  // Print an integer every second.
+    print(counter); // Print an integer every second.
     if (counter == 5) {
       // After 5 ticks, pause for five seconds, then resume.
-      subscription.pause();
-      new Timer(const Duration(seconds: 5), subscription.resume);
+      subscription.pause(Future.delayed(const Duration(seconds: 5)));
     }
   });
 }</pre>
@@ -410,18 +526,17 @@ try changing the main() method above to this:</p>
 the events fired during that time are all received at once.
 That happens because the stream’s source doesn’t honor pauses
 and keeps adding events to the stream.
-So the stream has to buffer the events,
+So the stream buffers the events,
 and it then empties its buffer when the stream becomes unpaused.</p>
 
-<p>The following version of timedCounter()
+<p>The following version of <code class="highlighter-rouge">timedCounter()</code>
 (from <a href="code/stream_controller.dart">stream_controller.dart</a>)
 implements pause by using the
 <code class="highlighter-rouge">onListen</code>, <code class="highlighter-rouge">onPause</code>, <code class="highlighter-rouge">onResume</code>, and <code class="highlighter-rouge">onCancel</code> callbacks
-on the StreamController.</p>
+on the <code class="highlighter-rouge">StreamController</code>.</p>
 
-<pre class="prettyprint lang-dart">import 'dart:async';
-
-Stream&lt;int&gt; timedCounter(Duration interval, [int maxCount]) {
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (better stream)"?>
+<pre class="prettyprint lang-dart">Stream&lt;int&gt; timedCounter(Duration interval, [int maxCount]) {
   StreamController&lt;int&gt; controller;
   Timer timer;
   int counter = 0;
@@ -429,14 +544,14 @@ Stream&lt;int&gt; timedCounter(Duration interval, [int maxCount]) {
   void tick(_) {
     counter++;
     controller.add(counter); // Ask stream to send counter values as event.
-    if (maxCount != null &amp;&amp; counter &gt;= maxCount) {
+    if (counter == maxCount) {
       timer.cancel();
-      controller.close();    // Ask stream to shut down and tell listeners.
+      controller.close(); // Ask stream to shut down and tell listeners.
     }
   }
 
   void startTimer() {
-    timer = new Timer.periodic(interval, tick);
+    timer = Timer.periodic(interval, tick);
   }
 
   void stopTimer() {
@@ -446,7 +561,7 @@ Stream&lt;int&gt; timedCounter(Duration interval, [int maxCount]) {
     }
   }
 
-  controller = new StreamController&lt;int&gt;(
+  controller = StreamController&lt;int&gt;(
       onListen: startTimer,
       onPause: stopTimer,
       onResume: startTimer,
@@ -455,7 +570,7 @@ Stream&lt;int&gt; timedCounter(Duration interval, [int maxCount]) {
   return controller.stream;
 }</pre>
 
-<p>Run this code with the main() method above.
+<p>Run this code with the <code class="highlighter-rouge">listenWithPause()</code> function above.
 You’ll see that it stops counting while paused,
 and it resumes nicely afterwards.</p>
 
@@ -464,143 +579,66 @@ and it resumes nicely afterwards.</p>
 notified of changes in pause state.
 The reason is that if the
 subscription and pause states both change at the same time,
-only the onListen or onCancel callback is called.</p>
-
-<h2 id="extending-stream">
-<a id="extending-stream" class="anchor" href="#extending-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extending Stream</h2>
-
-<p>Usually one of the preceding solutions is sufficient, and preferable,
-to creating a new class that is itself a Stream.
-However, in some cases
-you might want to extend the Stream class itself
-with extra functionality.
-Or you might just want to be able to create a stream
-using a constructor call like
-<code class="highlighter-rouge">new MyFancyStream(something)</code>.</p>
-
-<p>If creating a Stream class is really necessary,
-don’t try to implement Stream from scratch.
-The subscription, event firing, and callback logic is complex,
-and it’s much easier to piggyback on the existing implementation.</p>
-
-<p>Instead, extend the abstract Stream class,
-adding the extra functionality you want.
-Forward your class’s listen() method to an existing stream—for
-example, the stream of a StreamController.
-All the other methods inherited from Stream work by calling listen(),
-so they work as if called on the underlying stream.</p>
-
-<p>The following code
-(from <a href="code/line_stream.dart">line_stream.dart</a>)
-has a LineStream class
-that extends Stream&lt;String&gt;:</p>
-
-<pre class="prettyprint lang-dart">import 'dart:async';
-
-class LineStream extends Stream&lt;String&gt; {
-  Stream&lt;String&gt; _source;
-  StreamSubscription&lt;String&gt; _subscription;
-  StreamController&lt;String&gt; _controller;
-  int _lineCount = 0;
-  String _remainder = '';
-
-  LineStream(Stream&lt;String&gt; source) : _source = source {
-    _controller = new StreamController&lt;String&gt;(
-      onListen: _onListen,
-      onPause: _onPause,
-      onResume: _onResume,
-      onCancel: _onCancel);
-  }
-
-  int get lineCount =&gt; _lineCount;
-
-  StreamSubscription&lt;String&gt; listen(void onData(String line),
-                                    { void onError(Error error),
-                                      void onDone(),
-                                      bool cancelOnError }) {
-    return _controller.stream.listen(onData,
-                                     onError: onError,
-                                     onDone: onDone,
-                                     cancelOnError: cancelOnError);
-  }
-
-  void _onListen() {
-    _subscription = _source.listen(_onData,
-                                   onError: _controller.addError,
-                                   onDone: _onDone);
-  }
-
-  void _onCancel() {
-    _subscription.cancel();
-    _subscription = null;
-  }
-
-  void _onPause() {
-    _subscription.pause();
-  }
-
-  void _onResume() {
-    _subscription.resume();
-  }
-
-  void _onData(String input) {
-    List&lt;String&gt; splits = input.split('\n');
-    splits[0] = _remainder + splits[0];
-    _remainder = splits.removeLast();
-    _lineCount += splits.length;
-    splits.forEach(_controller.add);
-  }
-
-  void _onDone() {
-    if (!_remainder.isEmpty) _controller.add(_remainder);
-    _controller.close();
-  }
-}</pre>
-
-<p>Notice that while our stream here extends Stream,
-it doesn’t implement listener handling and pausing itself.
-Instead it just forwards the listen() method
-to the full stream implementation from a StreamController.
-All the other methods on the Stream class
-are implemented in terms of listen(),
-so they effectively work on the controller’s stream.</p>
+only the <code class="highlighter-rouge">onListen</code> or <code class="highlighter-rouge">onCancel</code> callback is called.</p>
 
 <h2 id="final-hints">
 <a id="final-hints" class="anchor" href="#final-hints" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final hints</h2>
 
-<p>Whichever way you implement your stream,
+<p>When creating a stream without using an async* function,
 keep these tips in mind:</p>
 
 <ul>
   <li>
     <p>Be careful when using a synchronous controller—for example,
-one created using <code class="highlighter-rouge">new StreamController(sync: true)</code>.
+one created using <code class="highlighter-rouge">StreamController(sync: true)</code>.
 When you send an event on an unpaused synchronous controller
-(for example, using the add(), addError(), or close() methods
-defined by <a href="https://api.dartlang.org/stable/dart-async/EventSink-class.html">EventSink</a>),
+(for example, using the <code class="highlighter-rouge">add()</code>, <code class="highlighter-rouge">addError()</code>, or <code class="highlighter-rouge">close()</code> methods defined by
+<a href="https://api.dartlang.org/stable/dart-async/EventSink-class.html">EventSink</a>),
 the event is sent immediately to all listeners on the stream.
-Make sure your stream’s public methods
-are ready for event listeners to call them immediately.</p>
+<code class="highlighter-rouge">Stream</code> listeners must never be called until
+the code that added the listener has fully returned,
+and using a synchronous controller at the wrong time can
+break this promise and cause good code to fail.
+Avoid using synchronous controllers.</p>
   </li>
   <li>
-    <p>If you use StreamController,
-your listener for <code class="highlighter-rouge">onListen</code> must not always depend
-on having the value of the StreamSubscription object.
+    <p>If you use <code class="highlighter-rouge">StreamController</code>,
+the <code class="highlighter-rouge">onListen</code> callback is called before
+the <code class="highlighter-rouge">listen</code> call returns the <code class="highlighter-rouge">StreamSubscription</code>.
+Don’t let the <code class="highlighter-rouge">onListen</code> callback depend
+on the subscription already existing.
 For example, in the following code,
-an onListen event fires
+an <code class="highlighter-rouge">onListen</code> event fires
 (and <code class="highlighter-rouge">handler</code> is called)
-before the <code class="highlighter-rouge">subscription</code> variable (a
-<a href="https://api.dartlang.org/stable/dart-async/StreamSubscription-class.html">StreamSubscription</a>)
+before the <code class="highlighter-rouge">subscription</code> variable
 has a valid value.</p>
 
     <pre class="prettyprint lang-dart">subscription = stream.listen(handler);</pre>
   </li>
   <li>
     <p>The <code class="highlighter-rouge">onListen</code>, <code class="highlighter-rouge">onPause</code>, <code class="highlighter-rouge">onResume</code>, and <code class="highlighter-rouge">onCancel</code>
-callbacks defined by StreamController are
-called by the stream when the stream’s state changes,
+callbacks defined by <code class="highlighter-rouge">StreamController</code> are
+called by the stream when the stream’s listener state changes,
 but never during the firing of an event
-or during the call of another state change handler.</p>
+or during the call of another state change handler.
+In those cases, the state change callback is delayed until
+the previous callback is complete.</p>
+  </li>
+  <li>
+    <p>Don’t try to implement the <code class="highlighter-rouge">Stream</code> interface yourself.
+It’s easy to get the interaction between events, callbacks,
+and adding and removing listeners subtly wrong.
+Always use an existing stream, possibly from a <code class="highlighter-rouge">StreamController</code>,
+to implement the <code class="highlighter-rouge">listen</code> call of a new stream.</p>
+  </li>
+  <li>
+    <p>Although it’s possible to create classes that extend <code class="highlighter-rouge">Stream</code> with
+more functionality by extending the <code class="highlighter-rouge">Stream</code> class and
+implementing the <code class="highlighter-rouge">listen</code> method and the extra functionality on top,
+that is generally not recommended because
+it introduces a new type that users have to consider.
+Instead you can often make a class that <em>has</em> a <code class="highlighter-rouge">Stream</code> (and more) —
+instead of one that <em>is</em> a Stream (and more).</p>
   </li>
 </ul>
 
@@ -631,7 +669,7 @@ or during the call of another state change handler.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

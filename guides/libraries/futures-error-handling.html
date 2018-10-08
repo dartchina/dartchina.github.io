@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -174,10 +174,26 @@ ga('send', 'pageview');
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#async-await-and-exceptions">Async, await, and exceptions</a></li>
 <li class="toc-entry toc-h2"><a href="#the-future-api-and-callbacks">The Future API and callbacks</a></li>
-<li class="toc-entry toc-h2"><a href="#examples-of-using-then-with-catcherror">Examples of using then() with catchError()</a></li>
-<li class="toc-entry toc-h2"><a href="#async-try-catch-finally-using-whencomplete">Async try-catch-finally using whenComplete()</a></li>
+<li class="toc-entry toc-h2"><a href="#examples-of-using-then-with-catcherror">Examples of using then() with catchError()</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#catcherror-as-a-comprehensive-error-handler">catchError() as a comprehensive error handler</a></li>
+<li class="toc-entry toc-h3"><a href="#error-handling-within-then">Error handling within then()</a></li>
+<li class="toc-entry toc-h3"><a href="#errors-in-the-middle-of-a-long-chain">Errors in the middle of a long chain</a></li>
+<li class="toc-entry toc-h3"><a href="#handling-specific-errors">Handling specific errors</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#async-try-catch-finally-using-whencomplete">Async try-catch-finally using whenComplete()</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#completing-the-future-returned-by-whencomplete">Completing the Future returned by whenComplete()</a></li>
+<li class="toc-entry toc-h3"><a href="#errors-originating-within-whencomplete">Errors originating within whenComplete()</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#potential-problem-failing-to-register-error-handlers-early">Potential problem: failing to register error handlers early</a></li>
-<li class="toc-entry toc-h2"><a href="#potential-problem-accidentally-mixing-synchronous-and-asynchronous-errors">Potential problem: accidentally mixing synchronous and asynchronous errors</a></li>
+<li class="toc-entry toc-h2"><a href="#potential-problem-accidentally-mixing-synchronous-and-asynchronous-errors">Potential problem: accidentally mixing synchronous and asynchronous errors</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#solution-using-futuresync-to-wrap-your-code">Solution: Using Future.sync() to wrap your code</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#more-information">More information</a></li>
 </ul>
   </div>
@@ -186,34 +202,23 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/libraries/futures-error-handling.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Futures and Error Handling' page issue&body=From URL: https://www.dartlang.org/guides/libraries/futures-error-handling"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/libraries/futures-error-handling.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Futures and Error Handling' page issue&body=
+Page URL: https://www.dartlang.org/guides/libraries/futures-error-handling%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/libraries/futures-error-handling.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Futures and Error Handling</h1>
           </div>
@@ -298,7 +303,8 @@ try-catch blocks.</p>
 
 <p>The next few sections give examples of this pattern.</p>
 
-<h3 id="catcherror-as-a-comprehensive-error-handler">catchError() as a comprehensive error handler</h3>
+<h3 id="catcherror-as-a-comprehensive-error-handler">
+<a id="catcherror-as-a-comprehensive-error-handler" class="anchor" href="#catcherror-as-a-comprehensive-error-handler" aria-hidden="true"><span class="octicon octicon-link"></span></a>catchError() as a comprehensive error handler</h3>
 
 <p>The following example deals with throwing an exception from within <code class="highlighter-rouge">then()</code>’s
 callback and demonstrates <code class="highlighter-rouge">catchError()</code>’s versatility as an error handler:</p>
@@ -322,7 +328,8 @@ with that error. The error is also handled by <code class="highlighter-rouge">ca
 <p>Regardless of whether the error originated within <code class="highlighter-rouge">myFunc()</code> or within
 <code class="highlighter-rouge">then()</code>, <code class="highlighter-rouge">catchError()</code> successfully handles it.</p>
 
-<h3 id="error-handling-within-then">Error handling within then()</h3>
+<h3 id="error-handling-within-then">
+<a id="error-handling-within-then" class="anchor" href="#error-handling-within-then" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error handling within then()</h3>
 
 <p>For more granular error handling, you can register a second (<code class="highlighter-rouge">onError</code>)
 callback within <code class="highlighter-rouge">then()</code> to handle Futures completed with errors. Here is
@@ -349,7 +356,8 @@ complete with an error; this error is handled by <code class="highlighter-rouge"
 recommended: register a second callback only if there is a compelling reason
 to catch the error within <code class="highlighter-rouge">then()</code>.</p>
 
-<h3 id="errors-in-the-middle-of-a-long-chain">Errors in the middle of a long chain</h3>
+<h3 id="errors-in-the-middle-of-a-long-chain">
+<a id="errors-in-the-middle-of-a-long-chain" class="anchor" href="#errors-in-the-middle-of-a-long-chain" aria-hidden="true"><span class="octicon octicon-link"></span></a>Errors in the middle of a long chain</h3>
 
 <p>It is common to have a succession of <code class="highlighter-rouge">then()</code> calls, and catch errors
 generated from any part of the chain using <code class="highlighter-rouge">catchError()</code>:</p>
@@ -386,7 +394,8 @@ this means that after <code class="highlighter-rouge">two()</code> is called, th
 subsequent <code class="highlighter-rouge">then()</code>completes with <code class="highlighter-rouge">two()</code>’s error. That error is finally
 handled within <code class="highlighter-rouge">catchError()</code>.</p>
 
-<h3 id="handling-specific-errors">Handling specific errors</h3>
+<h3 id="handling-specific-errors">
+<a id="handling-specific-errors" class="anchor" href="#handling-specific-errors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling specific errors</h3>
 
 <p>What if we want to catch a specific error? Or catch more than one error?</p>
 
@@ -428,7 +437,8 @@ server.post(myUrl, fields: {"name": "john", "profession": "juggler"})
 a valid response, or an error. We ensure this happens by placing it inside
 <code class="highlighter-rouge">whenComplete()</code>.</p>
 
-<h3 id="completing-the-future-returned-by-whencomplete">Completing the Future returned by whenComplete()</h3>
+<h3 id="completing-the-future-returned-by-whencomplete">
+<a id="completing-the-future-returned-by-whencomplete" class="anchor" href="#completing-the-future-returned-by-whencomplete" aria-hidden="true"><span class="octicon octicon-link"></span></a>Completing the Future returned by whenComplete()</h3>
 
 <p>If no error is emitted from within <code class="highlighter-rouge">whenComplete()</code>, its Future completes
 the same way as the Future that <code class="highlighter-rouge">whenComplete()</code> is invoked on. This is
@@ -460,7 +470,8 @@ handled by <code class="highlighter-rouge">catchError()</code>.  Because <code c
     .whenComplete(() =&gt; print("Done!")); // Future completes with someObject.
 }</pre>
 
-<h3 id="errors-originating-within-whencomplete">Errors originating within whenComplete()</h3>
+<h3 id="errors-originating-within-whencomplete">
+<a id="errors-originating-within-whencomplete" class="anchor" href="#errors-originating-within-whencomplete" aria-hidden="true"><span class="octicon octicon-link"></span></a>Errors originating within whenComplete()</h3>
 <p>If <code class="highlighter-rouge">whenComplete()</code>’s callback throws an error, then <code class="highlighter-rouge">whenComplete()</code>’s Future
 completes with that error:</p>
 
@@ -544,7 +555,8 @@ throws, a synchronous error propagates:</p>
 <code class="highlighter-rouge">parseAndRead()</code> would implement a separate error-handling strategy for this
 error.</p>
 
-<h3 id="solution-using-futuresync-to-wrap-your-code">Solution: Using Future.sync() to wrap your code</h3>
+<h3 id="solution-using-futuresync-to-wrap-your-code">
+<a id="solution-using-futuresync-to-wrap-your-code" class="anchor" href="#solution-using-futuresync-to-wrap-your-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solution: Using Future.sync() to wrap your code</h3>
 
 <p>A common pattern for ensuring that no synchronous error is accidentally
 thrown from a function is to wrap the function body inside a <code class="highlighter-rouge">new Future.sync()</code>
@@ -633,7 +645,7 @@ an article that describes how to schedule tasks using Futures</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

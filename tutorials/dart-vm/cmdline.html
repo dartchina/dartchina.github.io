@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -166,10 +166,17 @@ ga('send', 'pageview');
       </a>
     </header>
     <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#an-introduction-to-standalone-apps">An introduction to standalone apps</a></li>
 <li class="toc-entry toc-h2"><a href="#running-an-app-with-the-standalone-dart-vm">Running an app with the standalone Dart VM</a></li>
 <li class="toc-entry toc-h2"><a href="#review-briefly-the-dcat-example-code">Review briefly the dcat example code</a></li>
 <li class="toc-entry toc-h2"><a href="#parsing-command-line-arguments">Parsing command-line arguments</a></li>
-<li class="toc-entry toc-h2"><a href="#reading-and-writing-with-stdin-stdout-and-stderr">Reading and writing with stdin, stdout, and stderr</a></li>
+<li class="toc-entry toc-h2"><a href="#reading-and-writing-with-stdin-stdout-and-stderr">Reading and writing with stdin, stdout, and stderr</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#stdout">stdout</a></li>
+<li class="toc-entry toc-h3"><a href="#stderr">stderr</a></li>
+<li class="toc-entry toc-h3"><a href="#stdin">stdin</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#getting-info-about-a-file">Getting info about a file</a></li>
 <li class="toc-entry toc-h2"><a href="#reading-a-file">Reading a file</a></li>
 <li class="toc-entry toc-h2"><a href="#writing-a-file">Writing a file</a></li>
@@ -185,14 +192,7 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 <nav id="subnav">
   <ul>
@@ -211,23 +211,19 @@ ga('send', 'pageview');
 
 
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_tutorials/dart-vm/cmdline.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Write Command-Line Apps' page issue&body=From URL: https://www.dartlang.org/tutorials/dart-vm/cmdline"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_tutorials/dart-vm/cmdline.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Write Command-Line Apps' page issue&body=
+Page URL: https://www.dartlang.org/tutorials/dart-vm/cmdline%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_tutorials/dart-vm/cmdline.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Write Command-Line Apps</h1>
           </div>
@@ -238,7 +234,8 @@ ga('send', 'pageview');
     </p>
 </div>
 
-<h3 id="an-introduction-to-standalone-apps">An introduction to standalone apps</h3>
+<h3 id="an-introduction-to-standalone-apps">
+<a id="an-introduction-to-standalone-apps" class="anchor" href="#an-introduction-to-standalone-apps" aria-hidden="true"><span class="octicon octicon-link"></span></a>An introduction to standalone apps</h3>
 
 <div class="mini-toc">
   <h4>What's the point?</h4>
@@ -516,7 +513,8 @@ import 'dart:async';</pre>
 The <code class="highlighter-rouge">async</code>, <code class="highlighter-rouge">await</code>, and <code class="highlighter-rouge">await for</code> keywords are built into the Dart language,
 but you must import dart:async to refer to the Future or Stream class.</p>
 
-<h3 id="stdout">stdout</h3>
+<h3 id="stdout">
+<a id="stdout" class="anchor" href="#stdout" aria-hidden="true"><span class="octicon octicon-link"></span></a>stdout</h3>
 
 <p>Here’s the code from the <code class="highlighter-rouge">dcat</code> program that writes the line number to
 the <code class="highlighter-rouge">stdout</code> (if the -n flag is set) followed by the line from the file.</p>
@@ -541,7 +539,8 @@ For example, you can display the contents of a stream with <code class="highligh
 However, you must use <code class="highlighter-rouge">print()</code> instead of <code class="highlighter-rouge">stdout</code>
 for programs that are converted to and run in JavaScript.</p>
 
-<h3 id="stderr">stderr</h3>
+<h3 id="stderr">
+<a id="stderr" class="anchor" href="#stderr" aria-hidden="true"><span class="octicon octicon-link"></span></a>stderr</h3>
 
 <p>Use <code class="highlighter-rouge">stderr</code> to write error messages to the console.
 The standard error stream has the same methods as <code class="highlighter-rouge">stdout</code>,
@@ -560,7 +559,8 @@ tries to list a directory.</p>
   exitCode = 2;
 }</pre>
 
-<h3 id="stdin">stdin</h3>
+<h3 id="stdin">
+<a id="stdin" class="anchor" href="#stdin" aria-hidden="true"><span class="octicon octicon-link"></span></a>stdin</h3>
 
 <p>The standard input stream typically
 reads data synchronously from the keyboard,
@@ -963,7 +963,7 @@ check out the next tutorial,
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

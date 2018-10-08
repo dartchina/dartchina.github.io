@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -166,16 +166,86 @@ ga('send', 'pageview');
       </a>
     </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#库">库</a></li>
-<li class="toc-entry toc-h2"><a href="#字符串">字符串</a></li>
-<li class="toc-entry toc-h2"><a href="#集合">集合</a></li>
-<li class="toc-entry toc-h2"><a href="#函数">函数</a></li>
-<li class="toc-entry toc-h2"><a href="#参数">参数</a></li>
-<li class="toc-entry toc-h2"><a href="#变量">变量</a></li>
-<li class="toc-entry toc-h2"><a href="#成员">成员</a></li>
-<li class="toc-entry toc-h2"><a href="#构造函数">构造函数</a></li>
-<li class="toc-entry toc-h2"><a href="#错误处理">错误处理</a></li>
-<li class="toc-entry toc-h2"><a href="#异步">异步</a></li>
+<li class="toc-entry toc-h2"><a href="#库">库</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#要-在-part-of-中使用字符串">要 在 part of 中使用字符串。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-导入-package-中-src-目录下的库">不要 导入 package 中 src 目录下的库。</a></li>
+<li class="toc-entry toc-h3"><a href="#建议-使用相对路径在导入你自己-package-中的-lib-目录">建议 使用相对路径在导入你自己 package 中的 lib 目录。</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#字符串">字符串</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#要-使用临近字符字的方式连接字面量字符串">要 使用临近字符字的方式连接字面量字符串。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-使用插值的形式来组合字符串和值">推荐 使用插值的形式来组合字符串和值。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-在字符串插值中使用不必要的大括号">避免 在字符串插值中使用不必要的大括号。</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#集合">集合</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#要-尽可能的使用集合字面量">要 尽可能的使用集合字面量。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用-length-来判断一个集合是否为空">不要 使用 .length 来判断一个集合是否为空。</a></li>
+<li class="toc-entry toc-h3"><a href="#考虑-使用高阶higher-order函数来转换集合数据">考虑 使用高阶（higher-order）函数来转换集合数据。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-在-iterableforeach-中使用字面量函数">避免 在 Iterable.forEach() 中使用字面量函数。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用-listfrom-除非想修改结果的类型">不要 使用 List.from() 除非想修改结果的类型。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用-wheretype-按类型过滤集合">要 使用 whereType() 按类型过滤集合。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用-cast如果有更合适的方法">不要 使用 cast()，如果有更合适的方法。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-使用-cast-">避免 使用 cast() 。</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#函数">函数</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#要-使用函数声明的方式为函数绑定名称">要 使用函数声明的方式为函数绑定名称。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用-lambda-表达式来替代-tear-off">不要 使用 lambda 表达式来替代 tear-off。</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#参数">参数</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#要-使用--来分隔参数名和参数默认值">要 使用 = 来分隔参数名和参数默认值。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-显式的为参数设置-null-值">不要 显式的为参数设置 null 值。</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#变量">变量</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#不要-显示的为参数初始化-null-值">不要 显示的为参数初始化 null 值。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-保存可计算的结果">避免 保存可计算的结果。</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#成员">成员</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#不要-为字段创建不必要的-getter-和-setter-方法">不要 为字段创建不必要的 getter 和 setter 方法。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-使用-final-关键字来创建只读属性">推荐 使用 final 关键字来创建只读属性。</a></li>
+<li class="toc-entry toc-h3"><a href="#考虑-对简单成员使用--">考虑 对简单成员使用 => 。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用-this-除非遇到了变量冲突的情况">不要 使用 this. ，除非遇到了变量冲突的情况。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-尽可能的在定义变量的时候初始化变量值">要 尽可能的在定义变量的时候初始化变量值。</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#构造函数">构造函数</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#要-尽可能的使用初始化形式">要 尽可能的使用初始化形式。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-在初始化形式中做类型注释">不要 在初始化形式中做类型注释。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-用--来替代空的构造函数体-">要 用 ; 来替代空的构造函数体 {}。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用-new-">不要 使用 new 。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-冗余地使用-const-">不要 冗余地使用 const 。</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#错误处理">错误处理</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#避免-使用没有-on-语句的-catch">避免 使用没有 on 语句的 catch。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-丢弃没有使用-on-语句捕获的异常">不要 丢弃没有使用 on 语句捕获的异常。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-只在代表编程错误的情况下才抛出实现了-error-的异常">要 只在代表编程错误的情况下才抛出实现了 Error 的异常。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-显示的捕获-error-或者其子类">不要 显示的捕获 Error 或者其子类。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用-rethrow-来重新抛出捕获的异常">要 使用 rethrow 来重新抛出捕获的异常。</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#异步">异步</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#推荐-使用-asyncawait-而不是直接使用底层的特性">推荐 使用 async/await 而不是直接使用底层的特性。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-在没有有用效果的情况下使用-async-">不要 在没有有用效果的情况下使用 async 。</a></li>
+<li class="toc-entry toc-h3"><a href="#考虑-使用高阶函数来转换事件流stream">考虑 使用高阶函数来转换事件流（stream）</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-直接使用-completer--">避免 直接使用 Completer  。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用-futuret-对-futureort-参数进行测试以消除参数可能是-object-类型的歧义">要 使用 Future<T> 对 FutureOr<T> 参数进行测试，以消除参数可能是 Object 类型的歧义。</a></li>
+</ul>
+</li>
 </ul>
   </div>
 </div>
@@ -183,14 +253,7 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 <nav id="subnav">
   <ul>
@@ -209,37 +272,23 @@ ga('send', 'pageview');
 
 
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/language/effective-dart/usage.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Effective Dart: 使用' page issue&body=From URL: https://www.dartlang.org/guides/language/effective-dart/usage"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/language/effective-dart/usage.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Effective Dart: 使用' page issue&body=
+Page URL: https://www.dartlang.org/guides/language/effective-dart/usage%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/language/effective-dart/usage.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Effective Dart: 使用</h1>
           </div>
           <?code-excerpt replace="/([A-Z]\w*)\d\b/$1/g"?>
-
-<div class="banner">
-  <p class="banner__text">
-    <em>Effective Dart</em> 正在更新，
-    以提供关于 Dart 2 的最新实践。
-    如果你发现了一个 <a target="_blank" href="https://github.com/dart-lang/site-www/labels/EffectiveDart">known issue</a>
-    中没有提及的问题，
-    请报告这个 bug 。
-  </p>
-</div>
 
 <p>该指南在 Effective Dart 中是最为基础的部分。
 每天在你写的 Dart 代码中都会应用到这些准则。
@@ -337,7 +386,7 @@ ga('send', 'pageview');
 准则同时适用于这两者。</p>
 
 <h3 id="要-在-part-of-中使用字符串">
-<strong>要</strong> 在 <code class="highlighter-rouge">part of</code> 中使用字符串。</h3>
+<a id="要-在-part-of-中使用字符串" class="anchor" href="#%E8%A6%81-%E5%9C%A8-part-of-%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 在 <code class="highlighter-rouge">part of</code> 中使用字符串。</h3>
 
 <p>很多 Dart 开发者会避免直接使用 <code class="highlighter-rouge">part</code> 。他们发现当库仅有一个文件的时候很容易读懂代码。
 如果你确实要使用 <code class="highlighter-rouge">part</code> 将库的一部分拆分为另一个文件，则 Dart 要求另一个文件指示它所属库的路径。 
@@ -364,7 +413,7 @@ part "some/other/file.dart";</pre>
 <pre class="prettyprint lang-dart bad-style">part of my_library;</pre>
 
 <h3 id="不要-导入-package-中-src-目录下的库">
-<strong>不要</strong> 导入 package 中 <code class="highlighter-rouge">src</code> 目录下的库。</h3>
+<a id="不要-导入-package-中-src-目录下的库" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E5%AF%BC%E5%85%A5-package-%E4%B8%AD-src-%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%BA%93" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 导入 package 中 <code class="highlighter-rouge">src</code> 目录下的库。</h3>
 
 <p><code class="highlighter-rouge">lib</code> 下的 <code class="highlighter-rouge">src</code> 目录<a href="https://www.dartlang.org/tools/pub/package-layout">被指定</a>为 package 自己实现的私有库。
 基于包维护者对版本的考虑，package 使用了这种约定。
@@ -374,7 +423,7 @@ part "some/other/file.dart";</pre>
 按理论来讲，一个不破坏 package 的次版本就会影响到你的代码。</p>
 
 <h3 id="建议-使用相对路径在导入你自己-package-中的-lib-目录">
-<strong>建议</strong> 使用相对路径在导入你自己 package 中的 <code class="highlighter-rouge">lib</code> 目录。</h3>
+<a id="建议-使用相对路径在导入你自己-package-中的-lib-目录" class="anchor" href="#%E5%BB%BA%E8%AE%AE-%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%9C%A8%E5%AF%BC%E5%85%A5%E4%BD%A0%E8%87%AA%E5%B7%B1-package-%E4%B8%AD%E7%9A%84-lib-%E7%9B%AE%E5%BD%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>建议</strong> 使用相对路径在导入你自己 package 中的 <code class="highlighter-rouge">lib</code> 目录。</h3>
 
 <p>在同一个 package 下其中一个库引用另一个 <code class="highlighter-rouge">lib</code> 目录下的库时，
 应该使用相对的 URI 或者直接使用 <code class="highlighter-rouge">package:</code>。</p>
@@ -419,7 +468,7 @@ part "some/other/file.dart";</pre>
 <p>下面是一些需要记住的，关于在 Dart 中使用字符串的最佳实践。</p>
 
 <h3 id="要-使用临近字符字的方式连接字面量字符串">
-<strong>要</strong> 使用临近字符字的方式连接字面量字符串。</h3>
+<a id="要-使用临近字符字的方式连接字面量字符串" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E4%B8%B4%E8%BF%91%E5%AD%97%E7%AC%A6%E5%AD%97%E7%9A%84%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5%E5%AD%97%E9%9D%A2%E9%87%8F%E5%AD%97%E7%AC%A6%E4%B8%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用临近字符字的方式连接字面量字符串。</h3>
 
 <p>如果你有两个字面量字符串（不是变量，是放在引号中的字符串），你不需要使用 <code class="highlighter-rouge">+</code> 来连接它们。
 应该想 C 和 C++ 一样，只需要将它们挨着在一起就可以了。
@@ -435,7 +484,7 @@ part "some/other/file.dart";</pre>
     'parts are overrun by martians. Unclear which are which.');</pre>
 
 <h3 id="推荐-使用插值的形式来组合字符串和值">
-<strong>推荐</strong> 使用插值的形式来组合字符串和值。</h3>
+<a id="推荐-使用插值的形式来组合字符串和值" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E6%8F%92%E5%80%BC%E7%9A%84%E5%BD%A2%E5%BC%8F%E6%9D%A5%E7%BB%84%E5%90%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用插值的形式来组合字符串和值。</h3>
 
 <p>如果你之前使用过其他语言，你一定习惯使用大量 <code class="highlighter-rouge">+</code> 将字面量字符串以及字符串变量链接构建字符串。
 这种方式在 Dart 中同样有效，但是通常情况下使用插值会更清晰简短。</p>
@@ -447,7 +496,7 @@ part "some/other/file.dart";</pre>
 <pre class="prettyprint lang-dart bad-style">'Hello, ' + name + '! You are ' + (year - birth).toString() + ' y...';</pre>
 
 <h3 id="避免-在字符串插值中使用不必要的大括号">
-<strong>避免</strong> 在字符串插值中使用不必要的大括号。</h3>
+<a id="避免-在字符串插值中使用不必要的大括号" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8F%92%E5%80%BC%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%A4%A7%E6%8B%AC%E5%8F%B7" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 在字符串插值中使用不必要的大括号。</h3>
 
 <p>如果要插入是一个简单的标识符，并且后面没有紧跟随在其他字母文本，则应省略 <code class="highlighter-rouge">{}</code> 。</p>
 
@@ -467,7 +516,7 @@ part "some/other/file.dart";</pre>
 下面是应用于集合的最佳实践。</p>
 
 <h3 id="要-尽可能的使用集合字面量">
-<strong>要</strong> 尽可能的使用集合字面量。</h3>
+<a id="要-尽可能的使用集合字面量" class="anchor" href="#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88%E5%AD%97%E9%9D%A2%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 尽可能的使用集合字面量。</h3>
 
 <p>有两种方式来构造一个空的可变 list ： <code class="highlighter-rouge">[]</code> 和 <code class="highlighter-rouge">List()</code> 。
 同样，有三总方式来构造一个空的链表哈希 map：<code class="highlighter-rouge">{}</code>，
@@ -500,7 +549,7 @@ var addresses = Map&lt;String, Address&gt;();</pre>
 如果需要一个固定长度的结合，使用 <code class="highlighter-rouge">List()</code> 来创建一个固定长度的 list 也是合理的。</p>
 
 <h3 id="不要-使用-length-来判断一个集合是否为空">
-<strong>不要</strong> 使用 <code class="highlighter-rouge">.length</code> 来判断一个集合是否为空。</h3>
+<a id="不要-使用-length-来判断一个集合是否为空" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-length-%E6%9D%A5%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E9%9B%86%E5%90%88%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用 <code class="highlighter-rouge">.length</code> 来判断一个集合是否为空。</h3>
 
 <p><a href="https://api.dartlang.org/stable/dart-core/Iterable-class.html">Iterable</a> 合约并不要求集合知道其长度，也没要求在遍历的时候其长度不能改变。
 通过调用 <code class="highlighter-rouge">.length</code>  来判断集合是否包含内容是非常低效的。</p>
@@ -517,7 +566,7 @@ if (words.isNotEmpty) return words.join(' ');</pre>
 if (!words.isEmpty) return words.join(' ');</pre>
 
 <h3 id="考虑-使用高阶higher-order函数来转换集合数据">
-<strong>考虑</strong> 使用高阶（higher-order）函数来转换集合数据。</h3>
+<a id="考虑-使用高阶higher-order函数来转换集合数据" class="anchor" href="#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6higher-order%E5%87%BD%E6%95%B0%E6%9D%A5%E8%BD%AC%E6%8D%A2%E9%9B%86%E5%90%88%E6%95%B0%E6%8D%AE" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 使用高阶（higher-order）函数来转换集合数据。</h3>
 
 <p>如果你有一个集合并且想要修改里面的内容转换为另外一个集合，
 使用 <code class="highlighter-rouge">.map()</code>、 <code class="highlighter-rouge">.where()</code> 以及 <code class="highlighter-rouge">Iterable</code> 提供的其他函数会让代码更加简洁。</p>
@@ -535,7 +584,7 @@ if (!words.isEmpty) return words.join(' ');</pre>
 则使用一些命令式代码可能会更加清晰。</p>
 
 <h3 id="避免-在-iterableforeach-中使用字面量函数">
-<strong>避免</strong> 在 <code class="highlighter-rouge">Iterable.forEach()</code> 中使用字面量函数。</h3>
+<a id="避免-在-iterableforeach-中使用字面量函数" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%9C%A8-iterableforeach-%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E9%9D%A2%E9%87%8F%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 在 <code class="highlighter-rouge">Iterable.forEach()</code> 中使用字面量函数。</h3>
 
 <p><code class="highlighter-rouge">forEach()</code> 函数在 JavaScript 中被广泛使用，
 这因为内置的 <code class="highlighter-rouge">for-in</code> 循环通常不能达到你想要的效果。
@@ -558,7 +607,7 @@ if (!words.isEmpty) return words.join(' ');</pre>
 <pre class="prettyprint lang-dart good-style">people.forEach(print);</pre>
 
 <h3 id="不要-使用-listfrom-除非想修改结果的类型">
-<strong>不要</strong> 使用 <code class="highlighter-rouge">List.from()</code> 除非想修改结果的类型。</h3>
+<a id="不要-使用-listfrom-除非想修改结果的类型" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-listfrom-%E9%99%A4%E9%9D%9E%E6%83%B3%E4%BF%AE%E6%94%B9%E7%BB%93%E6%9E%9C%E7%9A%84%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用 <code class="highlighter-rouge">List.from()</code> 除非想修改结果的类型。</h3>
 
 <p>给定一个可迭代的对象，有两种常见方式来生成一个包含相同元素的 list：</p>
 
@@ -594,7 +643,7 @@ var ints = List&lt;int&gt;.from(numbers);</pre>
 或者并不在乎类型，那么请使用 <code class="highlighter-rouge">toList()</code> 。</p>
 
 <h3 id="要-使用-wheretype-按类型过滤集合">
-<strong>要</strong> 使用 <code class="highlighter-rouge">whereType()</code> 按类型过滤集合。</h3>
+<a id="要-使用-wheretype-按类型过滤集合" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-wheretype-%E6%8C%89%E7%B1%BB%E5%9E%8B%E8%BF%87%E6%BB%A4%E9%9B%86%E5%90%88" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">whereType()</code> 按类型过滤集合。</h3>
 
 <aside class="alert alert-warning">
   <p><strong>在使用 <code class="highlighter-rouge">whereType()</code> 前，确认它是否已经被实现。</strong>
@@ -633,7 +682,7 @@ var ints = objects.whereType&lt;int&gt;();</pre>
 并且没有不必要的层级包装。</p>
 
 <h3 id="不要-使用-cast如果有更合适的方法">
-<strong>不要</strong> 使用 <code class="highlighter-rouge">cast()</code>，如果有更合适的方法。</h3>
+<a id="不要-使用-cast如果有更合适的方法" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-cast%E5%A6%82%E6%9E%9C%E6%9C%89%E6%9B%B4%E5%90%88%E9%80%82%E7%9A%84%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用 <code class="highlighter-rouge">cast()</code>，如果有更合适的方法。</h3>
 
 <p>通常，当处理可迭代对象或 stream 时，
 你可以对其执行多次转换。
@@ -666,7 +715,7 @@ var reciprocals = stuff.map&lt;double&gt;((n) =&gt; 1 / n);</pre>
 var reciprocals = stuff.map((n) =&gt; 1 / n).cast&lt;double&gt;();</pre>
 
 <h3 id="避免-使用-cast-">
-<strong>避免</strong> 使用 <code class="highlighter-rouge">cast()</code> 。</h3>
+<a id="避免-使用-cast-" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8-cast-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 使用 <code class="highlighter-rouge">cast()</code> 。</h3>
 
 <p>这是对先前规则的一个宽松的定义。
 有些时候，并没有合适的方式来修改对象类型，即便如此，
@@ -754,7 +803,7 @@ var reciprocals = stuff.map((n) =&gt; 1 / n).cast&lt;double&gt;();</pre>
 <p>在 Dart 中，就连函数也是对象。以下是一些涉及函数的最佳实践。</p>
 
 <h3 id="要-使用函数声明的方式为函数绑定名称">
-<strong>要</strong> 使用函数声明的方式为函数绑定名称。</h3>
+<a id="要-使用函数声明的方式为函数绑定名称" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E7%9A%84%E6%96%B9%E5%BC%8F%E4%B8%BA%E5%87%BD%E6%95%B0%E7%BB%91%E5%AE%9A%E5%90%8D%E7%A7%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用函数声明的方式为函数绑定名称。</h3>
 
 <p>现代语言已经意识到本地嵌套函数和闭包的益处。
 在一个函数中定义另一个函数非常常见。
@@ -779,7 +828,7 @@ lambda 赋值给一个变量。</p>
 }</pre>
 
 <h3 id="不要-使用-lambda-表达式来替代-tear-off">
-<strong>不要</strong> 使用 lambda 表达式来替代 tear-off。</h3>
+<a id="不要-使用-lambda-表达式来替代-tear-off" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9D%A5%E6%9B%BF%E4%BB%A3-tear-off" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用 lambda 表达式来替代 tear-off。</h3>
 
 <p>如果你在一个对象上调用函数并省略了括号， 
 Dart 称之为”tear-off”—一个和函数使用同样参数的闭包，
@@ -800,7 +849,7 @@ Dart 称之为”tear-off”—一个和函数使用同样参数的闭包，
 <a id="参数" class="anchor" href="#%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>参数</h2>
 
 <h3 id="要-使用--来分隔参数名和参数默认值">
-<strong>要</strong> 使用 <code class="highlighter-rouge">=</code> 来分隔参数名和参数默认值。</h3>
+<a id="要-使用--来分隔参数名和参数默认值" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8--%E6%9D%A5%E5%88%86%E9%9A%94%E5%8F%82%E6%95%B0%E5%90%8D%E5%92%8C%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">=</code> 来分隔参数名和参数默认值。</h3>
 
 <p>由于遗留原因，Dart 同时支持 <code class="highlighter-rouge">:</code> 和 <code class="highlighter-rouge">=</code> 作为参数名和默认值的分隔符。
 为了与可选的位置参数保持一致，请使用 <code class="highlighter-rouge">=</code> 。</p>
@@ -812,7 +861,7 @@ Dart 称之为”tear-off”—一个和函数使用同样参数的闭包，
 <pre class="prettyprint lang-dart bad-style">void insert(Object item, {int at: 0}) { ... }</pre>
 
 <h3 id="不要-显式的为参数设置-null-值">
-<strong>不要</strong> 显式的为参数设置 <code class="highlighter-rouge">null</code> 值。</h3>
+<a id="不要-显式的为参数设置-null-值" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E6%98%BE%E5%BC%8F%E7%9A%84%E4%B8%BA%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE-null-%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 显式的为参数设置 <code class="highlighter-rouge">null</code> 值。</h3>
 
 <p>如果你创建了一个可选参数，那么就不要为其赋默认值，
 Dart 默认使用 <code class="highlighter-rouge">null</code> 作为默认值，所以这里不需要为其 <code class="highlighter-rouge">null</code> 赋值语句。</p>
@@ -833,7 +882,7 @@ Dart 默认使用 <code class="highlighter-rouge">null</code> 作为默认值，
 <p>下面是关于如何在 Dart 中使用变量的的最佳实践。</p>
 
 <h3 id="不要-显示的为参数初始化-null-值">
-<strong>不要</strong> 显示的为参数初始化 <code class="highlighter-rouge">null</code> 值。</h3>
+<a id="不要-显示的为参数初始化-null-值" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E6%98%BE%E7%A4%BA%E7%9A%84%E4%B8%BA%E5%8F%82%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96-null-%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 显示的为参数初始化 <code class="highlighter-rouge">null</code> 值。</h3>
 
 <p>在Dart中，未自动显式初始化的变量或字段将初始化为 <code class="highlighter-rouge">null</code> 。
 语言保证了赋值的可靠性。在 Dart 中没有“未初始化内存”的概念。
@@ -868,7 +917,7 @@ class LazyId {
 }</pre>
 
 <h3 id="避免-保存可计算的结果">
-<strong>避免</strong> 保存可计算的结果。</h3>
+<a id="避免-保存可计算的结果" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%BF%9D%E5%AD%98%E5%8F%AF%E8%AE%A1%E7%AE%97%E7%9A%84%E7%BB%93%E6%9E%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 保存可计算的结果。</h3>
 
 <p>在设计类的时候，你常常希望暴露底层状态的多个表现属性。
 常常你会发现在类的构造函数中计算这些属性，然后保存起来：</p>
@@ -951,7 +1000,7 @@ class LazyId {
 下面是关于对象成员的最佳实践。</p>
 
 <h3 id="不要-为字段创建不必要的-getter-和-setter-方法">
-<strong>不要</strong> 为字段创建不必要的 getter 和 setter 方法。</h3>
+<a id="不要-为字段创建不必要的-getter-和-setter-方法" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%B8%BA%E5%AD%97%E6%AE%B5%E5%88%9B%E5%BB%BA%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84-getter-%E5%92%8C-setter-%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 为字段创建不必要的 getter 和 setter 方法。</h3>
 
 <p>在 Java 和 C# 中，通常情况下会将所有的字段隐藏到 getter 和 setter 方法中（在 C# 中被称为属性），
 即使实现中仅仅是指向这些字段。在这种方式下，即使你在这些成员上做多少的事情，你也不需要直接访问它们。
@@ -977,7 +1026,7 @@ class LazyId {
 }</pre>
 
 <h3 id="推荐-使用-final-关键字来创建只读属性">
-<strong>推荐</strong> 使用 <code class="highlighter-rouge">final</code> 关键字来创建只读属性。</h3>
+<a id="推荐-使用-final-关键字来创建只读属性" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-final-%E5%85%B3%E9%94%AE%E5%AD%97%E6%9D%A5%E5%88%9B%E5%BB%BA%E5%8F%AA%E8%AF%BB%E5%B1%9E%E6%80%A7" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用 <code class="highlighter-rouge">final</code> 关键字来创建只读属性。</h3>
 
 <p>如果你有一个变量，对于外部代买来说只能读取不能修改，
 最简单的做法就是使用 <code class="highlighter-rouge">final</code> 关键字来标记这个变量。</p>
@@ -998,7 +1047,7 @@ class LazyId {
 但是，如非必要，请不要使用这种模式。</p>
 
 <h3 id="考虑-对简单成员使用--">
-<strong>考虑</strong> 对简单成员使用 <code class="highlighter-rouge">=&gt;</code> 。</h3>
+<a id="考虑-对简单成员使用--" class="anchor" href="#%E8%80%83%E8%99%91-%E5%AF%B9%E7%AE%80%E5%8D%95%E6%88%90%E5%91%98%E4%BD%BF%E7%94%A8--" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 对简单成员使用 <code class="highlighter-rouge">=&gt;</code> 。</h3>
 
 <p>除了使用 <code class="highlighter-rouge">=&gt;</code> 可以用作函数表达式以外，
 Dart 还允许使用它来定义成员。
@@ -1043,7 +1092,7 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 <code class="highlighter-rouge">=&gt;</code> 语法暗示会“返回一个值”，如果你在 void 返回值的成员上使用，会让读代码的人误解成员的行为。</p>
 
 <h3 id="不要-使用-this-除非遇到了变量冲突的情况">
-<strong>不要</strong> 使用 <code class="highlighter-rouge">this.</code> ，除非遇到了变量冲突的情况。</h3>
+<a id="不要-使用-this-除非遇到了变量冲突的情况" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-this-%E9%99%A4%E9%9D%9E%E9%81%87%E5%88%B0%E4%BA%86%E5%8F%98%E9%87%8F%E5%86%B2%E7%AA%81%E7%9A%84%E6%83%85%E5%86%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用 <code class="highlighter-rouge">this.</code> ，除非遇到了变量冲突的情况。</h3>
 
 <p>JavaScript 需要使用 <code class="highlighter-rouge">this.</code> 来引用对象的成员变量，
 但是 Dart—和 C++, Java, 以及C#—没有这种限制。</p>
@@ -1091,7 +1140,7 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 幸运的是，由于初始化规则的特殊性，上面的代码很少见到。</p>
 
 <h3 id="要-尽可能的在定义变量的时候初始化变量值">
-<strong>要</strong> 尽可能的在定义变量的时候初始化变量值。</h3>
+<a id="要-尽可能的在定义变量的时候初始化变量值" class="anchor" href="#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E5%9C%A8%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E7%9A%84%E6%97%B6%E5%80%99%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%98%E9%87%8F%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 尽可能的在定义变量的时候初始化变量值。</h3>
 
 <p>如果一个字段不依赖于构造函数中的参数，
 则应该在定义的时候就初始化字段值。
@@ -1124,7 +1173,7 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 <p>下面对于类的构造函数的最佳实践。</p>
 
 <h3 id="要-尽可能的使用初始化形式">
-<strong>要</strong> 尽可能的使用初始化形式。</h3>
+<a id="要-尽可能的使用初始化形式" class="anchor" href="#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BD%A2%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 尽可能的使用初始化形式。</h3>
 
 <p>许多字段直接使用构造函数参数来初始化，如：</p>
 
@@ -1150,7 +1199,7 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 但是如果能使用该方式，就应该尽量使用。</p>
 
 <h3 id="不要-在初始化形式中做类型注释">
-<strong>不要</strong> 在初始化形式中做类型注释。</h3>
+<a id="不要-在初始化形式中做类型注释" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BD%A2%E5%BC%8F%E4%B8%AD%E5%81%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 在初始化形式中做类型注释。</h3>
 
 <p>如果构造函数参数使用 <code class="highlighter-rouge">this.</code> 的方式来初始化字段，
 这时参数的类型被认为和字段类型相同。</p>
@@ -1168,7 +1217,7 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 }</pre>
 
 <h3 id="要-用--来替代空的构造函数体-">
-<strong>要</strong> 用 <code class="highlighter-rouge">;</code> 来替代空的构造函数体 <code class="highlighter-rouge">{}</code>。</h3>
+<a id="要-用--来替代空的构造函数体-" class="anchor" href="#%E8%A6%81-%E7%94%A8--%E6%9D%A5%E6%9B%BF%E4%BB%A3%E7%A9%BA%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%BD%93-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 用 <code class="highlighter-rouge">;</code> 来替代空的构造函数体 <code class="highlighter-rouge">{}</code>。</h3>
 
 <p>在 Dart 中，没有具体函数体的构造函数可以使用分号结尾。
 （事实上，这是不可变构造函数的要求。）</p>
@@ -1186,7 +1235,7 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 }</pre>
 
 <h3 id="不要-使用-new-">
-<strong>不要</strong> 使用 <code class="highlighter-rouge">new</code> 。</h3>
+<a id="不要-使用-new-" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-new-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用 <code class="highlighter-rouge">new</code> 。</h3>
 
 <p>Dart 2 <code class="highlighter-rouge">new</code> 关键字成为可选项。
 即使在Dart 1中，其含义也从未明确过，
@@ -1220,7 +1269,7 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 }</pre>
 
 <h3 id="不要-冗余地使用-const-">
-<strong>不要</strong> 冗余地使用 <code class="highlighter-rouge">const</code> 。</h3>
+<a id="不要-冗余地使用-const-" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E5%86%97%E4%BD%99%E5%9C%B0%E4%BD%BF%E7%94%A8-const-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 冗余地使用 <code class="highlighter-rouge">const</code> 。</h3>
 
 <p>在表达式一定是常量的上下文中，<code class="highlighter-rouge">const</code> 关键字是隐式的，不需要写，也不应该。
 这里包括：</p>
@@ -1259,7 +1308,7 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 下面是关于如何捕获和抛出异常的最佳实践。</p>
 
 <h3 id="避免-使用没有-on-语句的-catch">
-<strong>避免</strong> 使用没有 <code class="highlighter-rouge">on</code> 语句的 catch。</h3>
+<a id="避免-使用没有-on-语句的-catch" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8%E6%B2%A1%E6%9C%89-on-%E8%AF%AD%E5%8F%A5%E7%9A%84-catch" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 使用没有 <code class="highlighter-rouge">on</code> 语句的 catch。</h3>
 
 <p>没有 <code class="highlighter-rouge">on</code> 限定的 catch 语句会捕获 try 代码块中抛出的<em>任何</em>异常。
 <a href="https://blog.codinghorror.com/new-programming-jargon/">Pokémon exception handling</a> 可能并不是你想要的。
@@ -1274,14 +1323,14 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 这样它能够捕获程序在运行时你所关注的限定类型的异常并进行恰当处理。</p>
 
 <h3 id="不要-丢弃没有使用-on-语句捕获的异常">
-<strong>不要</strong> 丢弃没有使用 <code class="highlighter-rouge">on</code> 语句捕获的异常。</h3>
+<a id="不要-丢弃没有使用-on-语句捕获的异常" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%B8%A2%E5%BC%83%E6%B2%A1%E6%9C%89%E4%BD%BF%E7%94%A8-on-%E8%AF%AD%E5%8F%A5%E6%8D%95%E8%8E%B7%E7%9A%84%E5%BC%82%E5%B8%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 丢弃没有使用 <code class="highlighter-rouge">on</code> 语句捕获的异常。</h3>
 
 <p>如果你真的期望捕获一段代码内的 <em>所有</em> 异常，
 请<em>在捕获异常的地方做些事情</em>。 记录下来并显示给用户，
 或者重新抛出（rethrow）异常信息，记得不要默默的丢弃该异常信息。</p>
 
 <h3 id="要-只在代表编程错误的情况下才抛出实现了-error-的异常">
-<strong>要</strong> 只在代表编程错误的情况下才抛出实现了 <code class="highlighter-rouge">Error</code> 的异常。</h3>
+<a id="要-只在代表编程错误的情况下才抛出实现了-error-的异常" class="anchor" href="#%E8%A6%81-%E5%8F%AA%E5%9C%A8%E4%BB%A3%E8%A1%A8%E7%BC%96%E7%A8%8B%E9%94%99%E8%AF%AF%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%89%8D%E6%8A%9B%E5%87%BA%E5%AE%9E%E7%8E%B0%E4%BA%86-error-%E7%9A%84%E5%BC%82%E5%B8%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 只在代表编程错误的情况下才抛出实现了 <code class="highlighter-rouge">Error</code> 的异常。</h3>
 
 <p><a href="https://api.dartlang.org/stable/Error-class.html">Error</a> 类是所有 <em>编码</em> 错误的基类。当一个该类型或者其子类型，
 例如 <a href="https://api.dartlang.org/stable/dart-core/ArgumentError-class.html">ArgumentError</a> 对象被抛出了，这意味着是你代码中的一个 <em>bug</em>。
@@ -1291,7 +1340,7 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 应该抛出核心定义的 Exception 类或者其他类型。</p>
 
 <h3 id="不要-显示的捕获-error-或者其子类">
-<strong>不要</strong> 显示的捕获 <code class="highlighter-rouge">Error</code> 或者其子类。</h3>
+<a id="不要-显示的捕获-error-或者其子类" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E6%98%BE%E7%A4%BA%E7%9A%84%E6%8D%95%E8%8E%B7-error-%E6%88%96%E8%80%85%E5%85%B6%E5%AD%90%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 显示的捕获 <code class="highlighter-rouge">Error</code> 或者其子类。</h3>
 
 <p>本条衔接上一天内容。既然 Error 表示代码中的 bug，
 应该展开整个调用堆栈，暂停程序并打印堆栈跟踪，以便找到错误并修复。</p>
@@ -1300,7 +1349,7 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 不要在这里使用错误处理代码，而是需要到导致该错误出现的地方修复你的代码。</p>
 
 <h3 id="要-使用-rethrow-来重新抛出捕获的异常">
-<strong>要</strong> 使用 <code class="highlighter-rouge">rethrow</code> 来重新抛出捕获的异常。</h3>
+<a id="要-使用-rethrow-来重新抛出捕获的异常" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-rethrow-%E6%9D%A5%E9%87%8D%E6%96%B0%E6%8A%9B%E5%87%BA%E6%8D%95%E8%8E%B7%E7%9A%84%E5%BC%82%E5%B8%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">rethrow</code> 来重新抛出捕获的异常。</h3>
 
 <p>如果你想重新抛出一个异常，推荐使用 <code class="highlighter-rouge">rethrow</code> 语句。
 <code class="highlighter-rouge">rethrow</code> 保留了原来的异常堆栈信息。 
@@ -1329,7 +1378,7 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 下面是针对异步编程的最佳实践。</p>
 
 <h3 id="推荐-使用-asyncawait-而不是直接使用底层的特性">
-<strong>推荐</strong> 使用 async/await 而不是直接使用底层的特性。</h3>
+<a id="推荐-使用-asyncawait-而不是直接使用底层的特性" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-asyncawait-%E8%80%8C%E4%B8%8D%E6%98%AF%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%E5%BA%95%E5%B1%82%E7%9A%84%E7%89%B9%E6%80%A7" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用 async/await 而不是直接使用底层的特性。</h3>
 
 <p>显式的异步代码是非常难以阅读和调试的，
 即使使用很好的抽象（比如 future）也是如此。
@@ -1365,7 +1414,7 @@ set x(num value) =&gt; center = Point(value, center.y);</pre>
 }</pre>
 
 <h3 id="不要-在没有有用效果的情况下使用-async-">
-<strong>不要</strong> 在没有有用效果的情况下使用 <code class="highlighter-rouge">async</code> 。</h3>
+<a id="不要-在没有有用效果的情况下使用-async-" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E6%B2%A1%E6%9C%89%E6%9C%89%E7%94%A8%E6%95%88%E6%9E%9C%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E4%BD%BF%E7%94%A8-async-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 在没有有用效果的情况下使用 <code class="highlighter-rouge">async</code> 。</h3>
 
 <p>当成为习惯之后，你可能会在所有和异步相关的函数使用 <code class="highlighter-rouge">async</code>。但是在有些情况下，
 如果可以忽略 <code class="highlighter-rouge">async</code>  而不改变方法的行为，则应该这么做：</p>
@@ -1409,14 +1458,14 @@ Future asyncError() async {
 Future asyncValue() async =&gt; 'value';</pre>
 
 <h3 id="考虑-使用高阶函数来转换事件流stream">
-<strong>考虑</strong> 使用高阶函数来转换事件流（stream）</h3>
+<a id="考虑-使用高阶函数来转换事件流stream" class="anchor" href="#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E6%9D%A5%E8%BD%AC%E6%8D%A2%E4%BA%8B%E4%BB%B6%E6%B5%81stream" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 使用高阶函数来转换事件流（stream）</h3>
 
 <p>This parallels the above suggestion on iterables. Streams support many of the
 same methods and also handle things like transmitting errors, closing, etc.
 correctly.</p>
 
 <h3 id="避免-直接使用-completer--">
-<strong>避免</strong> 直接使用 Completer  。</h3>
+<a id="避免-直接使用-completer--" class="anchor" href="#%E9%81%BF%E5%85%8D-%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8-completer--" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 直接使用 Completer  。</h3>
 
 <p>很多异步编程的新手想要编写生成一个 future 的代码。
 而 Future 的构造函数看起来并不满足他们的要求，
@@ -1452,7 +1501,7 @@ correctly.</p>
 }</pre>
 
 <h3 id="要-使用-futuret-对-futureort-参数进行测试以消除参数可能是-object-类型的歧义">
-<strong>要</strong> 使用 <code class="highlighter-rouge">Future&lt;T&gt;</code> 对 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 参数进行测试，以消除参数可能是 <code class="highlighter-rouge">Object</code> 类型的歧义。</h3>
+<a id="要-使用-futuret-对-futureort-参数进行测试以消除参数可能是-object-类型的歧义" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-futuret-%E5%AF%B9-futureort-%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B6%88%E9%99%A4%E5%8F%82%E6%95%B0%E5%8F%AF%E8%83%BD%E6%98%AF-object-%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%AD%A7%E4%B9%89" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">Future&lt;T&gt;</code> 对 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 参数进行测试，以消除参数可能是 <code class="highlighter-rouge">Object</code> 类型的歧义。</h3>
 
 <p>在使用 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 执行任何有用的操作之前，
 通常需要做 <code class="highlighter-rouge">is</code> 检查，来确定你拥有的是 <code class="highlighter-rouge">Future&lt;T&gt;</code> 还是一个空的 <code class="highlighter-rouge">T</code>。
@@ -1535,7 +1584,7 @@ correctly.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

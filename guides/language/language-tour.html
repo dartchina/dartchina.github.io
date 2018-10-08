@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
 
@@ -169,22 +169,116 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h2"><a href="#一个简单的-dart-程序">一个简单的 Dart 程序</a></li>
 <li class="toc-entry toc-h2"><a href="#重要的概念">重要的概念</a></li>
 <li class="toc-entry toc-h2"><a href="#关键字">关键字</a></li>
-<li class="toc-entry toc-h2"><a href="#变量">变量</a></li>
-<li class="toc-entry toc-h2"><a href="#内建类型">内建类型</a></li>
-<li class="toc-entry toc-h2"><a href="#函数">函数</a></li>
-<li class="toc-entry toc-h2"><a href="#运算符">运算符</a></li>
-<li class="toc-entry toc-h2"><a href="#控制流程语句">控制流程语句</a></li>
-<li class="toc-entry toc-h2"><a href="#异常">异常</a></li>
-<li class="toc-entry toc-h2"><a href="#类">类</a></li>
-<li class="toc-entry toc-h2"><a href="#泛型">泛型</a></li>
-<li class="toc-entry toc-h2"><a href="#库和可见性">库和可见性</a></li>
-<li class="toc-entry toc-h2"><a href="#异步支持">异步支持</a></li>
+<li class="toc-entry toc-h2"><a href="#变量">变量</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#默认值">默认值</a></li>
+<li class="toc-entry toc-h3"><a href="#final-和-const">Final 和 const</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#内建类型">内建类型</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#numbers">Numbers</a></li>
+<li class="toc-entry toc-h3"><a href="#strings">Strings</a></li>
+<li class="toc-entry toc-h3"><a href="#booleans">Booleans</a></li>
+<li class="toc-entry toc-h3"><a href="#lists">Lists</a></li>
+<li class="toc-entry toc-h3"><a href="#maps">Maps</a></li>
+<li class="toc-entry toc-h3"><a href="#runes">Runes</a></li>
+<li class="toc-entry toc-h3"><a href="#symbols">Symbols</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#函数">函数</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#可选参数">可选参数</a></li>
+<li class="toc-entry toc-h3"><a href="#main-函数">main() 函数</a></li>
+<li class="toc-entry toc-h3"><a href="#函数是一等对象">函数是一等对象</a></li>
+<li class="toc-entry toc-h3"><a href="#匿名函数">匿名函数</a></li>
+<li class="toc-entry toc-h3"><a href="#词法作用域">词法作用域</a></li>
+<li class="toc-entry toc-h3"><a href="#词法闭包">词法闭包</a></li>
+<li class="toc-entry toc-h3"><a href="#测试函数是否相等">测试函数是否相等</a></li>
+<li class="toc-entry toc-h3"><a href="#返回值">返回值</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#运算符">运算符</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#算术运算符">算术运算符</a></li>
+<li class="toc-entry toc-h3"><a href="#关系运算符">关系运算符</a></li>
+<li class="toc-entry toc-h3"><a href="#类型判定运算符">类型判定运算符</a></li>
+<li class="toc-entry toc-h3"><a href="#赋值运算符">赋值运算符</a></li>
+<li class="toc-entry toc-h3"><a href="#逻辑运算符">逻辑运算符</a></li>
+<li class="toc-entry toc-h3"><a href="#按位和移位运算符">按位和移位运算符</a></li>
+<li class="toc-entry toc-h3"><a href="#条件表达式">条件表达式</a></li>
+<li class="toc-entry toc-h3"><a href="#级联运算符-">级联运算符 (..)</a></li>
+<li class="toc-entry toc-h3"><a href="#其他运算符">其他运算符</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#控制流程语句">控制流程语句</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#if-和-else">If 和 else</a></li>
+<li class="toc-entry toc-h3"><a href="#for-循环">For 循环</a></li>
+<li class="toc-entry toc-h3"><a href="#while-和-do-while">While 和 do-while</a></li>
+<li class="toc-entry toc-h3"><a href="#break-和-continue">Break 和 continue</a></li>
+<li class="toc-entry toc-h3"><a href="#switch-和-case">Switch 和 case</a></li>
+<li class="toc-entry toc-h3"><a href="#assert">Assert</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#异常">异常</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#throw">Throw</a></li>
+<li class="toc-entry toc-h3"><a href="#catch">Catch</a></li>
+<li class="toc-entry toc-h3"><a href="#finally">Finally</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#类">类</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#使用类的成员变量">使用类的成员变量</a></li>
+<li class="toc-entry toc-h3"><a href="#使用构造函数">使用构造函数</a></li>
+<li class="toc-entry toc-h3"><a href="#获取对象的类型">获取对象的类型</a></li>
+<li class="toc-entry toc-h3"><a href="#实例变量">实例变量</a></li>
+<li class="toc-entry toc-h3"><a href="#构造函数">构造函数</a></li>
+<li class="toc-entry toc-h3"><a href="#方法">方法</a></li>
+<li class="toc-entry toc-h3"><a href="#抽象类">抽象类</a></li>
+<li class="toc-entry toc-h3"><a href="#隐式接口">隐式接口</a></li>
+<li class="toc-entry toc-h3"><a href="#扩展类继承">扩展类（继承）</a></li>
+<li class="toc-entry toc-h3"><a href="#枚举类型">枚举类型</a></li>
+<li class="toc-entry toc-h3"><a href="#为类添加功能-mixins">为类添加功能： mixins</a></li>
+<li class="toc-entry toc-h3"><a href="#类变量和方法">类变量和方法</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#泛型">泛型</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#为什么使用泛型">为什么使用泛型</a></li>
+<li class="toc-entry toc-h3"><a href="#使用集合字面量">使用集合字面量</a></li>
+<li class="toc-entry toc-h3"><a href="#使用泛型类型的构造函数">使用泛型类型的构造函数</a></li>
+<li class="toc-entry toc-h3"><a href="#运行时中的泛型集合">运行时中的泛型集合</a></li>
+<li class="toc-entry toc-h3"><a href="#限制泛型类型">限制泛型类型</a></li>
+<li class="toc-entry toc-h3"><a href="#使用泛型函数">使用泛型函数</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#库和可见性">库和可见性</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#使用库">使用库</a></li>
+<li class="toc-entry toc-h3"><a href="#实现库">实现库</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#异步支持">异步支持</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#处理-future">处理 Future</a></li>
+<li class="toc-entry toc-h3"><a href="#声明异步函数">声明异步函数</a></li>
+<li class="toc-entry toc-h3"><a href="#处理流">处理流</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#生成器">生成器</a></li>
 <li class="toc-entry toc-h2"><a href="#可调用类">可调用类</a></li>
 <li class="toc-entry toc-h2"><a href="#isolates">Isolates</a></li>
 <li class="toc-entry toc-h2"><a href="#typedefs">Typedefs</a></li>
 <li class="toc-entry toc-h2"><a href="#元数据">元数据</a></li>
-<li class="toc-entry toc-h2"><a href="#注释">注释</a></li>
+<li class="toc-entry toc-h2"><a href="#注释">注释</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#单行注释">单行注释</a></li>
+<li class="toc-entry toc-h3"><a href="#多行注释">多行注释</a></li>
+<li class="toc-entry toc-h3"><a href="#文档注释">文档注释</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#总结">总结</a></li>
 </ul>
   </div>
@@ -193,34 +287,23 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/language/language-tour.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart 编程语言概览' page issue&body=From URL: https://www.dartlang.org/guides/language/language-tour"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/language/language-tour.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart 编程语言概览' page issue&body=
+Page URL: https://www.dartlang.org/guides/language/language-tour%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/language/language-tour.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Dart 编程语言概览</h1>
           </div>
@@ -544,7 +627,8 @@ Dart 同样支持多行注释和文档注释。
 使用 <code class="highlighter-rouge">var</code>。 没有使用指定类型的方式。</p>
 </div>
 
-<h3 id="默认值">默认值</h3>
+<h3 id="默认值">
+<a id="默认值" class="anchor" href="#%E9%BB%98%E8%AE%A4%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>默认值</h3>
 
 <p>未初始化的变量默认值是 <code class="highlighter-rouge">null</code>。即使变量是数字
 类型默认值也是 null，因为在 Dart 中一切都是对象，数字类型
@@ -562,7 +646,8 @@ assert(lineCount == null);</pre>
  <a href="#assert">Assert</a>.</p>
 </div>
 
-<h3 id="final-和-const">Final 和 const</h3>
+<h3 id="final-和-const">
+<a id="final-和-const" class="anchor" href="#final-%E5%92%8C-const" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final 和 const</h3>
 
 <p>使用过程中从来不会被修改的变量， 可以使用 <code class="highlighter-rouge">final</code> 或 <code class="highlighter-rouge">const</code>, 而不是 <code class="highlighter-rouge">var</code> 或者其他类型，
 final 变量的值只能被设置一次；
@@ -646,7 +731,8 @@ const baz = []; // Equivalent to `const []`</pre>
 一些内建类型拥有自己的构造函数。
 例如， 通过 <code class="highlighter-rouge">Map()</code> 来构造一个 map 变量。</p>
 
-<h3 id="numbers">Numbers</h3>
+<h3 id="numbers">
+<a id="numbers" class="anchor" href="#numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Numbers</h3>
 
 <p>Dart 语言的 numbers 有两种类型:</p>
 
@@ -724,7 +810,8 @@ assert((3 | 4) == 7); // 0011 | 0100 == 0111</pre>
 const secondsUntilRetry = 5;
 const msUntilRetry = secondsUntilRetry * msPerSecond;</pre>
 
-<h3 id="strings">Strings</h3>
+<h3 id="strings">
+<a id="strings" class="anchor" href="#strings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Strings</h3>
 
 <p>Dart 字符串是一组 UTF-16 单元序列。
 字符串通过单引号或者双引号创建。</p>
@@ -811,7 +898,8 @@ const validConstString = '$aConstNum $aConstBool $aConstString'; //const 类型�
 <p>更多关于 string 的使用, 参考
 <a href="/guides/libraries/library-tour#strings-and-regular-expressions">字符串和正则表达式</a>.</p>
 
-<h3 id="booleans">Booleans</h3>
+<h3 id="booleans">
+<a id="booleans" class="anchor" href="#booleans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Booleans</h3>
 
 <p>Dart 使用 <code class="highlighter-rouge">bool</code> 类型表示布尔值。 
 Dart 只有字面量 <code class="highlighter-rouge">true</code> and <code class="highlighter-rouge">false</code> 是布尔类型，
@@ -839,7 +927,8 @@ assert(unicorn == null);
 var iMeantToDoThis = 0 / 0;
 assert(iMeantToDoThis.isNaN);</pre>
 
-<h3 id="lists">Lists</h3>
+<h3 id="lists">
+<a id="lists" class="anchor" href="#lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists</h3>
 
 <p>几乎每种编程语言中最常见的集合可能是 <em>array</em> 或有序的对象集合。
 在 Dart 中的 <em>array</em> 就是 <a href="https://api.dartlang.org/stable/dart-core/List-class.html">List</a> 对象，
@@ -883,7 +972,8 @@ assert(list[1] == 1);</pre>
 更多信息参考 <a href="#generics">泛型</a> 和
 <a href="/guides/libraries/library-tour#collections">集合</a>.</p>
 
-<h3 id="maps">Maps</h3>
+<h3 id="maps">
+<a id="maps" class="anchor" href="#maps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maps</h3>
 
 <p>通常来说， map 是用来关联 keys 和 values 的对象。
 keys 和 values 可以是任何类型的对象。在一个 map 对象中一个 <em>key</em> 只能出现一次。
@@ -974,7 +1064,8 @@ add <code class="highlighter-rouge">const</code> before the map literal:</p>
 <a href="#generics">Generics</a> and
 <a href="/guides/libraries/library-tour#maps">Maps</a>.</p>
 
-<h3 id="runes">Runes</h3>
+<h3 id="runes">
+<a id="runes" class="anchor" href="#runes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Runes</h3>
 
 <p>在 Dart 中，runes 用来表示字符串中的 UTF-32 编码字符。</p>
 
@@ -1012,7 +1103,8 @@ add <code class="highlighter-rouge">const</code> before the map literal:</p>
 <a href="http://stackoverflow.com/questions/21521729/how-do-i-reverse-a-string-in-dart">How do I reverse a String in Dart?</a> on Stack Overflow.</p>
 </div>
 
-<h3 id="symbols">Symbols</h3>
+<h3 id="symbols">
+<a id="symbols" class="anchor" href="#symbols" aria-hidden="true"><span class="octicon octicon-link"></span></a>Symbols</h3>
 
 <p>一个 Symbol 对象表示 Dart 程序中声明的运算符或者标识符。 
 你也许永远都不需要使用 Symbol ，但要按名称引用标识符的 API 时， Symbol 就非常有用了。
@@ -1073,7 +1165,8 @@ required 类型参数在参数最前面， 随后是 optional 类型参数。
 命名的可选参数也可以标记为 “@ required” 。
 参考下一章节，了解更多细节。</p>
 
-<h3 id="可选参数">可选参数</h3>
+<h3 id="可选参数">
+<a id="可选参数" class="anchor" href="#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>可选参数</h3>
 
 <p>可选参数可以是命名参数或者位置参数，但一个参数只能选择其中一种方式修饰。</p>
 
@@ -1195,7 +1288,8 @@ assert(say('Bob', 'Howdy') ==
   print('gifts: $gifts');
 }</pre>
 
-<h3 id="main-函数">main() 函数</h3>
+<h3 id="main-函数">
+<a id="main-函数" class="anchor" href="#main-%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>main() 函数</h3>
 
 <p>任何应用都必须有一个顶级 <code class="highlighter-rouge">main()</code> 函数，作为应用服务的入口。
 <code class="highlighter-rouge">main()</code> 函数返回值为空，参数为一个可选的 <code class="highlighter-rouge">List&lt;String&gt;</code> 。</p>
@@ -1230,7 +1324,8 @@ void main(List&lt;String&gt; arguments) {
 
 <p>使用 <a href="https://pub.dartlang.org/packages/args">args library</a> 可以定义和解析命令行参数。</p>
 
-<h3 id="函数是一等对象">函数是一等对象</h3>
+<h3 id="函数是一等对象">
+<a id="函数是一等对象" class="anchor" href="#%E5%87%BD%E6%95%B0%E6%98%AF%E4%B8%80%E7%AD%89%E5%AF%B9%E8%B1%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>函数是一等对象</h3>
 
 <p>一个函数可以作为另一个函数的参数。 例如：</p>
 
@@ -1253,7 +1348,8 @@ assert(loudify('hello') == '!!! HELLO !!!');</pre>
 <p>示例中使用了匿名函数。
 下一章节会有更多介绍。</p>
 
-<h3 id="匿名函数">匿名函数</h3>
+<h3 id="匿名函数">
+<a id="匿名函数" class="anchor" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>匿名函数</h3>
 
 <p>多数函数是有名字的， 比如 <code class="highlighter-rouge">main()</code> 和 <code class="highlighter-rouge">printElement()</code>。
 也可以创建没有名字的函数，这种函数被称为 <em>匿名函数</em>，
@@ -1294,7 +1390,8 @@ list.forEach((item) {
 <pre class="prettyprint lang-dart">list.forEach(
     (item) =&gt; print('${list.indexOf(item)}: $item'));</pre>
 
-<h3 id="词法作用域">词法作用域</h3>
+<h3 id="词法作用域">
+<a id="词法作用域" class="anchor" href="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F" aria-hidden="true"><span class="octicon octicon-link"></span></a>词法作用域</h3>
 
 <p>Dart 是一门词法作用域的编程语言，就意味着变量的作用域是固定的，
 简单说变量的作用域在编写代码的时候就已经确定了。
@@ -1325,7 +1422,8 @@ void main() {
 <p>注意 <code class="highlighter-rouge">nestedFunction()</code> 可以访问所有的变量， 
 一直到顶级作用域变量。</p>
 
-<h3 id="词法闭包">词法闭包</h3>
+<h3 id="词法闭包">
+<a id="词法闭包" class="anchor" href="#%E8%AF%8D%E6%B3%95%E9%97%AD%E5%8C%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>词法闭包</h3>
 
 <p><em>闭包</em> 即一个函数对象，不管该汗水对象在何处被调用，
 该函数都可以访问其作用域内的变量。</p>
@@ -1352,7 +1450,8 @@ void main() {
   assert(add4(3) == 7);
 }</pre>
 
-<h3 id="测试函数是否相等">测试函数是否相等</h3>
+<h3 id="测试函数是否相等">
+<a id="测试函数是否相等" class="anchor" href="#%E6%B5%8B%E8%AF%95%E5%87%BD%E6%95%B0%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>测试函数是否相等</h3>
 
 <p>下面是顶级函数，静态方法和示例方法相等性的测试示例：</p>
 
@@ -1390,7 +1489,8 @@ void main() {
   assert(v.baz != w.baz);
 }</pre>
 
-<h3 id="返回值">返回值</h3>
+<h3 id="返回值">
+<a id="返回值" class="anchor" href="#%E8%BF%94%E5%9B%9E%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>返回值</h3>
 
 <p>所有函数都会返回一个值。 如果没有明确指定返回值，
 函数体会被隐式的添加 <code class="highlighter-rouge">return null;</code> 语句。</p>
@@ -1529,7 +1629,8 @@ if (n % i == 0 &amp;&amp; d % i == 0) ...</pre>
 <code class="highlighter-rouge">aVector + aPoint</code> 使用的是 Vector 中定义的 + 运算符。</p>
 </div>
 
-<h3 id="算术运算符">算术运算符</h3>
+<h3 id="算术运算符">
+<a id="算术运算符" class="anchor" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>算术运算符</h3>
 
 <p>Dart 支持常用的运算运算符，如下表所示：</p>
 
@@ -1638,7 +1739,8 @@ a = 0;
 b = a--; // a先赋值给b后，a自减。
 assert(a != b); // -1 != 0</pre>
 
-<h3 id="关系运算符">关系运算符</h3>
+<h3 id="关系运算符">
+<a id="关系运算符" class="anchor" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>关系运算符</h3>
 
 <p>下表列出了关系运算符及含义：</p>
 
@@ -1706,7 +1808,8 @@ assert(2 &lt; 3);
 assert(3 &gt;= 3);
 assert(2 &lt;= 3);</pre>
 
-<h3 id="类型判定运算符">类型判定运算符</h3>
+<h3 id="类型判定运算符">
+<a id="类型判定运算符" class="anchor" href="#%E7%B1%BB%E5%9E%8B%E5%88%A4%E5%AE%9A%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>类型判定运算符</h3>
 
 <p><code class="highlighter-rouge">as</code>， <code class="highlighter-rouge">is</code>， 和 <code class="highlighter-rouge">is!</code> 运算符用于在运行时处理类型检查：</p>
 
@@ -1759,7 +1862,8 @@ assert(2 &lt;= 3);</pre>
 第二个 <code class="highlighter-rouge">as</code> 的示例会抛出异常。</p>
 </div>
 
-<h3 id="赋值运算符">赋值运算符</h3>
+<h3 id="赋值运算符">
+<a id="赋值运算符" class="anchor" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>赋值运算符</h3>
 
 <p>使用 <code class="highlighter-rouge">=</code> 为变量赋值。
 使用 <code class="highlighter-rouge">??=</code> 运算符时，只有当被复制变量为 null 时才会赋值给变量。</p>
@@ -1824,7 +1928,8 @@ b ??= value;</pre>
 a *= 3; // 复制并做乘法运算： a = a * 3
 assert(a == 6);</pre>
 
-<h3 id="逻辑运算符">逻辑运算符</h3>
+<h3 id="逻辑运算符">
+<a id="逻辑运算符" class="anchor" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>逻辑运算符</h3>
 
 <p>逻辑操作符可以反转或组合布尔表达式。</p>
 
@@ -1858,7 +1963,8 @@ assert(a == 6);</pre>
   // ...Do something...
 }</pre>
 
-<h3 id="按位和移位运算符">按位和移位运算符</h3>
+<h3 id="按位和移位运算符">
+<a id="按位和移位运算符" class="anchor" href="#%E6%8C%89%E4%BD%8D%E5%92%8C%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>按位和移位运算符</h3>
 
 <p>在 Dart 中，可以单独操作数字的某一位。
 通常情况下整数类型使用按位和移位运算符来操作。</p>
@@ -1911,7 +2017,8 @@ assert((value ^ bitmask) == 0x2d); // XOR
 assert((value &lt;&lt; 4) == 0x220); // Shift left
 assert((value &gt;&gt; 4) == 0x02); // Shift right</pre>
 
-<h3 id="条件表达式">条件表达式</h3>
+<h3 id="条件表达式">
+<a id="条件表达式" class="anchor" href="#%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>条件表达式</h3>
 
 <p>Dart有两个运算符，有时可以替换 <a href="#if-and-else">if-else</a> 表达式，
 让表达式更简洁：</p>
@@ -1956,7 +2063,8 @@ String playerName(String name) {
 }</pre>
 
 <p><a id="cascade"></a></p>
-<h3 id="级联运算符-">级联运算符 (..)</h3>
+<h3 id="级联运算符-">
+<a id="级联运算符-" class="anchor" href="#%E7%BA%A7%E8%81%94%E8%BF%90%E7%AE%97%E7%AC%A6-" aria-hidden="true"><span class="octicon octicon-link"></span></a>级联运算符 (..)</h3>
 
 <p>级联运算符 (<code class="highlighter-rouge">..</code>) 可以实现对同一个对像进行一系列的操作。
 除了调用函数，
@@ -2014,7 +2122,8 @@ sb.write('foo')
 它只是一个 Dart 的特殊语法。</p>
 </div>
 
-<h3 id="其他运算符">其他运算符</h3>
+<h3 id="其他运算符">
+<a id="其他运算符" class="anchor" href="#%E5%85%B6%E4%BB%96%E8%BF%90%E7%AE%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>其他运算符</h3>
 
 <p>大多数剩余的运算符，已在示例中使用过：</p>
 
@@ -2083,7 +2192,8 @@ sb.write('foo')
 <p>使用 <code class="highlighter-rouge">try-catch</code> 和 <code class="highlighter-rouge">throw</code> 也可以改变程序流程， 
 详见 <a href="#exceptions">Exceptions</a>。</p>
 
-<h3 id="if-和-else">If 和 else</h3>
+<h3 id="if-和-else">
+<a id="if-和-else" class="anchor" href="#if-%E5%92%8C-else" aria-hidden="true"><span class="octicon octicon-link"></span></a>If 和 else</h3>
 
 <p>Dart 支持 <code class="highlighter-rouge">if - else</code> 语句，其中 <code class="highlighter-rouge">else</code> 是可选的， 
 比如下面的例子， 另参考 <a href="#conditional-expressions">conditional expressions</a>.</p>
@@ -2100,7 +2210,8 @@ sb.write('foo')
 <p>和 JavaScript 不同， Dart 的判断条件必须是布尔值，不能是其他类型。
 更多信息，参考 <a href="#booleans">Booleans</a> 。</p>
 
-<h3 id="for-循环">For 循环</h3>
+<h3 id="for-循环">
+<a id="for-循环" class="anchor" href="#for-%E5%BE%AA%E7%8E%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>For 循环</h3>
 
 <p>进行迭代操作，可以使用标准 <code class="highlighter-rouge">for</code> 语句。 例如：</p>
 
@@ -2139,7 +2250,8 @@ for (var x in collection) {
   print(x); // 0 1 2
 }</pre>
 
-<h3 id="while-和-do-while">While 和 do-while</h3>
+<h3 id="while-和-do-while">
+<a id="while-和-do-while" class="anchor" href="#while-%E5%92%8C-do-while" aria-hidden="true"><span class="octicon octicon-link"></span></a>While 和 do-while</h3>
 
 <p><code class="highlighter-rouge">while</code> 循环在执行前判断执行条件：</p>
 
@@ -2155,7 +2267,8 @@ for (var x in collection) {
   printLine();
 } while (!atEndOfPage());</pre>
 
-<h3 id="break-和-continue">Break 和 continue</h3>
+<h3 id="break-和-continue">
+<a id="break-和-continue" class="anchor" href="#break-%E5%92%8C-continue" aria-hidden="true"><span class="octicon octicon-link"></span></a>Break 和 continue</h3>
 
 <p>使用 <code class="highlighter-rouge">break</code> 停止程序循环：</p>
 
@@ -2184,7 +2297,8 @@ for (var x in collection) {
     .where((c) =&gt; c.yearsExperience &gt;= 5)
     .forEach((c) =&gt; c.interview());</pre>
 
-<h3 id="switch-和-case">Switch 和 case</h3>
+<h3 id="switch-和-case">
+<a id="switch-和-case" class="anchor" href="#switch-%E5%92%8C-case" aria-hidden="true"><span class="octicon octicon-link"></span></a>Switch 和 case</h3>
 
 <p>在 Dart 中 switch 语句使用 <code class="highlighter-rouge">==</code> 比较整数，字符串，或者编译时常量。
 比较的对象必须都是同一个类的实例（并且不可以是子类），
@@ -2271,7 +2385,8 @@ switch (command) {
 <p><code class="highlighter-rouge">case</code> 语句可以拥有局部变量，
 这些局部变量只能在这个语句的作用域中可见。</p>
 
-<h3 id="assert">Assert</h3>
+<h3 id="assert">
+<a id="assert" class="anchor" href="#assert" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assert</h3>
 
 <p>如果 <code class="highlighter-rouge">assert</code> 语句中的布尔条件为 false ， 那么正常的程序执行流程会被中断。
 在本章中包含部分 assert 的使用，
@@ -2326,7 +2441,8 @@ Flutter 中的 assert 只在 <a href="https://flutter.io/debugging/#debug-mode-a
 当然也可以定义自己的异常类型。
 但是，此外 Dart 程序可以抛出任何非 null 对象， 不仅限 Exception 和 Error 对象。</p>
 
-<h3 id="throw">Throw</h3>
+<h3 id="throw">
+<a id="throw" class="anchor" href="#throw" aria-hidden="true"><span class="octicon octicon-link"></span></a>Throw</h3>
 
 <p>下面是关于抛出或者 <em>引发</em> 异常的示例：</p>
 
@@ -2348,7 +2464,8 @@ Flutter 中的 assert 只在 <a href="https://flutter.io/debugging/#debug-mode-a
 <?code-excerpt "misc/lib/language_tour/exceptions.dart (throw-is-an-expression)"?>
 <pre class="prettyprint lang-dart">void distanceTo(Point other) =&gt; throw UnimplementedError();</pre>
 
-<h3 id="catch">Catch</h3>
+<h3 id="catch">
+<a id="catch" class="anchor" href="#catch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Catch</h3>
 
 <p>捕获异常可以避免异常继续传递（除非重新抛出（ rethrow ）异常）。 
 可以通过捕获异常的机会来处理该异常：</p>
@@ -2419,7 +2536,8 @@ void main() {
   }
 }</pre>
 
-<h3 id="finally">Finally</h3>
+<h3 id="finally">
+<a id="finally" class="anchor" href="#finally" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finally</h3>
 
 <p>不管是否抛出异常， <code class="highlighter-rouge">finally</code> 中的代码都会被执行。
 如果 <code class="highlighter-rouge">catch</code> 没有匹配到异常，
@@ -2455,7 +2573,8 @@ void main() {
 基于 * Mixin 继承* 意味着每个类（除 Object 外） 都只有一个超类，
 一个类中的代码可以在其他多个继承类中重复使用。</p>
 
-<h3 id="使用类的成员变量">使用类的成员变量</h3>
+<h3 id="使用类的成员变量">
+<a id="使用类的成员变量" class="anchor" href="#%E4%BD%BF%E7%94%A8%E7%B1%BB%E7%9A%84%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用类的成员变量</h3>
 
 <p>对象的由函数和数据（即方法和实例变量）组成。 
 方法的调用要通过对象来完成：
@@ -2483,7 +2602,8 @@ num distance = p.distanceTo(Point(4, 4));</pre>
 <pre class="prettyprint lang-dart">// 如果 p 为 non-null，设置它变量 y 的值为 4。
 p?.y = 4;</pre>
 
-<h3 id="使用构造函数">使用构造函数</h3>
+<h3 id="使用构造函数">
+<a id="使用构造函数" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用构造函数</h3>
 
 <p>通过 <em>构造函数</em> 创建对象。
 构造函数的名字可以是 <code><em>ClassName</em></code> 或者
@@ -2543,7 +2663,8 @@ const pointAndLine = {
   <p><strong>版本提示：</strong> 在 Dart 2 中在一个常量上下文中，<code class="highlighter-rouge">const</code> 可以被省略。</p>
 </aside>
 
-<h3 id="获取对象的类型">获取对象的类型</h3>
+<h3 id="获取对象的类型">
+<a id="获取对象的类型" class="anchor" href="#%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>获取对象的类型</h3>
 
 <p>使用对象的 <code class="highlighter-rouge">runtimeType</code> 属性，
 可以在运行时获取对象的类型，
@@ -2555,7 +2676,8 @@ const pointAndLine = {
 <p>到目前为止，我们已经解了如何_使用_类。 
 本节的其余部分将介绍如何_实现_一个类。</p>
 
-<h3 id="实例变量">实例变量</h3>
+<h3 id="实例变量">
+<a id="实例变量" class="anchor" href="#%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>实例变量</h3>
 
 <p>下面是声明实例变量的示例：</p>
 
@@ -2589,7 +2711,8 @@ void main() {
 那么初始化值会在示例创建时赋值给变量，
 该赋值过程在构造函数及其初始化列表执行之前。</p>
 
-<h3 id="构造函数">构造函数</h3>
+<h3 id="构造函数">
+<a id="构造函数" class="anchor" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>构造函数</h3>
 
 <p>通过创建一个与其类同名的函数来声明构造函数
 （另外，还可以附加一个额外的可选标识符，如 <a href="#named-constructors">命名构造函数</a> 中所述）。 
@@ -2815,7 +2938,8 @@ Point.fromJson(Map&lt;String, num&gt; json)
 <pre class="prettyprint lang-dart">var logger = Logger('UI');
 logger.log('Button clicked');</pre>
 
-<h3 id="方法">方法</h3>
+<h3 id="方法">
+<a id="方法" class="anchor" href="#%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>方法</h3>
 
 <p>方法是为对象提供行为的函数。</p>
 
@@ -2899,7 +3023,8 @@ class EffectiveDoer extends Doer {
 
 <p>调用抽象方法会导致运行时错误。</p>
 
-<h3 id="抽象类">抽象类</h3>
+<h3 id="抽象类">
+<a id="抽象类" class="anchor" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>抽象类</h3>
 
 <p>使用 <code class="highlighter-rouge">abstract</code> 修饰符来定义 <em>抽象类</em> — 抽象类不能实例化。
 抽象类通常用来定义接口，以及部分实现。
@@ -2918,7 +3043,8 @@ abstract class AbstractContainer {
   void updateChildren(); // 抽象方法。
 }</pre>
 
-<h3 id="隐式接口">隐式接口</h3>
+<h3 id="隐式接口">
+<a id="隐式接口" class="anchor" href="#%E9%9A%90%E5%BC%8F%E6%8E%A5%E5%8F%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>隐式接口</h3>
 
 <p>每个类都隐式的定义了一个接口，接口包含了该类所有的实例成员及其实现的接口。
 如果要创建一个 A 类，A 要支持 B 类的 API ，但是不需要继承 B 的实现，
@@ -2962,7 +3088,8 @@ interfaces:</p>
 <?code-excerpt "misc/lib/language_tour/classes/misc.dart (point_interfaces)"?>
 <pre class="prettyprint lang-dart">class Point implements Comparable, Location {...}</pre>
 
-<h3 id="扩展类继承">扩展类（继承）</h3>
+<h3 id="扩展类继承">
+<a id="扩展类继承" class="anchor" href="#%E6%89%A9%E5%B1%95%E7%B1%BB%E7%BB%A7%E6%89%BF" aria-hidden="true"><span class="octicon octicon-link"></span></a>扩展类（继承）</h3>
 
 <p>使用 <code class="highlighter-rouge">extends</code> 关键字来创建子类， 
 使用 <code class="highlighter-rouge">super</code> 关键字来引用父类：</p>
@@ -3106,7 +3233,8 @@ void main() {
 <a href="https://github.com/dart-lang/sdk/blob/master/docs/language/informal/nosuchmethod-forwarding.md">noSuchMethod forwarding specification.</a></p>
 
 <p><a id="enums"></a></p>
-<h3 id="枚举类型">枚举类型</h3>
+<h3 id="枚举类型">
+<a id="枚举类型" class="anchor" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>枚举类型</h3>
 
 <p>枚举类型也称为 <em>enumerations</em> 或 <em>enums</em> ，
 是一种特殊的类，用于表示数量固定的常量值。</p>
@@ -3162,7 +3290,8 @@ switch (aColor) {
 <p>有关更多信息，参考
 <a href="/guides/language/spec">Dart Language Specification</a>.</p>
 
-<h3 id="为类添加功能-mixins">为类添加功能： mixins</h3>
+<h3 id="为类添加功能-mixins">
+<a id="为类添加功能-mixins" class="anchor" href="#%E4%B8%BA%E7%B1%BB%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BD-mixins" aria-hidden="true"><span class="octicon octicon-link"></span></a>为类添加功能： mixins</h3>
 
 <p>mixins 是复用类代码的一种途径，
 复用的类可以在不同层级，之间可以不存在继承关系。</p>
@@ -3211,7 +3340,8 @@ class Maestro extends Person
 <p>有关 Dart 中 mixins 的理论演变, 参考
 <a href="/articles/language/mixins">A Brief History of Mixins in Dart</a>.</p>
 
-<h3 id="类变量和方法">类变量和方法</h3>
+<h3 id="类变量和方法">
+<a id="类变量和方法" class="anchor" href="#%E7%B1%BB%E5%8F%98%E9%87%8F%E5%92%8C%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>类变量和方法</h3>
 
 <p>使用 <code class="highlighter-rouge">static</code> 关键字实现类范围的变量和方法。</p>
 
@@ -3281,7 +3411,8 @@ void main() {
 这种类型具有形式化的参数。
 通常情况下，使用一个字母来代表类型参数， 例如 E, T, S, K, 和 V 等。</p>
 
-<h3 id="为什么使用泛型">为什么使用泛型</h3>
+<h3 id="为什么使用泛型">
+<a id="为什么使用泛型" class="anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>为什么使用泛型</h3>
 
 <p>在类型安全上通常需要泛型支持，
 它的好处不仅仅是保证代码的正常运行：</p>
@@ -3335,7 +3466,8 @@ names.add(42); // 错误</pre>
 <p>在上面的代码中，T 是一个备用类型。
 这是一个类型占位符，在开发者调用该接口的时候会指定具体类型。</p>
 
-<h3 id="使用集合字面量">使用集合字面量</h3>
+<h3 id="使用集合字面量">
+<a id="使用集合字面量" class="anchor" href="#%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88%E5%AD%97%E9%9D%A2%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用集合字面量</h3>
 
 <p>list 和 map 字面量也是可以参数化的。
 参数化字面量和之前的字面量定义类似，
@@ -3351,7 +3483,8 @@ var pages = &lt;String, String&gt;{
   'humans.txt': 'We are people, not machines'
 };</pre>
 
-<h3 id="使用泛型类型的构造函数">使用泛型类型的构造函数</h3>
+<h3 id="使用泛型类型的构造函数">
+<a id="使用泛型类型的构造函数" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用泛型类型的构造函数</h3>
 
 <p>在调用构造函数的时，在类名字后面使用尖括号（<code class="highlighter-rouge">&lt;...&gt;</code>）来指定泛型类型。
 例如：</p>
@@ -3366,7 +3499,8 @@ var nameSet = Set&lt;String&gt;.from(names);</pre>
 <?code-excerpt "misc/test/language_tour/generics_test.dart (constructor-2)"?>
 <pre class="prettyprint lang-dart">var views = Map&lt;int, View&gt;();</pre>
 
-<h3 id="运行时中的泛型集合">运行时中的泛型集合</h3>
+<h3 id="运行时中的泛型集合">
+<a id="运行时中的泛型集合" class="anchor" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B%E9%9B%86%E5%90%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>运行时中的泛型集合</h3>
 
 <p>Dart 中泛型类型是 <em>固化的</em>，也就是说它们在运行时是携带着类型信息的。 
 例如，
@@ -3384,7 +3518,8 @@ print(names is List&lt;String&gt;); // true</pre>
 但无法测试它是否为 <code class="highlighter-rouge">List&lt;String&gt;</code> 。</p>
 </div>
 
-<h3 id="限制泛型类型">限制泛型类型</h3>
+<h3 id="限制泛型类型">
+<a id="限制泛型类型" class="anchor" href="#%E9%99%90%E5%88%B6%E6%B3%9B%E5%9E%8B%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>限制泛型类型</h3>
 
 <p>使用泛型类型的时候，
 可以使用 <code class="highlighter-rouge">extends</code> 实现参数类型的限制。</p>
@@ -3414,7 +3549,8 @@ print(foo); // Instance of 'Foo&lt;SomeBaseClass&gt;'</pre>
 <?code-excerpt "misc/lib/language_tour/generics/misc.dart (Foo-Object-error)" replace="/Foo.\w+./[!$&!]/g"?>
 <pre class="prettyprint lang-dart fails-sa">var foo = <span class="highlight">Foo&lt;Object&gt;</span>();</pre>
 
-<h3 id="使用泛型函数">使用泛型函数</h3>
+<h3 id="使用泛型函数">
+<a id="使用泛型函数" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用泛型函数</h3>
 
 <p>最初，Dart 的泛型只能用于类。
 新语法_泛型方法_，允许在方法和函数上使用类型参数：</p>
@@ -3452,7 +3588,8 @@ print(foo); // Instance of 'Foo&lt;SomeBaseClass&gt;'</pre>
 <p>库可以通过包来分发。有关 pub（集成在SDK中的包管理器）的信息，请参考 
 <a href="/tools/pub">Pub Package 和 Asset Manager</a>。</p>
 
-<h3 id="使用库">使用库</h3>
+<h3 id="使用库">
+<a id="使用库" class="anchor" href="#%E4%BD%BF%E7%94%A8%E5%BA%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用库</h3>
 
 <p>通过 <code class="highlighter-rouge">import</code> 指定一个库命名空间中的内如如何在另一个库中使用。
 例如，Dart Web应用程序通常使用 <a href="https://api.dartlang.org/stable/dart-html">dart:html</a> 库，它们可以像这样导入：</p>
@@ -3559,7 +3696,8 @@ This behavior might change, so
 For details, see <a href="https://github.com/dart-lang/sdk/issues/33118">issue #33118.</a></p>
 </aside>
 
-<h3 id="实现库">实现库</h3>
+<h3 id="实现库">
+<a id="实现库" class="anchor" href="#%E5%AE%9E%E7%8E%B0%E5%BA%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>实现库</h3>
 
 <p>有关如何实现库包的建议，请参考 
 <a href="/guides/libraries/create-library-packages">Create Library Packages</a>
@@ -3582,7 +3720,8 @@ For details, see <a href="https://github.com/dart-lang/sdk/issues/33118">issue #
 可以让你像编写同步代码一样实现异步操作。</p>
 
 <p><a id="await"></a></p>
-<h3 id="处理-future">处理 Future</h3>
+<h3 id="处理-future">
+<a id="处理-future" class="anchor" href="#%E5%A4%84%E7%90%86-future" aria-hidden="true"><span class="octicon octicon-link"></span></a>处理 Future</h3>
 
 <p>可以通过下面两种方式，获得 Future 执行完成的结果：</p>
 
@@ -3655,7 +3794,8 @@ await 表达式会阻塞代码的执行，直到需要的对象返回为止。</
 }</pre>
 
 <p><a id="async"></a></p>
-<h3 id="声明异步函数">声明异步函数</h3>
+<h3 id="声明异步函数">
+<a id="声明异步函数" class="anchor" href="#%E5%A3%B0%E6%98%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>声明异步函数</h3>
 
 <p>函数体被 <code class="highlighter-rouge">async</code> 标示符标记的函数，即是一个_异步函数_。
 将 <code class="highlighter-rouge">async</code> 关键字添加到函数使其返回Future。
@@ -3676,7 +3816,8 @@ await 表达式会阻塞代码的执行，直到需要的对象返回为止。</
 需要设置其返回类型为 <code class="highlighter-rouge">Future&lt;void&gt;</code> 。</p>
 
 <p><a id="await-for"></a></p>
-<h3 id="处理流">处理流</h3>
+<h3 id="处理流">
+<a id="处理流" class="anchor" href="#%E5%A4%84%E7%90%86%E6%B5%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>处理流</h3>
 
 <p>当需要从 Stream 中获取数据值时，
 可以通过一下两种方式：</p>
@@ -3943,7 +4084,8 @@ constructor、 factory、 function、 field、 parameter 或者 variable
 
 <p>Dart 支持单行注释、多行注释和文档注释。</p>
 
-<h3 id="单行注释">单行注释</h3>
+<h3 id="单行注释">
+<a id="单行注释" class="anchor" href="#%E5%8D%95%E8%A1%8C%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a>单行注释</h3>
 
 <p>单行注释以 <code class="highlighter-rouge">//</code> 开始。 
 所有在 <code class="highlighter-rouge">//</code> 和改行结尾之间的内容被编译器忽略。</p>
@@ -3954,7 +4096,8 @@ constructor、 factory、 function、 field、 parameter 或者 variable
   print('Welcome to my Llama farm!');
 }</pre>
 
-<h3 id="多行注释">多行注释</h3>
+<h3 id="多行注释">
+<a id="多行注释" class="anchor" href="#%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a>多行注释</h3>
 
 <p>多行注释以  <code class="highlighter-rouge">/*</code>  开始， 以 <code class="highlighter-rouge">*/</code> 结尾。
 所有在 <code class="highlighter-rouge">/*</code> 和 <code class="highlighter-rouge">*/</code> 之间的内容被编译器忽略
@@ -3973,7 +4116,8 @@ constructor、 factory、 function、 field、 parameter 或者 variable
    */
 }</pre>
 
-<h3 id="文档注释">文档注释</h3>
+<h3 id="文档注释">
+<a id="文档注释" class="anchor" href="#%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a>文档注释</h3>
 
 <p>文档注释可以是多行注释，也可以是单行注释，
 文档注释以 <code class="highlighter-rouge">///</code> 或者 <code class="highlighter-rouge">/**</code> 开始。
@@ -4056,7 +4200,7 @@ documentation.</a>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

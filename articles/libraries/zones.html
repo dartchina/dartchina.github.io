@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-d0a179bece23587af430fb44686d863ed0a8d3cc5860abf9f20f572e57be3c1a.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
   <link href="/articles/styles.css" rel="stylesheet" type="text/css">
   <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
   <script>
@@ -173,12 +173,40 @@ ga('send', 'pageview');
       </a>
     </header>
     <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#asynchronous-dynamic-extents">Asynchronous dynamic extents</a></li>
 <li class="toc-entry toc-h2"><a href="#zone-basics">Zone basics</a></li>
-<li class="toc-entry toc-h2"><a href="#handling-asynchronous-errors">Handling asynchronous errors</a></li>
-<li class="toc-entry toc-h2"><a href="#using-zones-with-streams">Using zones with streams</a></li>
-<li class="toc-entry toc-h2"><a href="#storing-zone-local-values">Storing zone-local values</a></li>
-<li class="toc-entry toc-h2"><a href="#overriding-functionality">Overriding functionality</a></li>
-<li class="toc-entry toc-h2"><a href="#summary">Summary</a></li>
+<li class="toc-entry toc-h2"><a href="#handling-asynchronous-errors">Handling asynchronous errors</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#example-errors-cant-cross-into-error-zones">Example: Errors can’t cross into error zones</a></li>
+<li class="toc-entry toc-h3"><a href="#example-errors-cant-leave-error-zones">Example: Errors can’t leave error zones</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#using-zones-with-streams">Using zones with streams</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#example-using-a-stream-with-runzoned">Example: Using a stream with runZoned()</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#storing-zone-local-values">Storing zone-local values</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#example-using-a-zone-local-value-for-debug-logs">Example: Using a zone-local value for debug logs</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#overriding-functionality">Overriding functionality</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#example-overriding-print">Example: Overriding print</a></li>
+<li class="toc-entry toc-h3"><a href="#arguments-to-interceptors-and-delegates">Arguments to interceptors and delegates</a></li>
+<li class="toc-entry toc-h3"><a href="#example-delegating-to-the-parent-zone">Example: Delegating to the parent zone</a></li>
+<li class="toc-entry toc-h3"><a href="#example-executing-code-when-entering-and-leaving-a-zone">Example: Executing code when entering and leaving a zone</a></li>
+<li class="toc-entry toc-h3"><a href="#example-handling-callbacks">Example: Handling callbacks</a></li>
+<li class="toc-entry toc-h3"><a href="#implementing-asynchronous-callbacks">Implementing asynchronous callbacks</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#summary">Summary</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#more-resources">More resources</a></li>
+<li class="toc-entry toc-h3"><a href="#more-examples">More examples</a></li>
+</ul>
+</li>
 </ul>
   </div>
 </div>
@@ -186,38 +214,28 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          <div class="banner alert alert-info">
-  <p class="banner__text">
-    <a href="https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7" target="_blank" rel="noopener"><b>Dart 2</b> 稳定版发布！</a>
-    <a href="/dart-2#migration">迁移代码</a> 或
-    <a href="/install">安装 Dart</a>.
-  </p>
-</div>
-
+          
           
 
           <div>
-            <ul class="page-github-links-menu" role="group">
-  <li>
-    <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/libraries/zones.md"
-      class="no-automatic-external"
-      title="View page source"
-      target="_blank" rel="noopener">
-      <i class="fab fa-github fa-sm"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/site-www/issues/new?title='Zones' page issue&body=From URL: https://www.dartlang.org/articles/libraries/zones"
-      class="no-automatic-external"
-      title="Report a bug on this page" target="_blank" rel="noopener">
-      <i class="fas fa-bug fa-sm"></i>
-    </a>
-  </li>
-</ul>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/libraries/zones.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fab fa-github fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Zones' page issue&body=
+Page URL: https://www.dartlang.org/articles/libraries/zones%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_articles/libraries/zones.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
 
             <h1>Zones</h1>
           </div>
-          <h3 id="asynchronous-dynamic-extents">Asynchronous dynamic extents</h3>
+          <h3 id="asynchronous-dynamic-extents">
+<a id="asynchronous-dynamic-extents" class="anchor" href="#asynchronous-dynamic-extents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous dynamic extents</h3>
 
 <p><em>Written by Florian Loitsch and Kathy Walrath<br>
 March 2014</em></p>
@@ -409,7 +427,8 @@ Errors on Future chains never cross the boundaries of error zones.</p>
 <p>If an error reaches an error zone boundary,
 it is treated as unhandled error at that point.</p>
 
-<h3 id="example-errors-cant-cross-into-error-zones">Example: Errors can’t cross into error zones</h3>
+<h3 id="example-errors-cant-cross-into-error-zones">
+<a id="example-errors-cant-cross-into-error-zones" class="anchor" href="#example-errors-cant-cross-into-error-zones" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Errors can’t cross into error zones</h3>
 
 <p>In the following example,
 the error raised by the first line
@@ -453,7 +472,8 @@ the error to propagate further.</p>
 If you add an error zone around the whole code snippet,
 then you can avoid the stack trace.</p>
 
-<h3 id="example-errors-cant-leave-error-zones">Example: Errors can’t leave error zones</h3>
+<h3 id="example-errors-cant-leave-error-zones">
+<a id="example-errors-cant-leave-error-zones" class="anchor" href="#example-errors-cant-leave-error-zones" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Errors can’t leave error zones</h3>
 
 <p>As the preceding code shows,
 errors can’t cross into error zones.
@@ -496,7 +516,8 @@ streams should have no side effect until listened to.
 A similar situation in synchronous code is the behavior of Iterables,
 which aren’t evaluated until you ask for values.</p>
 
-<h3 id="example-using-a-stream-with-runzoned">Example: Using a stream with runZoned()</h3>
+<h3 id="example-using-a-stream-with-runzoned">
+<a id="example-using-a-stream-with-runzoned" class="anchor" href="#example-using-a-stream-with-runzoned" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Using a stream with runZoned()</h3>
 
 <p>Here is an example of using a stream with <code class="highlighter-rouge">runZoned()</code>:</p>
 
@@ -565,7 +586,8 @@ Nested zones can, however, shadow parent values.</p>
   so they’re less likely to conflict with other libraries.</p>
 </aside>
 
-<h3 id="example-using-a-zone-local-value-for-debug-logs">Example: Using a zone-local value for debug logs</h3>
+<h3 id="example-using-a-zone-local-value-for-debug-logs">
+<a id="example-using-a-zone-local-value-for-debug-logs" class="anchor" href="#example-using-a-zone-local-value-for-debug-logs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Using a zone-local value for debug logs</h3>
 
 <p>Say you have two files, foo.txt and bar.txt,
 and want to print all of their lines.
@@ -648,7 +670,8 @@ with which you can override any of the following functionality:</p>
   <li>Printing</li>
 </ul>
 
-<h3 id="example-overriding-print">Example: Overriding print</h3>
+<h3 id="example-overriding-print">
+<a id="example-overriding-print" class="anchor" href="#example-overriding-print" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Overriding print</h3>
 
 <p>As a simple example of overriding functionality,
 here is a way to silence all prints inside a zone:</p>
@@ -672,7 +695,8 @@ Overriding print is possible because <code class="highlighter-rouge">print()</co
 (like <code class="highlighter-rouge">scheduleMicrotask()</code> and the Timer constructors)
 uses the current zone (<code class="highlighter-rouge">Zone.current</code>) to do its work.</p>
 
-<h3 id="arguments-to-interceptors-and-delegates">Arguments to interceptors and delegates</h3>
+<h3 id="arguments-to-interceptors-and-delegates">
+<a id="arguments-to-interceptors-and-delegates" class="anchor" href="#arguments-to-interceptors-and-delegates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arguments to interceptors and delegates</h3>
 
 <p>As the print example shows,
 an interceptor adds three arguments
@@ -735,7 +759,8 @@ for another interceptable method, <code class="highlighter-rouge">scheduleMicrot
   </tbody>
 </table>
 
-<h3 id="example-delegating-to-the-parent-zone">Example: Delegating to the parent zone</h3>
+<h3 id="example-delegating-to-the-parent-zone">
+<a id="example-delegating-to-the-parent-zone" class="anchor" href="#example-delegating-to-the-parent-zone" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Delegating to the parent zone</h3>
 
 <p>Here is an example that shows how to delegate to the parent zone:</p>
 
@@ -757,7 +782,8 @@ main() {
     }));
 }</pre>
 
-<h3 id="example-executing-code-when-entering-and-leaving-a-zone">Example: Executing code when entering and leaving a zone</h3>
+<h3 id="example-executing-code-when-entering-and-leaving-a-zone">
+<a id="example-executing-code-when-entering-and-leaving-a-zone" class="anchor" href="#example-executing-code-when-entering-and-leaving-a-zone" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Executing code when entering and leaving a zone</h3>
 
 <p>Say you want to know how much time some asynchronous code
 spends executing.
@@ -823,7 +849,8 @@ each <code class="highlighter-rouge">run*</code> override just starts the user t
 executes the specified function,
 and then stops the user timer.</p>
 
-<h3 id="example-handling-callbacks">Example: Handling callbacks</h3>
+<h3 id="example-handling-callbacks">
+<a id="example-handling-callbacks" class="anchor" href="#example-handling-callbacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Handling callbacks</h3>
 
 <p>Provide <code class="highlighter-rouge">register*Callback</code> parameters to the ZoneSpecification
 to wrap or change callback code—the code
@@ -895,7 +922,8 @@ The next stack trace (<code class="highlighter-rouge">stackTrace</code>)
 is from the asynchronous context,
 which knows about <code class="highlighter-rouge">bar()</code> but not <code class="highlighter-rouge">foo()</code>.</p>
 
-<h3 id="implementing-asynchronous-callbacks">Implementing asynchronous callbacks</h3>
+<h3 id="implementing-asynchronous-callbacks">
+<a id="implementing-asynchronous-callbacks" class="anchor" href="#implementing-asynchronous-callbacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementing asynchronous callbacks</h3>
 
 <p>Even if you’re implementing an asynchronous API,
 you might not have to deal with zones at all.
@@ -932,7 +960,8 @@ printing and task scheduling.
 Zones enable better debugging and provide hooks
 that you can use for functionality such as profiling.</p>
 
-<h3 id="more-resources">More resources</h3>
+<h3 id="more-resources">
+<a id="more-resources" class="anchor" href="#more-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>More resources</h3>
 
 <dl>
   <dt><a href="https://webdev.dartlang.org/articles/performance/event-loop">The Event Loop and Dart</a></dt>
@@ -952,7 +981,8 @@ See the <a href="https://pub.dartlang.org/packages/stack_trace">stack_trace pack
 at pub.dartlang.org for more information.</dd>
 </dl>
 
-<h3 id="more-examples">More examples</h3>
+<h3 id="more-examples">
+<a id="more-examples" class="anchor" href="#more-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>More examples</h3>
 
 <p>Here are some more complex examples of using zones.</p>
 
@@ -1008,7 +1038,7 @@ for their reviews of this article.</em></p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/09/10 11:49 CST"
+                 title="Site built on 2018/10/08 19:21 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
