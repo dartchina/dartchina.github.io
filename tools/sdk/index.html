@@ -28,8 +28,8 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
-  <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="/assets/main-743789fa2eea1d0b842284e7e29077de7c7f755aa88e291b7b8bf324a4a2a14b.css">
+  <script src="/assets/main-3e89b739cc750412e013252d8b4ced20af281589ffe69a156e6c279177f81069.js" type="text/javascript"></script>
   <script defer src="/tools/sdk/archive/assets/install.js"></script>
   <script>
 
@@ -167,7 +167,7 @@ ga('send', 'pageview');
       </a>
     </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#install-the-sdk">Install the SDK</a>
+<li class="toc-entry toc-h2"><a href="#install">Install the SDK</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#upgrade">Upgrade</a></li>
 <li class="toc-entry toc-h3"><a href="#switch-release">Switch release</a></li>
@@ -191,12 +191,12 @@ ga('send', 'pageview');
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
   <li class="breadcrumb-item"
-      property="itemListElement" typeof="ListItem"><a href="/tools/" property="item" typeof="WebPage"><span property="name">Tools</span>
+      property="itemListElement" typeof="ListItem"><a href="/tools" property="item" typeof="WebPage"><span property="name">Tools</span>
       </a>
       <meta property="position" content="1" />
     </li>
   <li class="breadcrumb-item active"
-      property="itemListElement" typeof="ListItem" aria-current="page"><a href="/tools/sdk/" property="item" typeof="WebPage"><span property="name">Dart SDK</span>
+      property="itemListElement" typeof="ListItem" aria-current="page"><a href="/tools/sdk" property="item" typeof="WebPage"><span property="name">Dart SDK</span>
       </a>
       <meta property="position" content="2" />
     </li>
@@ -206,7 +206,7 @@ ga('send', 'pageview');
           <div>
             <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
   <a href="https://github.com/dart-lang/site-shared/tree/master/src_zh_CN/tools/sdk/index.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
-    <i class="fab fa-github fa-sm"></i>
+    <i class="fas fa-file-alt fa-sm"></i>
   </a>
   <a href="https://github.com/dart-lang/site-shared/issues/new?title='Dart SDK' page issue&body=
 Page URL: https://www.dartlang.org/tools/sdk/%0D%0A
@@ -231,7 +231,7 @@ Dart apps. To learn about other tools you can use for Dart development, see
 </aside>
 
 <h2 id="install">
-<a id="install-the-sdk" class="anchor" href="#install-the-sdk" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install the SDK</h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install the SDK</h2>
 
 <p>As the following instructions show,
 you can use a package manager
@@ -344,6 +344,21 @@ run the one-time setup commands followed by:</p>
     <li><a href="#" class="download-link" id="debian-link-stable" data-bits="64" data-os="debian" data-tool="sdk">Stable channel</a></li>
     <li><a href="#" class="download-link" id="debian-link-dev" data-bits="64" data-os="debian" data-tool="sdk">Dev channel</a></li>
   </ul>
+
+  <h4 id="modify-path-for-access-to-all-dart-binaries">Modify PATH for access to all Dart binaries</h4>
+
+  <p>After installing the SDK, <strong>add its bin directory to your PATH</strong>. For example,
+use the following command to change PATH in your active terminal session:</p>
+
+  <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PATH</span><span class="s2">:/usr/lib/dart/bin"</span>
+</code></pre></div>  </div>
+
+  <p>To change the PATH for future terminal sessions, use a command like this:</p>
+
+  <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">echo</span> <span class="s1">'export PATH="$PATH:/usr/lib/dart/bin"'</span> <span class="o">&gt;&gt;</span> ~/.profile
+</code></pre></div>  </div>
 
 </div>
 <div id="tab-sdk-install-mac" class="tabs__content">
@@ -513,7 +528,7 @@ Here are some handy searches:</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/10/08 19:21 CST"
+                 title="Site built on 2018/10/28 00:42 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

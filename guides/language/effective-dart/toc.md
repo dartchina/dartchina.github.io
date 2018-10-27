@@ -182,17 +182,17 @@
 * <a href='/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E5%9C%A8%E6%96%B9%E6%B3%95%E6%88%96%E8%80%85%E5%87%BD%E6%95%B0%E5%90%8D%E7%A7%B0%E4%B8%AD%E6%8F%8F%E8%BF%B0%E5%8F%82%E6%95%B0'><strong>避免</strong> 在方法或者函数名称中描述参数。</a>
 * <a href='/guides/language/effective-dart/design#%E8%A6%81-%E5%9C%A8%E5%91%BD%E5%90%8D%E5%8F%82%E6%95%B0%E6%97%B6%E9%81%B5%E5%BE%AA%E7%8E%B0%E6%9C%89%E7%9A%84%E5%8A%A9%E8%AE%B0%E7%AC%A6%E7%BA%A6%E5%AE%9A'><strong>要</strong> 在命名参数时，遵循现有的助记符约定。</a>
 
-**Libraries**
+**库**
 
-* <a href='/guides/language/effective-dart/design#prefer-making-declarations-private'>PREFER making declarations private.</a>
-* <a href='/guides/language/effective-dart/design#consider-declaring-multiple-classes-in-the-same-library'>CONSIDER declaring multiple classes in the same library.</a>
+* <a href='/guides/language/effective-dart/design#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E5%A3%B0%E6%98%8E'><strong>推荐</strong> 使用私有声明。</a>
+* <a href='/guides/language/effective-dart/design#%E8%80%83%E8%99%91-%E5%A3%B0%E6%98%8E%E5%A4%9A%E4%B8%AA%E7%B1%BB%E5%9C%A8%E4%B8%80%E4%B8%AA%E5%BA%93%E4%B8%AD'><strong>考虑</strong> 声明多个类在一个库中。</a>
 
-**Classes**
+**类**
 
-* <a href='/guides/language/effective-dart/design#avoid-defining-a-one-member-abstract-class-when-a-simple-function-will-do'>AVOID defining a one-member abstract class when a simple function will do.</a>
-* <a href='/guides/language/effective-dart/design#avoid-defining-a-class-that-contains-only-static-members'>AVOID defining a class that contains only static members.</a>
-* <a href='/guides/language/effective-dart/design#avoid-extending-a-class-that-isnt-intended-to-be-subclassed'>AVOID extending a class that isn't intended to be subclassed.</a>
-* <a href='/guides/language/effective-dart/design#do-document-if-your-class-supports-being-extended'>DO document if your class supports being extended.</a>
+* <a href='/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E9%81%BF%E5%85%8D%E4%B8%BA%E4%BA%86%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%87%BD%E6%95%B0%E8%80%8C%E5%8E%BB%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E5%8D%95%E4%B8%80%E6%88%90%E5%91%98%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB'><strong>避免</strong> 避免为了使用一个简单的函数而去定义一个单一成员的抽象类</a>
+* <a href='/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E5%AE%9A%E4%B9%89%E4%BB%85%E5%8C%85%E5%90%AB%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E7%9A%84%E7%B4%AF'><strong>避免</strong> 定义仅包含静态成员的累。</a>
+* <a href='/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E9%9B%86%E6%88%90%E4%B8%80%E4%B8%AA%E4%B8%8D%E6%9C%9F%E6%9C%9B%E8%A2%AB%E9%9B%86%E6%88%90%E7%9A%84%E7%B1%BB'><strong>避免</strong> 集成一个不期望被集成的类。</a>
+* <a href='/guides/language/effective-dart/design#%E8%A6%81-%E6%8A%8A%E8%83%BD%E5%A4%9F%E7%BB%A7%E6%89%BF%E7%9A%84%E8%AF%B4%E6%98%8E%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%96%87%E6%A1%A3%E4%B8%AD%E5%A6%82%E6%9E%9C%E8%BF%99%E4%B8%AA%E7%B1%BB%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF'><strong>要</strong> 把能够继承的说明添加到文档中，如果这个类可以继承。</a>
 * <a href='/guides/language/effective-dart/design#avoid-implementing-a-class-that-isnt-intended-to-be-an-interface'>AVOID implementing a class that isn't intended to be an interface.</a>
 * <a href='/guides/language/effective-dart/design#do-document-if-your-class-supports-being-used-as-an-interface'>DO document if your class supports being used as an interface.</a>
 * <a href='/guides/language/effective-dart/design#avoid-mixing-in-a-class-that-isnt-intended-to-be-a-mixin'>AVOID mixing in a class that isn't intended to be a mixin.</a>

@@ -28,8 +28,8 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-08e3e7d6fcdb542ff6aa1bacae6a5678114137d861b2837b40dd3b0d5f1bfce3.css">
-  <script src="/assets/main-71e22756c14cfd21201fa211c97710e579861304aff9198bae7fb4f529ca1bb1.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="/assets/main-743789fa2eea1d0b842284e7e29077de7c7f755aa88e291b7b8bf324a4a2a14b.css">
+  <script src="/assets/main-3e89b739cc750412e013252d8b4ced20af281589ffe69a156e6c279177f81069.js" type="text/javascript"></script>
   <script>
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -175,14 +175,14 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#broadcast-streams">Broadcast streams</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#methods-that-process-a-stream">Methods that process a stream</a></li>
-<li class="toc-entry toc-h2"><a href="#methods-that-modify-a-stream">Methods that modify a stream</a>
+<li class="toc-entry toc-h2"><a href="#process-stream-methods">Methods that process a stream</a></li>
+<li class="toc-entry toc-h2"><a href="#modify-stream-methods">Methods that modify a stream</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#the-transform-function">The transform() function</a></li>
-<li class="toc-entry toc-h3"><a href="#reading-and-decoding-a-file">Reading and decoding a file</a></li>
+<li class="toc-entry toc-h3"><a href="#transform-function">The transform() function</a></li>
+<li class="toc-entry toc-h3"><a href="#reading-decoding-file">Reading and decoding a file</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#the-listen-method">The listen() method</a></li>
+<li class="toc-entry toc-h2"><a href="#listen-method">The listen() method</a></li>
 <li class="toc-entry toc-h2"><a href="#other-resources">Other resources</a></li>
 </ul>
   </div>
@@ -210,7 +210,7 @@ ga('send', 'pageview');
           <div>
             <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
   <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_tutorials/language/streams.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
-    <i class="fab fa-github fa-sm"></i>
+    <i class="fas fa-file-alt fa-sm"></i>
   </a>
   <a href="https://github.com/dart-lang/site-www/issues/new?title='Asynchronous Programming: Streams' page issue&body=
 Page URL: https://www.dartlang.org/tutorials/language/streams%0D%0A
@@ -370,7 +370,7 @@ and you can listen again later after canceling a previous
 subscription.</p>
 
 <h2 id="process-stream-methods">
-<a id="methods-that-process-a-stream" class="anchor" href="#methods-that-process-a-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods that process a stream</h2>
+<a id="process-stream-methods" class="anchor" href="#process-stream-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods that process a stream</h2>
 
 <p>The following methods on <a href="https://api.dartlang.org/stable/dart-async/Stream-class.html">Stream&lt;T&gt;</a> process the stream and return a
 result:</p>
@@ -430,7 +430,7 @@ Future&lt;String&gt; join([String separator = ""]) async =&gt;
 but mainly for historical reasons.)</p>
 
 <h2 id="modify-stream-methods">
-<a id="methods-that-modify-a-stream" class="anchor" href="#methods-that-modify-a-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods that modify a stream</h2>
+<a id="modify-stream-methods" class="anchor" href="#modify-stream-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods that modify a stream</h2>
 
 <p>The following methods on Stream return a new stream based
 on the original stream.
@@ -478,7 +478,7 @@ You can use <code class="highlighter-rouge">handleError()</code> to remove error
 before using it in an <strong>await for</strong> loop.</p>
 
 <h3 id="transform-function">
-<a id="the-transform-function" class="anchor" href="#the-transform-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>The transform() function</h3>
+<a id="transform-function" class="anchor" href="#transform-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>The transform() function</h3>
 
 <p>The <code class="highlighter-rouge">transform()</code> function is not just for error handling;
 it is a more generalized “map” for streams.
@@ -502,7 +502,7 @@ easily implemented by an async function.</p>
 }</pre>
 
 <h3 id="reading-decoding-file">
-<a id="reading-and-decoding-a-file" class="anchor" href="#reading-and-decoding-a-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading and decoding a file</h3>
+<a id="reading-decoding-file" class="anchor" href="#reading-decoding-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading and decoding a file</h3>
 
 <p>The following code reads a file and runs two transforms over the stream.
 It first converts the data from UTF8 and then runs it through
@@ -526,7 +526,7 @@ Future&lt;void&gt; main(List&lt;String&gt; args) async {
 }</pre>
 
 <h2 id="listen-method">
-<a id="the-listen-method" class="anchor" href="#the-listen-method" aria-hidden="true"><span class="octicon octicon-link"></span></a>The listen() method</h2>
+<a id="listen-method" class="anchor" href="#listen-method" aria-hidden="true"><span class="octicon octicon-link"></span></a>The listen() method</h2>
 
 <p>The final method on Stream is <code class="highlighter-rouge">listen()</code>. This is a “low-level”
 method—all other stream functions are defined in terms of <code class="highlighter-rouge">listen()</code>.</p>
@@ -620,7 +620,7 @@ a section in the <a href="/guides/language/language-tour">language tour</a>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/10/08 19:21 CST"
+                 title="Site built on 2018/10/28 00:42 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
