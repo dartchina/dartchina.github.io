@@ -195,13 +195,13 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h2"><a href="#类">类</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#避免-避免为了使用一个简单的函数而去定义一个单一成员的抽象类">避免 避免为了使用一个简单的函数而去定义一个单一成员的抽象类</a></li>
-<li class="toc-entry toc-h3"><a href="#避免-定义仅包含静态成员的累">避免 定义仅包含静态成员的累。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-定义仅包含静态成员的类">避免 定义仅包含静态成员的类。</a></li>
 <li class="toc-entry toc-h3"><a href="#避免-集成一个不期望被集成的类">避免 集成一个不期望被集成的类。</a></li>
 <li class="toc-entry toc-h3"><a href="#要-把能够继承的说明添加到文档中如果这个类可以继承">要 把能够继承的说明添加到文档中，如果这个类可以继承。</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-implementing-a-class-that-isnt-intended-to-be-an-interface">AVOID implementing a class that isn’t intended to be an interface.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-document-if-your-class-supports-being-used-as-an-interface">DO document if your class supports being used as an interface.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-mixing-in-a-class-that-isnt-intended-to-be-a-mixin">AVOID mixing in a class that isn’t intended to be a mixin.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-document-if-your-class-supports-being-used-as-a-mixin">DO document if your class supports being used as a mixin.</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-去实现一个不期望成为接口的类该类不想作为接口被实现">避免 去实现一个不期望成为接口的类（该类不想作为接口被实现）。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-对支持接口的类在文档注明">要 对支持接口的类在文档注明</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-去-mixin-一个不期望被-mixin-的类">避免 去 mixin 一个不期望被 mixin 的类</a></li>
+<li class="toc-entry toc-h3"><a href="#要-对支持-mixin-的类在文档注明">要 对支持 mixin 的类在文档注明</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#constructors">Constructors</a>
@@ -330,13 +330,13 @@ Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides
   <li>
 <a href="#%E7%B1%BB" id="markdown-toc-类">类</a>    <ul>
       <li><a href="#%E9%81%BF%E5%85%8D-%E9%81%BF%E5%85%8D%E4%B8%BA%E4%BA%86%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%87%BD%E6%95%B0%E8%80%8C%E5%8E%BB%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E5%8D%95%E4%B8%80%E6%88%90%E5%91%98%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB" id="markdown-toc-避免-避免为了使用一个简单的函数而去定义一个单一成员的抽象类"><strong>避免</strong> 避免为了使用一个简单的函数而去定义一个单一成员的抽象类</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E5%AE%9A%E4%B9%89%E4%BB%85%E5%8C%85%E5%90%AB%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E7%9A%84%E7%B4%AF" id="markdown-toc-避免-定义仅包含静态成员的累"><strong>避免</strong> 定义仅包含静态成员的累。</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E5%AE%9A%E4%B9%89%E4%BB%85%E5%8C%85%E5%90%AB%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E7%9A%84%E7%B1%BB" id="markdown-toc-避免-定义仅包含静态成员的类"><strong>避免</strong> 定义仅包含静态成员的类。</a></li>
       <li><a href="#%E9%81%BF%E5%85%8D-%E9%9B%86%E6%88%90%E4%B8%80%E4%B8%AA%E4%B8%8D%E6%9C%9F%E6%9C%9B%E8%A2%AB%E9%9B%86%E6%88%90%E7%9A%84%E7%B1%BB" id="markdown-toc-避免-集成一个不期望被集成的类"><strong>避免</strong> 集成一个不期望被集成的类。</a></li>
       <li><a href="#%E8%A6%81-%E6%8A%8A%E8%83%BD%E5%A4%9F%E7%BB%A7%E6%89%BF%E7%9A%84%E8%AF%B4%E6%98%8E%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%96%87%E6%A1%A3%E4%B8%AD%E5%A6%82%E6%9E%9C%E8%BF%99%E4%B8%AA%E7%B1%BB%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF" id="markdown-toc-要-把能够继承的说明添加到文档中如果这个类可以继承"><strong>要</strong> 把能够继承的说明添加到文档中，如果这个类可以继承。</a></li>
-      <li><a href="#avoid-implementing-a-class-that-isnt-intended-to-be-an-interface" id="markdown-toc-avoid-implementing-a-class-that-isnt-intended-to-be-an-interface">AVOID implementing a class that isn’t intended to be an interface.</a></li>
-      <li><a href="#do-document-if-your-class-supports-being-used-as-an-interface" id="markdown-toc-do-document-if-your-class-supports-being-used-as-an-interface">DO document if your class supports being used as an interface.</a></li>
-      <li><a href="#avoid-mixing-in-a-class-that-isnt-intended-to-be-a-mixin" id="markdown-toc-avoid-mixing-in-a-class-that-isnt-intended-to-be-a-mixin">AVOID mixing in a class that isn’t intended to be a mixin.</a></li>
-      <li><a href="#do-document-if-your-class-supports-being-used-as-a-mixin" id="markdown-toc-do-document-if-your-class-supports-being-used-as-a-mixin">DO document if your class supports being used as a mixin.</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E5%8E%BB%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%B8%8D%E6%9C%9F%E6%9C%9B%E6%88%90%E4%B8%BA%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%B1%BB%E8%AF%A5%E7%B1%BB%E4%B8%8D%E6%83%B3%E4%BD%9C%E4%B8%BA%E6%8E%A5%E5%8F%A3%E8%A2%AB%E5%AE%9E%E7%8E%B0" id="markdown-toc-避免-去实现一个不期望成为接口的类该类不想作为接口被实现"><strong>避免</strong> 去实现一个不期望成为接口的类（该类不想作为接口被实现）。</a></li>
+      <li><a href="#%E8%A6%81-%E5%AF%B9%E6%94%AF%E6%8C%81%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%B1%BB%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E6%98%8E" id="markdown-toc-要-对支持接口的类在文档注明"><strong>要</strong> 对支持接口的类在文档注明</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E5%8E%BB-mixin-%E4%B8%80%E4%B8%AA%E4%B8%8D%E6%9C%9F%E6%9C%9B%E8%A2%AB-mixin-%E7%9A%84%E7%B1%BB" id="markdown-toc-避免-去-mixin-一个不期望被-mixin-的类"><strong>避免</strong> 去 mixin 一个不期望被 mixin 的类</a></li>
+      <li><a href="#%E8%A6%81-%E5%AF%B9%E6%94%AF%E6%8C%81-mixin-%E7%9A%84%E7%B1%BB%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E6%98%8E" id="markdown-toc-要-对支持-mixin-的类在文档注明"><strong>要</strong> 对支持 mixin 的类在文档注明</a></li>
     </ul>
   </li>
   <li>
@@ -846,8 +846,8 @@ Dart 没有这样的限制。库与类是相互独立的。如果多个类，顶
   bool test(E element);
 }</pre>
 
-<h3 id="避免-定义仅包含静态成员的累">
-<a id="避免-定义仅包含静态成员的累" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%AE%9A%E4%B9%89%E4%BB%85%E5%8C%85%E5%90%AB%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E7%9A%84%E7%B4%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 定义仅包含静态成员的累。</h3>
+<h3 id="避免-定义仅包含静态成员的类">
+<a id="避免-定义仅包含静态成员的类" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%AE%9A%E4%B9%89%E4%BB%85%E5%8C%85%E5%90%AB%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E7%9A%84%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 定义仅包含静态成员的类。</h3>
 
 <p>在 Java 和 C# 中，所有的定义<em>必须</em>要在类中。所有常常会看到一些这样的类，这些
 类中仅仅放置了些静态成员。其他类仅用于命名空间—一种为一堆成员提供共享
@@ -910,57 +910,43 @@ class _Favorites {
 <p>该规则是上条规则的结果。如果允许你的类被子类化，请在文档中说明情况。使用 <code class="highlighter-rouge">Base</code> 作为类名的后缀，
 或者在类的注释文档中注明。</p>
 
-<h3 id="avoid-implementing-a-class-that-isnt-intended-to-be-an-interface">
-<a id="avoid-implementing-a-class-that-isnt-intended-to-be-an-interface" class="anchor" href="#avoid-implementing-a-class-that-isnt-intended-to-be-an-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID implementing a class that isn’t intended to be an interface.</h3>
+<h3 id="避免-去实现一个不期望成为接口的类该类不想作为接口被实现">
+<a id="避免-去实现一个不期望成为接口的类该类不想作为接口被实现" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%8E%BB%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%B8%8D%E6%9C%9F%E6%9C%9B%E6%88%90%E4%B8%BA%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%B1%BB%E8%AF%A5%E7%B1%BB%E4%B8%8D%E6%83%B3%E4%BD%9C%E4%B8%BA%E6%8E%A5%E5%8F%A3%E8%A2%AB%E5%AE%9E%E7%8E%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 去实现一个不期望成为接口的类（该类不想作为接口被实现）。</h3>
 
-<p>Implicit interfaces are a powerful tool in Dart to avoid having to repeat the
-contract of a class when it can be trivially inferred from the signatures of an
-implementation of that contract.</p>
+<p>隐式接口是Dart中的一个强大工具，当一个类中可以很容易的推断出一些已经约定的有特征的实现时，
+隐式接口可以避免重复定义这个类的约定。</p>
 
-<p>But implementing a class’s interface is a very tight coupling to that class. It
-means virtually <em>any</em> change to the class whose interface you are implementing
-will break your implementation. For example, adding a new member to a class is
-usually a safe, non-breaking change. But if you are implementing that class’s
-interface, now your class has a static error because it lacks an implementation
-of that new method.</p>
+<p>但是通过类的隐式接口实现的新类，新类会与这个类产生非常紧密的耦合。也就是说，对于接口类的
+<em>任何</em>修改，你实现的新类都会被破坏。例如，向类中添加新成员通常是安全，不会产生破坏性的改变。
+但是如果你实现了这个类的接口，那么现在你的类会产生一个静态错误，因为它缺少了新方法的实现。</p>
 
-<p>Library maintainers need the ability to evolve existing classes without breaking
-users. If you treat every class like it exposes an interface that users are free
-implement, then changing those classes becomes very difficult. That difficulty
-in turn means the libraries you rely on are slower to grow and adapt to new
-needs.</p>
+<p>库的维护人员需要能够在不破坏用户代码的情况下迭代现有的累。如果把每个类都看待成是暴露给用户
+的接口，用户可以自由的实现，这时修改这些类将变得非常困难。反过来，这个困难将导致你的库
+迭代缓慢，从而无法适应新的需求。</p>
 
-<p>To give the authors of the classes you use more leeway, avoid implementing
-implicit interfaces except for classes that are clearly intended to be
-implemented. Otherwise, you may introduce a coupling that the author doesn’t
-intend, and they may break your code without realizing it.</p>
+<p>为了给你的类的开发人员提供更多的余地，避免实现隐式接口，除非那些类明确需要实现。否则，
+你可能会引入开发者没有预料到的耦合情况，这样可能会在没有意识到的情况下破坏你的代码。</p>
 
-<h3 id="do-document-if-your-class-supports-being-used-as-an-interface">
-<a id="do-document-if-your-class-supports-being-used-as-an-interface" class="anchor" href="#do-document-if-your-class-supports-being-used-as-an-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO document if your class supports being used as an interface.</h3>
+<h3 id="要-对支持接口的类在文档注明">
+<a id="要-对支持接口的类在文档注明" class="anchor" href="#%E8%A6%81-%E5%AF%B9%E6%94%AF%E6%8C%81%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%B1%BB%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E6%98%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 对支持接口的类在文档注明</h3>
 
-<p>If your class can be used as an interface, mention that in the class’s doc
-comment.</p>
+<p>如果你的类可以被用作接口，那么将这个情况注明到类的文档中。</p>
 
-<h3 id="avoid-mixing-in-a-class-that-isnt-intended-to-be-a-mixin">
-<a id="avoid-mixing-in-a-class-that-isnt-intended-to-be-a-mixin" class="anchor" href="#avoid-mixing-in-a-class-that-isnt-intended-to-be-a-mixin" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID mixing in a class that isn’t intended to be a mixin.</h3>
+<h3 id="避免-去-mixin-一个不期望被-mixin-的类">
+<a id="避免-去-mixin-一个不期望被-mixin-的类" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%8E%BB-mixin-%E4%B8%80%E4%B8%AA%E4%B8%8D%E6%9C%9F%E6%9C%9B%E8%A2%AB-mixin-%E7%9A%84%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 去 mixin 一个不期望被 mixin 的类</h3>
 
-<p>If a constructor is added to a class that previously did not define any, that
-breaks any other classes that are mixing it in. This is a seemingly innocuous
-change in the class, and the restrictions around mixins aren’t widely known.
-It’s likely an author may add a constructor without realizing it will break your
-class that’s mixing it in.</p>
+<p>如果在一个类中定义了一个之前从来没有被定义过的构造函数，那么这会破坏已被混入的其他类。
+在类中，这样看似无害的变化，并且对 mixin 的限制和并不为其他人说知。作者可能会添加一
+个构造函数但并没有意识到它会破坏你 mixin 到它里的类。</p>
 
-<p>Like with subclassing, this means a class needs to be deliberate about whether
-or not it wants to allow being used as a mixin. If the class doesn’t have a doc
-comment or an obvious name like <code class="highlighter-rouge">IterableMixin</code>, you should assume you cannot
-mix in the class.</p>
+<p>与子类化一样，这意味着需要考虑一个类是否允许用于 mixin。如果该类没有文档注释或明显的名称，
+如 <code class="highlighter-rouge">IterableMixin</code> ，你应该假设你不能 mix 这个类。</p>
 
-<h3 id="do-document-if-your-class-supports-being-used-as-a-mixin">
-<a id="do-document-if-your-class-supports-being-used-as-a-mixin" class="anchor" href="#do-document-if-your-class-supports-being-used-as-a-mixin" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO document if your class supports being used as a mixin.</h3>
+<h3 id="要-对支持-mixin-的类在文档注明">
+<a id="要-对支持-mixin-的类在文档注明" class="anchor" href="#%E8%A6%81-%E5%AF%B9%E6%94%AF%E6%8C%81-mixin-%E7%9A%84%E7%B1%BB%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E6%98%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 对支持 mixin 的类在文档注明</h3>
 
-<p>Mention in the class’s doc comment whether the class can or must be used as a
-mixin. If your class is designed for use only as a mixin, then consider adding
-<code class="highlighter-rouge">Mixin</code> to the end of the class name.</p>
+<p>在类的文档中要提到，这个类是否可以或必须用于 mixin 。如果你的类被设计只作为 mixin 使用，
+那么考虑在类名以 <code class="highlighter-rouge">Mixin</code> 结尾。</p>
 
 <h2 id="constructors">
 <a id="constructors" class="anchor" href="#constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constructors</h2>
@@ -1976,7 +1962,7 @@ method is called only if the right-hand side is not <code class="highlighter-rou
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/10/28 00:42 CST"
+                 title="Site built on 2018/10/28 14:39 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
