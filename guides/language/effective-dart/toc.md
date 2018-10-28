@@ -198,10 +198,10 @@
 * <a href='/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E5%8E%BB-mixin-%E4%B8%80%E4%B8%AA%E4%B8%8D%E6%9C%9F%E6%9C%9B%E8%A2%AB-mixin-%E7%9A%84%E7%B1%BB'><strong>避免</strong> 去 mixin 一个不期望被 mixin 的类</a>
 * <a href='/guides/language/effective-dart/design#%E8%A6%81-%E5%AF%B9%E6%94%AF%E6%8C%81-mixin-%E7%9A%84%E7%B1%BB%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E6%98%8E'><strong>要</strong> 对支持 mixin 的类在文档注明</a>
 
-**Constructors**
+**构造函数**
 
-* <a href='/guides/language/effective-dart/design#prefer-defining-constructors-instead-of-static-methods-to-create-instances'>PREFER defining constructors instead of static methods to create instances.</a>
-* <a href='/guides/language/effective-dart/design#consider-making-your-constructor-const-if-the-class-supports-it'>CONSIDER making your constructor <code>const</code> if the class supports it.</a>
+* <a href='/guides/language/effective-dart/design#%E6%8E%A8%E8%8D%90-%E9%80%9A%E8%BF%87%E5%AE%9A%E4%B9%89%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95'><strong>推荐</strong> 通过定义构造函数创建实例，避免使用静态方法</a>
+* <a href='/guides/language/effective-dart/design#%E8%80%83%E8%99%91-%E5%9C%A8%E7%B1%BB%E6%94%AF%E6%8C%81%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%8C%87%E5%AE%9A%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%BA--const'><strong>考虑</strong> 在类支持的情况下，指定构造函数为  <code>const</code>。</a>
 
 **Members**
 
