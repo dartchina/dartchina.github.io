@@ -581,15 +581,15 @@ setter（同getter），或者字段（示例或静态类）。
     <li><a href="/guides/language/effective-dart/design#%E8%80%83%E8%99%91-%E5%9C%A8%E7%B1%BB%E6%94%AF%E6%8C%81%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%8C%87%E5%AE%9A%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%BA--const"><strong>考虑</strong> 在类支持的情况下，指定构造函数为  <code>const</code>。</a></li>
   </ul>
 
-  <p><strong>Members</strong></p>
+  <p><strong>成员</strong></p>
 
   <ul>
-    <li><a href="/guides/language/effective-dart/design#prefer-making-fields-and-top-level-variables-final">PREFER making fields and top-level variables <code>final</code>.</a></li>
-    <li><a href="/guides/language/effective-dart/design#do-use-getters-for-operations-that-conceptually-access-properties">DO use getters for operations that conceptually access properties.</a></li>
-    <li><a href="/guides/language/effective-dart/design#do-use-setters-for-operations-that-conceptually-change-properties">DO use setters for operations that conceptually change properties.</a></li>
-    <li><a href="/guides/language/effective-dart/design#dont-define-a-setter-without-a-corresponding-getter">DON’T define a setter without a corresponding getter.</a></li>
-    <li><a href="/guides/language/effective-dart/design#avoid-returning-null-from-members-whose-return-type-is-bool-double-int-or-num">AVOID returning <code>null</code> from members whose return type is <code>bool</code>, <code>double</code>, <code>int</code>, or <code>num</code>.</a></li>
-    <li><a href="/guides/language/effective-dart/design#avoid-returning-this-from-methods-just-to-enable-a-fluent-interface">AVOID returning <code>this</code> from methods just to enable a fluent interface.</a></li>
+    <li><a href="/guides/language/effective-dart/design#%E6%8E%A8%E8%8D%90-%E6%8C%87%E5%AE%9A%E5%AD%97%E6%AE%B5%E6%88%96%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E4%B8%BA-final-"><strong>推荐</strong> 指定字段或顶级变量为 <code>final</code> 。</a></li>
+    <li><a href="/guides/language/effective-dart/design#%E8%A6%81-%E5%AF%B9%E6%A6%82%E5%BF%B5%E4%B8%8A%E6%98%AF%E8%AE%BF%E9%97%AE%E7%9A%84%E5%B1%9E%E6%80%A7%E4%BD%BF%E7%94%A8-getter-%E6%96%B9%E6%B3%95"><strong>要</strong> 对概念上是访问的属性使用 getter 方法。</a></li>
+    <li><a href="/guides/language/effective-dart/design#%E8%A6%81-%E5%AF%B9%E6%A6%82%E5%BF%B5%E4%B8%8A%E6%98%AF%E4%BF%AE%E6%94%B9%E7%9A%84%E5%B1%9E%E6%80%A7%E4%BD%BF%E7%94%A8-setter-%E6%96%B9%E6%B3%95"><strong>要</strong> 对概念上是修改的属性使用 setter 方法。</a></li>
+    <li><a href="/guides/language/effective-dart/design#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E6%B2%A1%E6%9C%89%E5%AF%B9%E5%BA%94%E7%9A%84-getter-%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E5%AE%9A%E4%B9%89-setter"><strong>不要</strong> 在没有对应的 getter 的情况下定义 setter。</a></li>
+    <li><a href="/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E4%BB%8E%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B%E4%B8%BA-bool--double--int-%E6%88%96-num-%E7%9A%84%E6%88%90%E5%91%98%E8%BF%94%E5%9B%9E-null-"><strong>避免</strong> 从返回类型为 <code>bool</code> ， <code>double</code> ， <code>int</code> 或 <code>num</code> 的成员返回 <code>null</code> 。</a></li>
+    <li><a href="/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E4%B8%BA%E4%BA%86%E4%B9%A6%E5%86%99%E6%B5%81%E7%95%85%E8%80%8C%E4%BB%8E%E6%96%B9%E6%B3%95%E4%B8%AD%E8%BF%94%E5%9B%9E-this-"><strong>避免</strong> 为了书写流畅，而从方法中返回 <code>this</code> 。</a></li>
   </ul>
 
   <p><strong>Types</strong></p>
@@ -673,7 +673,7 @@ setter（同getter），或者字段（示例或静态类）。
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/10/28 23:25 CST"
+                 title="Site built on 2018/10/29 13:51 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

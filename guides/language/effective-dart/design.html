@@ -210,14 +210,14 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#考虑-在类支持的情况下指定构造函数为--const">考虑 在类支持的情况下，指定构造函数为  const。</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#members">Members</a>
+<li class="toc-entry toc-h2"><a href="#成员">成员</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#prefer-making-fields-and-top-level-variables-final">PREFER making fields and top-level variables final.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-use-getters-for-operations-that-conceptually-access-properties">DO use getters for operations that conceptually access properties.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-use-setters-for-operations-that-conceptually-change-properties">DO use setters for operations that conceptually change properties.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-define-a-setter-without-a-corresponding-getter">DON’T define a setter without a corresponding getter.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-returning-null-from-members-whose-return-type-is-bool-double-int-or-num">AVOID returning null from members whose return type is bool, double, int, or num.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-returning-this-from-methods-just-to-enable-a-fluent-interface">AVOID returning this from methods just to enable a fluent interface.</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-指定字段或顶级变量为-final-">推荐 指定字段或顶级变量为 final 。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-对概念上是访问的属性使用-getter-方法">要 对概念上是访问的属性使用 getter 方法。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-对概念上是修改的属性使用-setter-方法">要 对概念上是修改的属性使用 setter 方法。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-在没有对应的-getter-的情况下定义-setter">不要 在没有对应的 getter 的情况下定义 setter。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-从返回类型为-bool--double--int-或-num-的成员返回-null-">避免 从返回类型为 bool ， double ， int 或 num 的成员返回 null 。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-为了书写流畅而从方法中返回-this-">避免 为了书写流畅，而从方法中返回 this 。</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#types">Types</a>
@@ -346,13 +346,13 @@ Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides
     </ul>
   </li>
   <li>
-<a href="#members" id="markdown-toc-members">Members</a>    <ul>
-      <li><a href="#prefer-making-fields-and-top-level-variables-final" id="markdown-toc-prefer-making-fields-and-top-level-variables-final">PREFER making fields and top-level variables <code class="highlighter-rouge">final</code>.</a></li>
-      <li><a href="#do-use-getters-for-operations-that-conceptually-access-properties" id="markdown-toc-do-use-getters-for-operations-that-conceptually-access-properties">DO use getters for operations that conceptually access properties.</a></li>
-      <li><a href="#do-use-setters-for-operations-that-conceptually-change-properties" id="markdown-toc-do-use-setters-for-operations-that-conceptually-change-properties">DO use setters for operations that conceptually change properties.</a></li>
-      <li><a href="#dont-define-a-setter-without-a-corresponding-getter" id="markdown-toc-dont-define-a-setter-without-a-corresponding-getter">DON’T define a setter without a corresponding getter.</a></li>
-      <li><a href="#avoid-returning-null-from-members-whose-return-type-is-bool-double-int-or-num" id="markdown-toc-avoid-returning-null-from-members-whose-return-type-is-bool-double-int-or-num">AVOID returning <code class="highlighter-rouge">null</code> from members whose return type is <code class="highlighter-rouge">bool</code>, <code class="highlighter-rouge">double</code>, <code class="highlighter-rouge">int</code>, or <code class="highlighter-rouge">num</code>.</a></li>
-      <li><a href="#avoid-returning-this-from-methods-just-to-enable-a-fluent-interface" id="markdown-toc-avoid-returning-this-from-methods-just-to-enable-a-fluent-interface">AVOID returning <code class="highlighter-rouge">this</code> from methods just to enable a fluent interface.</a></li>
+<a href="#%E6%88%90%E5%91%98" id="markdown-toc-成员">成员</a>    <ul>
+      <li><a href="#%E6%8E%A8%E8%8D%90-%E6%8C%87%E5%AE%9A%E5%AD%97%E6%AE%B5%E6%88%96%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E4%B8%BA-final-" id="markdown-toc-推荐-指定字段或顶级变量为-final-"><strong>推荐</strong> 指定字段或顶级变量为 <code class="highlighter-rouge">final</code> 。</a></li>
+      <li><a href="#%E8%A6%81-%E5%AF%B9%E6%A6%82%E5%BF%B5%E4%B8%8A%E6%98%AF%E8%AE%BF%E9%97%AE%E7%9A%84%E5%B1%9E%E6%80%A7%E4%BD%BF%E7%94%A8-getter-%E6%96%B9%E6%B3%95" id="markdown-toc-要-对概念上是访问的属性使用-getter-方法"><strong>要</strong> 对概念上是访问的属性使用 getter 方法。</a></li>
+      <li><a href="#%E8%A6%81-%E5%AF%B9%E6%A6%82%E5%BF%B5%E4%B8%8A%E6%98%AF%E4%BF%AE%E6%94%B9%E7%9A%84%E5%B1%9E%E6%80%A7%E4%BD%BF%E7%94%A8-setter-%E6%96%B9%E6%B3%95" id="markdown-toc-要-对概念上是修改的属性使用-setter-方法"><strong>要</strong> 对概念上是修改的属性使用 setter 方法。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E6%B2%A1%E6%9C%89%E5%AF%B9%E5%BA%94%E7%9A%84-getter-%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E5%AE%9A%E4%B9%89-setter" id="markdown-toc-不要-在没有对应的-getter-的情况下定义-setter"><strong>不要</strong> 在没有对应的 getter 的情况下定义 setter。</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E4%BB%8E%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B%E4%B8%BA-bool--double--int-%E6%88%96-num-%E7%9A%84%E6%88%90%E5%91%98%E8%BF%94%E5%9B%9E-null-" id="markdown-toc-避免-从返回类型为-bool--double--int-或-num-的成员返回-null-"><strong>避免</strong> 从返回类型为 <code class="highlighter-rouge">bool</code> ， <code class="highlighter-rouge">double</code> ， <code class="highlighter-rouge">int</code> 或 <code class="highlighter-rouge">num</code> 的成员返回 <code class="highlighter-rouge">null</code> 。</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E4%B8%BA%E4%BA%86%E4%B9%A6%E5%86%99%E6%B5%81%E7%95%85%E8%80%8C%E4%BB%8E%E6%96%B9%E6%B3%95%E4%B8%AD%E8%BF%94%E5%9B%9E-this-" id="markdown-toc-避免-为了书写流畅而从方法中返回-this-"><strong>避免</strong> 为了书写流畅，而从方法中返回 <code class="highlighter-rouge">this</code> 。</a></li>
     </ul>
   </li>
   <li>
@@ -984,181 +984,146 @@ class _Favorites {
 如果不想做出这样的承诺，那么就不要指定它为 <code class="highlighter-rouge">const</code> 构造函数。在实际运用中，
 <code class="highlighter-rouge">const</code> 构造函数对于简单的，不可变的数据记录类是非常有用的。</p>
 
-<h2 id="members">
-<a id="members" class="anchor" href="#members" aria-hidden="true"><span class="octicon octicon-link"></span></a>Members</h2>
+<h2 id="成员">
+<a id="成员" class="anchor" href="#%E6%88%90%E5%91%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>成员</h2>
 
-<p>A member belongs to an object and can be either methods or instance variables.</p>
+<p>成员属于对象，成员可以是方法或实例变量。</p>
 
-<h3 id="prefer-making-fields-and-top-level-variables-final">
-<a id="prefer-making-fields-and-top-level-variables-final" class="anchor" href="#prefer-making-fields-and-top-level-variables-final" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER making fields and top-level variables <code class="highlighter-rouge">final</code>.</h3>
+<h3 id="推荐-指定字段或顶级变量为-final-">
+<a id="推荐-指定字段或顶级变量为-final-" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E6%8C%87%E5%AE%9A%E5%AD%97%E6%AE%B5%E6%88%96%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E4%B8%BA-final-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 指定字段或顶级变量为 <code class="highlighter-rouge">final</code> 。</h3>
 
-<p>State that is not <em>mutable</em>—that does not change over time—is
-easier for programmers to reason about. Classes and libraries that minimize the
-amount of mutable state they work with tend to be easier to maintain.</p>
+<p>状态不可变—随着时间推移状态不发生变化—有益于程序员推理。类和库中可变状态量越少，类和库
+越容易维护。</p>
 
-<p>Of course, it is often useful to have mutable data. But, if you don’t need it,
-your default should be to make fields and top-level variables <code class="highlighter-rouge">final</code> when you
-can.</p>
+<p>当然，可变数据是非常有用的。但是，如果并不需要可变数据，应该尽可能默认指定字段和顶级变量为 <code class="highlighter-rouge">final</code> 。</p>
 
-<h3 id="do-use-getters-for-operations-that-conceptually-access-properties">
-<a id="do-use-getters-for-operations-that-conceptually-access-properties" class="anchor" href="#do-use-getters-for-operations-that-conceptually-access-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use getters for operations that conceptually access properties.</h3>
+<h3 id="要-对概念上是访问的属性使用-getter-方法">
+<a id="要-对概念上是访问的属性使用-getter-方法" class="anchor" href="#%E8%A6%81-%E5%AF%B9%E6%A6%82%E5%BF%B5%E4%B8%8A%E6%98%AF%E8%AE%BF%E9%97%AE%E7%9A%84%E5%B1%9E%E6%80%A7%E4%BD%BF%E7%94%A8-getter-%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 对概念上是访问的属性使用 getter 方法。</h3>
 
-<p>Deciding when a member should be a getter versus a method is a challenging,
-subtle, but important part of good API design, hence this very long guideline.
-Some other language’s cultures shy away from getters. They only use them when
-the operation is almost exactly like a field—it does a miniscule amount of
-calculation on state that lives entirely on the object. Anything more complex or
-heavyweight than that gets <code class="highlighter-rouge">()</code> after the name to signal “computation goin’ on
-here!” because a bare name after a <code class="highlighter-rouge">.</code> means “field”.</p>
+<p>判定一个成员应该是一个 getter 而不是一个方法是一件具有挑战性的事情。它虽然微妙，但对于好的
+API 设计是非常重要的，也导致本规则会很长。其他的一些语言文化中回避了getter。他们只有在几乎
+类似于字段访问的时候才会使用—它仅仅是根据对象的状态进行微小的计算。任何比这更复杂或
+重量级的东西得到带有 <code class="highlighter-rouge">()</code> 的名字后面，给出一种”计算的操作在这！”信号。因为 <code class="highlighter-rouge">.</code> 后面只跟名称
+意味着是”字段”。</p>
 
-<p>Dart is <em>not</em> like that. In Dart, <em>all</em> dotted names are member invocations that
-may do computation. Fields are special—they’re getters whose
-implementation is provided by the language. In other words, getters are not
-“particularly slow fields” in Dart; fields are “particularly fast getters”.</p>
+<p>Dart 与他们 <em>不</em> 同。在 Dart 中，所有点名称都可以是进行计算的成员调用。字段是特殊的—
+字段的 getter 的实现是有语言提供的。换句话说，在 Dart 中，getter 不是”访问特别慢的字段”；
+字段是”访问特别快的 getter “。</p>
 
-<p>Even so, choosing a getter over a method sends an important signal to the
-caller. The signal, roughly, is that the operation is “field-like”. The
-operation, at least in principle, <em>could</em> be implemented using a field, as far
-as the caller knows. That implies:</p>
+<p>即便如此，选择 getter 而不是方法对于调用者来说是一个重要信号。信号大致的意思成员的操作
+“类似于字段”。至少原则上可以这么认为，只要调用者清楚，这个操作<em>可以</em>使用字段来实现。这意味着：</p>
 
 <ul>
   <li>
-    <p><strong>The operation does not take any arguments and returns a result.</strong></p>
+    <p><strong>操作返回一个结果但不接受任何参数。</strong></p>
   </li>
   <li>
-    <p><strong>The caller cares mostly about the result.</strong> If you want the caller to
-worry about <em>how</em> the operation produces its result more than they do the
-result being produced, then give the operation a verb name that describes
-the work and make it a method.</p>
+    <p><strong>调用者主要关系结果。</strong> 如果希望调用者关系操作产生结果的方式多于产生的结果，那么为操作
+提供一个方法，使用描述工作的动词作为方法的名称。</p>
 
-    <p>This does <em>not</em> mean the operation has to be particularly fast in order to
-be a getter. <code class="highlighter-rouge">IterableBase.length</code> is <code class="highlighter-rouge">O(n)</code>, and that’s OK. It’s fine for a
-getter to do significant calculation. But if it does a <em>surprising</em> amount
-of work, you may want to draw their attention to that by making it a method
-whose name is a verb describing what it does.</p>
+    <p>这并<em>不</em>意味着操作必须特别快才能成为 getter 方法。<code class="highlighter-rouge">IterableBase.length</code> 复杂度是
+ <code class="highlighter-rouge">O(n)</code>，是可以的。使用 getter 方法进行重要计算是没问题的。但是如果它做了<em>超</em>大量的工作，
+ 你可能需要通过一个描述其功能的动词的方法来引起使用者的注意。</p>
 
     <pre class="prettyprint lang-dart bad-style">connection.nextIncomingMessage; // Does network I/O.
 expression.normalForm; // Could be exponential to calculate.</pre>
   </li>
   <li>
-    <p><strong>The operation does not have user-visible side effects.</strong> Accessing a real
-field does not alter the object or any other state in the program. It
-doesn’t produce output, write files, etc. A getter shouldn’t do those things
-either.</p>
+    <p><strong>操作不会产生使用者可见的副作用。</strong> 在程序中访问一个实际的字段不会改变对象或者其他的状态。
+操作不会产生输出，写入文件等。同样 getter 方法也一样。</p>
 
-    <p>The “user-visible” part is important. It’s fine for getters to modify hidden
-state or produce out of band side effects. Getters can lazily calculate and
-store their result, write to a cache, log stuff, etc. As long as the caller
-doesn’t <em>care</em> about the side effect, it’s probably fine.</p>
+    <p>注意关键字”使用者可见”。只要调用者不<em>关心</em>这些副作用。getter 方法可以修改隐藏状态或产生
+带外副作用。 getter 方法可以惰性计算和存储他们的结果，写入缓存， log 等。这样是没有问题的。</p>
 
     <pre class="prettyprint lang-dart bad-style">stdout.newline; // Produces output.
 list.clear; // Modifies object.</pre>
   </li>
   <li>
-    <p><strong>The operation is <em>idempotent</em>.</strong> “Idempotent” is an odd word that, in this
-context, basically means that calling the operation multiple times produces
-the same result each time, unless some state is explicitly modified between
-those calls. (Obviously, <code class="highlighter-rouge">list.length</code> produces different results if you add
-an element to the list between calls.)</p>
+    <p><strong>操作是<em>幂等</em>的。</strong> “幂等”是一个怪异的词，在这里可以理解为调用多次操作，除非在这些操作
+调用之间某些状态被修改，否则每次操作都产生相同的结果。（很明显，如果在调用之间向列表添加
+元素， <code class="highlighter-rouge">list.length</code> 会产生不同的结果。）</p>
 
-    <p>“Same result” here does not mean a getter must literally produce an
-identical object on successive calls. Requiring that would force many
-getters to have brittle caching, which negates the whole point of using a
-getter. It’s common, and perfectly fine, for a getter to return a new future
-or list each time you call it. The important part is that the future
-completes to the same value, and the list contains the same elements.</p>
+    <p>这里”相同的结果”并不意味着 getter 方法必须一定要在每次调用成功后都返回相同的对象。如果
+按这样的要求会迫使很过 getter 方法需要进行脆弱的缓存（brittle caching），这样就否定了
+使用 getter 的全部意义。常见的非常好的示例是，每次调用一个 getter 方法返回一个新的 
+future 或 list。重点在于， future 完成后返回相同的值，list 包含了相同的元素。</p>
 
-    <p>In other words, the result value should be the same <em>in the aspects that the
-caller cares about.</em></p>
+    <p>换句话说，<em>调用者关系的</em>是结果值应该相等。</p>
 
     <pre class="prettyprint lang-dart bad-style">DateTime.now; // New result each time.</pre>
   </li>
   <li>
-    <p><strong>The resulting object doesn’t expose all of the original object’s state.</strong>
-A field exposes only a piece of an object. If your operation returns a
-result that exposes the original object’s entire state, it’s likely better
-off as a <a href="#prefer-naming-a-method-to___-if-it-copies-the-objects-state-to-a-new-object"><code class="highlighter-rouge">to___()</code></a> or <a href="#prefer-naming-a-method-as___-if-it-returns-a-different-representation-backed-by-the-original-object"><code class="highlighter-rouge">as___()</code></a> method.</p>
+    <p><strong>结果对象不用公开所有原始对象的状态。</strong> 一个字段仅公开对象的一部分。如果操作返回的结果
+公开了原始对象的整个状态，那么把该操作作为 <a href="#prefer-naming-a-method-to___-if-it-copies-the-objects-state-to-a-new-object"><code class="highlighter-rouge">to___()</code></a> 或 <a href="#prefer-naming-a-method-as___-if-it-returns-a-different-representation-backed-by-the-original-object"><code class="highlighter-rouge">as___()</code></a> 方法
+可能会更好。</p>
   </li>
 </ul>
 
-<p>If all of the above describe your operation, it should be a getter. It seems
-like few members would survive that gauntlet, but surprisingly many do. Many
-operations just do some computation on some state and most of those can and
-should be getters.</p>
+<p>如果操作符合上述描述，那么它应该是一个 getter 方法。看似满足这一系列要求的成员并不多，但实际上
+会超出你的想象。许多操作只是对某些状态进行一些计算，其中大多数能够，并且也应该作为 getter 方法。</p>
 
 <pre class="prettyprint lang-dart good-style">rectangle.area;
 collection.isEmpty;
 button.canShow;
 dataSet.minimumValue;</pre>
 
-<h3 id="do-use-setters-for-operations-that-conceptually-change-properties">
-<a id="do-use-setters-for-operations-that-conceptually-change-properties" class="anchor" href="#do-use-setters-for-operations-that-conceptually-change-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use setters for operations that conceptually change properties.</h3>
+<h3 id="要-对概念上是修改的属性使用-setter-方法">
+<a id="要-对概念上是修改的属性使用-setter-方法" class="anchor" href="#%E8%A6%81-%E5%AF%B9%E6%A6%82%E5%BF%B5%E4%B8%8A%E6%98%AF%E4%BF%AE%E6%94%B9%E7%9A%84%E5%B1%9E%E6%80%A7%E4%BD%BF%E7%94%A8-setter-%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 对概念上是修改的属性使用 setter 方法。</h3>
 
-<p>Deciding between a setter versus a method is similar to deciding between a
-getter versus a method. In both cases, the operation should be “field-like”.</p>
+<p>判定一个成员应该是一个 setter 而不是一个方法与 getter 的判定一样。两者的操作都应该是
+“类似于字段”的操作。</p>
 
-<p>For a setter, “field-like” means:</p>
+<p>对于 setter 方法，”类似于字段”意味着：</p>
 
 <ul>
   <li>
-    <p><strong>The operation takes a single argument and does not produce a result
-value.</strong></p>
+    <p><strong>操作只有一个参数，不会返回结果。</strong></p>
   </li>
   <li>
-    <p><strong>The operation changes some state in the object.</strong></p>
+    <p><strong>操作会更改对象中的某些状态。</strong></p>
   </li>
   <li>
-    <p><strong>The operation is idempotent.</strong> Calling the same setter twice with the same
-value should do nothing the second time as far as the caller is concerned.
-Internally, maybe you’ve got some cache invalidation or logging going on.
-That’s fine. But from the caller’s perspective, it appears that the second
-call does nothing.</p>
+    <p><strong>操作是<em>幂等</em>的。</strong> 使用相同的值调用相同的 setter 两次，就调用者而言，第二次不应该执
+行任何操作。在内部，也许你会得到一些无效的缓存或者多次的日志记录。没关系，从调用者的角度
+来看，第二次调用似乎没做任何事情。</p>
   </li>
 </ul>
 
 <pre class="prettyprint lang-dart good-style">rectangle.width = 3;
 button.visible = false;</pre>
 
-<h3 id="dont-define-a-setter-without-a-corresponding-getter">
-<a id="dont-define-a-setter-without-a-corresponding-getter" class="anchor" href="#dont-define-a-setter-without-a-corresponding-getter" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T define a setter without a corresponding getter.</h3>
+<h3 id="不要-在没有对应的-getter-的情况下定义-setter">
+<a id="不要-在没有对应的-getter-的情况下定义-setter" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E6%B2%A1%E6%9C%89%E5%AF%B9%E5%BA%94%E7%9A%84-getter-%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E5%AE%9A%E4%B9%89-setter" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 在没有对应的 getter 的情况下定义 setter。</h3>
 
-<p>Users think of getters and setters as visible properties of an object. A
-“dropbox” property that can be written to but not seen is confusing and
-confounds their intuition about how properties work. For example, a setter
-without a getter means you can use <code class="highlighter-rouge">=</code> to modify it, but not <code class="highlighter-rouge">+=</code>.</p>
+<p>用户将 getter 和 setter 视为一个对象的可见属性。一个 “dropbox” 属性可以被写入但无法读
+取，会令人感到困惑。并且也混淆了他们对属性如何工作的直观理解。 例如，没有 getter 的 setter 
+意味着你可以使用 <code class="highlighter-rouge">=</code> 来修改它，但却不能使用 <code class="highlighter-rouge">+=</code> 。</p>
 
-<p>This guideline does <em>not</em> mean you should add a getter just to permit the setter
-you want to add. Object’s shouldn’t generally expose more state than they need
-to. If you have some piece of an object’s state that can be modified but not
-exposed in the same way, use a method instead.</p>
+<p>本规则意义并<em>不</em>是说，你需要先添加一个 getter 才被允许添加 setter ，对象通常不应该暴露出
+多余的状态。如果某个对象的某个状态可以修改但不能以相同的方式访问，请改用方法实现。</p>
 
 <aside class="alert alert-info">
-  <p>There is one exception to this rule. An <a href="https://webdev.dartlang.org/angular">Angular</a> component class may expose
-setters that are invoked from a template to initialize the component. Often,
-these setters are not intended to be invoked from Dart code and don’t need a
-corresponding getter. (If they are used from Dart code, they <em>should</em> have a
-getter.)</p>
+  <p>这条规则有一处例外。在<a href="https://webdev.dartlang.org/angular">Angular</a> 组件类上，从模板调用的初始化组件 setter 可以公开。
+通常，这些 setter 是不打算在 Dart 中调用的，也就不需要相应的 getter。（如果在 Dart 代码
+中使用它们，那么它们<em>应该</em>有一个对应的 getter 。）</p>
 
 </aside>
 
-<h3 id="avoid-returning-null-from-members-whose-return-type-is-bool-double-int-or-num">
-<a id="avoid-returning-null-from-members-whose-return-type-is-bool-double-int-or-num" class="anchor" href="#avoid-returning-null-from-members-whose-return-type-is-bool-double-int-or-num" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID returning <code class="highlighter-rouge">null</code> from members whose return type is <code class="highlighter-rouge">bool</code>, <code class="highlighter-rouge">double</code>, <code class="highlighter-rouge">int</code>, or <code class="highlighter-rouge">num</code>.</h3>
+<h3 id="避免-从返回类型为-bool--double--int-或-num-的成员返回-null-">
+<a id="避免-从返回类型为-bool--double--int-或-num-的成员返回-null-" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%BB%8E%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B%E4%B8%BA-bool--double--int-%E6%88%96-num-%E7%9A%84%E6%88%90%E5%91%98%E8%BF%94%E5%9B%9E-null-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 从返回类型为 <code class="highlighter-rouge">bool</code> ， <code class="highlighter-rouge">double</code> ， <code class="highlighter-rouge">int</code> 或 <code class="highlighter-rouge">num</code> 的成员返回 <code class="highlighter-rouge">null</code> 。</h3>
 
-<p>Even though all types are nullable in Dart, users assume those types almost
-never contain <code class="highlighter-rouge">null</code>, and the lowercase names encourage a “Java primitive”
-mindset.</p>
+<p>尽管在 Dart 中所有类型都可以为空，但用户几乎都不会考虑它们是 <code class="highlighter-rouge">null</code> 的情况。而小写命名是
+源于 “Java primitive” 的提倡。</p>
 
-<p>It can be occasionally useful to have a “nullable primitive” type in your API,
-for example to indicate the absence of a value for some key in a map, but these
-should be rare.</p>
+<p>在 API 中有一个 “nullable primitive” 类型可能会偶尔被用到。例如，指出 map 中不存在的 
+key 值，但这样的应用并不多见。</p>
 
-<p>If you do have a member of this type that may return <code class="highlighter-rouge">null</code>, document it very
-clearly, including the conditions under which <code class="highlighter-rouge">null</code> will be returned.</p>
+<p>如果确实有成员可能返回 <code class="highlighter-rouge">null</code> 的类型，请在文档中注明，以及在什么情况下回返回 <code class="highlighter-rouge">null</code>。</p>
 
-<h3 id="avoid-returning-this-from-methods-just-to-enable-a-fluent-interface">
-<a id="avoid-returning-this-from-methods-just-to-enable-a-fluent-interface" class="anchor" href="#avoid-returning-this-from-methods-just-to-enable-a-fluent-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID returning <code class="highlighter-rouge">this</code> from methods just to enable a fluent interface.</h3>
+<h3 id="避免-为了书写流畅而从方法中返回-this-">
+<a id="避免-为了书写流畅而从方法中返回-this-" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%B8%BA%E4%BA%86%E4%B9%A6%E5%86%99%E6%B5%81%E7%95%85%E8%80%8C%E4%BB%8E%E6%96%B9%E6%B3%95%E4%B8%AD%E8%BF%94%E5%9B%9E-this-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 为了书写流畅，而从方法中返回 <code class="highlighter-rouge">this</code> 。</h3>
 
-<p>Method cascades are a better solution for chaining method calls.</p>
+<p>方法级联是链接方法调用的更好的解决方式。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (cascades)"?>
 <pre class="prettyprint lang-dart good-style">var buffer = StringBuffer()
@@ -1936,7 +1901,7 @@ method is called only if the right-hand side is not <code class="highlighter-rou
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/10/28 23:25 CST"
+                 title="Site built on 2018/10/29 13:49 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
