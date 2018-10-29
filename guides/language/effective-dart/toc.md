@@ -212,9 +212,9 @@
 * <a href='/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E4%BB%8E%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B%E4%B8%BA-bool--double--int-%E6%88%96-num-%E7%9A%84%E6%88%90%E5%91%98%E8%BF%94%E5%9B%9E-null-'><strong>避免</strong> 从返回类型为 <code>bool</code> ， <code>double</code> ， <code>int</code> 或 <code>num</code> 的成员返回 <code>null</code> 。</a>
 * <a href='/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E4%B8%BA%E4%BA%86%E4%B9%A6%E5%86%99%E6%B5%81%E7%95%85%E8%80%8C%E4%BB%8E%E6%96%B9%E6%B3%95%E4%B8%AD%E8%BF%94%E5%9B%9E-this-'><strong>避免</strong> 为了书写流畅，而从方法中返回 <code>this</code> 。</a>
 
-**Types**
+**类型**
 
-* <a href='/guides/language/effective-dart/design#prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious'>PREFER type annotating public fields and top-level variables if the type isn't obvious.</a>
+* <a href='/guides/language/effective-dart/design#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E5%85%AC%E5%85%B1%E5%AD%97%E6%AE%B5%E5%92%8C%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3'><strong>推荐</strong> 为类型不明显的公共字段和顶级变量指定类型注解。</a>
 * <a href='/guides/language/effective-dart/design#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious'>CONSIDER type annotating private fields and top-level variables if the type isn't obvious.</a>
 * <a href='/guides/language/effective-dart/design#avoid-type-annotating-initialized-local-variables'>AVOID type annotating initialized local variables.</a>
 * <a href='/guides/language/effective-dart/design#avoid-annotating-inferred-parameter-types-on-function-expressions'>AVOID annotating inferred parameter types on function expressions.</a>

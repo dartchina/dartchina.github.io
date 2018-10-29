@@ -220,9 +220,9 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#避免-为了书写流畅而从方法中返回-this-">避免 为了书写流畅，而从方法中返回 this 。</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#types">Types</a>
+<li class="toc-entry toc-h2"><a href="#类型">类型</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious">PREFER type annotating public fields and top-level variables if the type isn’t obvious.</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-为类型不明显的公共字段和顶级变量指定类型注解">推荐 为类型不明显的公共字段和顶级变量指定类型注解。</a></li>
 <li class="toc-entry toc-h3"><a href="#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious">CONSIDER type annotating private fields and top-level variables if the type isn’t obvious.</a></li>
 <li class="toc-entry toc-h3"><a href="#avoid-type-annotating-initialized-local-variables">AVOID type annotating initialized local variables.</a></li>
 <li class="toc-entry toc-h3"><a href="#avoid-annotating-inferred-parameter-types-on-function-expressions">AVOID annotating inferred parameter types on function expressions.</a></li>
@@ -356,8 +356,8 @@ Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides
     </ul>
   </li>
   <li>
-<a href="#types" id="markdown-toc-types">Types</a>    <ul>
-      <li><a href="#prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious" id="markdown-toc-prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious">PREFER type annotating public fields and top-level variables if the type isn’t obvious.</a></li>
+<a href="#%E7%B1%BB%E5%9E%8B" id="markdown-toc-类型">类型</a>    <ul>
+      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E5%85%AC%E5%85%B1%E5%AD%97%E6%AE%B5%E5%92%8C%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" id="markdown-toc-推荐-为类型不明显的公共字段和顶级变量指定类型注解"><strong>推荐</strong> 为类型不明显的公共字段和顶级变量指定类型注解。</a></li>
       <li><a href="#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious" id="markdown-toc-consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious">CONSIDER type annotating private fields and top-level variables if the type isn’t obvious.</a></li>
       <li><a href="#avoid-type-annotating-initialized-local-variables" id="markdown-toc-avoid-type-annotating-initialized-local-variables">AVOID type annotating initialized local variables.</a></li>
       <li><a href="#avoid-annotating-inferred-parameter-types-on-function-expressions" id="markdown-toc-avoid-annotating-inferred-parameter-types-on-function-expressions">AVOID annotating inferred parameter types on function expressions.</a></li>
@@ -1137,18 +1137,15 @@ key 值，但这样的应用并不多见。</p>
     .write('two')
     .write('three');</pre>
 
-<h2 id="types">
-<a id="types" class="anchor" href="#types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Types</h2>
+<h2 id="类型">
+<a id="类型" class="anchor" href="#%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>类型</h2>
 
-<p>When you write down a type in your program, you constrain the kinds of values
-that flow into different parts of your code. Types can appear in two kinds of
-places: <em>type annotations</em> on declarations and type arguments to <em>generic
-invocations</em>.</p>
+<p>程序中的类型用于约束流入代码各位置的<em>值</em>的不同类型。类型会出现在两种位置：声明中的<em>类型注解（type 
+annotations）</em>和<em>泛型调用（generic invocations）</em>的类型参数。</p>
 
-<p>Type annotations are what you normally think of when you think of “static
-types”. You can type annotate a variable, parameter, field, or return type. In
-the following example, <code class="highlighter-rouge">bool</code> and <code class="highlighter-rouge">String</code> are type annotations. They hang off
-the static declarative structure of the code and aren’t “executed” at runtime.</p>
+<p>当你想到<em>静态类型</em>时，通常会联想到类型注解。类型注解可以用于为变量，参数，字段，或者返回值
+声明类型。在下面的示例中，<code class="highlighter-rouge">bool</code> 和 <code class="highlighter-rouge">String</code> 是类型注解。他们位于代码静态声明结构的前面，
+并且他们不会在运行时”执行”。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (annotate-declaration)"?>
 <pre class="prettyprint lang-dart">bool isEmpty(String parameter) {
@@ -1156,131 +1153,109 @@ the static declarative structure of the code and aren’t “executed” at runt
   return result;
 }</pre>
 
-<p>A generic invocation is a collection literal, a call to a generic class’s
-constructor, or an invocation of a generic method. In the next example, <code class="highlighter-rouge">num</code>
-and <code class="highlighter-rouge">int</code> are type arguments on generic invocations. Even though they are types,
-they are first-class entities that get reified and passed to the invocation at
-runtime.</p>
+<p>泛型调用可以是一个字面量集合的定义，一个泛型类构造函数的调用，或者一个泛型方法的调用。在下面
+的示例中，<code class="highlighter-rouge">num</code> 和 <code class="highlighter-rouge">int</code> 都是泛型调用的类型参数。虽然它们是类型，但是它们也是第一类实体，
+在运行时会被提升并传递给调用。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (annotate-invocation)"?>
 <pre class="prettyprint lang-dart">var lists = &lt;num&gt;[1, 2];
 lists.addAll(List&lt;num&gt;.filled(3, 4));
 lists.cast&lt;int&gt;();</pre>
 
-<p>We stress the “generic invocation” part here, because type arguments can <em>also</em>
-appear in type annotations:</p>
+<p>这里再强调一下”泛型调用”，因为类型参数<em>也</em>可以出现在类型注解中：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (annotate-type-arg)"?>
 <pre class="prettyprint lang-dart">List&lt;int&gt; ints = [1, 2];</pre>
 
-<p>Here, <code class="highlighter-rouge">int</code> is a type argument, but it appears inside a type annotation, not a
-generic invocation. You usually don’t need to worry about this distinction, but
-in a couple of places, we have different guidance for when a type is used in a
-generic invocation as opposed to a type annotation.</p>
+<p>这里，<code class="highlighter-rouge">int</code> 是一个类型参数，但它出现在了类型注解中，而不是泛型调用。通常来说不需要担心这种情况，
+但在几个地方，对于类型的运用是泛型调用而不是类型注解有不同的指导。</p>
 
-<p>In most places, Dart allows you to omit a type annotation and infers a type for
-you based on the nearby context, or defaults to the <code class="highlighter-rouge">dynamic</code> type. The fact
-that Dart has both type inference and a <code class="highlighter-rouge">dynamic</code> type leads to some confusion
-about what it means to say code is “untyped”. Does that mean the code is
-dynamically typed, or that you didn’t <em>write</em> the type? To avoid that confusion,
-we avoid saying “untyped” and instead use the following terminology:</p>
+<p>在大多数地方，Dart 允许省略类型注解并根据附近的上下文提供推断类型，或默认指定为 <code class="highlighter-rouge">dynamic</code> 
+类型。Dart 同时具有类型推断和 <code class="highlighter-rouge">dynamic</code> 类型的情况，导致对代码中 “untyped” 的含义产生一些
+混淆。意思就是不<em>写</em>类型就是动态类型吗？为避免这种混淆，应该避免说 “untyped” ，而是使用以下
+术语：</p>
 
 <ul>
   <li>
-    <p>If the code is <em>type annotated</em>, the type was explicitly written in the
-code.</p>
+    <p>如果代码是<em>类型注解</em>，则在代码中显式写入类型。</p>
   </li>
   <li>
-    <p>If the code is <em>inferred</em>, no type annotation was written, and Dart
-successfully figured out the type on its own. Inference can fail, in which
-case the guidelines don’t consider that inferred. In some places, inference
-failure is a static error. In others, Dart uses <code class="highlighter-rouge">dynamic</code> as the fallback
-type.</p>
+    <p>如果代码的类型是<em>推断</em>的，则不必写类型注解，Dart 会自己会找出它的类型。规则不考虑推断可能
+会失败的情况，在一些地方，推理失败会产生一个静态错误。在其他情况下，Dart 使用 <code class="highlighter-rouge">dynamic</code>
+作为备选类型。</p>
   </li>
   <li>
-    <p>If the code is <em>dynamic</em>, then its static type is the special <code class="highlighter-rouge">dynamic</code>
-type. Code can be explicitly annotated <code class="highlighter-rouge">dynamic</code> or it can be inferred.</p>
+    <p>如果代码是<em>动态类型</em>，那么它的静态类型就是特殊的 <code class="highlighter-rouge">dynamic</code> 类型。代码可以明确地注解为 
+<code class="highlighter-rouge">dynamic</code> 类型，也可以由 Dart 进行推断。</p>
   </li>
 </ul>
 
-<p>In other words, whether some code is annotated or inferred is orthogonal to
-whether it is <code class="highlighter-rouge">dynamic</code> or some other type.</p>
+<p>换句话说，对于代码的类型是 <code class="highlighter-rouge">dynamic</code> 类型还是其他类型，在类型注解或类型推断中是正交的。</p>
 
-<p>Inference is a powerful tool to spare you the effort of writing and reading
-types that are obvious or uninteresting. Omitting types in obvious cases also
-draws the reader’s attention to explicit types when those types are important,
-for things like casts.</p>
+<p>类型推断是一种强大的工具，可以免于编写和阅读那些明显或无趣的类型。在明显的情况下省略类型也会
+引起读者注意那些被显式注解的重要类型，例如强制类型转换。</p>
 
-<p>Explicit types are also a key part of robust, maintainable code. They define the
-static shape of an API. They document and enforce what kinds of values are
-allowed to reach different parts of the program.</p>
+<p>显示类型也是代码健壮和高可维护的关键。它们定义了API的静态形状。注明并约束流入代码各位置的值
+的不同类型值。</p>
 
-<p>The guidelines here strike the best balance we’ve found between brevity and
-explicitness, flexibility and safety. When deciding which types to write, you
-need to answer two questions:</p>
+<p>这些准则促使我们在简洁性和明确性，灵活性和安全性之间找到了最佳平衡。在决定要编写类型钱前
+您需要回答这两问题：</p>
 
 <ul>
-  <li>Which types should I write because I think it’s best for them to be visible in
-the code?</li>
-  <li>Which types should I write because inference can’t provide them for me?</li>
+  <li>我应该书写哪种类型那？因为我期望这些类型在代码中最好是被看到！</li>
+  <li>我应该书写哪种类型那？因为推理无法为我提供这些类型！</li>
 </ul>
 
-<p>These guidelines help you answer the first question:</p>
+<p>这些规则可以帮助你回答第一个问题：</p>
 
 <ul>
-  <li><a href="#prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious">PREFER type annotating public fields and top-level variables if the type isn’t obvious.</a></li>
+  <li><a href="#prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious"><strong>推荐</strong> 为类型不明显的公共字段和顶级变量指定类型注解。</a></li>
   <li><a href="#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious">CONSIDER type annotating private fields and top-level variables if the type isn’t obvious.</a></li>
   <li><a href="#avoid-type-annotating-initialized-local-variables">AVOID type annotating initialized local variables.</a></li>
   <li><a href="#avoid-annotating-inferred-parameter-types-on-function-expressions">AVOID annotating inferred parameter types on function expressions.</a></li>
   <li><a href="#avoid-redundant-type-arguments-on-generic-invocations">AVOID redundant type arguments on generic invocations.</a></li>
 </ul>
 
-<p>These cover the second:</p>
+<p>这些规则涵盖了第二个问题：</p>
 
 <ul>
   <li><a href="#do-annotate-when-dart-infers-the-wrong-type">DO annotate when Dart infers the wrong type.</a></li>
   <li><a href="#prefer-annotating-with-dynamic-instead-of-letting-inference-fail">PREFER annotating with <code class="highlighter-rouge">dynamic</code> instead of letting inference fail.</a></li>
 </ul>
 
-<p>The remaining guidelines cover other more specific questions around types.</p>
+<p>其余指南涵盖了和类型有关的其他具体问题。</p>
 
-<h3 id="prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious">
-<a id="prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious" class="anchor" href="#prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER type annotating public fields and top-level variables if the type isn’t obvious.</h3>
+<h3 id="推荐-为类型不明显的公共字段和顶级变量指定类型注解">
+<a id="推荐-为类型不明显的公共字段和顶级变量指定类型注解" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E5%85%AC%E5%85%B1%E5%AD%97%E6%AE%B5%E5%92%8C%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 为类型不明显的公共字段和顶级变量指定类型注解。</h3>
 
-<p>Type annotations are important documentation for how a library should be used.
-They form boundaries between regions of a program to isolate the source of a
-type error. Consider:</p>
+<p>类型注解是关于如何使用库的重要文档。它们在程序的区域之间形成边界以隔离类型错误来源。思考下面代码：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (type_annotate_public_apis)"?>
 <pre class="prettyprint lang-dart bad-style">install(id, destination) =&gt; ...</pre>
 
-<p>Here, it’s unclear what <code class="highlighter-rouge">id</code> is. A string? And what is <code class="highlighter-rouge">destination</code>? A string
-or a <code class="highlighter-rouge">File</code> object? Is this method synchronous or asynchronous? This is clearer:</p>
+<p>在这里，无法判断：这个 <code class="highlighter-rouge">id</code> 是什么，一个字符串？<code class="highlighter-rouge">destination</code> 又是什么，一个字符串还是一个 
+<code class="highlighter-rouge">File</code> 对象？方法是同步的还是异步的？下面的实例会清晰很多：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (type_annotate_public_apis)"?>
 <pre class="prettyprint lang-dart good-style">Future&lt;bool&gt; install(PackageId id, String destination) =&gt; ...</pre>
 
-<p>In some cases, though, the type is so obvious that writing it is pointless:</p>
+<p>但在一些情况下，类型非常明显，根本没有指明类型的必要：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (inferred)"?>
 <pre class="prettyprint lang-dart good-style">const screenWidth = 640; // Inferred as int.</pre>
 
-<p>“Obvious” isn’t precisely defined, but these are all good candidates:</p>
+<p>这里的”明显”并没有精确的定义，下面这些可以作为很好的参考：</p>
 
 <ul>
-  <li>Literals.</li>
-  <li>Constructor invocations.</li>
-  <li>References to other constants that are explicitly typed.</li>
-  <li>Simple expressions on numbers and strings.</li>
-  <li>Factory methods like <code class="highlighter-rouge">int.parse()</code>, <code class="highlighter-rouge">Future.wait()</code>, etc. that readers are
-expected to be familiar with.</li>
+  <li>字面量。</li>
+  <li>构造函数调用。</li>
+  <li>引用的其他类型明确的常量。</li>
+  <li>数字和字符串的简单表达式。</li>
+  <li>读者熟悉的工厂方法，如 <code class="highlighter-rouge">int.parse()</code>， <code class="highlighter-rouge">Future.wait()</code> 等。</li>
 </ul>
 
-<p>When in doubt, add a type annotation. Even when a type is obvious, you may still
-wish to explicitly annotate. If the inferred type relies on values or
-declarations from other libraries, you may want to type annotate <em>your</em>
-declaration so that a change to that other library doesn’t silently change the
-type of your own API without you realizing.</p>
+<p>如有疑问，请添加类型注解。即使类型很明显，但可能任然希望明确的注解。如果推断类型依赖于其他库中的值
+或声明，可能需要添加注解的声明。这样自己的API就不会因为其他库的修改而被悄无声息的改变了类型。</p>
 
 <h3 id="consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious">
 <a id="consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious" class="anchor" href="#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER type annotating private fields and top-level variables if the type isn’t obvious.</h3>
@@ -1901,7 +1876,7 @@ method is called only if the right-hand side is not <code class="highlighter-rou
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/10/29 13:49 CST"
+                 title="Site built on 2018/10/29 18:51 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
