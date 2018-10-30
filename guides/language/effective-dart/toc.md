@@ -219,9 +219,9 @@
 * <a href='/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E4%B8%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E6%B7%BB%E5%8A%A0%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3'><strong>避免</strong> 为初始化的局部变量添加类型注解。</a>
 * <a href='/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E5%9C%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8A%E6%B3%A8%E8%A7%A3%E6%8E%A8%E6%96%AD%E7%9A%84%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B'><strong>避免</strong> 在函数表达式上注解推断的参数类型。</a>
 * <a href='/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E5%9C%A8%E6%B3%9B%E5%9E%8B%E8%B0%83%E7%94%A8%E4%B8%AD%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%86%97%E4%BD%99%E4%BD%BF%E7%94%A8'><strong>避免</strong> 在泛型调用中参数类型的冗余使用。</a>
-* <a href='/guides/language/effective-dart/design#do-annotate-when-dart-infers-the-wrong-type'>DO annotate when Dart infers the wrong type.</a>
-* <a href='/guides/language/effective-dart/design#prefer-annotating-with-dynamic-instead-of-letting-inference-fail'>PREFER annotating with <code>dynamic</code> instead of letting inference fail.</a>
-* <a href='/guides/language/effective-dart/design#prefer-signatures-in-function-type-annotations'>PREFER signatures in function type annotations.</a>
+* <a href='/guides/language/effective-dart/design#%E8%A6%81-%E5%9C%A8-dart-%E6%8E%A8%E6%96%AD%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF%E7%9A%84%E6%97%B6%E5%80%99%E8%BF%9B%E8%A1%8C%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3'><strong>要</strong> 在 Dart 推断类型错误的时候进行类型注解。</a>
+* <a href='/guides/language/effective-dart/design#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-dynamic-%E6%B3%A8%E8%A7%A3%E6%9B%BF%E6%8D%A2%E6%8E%A8%E6%96%AD%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%83%85%E5%86%B5'><strong>推荐</strong> 使用 <code>dynamic</code> 注解替换推断失败的情况。</a>
+* <a href='/guides/language/effective-dart/design#%E6%8E%A8%E8%8D%90-%E4%BD%BF-function-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3%E7%9A%84%E7%89%B9%E5%BE%81%E6%9B%B4%E6%98%8E%E6%98%BE'><strong>推荐</strong> 使 function 类型注解的特征更明显</a>
 * <a href='/guides/language/effective-dart/design#dont-specify-a-return-type-for-a-setter'>DON'T specify a return type for a setter.</a>
 * <a href='/guides/language/effective-dart/design#dont-use-the-legacy-typedef-syntax'>DON'T use the legacy typedef syntax.</a>
 * <a href='/guides/language/effective-dart/design#prefer-inline-function-types-over-typedefs'>PREFER inline function types over typedefs.</a>

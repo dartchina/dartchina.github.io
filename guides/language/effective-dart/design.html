@@ -227,9 +227,9 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#避免-为初始化的局部变量添加类型注解">避免 为初始化的局部变量添加类型注解。</a></li>
 <li class="toc-entry toc-h3"><a href="#避免-在函数表达式上注解推断的参数类型">避免 在函数表达式上注解推断的参数类型。</a></li>
 <li class="toc-entry toc-h3"><a href="#避免-在泛型调用中参数类型的冗余使用">避免 在泛型调用中参数类型的冗余使用。</a></li>
-<li class="toc-entry toc-h3"><a href="#do-annotate-when-dart-infers-the-wrong-type">DO annotate when Dart infers the wrong type.</a></li>
-<li class="toc-entry toc-h3"><a href="#prefer-annotating-with-dynamic-instead-of-letting-inference-fail">PREFER annotating with dynamic instead of letting inference fail.</a></li>
-<li class="toc-entry toc-h3"><a href="#prefer-signatures-in-function-type-annotations">PREFER signatures in function type annotations.</a></li>
+<li class="toc-entry toc-h3"><a href="#要-在-dart-推断类型错误的时候进行类型注解">要 在 Dart 推断类型错误的时候进行类型注解。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-使用-dynamic-注解替换推断失败的情况">推荐 使用 dynamic 注解替换推断失败的情况。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-使-function-类型注解的特征更明显">推荐 使 function 类型注解的特征更明显</a></li>
 <li class="toc-entry toc-h3"><a href="#dont-specify-a-return-type-for-a-setter">DON’T specify a return type for a setter.</a></li>
 <li class="toc-entry toc-h3"><a href="#dont-use-the-legacy-typedef-syntax">DON’T use the legacy typedef syntax.</a></li>
 <li class="toc-entry toc-h3"><a href="#prefer-inline-function-types-over-typedefs">PREFER inline function types over typedefs.</a></li>
@@ -362,9 +362,9 @@ Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides
       <li><a href="#%E9%81%BF%E5%85%8D-%E4%B8%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E6%B7%BB%E5%8A%A0%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" id="markdown-toc-避免-为初始化的局部变量添加类型注解"><strong>避免</strong> 为初始化的局部变量添加类型注解。</a></li>
       <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8A%E6%B3%A8%E8%A7%A3%E6%8E%A8%E6%96%AD%E7%9A%84%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B" id="markdown-toc-避免-在函数表达式上注解推断的参数类型"><strong>避免</strong> 在函数表达式上注解推断的参数类型。</a></li>
       <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E6%B3%9B%E5%9E%8B%E8%B0%83%E7%94%A8%E4%B8%AD%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%86%97%E4%BD%99%E4%BD%BF%E7%94%A8" id="markdown-toc-避免-在泛型调用中参数类型的冗余使用"><strong>避免</strong> 在泛型调用中参数类型的冗余使用。</a></li>
-      <li><a href="#do-annotate-when-dart-infers-the-wrong-type" id="markdown-toc-do-annotate-when-dart-infers-the-wrong-type">DO annotate when Dart infers the wrong type.</a></li>
-      <li><a href="#prefer-annotating-with-dynamic-instead-of-letting-inference-fail" id="markdown-toc-prefer-annotating-with-dynamic-instead-of-letting-inference-fail">PREFER annotating with <code class="highlighter-rouge">dynamic</code> instead of letting inference fail.</a></li>
-      <li><a href="#prefer-signatures-in-function-type-annotations" id="markdown-toc-prefer-signatures-in-function-type-annotations">PREFER signatures in function type annotations.</a></li>
+      <li><a href="#%E8%A6%81-%E5%9C%A8-dart-%E6%8E%A8%E6%96%AD%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF%E7%9A%84%E6%97%B6%E5%80%99%E8%BF%9B%E8%A1%8C%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" id="markdown-toc-要-在-dart-推断类型错误的时候进行类型注解"><strong>要</strong> 在 Dart 推断类型错误的时候进行类型注解。</a></li>
+      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-dynamic-%E6%B3%A8%E8%A7%A3%E6%9B%BF%E6%8D%A2%E6%8E%A8%E6%96%AD%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%83%85%E5%86%B5" id="markdown-toc-推荐-使用-dynamic-注解替换推断失败的情况"><strong>推荐</strong> 使用 <code class="highlighter-rouge">dynamic</code> 注解替换推断失败的情况。</a></li>
+      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF-function-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3%E7%9A%84%E7%89%B9%E5%BE%81%E6%9B%B4%E6%98%8E%E6%98%BE" id="markdown-toc-推荐-使-function-类型注解的特征更明显"><strong>推荐</strong> 使 function 类型注解的特征更明显</a></li>
       <li><a href="#dont-specify-a-return-type-for-a-setter" id="markdown-toc-dont-specify-a-return-type-for-a-setter">DON’T specify a return type for a setter.</a></li>
       <li><a href="#dont-use-the-legacy-typedef-syntax" id="markdown-toc-dont-use-the-legacy-typedef-syntax">DON’T use the legacy typedef syntax.</a></li>
       <li><a href="#prefer-inline-function-types-over-typedefs" id="markdown-toc-prefer-inline-function-types-over-typedefs">PREFER inline function types over typedefs.</a></li>
@@ -1329,7 +1329,7 @@ if (node is Constructor) {
 <h3 id="避免-在泛型调用中参数类型的冗余使用">
 <a id="避免-在泛型调用中参数类型的冗余使用" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E6%B3%9B%E5%9E%8B%E8%B0%83%E7%94%A8%E4%B8%AD%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%86%97%E4%BD%99%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 在泛型调用中参数类型的冗余使用。</h3>
 
-<p>如果推断的类型结果与注解相同，那么参数注解就是多余的。如果泛型调用是初始化变量，或者是函数参数，
+<p>如果推断的类型结果与指定相同，那么参数指定就是多余的。如果泛型调用是初始化变量，或者是函数参数，
 那么推断会自动为其填充类型：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (redundant)"?>
@@ -1351,12 +1351,11 @@ if (node is Constructor) {
 <p>在这里，由于变量没有类型注解，因此没有足够的上下文来确定创建的 <code class="highlighter-rouge">Set</code> 是什么类型，因此应该显式
 的提供参数类型。</p>
 
-<h3 id="do-annotate-when-dart-infers-the-wrong-type">
-<a id="do-annotate-when-dart-infers-the-wrong-type" class="anchor" href="#do-annotate-when-dart-infers-the-wrong-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO annotate when Dart infers the wrong type.</h3>
+<h3 id="要-在-dart-推断类型错误的时候进行类型注解">
+<a id="要-在-dart-推断类型错误的时候进行类型注解" class="anchor" href="#%E8%A6%81-%E5%9C%A8-dart-%E6%8E%A8%E6%96%AD%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF%E7%9A%84%E6%97%B6%E5%80%99%E8%BF%9B%E8%A1%8C%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 在 Dart 推断类型错误的时候进行类型注解。</h3>
 
-<p>Sometimes, Dart infers a type, but not the type you want. For example, you may
-want a variable’s type to be a supertype of the initializer’s type so that you
-can later assign some other sibling type to the variable:</p>
+<p>有时候，Dart 推断的并不是你期望的类型。例如，你可能希望初始化变量的类型是超类型（父类的类型），
+以便后续可以为变量赋值一些同级别的其它变量：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (inferred-wrong)"?>
 <pre class="prettyprint lang-dart good-style">num highScore(List&lt;num&gt; scores) {
@@ -1376,25 +1375,21 @@ can later assign some other sibling type to the variable:</p>
   return highest;
 }</pre>
 
-<p>Here, if <code class="highlighter-rouge">scores</code> contains doubles, like <code class="highlighter-rouge">[1.2]</code>, then the assignment to
-<code class="highlighter-rouge">highest</code> will fail since its inferred type is <code class="highlighter-rouge">int</code>, not <code class="highlighter-rouge">num</code>. In these cases,
-explicit annotations make sense.</p>
+<p>在这里，如果 <code class="highlighter-rouge">scores</code> 中包含双精度数字，如 <code class="highlighter-rouge">[1.2]</code> ，那么 <code class="highlighter-rouge">highest</code> 的赋值会失败，因为 
+<code class="highlighter-rouge">highest</code> 的推断类型是 <code class="highlighter-rouge">int</code> ，而不是 <code class="highlighter-rouge">num</code> 。在这些情况下，就需要显式注解了。</p>
 
-<h3 id="prefer-annotating-with-dynamic-instead-of-letting-inference-fail">
-<a id="prefer-annotating-with-dynamic-instead-of-letting-inference-fail" class="anchor" href="#prefer-annotating-with-dynamic-instead-of-letting-inference-fail" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER annotating with <code class="highlighter-rouge">dynamic</code> instead of letting inference fail.</h3>
+<h3 id="推荐-使用-dynamic-注解替换推断失败的情况">
+<a id="推荐-使用-dynamic-注解替换推断失败的情况" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-dynamic-%E6%B3%A8%E8%A7%A3%E6%9B%BF%E6%8D%A2%E6%8E%A8%E6%96%AD%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%83%85%E5%86%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用 <code class="highlighter-rouge">dynamic</code> 注解替换推断失败的情况。</h3>
 
-<p>Dart allows you to omit type annotations in many places and will try to infer a
-type for you. In some cases, if inference fails, it silently gives you
-<code class="highlighter-rouge">dynamic</code>. If <code class="highlighter-rouge">dynamic</code> is the type you want, this is technically the most terse
-way to get it.</p>
+<p>Dart 允许在许多地方省略类型注解，并尝试推断类型。在某些情况下，如果推断失败了，会默认指定为 
+<code class="highlighter-rouge">dynamic</code> 类型。如果 <code class="highlighter-rouge">dynamic</code> 类型与期望相同，那么从技术的角度来讲，这是获取类型最简洁
+的方式。</p>
 
-<p>However, it’s not the most <em>clear</em> way. A casual reader of your code who sees an
-annotation is missing has no way of knowing if you intended it to be <code class="highlighter-rouge">dynamic</code>,
-expected inference to fill in some other type, or simply forgot to write the
-annotation.</p>
+<p>但是，这种方式是最不<em>清晰</em>的。任何一个阅读代码的人，当看到一个类型确实的成员时，是没有办法
+知道，编写的人是希望它是 <code class="highlighter-rouge">dynamic</code> 类型，还是期望它是其他的什么类型，或者阅读的人就简单的
+认为是编写的人忘记了指定类型。</p>
 
-<p>When <code class="highlighter-rouge">dynamic</code> is the type you want, writing it explicitly makes your intent
-clear.</p>
+<p>当 <code class="highlighter-rouge">dynamic</code> 是你期望的类型，就应该指明它，这样能让你的意图更清晰。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (prefer-dynamic)"?>
 <pre class="prettyprint lang-dart good-style">dynamic mergeJson(dynamic original, dynamic changes) =&gt; ...</pre>
@@ -1404,23 +1399,18 @@ clear.</p>
 
 <aside class="alert alert-info">
 
-  <p>Before Dart 2, this guideline stated the exact opposite: <em>don’t</em> annotate with
-<code class="highlighter-rouge">dynamic</code> when it is implicit. With the new stronger type system and type
-inference, users now expect Dart to behave like an inferred statically-typed
-language. With that mental model, it is an unpleasant surprise to discover that
-a region of code has silently lost all of the safety and performance of static
-types.</p>
+  <p>在Dart 2之前，本规则恰恰是相反的：<em>不要</em> 为隐性类型的成员指定 <code class="highlighter-rouge">dynamic</code> 注解。基于强类型系统
+和类型推断，现在的开发者更希望 Dart 的行为类似于推断的静态类型语言。基于这种心理模型，我们发现
+代码区域慢慢地失去了静态类型所具有的安全及性能。</p>
 
 </aside>
 
-<h3 id="prefer-signatures-in-function-type-annotations">
-<a id="prefer-signatures-in-function-type-annotations" class="anchor" href="#prefer-signatures-in-function-type-annotations" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER signatures in function type annotations.</h3>
+<h3 id="推荐-使-function-类型注解的特征更明显">
+<a id="推荐-使-function-类型注解的特征更明显" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF-function-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3%E7%9A%84%E7%89%B9%E5%BE%81%E6%9B%B4%E6%98%8E%E6%98%BE" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使 function 类型注解的特征更明显</h3>
 
-<p>The identifier <code class="highlighter-rouge">Function</code> by itself without any return type or parameter
-signature refers to the special <a href="https://api.dartlang.org/stable/dart-core/Function-class.html">Function</a> type. This type is only
-marginally more useful than using <code class="highlighter-rouge">dynamic</code>. If you’re going to annotate, prefer
-a full function type that includes the parameters and return type of the
-function.</p>
+<p>成员类型注解标识符只有 <code class="highlighter-rouge">Function</code> ，注解标识符不包括任何返回值类型或参数类型，请参考
+专门的 <a href="https://api.dartlang.org/stable/dart-core/Function-class.html">Function</a> 类型说明。使用 <code class="highlighter-rouge">Function</code> 类型要稍微比使用 <code class="highlighter-rouge">dynamic</code> 更好些。
+如果要使用 <code class="highlighter-rouge">Function</code> 来进行类型注解，注解类型应该包含函数的所有参数及返回值类型。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (avoid-Function)" replace="/(void )?Function(\(.*?\))?/[!$&!]/g"?>
 <pre class="prettyprint lang-dart good-style">bool isValid(String value, bool <span class="highlight">Function(String)</span> test) =&gt; ...</pre>
@@ -1428,11 +1418,9 @@ function.</p>
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (avoid-Function)" replace="/Function/[!$&!]/g"?>
 <pre class="prettyprint lang-dart bad-style">bool isValid(String value, <span class="highlight">Function</span> test) =&gt; ...</pre>
 
-<p>One exception to this guideline is if you want a type that represents the union
-of multiple different function types. For example, you may accept a function
-that takes one parameter or a function that takes two. Since we don’t have union
-types, there’s no way to precisely type that and you’d normally have to use
-<code class="highlighter-rouge">dynamic</code>. <code class="highlighter-rouge">Function</code> is at least a little more helpful than that:</p>
+<p>此条规则有个例外，如果期望一个类型能够表示多种函数类型的集合。例如，我们希望接受的可能是一个参数
+的函数，也可能是两个参数的函数。由于 Dart 没有集合类型，所以没有办法为类似成员精确的指定类型，
+这个时候通常只能使用 <code class="highlighter-rouge">dynamic</code>。但这里使用 <code class="highlighter-rouge">Function</code> 要稍微比使用 <code class="highlighter-rouge">dynamic</code> 更有帮助些：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (function-arity)" replace="/(void )?Function(\(.*?\))?/[!$&!]/g"?>
 <pre class="prettyprint lang-dart good-style">void handleError(<span class="highlight">void Function()</span> operation, <span class="highlight">Function</span> errorHandler) {
@@ -1861,7 +1849,7 @@ method is called only if the right-hand side is not <code class="highlighter-rou
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/10/30 15:45 CST"
+                 title="Site built on 2018/10/30 18:55 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
