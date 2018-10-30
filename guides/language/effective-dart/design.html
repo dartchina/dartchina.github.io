@@ -222,11 +222,11 @@ ga('send', 'pageview');
 </li>
 <li class="toc-entry toc-h2"><a href="#类型">类型</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#推荐-为类型不明显的公共字段和顶级变量指定类型注解">推荐 为类型不明显的公共字段和顶级变量指定类型注解。</a></li>
-<li class="toc-entry toc-h3"><a href="#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious">CONSIDER type annotating private fields and top-level variables if the type isn’t obvious.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-type-annotating-initialized-local-variables">AVOID type annotating initialized local variables.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-annotating-inferred-parameter-types-on-function-expressions">AVOID annotating inferred parameter types on function expressions.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-redundant-type-arguments-on-generic-invocations">AVOID redundant type arguments on generic invocations.</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-为类型不明显的公共字段和公共顶级变量指定类型注解">推荐 为类型不明显的公共字段和公共顶级变量指定类型注解。</a></li>
+<li class="toc-entry toc-h3"><a href="#考虑-为类型不明显的私有字段和私有顶级变量指定类型注解">考虑 为类型不明显的私有字段和私有顶级变量指定类型注解。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-为初始化的局部变量添加类型注解">避免 为初始化的局部变量添加类型注解。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-在函数表达式上注解推断的参数类型">避免 在函数表达式上注解推断的参数类型。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-在泛型调用中参数类型的冗余使用">避免 在泛型调用中参数类型的冗余使用。</a></li>
 <li class="toc-entry toc-h3"><a href="#do-annotate-when-dart-infers-the-wrong-type">DO annotate when Dart infers the wrong type.</a></li>
 <li class="toc-entry toc-h3"><a href="#prefer-annotating-with-dynamic-instead-of-letting-inference-fail">PREFER annotating with dynamic instead of letting inference fail.</a></li>
 <li class="toc-entry toc-h3"><a href="#prefer-signatures-in-function-type-annotations">PREFER signatures in function type annotations.</a></li>
@@ -357,11 +357,11 @@ Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides
   </li>
   <li>
 <a href="#%E7%B1%BB%E5%9E%8B" id="markdown-toc-类型">类型</a>    <ul>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E5%85%AC%E5%85%B1%E5%AD%97%E6%AE%B5%E5%92%8C%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" id="markdown-toc-推荐-为类型不明显的公共字段和顶级变量指定类型注解"><strong>推荐</strong> 为类型不明显的公共字段和顶级变量指定类型注解。</a></li>
-      <li><a href="#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious" id="markdown-toc-consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious">CONSIDER type annotating private fields and top-level variables if the type isn’t obvious.</a></li>
-      <li><a href="#avoid-type-annotating-initialized-local-variables" id="markdown-toc-avoid-type-annotating-initialized-local-variables">AVOID type annotating initialized local variables.</a></li>
-      <li><a href="#avoid-annotating-inferred-parameter-types-on-function-expressions" id="markdown-toc-avoid-annotating-inferred-parameter-types-on-function-expressions">AVOID annotating inferred parameter types on function expressions.</a></li>
-      <li><a href="#avoid-redundant-type-arguments-on-generic-invocations" id="markdown-toc-avoid-redundant-type-arguments-on-generic-invocations">AVOID redundant type arguments on generic invocations.</a></li>
+      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E5%85%AC%E5%85%B1%E5%AD%97%E6%AE%B5%E5%92%8C%E5%85%AC%E5%85%B1%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" id="markdown-toc-推荐-为类型不明显的公共字段和公共顶级变量指定类型注解"><strong>推荐</strong> 为类型不明显的公共字段和公共顶级变量指定类型注解。</a></li>
+      <li><a href="#%E8%80%83%E8%99%91-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E7%A7%81%E6%9C%89%E5%AD%97%E6%AE%B5%E5%92%8C%E7%A7%81%E6%9C%89%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" id="markdown-toc-考虑-为类型不明显的私有字段和私有顶级变量指定类型注解"><strong>考虑</strong> 为类型不明显的私有字段和私有顶级变量指定类型注解。</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E4%B8%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E6%B7%BB%E5%8A%A0%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" id="markdown-toc-避免-为初始化的局部变量添加类型注解"><strong>避免</strong> 为初始化的局部变量添加类型注解。</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8A%E6%B3%A8%E8%A7%A3%E6%8E%A8%E6%96%AD%E7%9A%84%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B" id="markdown-toc-避免-在函数表达式上注解推断的参数类型"><strong>避免</strong> 在函数表达式上注解推断的参数类型。</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E6%B3%9B%E5%9E%8B%E8%B0%83%E7%94%A8%E4%B8%AD%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%86%97%E4%BD%99%E4%BD%BF%E7%94%A8" id="markdown-toc-避免-在泛型调用中参数类型的冗余使用"><strong>避免</strong> 在泛型调用中参数类型的冗余使用。</a></li>
       <li><a href="#do-annotate-when-dart-infers-the-wrong-type" id="markdown-toc-do-annotate-when-dart-infers-the-wrong-type">DO annotate when Dart infers the wrong type.</a></li>
       <li><a href="#prefer-annotating-with-dynamic-instead-of-letting-inference-fail" id="markdown-toc-prefer-annotating-with-dynamic-instead-of-letting-inference-fail">PREFER annotating with <code class="highlighter-rouge">dynamic</code> instead of letting inference fail.</a></li>
       <li><a href="#prefer-signatures-in-function-type-annotations" id="markdown-toc-prefer-signatures-in-function-type-annotations">PREFER signatures in function type annotations.</a></li>
@@ -1225,8 +1225,8 @@ lists.cast&lt;int&gt;();</pre>
 
 <p>其余指南涵盖了和类型有关的其他具体问题。</p>
 
-<h3 id="推荐-为类型不明显的公共字段和顶级变量指定类型注解">
-<a id="推荐-为类型不明显的公共字段和顶级变量指定类型注解" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E5%85%AC%E5%85%B1%E5%AD%97%E6%AE%B5%E5%92%8C%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 为类型不明显的公共字段和顶级变量指定类型注解。</h3>
+<h3 id="推荐-为类型不明显的公共字段和公共顶级变量指定类型注解">
+<a id="推荐-为类型不明显的公共字段和公共顶级变量指定类型注解" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E5%85%AC%E5%85%B1%E5%AD%97%E6%AE%B5%E5%92%8C%E5%85%AC%E5%85%B1%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 为类型不明显的公共字段和公共顶级变量指定类型注解。</h3>
 
 <p>类型注解是关于如何使用库的重要文档。它们在程序的区域之间形成边界以隔离类型错误来源。思考下面代码：</p>
 
@@ -1257,26 +1257,21 @@ lists.cast&lt;int&gt;();</pre>
 <p>如有疑问，请添加类型注解。即使类型很明显，但可能任然希望明确的注解。如果推断类型依赖于其他库中的值
 或声明，可能需要添加注解的声明。这样自己的API就不会因为其他库的修改而被悄无声息的改变了类型。</p>
 
-<h3 id="consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious">
-<a id="consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious" class="anchor" href="#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER type annotating private fields and top-level variables if the type isn’t obvious.</h3>
+<h3 id="考虑-为类型不明显的私有字段和私有顶级变量指定类型注解">
+<a id="考虑-为类型不明显的私有字段和私有顶级变量指定类型注解" class="anchor" href="#%E8%80%83%E8%99%91-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E7%A7%81%E6%9C%89%E5%AD%97%E6%AE%B5%E5%92%8C%E7%A7%81%E6%9C%89%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 为类型不明显的私有字段和私有顶级变量指定类型注解。</h3>
 
-<p>Type annotations on your public declarations help <em>users</em> of your code. Types on
-private members help <em>maintainers</em>. The scope of a private declaration is
-smaller and those who need to know the type of that declaration are also more
-likely to be familiar with the surrounding code. That makes it reasonable to
-lean more heavily on inference and omit types for private declarations, which is
-why this guideline is softer than the previous one.</p>
+<p>为公共声明进行类型注解有助于使用代码的<em>用户</em>，为私有成员进行类型注解有助于代码的<em>维护人员</em>。
+私有声明的范围较小，熟悉与它相关代码的人才需要知道它们的声明类型。在这里就更倾向于省略注解，
+通过推理得到私有声明的类型。这也是为什么该规则相对于上一条更为柔和。</p>
 
-<p>If you think the initializer expression—whatever it is—is
-sufficiently clear, then you may omit the annotation. But if you think
-annotating helps make the code clearer, then add one.</p>
+<p>如果你认为初始化表达式—无论是什么表达式—足够清晰，那么可以省略它的注解。但是
+如果你认为注解有助于使代码更清晰，那么你应该加上这个注解。</p>
 
-<h3 id="avoid-type-annotating-initialized-local-variables">
-<a id="avoid-type-annotating-initialized-local-variables" class="anchor" href="#avoid-type-annotating-initialized-local-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID type annotating initialized local variables.</h3>
+<h3 id="避免-为初始化的局部变量添加类型注解">
+<a id="避免-为初始化的局部变量添加类型注解" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%B8%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E6%B7%BB%E5%8A%A0%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 为初始化的局部变量添加类型注解。</h3>
 
-<p>Local variables, especially in modern code where functions tend to be small,
-have very little scope. Omitting the type focuses the reader’s attention on the
-more important <em>name</em> of the variable and its initialized value.</p>
+<p>局部变量，特别是现代的函数往往很少，范围也很小。省略局部变量类型会将读者的注意力集中在变量的
+<em>名称</em>及初始化值上。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (omit-types-on-locals)"?>
 <pre class="prettyprint lang-dart good-style">List&lt;List&lt;Ingredient&gt;&gt; possibleDesserts(Set&lt;Ingredient&gt; pantry) {
@@ -1302,9 +1297,8 @@ more important <em>name</em> of the variable and its initialized value.</p>
   return desserts;
 }</pre>
 
-<p>If the local variable doesn’t have an initializer, then its type can’t be
-inferred. In that case, it <em>is</em> a good idea to annotate. Otherwise, you get
-<code class="highlighter-rouge">dynamic</code> and lose the benefits of static type checking.</p>
+<p>如果局部变量没有初始值设定项，那么就无法判断它的类型了。这种情况下，最好是为变量加上类型注解。
+否则，你的到的会是一个 <code class="highlighter-rouge">dynamic</code> 类型，并失去静态类型的好处。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (uninitialized-local)"?>
 <pre class="prettyprint lang-dart good-style">List&lt;AstNode&gt; parameters;
@@ -1314,18 +1308,15 @@ if (node is Constructor) {
   parameters = node.parameters;
 }</pre>
 
-<h3 id="avoid-annotating-inferred-parameter-types-on-function-expressions">
-<a id="avoid-annotating-inferred-parameter-types-on-function-expressions" class="anchor" href="#avoid-annotating-inferred-parameter-types-on-function-expressions" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID annotating inferred parameter types on function expressions.</h3>
+<h3 id="避免-在函数表达式上注解推断的参数类型">
+<a id="避免-在函数表达式上注解推断的参数类型" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8A%E6%B3%A8%E8%A7%A3%E6%8E%A8%E6%96%AD%E7%9A%84%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 在函数表达式上注解推断的参数类型。</h3>
 
-<p>Anonymous functions are almost always immediately passed to a method taking a
-callback of some type. (If the function isn’t used immediately, it’s usually
-worth making it a named declaration.) When a function expression is created in a
-typed context, Dart tries to infer the function’s parameter types based on the
-expected type.</p>
+<p>匿名函数几乎都是作为一个回调参数类型立即传递给一个方法。（如果一个匿名函数没有立即使用，那么
+有必要为它进行命名声明。）当在类型化上下文中创建函数表达式时，Dart 会尝试根据预期类型来推断
+函数的参数类型。</p>
 
-<p>For example, when you pass a function expression to <code class="highlighter-rouge">Iterable.map()</code>, your
-function’s parameter type is inferred based on the type of callback that <code class="highlighter-rouge">map()</code>
-expects:</p>
+<p>例如，当为 <code class="highlighter-rouge">Iterable.map()</code> 传递一个函数表达式时，函数的参数类型会根据 <code class="highlighter-rouge">map()</code> 回调中所
+期望的类型进行推断。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (func-expr-no-param-type)"?>
 <pre class="prettyprint lang-dart good-style">var names = people.map((person) =&gt; person.name);</pre>
@@ -1333,16 +1324,13 @@ expects:</p>
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (func-expr-no-param-type)"?>
 <pre class="prettyprint lang-dart bad-style">var names = people.map((Person person) =&gt; person.name);</pre>
 
-<p>In rare cases, the surrounding context is not precise enough to provide a type
-for one or more of the function’s parameters. In those cases, you may need to
-annotate.</p>
+<p>在极少数周围环境不明确的情况下，当无法为一个或多个函数提供参数类型时，需要为它们进行类型注解。</p>
 
-<h3 id="avoid-redundant-type-arguments-on-generic-invocations">
-<a id="avoid-redundant-type-arguments-on-generic-invocations" class="anchor" href="#avoid-redundant-type-arguments-on-generic-invocations" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID redundant type arguments on generic invocations.</h3>
+<h3 id="避免-在泛型调用中参数类型的冗余使用">
+<a id="避免-在泛型调用中参数类型的冗余使用" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E6%B3%9B%E5%9E%8B%E8%B0%83%E7%94%A8%E4%B8%AD%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%86%97%E4%BD%99%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 在泛型调用中参数类型的冗余使用。</h3>
 
-<p>A type argument is redundant if inference would fill in the same type. If the
-invocation is the initializer for a type-annotated variable, or is an argument
-to a function, then inference usually fills in the type for you:</p>
+<p>如果推断的类型结果与注解相同，那么参数注解就是多余的。如果泛型调用是初始化变量，或者是函数参数，
+那么推断会自动为其填充类型：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (redundant)"?>
 <pre class="prettyprint lang-dart good-style">Set&lt;String&gt; things = Set();</pre>
@@ -1350,11 +1338,9 @@ to a function, then inference usually fills in the type for you:</p>
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (redundant)"?>
 <pre class="prettyprint lang-dart bad-style">Set&lt;String&gt; things = Set&lt;String&gt;();</pre>
 
-<p>Here, the type annotation on the variable is used to infer the type argument of
-constructor call in the initializer.</p>
+<p>在这里，初始化过程中，构造函数参数的类型是通过变量的类型注解推断得到的。</p>
 
-<p>In other contexts, there isn’t enough information to infer the type and then you
-should write the type argument:</p>
+<p>在其他情况下，如果没有足够的信息来推断类型时，应该为参数添加类型注解：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (explicit)"?>
 <pre class="prettyprint lang-dart good-style">var things = Set&lt;String&gt;();</pre>
@@ -1362,9 +1348,8 @@ should write the type argument:</p>
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (explicit)"?>
 <pre class="prettyprint lang-dart bad-style">var things = Set();</pre>
 
-<p>Here, since the variable has no type annotation, there isn’t enough context to
-determine what kind of <code class="highlighter-rouge">Set</code> to create, so the type argument should be provided
-explicitly.</p>
+<p>在这里，由于变量没有类型注解，因此没有足够的上下文来确定创建的 <code class="highlighter-rouge">Set</code> 是什么类型，因此应该显式
+的提供参数类型。</p>
 
 <h3 id="do-annotate-when-dart-infers-the-wrong-type">
 <a id="do-annotate-when-dart-infers-the-wrong-type" class="anchor" href="#do-annotate-when-dart-infers-the-wrong-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO annotate when Dart infers the wrong type.</h3>
@@ -1876,7 +1861,7 @@ method is called only if the right-hand side is not <code class="highlighter-rou
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/10/29 18:51 CST"
+                 title="Site built on 2018/10/30 15:45 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

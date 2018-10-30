@@ -214,11 +214,11 @@
 
 **类型**
 
-* <a href='/guides/language/effective-dart/design#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E5%85%AC%E5%85%B1%E5%AD%97%E6%AE%B5%E5%92%8C%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3'><strong>推荐</strong> 为类型不明显的公共字段和顶级变量指定类型注解。</a>
-* <a href='/guides/language/effective-dart/design#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious'>CONSIDER type annotating private fields and top-level variables if the type isn't obvious.</a>
-* <a href='/guides/language/effective-dart/design#avoid-type-annotating-initialized-local-variables'>AVOID type annotating initialized local variables.</a>
-* <a href='/guides/language/effective-dart/design#avoid-annotating-inferred-parameter-types-on-function-expressions'>AVOID annotating inferred parameter types on function expressions.</a>
-* <a href='/guides/language/effective-dart/design#avoid-redundant-type-arguments-on-generic-invocations'>AVOID redundant type arguments on generic invocations.</a>
+* <a href='/guides/language/effective-dart/design#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E5%85%AC%E5%85%B1%E5%AD%97%E6%AE%B5%E5%92%8C%E5%85%AC%E5%85%B1%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3'><strong>推荐</strong> 为类型不明显的公共字段和公共顶级变量指定类型注解。</a>
+* <a href='/guides/language/effective-dart/design#%E8%80%83%E8%99%91-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E7%A7%81%E6%9C%89%E5%AD%97%E6%AE%B5%E5%92%8C%E7%A7%81%E6%9C%89%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3'><strong>考虑</strong> 为类型不明显的私有字段和私有顶级变量指定类型注解。</a>
+* <a href='/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E4%B8%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E6%B7%BB%E5%8A%A0%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3'><strong>避免</strong> 为初始化的局部变量添加类型注解。</a>
+* <a href='/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E5%9C%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8A%E6%B3%A8%E8%A7%A3%E6%8E%A8%E6%96%AD%E7%9A%84%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B'><strong>避免</strong> 在函数表达式上注解推断的参数类型。</a>
+* <a href='/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E5%9C%A8%E6%B3%9B%E5%9E%8B%E8%B0%83%E7%94%A8%E4%B8%AD%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%86%97%E4%BD%99%E4%BD%BF%E7%94%A8'><strong>避免</strong> 在泛型调用中参数类型的冗余使用。</a>
 * <a href='/guides/language/effective-dart/design#do-annotate-when-dart-infers-the-wrong-type'>DO annotate when Dart infers the wrong type.</a>
 * <a href='/guides/language/effective-dart/design#prefer-annotating-with-dynamic-instead-of-letting-inference-fail'>PREFER annotating with <code>dynamic</code> instead of letting inference fail.</a>
 * <a href='/guides/language/effective-dart/design#prefer-signatures-in-function-type-annotations'>PREFER signatures in function type annotations.</a>
