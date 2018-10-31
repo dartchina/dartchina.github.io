@@ -239,20 +239,20 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#避免-使用-futureort-作为返回类型">避免 使用 FutureOr&lt;T&gt; 作为返回类型。</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#parameters">Parameters</a>
+<li class="toc-entry toc-h2"><a href="#参数">参数</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#avoid-positional-boolean-parameters">AVOID positional boolean parameters.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters">AVOID optional positional parameters if the user may want to omit earlier parameters.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-mandatory-parameters-that-accept-a-special-no-argument-value">AVOID mandatory parameters that accept a special “no argument” value.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range">DO use inclusive start and exclusive end parameters to accept a range.</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-布尔类型的位置参数">避免 布尔类型的位置参数。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-在调用者需要省略前面参数的方法中使用位置可选参数">避免 在调用者需要省略前面参数的方法中，使用位置可选参数。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-强制参数去接受一个特定表示空参数的值">避免 强制参数去接受一个特定表示”空参数”的值。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用值在序列范围内的开始索引和值可以超出序列范围外的结束索引作为选择的范围">要 使用值在序列范围内的开始索引和值可以超出序列范围外的结束索引作为选择的范围。</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#equality">Equality</a>
+<li class="toc-entry toc-h2"><a href="#相等">相等</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#do-override-hashcode-if-you-override-">DO override hashCode if you override ==.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-make-your--operator-obey-the-mathematical-rules-of-equality">DO make your == operator obey the mathematical rules of equality.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-defining-custom-equality-for-mutable-classes">AVOID defining custom equality for mutable classes.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-check-for-null-in-custom--operators">DON’T check for null in custom == operators.</a></li>
+<li class="toc-entry toc-h3"><a href="#要-对重写--的类重写-hashcode">要 对重写 == 的类，重写 hashCode。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-让--操作符的相等遵守数学规则">要 让 == 操作符的相等遵守数学规则。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-避免为可变类自定义相等">避免 避免为可变类自定义相等。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-在自定义--操作符中检查-null-">不要 在自定义 == 操作符中检查 null 。</a></li>
 </ul>
 </li>
 </ul>
@@ -375,19 +375,19 @@ Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides
     </ul>
   </li>
   <li>
-<a href="#parameters" id="markdown-toc-parameters">Parameters</a>    <ul>
-      <li><a href="#avoid-positional-boolean-parameters" id="markdown-toc-avoid-positional-boolean-parameters">AVOID positional boolean parameters.</a></li>
-      <li><a href="#avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters" id="markdown-toc-avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters">AVOID optional positional parameters if the user may want to omit earlier parameters.</a></li>
-      <li><a href="#avoid-mandatory-parameters-that-accept-a-special-no-argument-value" id="markdown-toc-avoid-mandatory-parameters-that-accept-a-special-no-argument-value">AVOID mandatory parameters that accept a special “no argument” value.</a></li>
-      <li><a href="#do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range" id="markdown-toc-do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range">DO use inclusive start and exclusive end parameters to accept a range.</a></li>
+<a href="#%E5%8F%82%E6%95%B0" id="markdown-toc-参数">参数</a>    <ul>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0" id="markdown-toc-避免-布尔类型的位置参数"><strong>避免</strong> 布尔类型的位置参数。</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E8%B0%83%E7%94%A8%E8%80%85%E9%9C%80%E8%A6%81%E7%9C%81%E7%95%A5%E5%89%8D%E9%9D%A2%E5%8F%82%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%BD%8D%E7%BD%AE%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0" id="markdown-toc-避免-在调用者需要省略前面参数的方法中使用位置可选参数"><strong>避免</strong> 在调用者需要省略前面参数的方法中，使用位置可选参数。</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E5%BC%BA%E5%88%B6%E5%8F%82%E6%95%B0%E5%8E%BB%E6%8E%A5%E5%8F%97%E4%B8%80%E4%B8%AA%E7%89%B9%E5%AE%9A%E8%A1%A8%E7%A4%BA%E7%A9%BA%E5%8F%82%E6%95%B0%E7%9A%84%E5%80%BC" id="markdown-toc-避免-强制参数去接受一个特定表示空参数的值"><strong>避免</strong> 强制参数去接受一个特定表示”空参数”的值。</a></li>
+      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%80%BC%E5%9C%A8%E5%BA%8F%E5%88%97%E8%8C%83%E5%9B%B4%E5%86%85%E7%9A%84%E5%BC%80%E5%A7%8B%E7%B4%A2%E5%BC%95%E5%92%8C%E5%80%BC%E5%8F%AF%E4%BB%A5%E8%B6%85%E5%87%BA%E5%BA%8F%E5%88%97%E8%8C%83%E5%9B%B4%E5%A4%96%E7%9A%84%E7%BB%93%E6%9D%9F%E7%B4%A2%E5%BC%95%E4%BD%9C%E4%B8%BA%E9%80%89%E6%8B%A9%E7%9A%84%E8%8C%83%E5%9B%B4" id="markdown-toc-要-使用值在序列范围内的开始索引和值可以超出序列范围外的结束索引作为选择的范围"><strong>要</strong> 使用值在序列范围内的开始索引和值可以超出序列范围外的结束索引作为选择的范围。</a></li>
     </ul>
   </li>
   <li>
-<a href="#equality" id="markdown-toc-equality">Equality</a>    <ul>
-      <li><a href="#do-override-hashcode-if-you-override-" id="markdown-toc-do-override-hashcode-if-you-override-">DO override <code class="highlighter-rouge">hashCode</code> if you override <code class="highlighter-rouge">==</code>.</a></li>
-      <li><a href="#do-make-your--operator-obey-the-mathematical-rules-of-equality" id="markdown-toc-do-make-your--operator-obey-the-mathematical-rules-of-equality">DO make your <code class="highlighter-rouge">==</code> operator obey the mathematical rules of equality.</a></li>
-      <li><a href="#avoid-defining-custom-equality-for-mutable-classes" id="markdown-toc-avoid-defining-custom-equality-for-mutable-classes">AVOID defining custom equality for mutable classes.</a></li>
-      <li><a href="#dont-check-for-null-in-custom--operators" id="markdown-toc-dont-check-for-null-in-custom--operators">DON’T check for <code class="highlighter-rouge">null</code> in custom <code class="highlighter-rouge">==</code> operators.</a></li>
+<a href="#%E7%9B%B8%E7%AD%89" id="markdown-toc-相等">相等</a>    <ul>
+      <li><a href="#%E8%A6%81-%E5%AF%B9%E9%87%8D%E5%86%99--%E7%9A%84%E7%B1%BB%E9%87%8D%E5%86%99-hashcode" id="markdown-toc-要-对重写--的类重写-hashcode"><strong>要</strong> 对重写 <code class="highlighter-rouge">==</code> 的类，重写 <code class="highlighter-rouge">hashCode</code>。</a></li>
+      <li><a href="#%E8%A6%81-%E8%AE%A9--%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E7%9B%B8%E7%AD%89%E9%81%B5%E5%AE%88%E6%95%B0%E5%AD%A6%E8%A7%84%E5%88%99" id="markdown-toc-要-让--操作符的相等遵守数学规则"><strong>要</strong> 让 <code class="highlighter-rouge">==</code> 操作符的相等遵守数学规则。</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E9%81%BF%E5%85%8D%E4%B8%BA%E5%8F%AF%E5%8F%98%E7%B1%BB%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%B8%E7%AD%89" id="markdown-toc-避免-避免为可变类自定义相等"><strong>避免</strong> 避免为可变类自定义相等。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89--%E6%93%8D%E4%BD%9C%E7%AC%A6%E4%B8%AD%E6%A3%80%E6%9F%A5-null-" id="markdown-toc-不要-在自定义--操作符中检查-null-"><strong>不要</strong> 在自定义 <code class="highlighter-rouge">==</code> 操作符中检查 <code class="highlighter-rouge">null</code> 。</a></li>
     </ul>
   </li>
 </ul>
@@ -1608,26 +1608,23 @@ bool convertToBool(dynamic arg) {
   }
 }</pre>
 
-<h2 id="parameters">
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h2>
+<h2 id="参数">
+<a id="参数" class="anchor" href="#%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>参数</h2>
 
-<p>In Dart, optional parameters can be either positional or named, but not both.</p>
+<p>在 Dart 中，可选参数可以是位置参数，也可以是命名参数，但不能两者都是。</p>
 
-<h3 id="avoid-positional-boolean-parameters">
-<a id="avoid-positional-boolean-parameters" class="anchor" href="#avoid-positional-boolean-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID positional boolean parameters.</h3>
+<h3 id="避免-布尔类型的位置参数">
+<a id="避免-布尔类型的位置参数" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 布尔类型的位置参数。</h3>
 
-<p>Unlike other types, booleans are usually used in literal form. Things like
-numbers are usually wrapped in named constants, but we usually just pass around
-<code class="highlighter-rouge">true</code> and <code class="highlighter-rouge">false</code> directly. That can make callsites unreadable if it isn’t
-clear what the boolean represents:</p>
+<p>与其他类型不同，布尔值通常以字面量方式使用。数字值的通常可以包含在命名的常量里，但对于布尔值通常
+喜欢直接传 <code class="highlighter-rouge">true</code> 和 <code class="highlighter-rouge">false</code> 。如果不清楚布尔值的含义，这样会造成调用者的代码不可读：</p>
 
 <pre class="prettyprint lang-dart bad-style">new Task(true);
 new Task(false);
 new ListBox(false, true, true);
 new Button(false);</pre>
 
-<p>Instead, consider using named arguments, named constructors, or named constants
-to clarify what the call is doing.</p>
+<p>这里，应该考虑使用命名参数，命名构造函数或命名常量来阐明调用所执行的操作。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (avoid-positional-bool-param)"?>
 <pre class="prettyprint lang-dart good-style">Task.oneShot();
@@ -1635,19 +1632,16 @@ Task.repeating();
 ListBox(scroll: true, showScrollbars: true);
 Button(ButtonState.enabled);</pre>
 
-<p>Note that this doesn’t apply to setters, where the name makes it clear what the
-value represents:</p>
+<p>请注意，这并不适用于 setter ，因为 setter 的名称能够清楚的阐明值得含义：</p>
 
 <pre class="prettyprint lang-dart good-style">listBox.canScroll = true;
 button.isEnabled = false;</pre>
 
-<h3 id="avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters">
-<a id="avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters" class="anchor" href="#avoid-optional-positional-parameters-if-the-user-may-want-to-omit-earlier-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID optional positional parameters if the user may want to omit earlier parameters.</h3>
+<h3 id="避免-在调用者需要省略前面参数的方法中使用位置可选参数">
+<a id="避免-在调用者需要省略前面参数的方法中使用位置可选参数" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E8%B0%83%E7%94%A8%E8%80%85%E9%9C%80%E8%A6%81%E7%9C%81%E7%95%A5%E5%89%8D%E9%9D%A2%E5%8F%82%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%BD%8D%E7%BD%AE%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 在调用者需要省略前面参数的方法中，使用位置可选参数。</h3>
 
-<p>Optional positional parameters should have a logical progression such that
-earlier parameters are passed more often than later ones. Users should almost
-never need to explicitly pass a “hole” to omit an earlier positional argument to
-pass later one. You’re better off using named arguments for that.</p>
+<p>可选的位置参数应该具有逻辑性，前面参数应该比后面的参数使用更频繁。调用者不需要刻意的跳过或省略前面
+的一个参数而为后面的参数赋值。如果需要省略前面参数，这种情况最好使用命名可选参数。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (omit-optional-positional)"?>
 <pre class="prettyprint lang-dart good-style">String.fromCharCodes(Iterable&lt;int&gt; charCodes, [int start = 0, int end]);
@@ -1669,16 +1663,13 @@ Duration(
     int milliseconds = 0,
     int microseconds = 0});</pre>
 
-<h3 id="avoid-mandatory-parameters-that-accept-a-special-no-argument-value">
-<a id="avoid-mandatory-parameters-that-accept-a-special-no-argument-value" class="anchor" href="#avoid-mandatory-parameters-that-accept-a-special-no-argument-value" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID mandatory parameters that accept a special “no argument” value.</h3>
+<h3 id="避免-强制参数去接受一个特定表示空参数的值">
+<a id="避免-强制参数去接受一个特定表示空参数的值" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%BC%BA%E5%88%B6%E5%8F%82%E6%95%B0%E5%8E%BB%E6%8E%A5%E5%8F%97%E4%B8%80%E4%B8%AA%E7%89%B9%E5%AE%9A%E8%A1%A8%E7%A4%BA%E7%A9%BA%E5%8F%82%E6%95%B0%E7%9A%84%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 强制参数去接受一个特定表示”空参数”的值。</h3>
 
-<p>If the user is logically omitting a parameter, prefer letting them actually omit
-it by making the parameter optional instead of forcing them to pass <code class="highlighter-rouge">null</code>, an
-empty string, or some other special value that means “did not pass”.</p>
+<p>如果调用者在逻辑上省略了参数，那么建议使用可选参数的方式让这些参数能够实际性的被省略，而不是
+强制让调用者去为他们传入 <code class="highlighter-rouge">null</code>，或者空字符串，或者是一些其他特殊的值来表示该参数”不需要传值”。</p>
 
-<p>Omitting the parameter is more terse and helps prevent bugs where a sentinel
-value like <code class="highlighter-rouge">null</code> is accidentally passed when the user thought they were
-providing a real value.</p>
+<p>省略参数更加简洁，也有助于防止在调用者偶然地将 <code class="highlighter-rouge">null</code> 作为实际值传递到方法中而引起 bug。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (avoid-mandatory-param)"?>
 <pre class="prettyprint lang-dart good-style">var rest = string.substring(start);</pre>
@@ -1686,82 +1677,67 @@ providing a real value.</p>
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (avoid-mandatory-param)"?>
 <pre class="prettyprint lang-dart bad-style">var rest = string.substring(start, null);</pre>
 
-<h3 id="do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range">
-<a id="do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range" class="anchor" href="#do-use-inclusive-start-and-exclusive-end-parameters-to-accept-a-range" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use inclusive start and exclusive end parameters to accept a range.</h3>
+<h3 id="要-使用值在序列范围内的开始索引和值可以超出序列范围外的结束索引作为选择的范围">
+<a id="要-使用值在序列范围内的开始索引和值可以超出序列范围外的结束索引作为选择的范围" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%80%BC%E5%9C%A8%E5%BA%8F%E5%88%97%E8%8C%83%E5%9B%B4%E5%86%85%E7%9A%84%E5%BC%80%E5%A7%8B%E7%B4%A2%E5%BC%95%E5%92%8C%E5%80%BC%E5%8F%AF%E4%BB%A5%E8%B6%85%E5%87%BA%E5%BA%8F%E5%88%97%E8%8C%83%E5%9B%B4%E5%A4%96%E7%9A%84%E7%BB%93%E6%9D%9F%E7%B4%A2%E5%BC%95%E4%BD%9C%E4%B8%BA%E9%80%89%E6%8B%A9%E7%9A%84%E8%8C%83%E5%9B%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用值在序列范围内的开始索引和值可以超出序列范围外的结束索引作为选择的范围。</h3>
 
-<p>If you are defining a method or function that lets a user select a range of
-elements or items from some integer-indexed sequence, take a start index, which
-refers to the first item and a (likely optional) end index which is one greater
-than the index of the last item.</p>
+<p>如果定义一个方法或函数来让调用者能够从某个整数索引序列中选择一系列元素或项，请使用一个指定了第
+一个项的开始索引，和一个可以大于序列最后一项索引值的结束索引（结束索引可以为可选参数）。</p>
 
-<p>This is consistent with core libraries that do the same thing.</p>
+<p>这种方式与核心库一致。</p>
 
 <?code-excerpt "misc/test/effective_dart_test.dart (param-range)" replace="/expect\(//g; /, \/\*\*\// \/\//g; /\);//g"?>
 <pre class="prettyprint lang-dart good-style">[0, 1, 2, 3].sublist(1, 3) // [1, 2]
 'abcd'.substring(1, 3) // 'bc'</pre>
 
-<p>It’s particularly important to be consistent here because these parameters are
-usually unnamed. If your API takes a length instead of an end point, the
-difference won’t be visible at all at the callsite.</p>
+<p>在这里保持一致尤为重要，因为这些参数通常是未命名参数。如果方法的 API 使用长度替换了结束索引，
+方法调用结果的差异是无法在调用位置完全可见的。</p>
 
-<h2 id="equality">
-<a id="equality" class="anchor" href="#equality" aria-hidden="true"><span class="octicon octicon-link"></span></a>Equality</h2>
+<h2 id="相等">
+<a id="相等" class="anchor" href="#%E7%9B%B8%E7%AD%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>相等</h2>
 
-<p>Implementing custom equality behavior for a class can be tricky. Users have deep
-intuition about how equality works that your objects need to match, and
-collection types like hash tables have subtle contracts that they expect
-elements to follow.</p>
+<p>可能为类实现自定义相等的判定是比较棘手事情。用户对于对象的判等情况有着很深的直觉，同时像哈希表这样
+的集合类型拥有一些细微的规则，包含在这些集合中的元素需要遵循这些规则。</p>
 
-<h3 id="do-override-hashcode-if-you-override-">
-<a id="do-override-hashcode-if-you-override-" class="anchor" href="#do-override-hashcode-if-you-override-" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO override <code class="highlighter-rouge">hashCode</code> if you override <code class="highlighter-rouge">==</code>.</h3>
+<h3 id="要-对重写--的类重写-hashcode">
+<a id="要-对重写--的类重写-hashcode" class="anchor" href="#%E8%A6%81-%E5%AF%B9%E9%87%8D%E5%86%99--%E7%9A%84%E7%B1%BB%E9%87%8D%E5%86%99-hashcode" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 对重写 <code class="highlighter-rouge">==</code> 的类，重写 <code class="highlighter-rouge">hashCode</code>。</h3>
 
-<p>The default hash code implementation provides an <em>identity</em> hash—two
-objects generally only have the same hash code if they are the exact same
-object. Likewise, the default behavior for <code class="highlighter-rouge">==</code> is identity.</p>
+<p>默认的哈希实现为对象提供了一个<em>身份</em>哈希—如果两个对象是完全相同的，那么它们通常具有
+相同的哈希值。同样，<code class="highlighter-rouge">==</code> 的默认行为是比较两个对象的身份哈希。</p>
 
-<p>If you are overriding <code class="highlighter-rouge">==</code>, it implies you may have different objects that are
-considered “equal” by your class. <strong>Any two objects that are equal must have the
-same hash code.</strong> Otherwise, maps and other hash-based collections will fail to
-recognize that the two objects are equivalent.</p>
+<p>如果你重写 <code class="highlighter-rouge">==</code> ，就意味着你可能有不同的对象要让你的类认为是”相等的”。<strong>任何两个对象要相等就
+必须必须具有相同的哈希值。</strong> 否则，这两个对象就无法被 map 和其他基于哈希的集合识别为等效对象。</p>
 
-<h3 id="do-make-your--operator-obey-the-mathematical-rules-of-equality">
-<a id="do-make-your--operator-obey-the-mathematical-rules-of-equality" class="anchor" href="#do-make-your--operator-obey-the-mathematical-rules-of-equality" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO make your <code class="highlighter-rouge">==</code> operator obey the mathematical rules of equality.</h3>
+<h3 id="要-让--操作符的相等遵守数学规则">
+<a id="要-让--操作符的相等遵守数学规则" class="anchor" href="#%E8%A6%81-%E8%AE%A9--%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E7%9B%B8%E7%AD%89%E9%81%B5%E5%AE%88%E6%95%B0%E5%AD%A6%E8%A7%84%E5%88%99" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 让 <code class="highlighter-rouge">==</code> 操作符的相等遵守数学规则。</h3>
 
-<p>An equivalence relation should be:</p>
+<p>等价关系应该是：</p>
 
 <ul>
   <li>
-    <p><strong>Reflexive</strong>: <code class="highlighter-rouge">a == a</code> should always return <code class="highlighter-rouge">true</code>.</p>
+    <p><strong>自反性</strong>: <code class="highlighter-rouge">a == a</code> 应该始终返回 <code class="highlighter-rouge">true</code>。</p>
   </li>
   <li>
-    <p><strong>Symmetric</strong>: <code class="highlighter-rouge">a == b</code> should return the same thing as <code class="highlighter-rouge">b == a</code>.</p>
+    <p><strong>对称性</strong>: <code class="highlighter-rouge">a == b</code> 应该与 <code class="highlighter-rouge">b == a</code> 的返回值相同。</p>
   </li>
   <li>
-    <p><strong>Transitive</strong>: If <code class="highlighter-rouge">a == b</code> and <code class="highlighter-rouge">b == c</code> both return <code class="highlighter-rouge">true</code>, then <code class="highlighter-rouge">a == c</code>
-should too.</p>
+    <p><strong>传递性</strong>: If <code class="highlighter-rouge">a == b</code> 和 <code class="highlighter-rouge">b == c</code> 都返回 <code class="highlighter-rouge">true</code>，那么 <code class="highlighter-rouge">a == c</code>
+也应该返回 <code class="highlighter-rouge">true</code> 。</p>
   </li>
 </ul>
 
-<p>Users and code that uses <code class="highlighter-rouge">==</code> expect all of these laws to be followed. If your
-class can’t obey these rules, then <code class="highlighter-rouge">==</code> isn’t the right name for the operation
-you’re trying to express.</p>
+<h3 id="避免-避免为可变类自定义相等">
+<a id="避免-避免为可变类自定义相等" class="anchor" href="#%E9%81%BF%E5%85%8D-%E9%81%BF%E5%85%8D%E4%B8%BA%E5%8F%AF%E5%8F%98%E7%B1%BB%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%B8%E7%AD%89" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 避免为可变类自定义相等。</h3>
 
-<h3 id="avoid-defining-custom-equality-for-mutable-classes">
-<a id="avoid-defining-custom-equality-for-mutable-classes" class="anchor" href="#avoid-defining-custom-equality-for-mutable-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID defining custom equality for mutable classes.</h3>
+<p>定义 <code class="highlighter-rouge">==</code> 时，必须要定义 <code class="highlighter-rouge">hashCode</code> 。两者都需要考虑对象的字段。如果这些字段发生了变化，
+则意味着对象的哈希值可能会改变。</p>
 
-<p>When you define <code class="highlighter-rouge">==</code>, you also have to define <code class="highlighter-rouge">hashCode</code>. Both of those should
-take into account the object’s fields. If those fields <em>change</em> then that
-implies the object’s hash code can change.</p>
+<p>大多数基于哈希的集合是无法预料元素哈希值的改变—他们假设元素对象的哈希值是永远不变的，
+如果元素哈希值发生了改变，可能会出现不可预测的结果。</p>
 
-<p>Most hash-based collections don’t anticipate that—they assume an object’s
-hash code will be the same forever and may behave unpredictably if that isn’t
-true.</p>
+<h3 id="不要-在自定义--操作符中检查-null-">
+<a id="不要-在自定义--操作符中检查-null-" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89--%E6%93%8D%E4%BD%9C%E7%AC%A6%E4%B8%AD%E6%A3%80%E6%9F%A5-null-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 在自定义 <code class="highlighter-rouge">==</code> 操作符中检查 <code class="highlighter-rouge">null</code> 。</h3>
 
-<h3 id="dont-check-for-null-in-custom--operators">
-<a id="dont-check-for-null-in-custom--operators" class="anchor" href="#dont-check-for-null-in-custom--operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T check for <code class="highlighter-rouge">null</code> in custom <code class="highlighter-rouge">==</code> operators.</h3>
-
-<p>The language specifies that this check is done automatically and your <code class="highlighter-rouge">==</code>
-method is called only if the right-hand side is not <code class="highlighter-rouge">null</code>.</p>
+<p>Dart 指定此检查是自动完成的，只有当右侧不是 <code class="highlighter-rouge">null</code> 时才调用 <code class="highlighter-rouge">==</code> 方法。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (eq-dont-check-for-null)" replace="/operator ==/[!$&!]/g" plaster?>
 <pre class="prettyprint lang-dart good-style">class Person {
@@ -1819,7 +1795,7 @@ method is called only if the right-hand side is not <code class="highlighter-rou
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/10/31 15:32 CST"
+                 title="Site built on 2018/10/31 18:28 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
