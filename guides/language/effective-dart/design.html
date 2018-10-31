@@ -230,13 +230,13 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#要-在-dart-推断类型错误的时候进行类型注解">要 在 Dart 推断类型错误的时候进行类型注解。</a></li>
 <li class="toc-entry toc-h3"><a href="#推荐-使用-dynamic-注解替换推断失败的情况">推荐 使用 dynamic 注解替换推断失败的情况。</a></li>
 <li class="toc-entry toc-h3"><a href="#推荐-使-function-类型注解的特征更明显">推荐 使 function 类型注解的特征更明显</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-specify-a-return-type-for-a-setter">DON’T specify a return type for a setter.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-use-the-legacy-typedef-syntax">DON’T use the legacy typedef syntax.</a></li>
-<li class="toc-entry toc-h3"><a href="#prefer-inline-function-types-over-typedefs">PREFER inline function types over typedefs.</a></li>
-<li class="toc-entry toc-h3"><a href="#consider-using-function-type-syntax-for-parameters">CONSIDER using function type syntax for parameters.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed">DO annotate with Object instead of dynamic to indicate any object is allowed.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values">DO use Future&lt;void&gt; as the return type of asynchronous members that do not produce values.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-using-futureort-as-a-return-type">AVOID using FutureOr&lt;T&gt; as a return type.</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-为-setter-方法指定返回类型">不要 为 setter 方法指定返回类型。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用弃用的-typedef-语法">不要 使用弃用的 typedef 语法。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-优先使用内联函数类型而后是-typedef-">推荐 优先使用内联函数类型，而后是 typedef 。</a></li>
+<li class="toc-entry toc-h3"><a href="#考虑-在参数上使用函数类型语法">考虑 在参数上使用函数类型语法。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-为类型是任何对象的参数使用-object-注解而不是-dynamic-">要 为类型是任何对象的参数使用 Object 注解，而不是 dynamic 。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用-futurevoid-作为无法回值异步成员的返回类型">要 使用 Future&lt;void&gt; 作为无法回值异步成员的返回类型。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-使用-futureort-作为返回类型">避免 使用 FutureOr&lt;T&gt; 作为返回类型。</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#parameters">Parameters</a>
@@ -365,13 +365,13 @@ Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides
       <li><a href="#%E8%A6%81-%E5%9C%A8-dart-%E6%8E%A8%E6%96%AD%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF%E7%9A%84%E6%97%B6%E5%80%99%E8%BF%9B%E8%A1%8C%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" id="markdown-toc-要-在-dart-推断类型错误的时候进行类型注解"><strong>要</strong> 在 Dart 推断类型错误的时候进行类型注解。</a></li>
       <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-dynamic-%E6%B3%A8%E8%A7%A3%E6%9B%BF%E6%8D%A2%E6%8E%A8%E6%96%AD%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%83%85%E5%86%B5" id="markdown-toc-推荐-使用-dynamic-注解替换推断失败的情况"><strong>推荐</strong> 使用 <code class="highlighter-rouge">dynamic</code> 注解替换推断失败的情况。</a></li>
       <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF-function-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3%E7%9A%84%E7%89%B9%E5%BE%81%E6%9B%B4%E6%98%8E%E6%98%BE" id="markdown-toc-推荐-使-function-类型注解的特征更明显"><strong>推荐</strong> 使 function 类型注解的特征更明显</a></li>
-      <li><a href="#dont-specify-a-return-type-for-a-setter" id="markdown-toc-dont-specify-a-return-type-for-a-setter">DON’T specify a return type for a setter.</a></li>
-      <li><a href="#dont-use-the-legacy-typedef-syntax" id="markdown-toc-dont-use-the-legacy-typedef-syntax">DON’T use the legacy typedef syntax.</a></li>
-      <li><a href="#prefer-inline-function-types-over-typedefs" id="markdown-toc-prefer-inline-function-types-over-typedefs">PREFER inline function types over typedefs.</a></li>
-      <li><a href="#consider-using-function-type-syntax-for-parameters" id="markdown-toc-consider-using-function-type-syntax-for-parameters">CONSIDER using function type syntax for parameters.</a></li>
-      <li><a href="#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed" id="markdown-toc-do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed">DO annotate with <code class="highlighter-rouge">Object</code> instead of <code class="highlighter-rouge">dynamic</code> to indicate any object is allowed.</a></li>
-      <li><a href="#do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values" id="markdown-toc-do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values">DO use <code class="highlighter-rouge">Future&lt;void&gt;</code> as the return type of asynchronous members that do not produce values.</a></li>
-      <li><a href="#avoid-using-futureort-as-a-return-type" id="markdown-toc-avoid-using-futureort-as-a-return-type">AVOID using <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> as a return type.</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%B8%BA-setter-%E6%96%B9%E6%B3%95%E6%8C%87%E5%AE%9A%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B" id="markdown-toc-不要-为-setter-方法指定返回类型"><strong>不要</strong> 为 setter 方法指定返回类型。</a></li>
+      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%BC%83%E7%94%A8%E7%9A%84-typedef-%E8%AF%AD%E6%B3%95" id="markdown-toc-不要-使用弃用的-typedef-语法"><strong>不要</strong> 使用弃用的 typedef 语法。</a></li>
+      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BC%98%E5%85%88%E4%BD%BF%E7%94%A8%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E8%80%8C%E5%90%8E%E6%98%AF-typedef-" id="markdown-toc-推荐-优先使用内联函数类型而后是-typedef-"><strong>推荐</strong> 优先使用内联函数类型，而后是 typedef 。</a></li>
+      <li><a href="#%E8%80%83%E8%99%91-%E5%9C%A8%E5%8F%82%E6%95%B0%E4%B8%8A%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E8%AF%AD%E6%B3%95" id="markdown-toc-考虑-在参数上使用函数类型语法"><strong>考虑</strong> 在参数上使用函数类型语法。</a></li>
+      <li><a href="#%E8%A6%81-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E6%98%AF%E4%BB%BB%E4%BD%95%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8F%82%E6%95%B0%E4%BD%BF%E7%94%A8-object-%E6%B3%A8%E8%A7%A3%E8%80%8C%E4%B8%8D%E6%98%AF-dynamic-" id="markdown-toc-要-为类型是任何对象的参数使用-object-注解而不是-dynamic-"><strong>要</strong> 为类型是任何对象的参数使用 <code class="highlighter-rouge">Object</code> 注解，而不是 <code class="highlighter-rouge">dynamic</code> 。</a></li>
+      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-futurevoid-%E4%BD%9C%E4%B8%BA%E6%97%A0%E6%B3%95%E5%9B%9E%E5%80%BC%E5%BC%82%E6%AD%A5%E6%88%90%E5%91%98%E7%9A%84%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B" id="markdown-toc-要-使用-futurevoid-作为无法回值异步成员的返回类型"><strong>要</strong> 使用 <code class="highlighter-rouge">Future&lt;void&gt;</code> 作为无法回值异步成员的返回类型。</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8-futureort-%E4%BD%9C%E4%B8%BA%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B" id="markdown-toc-避免-使用-futureort-作为返回类型"><strong>避免</strong> 使用 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 作为返回类型。</a></li>
     </ul>
   </li>
   <li>
@@ -1209,18 +1209,18 @@ lists.cast&lt;int&gt;();</pre>
 <p>这些规则可以帮助你回答第一个问题：</p>
 
 <ul>
-  <li><a href="#prefer-type-annotating-public-fields-and-top-level-variables-if-the-type-isnt-obvious"><strong>推荐</strong> 为类型不明显的公共字段和顶级变量指定类型注解。</a></li>
-  <li><a href="#consider-type-annotating-private-fields-and-top-level-variables-if-the-type-isnt-obvious">CONSIDER type annotating private fields and top-level variables if the type isn’t obvious.</a></li>
-  <li><a href="#avoid-type-annotating-initialized-local-variables">AVOID type annotating initialized local variables.</a></li>
-  <li><a href="#avoid-annotating-inferred-parameter-types-on-function-expressions">AVOID annotating inferred parameter types on function expressions.</a></li>
-  <li><a href="#avoid-redundant-type-arguments-on-generic-invocations">AVOID redundant type arguments on generic invocations.</a></li>
+  <li><a href="#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E5%85%AC%E5%85%B1%E5%AD%97%E6%AE%B5%E5%92%8C%E5%85%AC%E5%85%B1%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3"><strong>推荐</strong> 为类型不明显的公共字段和顶级变量指定类型注解。</a></li>
+  <li><a href="#%E8%80%83%E8%99%91-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E7%A7%81%E6%9C%89%E5%AD%97%E6%AE%B5%E5%92%8C%E7%A7%81%E6%9C%89%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3"><strong>考虑</strong> 为类型不明显的私有字段和私有顶级变量指定类型注解。</a></li>
+  <li><a href="#%E9%81%BF%E5%85%8D-%E4%B8%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E6%B7%BB%E5%8A%A0%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3"><strong>避免</strong> 为初始化的局部变量添加类型注解。</a></li>
+  <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8A%E6%B3%A8%E8%A7%A3%E6%8E%A8%E6%96%AD%E7%9A%84%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B"><strong>避免</strong> 在函数表达式上注解推断的参数类型。</a></li>
+  <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E6%B3%9B%E5%9E%8B%E8%B0%83%E7%94%A8%E4%B8%AD%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%86%97%E4%BD%99%E4%BD%BF%E7%94%A8"><strong>避免</strong> 在泛型调用中参数类型的冗余使用。</a></li>
 </ul>
 
 <p>这些规则涵盖了第二个问题：</p>
 
 <ul>
-  <li><a href="#do-annotate-when-dart-infers-the-wrong-type">DO annotate when Dart infers the wrong type.</a></li>
-  <li><a href="#prefer-annotating-with-dynamic-instead-of-letting-inference-fail">PREFER annotating with <code class="highlighter-rouge">dynamic</code> instead of letting inference fail.</a></li>
+  <li><a href="#%E8%A6%81-%E5%9C%A8-dart-%E6%8E%A8%E6%96%AD%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF%E7%9A%84%E6%97%B6%E5%80%99%E8%BF%9B%E8%A1%8C%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3"><strong>要</strong> 在 Dart 推断类型错误的时候进行类型注解。</a></li>
+  <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-dynamic-%E6%B3%A8%E8%A7%A3%E6%9B%BF%E6%8D%A2%E6%8E%A8%E6%96%AD%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%83%85%E5%86%B5"><strong>推荐</strong> 使用 <code class="highlighter-rouge">dynamic</code> 注解替换推断失败的情况。</a></li>
 </ul>
 
 <p>其余指南涵盖了和类型有关的其他具体问题。</p>
@@ -1437,10 +1437,10 @@ if (node is Constructor) {
   }
 }</pre>
 
-<h3 id="dont-specify-a-return-type-for-a-setter">
-<a id="dont-specify-a-return-type-for-a-setter" class="anchor" href="#dont-specify-a-return-type-for-a-setter" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T specify a return type for a setter.</h3>
+<h3 id="不要-为-setter-方法指定返回类型">
+<a id="不要-为-setter-方法指定返回类型" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%B8%BA-setter-%E6%96%B9%E6%B3%95%E6%8C%87%E5%AE%9A%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 为 setter 方法指定返回类型。</h3>
 
-<p>Setters always return <code class="highlighter-rouge">void</code> in Dart. Writing the word is pointless.</p>
+<p>在 Dart 中，setter 永远返回 <code class="highlighter-rouge">void</code> 。为 setter 指定类型没有意义。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (avoid_return_types_on_setters)"?>
 <pre class="prettyprint lang-dart bad-style">void set foo(Foo value) { ... }</pre>
@@ -1448,65 +1448,56 @@ if (node is Constructor) {
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (avoid_return_types_on_setters)"?>
 <pre class="prettyprint lang-dart good-style">set foo(Foo value) { ... }</pre>
 
-<h3 id="dont-use-the-legacy-typedef-syntax">
-<a id="dont-use-the-legacy-typedef-syntax" class="anchor" href="#dont-use-the-legacy-typedef-syntax" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T use the legacy typedef syntax.</h3>
+<h3 id="不要-使用弃用的-typedef-语法">
+<a id="不要-使用弃用的-typedef-语法" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%BC%83%E7%94%A8%E7%9A%84-typedef-%E8%AF%AD%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用弃用的 typedef 语法。</h3>
 
-<p>Dart has two notations for defining a named typedef for a function type. The
-original syntax looks like:</p>
+<p>Dart 有两种为函数类型定义命名 typedef 注解语法。 原始语法如下：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (old-typedef)"?>
 <pre class="prettyprint lang-dart bad-style">typedef int Comparison&lt;T&gt;(T a, T b);</pre>
 
-<p>That syntax has a couple of problems:</p>
+<p>该语法有几个问题：</p>
 
 <ul>
   <li>
-    <p>There is no way to assign a name to a <em>generic</em> function type. In the above
-example, the typedef itself is generic. If you reference <code class="highlighter-rouge">Comparison</code> in
-your code, without a type argument, you implicitly get the function type
-<code class="highlighter-rouge">int Function(dynamic, dynamic)</code>, <em>not</em> <code class="highlighter-rouge">int Function&lt;T&gt;(T, T)</code>. This
-doesn’t come up in practice often, but it matters in certain corner cases.</p>
+    <p>无法为一个<em>泛型</em>函数类型指定名称。在上面的例子中，typedef 自己就是泛型。如果在代码中去
+引用 <code class="highlighter-rouge">Comparison</code> 却不指定参数类型，那么你会隐式的得到一个 <code class="highlighter-rouge">int Function(dynamic, dynamic)</code>
+类型的函数，<em>而不是</em> <code class="highlighter-rouge">int Function&lt;T&gt;(T, T)</code> 。在实际应用中虽然不常用，但是在极少数
+情况下是很重要的。</p>
   </li>
   <li>
-    <p>A single identifier in a parameter is interpreted as the parameter’s <em>name</em>,
-not its <em>type</em>. Given:</p>
+    <p>参数中的单个标识符会被认为是参数名称，而不是参数类型。参考下面代码：</p>
 
     <?code-excerpt "misc/lib/effective_dart/design_bad.dart (typedef-param)"?>
     <pre class="prettyprint lang-dart bad-style">typedef bool TestNumber(num);</pre>
 
-    <p>Most users expect this to be a function type that takes a <code class="highlighter-rouge">num</code> and returns
-<code class="highlighter-rouge">bool</code>. It is actually a function type that takes <em>any</em> object (<code class="highlighter-rouge">dynamic</code>)
-and returns <code class="highlighter-rouge">bool</code>. The parameter’s <em>name</em> (which isn’t used for anything
-except documentation in the typedef) is “num”. This has been a
-long-standing source of errors in Dart.</p>
+    <p>大多数用户希望这是一个接受 <code class="highlighter-rouge">num</code> 返回 <code class="highlighter-rouge">bool</code> 的函数类型。但它实际上是一个接受<em>任何</em>
+对象（<code class="highlighter-rouge">dynamic</code>）返回 <code class="highlighter-rouge">bool</code> 的类型。 “num” 是参数<em>名称</em>（ 它除了被用在 typedef 的
+声明代码中，再也没有其他作用）。这个错误在 Dart 中存在了很长时间。</p>
   </li>
 </ul>
 
-<p>The new syntax looks like this:</p>
+<p>新语法如下所示：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (new-typedef)"?>
 <pre class="prettyprint lang-dart good-style">typedef Comparison&lt;T&gt; = int Function(T, T);</pre>
 
-<p>If you want to include a parameter’s name, you can do that too:</p>
+<p>如果想在方法中包含参数名称，可以这样做：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (new-typedef-param-name)"?>
 <pre class="prettyprint lang-dart good-style">typedef Comparison&lt;T&gt; = int Function(T a, T b);</pre>
 
-<p>The new syntax can express anything the old syntax could express and more, and
-lacks the error-prone misfeature where a single identifier is treated as the
-parameter’s name instead of its type. The same function type syntax after the
-<code class="highlighter-rouge">=</code> in the typedef is also allowed anywhere a type annotation may appear, giving
-us a single consistent way to write function types anywhere in a program.</p>
+<p>新语法可以表达旧语法所表达的任何内容，并且避免了单个标识符会被认为是参数类型的常见错误。同一个函数
+类型语法（typedef 中 <code class="highlighter-rouge">=</code> 之后的部分）允许出现在任何类型注解可以能出现的地方。这样在程序的任何位置，
+我们都可以以一致的方式来书写函数类型。</p>
 
-<p>The old typedef syntax is still supported to avoid breaking existing code, but
-it’s deprecated.</p>
+<p>为了避免对已有代码产生破坏， typedef 的旧语法依旧支持。但已被弃用。</p>
 
-<h3 id="prefer-inline-function-types-over-typedefs">
-<a id="prefer-inline-function-types-over-typedefs" class="anchor" href="#prefer-inline-function-types-over-typedefs" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER inline function types over typedefs.</h3>
+<h3 id="推荐-优先使用内联函数类型而后是-typedef-">
+<a id="推荐-优先使用内联函数类型而后是-typedef-" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BC%98%E5%85%88%E4%BD%BF%E7%94%A8%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E8%80%8C%E5%90%8E%E6%98%AF-typedef-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 优先使用内联函数类型，而后是 typedef 。</h3>
 
-<p>In Dart 1, if you wanted to use a function type for a field, variable, or
-generic type argument, you had to first define a typedef for it. Dart 2 supports
-a function type syntax that can be used anywhere a type annotation is allowed:</p>
+<p>在 Dart 1中，如果要在字段，变量或泛型参数中使用函数类型，首选需要使用 typedef 定义这个类型。
+Dart 2中任何使用类型注解的地方都可以使用函数类型声明语法：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (function-type)"  replace="/(bool|void) Function\(Event\)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart good-style">class FilteredObservable {
@@ -1528,91 +1519,73 @@ a function type syntax that can be used anywhere a type annotation is allowed:</
   }
 }</pre>
 
-<p>It may still be worth defining a typedef if the function type is particularly
-long or frequently used. But in most cases, users want to see what the function
-type actually is right where it’s used, and the function type syntax gives them
-that clarity.</p>
+<p>如果函数类型特别长或经常使用，那么还是有必要使用 typedef 进行定义。但在大多数情况下，使用者
+更希望知道函数使用时的真实类型，这样函数类型语法使它们清晰。</p>
 
-<h3 id="consider-using-function-type-syntax-for-parameters">
-<a id="consider-using-function-type-syntax-for-parameters" class="anchor" href="#consider-using-function-type-syntax-for-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER using function type syntax for parameters.</h3>
+<h3 id="考虑-在参数上使用函数类型语法">
+<a id="考虑-在参数上使用函数类型语法" class="anchor" href="#%E8%80%83%E8%99%91-%E5%9C%A8%E5%8F%82%E6%95%B0%E4%B8%8A%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E8%AF%AD%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 在参数上使用函数类型语法。</h3>
 
-<p>Dart has a special syntax when defining a parameter whose type is a function.
-Sort of like in C, you surround the parameter’s name with the function’s return
-type and parameter signature:</p>
+<p>在定义参数为函数类型时， Dart 具有特殊的语法。与 C 类似，使用参数名称作为函数参数的函数名：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (function-type-param)"?>
 <pre class="prettyprint lang-dart">Iterable&lt;T&gt; where(bool predicate(T element)) =&gt; ...</pre>
 
-<p>Before Dart 2 added function type syntax, this was the only way to give a
-parameter a function type without defining a typedef. Now that Dart has a
-general notation for function types, you can use it for function-typed
-parameters as well:</p>
+<p>在 Dart 2 添加函数类型语法之前，如果希望不通过 typedef 使用函数参数类型，上例是唯一的方法。
+如今 Dart 已经可以为函数提供泛型注解，那么也可以将泛型注解用于函数类型参数中：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (function-type-param)"?>
 <pre class="prettyprint lang-dart good-style">Iterable&lt;T&gt; where(bool Function(T) predicate) =&gt; ...</pre>
 
-<p>The new syntax is a little more verbose, but is consistent with other locations
-where you must use the new syntax.</p>
+<p>虽然新语法稍微冗长一点，但是你必须使用新语法才能与其他位置的类型注解的语法保持一致。</p>
 
-<h3 id="do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed">
-<a id="do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed" class="anchor" href="#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO annotate with <code class="highlighter-rouge">Object</code> instead of <code class="highlighter-rouge">dynamic</code> to indicate any object is allowed.</h3>
+<h3 id="要-为类型是任何对象的参数使用-object-注解而不是-dynamic-">
+<a id="要-为类型是任何对象的参数使用-object-注解而不是-dynamic-" class="anchor" href="#%E8%A6%81-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E6%98%AF%E4%BB%BB%E4%BD%95%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8F%82%E6%95%B0%E4%BD%BF%E7%94%A8-object-%E6%B3%A8%E8%A7%A3%E8%80%8C%E4%B8%8D%E6%98%AF-dynamic-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 为类型是任何对象的参数使用 <code class="highlighter-rouge">Object</code> 注解，而不是 <code class="highlighter-rouge">dynamic</code> 。</h3>
 
-<p>Some operations work with any possible object. For example, a <code class="highlighter-rouge">log()</code> method
-could take any object and call <code class="highlighter-rouge">toString()</code> on it. Two types in Dart permit all
-values: <code class="highlighter-rouge">Object</code> and <code class="highlighter-rouge">dynamic</code>. However, they convey different things. If you
-simply want to state that you allow all objects, use <code class="highlighter-rouge">Object</code>, as you would in
-Java or C#.</p>
+<p>某些操作适用于任何对象。例如，<code class="highlighter-rouge">log()</code> 方法可以接受任何对象，并调用对象上的 <code class="highlighter-rouge">toString()</code> 方法。
+在 Dart 中两种类型可以表示所有类型：<code class="highlighter-rouge">Object</code> 和 <code class="highlighter-rouge">dynamic</code> 。但是，他们传达的意义并不相同。
+和 Java 或 C# 类似，要表示成员类型为所有对象，使用 <code class="highlighter-rouge">Object</code> 进行注解。</p>
 
-<p>Using <code class="highlighter-rouge">dynamic</code> sends a more complex signal. It may mean that Dart’s type system
-isn’t sophisticated enough to represent the set of types that are allowed, or
-that the values are coming from interop or otherwise outside of the purview of
-the static type system, or that you explicitly want runtime dynamism at that
-point in the program.</p>
+<p>使用 <code class="highlighter-rouge">dynamic</code> 释放出一种复杂的信号。它可能意味着成员的类型集合不足以使用 Dart 类型系统表达，或者
+是变量来源于操作过程中，以及其他范围外的静态类型系统，或者是你明确的希望成员类型在 runtime 中动态
+确定。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (Object-vs-dynamic)"?>
 <pre class="prettyprint lang-dart good-style">void log(Object object) {
   print(object.toString());
 }
 
-/// Returns a Boolean representation for [arg], which must
-/// be a String or bool.
+/// 返回一个表示 [arg] 参数的布尔值，[arg] 
+/// 必须是字符串或布尔值。
 bool convertToBool(dynamic arg) {
   if (arg is bool) return arg;
   if (arg is String) return arg == 'true';
   throw ArgumentError('Cannot convert $arg to a bool.');
 }</pre>
 
-<h3 id="do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values">
-<a id="do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values" class="anchor" href="#do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use <code class="highlighter-rouge">Future&lt;void&gt;</code> as the return type of asynchronous members that do not produce values.</h3>
+<h3 id="要-使用-futurevoid-作为无法回值异步成员的返回类型">
+<a id="要-使用-futurevoid-作为无法回值异步成员的返回类型" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-futurevoid-%E4%BD%9C%E4%B8%BA%E6%97%A0%E6%B3%95%E5%9B%9E%E5%80%BC%E5%BC%82%E6%AD%A5%E6%88%90%E5%91%98%E7%9A%84%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">Future&lt;void&gt;</code> 作为无法回值异步成员的返回类型。</h3>
 
-<p>When you have a synchronous function that doesn’t return a value, you use <code class="highlighter-rouge">void</code>
-as the return type. The asynchronous equivalent for a method that doesn’t
-produce a value, but that the caller might need to await, is <code class="highlighter-rouge">Future&lt;void&gt;</code>.</p>
+<p>对于不返回值得同步函数，要使用 <code class="highlighter-rouge">void</code> 作为返回类型。对于需要等待的，但无返回值的异步方法方法，
+使用 <code class="highlighter-rouge">Future&lt;void&gt;</code> 作为返回值类型。</p>
 
-<p>You may see code that uses <code class="highlighter-rouge">Future</code> or <code class="highlighter-rouge">Future&lt;Null&gt;</code> instead because older
-versions of Dart didn’t allow <code class="highlighter-rouge">void</code> as a type argument. Now that it does, you
-should use it. Doing so more directly matches how you’d type a similar
-synchronous function, and gives you better error-checking for callers and in the
-body of the function.</p>
+<p>你可能会见到使用 <code class="highlighter-rouge">Future</code> 或 <code class="highlighter-rouge">Future&lt;Null&gt;</code> 作为返回值类型，这是因为旧版本的 Dart 不允许
+<code class="highlighter-rouge">void</code> 作为类型参数。既然现在允许了，那么就应该使用新的方式。使用新的方式能够更直接地匹配那些
+已经指定了类型的同步函数，并在函数体中为调用者提供更好的错误检查。</p>
 
-<p>For asynchronous functions that do not return a useful value and where no
-callers need to await the asynchronous work or handle an asynchronous failure,
-use a return type of <code class="highlighter-rouge">void</code>.</p>
+<p>对于一些异步函数，这些异步函数不会返回有用的值，而且不需要等待异步执行结束或不需要处理错误结果。
+那么使用 <code class="highlighter-rouge">void</code> 作为这些异步函数的返回类型。</p>
 
-<h3 id="avoid-using-futureort-as-a-return-type">
-<a id="avoid-using-futureort-as-a-return-type" class="anchor" href="#avoid-using-futureort-as-a-return-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID using <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> as a return type.</h3>
+<h3 id="避免-使用-futureort-作为返回类型">
+<a id="避免-使用-futureort-作为返回类型" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8-futureort-%E4%BD%9C%E4%B8%BA%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 使用 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 作为返回类型。</h3>
 
-<p>If a method accepts a <code class="highlighter-rouge">FutureOr&lt;int&gt;</code>, it is <a href="https://en.wikipedia.org/wiki/Robustness_principle">generous in what it
-accepts</a>. Users can call the method with either an <code class="highlighter-rouge">int</code> or a
-<code class="highlighter-rouge">Future&lt;int&gt;</code>, so they don’t need to wrap an <code class="highlighter-rouge">int</code> in <code class="highlighter-rouge">Future</code> that you are
-going to unwrap anyway.</p>
+<p>如果一个方法接受了一个 <code class="highlighter-rouge">FutureOr&lt;int&gt;</code> 参数，那么<a href="https://en.wikipedia.org/wiki/Robustness_principle">参数接受的类型范围就会变大</a> 。使用者
+可以使用 <code class="highlighter-rouge">int</code> 或者 <code class="highlighter-rouge">Future&lt;int&gt;</code> 来调用这个方法，所以调用这个方法时就不用把 <code class="highlighter-rouge">int</code> 包装到一个
+<code class="highlighter-rouge">Future</code> 中再传到方法中。而在方法中这个参数一定会进行被解包处理。</p>
 
-<p>If you <em>return</em> a <code class="highlighter-rouge">FutureOr&lt;int&gt;</code>, users need to check whether get back an <code class="highlighter-rouge">int</code>
-or a <code class="highlighter-rouge">Future&lt;int&gt;</code> before they can do anything useful. (Or they’ll just <code class="highlighter-rouge">await</code>
-the value, effectively always treating it as a <code class="highlighter-rouge">Future</code>.) Just return a
-<code class="highlighter-rouge">Future&lt;int&gt;</code>, it’s cleaner. It’s easier for users to understand that a function
-is either always asynchronous or always synchronous, but a function that can be
-either is hard to use correctly.</p>
+<p>如果是<em>返回</em>一个 <code class="highlighter-rouge">FutureOr&lt;int&gt;</code> 类型的值，那么方法调用者在做任何有意义的操作之前，需要检查
+返回值是一个 <code class="highlighter-rouge">int</code> 还是 <code class="highlighter-rouge">Future&lt;int&gt;</code> （或者调用者仅 <code class="highlighter-rouge">await</code> 得到一个值，却把它当做了 
+<code class="highlighter-rouge">Future</code> ）。返回值使用 <code class="highlighter-rouge">Future&lt;int&gt;</code> ，类型就清晰了。一个函数要么一直异步，要么一直是同步，
+这样才能够让调用者更容易理解，否则这个函数很难被正确的使用。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (future-or)"?>
 <pre class="prettyprint lang-dart good-style">Future&lt;int&gt; triple(FutureOr&lt;int&gt; value) async =&gt; (await value) * 3;</pre>
@@ -1623,12 +1596,9 @@ either is hard to use correctly.</p>
   return (value as Future&lt;int&gt;).then((v) =&gt; v * 3);
 }</pre>
 
-<p>The more precise formulation of this guideline is to <em>only use <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> in
-<a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)">contravariant</a> positions.</em> Parameters are contravariant and return types are
-covariant. In nested function types, this gets flipped—if you have a
-parameter whose type is itself a function, then the callback’s return type is
-now in contravariant position and the callback’s parameters are covariant. This
-means it’s OK for a <em>callback’s</em> type to return <code class="highlighter-rouge">FutureOr&lt;T&gt;</code>:</p>
+<p>对这条规则更准确的描述是，*仅在<a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)">逆变</a>位置使用 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> *。参数是逆变（contravariant），
+返回类型是协变（covariant）。在嵌套函数类型中，描述是相反的—如果一个参数自身就是函数参数类型，那么此时
+回调函数的返回类型处于逆变位置，回调函数的参数是协变。这意味着回调中的函数类型可以返回 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> ：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_good.dart (future-or-contra)" replace="/FutureOr.S./[!$&!]/g"?>
 <pre class="prettyprint lang-dart good-style">Stream&lt;S&gt; asyncMap&lt;T, S&gt;(
@@ -1849,7 +1819,7 @@ method is called only if the right-hand side is not <code class="highlighter-rou
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/10/30 18:55 CST"
+                 title="Site built on 2018/10/31 15:32 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

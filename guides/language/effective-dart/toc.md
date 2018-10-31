@@ -222,13 +222,13 @@
 * <a href='/guides/language/effective-dart/design#%E8%A6%81-%E5%9C%A8-dart-%E6%8E%A8%E6%96%AD%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF%E7%9A%84%E6%97%B6%E5%80%99%E8%BF%9B%E8%A1%8C%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3'><strong>要</strong> 在 Dart 推断类型错误的时候进行类型注解。</a>
 * <a href='/guides/language/effective-dart/design#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-dynamic-%E6%B3%A8%E8%A7%A3%E6%9B%BF%E6%8D%A2%E6%8E%A8%E6%96%AD%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%83%85%E5%86%B5'><strong>推荐</strong> 使用 <code>dynamic</code> 注解替换推断失败的情况。</a>
 * <a href='/guides/language/effective-dart/design#%E6%8E%A8%E8%8D%90-%E4%BD%BF-function-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3%E7%9A%84%E7%89%B9%E5%BE%81%E6%9B%B4%E6%98%8E%E6%98%BE'><strong>推荐</strong> 使 function 类型注解的特征更明显</a>
-* <a href='/guides/language/effective-dart/design#dont-specify-a-return-type-for-a-setter'>DON'T specify a return type for a setter.</a>
-* <a href='/guides/language/effective-dart/design#dont-use-the-legacy-typedef-syntax'>DON'T use the legacy typedef syntax.</a>
-* <a href='/guides/language/effective-dart/design#prefer-inline-function-types-over-typedefs'>PREFER inline function types over typedefs.</a>
-* <a href='/guides/language/effective-dart/design#consider-using-function-type-syntax-for-parameters'>CONSIDER using function type syntax for parameters.</a>
-* <a href='/guides/language/effective-dart/design#do-annotate-with-object-instead-of-dynamic-to-indicate-any-object-is-allowed'>DO annotate with <code>Object</code> instead of <code>dynamic</code> to indicate any object is allowed.</a>
-* <a href='/guides/language/effective-dart/design#do-use-futurevoid-as-the-return-type-of-asynchronous-members-that-do-not-produce-values'>DO use <code>Future&lt;void&gt;</code> as the return type of asynchronous members that do not produce values.</a>
-* <a href='/guides/language/effective-dart/design#avoid-using-futureort-as-a-return-type'>AVOID using <code>FutureOr&lt;T&gt;</code> as a return type.</a>
+* <a href='/guides/language/effective-dart/design#%E4%B8%8D%E8%A6%81-%E4%B8%BA-setter-%E6%96%B9%E6%B3%95%E6%8C%87%E5%AE%9A%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B'><strong>不要</strong> 为 setter 方法指定返回类型。</a>
+* <a href='/guides/language/effective-dart/design#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%BC%83%E7%94%A8%E7%9A%84-typedef-%E8%AF%AD%E6%B3%95'><strong>不要</strong> 使用弃用的 typedef 语法。</a>
+* <a href='/guides/language/effective-dart/design#%E6%8E%A8%E8%8D%90-%E4%BC%98%E5%85%88%E4%BD%BF%E7%94%A8%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E8%80%8C%E5%90%8E%E6%98%AF-typedef-'><strong>推荐</strong> 优先使用内联函数类型，而后是 typedef 。</a>
+* <a href='/guides/language/effective-dart/design#%E8%80%83%E8%99%91-%E5%9C%A8%E5%8F%82%E6%95%B0%E4%B8%8A%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E8%AF%AD%E6%B3%95'><strong>考虑</strong> 在参数上使用函数类型语法。</a>
+* <a href='/guides/language/effective-dart/design#%E8%A6%81-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E6%98%AF%E4%BB%BB%E4%BD%95%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8F%82%E6%95%B0%E4%BD%BF%E7%94%A8-object-%E6%B3%A8%E8%A7%A3%E8%80%8C%E4%B8%8D%E6%98%AF-dynamic-'><strong>要</strong> 为类型是任何对象的参数使用 <code>Object</code> 注解，而不是 <code>dynamic</code> 。</a>
+* <a href='/guides/language/effective-dart/design#%E8%A6%81-%E4%BD%BF%E7%94%A8-futurevoid-%E4%BD%9C%E4%B8%BA%E6%97%A0%E6%B3%95%E5%9B%9E%E5%80%BC%E5%BC%82%E6%AD%A5%E6%88%90%E5%91%98%E7%9A%84%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B'><strong>要</strong> 使用 <code>Future&lt;void&gt;</code> 作为无法回值异步成员的返回类型。</a>
+* <a href='/guides/language/effective-dart/design#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8-futureort-%E4%BD%9C%E4%B8%BA%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B'><strong>避免</strong> 使用 <code>FutureOr&lt;T&gt;</code> 作为返回类型。</a>
 
 **Parameters**
 
