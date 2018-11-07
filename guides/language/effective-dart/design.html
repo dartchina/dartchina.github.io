@@ -244,14 +244,14 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#避免-布尔类型的位置参数">避免 布尔类型的位置参数。</a></li>
 <li class="toc-entry toc-h3"><a href="#避免-在调用者需要省略前面参数的方法中使用位置可选参数">避免 在调用者需要省略前面参数的方法中，使用位置可选参数。</a></li>
 <li class="toc-entry toc-h3"><a href="#避免-强制参数去接受一个特定表示空参数的值">避免 强制参数去接受一个特定表示”空参数”的值。</a></li>
-<li class="toc-entry toc-h3"><a href="#要-使用值在序列范围内的开始索引和值可以超出序列范围外的结束索引作为选择的范围">要 使用值在序列范围内的开始索引和值可以超出序列范围外的结束索引作为选择的范围。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用开始为闭区间结束为开区间的半开半闭区间作为接受范围">要 使用开始为闭区间，结束为开区间的半开半闭区间作为接受范围。</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#相等">相等</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#要-对重写--的类重写-hashcode">要 对重写 == 的类，重写 hashCode。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-对重写--操作符的类重写-hashcode-方法">要 对重写 == 操作符的类，重写 hashCode 方法。</a></li>
 <li class="toc-entry toc-h3"><a href="#要-让--操作符的相等遵守数学规则">要 让 == 操作符的相等遵守数学规则。</a></li>
-<li class="toc-entry toc-h3"><a href="#避免-避免为可变类自定义相等">避免 避免为可变类自定义相等。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-为可变类自定义相等">避免 为可变类自定义相等。</a></li>
 <li class="toc-entry toc-h3"><a href="#不要-在自定义--操作符中检查-null-">不要 在自定义 == 操作符中检查 null 。</a></li>
 </ul>
 </li>
@@ -379,14 +379,14 @@ Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides
       <li><a href="#%E9%81%BF%E5%85%8D-%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0" id="markdown-toc-避免-布尔类型的位置参数"><strong>避免</strong> 布尔类型的位置参数。</a></li>
       <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E8%B0%83%E7%94%A8%E8%80%85%E9%9C%80%E8%A6%81%E7%9C%81%E7%95%A5%E5%89%8D%E9%9D%A2%E5%8F%82%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%BD%8D%E7%BD%AE%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0" id="markdown-toc-避免-在调用者需要省略前面参数的方法中使用位置可选参数"><strong>避免</strong> 在调用者需要省略前面参数的方法中，使用位置可选参数。</a></li>
       <li><a href="#%E9%81%BF%E5%85%8D-%E5%BC%BA%E5%88%B6%E5%8F%82%E6%95%B0%E5%8E%BB%E6%8E%A5%E5%8F%97%E4%B8%80%E4%B8%AA%E7%89%B9%E5%AE%9A%E8%A1%A8%E7%A4%BA%E7%A9%BA%E5%8F%82%E6%95%B0%E7%9A%84%E5%80%BC" id="markdown-toc-避免-强制参数去接受一个特定表示空参数的值"><strong>避免</strong> 强制参数去接受一个特定表示”空参数”的值。</a></li>
-      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%80%BC%E5%9C%A8%E5%BA%8F%E5%88%97%E8%8C%83%E5%9B%B4%E5%86%85%E7%9A%84%E5%BC%80%E5%A7%8B%E7%B4%A2%E5%BC%95%E5%92%8C%E5%80%BC%E5%8F%AF%E4%BB%A5%E8%B6%85%E5%87%BA%E5%BA%8F%E5%88%97%E8%8C%83%E5%9B%B4%E5%A4%96%E7%9A%84%E7%BB%93%E6%9D%9F%E7%B4%A2%E5%BC%95%E4%BD%9C%E4%B8%BA%E9%80%89%E6%8B%A9%E7%9A%84%E8%8C%83%E5%9B%B4" id="markdown-toc-要-使用值在序列范围内的开始索引和值可以超出序列范围外的结束索引作为选择的范围"><strong>要</strong> 使用值在序列范围内的开始索引和值可以超出序列范围外的结束索引作为选择的范围。</a></li>
+      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%BC%80%E5%A7%8B%E4%B8%BA%E9%97%AD%E5%8C%BA%E9%97%B4%E7%BB%93%E6%9D%9F%E4%B8%BA%E5%BC%80%E5%8C%BA%E9%97%B4%E7%9A%84%E5%8D%8A%E5%BC%80%E5%8D%8A%E9%97%AD%E5%8C%BA%E9%97%B4%E4%BD%9C%E4%B8%BA%E6%8E%A5%E5%8F%97%E8%8C%83%E5%9B%B4" id="markdown-toc-要-使用开始为闭区间结束为开区间的半开半闭区间作为接受范围"><strong>要</strong> 使用开始为闭区间，结束为开区间的半开半闭区间作为接受范围。</a></li>
     </ul>
   </li>
   <li>
 <a href="#%E7%9B%B8%E7%AD%89" id="markdown-toc-相等">相等</a>    <ul>
-      <li><a href="#%E8%A6%81-%E5%AF%B9%E9%87%8D%E5%86%99--%E7%9A%84%E7%B1%BB%E9%87%8D%E5%86%99-hashcode" id="markdown-toc-要-对重写--的类重写-hashcode"><strong>要</strong> 对重写 <code class="highlighter-rouge">==</code> 的类，重写 <code class="highlighter-rouge">hashCode</code>。</a></li>
+      <li><a href="#%E8%A6%81-%E5%AF%B9%E9%87%8D%E5%86%99--%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E7%B1%BB%E9%87%8D%E5%86%99-hashcode-%E6%96%B9%E6%B3%95" id="markdown-toc-要-对重写--操作符的类重写-hashcode-方法"><strong>要</strong> 对重写 <code class="highlighter-rouge">==</code> 操作符的类，重写 <code class="highlighter-rouge">hashCode</code> 方法。</a></li>
       <li><a href="#%E8%A6%81-%E8%AE%A9--%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E7%9B%B8%E7%AD%89%E9%81%B5%E5%AE%88%E6%95%B0%E5%AD%A6%E8%A7%84%E5%88%99" id="markdown-toc-要-让--操作符的相等遵守数学规则"><strong>要</strong> 让 <code class="highlighter-rouge">==</code> 操作符的相等遵守数学规则。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E9%81%BF%E5%85%8D%E4%B8%BA%E5%8F%AF%E5%8F%98%E7%B1%BB%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%B8%E7%AD%89" id="markdown-toc-避免-避免为可变类自定义相等"><strong>避免</strong> 避免为可变类自定义相等。</a></li>
+      <li><a href="#%E9%81%BF%E5%85%8D-%E4%B8%BA%E5%8F%AF%E5%8F%98%E7%B1%BB%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%B8%E7%AD%89" id="markdown-toc-避免-为可变类自定义相等"><strong>避免</strong> 为可变类自定义相等。</a></li>
       <li><a href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89--%E6%93%8D%E4%BD%9C%E7%AC%A6%E4%B8%AD%E6%A3%80%E6%9F%A5-null-" id="markdown-toc-不要-在自定义--操作符中检查-null-"><strong>不要</strong> 在自定义 <code class="highlighter-rouge">==</code> 操作符中检查 <code class="highlighter-rouge">null</code> 。</a></li>
     </ul>
   </li>
@@ -1677,11 +1677,11 @@ Duration(
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (avoid-mandatory-param)"?>
 <pre class="prettyprint lang-dart bad-style">var rest = string.substring(start, null);</pre>
 
-<h3 id="要-使用值在序列范围内的开始索引和值可以超出序列范围外的结束索引作为选择的范围">
-<a id="要-使用值在序列范围内的开始索引和值可以超出序列范围外的结束索引作为选择的范围" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%80%BC%E5%9C%A8%E5%BA%8F%E5%88%97%E8%8C%83%E5%9B%B4%E5%86%85%E7%9A%84%E5%BC%80%E5%A7%8B%E7%B4%A2%E5%BC%95%E5%92%8C%E5%80%BC%E5%8F%AF%E4%BB%A5%E8%B6%85%E5%87%BA%E5%BA%8F%E5%88%97%E8%8C%83%E5%9B%B4%E5%A4%96%E7%9A%84%E7%BB%93%E6%9D%9F%E7%B4%A2%E5%BC%95%E4%BD%9C%E4%B8%BA%E9%80%89%E6%8B%A9%E7%9A%84%E8%8C%83%E5%9B%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用值在序列范围内的开始索引和值可以超出序列范围外的结束索引作为选择的范围。</h3>
+<h3 id="要-使用开始为闭区间结束为开区间的半开半闭区间作为接受范围">
+<a id="要-使用开始为闭区间结束为开区间的半开半闭区间作为接受范围" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%BC%80%E5%A7%8B%E4%B8%BA%E9%97%AD%E5%8C%BA%E9%97%B4%E7%BB%93%E6%9D%9F%E4%B8%BA%E5%BC%80%E5%8C%BA%E9%97%B4%E7%9A%84%E5%8D%8A%E5%BC%80%E5%8D%8A%E9%97%AD%E5%8C%BA%E9%97%B4%E4%BD%9C%E4%B8%BA%E6%8E%A5%E5%8F%97%E8%8C%83%E5%9B%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用开始为闭区间，结束为开区间的半开半闭区间作为接受范围。</h3>
 
-<p>如果定义一个方法或函数来让调用者能够从某个整数索引序列中选择一系列元素或项，请使用一个指定了第
-一个项的开始索引，和一个可以大于序列最后一项索引值的结束索引（结束索引可以为可选参数）。</p>
+<p>如果定义一个方法或函数来让调用者能够从某个整数索引序列中选择一系列元素或项，开始索引指向的元素
+为选取的第一个元素，结束索引（可以为可选参数）指向元素的上一个元素为获取的最后一个元素。</p>
 
 <p>这种方式与核心库一致。</p>
 
@@ -1689,8 +1689,8 @@ Duration(
 <pre class="prettyprint lang-dart good-style">[0, 1, 2, 3].sublist(1, 3) // [1, 2]
 'abcd'.substring(1, 3) // 'bc'</pre>
 
-<p>在这里保持一致尤为重要，因为这些参数通常是未命名参数。如果方法的 API 使用长度替换了结束索引，
-方法调用结果的差异是无法在调用位置完全可见的。</p>
+<p>在这里保持一致尤为重要，因为这些参数通常是未命名参数。如果你的 API 中第二个参数使用了长度值，
+而不是结束索引，在调用端是无法区分它们的差异的。</p>
 
 <h2 id="相等">
 <a id="相等" class="anchor" href="#%E7%9B%B8%E7%AD%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>相等</h2>
@@ -1698,8 +1698,8 @@ Duration(
 <p>可能为类实现自定义相等的判定是比较棘手事情。用户对于对象的判等情况有着很深的直觉，同时像哈希表这样
 的集合类型拥有一些细微的规则，包含在这些集合中的元素需要遵循这些规则。</p>
 
-<h3 id="要-对重写--的类重写-hashcode">
-<a id="要-对重写--的类重写-hashcode" class="anchor" href="#%E8%A6%81-%E5%AF%B9%E9%87%8D%E5%86%99--%E7%9A%84%E7%B1%BB%E9%87%8D%E5%86%99-hashcode" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 对重写 <code class="highlighter-rouge">==</code> 的类，重写 <code class="highlighter-rouge">hashCode</code>。</h3>
+<h3 id="要-对重写--操作符的类重写-hashcode-方法">
+<a id="要-对重写--操作符的类重写-hashcode-方法" class="anchor" href="#%E8%A6%81-%E5%AF%B9%E9%87%8D%E5%86%99--%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E7%B1%BB%E9%87%8D%E5%86%99-hashcode-%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 对重写 <code class="highlighter-rouge">==</code> 操作符的类，重写 <code class="highlighter-rouge">hashCode</code> 方法。</h3>
 
 <p>默认的哈希实现为对象提供了一个<em>身份</em>哈希—如果两个对象是完全相同的，那么它们通常具有
 相同的哈希值。同样，<code class="highlighter-rouge">==</code> 的默认行为是比较两个对象的身份哈希。</p>
@@ -1725,8 +1725,8 @@ Duration(
   </li>
 </ul>
 
-<h3 id="避免-避免为可变类自定义相等">
-<a id="避免-避免为可变类自定义相等" class="anchor" href="#%E9%81%BF%E5%85%8D-%E9%81%BF%E5%85%8D%E4%B8%BA%E5%8F%AF%E5%8F%98%E7%B1%BB%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%B8%E7%AD%89" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 避免为可变类自定义相等。</h3>
+<h3 id="避免-为可变类自定义相等">
+<a id="避免-为可变类自定义相等" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%B8%BA%E5%8F%AF%E5%8F%98%E7%B1%BB%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%B8%E7%AD%89" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 为可变类自定义相等。</h3>
 
 <p>定义 <code class="highlighter-rouge">==</code> 时，必须要定义 <code class="highlighter-rouge">hashCode</code> 。两者都需要考虑对象的字段。如果这些字段发生了变化，
 则意味着对象的哈希值可能会改变。</p>
@@ -1795,7 +1795,7 @@ Duration(
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/10/31 18:28 CST"
+                 title="Site built on 2018/11/07 10:43 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
