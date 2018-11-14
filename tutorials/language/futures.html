@@ -230,27 +230,52 @@ Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_tutori
   <h4>What's the point?</h4>
 
   <ul>
-    <li>Dart is single-threaded.</li>
-    <li>Synchronous code can make your program freeze.</li>
-    <li>Use <code class="highlighter-rouge">Future</code> objects (<em>futures</em>) to perform asynchronous operations.</li>
-    <li>Use <code class="highlighter-rouge">await</code> in an async function to suspend execution until a future completes.</li>
-    <li>Or use the <code class="highlighter-rouge">then()</code> method.</li>
-    <li>Use try-catch expressions in async functions to catch errors.</li>
-    <li>Or use the <code class="highlighter-rouge">catchError()</code> method.</li>
-    <li>You can chain futures to run asynchronous functions in order.</li>
+    <li>Dart code runs in a single “thread” of execution.</li>
+    <li>Code that blocks the thread of execution can make your program freeze.</li>
+    <li>
+<code class="highlighter-rouge">Future</code> objects (<em>futures</em>) represent the results of
+<em>asynchronous operations</em> — processing or I/O to be completed later.</li>
+    <li>To suspend execution until a future completes,
+use <code class="highlighter-rouge">await</code> in an async function (or use <code class="highlighter-rouge">then()</code>).</li>
+    <li>To catch errors, use try-catch expressions in async functions
+(or use <code class="highlighter-rouge">catchError()</code>).</li>
+    <li>To run code concurrently, create an <em>isolate</em>
+(or for a web app, a <em>worker</em>).</li>
   </ul>
 </div>
 
-<p>Dart is a single-threaded programming language. If any code blocks the thread
-of execution (for example, by performing a long-running calculation or
-blocking on I/O) the program effectively freezes. Asynchronous operations let
-your program complete other work while waiting for an operation to complete.
-Dart uses <code class="highlighter-rouge">Future</code> objects to represent asynchronous operations.</p>
+<p>Dart code runs in a single “thread” of execution.
+If Dart code blocks — for example, by performing a
+long-running calculation or waiting for I/O — the entire program freezes.</p>
+
+<p>Asynchronous operations let your program complete other work while
+waiting for an operation to finish.
+Dart uses <code class="highlighter-rouge">Future</code> objects (futures) to represent the results of
+asynchronous operations.
+To work with futures,
+you can use either <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code> or the <code class="highlighter-rouge">Future</code> API.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+  All Dart code runs in the context of an <em>isolate</em> that
+  owns all of the memory that the Dart code uses.
+  While Dart code is executing, no other code in the same isolate can run.</p>
+
+  <p><br>
+  If you want multiple parts of Dart code to run concurrently,
+  you can run them in separate isolates.
+  (Web apps use workers instead of isolates.)
+  Multiple isolates run at the same time, usually each on its own CPU core.
+  Isolates don’t share memory, and the only way they can interact
+  is by sending messages to each other.
+  For more information, see the documentation for
+  <a href="https://api.dartlang.org/stable/dart-isolate/dart-isolate-library.html">isolates</a> or <a href="https://api.dartlang.org/stable/dart-html/Worker-class.html">web workers.</a></p>
+</aside>
 
 <h2 id="introduction">
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
 
-<p>Let’s look at some code that could possibly cause a program to freeze:</p>
+<p>Let’s look at some code that might cause a program to freeze:</p>
 
 <?code-excerpt "misc/lib/tutorial/daily_news.dart (sync)" replace="/Sync(\(\))/$1/g"?>
 <pre class="prettyprint lang-dart">// Synchronous code
@@ -594,15 +619,18 @@ asynchronous programming in Dart:</p>
 <ul>
   <li>
 <a href="/guides/libraries/futures-error-handling">Futures and Error Handling</a>, an article that starts where this tutorial
-ends</li>
+ends.</li>
   <li>
 <a href="https://webdev.dartlang.org/articles/performance/event-loop">The Event Loop and Dart,</a>
-an article that describes how to schedule tasks using futures</li>
+an article that describes how to schedule tasks using futures.</li>
   <li>
 <a href="/guides/language/language-tour#asynchrony-support">Asynchrony support</a>,
-a section in the <a href="/guides/language/language-tour">language tour</a>
+a section in the <a href="/guides/language/language-tour">language tour</a>.</li>
+  <li>API reference documentation for
+<a href="https://api.dartlang.org/stable/dart-async/Future-class.html">futures,</a>
+<a href="https://api.dartlang.org/stable/dart-isolate/dart-isolate-library.html">isolates,</a> and
+<a href="https://api.dartlang.org/stable/dart-html/Worker-class.html">web workers.</a>
 </li>
-  <li><a href="https://api.dartlang.org/stable/dart-async/Future-class.html">Future API reference</a></li>
 </ul>
 
 <h2 id="what-next">
@@ -656,7 +684,7 @@ how to work with an event stream.</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/11/12 13:51 CST"
+                 title="Site built on 2018/11/14 18:26 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

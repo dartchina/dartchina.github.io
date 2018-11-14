@@ -240,7 +240,7 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#隐式接口">隐式接口</a></li>
 <li class="toc-entry toc-h3"><a href="#扩展类继承">扩展类（继承）</a></li>
 <li class="toc-entry toc-h3"><a href="#枚举类型">枚举类型</a></li>
-<li class="toc-entry toc-h3"><a href="#为类添加功能-mixins">为类添加功能： mixins</a></li>
+<li class="toc-entry toc-h3"><a href="#为类添加功能mixins">为类添加功能：mixins</a></li>
 <li class="toc-entry toc-h3"><a href="#类变量和方法">类变量和方法</a></li>
 </ul>
 </li>
@@ -264,7 +264,7 @@ ga('send', 'pageview');
 <ul>
 <li class="toc-entry toc-h3"><a href="#处理-future">处理 Future</a></li>
 <li class="toc-entry toc-h3"><a href="#声明异步函数">声明异步函数</a></li>
-<li class="toc-entry toc-h3"><a href="#处理流">处理流</a></li>
+<li class="toc-entry toc-h3"><a href="#处理-stream">处理 Stream</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#生成器">生成器</a></li>
@@ -425,7 +425,7 @@ Dart 同样支持多行注释和文档注释。
   <li>
     <p>与 Java 不同，Dart 没有关键字 “public” ， “protected” 和 “private” 。 
 如果标识符以下划线（\ _）开头，则它相对于库是私有的。 
-有关更多信息，参考 [库和可见性]（＃libraries-and-visibility）。</p>
+有关更多信息，参考 <a href="#%E5%BA%93%E5%92%8C%E5%8F%AF%E8%A7%81%E6%80%A7">库和可见性</a>。</p>
   </li>
   <li>
     <p><em>标识符</em> 以字母或下划线（\ _）开头，后跟任意字母和数字组合。</p>
@@ -434,7 +434,7 @@ Dart 同样支持多行注释和文档注释。
     <p>Dart 语法中包含 <em>表达式（ expressions ）</em>（有运行时值）和 <em>语句（ statements ）</em>（没有运行时值）。
 例如，<a href="#conditional-expressions">条件表达式</a>
 <code class="highlighter-rouge">condition ? expr1 : expr2</code> 的值可能是 <code class="highlighter-rouge">expr1</code> 或 <code class="highlighter-rouge">expr2</code> 。
-将其与 <a href="#if-and-else">if-else 语句</a> 相比较，if-else 语句没有值。
+将其与 <a href="#if-%E5%92%8C-else">if-else 语句</a> 相比较，if-else 语句没有值。
 一条语句通常包含一个或多个表达式，相反表达式不能直接包含语句。</p>
   </li>
   <li>
@@ -454,120 +454,147 @@ Dart 同样支持多行注释和文档注释。
 <table class="table table-striped nowrap">
   <tbody>
     <tr>
-      <td>abstract <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+      <td>
+<a href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB">abstract</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
 </td>
-      <td>dynamic <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+      <td>
+<a href="#%E9%87%8D%E8%A6%81%E7%9A%84%E6%A6%82%E5%BF%B5">dynamic</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
 </td>
-      <td>implements <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+      <td>
+<a href="#%E9%9A%90%E5%BC%8F%E6%8E%A5%E5%8F%A3">implements</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
 </td>
-      <td>show <sup title="contextual keyword" alt="contextual keyword">1</sup>
-</td>
-    </tr>
-    <tr>
-      <td>as <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
-</td>
-      <td>else</td>
-      <td>import <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
-</td>
-      <td>static <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+      <td>
+<a href="#%E5%AF%BC%E5%85%A5%E5%BA%93%E7%9A%84%E4%B8%80%E9%83%A8%E5%88%86">show</a> <sup title="contextual keyword" alt="contextual keyword">1</sup>
 </td>
     </tr>
     <tr>
-      <td>assert</td>
-      <td>enum</td>
-      <td>in</td>
-      <td>super</td>
-    </tr>
-    <tr>
-      <td>async <sup title="contextual keyword" alt="contextual keyword">1</sup>
+      <td>
+<a href="#%E7%B1%BB%E5%9E%8B%E5%88%A4%E5%AE%9A%E8%BF%90%E7%AE%97%E7%AC%A6">as</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
 </td>
-      <td>export <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+      <td><a href="#if-%E5%92%8C-else">else</a></td>
+      <td>
+<a href="#%E4%BD%BF%E7%94%A8%E5%BA%93">import</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
 </td>
-      <td>interface <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
-</td>
-      <td>switch</td>
-    </tr>
-    <tr>
-      <td>await <sup title="limited reserved word" alt="limited reserved word">3</sup>
-</td>
-      <td>external <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
-</td>
-      <td>is</td>
-      <td>sync <sup title="contextual keyword" alt="contextual keyword">1</sup>
+      <td>
+<a href="#%E7%B1%BB%E5%8F%98%E9%87%8F%E5%92%8C%E6%96%B9%E6%B3%95">static</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
 </td>
     </tr>
     <tr>
-      <td>break</td>
-      <td>extends</td>
-      <td>library <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
-</td>
-      <td>this</td>
+      <td><a href="#assert">assert</a></td>
+      <td><a href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B">enum</a></td>
+      <td><a href="#for-%E5%BE%AA%E7%8E%AF">in</a></td>
+      <td><a href="#%E6%89%A9%E5%B1%95%E7%B1%BB%E7%BB%A7%E6%89%BF">super</a></td>
     </tr>
     <tr>
-      <td>case</td>
-      <td>factory <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+      <td>
+<a href="#%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81">async</a> <sup title="contextual keyword" alt="contextual keyword">1</sup>
 </td>
-      <td>mixin <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+      <td>
+<a href="/guides/libraries/create-library-packages">export</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
 </td>
-      <td>throw</td>
+      <td>
+<a href="https://stackoverflow.com/questions/28595501/was-the-interface-keyword-removed-from-dart">interface</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+</td>
+      <td><a href="#switch-%E5%92%8C-case">switch</a></td>
     </tr>
     <tr>
-      <td>catch</td>
-      <td>false</td>
-      <td>new</td>
-      <td>true</td>
-    </tr>
-    <tr>
-      <td>class</td>
-      <td>final</td>
-      <td>null</td>
-      <td>try</td>
-    </tr>
-    <tr>
-      <td>const</td>
-      <td>finally</td>
-      <td>on <sup title="contextual keyword" alt="contextual keyword">1</sup>
+      <td>
+<a href="#%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81">await</a> <sup title="limited reserved word" alt="limited reserved word">3</sup>
 </td>
-      <td>typedef <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+      <td><a href="#%E6%89%A9%E5%B1%95%E7%B1%BB%E7%BB%A7%E6%89%BF">extends</a></td>
+      <td><a href="#%E7%B1%BB%E5%9E%8B%E5%88%A4%E5%AE%9A%E8%BF%90%E7%AE%97%E7%AC%A6">is</a></td>
+      <td>
+<a href="#%E7%94%9F%E6%88%90%E5%99%A8">sync</a> <sup title="contextual keyword" alt="contextual keyword">1</sup>
 </td>
     </tr>
     <tr>
-      <td>continue</td>
-      <td>for</td>
-      <td>operator <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+      <td><a href="#break-%E5%92%8C-continue">break</a></td>
+      <td>
+<a href="https://stackoverflow.com/questions/24929659/what-does-external-mean-in-dart">external</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
 </td>
-      <td>var</td>
+      <td>
+<a href="#%E5%BA%93%E5%92%8C%E5%8F%AF%E8%A7%81%E6%80%A7">library</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+</td>
+      <td><a href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">this</a></td>
     </tr>
     <tr>
-      <td>covariant <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+      <td><a href="#switch-%E5%92%8C-case">case</a></td>
+      <td>
+<a href="#%E5%B7%A5%E5%8E%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">factory</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
 </td>
-      <td>Function <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+      <td>
+<a href="#%E4%B8%BA%E7%B1%BB%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BDmixins">mixin</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
 </td>
-      <td>part <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
-</td>
-      <td>void</td>
+      <td><a href="#throw">throw</a></td>
     </tr>
     <tr>
-      <td>default</td>
-      <td>get <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
-</td>
-      <td>rethrow</td>
-      <td>while</td>
+      <td><a href="#catch">catch</a></td>
+      <td><a href="#booleans">false</a></td>
+      <td><a href="#%E4%BD%BF%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">new</a></td>
+      <td><a href="#booleans">true</a></td>
     </tr>
     <tr>
-      <td>deferred <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
-</td>
-      <td>hide <sup title="contextual keyword" alt="contextual keyword">1</sup>
-</td>
-      <td>return</td>
-      <td>with</td>
+      <td><a href="#%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F">class</a></td>
+      <td><a href="#final-%E5%92%8C-const">final</a></td>
+      <td><a href="#%E9%BB%98%E8%AE%A4%E5%80%BC">null</a></td>
+      <td><a href="#catch">try</a></td>
     </tr>
     <tr>
-      <td>do</td>
-      <td>if</td>
-      <td>set <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+      <td><a href="#final-%E5%92%8C-const">const</a></td>
+      <td><a href="#finally">finally</a></td>
+      <td>
+<a href="#catch">on</a> <sup title="contextual keyword" alt="contextual keyword">1</sup>
 </td>
-      <td>yield <sup title="limited reserved word" alt="limited reserved word">3</sup>
+      <td>
+<a href="#typedefs">typedef</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+</td>
+    </tr>
+    <tr>
+      <td><a href="#break-%E5%92%8C-continue">continue</a></td>
+      <td><a href="#for-%E5%BE%AA%E7%8E%AF">for</a></td>
+      <td>
+<a href="#%E9%87%8D%E5%86%99%E8%BF%90%E7%AE%97%E7%AC%A6">operator</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+</td>
+      <td><a href="#%E5%8F%98%E9%87%8F">var</a></td>
+    </tr>
+    <tr>
+      <td>
+<a href="/guides/language/sound-problems#the-covariant-keyword">covariant</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+</td>
+      <td>
+<a href="#%E5%87%BD%E6%95%B0">Function</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+</td>
+      <td>
+<a href="/guides/libraries/create-library-packages#organizing-a-library-package">part</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+</td>
+      <td><a href="https://medium.com/dartlang/dart-2-legacy-of-the-void-e7afb5f44df0">void</a></td>
+    </tr>
+    <tr>
+      <td><a href="#switch-%E5%92%8C-case">default</a></td>
+      <td>
+<a href="#getters-%E5%92%8C-setters">get</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+</td>
+      <td><a href="#catch">rethrow</a></td>
+      <td><a href="#while-%E5%92%8C-do-while">while</a></td>
+    </tr>
+    <tr>
+      <td>
+<a href="#%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD%E5%BA%93">deferred</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+</td>
+      <td>
+<a href="#%E5%AF%BC%E5%85%A5%E5%BA%93%E7%9A%84%E4%B8%80%E9%83%A8%E5%88%86">hide</a> <sup title="contextual keyword" alt="contextual keyword">1</sup>
+</td>
+      <td><a href="#%E5%87%BD%E6%95%B0">return</a></td>
+      <td><a href="#%E4%B8%BA%E7%B1%BB%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BDmixins">with</a></td>
+    </tr>
+    <tr>
+      <td><a href="#while-%E5%92%8C-do-while">do</a></td>
+      <td><a href="#if-%E5%92%8C-else">if</a></td>
+      <td>
+<a href="#getters-%E5%92%8C-setters">set</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+</td>
+      <td>
+<a href="#%E7%94%9F%E6%88%90%E5%99%A8">yield</a> <sup title="limited reserved word" alt="limited reserved word">3</sup>
 </td>
     </tr>
   </tbody>
@@ -589,7 +616,7 @@ Dart 同样支持多行注释和文档注释。
 但它们不能用作类或类型名称，也不能用作 import 前缀。</p>
   </li>
   <li>
-    <p>带有 <strong>3</strong> 上标的单词是与 Dart 1.0 发布后添加的<a href="#asynchrony-support">异步支持</a>相关的更新，作为限制类保留字。<br>
+    <p>带有 <strong>3</strong> 上标的单词是与 Dart 1.0 发布后添加的<a href="#%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81">异步支持</a>相关的更新，作为限制类保留字。<br>
 不能在标记为 <code class="highlighter-rouge">async</code> ，<code class="highlighter-rouge">async*</code> 或 <code class="highlighter-rouge">sync*</code> 的任何函数体中使用 <code class="highlighter-rouge">await</code> 或 <code class="highlighter-rouge">yield</code> 作为标识符。</p>
   </li>
 </ul>
@@ -1020,7 +1047,7 @@ nobleGases[18] = 'argon';</pre>
   <p><strong>提示:</strong>
 这里为什么只有 <code class="highlighter-rouge">Map()</code> ，而不是使用 <code class="highlighter-rouge">new Map()</code>。
 因为在 Dart 2 中，<code class="highlighter-rouge">new</code> 关键字是可选的。
-有关更多信息，参考 <a href="#using-constructors">构造函数的使用</a>。</p>
+有关更多信息，参考 <a href="#%E4%BD%BF%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数的使用</a>。</p>
 </aside>
 
 <p>类似 JavaScript ，添加 key-value 对到已有的 map 中：</p>
@@ -1150,12 +1177,12 @@ add <code class="highlighter-rouge">const</code> before the map literal:</p>
 
 <p><code>=&gt; <em>expr</em></code> 语法是
 <code>{ return <em>expr</em>; }</code> 的简写。 <code class="highlighter-rouge">=&gt;</code> 符号
-有时也被称为 <em>胖箭头</em> 语法。</p>
+有时也被称为 <em>箭头</em> 语法。</p>
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
 在箭头 (=&gt;) 和冒号 (;) 之间只能使用一个 <em>表达式</em>—不能是 <em>语句</em>。
-例如：不能使用 <a href="#if-and-else">if
+例如：不能使用 <a href="#if-%E5%92%8C-else">if
 语句</a> ，但是可以是用 
 <a href="#conditional-expressions">条件表达式</a>.</p>
 </div>
@@ -1383,7 +1410,7 @@ list.forEach((item) {
 </iframe>
 
 <p>如果函数只有一条语句， 
-可以使用胖箭头简写。粘贴下面代码到 DartPad 中
+可以使用箭头简写。粘贴下面代码到 DartPad 中
 并点击运行按钮，验证两个函数是等价性。</p>
 
 <?code-excerpt "misc/test/language_tour/functions_test.dart (anon-func)"?>
@@ -1505,7 +1532,7 @@ assert(foo() == null);</pre>
 
 <p>下表是 Dart 定义的运算符。
 多数运算符可以被重载，详情参考
-<a href="#overridable-operators">Overridable operators</a>。</p>
+<a href="#%E9%87%8D%E5%86%99%E8%BF%90%E7%AE%97%E7%AC%A6">重写运算符</a>。</p>
 
 <table class="table table-striped">
   <thead>
@@ -1794,7 +1821,7 @@ assert(a != b); // -1 != 0</pre>
 <code class="highlighter-rouge">==</code> 运算符执行的是第一个运算符的函数。
 我们甚至可以重写很多运算符，包括 <code class="highlighter-rouge">==</code>，
 运算符的重写，参考 
-<a href="#overridable-operators">Overridable operators</a>。）</p>
+<a href="#%E9%87%8D%E5%86%99%E8%BF%90%E7%AE%97%E7%AC%A6">重写运算符</a>。）</p>
   </li>
 </ol>
 
@@ -1823,7 +1850,7 @@ assert(2 &lt;= 3);</pre>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">as</code></td>
-      <td>Typecast</td>
+      <td>Typecast (也被用于<a href="#%E6%8C%87%E5%AE%9A%E5%BA%93%E5%89%8D%E7%BC%80">指定库前缀</a>)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">is</code></td>
@@ -2020,7 +2047,7 @@ assert((value &gt;&gt; 4) == 0x02); // Shift right</pre>
 <h3 id="条件表达式">
 <a id="条件表达式" class="anchor" href="#%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>条件表达式</h3>
 
-<p>Dart有两个运算符，有时可以替换 <a href="#if-and-else">if-else</a> 表达式，
+<p>Dart有两个运算符，有时可以替换 <a href="#if-%E5%92%8C-else">if-else</a> 表达式，
 让表达式更简洁：</p>
 
 <dl>
@@ -2303,7 +2330,7 @@ for (var x in collection) {
 <p>在 Dart 中 switch 语句使用 <code class="highlighter-rouge">==</code> 比较整数，字符串，或者编译时常量。
 比较的对象必须都是同一个类的实例（并且不可以是子类），
 类必须没有对 <code class="highlighter-rouge">==</code> 重写。
-<a href="#enumerated-types">Enumerated types</a> 可以用于 <code class="highlighter-rouge">switch</code> 语句。</p>
+<a href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B">枚举类型</a> 可以用于 <code class="highlighter-rouge">switch</code> 语句。</p>
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
@@ -2625,8 +2652,8 @@ var p2 = new Point.fromJson({'x': 1, 'y': 2});</pre>
   <p><strong>版本提示：</strong> 在 Dart 2 中 <code class="highlighter-rouge">new</code> 关键字变成了可选的。</p>
 </aside>
 
-<p>一些类提供了常量构造函数。
-使用常量构造函数创建编译时常量时，需要在构造函数名之前加上 <code class="highlighter-rouge">const</code> 关键字：</p>
+<p>一些类提供了<a href="#%E5%B8%B8%E9%87%8F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">常量构造函数</a>。
+使用常量构造函数，在构造函数名之前加 <code class="highlighter-rouge">const</code> 关键字，来创建编译时常量时：</p>
 
 <?code-excerpt "misc/test/language_tour/classes_test.dart (const)"?>
 <pre class="prettyprint lang-dart">var p = const ImmutablePoint(2, 2);</pre>
@@ -2659,8 +2686,18 @@ const pointAndLine = {
   'line': [ImmutablePoint(1, 10), ImmutablePoint(-2, 11)],
 };</pre>
 
+<p>如果常量构造函数在常量上下文之外，
+且省略了 <code class="highlighter-rouge">const</code> 关键字，
+此时创建的对象是非常量对象：</p>
+
+<?code-excerpt "misc/test/language_tour/classes_test.dart (nonconst-const-constructor)"?>
+<pre class="prettyprint lang-dart">var a = const ImmutablePoint(1, 1); // 创建一个常量对象
+var b = ImmutablePoint(1, 1); // 创建一个非常量对象
+
+assert(!identical(a, b)); // 两者不是同一个实例!</pre>
+
 <aside class="alert alert-info">
-  <p><strong>版本提示：</strong> 在 Dart 2 中在一个常量上下文中，<code class="highlighter-rouge">const</code> 可以被省略。</p>
+  <p><strong>版本提示：</strong> 在 Dart 2 中，一个常量上下文中的 <code class="highlighter-rouge">const</code> 关键字可以被省略。</p>
 </aside>
 
 <h3 id="获取对象的类型">
@@ -2692,7 +2729,7 @@ const pointAndLine = {
 
 <p>所有实例变量都生成隐式 <em>getter</em> 方法。 
 非 final 的实例变量同样会生成隐式 <em>setter</em> 方法。
-有关更多信息，参考 <a href="#getters-and-setters">Getters 和 setters</a>.</p>
+有关更多信息，参考 <a href="#getters-%E5%92%8C-setters">Getters 和 setters</a>.</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/point_with_main.dart (class+main)" replace="/(num .*?;).*/$1/g" plaster="none"?>
 <pre class="prettyprint lang-dart">class Point {
@@ -2892,6 +2929,9 @@ Point.fromJson(Map&lt;String, num&gt; json)
   const ImmutablePoint(this.x, this.y);
 }</pre>
 
+<p>常量构造函数创建的实例并不总是常量。
+更多内容，查看 <a href="#%E4%BD%BF%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">使用构造函数</a> 章节。</p>
+
 <h4 id="工厂构造函数">工厂构造函数</h4>
 
 <p>当执行构造函数并不总是创建这个类的一个新实例时，则使用 <code class="highlighter-rouge">factory</code> 关键字。
@@ -3004,7 +3044,7 @@ void main() {
 
 <p>实例方法， getter， 和 setter 方法可以是抽象的， 
 只定义接口不进行实现，而是留给其他类去实现。 
-抽象方法只存在于 <a href="#abstract-classes">抽象类</a> 中。</p>
+抽象方法只存在于 <a href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB">抽象类</a> 中。</p>
 
 <p>定义一个抽象函数，使用分号 (;) 来代替函数体：</p>
 
@@ -3029,7 +3069,7 @@ class EffectiveDoer extends Doer {
 <p>使用 <code class="highlighter-rouge">abstract</code> 修饰符来定义 <em>抽象类</em> — 抽象类不能实例化。
 抽象类通常用来定义接口，以及部分实现。
 如果希望抽象类能够被实例化，那么可以通过定义一个
-<a href="#factory-constructors">工厂构造函数</a> 来实现。</p>
+<a href="#%E5%B7%A5%E5%8E%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">工厂构造函数</a> 来实现。</p>
 
 <p>抽象类通常具有 <a href="#abstract-methods">抽象方法</a>。
 下面是一个声明具有抽象方法的抽象类示例：</p>
@@ -3169,6 +3209,11 @@ you can use the <a href="/guides/language/sound-problems#the-covariant-keyword">
   </tbody>
 </table>
 
+<div class="alert alert-info">
+  <p><strong>提示：</strong> 你可能会被提示 <code class="highlighter-rouge">!=</code> 运算符为非可重载运算符。
+  因为 <code class="highlighter-rouge">e1 != e2</code> 表达式仅仅是 <code class="highlighter-rouge">!(e1 == e2)</code> 的语法糖。</p>
+</div>
+
 <p>下面示例演示一个类重写 <code class="highlighter-rouge">+</code> 和 <code class="highlighter-rouge">-</code> 操作符：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/vector.dart"?>
@@ -3197,7 +3242,7 @@ void main() {
 <a href="/guides/libraries/library-tour#implementing-map-keys">Implementing map keys</a>.</p>
 
 <p>有关重写的更多介绍，请参考
-<a href="#extending-a-class">Extending a class</a>.</p>
+<a href="#%E6%89%A9%E5%B1%95%E7%B1%BB%E7%BB%A7%E6%89%BF">扩展类（继承）</a>.</p>
 
 <h4 id="nosuchmethod">noSuchMethod()</h4>
 
@@ -3263,7 +3308,7 @@ assert(Color.blue.index == 2);</pre>
 <pre class="prettyprint lang-dart">List&lt;Color&gt; colors = Color.values;
 assert(colors[2] == Color.blue);</pre>
 
-<p>可以在 <a href="#switch-and-case">switch 语句</a> 中使用枚举，
+<p>可以在 <a href="#switch-%E5%92%8C-case">switch 语句</a> 中使用枚举，
 如果不处理所有枚举值，会收到警告：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/enum.dart (switch)"?>
@@ -3290,8 +3335,8 @@ switch (aColor) {
 <p>有关更多信息，参考
 <a href="/guides/language/spec">Dart Language Specification</a>.</p>
 
-<h3 id="为类添加功能-mixins">
-<a id="为类添加功能-mixins" class="anchor" href="#%E4%B8%BA%E7%B1%BB%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BD-mixins" aria-hidden="true"><span class="octicon octicon-link"></span></a>为类添加功能： mixins</h3>
+<h3 id="为类添加功能mixins">
+<a id="为类添加功能mixins" class="anchor" href="#%E4%B8%BA%E7%B1%BB%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BDmixins" aria-hidden="true"><span class="octicon octicon-link"></span></a>为类添加功能：mixins</h3>
 
 <p>mixins 是复用类代码的一种途径，
 复用的类可以在不同层级，之间可以不存在继承关系。</p>
@@ -3670,7 +3715,7 @@ import 'package:lib2/lib2.dart' hide foo;</pre>
 }</pre>
 
 <p>在前面的代码，使用 <code class="highlighter-rouge">await</code> 关键字暂停代码执行一直到库加载完成。
-关于 <code class="highlighter-rouge">async</code> 和 <code class="highlighter-rouge">await</code> 的更多信息请参考 <a href="#asynchrony-support">异步支持</a>。</p>
+关于 <code class="highlighter-rouge">async</code> 和 <code class="highlighter-rouge">await</code> 的更多信息请参考 <a href="#%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81">异步支持</a>。</p>
 
 <p>在一个库上你可以多次调用 <code class="highlighter-rouge">loadLibrary()</code> 函数。但是该库只是载入一次。</p>
 
@@ -3816,8 +3861,8 @@ await 表达式会阻塞代码的执行，直到需要的对象返回为止。</
 需要设置其返回类型为 <code class="highlighter-rouge">Future&lt;void&gt;</code> 。</p>
 
 <p><a id="await-for"></a></p>
-<h3 id="处理流">
-<a id="处理流" class="anchor" href="#%E5%A4%84%E7%90%86%E6%B5%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>处理流</h3>
+<h3 id="处理-stream">
+<a id="处理-stream" class="anchor" href="#%E5%A4%84%E7%90%86-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>处理 Stream</h3>
 
 <p>当需要从 Stream 中获取数据值时，
 可以通过一下两种方式：</p>
@@ -4036,7 +4081,7 @@ void main() {
 
 <p>对于所有 Dart 代码有两种可用注解：<code class="highlighter-rouge">@deprecated</code> 和 <code class="highlighter-rouge">@override</code>。
 关于 <code class="highlighter-rouge">@override</code> 的使用，
-参考 <a href="#extending-a-class">Extending a class</a>。
+参考 <a href="#%E6%89%A9%E5%B1%95%E7%B1%BB%E7%BB%A7%E6%89%BF">扩展类（继承）</a>。
 下面是使用 <code class="highlighter-rouge">@deprecated</code> 注解的示例：</p>
 
 <?code-excerpt "misc/lib/language_tour/metadata/television.dart (deprecated)" replace="/@deprecated/[!$&!]/g"?>
@@ -4200,7 +4245,7 @@ documentation.</a>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/11/12 13:51 CST"
+                 title="Site built on 2018/11/14 18:22 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
