@@ -64,7 +64,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/libraries/library-tour" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.0.0&nbsp;&nbsp;(stable)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/libraries/library-tour" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
 
         <li role="separator" class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
@@ -209,7 +209,15 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
+           <div class="banner alert alert-info">
+  <p class="banner__text">
+    
+    Dart 2.1 is now available,
+    with improved performance and usability.
+    <a href="https://medium.com/dartlang/announcing-dart-2-1-improved-performance-usability-9f55fca6f31a">Learn more.</a>
+  </p>
+</div>
+ 
           
 
           <div>
@@ -246,11 +254,11 @@ Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides
   <dd>用于在不同数据表示之间进行转换的编码器和解码器，包括 JSON 和 UTF-8 。</dd>
 </dl>
 
-<p>本页只是一个概述；
+<p>本章只是一个概述；
 只涵盖了几个 dart:* 库，
 不包括第三方库。
 特定平台库 dart:io 和 dart:html
-的介绍，详见 <a href="/dart-vm/io-library-tour">dart:io tour</a> 和 <a href="https://webdev.dartlang.org/guides/html-library-tour">dart:html tour.</a></p>
+的介绍，详见 <a href="/dart-vm/io-library-tour">dart:io tour</a> 和 <a href="https://webdev.dartlang.org/guides/html-library-tour">dart:html tour</a> 。</p>
 
 <p>更多库信息可以在
 <a href="https://pub.dartlang.org">pub.dartlang.org</a> 和
@@ -260,19 +268,7 @@ Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides
 可以在 <a href="https://docs.flutter.io/">Flutter API reference.</a> 查找。</p>
 
 <aside class="alert alert-info">
-  <p><strong>DartPad tip:</strong>
-可以通过将该页中的代码拷贝到 <a href="https://dartpad.dartlang.org">DartPad.</a>
-中进行演示。
-但请注意， <a href="/guides/language/language-tour#assert">assert</a> 语句在 DartPad 中是无操作的，
-因为 DartPad 在生产模式下执行，而不是在检查模式下执行。 
-一个简单的解决方法：
-<strong>将 <code class="highlighter-rouge">assert</code> 更改为 <code class="highlighter-rouge">print</code> 。</strong> 
-<br>
-<br></p>
-
-  <iframe src="https://dartpad.dartlang.org/embed-dart.html?id=2edc7174867be377021813ba4119ab8c&amp;horizontalRatio=99&amp;verticalRatio=70" width="100%" height="255px" style="border: 1px solid #ccc;">
-</iframe>
-
+  <p><strong>DartPad tip：</strong> 可以通过将该页中的代码拷贝到 <a href="https://dartpad.dartlang.org">DartPad</a> 中进行演示。</p>
 </aside>
 
 <h2 id="dartcore---数字集合字符串等">
@@ -1111,6 +1107,12 @@ Dart 语言支持使用关键字（例如，<code class="highlighter-rouge">asyn
 <?code-excerpt "misc/lib/library_tour/async/future.dart (import)"?>
 <pre class="prettyprint lang-dart">import 'dart:async';</pre>
 
+<aside class="alert alert-info">
+  <p><strong>版本提示：</strong>
+  从 Dart 2.1 开始，使用 Future 和 Stream 不需要导入 dart:async ，
+  因为 dart:core 库 export 了这些类。</p>
+</aside>
+
 <h3 id="future">
 <a id="future" class="anchor" href="#future" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future</h3>
 
@@ -1659,7 +1661,7 @@ for (int i = 0; i &lt; encoded.length; i++) {
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/11/14 15:50 CST"
+                 title="Site built on 2018/11/19 12:14 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

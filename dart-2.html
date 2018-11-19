@@ -64,7 +64,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/dart-2.html" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.0.0&nbsp;&nbsp;(stable)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/dart-2.html" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
 
         <li role="separator" class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
@@ -186,7 +186,15 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
+           <div class="banner alert alert-info">
+  <p class="banner__text">
+    
+    Dart 2.1 is now available,
+    with improved performance and usability.
+    <a href="https://medium.com/dartlang/announcing-dart-2-1-improved-performance-usability-9f55fca6f31a">Learn more.</a>
+  </p>
+</div>
+ 
           
 
           <div>
@@ -387,6 +395,14 @@ lower SDK constraint accordingly:</p>
   <span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=1.20.1</span><span class="nv"> </span><span class="s">&lt;3.0.0'</span>
 </code></pre></div></div>
 
+<p>If you use <a href="https://github.com/dart-lang/sdk/blob/master/CHANGELOG.md">features introduced after 2.0,</a>
+be sure to specify the correct lower SDK constraint:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">environment</span><span class="pi">:</span>
+  <span class="c1"># Works in 2.1 but not 2.0.</span>
+  <span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=2.1.0</span><span class="nv"> </span><span class="s">&lt;3.0.0'</span>
+</code></pre></div></div>
+
 <aside class="alert alert-warning">
   <p><strong>Packages must have an upper constraint of <code class="highlighter-rouge">&lt;3.0.0</code></strong> to work in
   Dart 2 stable and subsequent Dart 2 releases.
@@ -436,7 +452,7 @@ using Travis to perform continuous integration (CI) testing</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/11/14 15:50 CST"
+                 title="Site built on 2018/11/19 10:17 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

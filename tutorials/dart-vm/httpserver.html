@@ -64,7 +64,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/dart-vm/httpserver" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.0.0&nbsp;&nbsp;(stable)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/dart-vm/httpserver" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
 
         <li role="separator" class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
@@ -210,7 +210,15 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
+           <div class="banner alert alert-info">
+  <p class="banner__text">
+    
+    Dart 2.1 is now available,
+    with improved performance and usability.
+    <a href="https://medium.com/dartlang/announcing-dart-2-1-improved-performance-usability-9f55fca6f31a">Learn more.</a>
+  </p>
+</div>
+ 
           
 <nav id="subnav">
   <ul>
@@ -370,7 +378,6 @@ client-side programs (but not for web apps).</p>
 
 <?code-excerpt "httpserver/bin/hello_world_server.dart" replace="/.*?dart:io.*/[!$&!]/g"?>
 <pre class="prettyprint lang-dart"><span class="highlight">import 'dart:io';</span>
-import 'dart:async';
 
 Future main() async {
   var server = await HttpServer.bind(
@@ -597,8 +604,7 @@ request received. Because HttpServer implements <a href="https://api.dartlang.or
 you can use <code class="highlighter-rouge">await for</code> to process the requests.</p>
 
 <?code-excerpt "httpserver/bin/number_thinker.dart (main)" replace="/handleRequest/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">import 'dart:async';
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 import 'dart:math' show Random;
 
 Random intGenerator = Random();
@@ -875,8 +881,7 @@ an HttpClientResponse object.</p>
 </ul>
 
 <?code-excerpt "httpserver/bin/basic_writer_client.dart" replace="/\/\*.\*\/|post|headers|write|close|utf8.\w+/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">import 'dart:async';
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 import 'dart:convert';
 
 String _host = InternetAddress.loopbackIPv4.host;
@@ -972,8 +977,7 @@ join() method in Stream to concatenate the string values of those chunks.</p>
 a server that follows this pattern.</p>
 
 <?code-excerpt "httpserver/bin/basic_writer_server.dart" replace="/\/\*\d\*\/|contentType.*? == \S+|(content|data) = [^;]*|req\.uri[^ ]*/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">import 'dart:async';
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 import 'dart:convert';
 
 String _host = InternetAddress.loopbackIPv4.host;
@@ -1104,8 +1108,7 @@ The server displays an HTML file:</p>
 <p>Here’s the code for mini file server:</p>
 
 <?code-excerpt "httpserver/bin/mini_file_server.dart"?>
-<pre class="prettyprint lang-dart">import 'dart:async';
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 
 File targetFile = File('index.html');
 
@@ -1170,8 +1173,7 @@ The server displays the same index.html file as the previous:</p>
 because the <a href="https://www.dartdocs.org/documentation/http_server/latest/http_server/VirtualDirectory-class.html">VirtualDirectory</a> class handles the details of serving the file.</p>
 
 <?code-excerpt "httpserver/bin/basic_file_server.dart" replace="/staticFiles\..*/[!$&!]/g"?>
-<pre class="prettyprint lang-dart">import 'dart:async';
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 import 'package:http_server/http_server.dart';
 
 File targetFile = File('index.html');
@@ -1204,8 +1206,7 @@ Change <code class="highlighter-rouge">file.txt</code> to other filenames within
 <p>Here is the code for <code class="highlighter-rouge">static_file_server.dart</code>.</p>
 
 <?code-excerpt "httpserver/bin/static_file_server.dart" replace="/\/\*\d\*\//[!$&!]/g"?>
-<pre class="prettyprint lang-dart">import 'dart:async';
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 import 'package:http_server/http_server.dart';
 import 'package:path/path.dart';
 
@@ -1265,8 +1266,7 @@ a certificate created by the Dart team for testing.
 You <strong>must</strong> provide your own certificates for your servers.</p>
 
 <?code-excerpt "httpserver/bin/hello_world_server_secure.dart" replace="/\S.*\/\*\d\*\//[!$&!]/g"?>
-<pre class="prettyprint lang-dart">import 'dart:async';
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 
 String certificateChain = 'server_chain.pem';
 String serverKey = 'server_key.pem';
@@ -1428,7 +1428,7 @@ including servers.</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/11/14 15:50 CST"
+                 title="Site built on 2018/11/19 10:17 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

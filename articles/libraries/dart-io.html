@@ -64,7 +64,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/libraries/dart-io" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.0.0&nbsp;&nbsp;(stable)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/libraries/dart-io" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
 
         <li role="separator" class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
@@ -178,7 +178,15 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
+           <div class="banner alert alert-info">
+  <p class="banner__text">
+    
+    Dart 2.1 is now available,
+    with improved performance and usability.
+    <a href="https://medium.com/dartlang/announcing-dart-2-1-improved-performance-usability-9f55fca6f31a">Learn more.</a>
+  </p>
+</div>
+ 
           
 
           <div>
@@ -286,8 +294,7 @@ we use the
 class.</p>
 
 <?code-excerpt "misc/lib/articles/io/io_file_system_test.dart"?>
-<pre class="prettyprint lang-dart">import 'dart:async' show Future;
-import 'dart:convert';
+<pre class="prettyprint lang-dart">import 'dart:convert';
 import 'dart:io';
 
 Future&lt;void&gt; main() async {
@@ -316,8 +323,7 @@ The code opens the file for reading and then reads one byte at a time
 until it encounters the char code for <code class="highlighter-rouge">;</code>.</p>
 
 <?code-excerpt "misc/lib/articles/io/io_random_access_test.dart"?>
-<pre class="prettyprint lang-dart">import 'dart:async' show Future;
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 
 Future&lt;void&gt; main() async {
   final semicolon = ';'.codeUnitAt(0);
@@ -352,8 +358,7 @@ as a stream of lists of bytes. Like all streams in Dart you listen on
 this stream (using <code class="highlighter-rouge">await for</code>) and the data is given in chunks.</p>
 
 <?code-excerpt "misc/lib/articles/io/io_stream_test.dart"?>
-<pre class="prettyprint lang-dart">import 'dart:async';
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 
 Future&lt;void&gt; main() async {
   var result = &lt;int&gt;[];
@@ -392,8 +397,7 @@ and collect its output. Use <code class="highlighter-rouge">run()</code> when yo
 need interactive control over the process.</p>
 
 <?code-excerpt "misc/lib/articles/io/io_process_test.dart"?>
-<pre class="prettyprint lang-dart">import 'dart:async' show Future;
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 
 Future&lt;void&gt; main() async {
   // List all files in the current directory,
@@ -424,8 +428,7 @@ we use a
 (which splits the strings at line boundaries).</p>
 
 <?code-excerpt "misc/lib/articles/io/io_process_transform_test.dart"?>
-<pre class="prettyprint lang-dart">import 'dart:async' show Future;
-import 'dart:convert';
+<pre class="prettyprint lang-dart">import 'dart:convert';
 import 'dart:io';
 
 Future&lt;void&gt; main() async {
@@ -452,8 +455,7 @@ we can use the streaming classes
 to pipe the output of the process to a file.</p>
 
 <?code-excerpt "misc/lib/articles/io/io_process_stdio_test.dart"?>
-<pre class="prettyprint lang-dart">import 'dart:async' show Future;
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 
 Future&lt;void&gt; main() async {
   final output = File('output.txt').openWrite();
@@ -482,8 +484,7 @@ and hook up a listener (using <code class="highlighter-rouge">await for</code>) 
 that just answers ‘Hello, world’ to any request.</p>
 
 <?code-excerpt "misc/lib/articles/io/io_http_server_test.dart"?>
-<pre class="prettyprint lang-dart">import 'dart:async' show Future;
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 
 Future&lt;void&gt; main() async {
   final server = await HttpServer.bind('127.0.0.1', 8082);
@@ -508,8 +509,7 @@ We make use of the streaming interface
 to pipe all the data read from a file directly to the response stream.</p>
 
 <?code-excerpt "misc/lib/articles/io/io_http_server_file_test.dart"?>
-<pre class="prettyprint lang-dart">import 'dart:async' show Future;
-import 'dart:io';
+<pre class="prettyprint lang-dart">import 'dart:io';
 
 Future&lt;void&gt; runServer(String basePath) async {
   final server = await HttpServer.bind('127.0.0.1', 8082);
@@ -597,7 +597,7 @@ To find reported issues, search for the
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/11/14 15:50 CST"
+                 title="Site built on 2018/11/19 10:17 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

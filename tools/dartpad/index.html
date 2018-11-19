@@ -64,7 +64,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/dartpad/" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.0.0&nbsp;&nbsp;(stable)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/dartpad/" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
 
         <li role="separator" class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
@@ -171,7 +171,6 @@ ga('send', 'pageview');
 <ul>
 <li class="toc-entry toc-h3"><a href="#step-1-open-and-run">Open DartPad, and run some samples</a></li>
 <li class="toc-entry toc-h3"><a href="#step-2-server">Create a command-line app</a></li>
-<li class="toc-entry toc-h3"><a href="#step-3-web">Create a web app</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#checking-dart-version-info">Checking Dart version info</a></li>
@@ -182,7 +181,15 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
+           <div class="banner alert alert-info">
+  <p class="banner__text">
+    
+    Dart 2.1 is now available,
+    with improved performance and usability.
+    <a href="https://medium.com/dartlang/announcing-dart-2-1-improved-performance-usability-9f55fca6f31a">Learn more.</a>
+  </p>
+</div>
+ 
           
 
           
@@ -224,7 +231,7 @@ is an open-source tool that
 lets you play with the Dart language in any modern browser.
 Here’s what DartPad looks like:</p>
 
-<p><img src="/assets/dartpad-hello-12a86abb5c70160e9685d3628650521a4eeaa96b17b79d2168d33f0014671fb5.png" alt="DartPad Hello World"></p>
+<p><img src="/assets/dartpad-hello-fffafbc5af52bd8cc22aeec07c4342e5c6a929b2c8ece1998e9d0e30f408b573.png" alt="DartPad Hello World"></p>
 
 <h2 id="library-support">
 <a id="library-support" class="anchor" href="#library-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Library support</h2>
@@ -241,13 +248,8 @@ If you want to use a package, get the SDK for a
 <h2 id="getting-started">
 <a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started</h2>
 
-<p>To get familiar with DartPad, try these steps:</p>
-
-<ul>
-  <li><a href="#step-1-open-and-run">Run some samples.</a></li>
-  <li><a href="#step-2-server">Create a simple command-line app.</a></li>
-  <li><a href="#step-3-web">Create a simple web app.</a></li>
-</ul>
+<p>To get familiar with DartPad,
+try running some samples and then creating a simple command-line app.</p>
 
 <h3 id="step-1-open-and-run">
 <a id="step-1-open-and-run" class="anchor" href="#step-1-open-and-run" aria-hidden="true"><span class="octicon octicon-link"></span></a>Open DartPad, and run some samples</h3>
@@ -268,10 +270,10 @@ If you want to use a package, get the SDK for a
   </li>
 
   <li>
-    <p>Choose an HTML sample, using the <strong>Samples</strong> list at the upper right.</p>
+    <p>Choose an HTML sample like <strong>Sunflower</strong>,
+  using the <strong>Samples</strong> list at the upper right.</p>
 
-    <p>For example, choose <strong>Hello World HTML</strong>.
-  Again, the output appears to the right.
+    <p>Again, the output appears to the right.
   By default, you see the HTML output—what you’d see in a browser.</p>
   </li>
 
@@ -291,10 +293,18 @@ If you want to use a package, get the SDK for a
 
 <ol>
   <li>
-    <p>Click the <strong>New Pad</strong> button.</p>
+    <p>Click the <strong>New Pad</strong> button,
+  and confirm that you want to discard changes to the current pad.</p>
 
     <p>The source code for the Hello World app appears
   under the DART tab.</p>
+  </li>
+
+  <li>
+    <p>Clear the <strong>Show web content</strong> checkbox,
+  at the bottom right of DartPad.</p>
+
+    <p>The HTML and CSS tabs disappear.</p>
   </li>
 
   <li>
@@ -330,59 +340,12 @@ If you want to use a package, get the SDK for a
   </li>
 </ol>
 
-<h3 id="step-3-web">
-<a id="step-3-web" class="anchor" href="#step-3-web" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a web app</h3>
-
-<p>To create a simple web app, start with the Hello World HTML sample.</p>
-
-<ol>
-  <li>
-    Click <b>Samples</b>, and choose <b>Hello World HTML</b>.
-    If you've already edited Hello World HTML,
-    click <b>Reset</b> to restore the original version.
-  </li>
-
-  <li>
-    Edit the HTML:
-    <ol>
-      <li>
-        Click <b>HTML</b> to view the HTML code.
-      </li>
-      <li>
-        Change the text inside the h2 element
-        from <code>Hello world</code> to something else—perhaps
-        <b>Hola mundo</b>.
-      </li>
-    </ol>
-    <p>
-      The display under HTML OUTPUT updates as you type.
-    </p>
-  </li>
-
-  <li>
-    Edit the Dart code:
-    <ol>
-      <li>
-        Click <b>DART</b> to view the Dart code.
-      </li>
-      <li>
-        Change the value displayed by <code>count.text</code>.
-        For example, change <code>'${i}'</code> to <code>'#${i}'</code>.
-      </li>
-      <li>
-        Click <b>Run</b> to compile and run the Dart code,
-        updating the HTML OUTPUT display.
-      </li>
-    </ol>
-  </li>
-</ol>
-
 <h2 id="checking-dart-version-info">
 <a id="checking-dart-version-info" class="anchor" href="#checking-dart-version-info" aria-hidden="true"><span class="octicon octicon-link"></span></a>Checking Dart version info</h2>
 
-<p>DartPad’s various language features and APIs depend on the <strong>Dart SDK version</strong>
-that DartPad is based on. You can find the SDK version in the DartPad editor
-footer.</p>
+<p>The language features and APIs that DartPad supports depend on the
+<strong>Dart SDK</strong> version that DartPad is based on.
+You can find the SDK version at the bottom right of DartPad.</p>
 
           
 
@@ -410,7 +373,7 @@ footer.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/11/14 15:50 CST"
+                 title="Site built on 2018/11/19 10:17 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

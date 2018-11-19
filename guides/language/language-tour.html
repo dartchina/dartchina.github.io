@@ -64,7 +64,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/language-tour" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.0.0&nbsp;&nbsp;(stable)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/language-tour" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
 
         <li role="separator" class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
@@ -287,7 +287,15 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-          
+           <div class="banner alert alert-info">
+  <p class="banner__text">
+    
+    Dart 2.1 is now available,
+    with improved performance and usability.
+    <a href="https://medium.com/dartlang/announcing-dart-2-1-improved-performance-usability-9f55fca6f31a">Learn more.</a>
+  </p>
+</div>
+ 
           
 
           <div>
@@ -792,14 +800,24 @@ num 类型包括基本运算 +， -， /， 和 *，
 下面是定义整数类型字面量的例子:</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (integer-literals)"?>
-<pre class="prettyprint lang-dart">int x = 1;
-int hex = 0xDEADBEEF;</pre>
+<pre class="prettyprint lang-dart">var x = 1;
+var hex = 0xDEADBEEF;</pre>
 <p>如果一个数字包含小数点，那么就是小数类型。 
 下面是定义小数类型字面量的例子:</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (double-literals)"?>
-<pre class="prettyprint lang-dart">double y = 1.1;
-double exponents = 1.42e5;</pre>
+<pre class="prettyprint lang-dart">var y = 1.1;
+var exponents = 1.42e5;</pre>
+
+<p>从 Dart 2.1 开始，必要的时候 int 字面量会自动转换成 double 类型。</p>
+
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (int-to-double)"?>
+<pre class="prettyprint lang-dart">double z = 1; // 相当于 double z = 1.0.</pre>
+
+<aside class="alert alert-info">
+  <p><strong>版本提示：</strong>
+  在 2.1 之前，在 double 上下文中使用 int 字面量是错误的。</p>
+</aside>
 
 <p>以下是将字符串转换为数字的方法，反之亦然：</p>
 
@@ -3341,8 +3359,8 @@ switch (aColor) {
 <p>mixins 是复用类代码的一种途径，
 复用的类可以在不同层级，之间可以不存在继承关系。</p>
 
-<p>通过 <code class="highlighter-rouge">with</code> 后面跟一个或多个混入的名称，来使用 mixin，
-下面的示例演示了两个使用 mixins 的类：</p>
+<p>通过 <code class="highlighter-rouge">with</code> 后面跟一个或多个混入的名称，来 <em>使用</em> mixin，
+下面的示例演示了两个使用 mixin 的类：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/orchestra.dart (Musician and Maestro)" replace="/(with.*) \{/[!$1!] {/g"?>
 <pre class="prettyprint lang-dart">class Musician extends Performer <span class="highlight">with Musical</span> {
@@ -3357,10 +3375,12 @@ class Maestro extends Person
   }
 }</pre>
 
-<p>下面实现 mixin 的代码中，定义一个类，继承自 Object，没有声明构造函数，也没有调用 <code class="highlighter-rouge">super</code> ：</p>
+<p>通过创建一个继承自 Object 且没有构造函数的类，来 <em>实现</em> 一个 mixin 。
+如果 mixin 不希望作为常规类被使用，使用关键字 <code class="highlighter-rouge">mixin</code> 替换 <code class="highlighter-rouge">class</code> 。
+例如：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/orchestra.dart (Musical)"?>
-<pre class="prettyprint lang-dart">abstract class Musical {
+<pre class="prettyprint lang-dart">mixin Musical {
   bool canPlayPiano = false;
   bool canCompose = false;
   bool canConduct = false;
@@ -3376,13 +3396,33 @@ class Maestro extends Person
   }
 }</pre>
 
+<p>指定只有某些类型可以使用的 mixin - 
+比如，mixin 可以调用 mixin 自身没有定义的方法 - 
+使用 <code class="highlighter-rouge">on</code> 来指定可以使用 mixin 的父类类型：</p>
+
+<?code-excerpt "misc/lib/language_tour/classes/orchestra.dart (mixin-on)"?>
+<pre class="prettyprint lang-dart">mixin MusicalPerformer on Musician {
+  // ···
+}</pre>
+
+<!-- Previous code snippet reveals an issue we expect to be fixed in 2.1.1:
+  https://github.com/dart-lang/sdk/issues/35011
+-->
+
+<aside class="alert alert-info">
+  <p><strong>版本提示：</strong> <code class="highlighter-rouge">mixin</code> 关键字在 Dart 2.1 中被引用支持。
+  早期版本中的代码通常使用 <code class="highlighter-rouge">abstract class</code> 代替。
+  更多有关 mixin 在 2.1 中的变更信息，请参见
+  <a href="https://github.com/dart-lang/sdk/blob/master/CHANGELOG.md">Dart SDK changelog</a> 和 <a href="https://github.com/dart-lang/language/blob/master/accepted/2.1/super-mixins/feature-specification.md#dart-2-mixin-declarations">2.1 mixin specification</a> 。</p>
+</aside>
+
 <div class="alert alert-info">
   <p><strong>提示：</strong> 对 mixins 的一些限制正在被移除。 关于更多详情，参考
   <a href="https://github.com/dart-lang/sdk/blob/master/docs/language/informal/mixin-declaration.md">proposed mixin specification.</a></p>
 
 </div>
 
-<p>有关 Dart 中 mixins 的理论演变, 参考
+<p>有关 Dart 中 mixins 的理论演变，参考
 <a href="/articles/language/mixins">A Brief History of Mixins in Dart</a>.</p>
 
 <h3 id="类变量和方法">
@@ -4245,7 +4285,7 @@ documentation.</a>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/11/14 18:22 CST"
+                 title="Site built on 2018/11/19 10:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
