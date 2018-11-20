@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="How to test Flutter, Web, and VM Applications.">
-  <title>Dart Testing | Dart</title>
+  <meta name="description" content="如何测试 Flutter, Web, 以及 VM 应用。">
+  <title>Dart 测试 | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,12 +18,12 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="Dart Testing" />
-  <meta name="twitter:description" content="How to test Flutter, Web, and VM Applications." />
+  <meta name="twitter:title" content="Dart 测试" />
+  <meta name="twitter:description" content="如何测试 Flutter, Web, 以及 VM 应用。" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Dart Testing" />
-  <meta property="og:description" content="How to test Flutter, Web, and VM Applications." />
+  <meta property="og:title" content="Dart 测试" />
+  <meta property="og:description" content="如何测试 Flutter, Web, 以及 VM 应用。" />
   <meta property="og:url" content="https://www.dartlang.org/guides/testing" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -166,15 +166,15 @@ ga('send', 'pageview');
       </a>
     </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#kinds-of-testing">Kinds of testing</a></li>
-<li class="toc-entry toc-h2"><a href="#generally-useful-libraries">Generally useful libraries</a></li>
-<li class="toc-entry toc-h2"><a href="#flutter-testing">Flutter testing</a></li>
-<li class="toc-entry toc-h2"><a href="#web-testing">Web testing</a></li>
-<li class="toc-entry toc-h2"><a href="#other-tools-and-resources">Other tools and resources</a>
+<li class="toc-entry toc-h2"><a href="#测试方式">测试方式</a></li>
+<li class="toc-entry toc-h2"><a href="#通用库">通用库</a></li>
+<li class="toc-entry toc-h2"><a href="#flutter-测试">Flutter 测试</a></li>
+<li class="toc-entry toc-h2"><a href="#web-测试">Web 测试</a></li>
+<li class="toc-entry toc-h2"><a href="#其它工具及资源">其它工具及资源</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#ide">IDE</a></li>
 <li class="toc-entry toc-h3"><a href="#observatory">Observatory</a></li>
-<li class="toc-entry toc-h3"><a href="#continuous-integration">Continuous integration</a></li>
+<li class="toc-entry toc-h3"><a href="#持续集成">持续集成</a></li>
 </ul>
 </li>
 </ul>
@@ -200,7 +200,7 @@ ga('send', 'pageview');
   <a href="https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/testing.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart Testing' page issue&body=
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart 测试' page issue&body=
 Page URL: https://www.dartlang.org/guides/testing%0D%0A
 Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides/testing.md%0D%0A
 %0D%0A
@@ -210,197 +210,167 @@ Page source: https://github.com/dart-lang/site-www/tree/master/src_zh_CN/_guides
   </a>
 </div>
 
-            <h1>Dart Testing</h1>
+            <h1>Dart 测试</h1>
           </div>
-          <p>Software testing, an important part of app development, helps verify that
-your app is working correctly before you release it.
-This Dart testing guide outlines several types of testing, and points
-you to where you can learn how to test your
-<a href="https://flutter.io">mobile</a>, <a href="https://webdev.dartlang.org">web</a>,
-and <a href="/dart-vm">server-side apps and scripts</a>.</p>
+          
+<p>软件测试是应用程序开发的重要组成部分，可帮助你在应用程序发布之前验证应用程序的正确性。
+此 Dart 测试指南概述了几种类型的测试，并指出了可以学习
+<a href="https://flutter.io">移动</a>, <a href="https://webdev.dartlang.org">Web</a>，
+以及 <a href="/dart-vm">服务器应用和脚本</a> 地方。</p>
 
 <aside class="alert alert-info">
-  <p><strong>Terminology: widget vs. component</strong><br>
-Flutter, an SDK for building apps for iOS and Android, defines its
-GUI elements as <em>widgets</em>. AngularDart, a web app framework,
-defines its GUI elements as <em>components</em>.
-This doc uses <strong>component</strong> (except when explicitly discussing Flutter),
-but both terms refer to the same concept.</p>
+  <p><strong>术语 widget vs. component</strong><br>
+用于构建 iOS 和 Android 应用的 SDK —— Flutter 定义的 GUI 元素称之为 <em>widgets</em> 。
+用于构建 Web 应用的 framework —— AngularDart 定义的 GUI 元素称之为 <em>components</em> 。
+本文中使用 <strong>component</strong> （除了在明确讨论 Flutter ），两个术语指的是同一种概念。</p>
 </aside>
 
-<h2 id="kinds-of-testing">
-<a id="kinds-of-testing" class="anchor" href="#kinds-of-testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kinds of testing</h2>
+<h2 id="测试方式">
+<a id="测试方式" class="anchor" href="#%E6%B5%8B%E8%AF%95%E6%96%B9%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>测试方式</h2>
 
-<p>The Dart testing docs focus on three kinds of testing, out of the
-<a href="https://en.wikipedia.org/wiki/Software_testing">many kinds of testing</a>
-that you may be familiar with: unit, component, and end-to-end
-(a form of integration testing). Testing terminology varies,
-but these are the terms and concepts that you are likely to
-encounter when using Dart technologies:</p>
+<p>此 Dart 测试文档侧重于<a href="https://en.wikipedia.org/wiki/Software_testing">多种熟知测试</a>
+中的三种测试方式：单元（unit），组件（component）和端到端（end-to-end）（一种集成测试方式）。
+测试术语可能各不相同，下面是你在使用 Dart 技术时会遇到的术语和概念：</p>
 
 <ul>
   <li>
-    <p><em>Unit</em> tests focus on verifying the smallest piece of testable
-software, such as a function, method, or class. Your test suites
-should have more unit tests than other kinds of tests.</p>
+    <p><strong><em>单元</em></strong> 测试侧重于验证最小的可测试软件，例如函数，方法或类。单元测试
+相对于其他类型的测试具有更多的测试用例。</p>
   </li>
   <li>
-    <p><em>Component</em> tests verify that a component (which
-usually consists of multiple classes) behaves as expected.
-A component test often requires the use of mock objects
-that can mimic user actions, events, perform layout,
-and instantiate child components.</p>
+    <p><strong><em>组件</em></strong> 测试用于验证一个组件（通常来说这个组件会包含多个类）的行为是否符合预期。
+组件测试通常需要使用 mock 对象，mock 对象可以模仿用户操作，事件，执行布局以及
+实例化子组件。</p>
   </li>
   <li>
-    <p><em>Integration</em> and <em>end-to-end</em> tests verify the behavior of
-an entire app, or a large chunk of an app. An integration test
-generally runs on a real device or OS simulator (for mobile)
-or on a browser (for the web) and consists of two pieces:
-the app itself, and the test app that puts
-the app through its paces. An integration test often measures performance,
-so the test app generally runs on a different device or OS
-than the app being tested.</p>
+    <p><strong><em>集成</em> 和 <em>端到端</em></strong> 测试用于验证整个应用，或大部分应用的行为。一个集成测试
+通常会运行在真实的设备或系统模拟器（用于移动设备），或浏览器（用于Web），一个
+集成测试包含两部分：应用程序本身，以及让应用执行它的流程来进行应用测试。集成测试
+通常会用来测量应用性能，因此在应用程序被测试时，测试的应用程序通常会运行在不同
+的设备或操作系统上。</p>
   </li>
 </ul>
 
-<h2 id="generally-useful-libraries">
-<a id="generally-useful-libraries" class="anchor" href="#generally-useful-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generally useful libraries</h2>
+<h2 id="通用库">
+<a id="通用库" class="anchor" href="#%E9%80%9A%E7%94%A8%E5%BA%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>通用库</h2>
 
-<p>Although your tests partly depend on the platform your code is intended
-for—Flutter, the web, or server-side, for example—the
-following packages are useful across Dart platforms:</p>
+<p>虽然测试部分取决于代码所针对的平台—例如， Flutter ，Web 或服务器端—
+但是以下的 package 适用于所有的 Dart 平台：</p>
 
 <ul>
   <li>
 <a href="https://pub.dartlang.org/packages/test">package:test</a><br>
-Provides a standard way of writing tests in Dart. You can use the test
-package to:
+提供在 Dart 中编写标准的测试用例。你可以使用 package 来：
     <ul>
-      <li>Write single tests, or groups of tests.</li>
-      <li>Use the <code class="highlighter-rouge">@TestOn</code> annotation to restrict tests to run on
-specific environments.</li>
-      <li>Write asynchronous tests just as you would write synchronous
-tests.</li>
-      <li>Tag tests using the <code class="highlighter-rouge">@Tag</code> annotation. For example, define a tag to
-create a custom configuration for some tests, or to identify some tests
-as needing more time to complete.</li>
-      <li>Create a <code class="highlighter-rouge">dart_test.yaml</code> file to configure tagged tests across
-multiple files or an entire package.</li>
+      <li>编写单个或一组测试。</li>
+      <li>使用 <code class="highlighter-rouge">@TestOn</code> 注解限制测试在特定的环境中运行。</li>
+      <li>像编写同步测试一样编写异步测试。</li>
+      <li>使用 <code class="highlighter-rouge">@Tag</code> 注解进行 Tag 测试。例如，定义 Tag 为某些测试创建自定义配置，
+或表示一些测试完成需要更多的时间。</li>
+      <li>创建一个<code class="highlighter-rouge">dart_test.yaml</code> 文件，以跨多个文件或整个包配置 Tag 测试。</li>
     </ul>
   </li>
   <li>
 <a href="https://pub.dartlang.org/packages/mockito">package:mockito</a><br>
-Provides a way to create
-<a href="https://en.wikipedia.org/wiki/Mock_object">mock objects,</a>
-easily configured for use in fixed scenarios, and to verify
-that the system under test interacts with the mock object in
-expected ways.
-For an example that uses both package:test and package:mockito,
-see the <a href="https://github.com/dart-lang/mockito/tree/master/test/example/iss">International Space Station API library and its unit
-tests</a>
-in the <a href="https://github.com/dart-lang/mockito">mockito package</a>.</li>
+提供一种创建
+<a href="https://en.wikipedia.org/wiki/Mock_object">mock 对象</a> 的方法，
+进行简单的配置即可应用在固定测试情景中，验证被测系统是否以预期方式与模拟对象进行交互。
+有关使用 package:test 和 package:mockito 的示例，请参见
+<a href="https://github.com/dart-lang/mockito">mockito package</a> 中的
+<a href="https://github.com/dart-lang/mockito/tree/master/test/example/iss">International Space Station API 库及其单元测试</a>。</li>
 </ul>
 
-<h2 id="flutter-testing">
-<a id="flutter-testing" class="anchor" href="#flutter-testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Flutter testing</h2>
+<h2 id="flutter-测试">
+<a id="flutter-测试" class="anchor" href="#flutter-%E6%B5%8B%E8%AF%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>Flutter 测试</h2>
 
-<p>Use the following resources to learn more about testing Flutter apps:</p>
+<p>通过下面的资源了解更多关于 Flutter 应用测试的内容：</p>
 
 <ul>
   <li>
-<a href="https://flutter.io/testing/">Testing Flutter Apps</a><br>
-How to perform unit, widget, or integration tests on a Flutter app.</li>
+<a href="https://flutter.io/testing/">测试 Flutter 应用</a><br>
+如何在一个 Flutter 应用程序中进行 unit ， widget ，以及集成测试。</li>
   <li>
 <a href="https://docs.flutter.io/flutter/flutter_test/flutter_test-library.html">flutter_test</a><br>
-A testing library for Flutter built on top of package:test.</li>
+基于 package:test 之上的 Flutter 测试库。</li>
   <li>
 <a href="https://docs.flutter.io/flutter/flutter_driver/flutter_driver-library.html">flutter_driver</a><br>
-A testing library for testing Flutter applications on real devices and
-emulators (in a separate process).</li>
+在真机或模拟器上对 Flutter 应用程序测试的测试库（在一个独立的进程中）。</li>
   <li>
 <a href="https://github.com/flutter/flutter/tree/master/examples/flutter_gallery">flutter/examples/flutter_gallery</a><br>
-Tests for the Flutter gallery example.</li>
+测试 Flutter gallery 的示例。</li>
   <li>
 <a href="https://github.com/flutter/flutter/tree/master/dev/manual_tests">flutter/dev/manual_tests</a><br>
-Many examples of tests in the Flutter SDK.</li>
+Flutter SDK 中的许多测试示例。</li>
 </ul>
 
-<h2 id="web-testing">
-<a id="web-testing" class="anchor" href="#web-testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Web testing</h2>
+<h2 id="web-测试">
+<a id="web-测试" class="anchor" href="#web-%E6%B5%8B%E8%AF%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>Web 测试</h2>
 
-<p>Use the following resources to learn more about testing Dart web
-applications:</p>
+<p>通过下面的资源了解更多关于 Dart web 应用测试的内容：</p>
 
 <ul>
   <li>
-<a href="https://webdev.dartlang.org/angular/guide/testing">Testing</a>(a page
-in the AngularDart guide)<br>
-How to use the <a href="https://pub.dartlang.org/packages/angular_test">angular_test</a>
-package to test AngularDart components and subsystems.
+<a href="https://webdev.dartlang.org/angular/guide/testing">Testing</a>（ AngularDart 指南中的一个页面）<br>
+如何使用 <a href="https://pub.dartlang.org/packages/angular_test">angular_test</a>
+package 来测试 AngularDart component 以及其系统。
 <!-- More pages are coming! -->
 </li>
   <li>
 <a href="https://pub.dartlang.org/packages/webdriver">package:webdriver</a><br>
-A Dart package for interfacing with
-<a href="https://www.w3.org/TR/webdriver/">WebDriver</a> servers.</li>
+一个用于连接 <a href="https://www.w3.org/TR/webdriver/">WebDriver</a> 服务的 Dart package 。</li>
 </ul>
 
-<h2 id="other-tools-and-resources">
-<a id="other-tools-and-resources" class="anchor" href="#other-tools-and-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other tools and resources</h2>
+<h2 id="其它工具及资源">
+<a id="其它工具及资源" class="anchor" href="#%E5%85%B6%E5%AE%83%E5%B7%A5%E5%85%B7%E5%8F%8A%E8%B5%84%E6%BA%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>其它工具及资源</h2>
 
-<p>You may also find the following resources useful for developing and
-debugging Dart applications.</p>
+<p>你还可以找到以下用于开发和调试 Dart 应用程序的资源。</p>
 
 <h3 id="ide">
 <a id="ide" class="anchor" href="#ide" aria-hidden="true"><span class="octicon octicon-link"></span></a>IDE</h3>
 
-<p>When it comes to debugging, your first line of defense is your IDE.
-Dart plugins exist for many commonly used IDEs.</p>
+<p>在调试方面，第一个要解决的问题就是 IDE 。许多常用的IDE都有 Dart 插件。</p>
 
-<p>If you don’t have a preferred IDE, try
-<a href="https://webdev.dartlang.org/tools/webstorm">WebStorm</a> for web apps, or
-<a href="https://www.dartlang.org/tools/jetbrains-plugin">IntelliJ</a> for Flutter.
-The JetBrains products have a full-featured Dart debugger, and WebStorm and
-IntelliJ Ultimate include additional built-in support for running test suites.</p>
+<p>如果没有一个首选的 IDE ，请尝试
+<a href="https://webdev.dartlang.org/tools/webstorm">WebStorm</a> 用来开发 Web 应用，或
+<a href="https://www.dartlang.org/tools/jetbrains-plugin">IntelliJ</a> 用来开发 Flutter 。
+JetBrains 具有全功能的 Dart 调试器， WebStorm 和 IntelliJ Ultimate 内置了支持
+运行测试的套件。</p>
 
 <h3 id="observatory">
 <a id="observatory" class="anchor" href="#observatory" aria-hidden="true"><span class="octicon octicon-link"></span></a>Observatory</h3>
 
-<p>Observatory is a browser-based tool for profiling and debugging your
-Dart applications. You can learn more using the following resources:</p>
+<p>Observatory 是一个基于浏览器的 Dart 应用程序分析和调试工具。通过下面资源了解更多内容：</p>
 
 <ul>
-  <li><a href="https://dart-lang.github.io/observatory/">Observatory: A Profiler for Dart
-Apps</a></li>
+  <li><a href="https://dart-lang.github.io/observatory/">Observatory: Dart 应用程序分析工具</a></li>
   <li>
 <a href="https://flutter.io/debugging/#dart-observatory-statement-level-single-stepping-debugger-and-profiler">Dart
-Observatory</a>,
-a section in <a href="https://flutter.io/debugging/">Debugging Flutter Apps</a>
-</li>
+Observatory</a>，
+<a href="https://flutter.io/debugging/">Flutter 应用程序调试</a> 中的一节内容</li>
   <li>
 <a href="https://groups.google.com/a/dartlang.org/forum/#!forum/observatory-discuss">Dart VM
 Observatory</a>
-discussion group</li>
+讨论组</li>
 </ul>
 
-<h3 id="continuous-integration">
-<a id="continuous-integration" class="anchor" href="#continuous-integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Continuous integration</h3>
+<h3 id="持续集成">
+<a id="持续集成" class="anchor" href="#%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>持续集成</h3>
 
-<p>Consider using continuous integration (CI) to build your project
-and run its tests after every commit. Two CI services for GitHub are
-<a href="https://travis-ci.org/">Travis CI</a> (for OS X and Unix) and
-<a href="https://www.appveyor.com/">AppVeyor</a> (for Windows).</p>
+<p>考虑使用持续集成（CI）来构建项目并在每次提交后执行测试。
+针对 GitHub 的有两个 CI 服务：
+<a href="https://travis-ci.org/">Travis CI</a> (用于 OS X 和 Unix) 以及
+<a href="https://www.appveyor.com/">AppVeyor</a> (用于 Windows)。</p>
 
-<p>Travis has built-in support for Dart projects.
-Learn more at the following links:</p>
+<p>Travis 内建支持 Dart 项目。
+通过下面链接了解更多内容：</p>
 
 <ul>
   <li>
-<a href="https://docs.travis-ci.com/user/languages/dart">Building a Dart Project</a>
-covers how to configure Travis for Dart projects</li>
-  <li>The <a href="https://github.com/dart-lang/shelf/blob/master/.travis.yml">shelf</a>
-example uses the <code class="highlighter-rouge">dart_task</code> tag (in <code class="highlighter-rouge">.travis.yml</code>) to configure
-the build.</li>
+<a href="https://docs.travis-ci.com/user/languages/dart">构建一个 Dart 项目</a>
+涵盖了如何为 Dart 项目配置 Travis 。</li>
+  <li>
+<a href="https://github.com/dart-lang/shelf/blob/master/.travis.yml">shelf</a>
+使用 <code class="highlighter-rouge">dart_task</code> Tag（在 <code class="highlighter-rouge">.travis.yml</code> 文件中）配置构建的示例。</li>
 </ul>
 
           
@@ -429,7 +399,7 @@ the build.</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/11/19 10:17 CST"
+                 title="Site built on 2018/11/20 11:53 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
