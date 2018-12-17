@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn how to enable command-line Dart apps to call C/C++ functions.">
-  <title>Native Extensions for the Standalone Dart VM | Dart</title>
+  <meta name="description" content="学习如何使 Dart 的命令行应用调用 C/C++ 函数。">
+  <title>为独立 Dart VM 提供原生扩展 | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,12 +18,12 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="Native Extensions for the Standalone Dart VM" />
-  <meta name="twitter:description" content="Learn how to enable command-line Dart apps to call C/C++ functions." />
+  <meta name="twitter:title" content="为独立 Dart VM 提供原生扩展" />
+  <meta name="twitter:description" content="学习如何使 Dart 的命令行应用调用 C/C++ 函数。" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Native Extensions for the Standalone Dart VM" />
-  <meta property="og:description" content="Learn how to enable command-line Dart apps to call C/C++ functions." />
+  <meta property="og:title" content="为独立 Dart VM 提供原生扩展" />
+  <meta property="og:description" content="学习如何使 Dart 的命令行应用调用 C/C++ 函数。" />
   <meta property="og:url" content="https://www.dartlang.org/articles/dart-vm/native-extensions" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -166,9 +166,9 @@ ga('send', 'pageview');
       </a>
     </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#anatomy-of-a-native-extension">Anatomy of a native extension</a></li>
-<li class="toc-entry toc-h2"><a href="#example-code">Example code</a></li>
-<li class="toc-entry toc-h2"><a href="#the-synchronous-sample-extension">The synchronous sample extension</a></li>
+<li class="toc-entry toc-h2"><a href="#本地扩展解析">本地扩展解析</a></li>
+<li class="toc-entry toc-h2"><a href="#示例代码">示例代码</a></li>
+<li class="toc-entry toc-h2"><a href="#示例中的同步扩展">示例中的同步扩展</a></li>
 <li class="toc-entry toc-h2"><a href="#using-the-dart-embedding-api-from-native-code">Using the Dart Embedding API from native code</a></li>
 <li class="toc-entry toc-h2"><a href="#dart-handles">Dart handles</a></li>
 <li class="toc-entry toc-h2"><a href="#the-native-code-sample_extensioncc">The native code: sample_extension.cc</a></li>
@@ -210,7 +210,7 @@ ga('send', 'pageview');
   <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/dart-vm/native-extensions.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Native Extensions for the Standalone Dart VM' page issue&body=
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='为独立 Dart VM 提供原生扩展' page issue&body=
 Page URL: https://www.dartlang.org/articles/dart-vm/native-extensions%0D%0A
 Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/dart-vm/native-extensions.md%0D%0A
 %0D%0A
@@ -220,97 +220,75 @@ Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_
   </a>
 </div>
 
-            <h1>Native Extensions for the Standalone Dart VM</h1>
+            <h1>为独立 Dart VM 提供原生扩展</h1>
           </div>
-          <p><em>Written by William Hesse <br>
-May 2012</em></p>
+          
+<p><em>作者：William Hesse <br>
+2012年5月</em></p>
 
-<p>Dart programs running on the standalone Dart VM (<em>command-line apps</em>) can call C
-or C++ functions in a shared library, by means of native extensions. This
-article shows how to write and build such native extensions on Windows,
-macOS, and Linux.</p>
+<p>在独立 Dart VM（命令行应用程序）上运行的 Dart 程序可以通过本地扩展调用共享库中的 C 或 C++ 函数。
+本文将讲解如何在 Windows，macOS，以及 Linux 上编写和构建这样的本地扩展。</p>
 
-<p>You can provide two types of native extensions: asynchronous or synchronous. An
-<em>asynchronous extension</em> runs a native function on a separate thread, scheduled
-by the Dart VM. A <em>synchronous extension</em> uses the Dart virtual machine
-library’s C API (the Dart Embedding API) directly and runs on the same thread as
-the Dart isolate. An asynchronous function is called by sending a message to a
-Dart port, receiving the response on a reply port.</p>
+<p>你可以提供两种类型的本地扩展：异步扩展或同步扩展。_异步扩展_在一个单独的线程中执行一个本地函数，由
+Dart VM 调度。_同步扩展_直接使用 Dart 虚拟机库的 C API （ Dart 内嵌 API ） 并在 Dart 的独占
+线程中执行。通过向 Dart 端口（ Dart port ）发送消息来调用异步函数，在应答端口（ reply port ）接受响应。</p>
 
-<h2 id="anatomy-of-a-native-extension">
-<a id="anatomy-of-a-native-extension" class="anchor" href="#anatomy-of-a-native-extension" aria-hidden="true"><span class="octicon octicon-link"></span></a>Anatomy of a native extension</h2>
+<h2 id="本地扩展解析">
+<a id="本地扩展解析" class="anchor" href="#%E6%9C%AC%E5%9C%B0%E6%89%A9%E5%B1%95%E8%A7%A3%E6%9E%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>本地扩展解析</h2>
 
-<p>A Dart native extension contains two files: a Dart library and a native library.
-The Dart library defines classes and top-level functions as usual, but declares
-that some of these functions are implemented in native code, using the
-<strong>native</strong> keyword. The native library is a shared library, written in C or C++,
-that contains the implementations of those functions.</p>
+<p>一个 Dart 本地扩展包含两部分： Dart 库和本地库。 Dart 库的类及顶层函数的定义方式不变，
+但在这些函数中，使用本地代码中实现的函数需要使用 <strong>native</strong> 关键字声明。本地库是使用
+C 或 C++ 编写的共享库，库中包含了这些函数（使用 <strong>native</strong> 关键字声明的函数）的实现。</p>
 
-<p>The Dart library specifies the native library using an <code class="highlighter-rouge">import</code> statement
-and the <strong>dart-ext</strong>: URI scheme. As of 1.20, the URI must either be an absolute
-path like <code class="highlighter-rouge">dart-ext:/path/to/extension</code>, or only the name of the extension,
-like <code class="highlighter-rouge">dart-ext:extension</code>. The VM modifies the URI to add platform
-specific prefixes and suffixes to the extension name. For example,
-<code class="highlighter-rouge">extension</code> becomes <code class="highlighter-rouge">libextension.so</code> on Linux. If the URI is an
-absolute path, the import fails if the file does not exist. If the
-URI is only the name of the extension, the VM first looks for the
-file adjacent to the importing Dart library. If it is not found there
-the VM passes the file name to the platform specific call for loading
-dynamic libraries (e.g. <code class="highlighter-rouge">dlopen</code> on Linux), which is free to follow its
-own search procedure.</p>
+<p>Dart 库使用 <code class="highlighter-rouge">import</code> 语句和 <strong>dart-ext</strong>: URI 的方案指定本机库。截至 1.20 ，
+URI 必须是绝对路径，如 <code class="highlighter-rouge">dart-ext:/path/to/extension</code> ，或者只使用扩展名，
+如 <code class="highlighter-rouge">dart-ext:extension</code> 。 VM 修改 URI 将平台特定的前缀和后缀添加到扩展名。例如，在
+Linux 上 <code class="highlighter-rouge">extension</code> 会变成 <code class="highlighter-rouge">libextension.so</code> 。如果 URI 是绝对路径，那么文件不存
+在的情况下会导入失败。如果 URI 只是扩展的名称，那么 VM 会首先查找与导入 Dart 库相邻的文
+件。如果没有找到，那么 VM 会将扩展的文件名传递给平台的特殊调用，以加载动态库
+（例如，Linux 上的 <code class="highlighter-rouge">dlopen</code> ），此时该库的加载将遵循它所在平台的搜索过程。</p>
 
-<h2 id="example-code">
-<a id="example-code" class="anchor" href="#example-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example code</h2>
+<h2 id="示例代码">
+<a id="示例代码" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h2>
 
-<p>The code for the sample extensions featured in this article is in the
+<p>文中介绍的扩展示例的代码位于 Dart 仓库的
 <a href="https://github.com/dart-lang/sdk/tree/master/samples/sample_extension">samples/sample_extension</a>
-directory of the Dart repository.</p>
+目录中。</p>
 
-<p>The sample extensions call the C standard library’s rand() and srand()
-functions, returning pseudorandom numbers to a Dart program. Because the native
-parts of the asynchronous and synchronous native extensions share most of their
-code, a single native source file (and resulting shared library) implements both
-extensions. The two extensions have separate Dart library files. Two additional
-Dart files provide examples of using and testing the asynchronous and
-synchronous extensions.</p>
+<p>扩展示例调用 C 标准库的 rand() 和 srand() 函数，将伪随机数返回到 Dart 程序。由于本地的异步扩展
+和同步扩展共享了大部分本地代码，所以示例使用了单个本地源文件（以及生成单个共享库）实现了这两个扩展。
+这两个扩展的 Dart 部分分别在两个库文件中实现。另外两个 Dart 文件提供了异步和同步扩展的使用和测试示例。</p>
 
-<p>The shared library (native code) for the extensions shown in this article is
-called sample_extension. Its C++ file,
-<a href="https://github.com/dart-lang/sdk/blob/master/samples/sample_extension/sample_extension.cc">sample_extension.cc</a>, contains
-six functions that are called from Dart:</p>
+<p>本文中扩展的共享库（本地代码）称为 sample_extension 。 它是一个 C++ 文件，
+<a href="https://github.com/dart-lang/sdk/blob/master/samples/sample_extension/sample_extension.cc">sample_extension.cc</a>，
+其中包括 6 个被 Dart 调用的函数。</p>
 
 <dl>
   <dt>sample_extension_Init():</dt>
-  <dd>Called when the extension is loaded.</dd>
+  <dd>在扩展被加载时被调用。</dd>
   <dt>ResolveName():</dt>
-  <dd>Called the first time a native function with a given name is called, to
-resolve the Dart name of the native function into a C function pointer.</dd>
+  <dd>第一次调用给定名称的本地函数时，将本地函数的 Dart 名称解析为 C 函数指针。</dd>
   <dt>SystemRand() and SystemSrand():</dt>
-  <dd>Implement the synchronous extension. These are native functions called
-directly from Dart, and that call rand() and srand() from the C standard library.</dd>
+  <dd>同步扩展的实现。这些本地方法由 Dart 直接调用，它们调用 C 标准库的 rand() 和 srand() 函数。</dd>
   <dt>wrappedRandomArray() and randomArrayServicePort():</dt>
-  <dd>Implement the asynchronous extension. randomArrayServicePort() creates
-a native port and associates it with wrappedRandomArray(). When Dart sends
-a message to the native port, the Dart VM schedules wrappedRandomArray() to
-run on a separate thread.</dd>
+  <dd>异步扩展的实现。 randomArrayServicePort() 函数创建一个本地端口，并将这个端口和
+wrappedRandomArray() 函数关联在一起。当 Dart 向本地端口发送一个消息， Dart VM 就会调度
+wrappedRandomArray() 函数在一个单独的线程中执行。</dd>
 </dl>
 
-<p>Some of the code in the shared library is setup and initialization code,
-which can be the same for all extensions.  The functions sample_extension_Init()
-and ResolveName() should be almost the same in all extensions, and a version of
-randomArrayServicePort() must be in all asynchronous extensions.</p>
+<p>共享库中的一些代码用来设置和初始化，对于所有的扩展这些代码几乎是相同的。函数
+sample_extension_Init() 和 ResolveName() 在所有的扩展中几乎相同，同样在所有的异步扩展中都
+必须有一个类似于 randomArrayServicePort() 的函数。</p>
 
-<h2 id="the-synchronous-sample-extension">
-<a id="the-synchronous-sample-extension" class="anchor" href="#the-synchronous-sample-extension" aria-hidden="true"><span class="octicon octicon-link"></span></a>The synchronous sample extension</h2>
+<h2 id="示例中的同步扩展">
+<a id="示例中的同步扩展" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E6%89%A9%E5%B1%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例中的同步扩展</h2>
 
-<p>Because the asynchronous extension works like a synchronous extension with some
-added functions, we’ll show the synchronous extension first. First we’ll show
-the Dart part of the extension and the sequence of function calls that happen
-when the extension is loaded.  Then we explain how to use the Dart Embedding
-API, show the native code, and show what happens when the extension is called.</p>
+<p>因为异步扩展非常像是在同步扩展的基础上增加了一些函数，所以这里我们首先说明同步扩展。
+首先，我们将展示扩展的 Dart 部分以及加载扩展时发生的函数调用序列。然后我们将解释如何使用 Dart 中嵌入的
+API ，解释本地代码，以及描述扩展被调用时会发生了什么。</p>
 
-<p>Here is the Dart part of the synchronous extension, called
-<b>sample_synchronous_extension.dart</b>:</p>
+<p>这是同步扩展的 Dart 部分，文件名
+<b>sample_synchronous_extension.dart</b>：</p>
 
 <pre class="prettyprint lang-dart">library sample_synchronous_extension;
 
@@ -320,30 +298,27 @@ import 'dart-ext:sample_extension';
 int systemRand() native "SystemRand";
 bool systemSrand(int seed) native "SystemSrand";</pre>
 
-<p>The code that implements a native extension executes at two different times.
-First, it runs when the native extension is loaded. Later, it runs when a
-function with a native implementation is called.</p>
+<p>本地扩展的代码存在两个不同的执行时间。首先，它会在本地扩展加载的时候执行。后面，它会在
+本地扩展实现被调用时执行。</p>
 
-<p>Here is the sequence of events at load time, when a Dart app that imports
-sample_synchronous_extension.dart starts running:</p>
+<p>下面是加载时的事件序列，当一个 Dart 应用导入 sample_synchronous_extension.dart 时开始执行：</p>
 
 <ol>
-  <li>The Dart library sample_synchronous_extension.dart is loaded, and the
-  Dart VM hits the code <b><code>import 'dart-ext:sample_extension'</code></b>.</li>
-  <li>The VM loads the shared library ‘sample_extension’ from the directory
-  containing the Dart library.</li>
-  <li>The function sample_extension_Init() in the shared library is called.
-  It registers the shared library function ResolveName() as the name resolver
-  for all native functions in the library sample_extension.dart. We’ll see what
-  the name resolver does when we look at synchronous native functions, below.</li>
+  <li>Dart 库 sample_synchronous_extension.dart 被加载，Dart VM 处理
+  <b><code>import 'dart-ext:sample_extension'</code></b> 代码。</li>
+  <li>Dart VM 从 Dart 库的目录中加载共享库 ‘sample_extension’ 。</li>
+  <li>共享库中的 sample_extension_Init() 函数被调用。它将共享库函数 ResolveName() 注册为
+  sample_extension.dart 库中所有本地函数的名称解析器。通过解析器可以查找 Dart 中对应的同步
+  扩展的本地函数。</li>
 </ol>
 
 <aside class="alert alert-info">
-<strong>Note:</strong>
-The filename of the shared library depends on the platform. On Windows,
-the VM loads sample_extension.dll, on Linux it loads libsample_extension.so,
-and on Mac it loads libsample_extension.dylib. We show how to build and link
-these shared libraries in an appendix at the end of the article.
+<strong>提示：</strong>
+共享库的文件名取决于平台。
+在 Windows 上，VM 加载 sample_extension.dll ，
+在 Linux 上加载 libsample_extension.so ，
+在 Mac 上加载 libsample_extension.dylib 。
+我们将在本文末尾的附录中展示如何构建和链接这些共享库。
 </aside>
 
 <h2 id="using-the-dart-embedding-api-from-native-code">
@@ -777,7 +752,7 @@ generated when building dart and is included in the Dart SDK.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/12/09 12:38 CST"
+                 title="Site built on 2018/12/17 15:28 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
