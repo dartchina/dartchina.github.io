@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The tools that you get when you download the Dart SDK.">
-  <title>Tools for Server-Side Development | Dart</title>
+  <meta name="description" content="Learn how to benchmark your applications">
+  <title>Benchmarking the Dart VM | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,17 +18,17 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="Tools for Server-Side Development" />
-  <meta name="twitter:description" content="The tools that you get when you download the Dart SDK." />
+  <meta name="twitter:title" content="Benchmarking the Dart VM" />
+  <meta name="twitter:description" content="Learn how to benchmark your applications" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Tools for Server-Side Development" />
-  <meta property="og:description" content="The tools that you get when you download the Dart SDK." />
-  <meta property="og:url" content="https://www.dartlang.org/dart-vm/tools/" />
+  <meta property="og:title" content="Benchmarking the Dart VM" />
+  <meta property="og:description" content="Learn how to benchmark your applications" />
+  <meta property="og:url" content="https://www.dartlang.org/articles/server/benchmarking" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-743789fa2eea1d0b842284e7e29077de7c7f755aa88e291b7b8bf324a4a2a14b.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-ae5a1f5445adb3a3d545e29df5118c4a74530bb3bf24d53b35897ced883dae0f.css">
   <script src="/assets/main-3e89b739cc750412e013252d8b4ced20af281589ffe69a156e6c279177f81069.js" type="text/javascript"></script>
   <script>
 
@@ -45,7 +45,7 @@ ga('send', 'pageview');
 
 </head>
 
-  <body class="default hide_toc">
+  <body class="default obsolete">
     <header id="page-header">
   <nav id="mainnav">
   <div id="menu-toggle"><i class="icon icon-menu"></i></div>
@@ -64,7 +64,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/dart-vm/tools/" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/server/benchmarking" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
 
         <li role="separator" class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
@@ -83,6 +83,12 @@ ga('send', 'pageview');
   </ul>
 </nav>
 
+  
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
+  </div>
   
 </header>
 
@@ -133,8 +139,8 @@ ga('send', 'pageview');
           <a href="https://flutterchina.club" title="移动端 (Flutter中文网)">移动端 (Flutter中文网)</a>
         </li><li >
           <a href="https://webdev.dartlang.org" title="Web">Web</a>
-        </li><li class="active">
-          <a href="/dart-vm" title="服务器">服务器</a>
+        </li><li >
+          <a href="/server" title="服务器">服务器</a>
         </li>
   </ul><h4 ><a href="/guides/testing" title="测试">测试</a></h4>
   <ul>
@@ -142,10 +148,10 @@ ga('send', 'pageview');
   <ul><li >
           <a href="/install" title="安装">安装</a>
         </li><li >
-          <a href="/codelabs" title="Codelabs">Codelabs</a>
+          <a href="/codelabs" title="Codelab">Codelab</a>
         </li><li >
           <a href="/tutorials" title="学习指南">学习指南</a>
-        </li><li >
+        </li><li class="active">
           <a href="/articles" title="文章">文章</a>
         </li><li >
           <a href="/tools" title="工具">工具</a>
@@ -157,6 +163,26 @@ ga('send', 'pageview');
 </div>
 
       
+<div id="toc">
+  <div class="content">
+    <header class="h4 text-uppercase">
+      目录
+      <a title="Back to top" class="back-to-top float-right mr-3">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </header>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#benchmarking-dart">Benchmarking Dart</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#use-the-benchmark-harness">Use the benchmark harness</a></li>
+<li class="toc-entry toc-h3"><a href="#run-in-production-mode">Run in production mode</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#summary">Summary</a></li>
+</ul>
+  </div>
+</div>
+
 
       <article>
         <div class="content">
@@ -173,12 +199,12 @@ ga('send', 'pageview');
 
           <div>
             <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
-  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/dart-vm/tools/index.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/server/benchmarking.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Tools for Server-Side Development' page issue&body=
-Page URL: https://www.dartlang.org/dart-vm/tools/%0D%0A
-Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/dart-vm/tools/index.md%0D%0A
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Benchmarking the Dart VM' page issue&body=
+Page URL: https://www.dartlang.org/articles/server/benchmarking%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/server/benchmarking.md%0D%0A
 %0D%0A
 <!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
     target="_blank" rel="noopener">
@@ -186,40 +212,138 @@ Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/d
   </a>
 </div>
 
-            <h1>Tools for Server-Side Development</h1>
+            <h1>Benchmarking the Dart VM</h1>
           </div>
-          <p>When you install the <a href="/tools/sdk">Dart SDK</a>, you get all the command-line tools
-that you need to write Dart servers and command-line scripts.</p>
+          <p><em>Written by John McCutchan <br>
+October 2012 (updated November 2012; note updated July 2018)</em></p>
 
-<p>The following tools have special support for running scripts and servers.</p>
+<aside class="alert alert-warning">
+  <p>This article still has valid information, but it was initially targeted for
+  the standalone VM under the 1.x Dart SDK.  It does not reflect Flutter,
+  nor does it reflect changes in <a href="/dart-2">Dart 2</a>.
+  For example, this article mentions Dartium, which
+  <a href="https://webdev.dartlang.org/dart-2#tools">doesn’t work with Dart 2.</a>
+  Also, checked mode and production mode no longer exist; development modes vary
+  by platform, as you can see from the
+  <a href="/guides/language/language-tour#assert">assert section</a> of the language tour.
+  For information about Flutter benchmarking, see the
+  <a href="https://flutterchina.club/ui-performance/">Flutter performance page.</a></p>
+</aside>
 
-<dl>
-  <dt><a href="/dart-vm/tools/dart-vm">Standalone Dart VM: <code class="highlighter-rouge">dart</code></a></dt>
-  <dd>Executes Dart code.
-IDEs that support Dart,
-and some of the <code class="highlighter-rouge">pub</code> commands, use this
-command behind-the-scenes to execute Dart scripts.
-Note that you must configure your IDE with the location of
-the <code class="highlighter-rouge">dart</code> binary.</dd>
-  <dt><a href="/tools/pub">Pub package manager: <code class="highlighter-rouge">pub</code></a></dt>
-  <dd>Simplifies downloading and running scripts,
-with commands such as <code class="highlighter-rouge">pub get</code>, <code class="highlighter-rouge">pub global activate</code>, <code class="highlighter-rouge">pub global run</code>,
-and <code class="highlighter-rouge">pub run</code>.</dd>
-</dl>
+<p>Programmers often create benchmarks that exercise an important algorithm in a
+larger application. The point of the benchmark is to have an easy to run,
+reproducible stress test of the performance-sensitive algorithm.
+The benchmark verifies that changes to the algorithm are indeed
+improvements, and not regressions.</p>
 
-<p>Other SDK tools that are handy for script and server development include:</p>
+<h2 id="benchmarking-dart">
+<a id="benchmarking-dart" class="anchor" href="#benchmarking-dart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmarking Dart</h2>
 
-<ul>
-  <li><a href="https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer"><code class="highlighter-rouge">dartanalyzer</code></a>:
-Statically analyzes code, helping you catch errors early.</li>
-  <li><a href="https://github.com/dart-lang/dart_style#readme"><code class="highlighter-rouge">dartfmt</code></a>:
-Applies style guidelines to Dart code.</li>
-  <li><a href="https://github.com/dart-lang/dartdoc#dartdoc"><code class="highlighter-rouge">dartdoc</code></a>:
-Generates API reference documentation.</li>
-</ul>
+<p>Dart can go really fast, but you have to give the VM time to optimize your code.
+Most benchmarks we’ve seen are short and to the point—so short that they don’t
+trigger the VM’s optimizer. This isn’t an issue with real-world applications,
+which execute long enough to be optimized.
+Read on to find out how to use the benchmark_harness library
+to properly run a Dart benchmark.</p>
 
-<p>For more information, including tools outside the Dart SDK, see
-<a href="/tools">Dart Tools</a>.</p>
+<h3 id="use-the-benchmark-harness">
+<a id="use-the-benchmark-harness" class="anchor" href="#use-the-benchmark-harness" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use the benchmark harness</h3>
+
+<p>The Dart team has provided an official benchmark harness that ensures
+your benchmark follows the benchmarking procedures necessary
+for the Dart VM’s optimizer.</p>
+
+<p>The harness is available as a pub package and is incredibly easy to use.</p>
+
+<ol>
+<li>
+    <p>Add the following to your pubspec.yaml, and run <code class="highlighter-rouge">pub get</code>:</p>
+
+    <pre class="prettyprint lang-yaml">dependencies:
+  benchmark_harness: "&gt;=1.0.0 &lt;2.0.0"</pre>
+  </li>
+
+<li>
+    <p>Copy the following template, which creates a class extending
+    <code class="highlighter-rouge">BenchmarkBase</code>:</p>
+
+    <pre class="prettyprint lang-dart">// Import BenchmarkBase class.
+import 'package:benchmark_harness/benchmark_harness.dart';
+
+// Create a new benchmark by extending BenchmarkBase.
+class TemplateBenchmark extends BenchmarkBase {
+  const TemplateBenchmark() : super("Template");
+
+  static void main() {
+    new TemplateBenchmark().report();
+  }
+
+  // The benchmark code.
+  void run() {
+  }
+
+  // Not measured: setup code executed before the benchmark runs.
+  void setup() { }
+
+  // Not measured: teardown code executed after the benchmark runs.
+  void teardown() { }
+}
+
+// Main function runs the benchmark.
+main() {
+  // Run TemplateBenchmark.
+  TemplateBenchmark.main();
+}</pre>
+  </li>
+</ol>
+
+<h4 id="output">Output</h4>
+
+<p>The benchmark will output something like the following:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Template(RunTime): 0.1568472448997197 µs.
+</code></pre></div></div>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+µs is an abbreviation for microseconds. A microsecond is one millionth of a
+second.</p>
+</aside>
+
+<h3 id="run-in-production-mode">
+<a id="run-in-production-mode" class="anchor" href="#run-in-production-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run in production mode</h3>
+
+<p>The Dart VM can run in two modes: checked and production mode.
+Checked mode is slower because the VM is checking types at runtime.
+Before benchmarking make sure that your code runs without issue in checked mode.
+If checked mode finds an issue,
+it will likely cause a performance problem in production mode.
+After making sure your program is correct,
+you should run your benchmark in production mode
+to get an accurate measurement of real world performance.</p>
+
+<p>When executing from the command line checked mode is off by default and can be
+turned on by passing the
+<a href="https://v1-dartlang-org.firebaseapp.com/server/tools/dart-vm#enabling-checked-mode"><code class="highlighter-rouge">--checked</code></a> command line flag.
+WebStorm has checked mode on by default but can be turned off by
+going to <strong>Preferences</strong> &gt; <strong>Languages &amp; Frameworks</strong> &gt; <strong>Dart</strong>
+and toggling the <strong>Start Dartium in checked mode</strong> checkbox.</p>
+
+<h2 id="summary">
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h2>
+
+<p>When benchmarking your application be sure to follow these three rules:</p>
+
+<ol>
+  <li>Use the official benchmarking harness.</li>
+  <li>Ensure the code does not raise any errors when run in checked mode.</li>
+  <li>Run your benchmark in production mode.</li>
+</ol>
+
+<p>If you follow these rules you will be able to accurately measure how fast your
+code runs. Once you’ve sped up your application, share your secrets on the
+<a href="https://groups.google.com/a/dartlang.org/forum/?fromgroups#!forum/misc" data-proofer-ignore="">mailing list</a>.
+Happy benchmarking!</p>
 
           
 
@@ -247,7 +371,7 @@ Generates API reference documentation.</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/12/19 12:03 CST"
+                 title="Site built on 2019/01/02 11:08 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -260,7 +384,7 @@ Generates API reference documentation.</li>
           <ul>
             <li><a href="https://flutterchina.club">Dart 移动开发 (Flutter)</a></li>
             <li><a href="https://webdev.dartlang.org">Dart web 开发</a></li>
-            <li><a href="/dart-vm">Dart 服务器开发</a></li>
+            <li><a href="/server">Dart 服务器开发</a></li>
             <li><a href="https://dart-lang.github.io/observatory/">Observatory 工具</a></li>
             <li><a href="/guides/libraries">Dart 库</a></li>
             <li><a href="/guides/language">Dart 编程语言</a></li>

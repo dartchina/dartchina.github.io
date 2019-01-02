@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The reference page for 'dart' at the command line.">
-  <title>dart | Dart</title>
+  <meta name="description" content="The server-side Dart tutorials show how to develop scripts and server apps for the standalone Dart VM.">
+  <title>Server-Side Dart Tutorials | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,17 +18,17 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="dart: The Standalone VM" />
-  <meta name="twitter:description" content="The reference page for 'dart' at the command line." />
+  <meta name="twitter:title" content="Server-Side Dart Tutorials" />
+  <meta name="twitter:description" content="The server-side Dart tutorials show how to develop scripts and server apps for the standalone Dart VM." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="dart: The Standalone VM" />
-  <meta property="og:description" content="The reference page for 'dart' at the command line." />
-  <meta property="og:url" content="https://www.dartlang.org/dart-vm/tools/dart-vm" />
+  <meta property="og:title" content="Server-Side Dart Tutorials" />
+  <meta property="og:description" content="The server-side Dart tutorials show how to develop scripts and server apps for the standalone Dart VM." />
+  <meta property="og:url" content="https://www.dartlang.org/tutorials/server" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-743789fa2eea1d0b842284e7e29077de7c7f755aa88e291b7b8bf324a4a2a14b.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-ae5a1f5445adb3a3d545e29df5118c4a74530bb3bf24d53b35897ced883dae0f.css">
   <script src="/assets/main-3e89b739cc750412e013252d8b4ced20af281589ffe69a156e6c279177f81069.js" type="text/javascript"></script>
   <script>
 
@@ -45,7 +45,7 @@ ga('send', 'pageview');
 
 </head>
 
-  <body class="default">
+  <body class="default hide_toc">
     <header id="page-header">
   <nav id="mainnav">
   <div id="menu-toggle"><i class="icon icon-menu"></i></div>
@@ -64,7 +64,7 @@ ga('send', 'pageview');
       <ul class="dropdown-menu">
         
 
-<li><a href="https://v1-dartlang-org.firebaseapp.com/dart-vm/tools/dart-vm" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/server" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
 
         <li role="separator" class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
@@ -133,8 +133,8 @@ ga('send', 'pageview');
           <a href="https://flutterchina.club" title="移动端 (Flutter中文网)">移动端 (Flutter中文网)</a>
         </li><li >
           <a href="https://webdev.dartlang.org" title="Web">Web</a>
-        </li><li class="active">
-          <a href="/dart-vm" title="服务器">服务器</a>
+        </li><li >
+          <a href="/server" title="服务器">服务器</a>
         </li>
   </ul><h4 ><a href="/guides/testing" title="测试">测试</a></h4>
   <ul>
@@ -142,8 +142,8 @@ ga('send', 'pageview');
   <ul><li >
           <a href="/install" title="安装">安装</a>
         </li><li >
-          <a href="/codelabs" title="Codelabs">Codelabs</a>
-        </li><li >
+          <a href="/codelabs" title="Codelab">Codelab</a>
+        </li><li class="active">
           <a href="/tutorials" title="学习指南">学习指南</a>
         </li><li >
           <a href="/articles" title="文章">文章</a>
@@ -157,26 +157,6 @@ ga('send', 'pageview');
 </div>
 
       
-<div id="toc">
-  <div class="content">
-    <header class="h4 text-uppercase">
-      目录
-      <a title="Back to top" class="back-to-top float-right mr-3">
-        <i class="fas fa-angle-up"></i>
-      </a>
-    </header>
-    <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#basic-usage">Basic usage</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#options">Options</a></li>
-<li class="toc-entry toc-h3"><a href="#observatory-options">Observatory options</a></li>
-<li class="toc-entry toc-h3"><a href="#snapshot-option">Snapshot option</a></li>
-</ul>
-</li>
-</ul>
-  </div>
-</div>
-
 
       <article>
         <div class="content">
@@ -190,15 +170,28 @@ ga('send', 'pageview');
 </div>
  
           
+<nav id="subnav">
+  <ul>
+    <li class="previous">
+      
+    </li>
+    <li class="next">
+      
+        <a href="/tutorials/server/get-started">Get Started&nbsp;&nbsp;&rang;</a>
+      
+    </li>
+  </ul>
+</nav>
+
 
           <div>
             <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
-  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/dart-vm/tools/dart-vm.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_tutorials/server/index.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='dart: The Standalone VM' page issue&body=
-Page URL: https://www.dartlang.org/dart-vm/tools/dart-vm%0D%0A
-Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/dart-vm/tools/dart-vm.md%0D%0A
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Server-Side Dart Tutorials' page issue&body=
+Page URL: https://www.dartlang.org/tutorials/server%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_tutorials/server/index.md%0D%0A
 %0D%0A
 <!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
     target="_blank" rel="noopener">
@@ -206,114 +199,52 @@ Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/d
   </a>
 </div>
 
-            <h1>dart: The Standalone VM</h1>
+            <h1>Server-Side Dart Tutorials</h1>
           </div>
-          <p>You can use the <em>dart</em> tool (<code class="highlighter-rouge">bin/dart</code>) to run Dart command-line apps such as
-server-side scripts, programs, and servers.</p>
+          <p>The following tutorials show how to develop scripts and server apps for
+the standalone Dart VM.</p>
 
-<h2 id="basic-usage">
-<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic usage</h2>
+<p>For tutorials relating to the Dart language and its libraries,
+see <a href="/tutorials">Dart Tutorials</a>.</p>
 
-<p>Here’s an example of running a Dart file on the command line:</p>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <h3><a href="/tutorials/server/get-started">Get Started</a></h3>
+      <p>Get Dart. Create a simple standalone app.</p>
+    </div>
+  </div>
 
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> dart <span class="nt">--enable-asserts</span> test.dart
-</code></pre></div></div>
+  <div class="col-lg-6">
+    <div class="card">
+      <h3><a href="/tutorials/server/cmdline">Write Command-line Apps</a></h3>
+      <p>Learn about features that command-line apps need.</p>
+    </div>
+  </div>
 
-<aside class="alert alert-info">
-  <p><strong>Note:</strong> You can’t use <code class="highlighter-rouge">dart</code> to run mobile apps or web apps
-(apps that include <code class="highlighter-rouge">dart:html</code>, or that depend on libraries
-that use the browser environment).</p>
-</aside>
+  <div class="col-lg-6">
+    <div class="card">
+      <h3><a href="/tutorials/server/httpserver">Write HTTP Clients and Servers</a></h3>
+      <p>Communicate over the internet.</p>
+    </div>
+  </div>
+</div>
 
-<h3 id="options">
-<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h3>
-
-<p>Common command-line options for dart include:</p>
-
-<dl>
-  <dt><code class="highlighter-rouge">--enable-asserts</code></dt>
-  <dd>Enables <code class="highlighter-rouge">assert</code> statements. When asserts are enabled, an
-<a href="/guides/language/language-tour#assert">assert statement</a>
-checks a boolean condition, raising an exception if the condition is false.</dd>
-  <dt><code class="highlighter-rouge">--packages=&lt;path&gt;</code></dt>
-  <dd>Specifies the path to the package resolution configuration file.
-For more information, see
-<a href="https://github.com/lrhn/dep-pkgspec/blob/master/DEP-pkgspec.md">Package Resolution Configuration File</a>.
-<em>This option cannot be used with <code class="highlighter-rouge">--package-root</code>.</em>
-</dd>
-  <dt>
-<code class="highlighter-rouge">-p &lt;path&gt;</code> or <code class="highlighter-rouge">-package-root=&lt;path&gt;</code>
-</dt>
-  <dd>Specifies where to find imported libraries.
-<em>This option cannot be used with <code class="highlighter-rouge">--packages</code>.</em>
-</dd>
-  <dt><code class="highlighter-rouge">--old_gen_heap_size=&lt;num&gt;</code></dt>
-  <dd>Sets the upper limit of
-<a href="https://dart-lang.github.io/observatory/glossary#old-generation">old space</a> to <code class="highlighter-rouge">&lt;num&gt;</code> MB.</dd>
-  <dt><code class="highlighter-rouge">--version</code></dt>
-  <dd>Displays VM version information.</dd>
-  <dt>
-<code class="highlighter-rouge">-h</code> or <code class="highlighter-rouge">--help</code>
-</dt>
-  <dd>Displays help. (Add <code class="highlighter-rouge">-v</code> for information about all options.)</dd>
-</dl>
-
-<h3 id="observatory-options">
-<a id="observatory-options" class="anchor" href="#observatory-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Observatory options</h3>
-
-<p>Observatory is a tool for profiling and debugging your apps.
-You can use the following flags to enable Observatory and to
-instruct the VM to delay the start up, or the exit, of an isolate:</p>
-
-<dl>
-  <dt><code class="highlighter-rouge">--enable-vm-service</code></dt>
-  <dd>Enables Observatory on localhost port 8181.</dd>
-  <dt><code class="highlighter-rouge">--enable-vm-service=&lt;port&gt;</code></dt>
-  <dd>Enables Observatory on localhost for the specific port.</dd>
-  <dt><code class="highlighter-rouge">--enable-vm-service=&lt;port&gt;/&lt;IP address&gt;</code></dt>
-  <dd>Enables Observatory on an external network using the specified
-IP address and port. For example:
-<code class="highlighter-rouge">--enable-vm-service=9999/0.0.0.0</code>
-</dd>
-  <dt><code class="highlighter-rouge">--pause-isolates-on-exit</code></dt>
-  <dd>Causes the VM to pause each isolate that would otherwise exit.
-If your standalone app executes quickly,
-it might exit before you can open Observatory. To avoid this situation,
-specify this flag on startup.  You must explicitly release all isolates
-in the <a href="https://dart-lang.github.io/observatory/debugger.html">Observatory debugger</a>.</dd>
-  <dt><code class="highlighter-rouge">--pause-isolates-on-start</code></dt>
-  <dd>Causes the VM to pause before starting any isolate.
-You must explicitly start each isolate in the
-<a href="https://dart-lang.github.io/observatory/debugger.html">Observatory debugger</a>.</dd>
-  <dt><code class="highlighter-rouge">--observe</code></dt>
-  <dd>A shortcut that combines <code class="highlighter-rouge">--enable-vm-service</code> and
-<code class="highlighter-rouge">--pause-isolates-on-exit</code>.</dd>
-  <dt><code class="highlighter-rouge">--profile</code></dt>
-  <dd>On Windows, Observatory’s
-<a href="https://dart-lang.github.io/observatory/cpu-profile.html">CPU Profiler</a> screen
-is disabled by default. Use this option to enable it.</dd>
-</dl>
-
-<p>The following is an example Observatory run:</p>
-
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> dart <span class="nt">--observe</span> &lt;script&gt;.dart
-</code></pre></div></div>
-
-<p>For more information, see <a href="https://dart-lang.github.io/observatory/">Observatory.</a></p>
-
-<h3 id="snapshot-option">
-<a id="snapshot-option" class="anchor" href="#snapshot-option" aria-hidden="true"><span class="octicon octicon-link"></span></a>Snapshot option</h3>
-
-<p>You can also generate snapshots:</p>
-
-<dl>
-  <dt><code class="highlighter-rouge">--snapshot=&lt;filename&gt;</code></dt>
-  <dd>Generates a snapshot in the specified file. For information
-on generating and running snapshots, see
-<a href="https://github.com/dart-lang/sdk/wiki/Snapshots">Snapshots</a> on GitHub.</dd>
-</dl>
 
           
+<nav id="subnav">
+  <ul>
+    <li class="previous">
+      
+    </li>
+    <li class="next">
+      
+        <a href="/tutorials/server/get-started">Get Started&nbsp;&nbsp;&rang;</a>
+      
+    </li>
+  </ul>
+</nav>
+
 
         </div>
       </article>
@@ -339,7 +270,7 @@ on generating and running snapshots, see
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2018/12/19 12:03 CST"
+                 title="Site built on 2019/01/02 11:08 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -352,7 +283,7 @@ on generating and running snapshots, see
           <ul>
             <li><a href="https://flutterchina.club">Dart 移动开发 (Flutter)</a></li>
             <li><a href="https://webdev.dartlang.org">Dart web 开发</a></li>
-            <li><a href="/dart-vm">Dart 服务器开发</a></li>
+            <li><a href="/server">Dart 服务器开发</a></li>
             <li><a href="https://dart-lang.github.io/observatory/">Observatory 工具</a></li>
             <li><a href="/guides/libraries">Dart 库</a></li>
             <li><a href="/guides/language">Dart 编程语言</a></li>
