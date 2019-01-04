@@ -186,15 +186,7 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-           <div class="banner alert alert-info">
-  <p class="banner__text">
-    
-    
-    Dart 2.1 现发布，具有更高的性能和可用性。
-    <a href="https://medium.com/dartlang/announcing-dart-2-1-improved-performance-usability-9f55fca6f31a">了解更多。</a>
-  </p>
-</div>
- 
+          
           
 
           <div>
@@ -280,15 +272,15 @@ Instead, use the <a href="https://github.com/dart-lang/build/tree/master/docs">n
 <h2 id="migration">
 <a id="migration" class="anchor" href="#migration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Migrating your code</h2>
 
-<p>First, see the migration guide for your platform:</p>
-
-<ul>
-  <li><a href="https://github.com/flutter/flutter/wiki/Dart-2-Migration">Flutter migration guide</a></li>
-  <li><a href="https://webdev.dartlang.org/dart-2">Web app migration guide</a></li>
-</ul>
-
-<p>If you publish packages, then also see the
-<a href="#migrating-packages">package migration instructions below.</a></p>
+<p>How to migrate your code depends on how old your code is
+and what platforms it runs on.
+For help with migrating web apps,
+see the <a href="https://webdev.dartlang.org/dart-2">web app migration guide.</a>
+If you’re migrating a Flutter app,
+consult the <a href="https://groups.google.com/forum/#!topic/flutter-dev/H8dDhWg_c8I">breaking change notification.</a>
+If you publish packages,
+then in addition to making platform-specific changes,
+follow the <a href="#migrating-packages">package migration instructions below</a>.</p>
 
 <h3 id="general-process">
 <a id="general-process" class="anchor" href="#general-process" aria-hidden="true"><span class="octicon octicon-link"></span></a>General process</h3>
@@ -298,9 +290,10 @@ from either Dart 1.x or an earlier version of Dart 2.</p>
 
 <ol>
   <li>
-<strong>Get an up-to-date version of the Flutter or Dart SDK.</strong>
+<strong>Get an up-to-date version of the Flutter or Dart SDK
+and the plugins for any IDEs you use.</strong>
     <ul>
-      <li><a href="https://flutter.io/upgrading/">Flutter SDK instructions</a></li>
+      <li><a href="https://flutter.io/docs/development/tools/sdk/upgrading">Flutter SDK upgrade instructions</a></li>
       <li>
 <a href="/tools/sdk#install">Dart SDK instructions</a> (server-side or web)</li>
     </ul>
@@ -308,7 +301,7 @@ from either Dart 1.x or an earlier version of Dart 2.</p>
   <li>
 <strong>Upgrade the packages your app depends on.</strong>
     <ul>
-      <li>Flutter: <a href="https://flutter.io/using-packages/#updating-package-dependencies"><code class="highlighter-rouge">flutter packages upgrade</code></a>
+      <li>Flutter: <a href="https://flutter.io/docs/development/packages-and-plugins/using-packages#updating-package-dependencies"><code class="highlighter-rouge">flutter packages upgrade</code></a>
 </li>
       <li>Server-side or web: <a href="/tools/pub/get-started#upgrading-a-dependency"><code class="highlighter-rouge">pub upgrade</code></a>
 </li>
@@ -321,8 +314,8 @@ usages of deprecated Dart 1.x APIs to Dart 2.</li>
 <strong>Run the analyzer</strong> to find <a href="/guides/language/sound-problems#static-errors-and-warnings">compile-time errors</a>
 and deprecation hints.
     <ul>
-      <li>Flutter: <a href="https://flutter.io/debugging/#the-dart-analyzer"><code class="highlighter-rouge">flutter analyze</code></a>
-</li>
+      <li>Flutter: <a href="https://flutter.io/docs/testing/debugging/#the-dart-analyzer"><code class="highlighter-rouge">flutter analyze</code></a>
+or use the problems view in Android Studio/IntelliJ or VS Code.</li>
       <li>Server-side or web: <a href="https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer"><code class="highlighter-rouge">dartanalyzer</code></a>
 </li>
     </ul>
@@ -357,7 +350,7 @@ Consider adding automated tests to catch issues that you find.</li>
 
 <ul>
   <li>Follow the migration tips for the platforms that your package supports
-(see above).</li>
+(see <a href="#migration">above</a>).</li>
   <li>Make sure your package passes Dart 2 analysis (see <strong>Run the analyzer</strong> above)</li>
   <li>Make sure your package’s users know how to report issues.</li>
   <li>Respond quickly to issue reports.</li>
@@ -452,7 +445,7 @@ using Travis to perform continuous integration (CI) testing</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/01/02 11:08 CST"
+                 title="Site built on 2019/01/04 18:39 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

@@ -194,15 +194,7 @@ ga('send', 'pageview');
 
       <article>
         <div class="content">
-           <div class="banner alert alert-info">
-  <p class="banner__text">
-    
-    
-    Dart 2.1 现发布，具有更高的性能和可用性。
-    <a href="https://medium.com/dartlang/announcing-dart-2-1-improved-performance-usability-9f55fca6f31a">了解更多。</a>
-  </p>
-</div>
- 
+          
           
 
           <div>
@@ -497,8 +489,8 @@ Dart 线程。</p>
 <p>在从 Dart 调用这个 C 函数之前，我们将它放到了一个包装器中，这个包装器用于解包 Dart_CObject 中包含的
 随机种子和要生成的随机数长度，以及包装返回结果到 Dart_CObject 中。 Dart_CObject 可以包含一个整数
 （任意大小值），一个浮点数，一个字符串或者一个 Dart_CObject 数组。Dart_CObject 在
-<a href="https://github.com/dart-lang/sdk/blob/master/runtime/include/dart_api.h">dart_api.h</a> 中
-实现，是一个包含 union 的结构体。查看 dart_api.h 来查找用于访问的 union 成员字段和标记。发送
+<a href="https://github.com/dart-lang/sdk/blob/master/runtime/include/dart_native_api.h">dart_native_api.h</a> 中
+实现，是一个包含 union 的结构体。查看 dart_native_api.h 来查找用于访问的 union 成员字段和标记。发送
 Dart_CObject 之后，可以释放 Dart_CObject 及其所有资源，因为它们已经被复制到了 Dart 堆上的 Dart
 对象中。</p>
 
@@ -710,7 +702,7 @@ libsample_extension.so sample_extension.o</pre>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/01/02 11:08 CST"
+                 title="Site built on 2019/01/04 18:39 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
