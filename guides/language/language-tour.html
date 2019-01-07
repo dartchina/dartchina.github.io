@@ -1191,7 +1191,7 @@ add <code class="highlighter-rouge">const</code> before the map literal:</p>
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
-在箭头 (=&gt;) 和冒号 (;) 之间只能使用一个 <em>表达式</em>—不能是 <em>语句</em>。
+在箭头 (=&gt;) 和分号 (;) 之间只能使用一个 <em>表达式</em> ，不能是 <em>语句</em> 。
 例如：不能使用 <a href="#if-%E5%92%8C-else">if
 语句</a> ，但是可以是用 
 <a href="#conditional-expressions">条件表达式</a>.</p>
@@ -1233,7 +1233,7 @@ void enableFlags({bool bold, bool hidden}) {...}</pre>
 <?code-excerpt "misc/lib/language_tour/functions.dart (required-named-parameters)" replace="/@required/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">const Scrollbar({Key key, <span class="highlight">@required</span> Widget child})</pre>
 
-<p>此时 <code class="highlighter-rouge">Scrollbar</code> 是一个构造函数， 当 <code class="highlighter-rouge">child</code> 参数缺少是，分析器会提示错误。</p>
+<p>此时 <code class="highlighter-rouge">Scrollbar</code> 是一个构造函数， 当 <code class="highlighter-rouge">child</code> 参数缺少时，分析器会提示错误。</p>
 
 <p><a href="https://pub.dartlang.org/documentation/meta/latest/meta/required-constant.html">Required</a> 被定义在 <a href="https://pub.dartlang.org/packages/meta">meta</a> package。 无论是直接引入（import）
 <code class="highlighter-rouge">package:meta/meta.dart</code> ，或者引入了其他 package，而这个 package 输出（export）了
@@ -1462,16 +1462,15 @@ void main() {
 <h3 id="词法闭包">
 <a id="词法闭包" class="anchor" href="#%E8%AF%8D%E6%B3%95%E9%97%AD%E5%8C%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>词法闭包</h3>
 
-<p><em>闭包</em> 即一个函数对象，不管该汗水对象在何处被调用，
-该函数都可以访问其作用域内的变量。</p>
+<p><em>闭包</em> 即一个函数对象，即使函数对象的调用在它原始作用域之外，
+依然能够访问在它词法作用域内的变量。</p>
 
 <p>函数可以封闭定义到它作用域内的变量。 接下来的示例中，
 <code class="highlighter-rouge">makeAdder()</code> 捕获了变量 <code class="highlighter-rouge">addBy</code>。 
 无论在什么时候执行返回函数，函数都会使用捕获的 <code class="highlighter-rouge">addBy</code> 变量。</p>
 
 <?code-excerpt "misc/test/language_tour/functions_test.dart (function-closure)"?>
-<pre class="prettyprint lang-dart">/// 返回一个函数，该函数将函数的参与与 [addBy]
-相加。
+<pre class="prettyprint lang-dart">/// 返回一个函数，返回的函数参数与 [addBy] 相加。
 Function makeAdder(num addBy) {
   return (num i) =&gt; addBy + i;
 }
@@ -4278,7 +4277,7 @@ documentation.</a>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/01/04 18:39 CST"
+                 title="Site built on 2019/01/07 11:51 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
