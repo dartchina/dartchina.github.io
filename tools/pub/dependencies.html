@@ -358,7 +358,7 @@ specifies its URL:</p>
 <h3 id="git-packages">
 <a id="git-packages" class="anchor" href="#git-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git packages</h3>
 
-<p>Sometimes you live on the bleeding edge and you need to use packages that
+<p>Sometimes you live on the bleeding edge and need to use packages that
 haven’t been formally released yet. Maybe your package itself is still in
 development and is using other packages that are being developed at the
 same time. To make that easier, you can depend directly on a package
@@ -371,8 +371,16 @@ stored in a <a href="http://git-scm.com/">Git</a> repository.</p>
 <p>The <code class="highlighter-rouge">git</code> here says this package is found using Git, and the URL after that is
 the Git URL that can be used to clone the package.</p>
 
-<p>If you want to depend on a specific commit, branch, or tag, you can also
-provide a <code class="highlighter-rouge">ref</code> argument:</p>
+<p>Even if the package repo is private, if you can
+<a href="https://help.github.com/articles/connecting-to-github-with-ssh/">connect to the repo using SSH,</a>
+then you can depend on the package by using the repo’s SSH URL:</p>
+
+<pre class="prettyprint lang-yaml">dependencies:
+  kittens:
+    git: git@github.com:munificent/kittens.git</pre>
+
+<p>If you want to depend on a specific commit, branch, or tag,
+add a <code class="highlighter-rouge">ref</code> argument:</p>
 
 <pre class="prettyprint lang-yaml">dependencies:
   kittens:
@@ -380,10 +388,10 @@ provide a <code class="highlighter-rouge">ref</code> argument:</p>
       url: git://github.com/munificent/kittens.git
       ref: some-branch</pre>
 
-<p>The ref can be anything that Git allows to <a href="http://www.kernel.org/pub/software/scm/git/docs/user-manual.html#naming-commits">identify a commit</a>.</p>
+<p>The ref can be anything that Git allows to <a href="http://www.kernel.org/pub/software/scm/git/docs/user-manual.html#naming-commits">identify a commit.</a></p>
 
-<p>Pub assumes that the package is in the root of the Git repository.  To specify a different
-location in the repo use the <code class="highlighter-rouge">path</code> argument:</p>
+<p>Pub assumes that the package is in the root of the Git repository.
+To specify a different location in the repo, use the <code class="highlighter-rouge">path</code> argument:</p>
 
 <pre class="prettyprint lang-yaml">dependencies:
   kittens:
@@ -630,7 +638,7 @@ to differentiate versions. <a href="#fnref:semver">↩</a></p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/01/07 11:51 CST"
+                 title="Site built on 2019/01/16 12:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

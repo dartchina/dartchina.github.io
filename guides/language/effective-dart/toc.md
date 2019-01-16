@@ -26,7 +26,7 @@
 
 * <a href='/guides/language/effective-dart/style#%E8%A6%81-%E6%8A%8A-dart-%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E6%94%BE%E5%88%B0%E5%85%B6%E4%BB%96%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E4%B9%8B%E5%89%8D'><strong>要</strong> 把 "dart:" 导入语句放到其他导入语句之前。</a>
 * <a href='/guides/language/effective-dart/style#%E8%A6%81-%E6%8A%8A-package-%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E6%94%BE%E5%88%B0%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E4%B9%8B%E5%89%8D'><strong>要</strong> 把 "package:" 导入语句放到项目相关导入语句之前。</a>
-* <a href='/guides/language/effective-dart/style#%E6%8E%A8%E8%8D%90-%E6%8A%8A%E7%AC%AC%E4%B8%89%E6%96%B9-package-%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E6%94%BE%E5%88%B0%E5%85%B6%E4%BB%96%E8%AF%AD%E5%8F%A5%E4%B9%8B%E5%89%8D'><strong>推荐</strong> 把"第三方" "package:" 导入语句放到其他语句之前。</a>
+* <a href='/guides/language/effective-dart/style#%E6%8E%A8%E8%8D%90-%E6%8A%8A%E5%A4%96%E9%83%A8%E6%89%A9%E5%B1%95-package-%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E6%94%BE%E5%88%B0%E5%85%B6%E4%BB%96%E8%AF%AD%E5%8F%A5%E4%B9%8B%E5%89%8D'><strong>推荐</strong> 把外部扩展 "package:" 导入语句放到其他语句之前。</a>
 * <a href='/guides/language/effective-dart/style#%E8%A6%81-%E6%8A%8A%E5%AF%BC%E5%87%BAexport%E8%AF%AD%E5%8F%A5%E4%BD%9C%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%8D%95%E7%8B%AC%E7%9A%84%E9%83%A8%E5%88%86%E6%94%BE%E5%88%B0%E6%89%80%E6%9C%89%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E4%B9%8B%E5%90%8E'><strong>要</strong> 把导出（export）语句作为一个单独的部分放到所有导入语句之后。</a>
 * <a href='/guides/language/effective-dart/style#%E8%A6%81-%E6%8C%89%E7%85%A7%E5%AD%97%E6%AF%8D%E9%A1%BA%E5%BA%8F%E6%9D%A5%E6%8E%92%E5%BA%8F%E6%AF%8F%E4%B8%AA%E9%83%A8%E5%88%86%E4%B8%AD%E7%9A%84%E8%AF%AD%E5%8F%A5'><strong>要</strong> 按照字母顺序来排序每个部分中的语句。</a>
 

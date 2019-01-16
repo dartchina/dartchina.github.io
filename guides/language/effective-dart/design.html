@@ -206,7 +206,6 @@ ga('send', 'pageview');
 </li>
 <li class="toc-entry toc-h2"><a href="#构造函数">构造函数</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#推荐-通过定义构造函数创建实例避免使用静态方法">推荐 通过定义构造函数创建实例，避免使用静态方法</a></li>
 <li class="toc-entry toc-h3"><a href="#考虑-在类支持的情况下指定构造函数为--const">考虑 在类支持的情况下，指定构造函数为  const。</a></li>
 </ul>
 </li>
@@ -341,7 +340,6 @@ Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_
   </li>
   <li>
 <a href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" id="markdown-toc-构造函数">构造函数</a>    <ul>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E9%80%9A%E8%BF%87%E5%AE%9A%E4%B9%89%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95" id="markdown-toc-推荐-通过定义构造函数创建实例避免使用静态方法"><strong>推荐</strong> 通过定义构造函数创建实例，避免使用静态方法</a></li>
       <li><a href="#%E8%80%83%E8%99%91-%E5%9C%A8%E7%B1%BB%E6%94%AF%E6%8C%81%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%8C%87%E5%AE%9A%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%BA--const" id="markdown-toc-考虑-在类支持的情况下指定构造函数为--const"><strong>考虑</strong> 在类支持的情况下，指定构造函数为  <code class="highlighter-rouge">const</code>。</a></li>
     </ul>
   </li>
@@ -617,7 +615,7 @@ var regExp = RegExp(pattern, caseSensitive: false);</pre>
 queue.removeFirst();
 window.refresh();</pre>
 
-<p>这样调用的代码看起来就像是要执行某个任务的命令。</p>
+<p>这样，调用的方法读起来会让人觉得是一个执行命令。</p>
 
 <h3 id="考虑-使用名词短语或者非命令式动词短语命名返回数据为主要功能的方法或者函数">
 <a id="考虑-使用名词短语或者非命令式动词短语命名返回数据为主要功能的方法或者函数" class="anchor" href="#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E5%90%8D%E8%AF%8D%E7%9F%AD%E8%AF%AD%E6%88%96%E8%80%85%E9%9D%9E%E5%91%BD%E4%BB%A4%E5%BC%8F%E5%8A%A8%E8%AF%8D%E7%9F%AD%E8%AF%AD%E5%91%BD%E5%90%8D%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE%E4%B8%BA%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95%E6%88%96%E8%80%85%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 使用名词短语或者非命令式动词短语命名返回数据为主要功能的方法或者函数。</h3>
@@ -953,21 +951,6 @@ class _Favorites {
 
 <p>通过声明与类具有相同名称的函数以及附加可选的标识符来创建 Dart 构造函数。 后者附加标示符的
 构造函数被称为<em>命名构造函数</em>。</p>
-
-<h3 id="推荐-通过定义构造函数创建实例避免使用静态方法">
-<a id="推荐-通过定义构造函数创建实例避免使用静态方法" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E9%80%9A%E8%BF%87%E5%AE%9A%E4%B9%89%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 通过定义构造函数创建实例，避免使用静态方法</h3>
-
-<p>使用 <code class="highlighter-rouge">new</code> 或 <code class="highlighter-rouge">const</code> 调用构造函数，它能够传达方法调用的主要目的是返回
-一个类的实例（或者至少是一个其接口的实现）。</p>
-
-<p>命名构造函数能够阐明对象是如何创建的，工厂构造函数也能够让在适当时机构造子
-类或子接口的实例。所以你是_不需要_通过静态方法来创建实例。</p>
-
-<p>尽管如此，从技术上来讲， 一些创建新对象的方法并不像是”类似构造函数”。 
-例如，<a href="https://api.dartlang.org/stable/dart-core/Uri/parse.html"><code class="highlighter-rouge">Uri.parse()</code></a> 是一个静态方法，即使它通过传递参数创
-建了一个新的 URI 对象。 同样，使用静态方法可以更好地读取实现了 [Builder 模式][] 的类。</p>
-
-<p>但在大多数情况下，应该使用构造函数，即便它更冗长。当用户想要一个类的实例时，他们希望的常规方法是通过构造函数来创建。</p>
 
 <h3 id="考虑-在类支持的情况下指定构造函数为--const">
 <a id="考虑-在类支持的情况下指定构造函数为--const" class="anchor" href="#%E8%80%83%E8%99%91-%E5%9C%A8%E7%B1%BB%E6%94%AF%E6%8C%81%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%8C%87%E5%AE%9A%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%BA--const" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 在类支持的情况下，指定构造函数为  <code class="highlighter-rouge">const</code>。</h3>
@@ -1795,7 +1778,7 @@ Duration(
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/01/07 11:51 CST"
+                 title="Site built on 2019/01/16 12:44 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

@@ -175,6 +175,8 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#description">Description</a></li>
 <li class="toc-entry toc-h3"><a href="#authorauthors">Author/Authors</a></li>
 <li class="toc-entry toc-h3"><a href="#homepage">Homepage</a></li>
+<li class="toc-entry toc-h3"><a href="#repository">Repository</a></li>
+<li class="toc-entry toc-h3"><a href="#issue-tracker">Issue tracker</a></li>
 <li class="toc-entry toc-h3"><a href="#documentation">Documentation</a></li>
 <li class="toc-entry toc-h3"><a href="#dependencies">Dependencies</a></li>
 <li class="toc-entry toc-h3"><a href="#executables">Executables</a></li>
@@ -263,8 +265,16 @@ a file named <code class="highlighter-rouge">pubspec.yaml</code> that’s writte
 <a href="#authorauthors"><em>Learn more.</em></a>
 </dd>
   <dt><code class="highlighter-rouge">homepage</code></dt>
-  <dd>Optional.
+  <dd>Optional. URL pointing to the package’s homepage (or source code repository).
 <a href="#homepage"><em>Learn more.</em></a>
+</dd>
+  <dt><code class="highlighter-rouge">repository</code></dt>
+  <dd>Optional. URL pointing to the package’s source code repository.
+<a href="#repository"><em>Learn more.</em></a>
+</dd>
+  <dt><code class="highlighter-rouge">issue_tracker</code></dt>
+  <dd>Optional. URL pointing to an issue tracker for the package.
+<a href="#issue-tracker"><em>Learn more.</em></a>
 </dd>
   <dt><code class="highlighter-rouge">documentation</code></dt>
   <dd>Optional. Can be used to automatically create documentation.
@@ -402,10 +412,28 @@ public.</p>
 <p>This should be a URL pointing to the website for your package.
 For <a href="/tools/pub/dependencies#hosted-packages">hosted packages</a>,
 this URL is linked from the package’s page.
-While this is technically optional <em>please do</em> provide one. It
-helps users understand where your package is coming from. If nothing else, you
-can always use the URL where you host the source code, such as
-<a href="https://github.com">GitHub</a>.</p>
+While providing a <code class="highlighter-rouge">homepage</code> is optional, <em>please provide</em> it or <code class="highlighter-rouge">repository</code>
+(or both). It helps users understand where your package is coming from.</p>
+
+<h3 id="repository">
+<a id="repository" class="anchor" href="#repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repository</h3>
+
+<p>The optional <code class="highlighter-rouge">repository</code> field should contain the URL for your package’s source
+code repository — for example, <code class="highlighter-rouge">https://github.com/&lt;user&gt;/&lt;repository&gt;</code>.
+If you publish your package to pub.dartlang.org, then your package’s page
+displays the repository URL.
+While providing a <code class="highlighter-rouge">repository</code> is optional, <em>please provide</em> it or <code class="highlighter-rouge">homepage</code>
+(or both). It helps users understand where your package is coming from.</p>
+
+<h3 id="issue-tracker">
+<a id="issue-tracker" class="anchor" href="#issue-tracker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issue tracker</h3>
+
+<p>The optional <code class="highlighter-rouge">issue_tracker</code> field should contain a URL for the package’s
+issue tracker, where existing bugs can be viewed and new bugs can be filed.
+The pub.dartlang.org site attempts to display a link to each package’s issue
+tracker, using the value of this field. If <code class="highlighter-rouge">issue_tracker</code> is missing but
+<code class="highlighter-rouge">repository</code> is present and points to GitHub, then pub.dartlang.org uses the
+default issue tracker (<code class="highlighter-rouge">https://github.com/&lt;user&gt;/&lt;repository&gt;/issues</code>).</p>
 
 <h3 id="documentation">
 <a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h3>
@@ -543,7 +571,7 @@ accidentally install packages that need Flutter.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/01/07 11:51 CST"
+                 title="Site built on 2019/01/16 12:23 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

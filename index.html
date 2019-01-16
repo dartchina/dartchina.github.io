@@ -168,8 +168,7 @@ ga('send', 'pageview');
             class='codesample__open-in-dartpad no-automatic-external'
             target='_blank'>在 DartPad 中打开</a>
           <pre class="prettyprint">
-<a tabindex="0" role="button" data-toggle="popover" data-content="Dart has one canonical way to import libraries, and one canonical (and easy) way to install library packages.">import</a> 'dart:async';
-import '<a tabindex="0" role="button" data-toggle="popover" data-content="The whole standard library is meticulously maintained. It has been called “well-crafted” by none other than Erik Meijer.">dart:math</a>' show Random;
+<a tabindex="0" role="button" data-toggle="popover" data-content="Dart has one canonical way to import libraries, and one canonical (and easy) way to install library packages.">import</a> '<a tabindex="0" role="button" data-toggle="popover" data-content="The whole standard library is meticulously maintained. It has been called “well-crafted” by none other than Erik Meijer.">dart:math</a>' show Random;
 
 <a tabindex="0" role="button" data-toggle="popover" data-content="The <code>main()</code> function is the single point of entry.">main()</a> async {
   print('Compute <a tabindex="0" role="button" data-toggle="popover" data-content="Unicode support is baked in.">π</a> using the Monte Carlo method.');
@@ -179,7 +178,7 @@ import '<a tabindex="0" role="button" data-toggle="popover" data-content="The wh
 }
 
 <a tabindex="0" role="button" data-toggle="popover" data-content="Add doc comments like this to flesh out the API reference docs that the SDK’s dartdoc tool generates.">///</a> Generates a stream of increasingly accurate estimates of π.
-Stream<a tabindex="0" role="button" data-toggle="popover" data-content="Generics are optional but extremely useful in large codebases.">&lt;double&gt;</a> computePi(<a tabindex="0" role="button" data-toggle="popover" data-content="Named parameters make call sites more readable.">{int batch: 100000}</a>) <a tabindex="0" role="button" data-toggle="popover" data-content="Dart has language-level support for asynchronous generators.">async*</a> {
+Stream<a tabindex="0" role="button" data-toggle="popover" data-content="Generics are optional but extremely useful in large codebases.">&lt;double&gt;</a> computePi(<a tabindex="0" role="button" data-toggle="popover" data-content="Named parameters make call sites more readable.">{int batch = 100000}</a>) <a tabindex="0" role="button" data-toggle="popover" data-content="Dart has language-level support for asynchronous generators.">async*</a> {
   <a tabindex="0" role="button" data-toggle="popover" data-content="The type is inferred in this variable declaration. Note: no JavaScript-style hoisting.">var</a> total = 0;
   var count = 0;
   <a tabindex="0" role="button" data-toggle="popover" data-content="Because generators are lazy, we can safely do this.">while (true)</a> {
@@ -208,8 +207,7 @@ Stream<a tabindex="0" role="button" data-toggle="popover" data-content="Generics
   final <a tabindex="0" role="button" data-toggle="popover" data-content="Although Dart can compile to JavaScript, it doesn’t lack the distinction between <code>double</code> and <code>int</code>.">double</a> x, y;
   <a tabindex="0" role="button" data-toggle="popover" data-content="Constructors can be constant.">const</a> Point(<a tabindex="0" role="button" data-toggle="popover" data-content="Initializing fields through this shorthand syntax is both easier and more readable.">this.x</a>, this.y);
   bool <a tabindex="0" role="button" data-toggle="popover" data-content="Language-level support for getters means you can freely switch between properties and methods without changing the API.">get</a> isInsideUnitCircle =&gt; x * x + y * y &lt;= 1;
-}
-</pre>
+}</pre>
 
         </div>
       </div>
@@ -314,7 +312,7 @@ Stream<a tabindex="0" role="button" data-toggle="popover" data-content="Generics
 
           <h2>响应式</h2>
           <p>
-            Dart 可以便捷的进行响应式编程。由于快速对象分配和垃圾收集器实现，
+            Dart 可以便捷的进行响应式编程。由于快速对象分配和<a href="https://medium.com/flutter-io/flutter-dont-fear-the-garbage-collector-d69b3ff1ca30">垃圾收集器</a>的实现，
             对于管理短期对象（比如 UI 小部件）， Dart 更加高效。 Dart 可以通过
             <a href="/guides/libraries/library-tour#future"> Future </a> 和
             <a href="/guides/libraries/library-tour#stream"> Stream </a>
@@ -348,7 +346,7 @@ Stream<a tabindex="0" role="button" data-toggle="popover" data-content="Generics
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/01/07 11:51 CST"
+                 title="Site built on 2019/01/16 12:55 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
