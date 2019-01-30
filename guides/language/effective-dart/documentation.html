@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-ae5a1f5445adb3a3d545e29df5118c4a74530bb3bf24d53b35897ced883dae0f.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-2ae3dd288bf374ebf77ec3b64d8af7d4e6425cb78128a7bc8d4a8aa968f4fe93.css">
   <script src="/assets/main-3e89b739cc750412e013252d8b4ced20af281589ffe69a156e6c279177f81069.js" type="text/javascript"></script>
   <script>
 
@@ -145,8 +145,6 @@ ga('send', 'pageview');
           <a href="/codelabs" title="Codelab">Codelab</a>
         </li><li >
           <a href="/tutorials" title="学习指南">学习指南</a>
-        </li><li >
-          <a href="/articles" title="文章">文章</a>
         </li><li >
           <a href="/tools" title="工具">工具</a>
         </li><li >
@@ -340,6 +338,8 @@ if (_chunks.isEmpty) return false;</pre>
 <h3 id="要-使用--文档注释来注释成员和类型">
 <a id="要-使用--文档注释来注释成员和类型" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8--%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E6%9D%A5%E6%B3%A8%E9%87%8A%E6%88%90%E5%91%98%E5%92%8C%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">///</code> 文档注释来注释成员和类型。</h3>
 
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/slash_for_doc_comments.html">slash_for_doc_comments</a></p>
+
 <p>使用文档注释可以让 <a href="https://github.com/dart-lang/dartdoc">dartdoc</a> 来为你生成代码 API 文档。</p>
 
 <?code-excerpt "misc/lib/effective_dart/docs_good.dart (use-doc-comments)"?>
@@ -359,6 +359,8 @@ int get length =&gt; ...</pre>
 
 <h3 id="推荐-为公开发布的-api-编写文档注释">
 <a id="推荐-为公开发布的-api-编写文档注释" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E5%85%AC%E5%BC%80%E5%8F%91%E5%B8%83%E7%9A%84-api-%E7%BC%96%E5%86%99%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 为公开发布的 API 编写文档注释。</h3>
+
+<p class="linter-rule">Linter rules: <a href="https://dart-lang.github.io/linter/lints/package_api_docs.html">package_api_docs,</a> <a href="https://dart-lang.github.io/linter/lints/public_member_api_docs.html">public_member_api_docs</a></p>
 
 <p>不必为所有独立的库，顶级变量，类型以及成员编写文档注释。
 但是它们大多数应该有文档注释。</p>
@@ -526,6 +528,8 @@ num min(num a, num b) =&gt; ...</pre>
 <h3 id="要-使用方括号在文档注释中引用作用域内的标识符">
 <a id="要-使用方括号在文档注释中引用作用域内的标识符" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%8B%AC%E5%8F%B7%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E4%B8%AD%E5%BC%95%E7%94%A8%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%86%85%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用方括号在文档注释中引用作用域内的标识符。</h3>
 
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/comment_references.html">comment_references</a></p>
+
 <p>如果给变量，方法，或类型等名称加上方括号，则 dartdoc 会查找名称并链接到相关的 API 文档。
 括号是可选的，但是当你在引用一个方法或者构造函数时，可以让注释更清晰。</p>
 
@@ -585,9 +589,7 @@ class ToggleComponent {}</pre>
 <a id="markdown" class="anchor" href="#markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Markdown</h2>
 
 <p>文档注释中允许使用大多数 <a href="https://daringfireball.net/projects/markdown/">markdown</a> 格式，
-并且 dartdoc 会更具 <a href="https://pub.dartlang.org/packages/markdown">markdown package</a> 进行解析。
-You are allowed to use most <a href="https://daringfireball.net/projects/markdown/">markdown</a> formatting in your doc comments and
-dartdoc will process it accordingly using the <a href="https://pub.dartlang.org/packages/markdown">markdown package</a>.</p>
+并且 dartdoc 会更具 <a href="https://pub.dartlang.org/packages/markdown">markdown package</a> 进行解析。</p>
 
 <p>有很多指南已经向您介绍Markdown。 它普遍受欢迎是我们选择它的原因。 这里只是一个简单的例子，让您了解所支持的内容：</p>
 
@@ -763,7 +765,7 @@ best practices for technical writing, in general, from articles such as
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/01/16 12:23 CST"
+                 title="Site built on 2019/01/30 17:33 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

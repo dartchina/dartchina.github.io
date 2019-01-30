@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-ae5a1f5445adb3a3d545e29df5118c4a74530bb3bf24d53b35897ced883dae0f.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-2ae3dd288bf374ebf77ec3b64d8af7d4e6425cb78128a7bc8d4a8aa968f4fe93.css">
   <script src="/assets/main-3e89b739cc750412e013252d8b4ced20af281589ffe69a156e6c279177f81069.js" type="text/javascript"></script>
   <script>
 
@@ -145,8 +145,6 @@ ga('send', 'pageview');
           <a href="/codelabs" title="Codelab">Codelab</a>
         </li><li class="active">
           <a href="/tutorials" title="学习指南">学习指南</a>
-        </li><li >
-          <a href="/articles" title="文章">文章</a>
         </li><li >
           <a href="/tools" title="工具">工具</a>
         </li><li >
@@ -424,11 +422,11 @@ provided by the <a href="https://api.dartlang.org/stable/dart-io/InternetAddress
   </thead>
   <tbody>
     <tr>
-      <td>LOOPBACK_IP_V4<br><em>or</em><br>LOOPBACK_IP_V6</td>
+      <td>loopbackIPv4<br><em>or</em><br>loopbackIPv6</td>
       <td>The server listens for client activity on the loopback address, which is effectively localhost. Uses either version 4 or 6 of the IP protocol. These are used primarily for testing. We recommend that you use these values instead of <code class="highlighter-rouge">localhost</code> or <code class="highlighter-rouge">127.0.0.1</code>.</td>
     </tr>
     <tr>
-      <td>ANY_IP_V4<br><em>or</em><br>ANY_IP_V6</td>
+      <td>anyIPv4<br><em>or</em><br>anyIPv6</td>
       <td>The server listens for client activity on the specified port on any IP address. Uses either version 4 or 6 of the IP protocol.</td>
     </tr>
   </tbody>
@@ -709,10 +707,10 @@ This example uses <code class="highlighter-rouge">q</code> to identify the guess
 
 <p>The server should set the status code to indicate the success or
 failure of the request. Earlier you saw the number thinker set
-the status code to <code class="highlighter-rouge">METHOD_NOT_ALLOWED</code> to reject non-GET requests.
+the status code to <code class="highlighter-rouge">methodNotAllowed</code> to reject non-GET requests.
 Later in the code,
 to indicate that the request was successful and the response is complete,
-the number thinker server sets the HttpResponse status code to <code class="highlighter-rouge">HttpStatus.OK</code>.</p>
+the number thinker server sets the HttpResponse status code to <code class="highlighter-rouge">HttpStatus.ok</code>.</p>
 
 <?code-excerpt "httpserver/bin/number_thinker.dart (statusCode)" replace="/response.statusCode.*?;/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">void handleGet(HttpRequest request) {
@@ -723,10 +721,10 @@ the number thinker server sets the HttpResponse status code to <code class="high
 }</pre>
 <div class="prettify-filename">number_thinker.dart</div>
 
-<p><code class="highlighter-rouge">HttpStatus.OK</code> and <code class="highlighter-rouge">HttpStatus.METHOD_NOT_ALLOWED</code> are
+<p><code class="highlighter-rouge">HttpStatus.ok</code> and <code class="highlighter-rouge">HttpStatus.methodNotAllowed</code> are
 two of many predefined status codes in the <a href="https://api.dartlang.org/stable/dart-io/HttpStatus-class.html">HttpStatus</a> class.
 Another useful predefined status code is
-<code class="highlighter-rouge">HttpStatus.NOT_FOUND</code> (your classic 404).</p>
+<code class="highlighter-rouge">HttpStatus.notFound</code> (your classic 404).</p>
 
 <p>In addition to <code class="highlighter-rouge">statusCode</code>,
 the HttpResponse object has other useful properties:</p>
@@ -1420,7 +1418,7 @@ including servers.</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/01/16 12:23 CST"
+                 title="Site built on 2019/01/30 17:33 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

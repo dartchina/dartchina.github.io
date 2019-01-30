@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-ae5a1f5445adb3a3d545e29df5118c4a74530bb3bf24d53b35897ced883dae0f.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-2ae3dd288bf374ebf77ec3b64d8af7d4e6425cb78128a7bc8d4a8aa968f4fe93.css">
   <script src="/assets/main-3e89b739cc750412e013252d8b4ced20af281589ffe69a156e6c279177f81069.js" type="text/javascript"></script>
   <script>
 
@@ -146,8 +146,6 @@ ga('send', 'pageview');
         </li><li >
           <a href="/tutorials" title="学习指南">学习指南</a>
         </li><li >
-          <a href="/articles" title="文章">文章</a>
-        </li><li >
           <a href="/tools" title="工具">工具</a>
         </li><li >
           <a href="/community" title="社区支持">社区支持</a>
@@ -167,12 +165,26 @@ ga('send', 'pageview');
     </header>
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#the-analysis-options-file">The analysis options file</a></li>
-<li class="toc-entry toc-h2"><a href="#enabling-additional-type-checks">Enabling additional type checks</a></li>
-<li class="toc-entry toc-h2"><a href="#enabling-linter-rules">Enabling linter rules</a></li>
-<li class="toc-entry toc-h2"><a href="#excluding-files">Excluding files</a></li>
-<li class="toc-entry toc-h2"><a href="#excluding-lines-within-a-file">Excluding lines within a file</a></li>
-<li class="toc-entry toc-h2"><a href="#ignoring-specific-analysis-rules">Ignoring specific analysis rules</a></li>
-<li class="toc-entry toc-h2"><a href="#changing-the-severity-of-analysis-rules">Changing the severity of analysis rules</a></li>
+<li class="toc-entry toc-h2"><a href="#enabling-additional-type-checks">Enabling stricter type checks</a></li>
+<li class="toc-entry toc-h2"><a href="#enabling-linter-rules">Enabling linter rules</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#default-google-rules-pedantic">Default Google rules: pedantic</a></li>
+<li class="toc-entry toc-h3"><a href="#individual-rules">Individual rules</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#excluding-code-from-analysis">Excluding code from analysis</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#excluding-files">Excluding files</a></li>
+<li class="toc-entry toc-h3"><a href="#suppressing-rules-for-a-file">Suppressing rules for a file</a></li>
+<li class="toc-entry toc-h3"><a href="#suppressing-rules-for-a-line-of-code">Suppressing rules for a line of code</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#customizing-analysis-rules">Customizing analysis rules</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#ignoring-rules">Ignoring rules</a></li>
+<li class="toc-entry toc-h3"><a href="#changing-the-severity-of-rules">Changing the severity of rules</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#resources">Resources</a></li>
 </ul>
   </div>
@@ -204,7 +216,9 @@ Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_
           <p>Static analysis allows you to find problems before
 executing a single line of code. It’s a powerful tool
 used to prevent bugs and ensure that code conforms to style
-guidelines. With the help of the analyzer, you can find
+guidelines.</p>
+
+<p>With the help of the analyzer, you can find
 simple typos. For example, perhaps an accidental semicolon
 made its way into an <code class="highlighter-rouge">if</code> statement:</p>
 
@@ -235,7 +249,7 @@ and <a href="/tools/jetbrains-plugin">JetBrains IDEs</a>
 use the analyzer package to evaluate your code.</p>
 
 <p>This document explains how to customize the behavior of the analyzer
-using an analysis options file. If you want to
+using either an analysis options file or comments in Dart source code. If you want to
 add static analysis to your tool, see the
 <a href="https://pub.dartlang.org/packages/analyzer">analyzer package</a> docs and the
 <a href="https://htmlpreview.github.io/?https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/doc/api.html">Analysis Server API Specification.</a></p>
@@ -263,29 +277,31 @@ at the root of the package, in the same directory as the pubspec file.</p>
 
 <p>Here’s a sample analysis options file:</p>
 
-<pre class="prettyprint lang-yaml">analyzer:
-  strong-mode:
-    implicit-casts: false
-  errors:
-    todo: ignore
-  exclude:
-    - flutter/**
-    - lib/api/*.dart
+<pre class="prettyprint lang-yaml">include: package:pedantic/analysis_options.yaml
 
 linter:
   rules:
-    - avoid_empty_else
-    - cancel_subscriptions
-    - close_sinks
-    - unnecessary_const
-    - unnecessary_new</pre>
+    - camel_case_types
 
-<p>YAML is sensitive to whitespace—don’t use tabs in a YAML file,
-and use 2 spaces to denote each level of indentation.</p>
+analyzer:
+#   exclude:
+#     - path/to/excluded/files/**</pre>
+
+<p>The <code>include: <em>url</em></code> entry
+brings in YAML code from the specified URL — in this case,
+from a file in the <code class="highlighter-rouge">pedantic</code> package.
+The <code class="highlighter-rouge">linter:</code> entry <a href="#enabling-linter-rules">enables linter rules</a>.
+You can use the <code class="highlighter-rouge">analyzer:</code> entry to customize static analysis —
+<a href="#enabling-additional-type-checks">enabling stricter type checks</a>, 
+<a href="#excluding-files">excluding files</a>,
+<a href="#ignoring-rules">ignoring specific rules</a>, or
+<a href="#changing-the-severity-of-rules">changing the severity of rules</a>.
+Another tag you might see is <code class="highlighter-rouge">language:</code>,
+which is used for experimental language features.</p>
 
 <aside class="alert alert-info">
-  <p><strong>Note</strong>: You might come across a <code class="highlighter-rouge">language:</code> tag in an analysis options file.
-This tag is used for testing experimental features. You can ignore it.</p>
+  <p><strong>YAML is sensitive to whitespace.</strong> Don’t use tabs in a YAML file,
+  and use 2 spaces to denote each level of indentation.</p>
 </aside>
 
 <p>If the analyzer can’t find an analysis options file at the package root,
@@ -296,12 +312,12 @@ If no file is available, the analyzer defaults to standard checks.</p>
 
 <p><img alt="project root contains analysis_options.yaml (#1) and 3 packages, one of which (my_package) contains an analysis_options.yaml file (#2)." src="/assets/guides/analysis-options-directory-structure-631ff92b8684fc8d0027a7e1b23de556abd0560e7727fae6280fcb47fc252ba2.png"></p>
 
-<p>The analyzer will use file #1 to analyze the code in <code class="highlighter-rouge">my_other_package</code>
+<p>The analyzer uses file #1 to analyze the code in <code class="highlighter-rouge">my_other_package</code>
 and <code class="highlighter-rouge">my_other_other_package</code>, and file #2 to analyze the code in
 <code class="highlighter-rouge">my_package</code>.</p>
 
 <h2 id="enabling-additional-type-checks">
-<a id="enabling-additional-type-checks" class="anchor" href="#enabling-additional-type-checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling additional type checks</h2>
+<a id="enabling-additional-type-checks" class="anchor" href="#enabling-additional-type-checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling stricter type checks</h2>
 
 <p>If you want stricter static checks than
 the <a href="/guides/language/sound-dart">Dart type system</a> requires,
@@ -313,9 +329,7 @@ consider using the <code class="highlighter-rouge">implicit-casts</code> and <co
     implicit-dynamic: false</pre>
 
 <p>You can use the flags together or separately;
-both default to <code class="highlighter-rouge">true</code>.
-The presence of either flag, regardless of value, enables
-the Dart 2 type system.</p>
+both default to <code class="highlighter-rouge">true</code>.</p>
 
 <dl>
   <dt><code class="highlighter-rouge">implicit-casts: &lt;bool&gt;</code></dt>
@@ -339,14 +353,44 @@ the <code class="highlighter-rouge">dynamic</code> type when it can’t determin
 <a id="enabling-linter-rules" class="anchor" href="#enabling-linter-rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling linter rules</h2>
 
 <p>The analyzer package also provides a code linter. A wide variety of
-<a href="http://dart-lang.github.io/linter/lints/">linter rules</a>
-are available. Linters tend to be
+<a href="http://dart-lang.github.io/linter/lints/">linter rules</a> are available. Linters tend to be
 nondenominational—rules don’t have to agree with each other.
 For example, some rules are more appropriate for library packages
 and others are designed for Flutter apps.
 Note that linter rules can have false positives, unlike static analysis.</p>
 
-<p>To enable a linter rule, add <code class="highlighter-rouge">linter:</code> to the analysis options file,
+<h3 id="default-google-rules-pedantic">
+<a id="default-google-rules-pedantic" class="anchor" href="#default-google-rules-pedantic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default Google rules: pedantic</h3>
+
+<p>To enable the list of linter rules that Google uses in its own Dart code,
+depend on the <a href="https://pub.dartlang.org/packages/pedantic">pedantic package</a>
+and include its <code class="highlighter-rouge">analysis_options.yaml</code> file.
+Unless you need to use the <code class="highlighter-rouge">pedantic</code> API, declare a dev dependency on <code class="highlighter-rouge">pedantic</code>
+in your <code class="highlighter-rouge">pubspec.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">dev_dependencies</span><span class="pi">:</span>
+  <span class="na">pedantic</span><span class="pi">:</span> <span class="s">^1.0.0</span>
+</code></pre></div></div>
+
+<p>Run <code class="highlighter-rouge">pub get</code>, and then
+add the following line to your <code class="highlighter-rouge">analysis_options.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">include</span><span class="pi">:</span> <span class="s">package:pedantic/analysis_options.yaml</span>
+</code></pre></div></div>
+
+<aside class="alert alert-warning">
+  <p><strong>Note:</strong>
+  When a <strong>new version of <code class="highlighter-rouge">pedantic</code></strong> is published,
+  code that previously passed analysis might <strong>start failing analysis.</strong>
+  We recommend updating your code to work with the new rules.
+  Other options are to <a href="/tools/pub/dependencies#version-constraints">use a specific version</a>
+  of <code class="highlighter-rouge">pedantic</code> or to explicitly enable individual linter rules.</p>
+</aside>
+
+<h3 id="individual-rules">
+<a id="individual-rules" class="anchor" href="#individual-rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Individual rules</h3>
+
+<p>To enable a single linter rule, add <code class="highlighter-rouge">linter:</code> to the analysis options file,
 followed by <code class="highlighter-rouge">rules:</code>.
 On subsequent lines, specify the rules that you want to apply,
 prefixed with dashes. For example:</p>
@@ -364,13 +408,32 @@ prefixed with dashes. For example:</p>
     - sort_constructors_first
     - unnecessary_brace_in_string_interps</pre>
 
-<h2 id="excluding-files">
-<a id="excluding-files" class="anchor" href="#excluding-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Excluding files</h2>
+<h2 id="excluding-code-from-analysis">
+<a id="excluding-code-from-analysis" class="anchor" href="#excluding-code-from-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Excluding code from analysis</h2>
 
-<p>Perhaps you rely on code generated from a package that
+<p>Sometimes it’s OK for some code to fail analysis.
+For example, you might rely on code generated by a package that
 you don’t own—the generated code works,
 but produces errors during static analysis.
-You can exclude files from static analysis using the <code class="highlighter-rouge">exclude:</code> field.</p>
+Or a linter rule might cause a false positive
+that you want to suppress.</p>
+
+<p>You have several ways to exclude code from analysis:</p>
+
+<ul>
+  <li>Exclude entire files from analysis.</li>
+  <li>Stop specific rules from being applied to individual files.</li>
+  <li>Stop specific rules from being applied to individual lines of code.</li>
+  <li>Ignore specific rules or errors.</li>
+</ul>
+
+<p>You can also <a href="#changing-the-severity-of-rules">change the severity of rules</a>.</p>
+
+<h3 id="excluding-files">
+<a id="excluding-files" class="anchor" href="#excluding-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Excluding files</h3>
+
+<p>To exclude files from static analysis,
+use <code class="highlighter-rouge">exclude:</code> in the analysis options file:</p>
 
 <pre class="prettyprint lang-yaml">analyzer:
   exclude:
@@ -384,76 +447,96 @@ You can exclude files from static analysis using the <code class="highlighter-ro
     - src/test/_data/**
     - test/*_example.dart</pre>
 
-<h2 id="excluding-lines-within-a-file">
-<a id="excluding-lines-within-a-file" class="anchor" href="#excluding-lines-within-a-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Excluding lines within a file</h2>
+<h3 id="suppressing-rules-for-a-file">
+<a id="suppressing-rules-for-a-file" class="anchor" href="#suppressing-rules-for-a-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Suppressing rules for a file</h3>
 
-<p>Perhaps one of the linter rules causes a false positive and you
-want to suppress that warning.
-To suppress a specific rule on a specific line of code,
-preceed that line with a comment using the following format:</p>
+<p>To ignore a specific rule for a specific file,
+add an <code class="highlighter-rouge">ignore_for_file</code> comment to the file:</p>
+
+<pre class="prettyprint lang-dart">// ignore_for_file: unused_import</pre>
+
+<p>This acts for the whole file, before or after the comment, and is
+particularly useful for generated code.</p>
+
+<p>To suppress more than one rule, use a comma-separated list:</p>
+
+<pre class="prettyprint lang-dart">// ignore_for_file: unused_import, invalid_assignment</pre>
+
+<h3 id="suppressing-rules-for-a-line-of-code">
+<a id="suppressing-rules-for-a-line-of-code" class="anchor" href="#suppressing-rules-for-a-line-of-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Suppressing rules for a line of code</h3>
+
+<p>To suppress a specific rule on a specific line of code,
+preceed that line with an <code class="highlighter-rouge">ignore</code> comment:</p>
 
 <pre class="prettyprint lang-dart">// ignore: &lt;linter rule&gt;</pre>
 
-<p>For example:</p>
+<p>Here’s example of ignoring code that causes a runtime error,
+as you might do in a language test:</p>
 
 <pre class="prettyprint lang-dart">// ignore: invalid_assignment
 int x = '';</pre>
 
-<p>If you want to suppress more than one rule, supply a comma-separated list.
-For example:</p>
+<p>To suppress more than one rule, supply a comma-separated list:</p>
 
 <pre class="prettyprint lang-dart">// ignore: invalid_assignment, const_initialized_with_non_constant_value
 const x = y;</pre>
 
-<p>Alternatively, you can append the ignore rule to the line that it applies to.
-For example:</p>
+<p>Alternatively, append the ignore rule to the line that it applies to:</p>
 
 <pre class="prettyprint lang-dart">int x = ''; // ignore: invalid_assignment</pre>
 
-<h2 id="ignoring-specific-analysis-rules">
-<a id="ignoring-specific-analysis-rules" class="anchor" href="#ignoring-specific-analysis-rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ignoring specific analysis rules</h2>
+<h2 id="customizing-analysis-rules">
+<a id="customizing-analysis-rules" class="anchor" href="#customizing-analysis-rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customizing analysis rules</h2>
 
-<p>Sometimes your code doesn’t fit perfectly within the standard
-analysis guidelines, or violates a rule here or there, for
-reasons you’d rather not get into. You can ignore specific
-rules during analysis using the <code class="highlighter-rouge">errors:</code> field. List the
-rule, followed by <code class="highlighter-rouge">: ignore</code>. For example:</p>
+<p>Each <a href="https://github.com/dart-lang/sdk/blob/master/pkg/analyzer/lib/error/error.dart">analyzer error code</a> and
+<a href="http://dart-lang.github.io/linter/lints/">linter rule</a> has a default severity.
+You can use the analysis options file to change
+the severity of individual rules, or to always ignore some rules.</p>
+
+<p>The analyzer supports three severity levels:</p>
+
+<dl>
+  <dt><code class="highlighter-rouge">info</code></dt>
+  <dd>An informational message that doesn’t cause analysis to fail.
+Example: <a href="https://pub.dartlang.org/documentation/analyzer/latest/analyzer/TodoCode/TODO-constant.html"><code class="highlighter-rouge">todo</code></a>
+</dd>
+  <dt><code class="highlighter-rouge">warning</code></dt>
+  <dd>A warning that doesn’t cause analysis to fail unless
+the analyzer is configured to treat warnings as errors.
+Example: <a href="https://pub.dartlang.org/documentation/analyzer/latest/analyzer/AnalysisOptionsWarningCode/ANALYSIS_OPTION_DEPRECATED-constant.html"><code class="highlighter-rouge">analysis_option_deprecated</code></a>
+</dd>
+  <dt><code class="highlighter-rouge">error</code></dt>
+  <dd>An error that causes analysis to fail.
+Example: <a href="https://pub.dartlang.org/documentation/analyzer/latest/analyzer/StaticTypeWarningCode/INVALID_ASSIGNMENT-constant.html"><code class="highlighter-rouge">invalid_assignment</code></a>
+</dd>
+</dl>
+
+<h3 id="ignoring-rules">
+<a id="ignoring-rules" class="anchor" href="#ignoring-rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ignoring rules</h3>
+
+<p>You can ignore specific <a href="https://github.com/dart-lang/sdk/blob/master/pkg/analyzer/lib/error/error.dart">analyzer error codes</a> and <a href="http://dart-lang.github.io/linter/lints/">linter rules</a>
+by using the <code class="highlighter-rouge">errors:</code> field.
+List the rule, followed by <code>: ignore</code>. For example, the following
+analysis options file instructs the analysis tools to ignore the TODO rule:</p>
 
 <pre class="prettyprint lang-yaml">analyzer:
   errors:
     todo: ignore</pre>
 
-<p>This analysis options file instructs the analysis tools to ignore
-the TODO rule.</p>
+<h3 id="changing-the-severity-of-rules">
+<a id="changing-the-severity-of-rules" class="anchor" href="#changing-the-severity-of-rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changing the severity of rules</h3>
 
-<p>Alternatively, as of Dart 1.24 you can ignore a specific rule for a
-specific file using an <code class="highlighter-rouge">ignore_for_file</code> comment:</p>
-
-<pre class="prettyprint lang-dart">// ignore_for_file: unused_import</pre>
-
-<p>This acts for the whole file, before or after the comment, and is
-particularly useful for generated code. A comma-separated list may be
-used to suppress more than one rule:</p>
-
-<pre class="prettyprint lang-dart">// ignore_for_file: unused_import, invalid_assignment</pre>
-
-<h2 id="changing-the-severity-of-analysis-rules">
-<a id="changing-the-severity-of-analysis-rules" class="anchor" href="#changing-the-severity-of-analysis-rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changing the severity of analysis rules</h2>
-
-<p>Using the same mechanism, you can also globally change the severity
-of a particular rule using one of the following values: <code class="highlighter-rouge">warning</code>,
-<code class="highlighter-rouge">error</code>, or <code class="highlighter-rouge">info</code>. This works for regular analysis issues as well as
-for lints. For example:</p>
+<p>You can globally change the severity of a particular rule.
+This technique works for regular analysis issues as well as for lints.
+For example, the following analysis options file instructs the analysis tools to
+treat invalid assignments as warnings and missing returns as errors,
+and to provide information (but not a warning or error) about dead code:</p>
 
 <pre class="prettyprint lang-yaml">analyzer:
   errors:
     invalid_assignment: warning
     missing_return: error
     dead_code: info</pre>
-
-<p>This analysis options file instructs the analysis tools to
-ignore unused local variables, treat invalid assignments as warnings and
-missing returns as errors, and only provide information about dead code.</p>
 
 <h2 id="resources">
 <a id="resources" class="anchor" href="#resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources</h2>
@@ -496,7 +579,7 @@ missing returns as errors, and only provide information about dead code.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/01/16 12:23 CST"
+                 title="Site built on 2019/01/30 17:33 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

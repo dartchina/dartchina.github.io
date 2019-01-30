@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-ae5a1f5445adb3a3d545e29df5118c4a74530bb3bf24d53b35897ced883dae0f.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-2ae3dd288bf374ebf77ec3b64d8af7d4e6425cb78128a7bc8d4a8aa968f4fe93.css">
   <script src="/assets/main-3e89b739cc750412e013252d8b4ced20af281589ffe69a156e6c279177f81069.js" type="text/javascript"></script>
   <script>
 
@@ -145,8 +145,6 @@ ga('send', 'pageview');
           <a href="/codelabs" title="Codelab">Codelab</a>
         </li><li >
           <a href="/tutorials" title="学习指南">学习指南</a>
-        </li><li >
-          <a href="/articles" title="文章">文章</a>
         </li><li >
           <a href="/tools" title="工具">工具</a>
         </li><li >
@@ -680,6 +678,8 @@ var packageVersions = packageGraph.solveConstraints();</pre>
 <h3 id="推荐-使用-to___-来命名把对象的状态转换到一个新的对象的函数">
 <a id="推荐-使用-to___-来命名把对象的状态转换到一个新的对象的函数" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-to___-%E6%9D%A5%E5%91%BD%E5%90%8D%E6%8A%8A%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%88%B0%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用 <code class="highlighter-rouge">to___()</code> 来命名把对象的状态转换到一个新的对象的函数。</h3>
 
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/use_to_and_as_if_applicable.html">use_to_and_as_if_applicable</a></p>
+
 <p>一个转换函数返回一个新的对象，里面包含一些原对象的状态，但通常新对象的形式或表现方式与原对象不同。
 核心库有一个约定，这些类型结果的方法名应该以 <code class="highlighter-rouge">to</code> 作为开头。</p>
 
@@ -692,6 +692,8 @@ dateTime.toLocal();</pre>
 
 <h3 id="推荐-使用-as___-来命名把原来对象转换为另外一种表现形式的函数">
 <a id="推荐-使用-as___-来命名把原来对象转换为另外一种表现形式的函数" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-as___-%E6%9D%A5%E5%91%BD%E5%90%8D%E6%8A%8A%E5%8E%9F%E6%9D%A5%E5%AF%B9%E8%B1%A1%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%8F%A6%E5%A4%96%E4%B8%80%E7%A7%8D%E8%A1%A8%E7%8E%B0%E5%BD%A2%E5%BC%8F%E7%9A%84%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用 <code class="highlighter-rouge">as___()</code> 来命名把原来对象转换为另外一种表现形式的函数。</h3>
+
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/use_to_and_as_if_applicable.html">use_to_and_as_if_applicable</a></p>
 
 <p>转换函数提供的是“快照功能”。返回的对象有自己的数据副本，
 修改原来对象的数据不会改变返回的对象中的数据。
@@ -832,6 +834,8 @@ Dart 没有这样的限制。库与类是相互独立的。如果多个类，顶
 <h3 id="避免-避免为了使用一个简单的函数而去定义一个单一成员的抽象类">
 <a id="避免-避免为了使用一个简单的函数而去定义一个单一成员的抽象类" class="anchor" href="#%E9%81%BF%E5%85%8D-%E9%81%BF%E5%85%8D%E4%B8%BA%E4%BA%86%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%87%BD%E6%95%B0%E8%80%8C%E5%8E%BB%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E5%8D%95%E4%B8%80%E6%88%90%E5%91%98%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 避免为了使用一个简单的函数而去定义一个单一成员的抽象类</h3>
 
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/one_member_abstracts.html">one_member_abstracts</a></p>
+
 <p>和 Java 不同，Dart 拥有一等公民的函数，闭包，以及它们简洁的使用语法。如果你仅仅是需要一个
 类似于回调的功能，那么使用函数即可。 例如如果你正在定义一个类，并且它仅拥有一个毫无意义名称的
 抽象成员，如 <code class="highlighter-rouge">call</code> 或 <code class="highlighter-rouge">invoke</code> ，那么这时你很可能只是需要一个函数。</p>
@@ -846,6 +850,8 @@ Dart 没有这样的限制。库与类是相互独立的。如果多个类，顶
 
 <h3 id="避免-定义仅包含静态成员的类">
 <a id="避免-定义仅包含静态成员的类" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%AE%9A%E4%B9%89%E4%BB%85%E5%8C%85%E5%90%AB%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E7%9A%84%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 定义仅包含静态成员的类。</h3>
+
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/avoid_classes_with_only_static_members.html">avoid_classes_with_only_static_members</a></p>
 
 <p>在 Java 和 C# 中，所有的定义<em>必须</em>要在类中。所有常常会看到一些这样的类，这些
 类中仅仅放置了些静态成员。其他类仅用于命名空间—一种为一堆成员提供共享
@@ -975,6 +981,8 @@ class _Favorites {
 <h3 id="推荐-指定字段或顶级变量为-final-">
 <a id="推荐-指定字段或顶级变量为-final-" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E6%8C%87%E5%AE%9A%E5%AD%97%E6%AE%B5%E6%88%96%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E4%B8%BA-final-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 指定字段或顶级变量为 <code class="highlighter-rouge">final</code> 。</h3>
 
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/prefer_final_fields.html">prefer_final_fields</a></p>
+
 <p>状态不可变—随着时间推移状态不发生变化—有益于程序员推理。类和库中可变状态量越少，类和库
 越容易维护。</p>
 
@@ -1053,6 +1061,8 @@ dataSet.minimumValue;</pre>
 <h3 id="要-对概念上是修改的属性使用-setter-方法">
 <a id="要-对概念上是修改的属性使用-setter-方法" class="anchor" href="#%E8%A6%81-%E5%AF%B9%E6%A6%82%E5%BF%B5%E4%B8%8A%E6%98%AF%E4%BF%AE%E6%94%B9%E7%9A%84%E5%B1%9E%E6%80%A7%E4%BD%BF%E7%94%A8-setter-%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 对概念上是修改的属性使用 setter 方法。</h3>
 
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/use_setters_to_change_properties.html">use_setters_to_change_properties</a></p>
+
 <p>判定一个成员应该是一个 setter 而不是一个方法与 getter 的判定一样。两者的操作都应该是
 “类似于字段”的操作。</p>
 
@@ -1078,6 +1088,8 @@ button.visible = false;</pre>
 <h3 id="不要-在没有对应的-getter-的情况下定义-setter">
 <a id="不要-在没有对应的-getter-的情况下定义-setter" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E6%B2%A1%E6%9C%89%E5%AF%B9%E5%BA%94%E7%9A%84-getter-%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E5%AE%9A%E4%B9%89-setter" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 在没有对应的 getter 的情况下定义 setter。</h3>
 
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/avoid_setters_without_getters.html">avoid_setters_without_getters</a></p>
+
 <p>用户将 getter 和 setter 视为一个对象的可见属性。一个 “dropbox” 属性可以被写入但无法读
 取，会令人感到困惑。并且也混淆了他们对属性如何工作的直观理解。 例如，没有 getter 的 setter 
 意味着你可以使用 <code class="highlighter-rouge">=</code> 来修改它，但却不能使用 <code class="highlighter-rouge">+=</code> 。</p>
@@ -1095,6 +1107,8 @@ button.visible = false;</pre>
 <h3 id="避免-从返回类型为-bool--double--int-或-num-的成员返回-null-">
 <a id="避免-从返回类型为-bool--double--int-或-num-的成员返回-null-" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%BB%8E%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B%E4%B8%BA-bool--double--int-%E6%88%96-num-%E7%9A%84%E6%88%90%E5%91%98%E8%BF%94%E5%9B%9E-null-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 从返回类型为 <code class="highlighter-rouge">bool</code> ， <code class="highlighter-rouge">double</code> ， <code class="highlighter-rouge">int</code> 或 <code class="highlighter-rouge">num</code> 的成员返回 <code class="highlighter-rouge">null</code> 。</h3>
 
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/avoid_returning_null.html">avoid_returning_null</a></p>
+
 <p>尽管在 Dart 中所有类型都可以为空，但用户几乎都不会考虑它们是 <code class="highlighter-rouge">null</code> 的情况。而小写命名是
 源于 “Java primitive” 的提倡。</p>
 
@@ -1105,6 +1119,8 @@ key 值，但这样的应用并不多见。</p>
 
 <h3 id="避免-为了书写流畅而从方法中返回-this-">
 <a id="避免-为了书写流畅而从方法中返回-this-" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%B8%BA%E4%BA%86%E4%B9%A6%E5%86%99%E6%B5%81%E7%95%85%E8%80%8C%E4%BB%8E%E6%96%B9%E6%B3%95%E4%B8%AD%E8%BF%94%E5%9B%9E-this-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 为了书写流畅，而从方法中返回 <code class="highlighter-rouge">this</code> 。</h3>
+
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/avoid_returning_this.html">avoid_returning_this</a></p>
 
 <p>方法级联是链接方法调用的更好的解决方式。</p>
 
@@ -1211,6 +1227,8 @@ lists.cast&lt;int&gt;();</pre>
 <h3 id="推荐-为类型不明显的公共字段和公共顶级变量指定类型注解">
 <a id="推荐-为类型不明显的公共字段和公共顶级变量指定类型注解" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E5%85%AC%E5%85%B1%E5%AD%97%E6%AE%B5%E5%92%8C%E5%85%AC%E5%85%B1%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 为类型不明显的公共字段和公共顶级变量指定类型注解。</h3>
 
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/prefer_typing_uninitialized_variables.html">prefer_typing_uninitialized_variables</a></p>
+
 <p>类型注解是关于如何使用库的重要文档。它们在程序的区域之间形成边界以隔离类型错误来源。思考下面代码：</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (type_annotate_public_apis)"?>
@@ -1243,6 +1261,8 @@ lists.cast&lt;int&gt;();</pre>
 <h3 id="考虑-为类型不明显的私有字段和私有顶级变量指定类型注解">
 <a id="考虑-为类型不明显的私有字段和私有顶级变量指定类型注解" class="anchor" href="#%E8%80%83%E8%99%91-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E7%A7%81%E6%9C%89%E5%AD%97%E6%AE%B5%E5%92%8C%E7%A7%81%E6%9C%89%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 为类型不明显的私有字段和私有顶级变量指定类型注解。</h3>
 
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/prefer_typing_uninitialized_variables.html">prefer_typing_uninitialized_variables</a></p>
+
 <p>为公共声明进行类型注解有助于使用代码的<em>用户</em>，为私有成员进行类型注解有助于代码的<em>维护人员</em>。
 私有声明的范围较小，熟悉与它相关代码的人才需要知道它们的声明类型。在这里就更倾向于省略注解，
 通过推理得到私有声明的类型。这也是为什么该规则相对于上一条更为柔和。</p>
@@ -1252,6 +1272,8 @@ lists.cast&lt;int&gt;();</pre>
 
 <h3 id="避免-为初始化的局部变量添加类型注解">
 <a id="避免-为初始化的局部变量添加类型注解" class="anchor" href="#%E9%81%BF%E5%85%8D-%E4%B8%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E6%B7%BB%E5%8A%A0%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 为初始化的局部变量添加类型注解。</h3>
+
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/omit_local_variable_types.html">omit_local_variable_types</a></p>
 
 <p>局部变量，特别是现代的函数往往很少，范围也很小。省略局部变量类型会将读者的注意力集中在变量的
 <em>名称</em>及初始化值上。</p>
@@ -1423,6 +1445,8 @@ if (node is Constructor) {
 <h3 id="不要-为-setter-方法指定返回类型">
 <a id="不要-为-setter-方法指定返回类型" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%B8%BA-setter-%E6%96%B9%E6%B3%95%E6%8C%87%E5%AE%9A%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 为 setter 方法指定返回类型。</h3>
 
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/avoid_return_types_on_setters.html">avoid_return_types_on_setters</a></p>
+
 <p>在 Dart 中，setter 永远返回 <code class="highlighter-rouge">void</code> 。为 setter 指定类型没有意义。</p>
 
 <?code-excerpt "misc/lib/effective_dart/design_bad.dart (avoid_return_types_on_setters)"?>
@@ -1433,6 +1457,8 @@ if (node is Constructor) {
 
 <h3 id="不要-使用弃用的-typedef-语法">
 <a id="不要-使用弃用的-typedef-语法" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%BC%83%E7%94%A8%E7%9A%84-typedef-%E8%AF%AD%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用弃用的 typedef 语法。</h3>
+
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/prefer_generic_function_type_aliases.html">prefer_generic_function_type_aliases</a></p>
 
 <p>Dart 有两种为函数类型定义命名 typedef 注解语法。 原始语法如下：</p>
 
@@ -1479,6 +1505,8 @@ if (node is Constructor) {
 <h3 id="推荐-优先使用内联函数类型而后是-typedef-">
 <a id="推荐-优先使用内联函数类型而后是-typedef-" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BC%98%E5%85%88%E4%BD%BF%E7%94%A8%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E8%80%8C%E5%90%8E%E6%98%AF-typedef-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 优先使用内联函数类型，而后是 typedef 。</h3>
 
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/avoid_private_typedef_functions.html">avoid_private_typedef_functions</a></p>
+
 <p>在 Dart 1中，如果要在字段，变量或泛型参数中使用函数类型，首选需要使用 typedef 定义这个类型。
 Dart 2中任何使用类型注解的地方都可以使用函数类型声明语法：</p>
 
@@ -1507,6 +1535,8 @@ Dart 2中任何使用类型注解的地方都可以使用函数类型声明语�
 
 <h3 id="考虑-在参数上使用函数类型语法">
 <a id="考虑-在参数上使用函数类型语法" class="anchor" href="#%E8%80%83%E8%99%91-%E5%9C%A8%E5%8F%82%E6%95%B0%E4%B8%8A%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E8%AF%AD%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 在参数上使用函数类型语法。</h3>
+
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/use_function_type_syntax_for_parameters.html">use_function_type_syntax_for_parameters</a></p>
 
 <p>在定义参数为函数类型时， Dart 具有特殊的语法。与 C 类似，使用参数名称作为函数参数的函数名：</p>
 
@@ -1599,6 +1629,8 @@ bool convertToBool(dynamic arg) {
 <h3 id="避免-布尔类型的位置参数">
 <a id="避免-布尔类型的位置参数" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 布尔类型的位置参数。</h3>
 
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/avoid_positional_boolean_parameters.html">avoid_positional_boolean_parameters</a></p>
+
 <p>与其他类型不同，布尔值通常以字面量方式使用。数字值的通常可以包含在命名的常量里，但对于布尔值通常
 喜欢直接传 <code class="highlighter-rouge">true</code> 和 <code class="highlighter-rouge">false</code> 。如果不清楚布尔值的含义，这样会造成调用者的代码不可读：</p>
 
@@ -1684,6 +1716,8 @@ Duration(
 <h3 id="要-对重写--操作符的类重写-hashcode-方法">
 <a id="要-对重写--操作符的类重写-hashcode-方法" class="anchor" href="#%E8%A6%81-%E5%AF%B9%E9%87%8D%E5%86%99--%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E7%B1%BB%E9%87%8D%E5%86%99-hashcode-%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 对重写 <code class="highlighter-rouge">==</code> 操作符的类，重写 <code class="highlighter-rouge">hashCode</code> 方法。</h3>
 
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/hash_and_equals.html">hash_and_equals</a></p>
+
 <p>默认的哈希实现为对象提供了一个<em>身份</em>哈希—如果两个对象是完全相同的，那么它们通常具有
 相同的哈希值。同样，<code class="highlighter-rouge">==</code> 的默认行为是比较两个对象的身份哈希。</p>
 
@@ -1719,6 +1753,8 @@ Duration(
 
 <h3 id="不要-在自定义--操作符中检查-null-">
 <a id="不要-在自定义--操作符中检查-null-" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89--%E6%93%8D%E4%BD%9C%E7%AC%A6%E4%B8%AD%E6%A3%80%E6%9F%A5-null-" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 在自定义 <code class="highlighter-rouge">==</code> 操作符中检查 <code class="highlighter-rouge">null</code> 。</h3>
+
+<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/avoid_null_checks_in_equality_operators.html">avoid_null_checks_in_equality_operators</a></p>
 
 <p>Dart 指定此检查是自动完成的，只有当右侧不是 <code class="highlighter-rouge">null</code> 时才调用 <code class="highlighter-rouge">==</code> 方法。</p>
 
@@ -1778,7 +1814,7 @@ Duration(
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/01/16 12:44 CST"
+                 title="Site built on 2019/01/30 17:33 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

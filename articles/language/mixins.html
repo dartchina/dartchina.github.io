@@ -28,7 +28,7 @@
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/assets/main-ae5a1f5445adb3a3d545e29df5118c4a74530bb3bf24d53b35897ced883dae0f.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main-2ae3dd288bf374ebf77ec3b64d8af7d4e6425cb78128a7bc8d4a8aa968f4fe93.css">
   <script src="/assets/main-3e89b739cc750412e013252d8b4ced20af281589ffe69a156e6c279177f81069.js" type="text/javascript"></script>
   <script>
 
@@ -45,7 +45,7 @@ ga('send', 'pageview');
 
 </head>
 
-  <body class="default">
+  <body class="default obsolete">
     <header id="page-header">
   <nav id="mainnav">
   <div id="menu-toggle"><i class="icon icon-menu"></i></div>
@@ -83,6 +83,12 @@ ga('send', 'pageview');
   </ul>
 </nav>
 
+  
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
+  </div>
   
 </header>
 
@@ -145,8 +151,6 @@ ga('send', 'pageview');
           <a href="/codelabs" title="Codelab">Codelab</a>
         </li><li >
           <a href="/tutorials" title="学习指南">学习指南</a>
-        </li><li class="active">
-          <a href="/articles" title="文章">文章</a>
         </li><li >
           <a href="/tools" title="工具">工具</a>
         </li><li >
@@ -166,6 +170,7 @@ ga('send', 'pageview');
       </a>
     </header>
     <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#mixin-support-by-dart-release">Mixin support by Dart release</a></li>
 <li class="toc-entry toc-h2"><a href="#basic-concepts">Basic concepts</a></li>
 <li class="toc-entry toc-h2"><a href="#syntax-and-semantics">Syntax and semantics</a></li>
 <li class="toc-entry toc-h2"><a href="#details">Details</a>
@@ -206,11 +211,20 @@ Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_
           <p><em>Written by Gilad Bracha <br>
 December 2012 (updated June 2018)</em></p>
 
-<p>Looking for an introduction to mixins?
-See the Language Tour section <a href="/guides/language/language-tour#adding-features-to-a-class-mixins">Adding features to a class: mixins</a>.</p>
+<p>This article provides a brief theoretical presentation of
+the evolution of mixins in Dart.</p>
 
-<p>This article provides a brief theoretical presentation of the evolution of mixins in Dart.
-Support for mixins changed in Dart 1.13, and it will again in Dart 2:</p>
+<aside class="alert alert-info">
+  <p>For information on <em>using</em> or <em>implementing</em> mixins,
+  see the language tour:</p>
+
+  <p><strong><a href="/guides/language/language-tour#adding-features-to-a-class-mixins">Adding features to a class: mixins</a></strong></p>
+</aside>
+
+<h2 id="mixin-support-by-dart-release">
+<a id="mixin-support-by-dart-release" class="anchor" href="#mixin-support-by-dart-release" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mixin support by Dart release</h2>
+
+<p>Support for mixins changed in Dart 1.13 and Dart 2.1:</p>
 
 <ul>
   <li>Dart 1.12 or lower supports mixins that must extend <code class="highlighter-rouge">Object</code>, and must not
@@ -534,7 +548,7 @@ its mixin necessarily has identical type parameters.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/01/16 12:23 CST"
+                 title="Site built on 2019/01/30 17:33 CST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
