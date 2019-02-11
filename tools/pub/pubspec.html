@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dart is a platform for building structured apps. It includes a language, a VM, libraries, tools, and compilers to many targets, including JavaScript.">
+  <title>Pubspec Format | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Pubspec Format" />
+  <meta name="twitter:description" content="Dart is a platform for building structured apps. It includes a language, a VM, libraries, tools, and compilers to many targets, including JavaScript." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pubspec Format" />
+  <meta property="og:description" content="Dart is a platform for building structured apps. It includes a language, a VM, libraries, tools, and compilers to many targets, including JavaScript." />
+  <meta property="og:url" content="https://www.dartlang.org/tools/pub/pubspec.html" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" integrity="sha256-EULh7n7c0RZiOHiikIAEzXBQ0AXvb71Ul6a85V4AuTc=" crossorigin="anonymous" href="/assets/main-1142e1ee7edcd116623878a2908004cd7050d005ef6fbd5497a6bce55e00b937.css">
+  <script src="/assets/main-8306ad9c5a7b0d639cab54fda750f6ae0b3fb8f964457c69a7ef962a0cc52902.js" integrity="sha256-gwatnFp7DWOcq1T9p1D2rgs/uPlkRXxpp++WKgzFKQI=" crossorigin="anonymous" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
+    <li><a href="/guides/language">语言</a></li>
+    <li><a href="/guides/libraries">库</a></li>
+    <li><a href="/tools">工具</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/pubspec.html" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
+
+        <li role="separator" class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-light" href="/guides/get-started">入门</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="语言">语言</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="概览">概览</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="风格">风格</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="文档">文档</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="使用">使用</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="设计">设计</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="示例代码">示例代码</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="库">库</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="概览">概览</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="平台">平台</a></h4>
+  <ul><li >
+          <a href="https://flutterchina.club" title="移动端 (Flutter中文网)">移动端 (Flutter中文网)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/server" title="服务器">服务器</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="测试">测试</a></h4>
+  <ul>
+  </ul><h4 >资源</h4>
+  <ul><li >
+          <a href="/install" title="安装">安装</a>
+        </li><li >
+          <a href="/codelabs" title="Codelab">Codelab</a>
+        </li><li >
+          <a href="/tutorials" title="学习指南">学习指南</a>
+        </li><li class="active">
+          <a href="/tools" title="工具">工具</a>
+        </li><li >
+          <a href="/community" title="社区支持">社区支持</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <header class="h4 text-uppercase">
+      目录
+      <a title="Back to top" class="back-to-top float-right mr-3">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </header>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#supported-fields">Supported fields</a></li>
+<li class="toc-entry toc-h2"><a href="#example">Example</a></li>
+<li class="toc-entry toc-h2"><a href="#details">Details</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#name">Name</a></li>
+<li class="toc-entry toc-h3"><a href="#version">Version</a></li>
+<li class="toc-entry toc-h3"><a href="#description">Description</a></li>
+<li class="toc-entry toc-h3"><a href="#authorauthors">Author/Authors</a></li>
+<li class="toc-entry toc-h3"><a href="#homepage">Homepage</a></li>
+<li class="toc-entry toc-h3"><a href="#repository">Repository</a></li>
+<li class="toc-entry toc-h3"><a href="#issue-tracker">Issue tracker</a></li>
+<li class="toc-entry toc-h3"><a href="#documentation">Documentation</a></li>
+<li class="toc-entry toc-h3"><a href="#dependencies">Dependencies</a></li>
+<li class="toc-entry toc-h3"><a href="#executables">Executables</a></li>
+<li class="toc-entry toc-h3"><a href="#publish_to">Publish_to</a></li>
+<li class="toc-entry toc-h3"><a href="#sdk-constraints">SDK constraints</a></li>
+</ul>
+</li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+          
+
+          
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+  <li class="breadcrumb-item"
+      property="itemListElement" typeof="ListItem"><a href="/tools" property="item" typeof="WebPage"><span property="name">工具</span>
+      </a>
+      <meta property="position" content="1" />
+    </li>
+  <li class="breadcrumb-item"
+      property="itemListElement" typeof="ListItem"><a href="/tools/pub" property="item" typeof="WebPage"><span property="name">Pub</span>
+      </a>
+      <meta property="position" content="2" />
+    </li>
+  <li class="breadcrumb-item active"
+      property="itemListElement" typeof="ListItem" aria-current="page"><a href="/tools/pub/pubspec.html" property="item" typeof="WebPage"><span property="name">Pubspec Format</span>
+      </a>
+      <meta property="position" content="3" />
+    </li>
+  
+  </ol>
+</nav>
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/tools/pub/pubspec.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Pubspec Format' page issue&body=
+Page URL: https://www.dartlang.org/tools/pub/pubspec.html%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/tools/pub/pubspec.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>Pubspec Format</h1>
+          </div>
+          <p>Every <a href="/tools/pub">pub</a> package needs some metadata so it can specify its
+<a href="/tools/pub/glossary#dependency">dependencies</a>. Pub packages that are shared with
+others also need to provide some other information so users can discover them.
+All of this metadata goes in the package’s <em>pubspec:</em>
+a file named <code class="highlighter-rouge">pubspec.yaml</code> that’s written in the
+<a href="http://www.yaml.org/">YAML</a> language.</p>
+
+<h2 id="supported-fields">
+<a id="supported-fields" class="anchor" href="#supported-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Supported fields</h2>
+
+<p>A pubspec can have the following fields:</p>
+
+<dl>
+  <dt><code class="highlighter-rouge">name</code></dt>
+  <dd>Required for every package.
+<a href="#name"><em>Learn more.</em></a>
+</dd>
+  <dt><code class="highlighter-rouge">version</code></dt>
+  <dd>Required for packages that are hosted on pub.dartlang.org.
+<a href="#version"><em>Learn more.</em></a>
+</dd>
+  <dt><code class="highlighter-rouge">description</code></dt>
+  <dd>Required for packages that are hosted on pub.dartlang.org.
+<a href="#description"><em>Learn more.</em></a>
+</dd>
+  <dt>
+<code class="highlighter-rouge">author</code> or <code class="highlighter-rouge">authors</code>
+</dt>
+  <dd>Optional.
+<a href="#authorauthors"><em>Learn more.</em></a>
+</dd>
+  <dt><code class="highlighter-rouge">homepage</code></dt>
+  <dd>Optional. URL pointing to the package’s homepage (or source code repository).
+<a href="#homepage"><em>Learn more.</em></a>
+</dd>
+  <dt><code class="highlighter-rouge">repository</code></dt>
+  <dd>Optional. URL pointing to the package’s source code repository.
+<a href="#repository"><em>Learn more.</em></a>
+</dd>
+  <dt><code class="highlighter-rouge">issue_tracker</code></dt>
+  <dd>Optional. URL pointing to an issue tracker for the package.
+<a href="#issue-tracker"><em>Learn more.</em></a>
+</dd>
+  <dt><code class="highlighter-rouge">documentation</code></dt>
+  <dd>Optional. Can be used to automatically create documentation.
+<a href="#documentation"><em>Learn more.</em></a>
+</dd>
+  <dt><code class="highlighter-rouge">dependencies</code></dt>
+  <dd>Can be omitted if your package has no dependencies.
+<a href="#dependencies"><em>Learn more.</em></a>
+</dd>
+  <dt><code class="highlighter-rouge">dev_dependencies</code></dt>
+  <dd>Can be omitted if your package has no dev dependencies.
+<a href="#dependencies"><em>Learn more.</em></a>
+</dd>
+  <dt><code class="highlighter-rouge">dependency_overrides</code></dt>
+  <dd>Can be omitted if you do not need to override any dependencies.
+<a href="#dependencies"><em>Learn more.</em></a>
+</dd>
+  <dt><code class="highlighter-rouge">environment</code></dt>
+  <dd>Required as of Dart 2.
+<a href="#sdk-constraints"><em>Learn more.</em></a>
+</dd>
+  <dt><code class="highlighter-rouge">executables</code></dt>
+  <dd>Optional. Used to put a package’s executables on your PATH.
+<a href="#executables"><em>Learn more.</em></a>
+</dd>
+  <dt><code class="highlighter-rouge">publish_to</code></dt>
+  <dd>Optional. Specify where to publish a package.
+<a href="#publish_to"><em>Learn more.</em></a>
+</dd>
+</dl>
+
+<p>Pub ignores all other fields.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Flutter note:</strong> Pubspecs for <a href="https://flutterchina.club">Flutter apps</a> can have
+<a href="https://flutterchina.club/assets-and-images">a few additional fields</a>
+for managing assets.</p>
+</aside>
+
+<h2 id="example">
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<p>A simple but complete pubspec looks something like the following:</p>
+
+<pre class="prettyprint lang-yaml">name: newtify
+version: 1.2.3
+description: &gt;-
+  Have you been turned into a newt?  Would you like to be?
+  This package can help. It has all of the
+  newt-transmogrification functionality you have been looking
+  for.
+author: Natalie Weizenbaum &lt;nweiz@google.com&gt;
+homepage: https://newtify.dartlang.org
+documentation: https://docs.newtify.com
+environment:
+  sdk: '&gt;=2.0.0 &lt;3.0.0'
+dependencies:
+  efts: ^2.0.4
+  transmogrify: ^0.4.0
+dev_dependencies:
+  test: '&gt;=0.6.0 &lt;0.12.0'</pre>
+
+<h2 id="details">
+<a id="details" class="anchor" href="#details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Details</h2>
+
+<p>This section has more information about most of the pubspec fields.</p>
+
+<h3 id="name">
+<a id="name" class="anchor" href="#name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Name</h3>
+
+<p>Every package needs a name.  It’s how other packages refer to yours,
+and how it appears to the world, should you publish it.</p>
+
+<p>The name should be all lowercase, with underscores to separate words,
+<code class="highlighter-rouge">just_like_this</code>. Use only basic Latin letters and Arabic digits:
+<code class="highlighter-rouge">[a-z0-9_]</code>. Also, make sure the name is a valid Dart identifier—that it
+doesn’t start with digits and isn’t a
+<a href="/guides/language/language-tour#keywords">reserved word</a>.</p>
+
+<p>Try to pick a name that is clear, terse, and not already in use.
+A quick search of packages on
+<a href="https://pub.dartlang.org/packages">pub.dartlang.org</a>
+to make sure that nothing else is using your name is recommended.</p>
+
+<h3 id="version">
+<a id="version" class="anchor" href="#version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version</h3>
+
+<p>Every package has a version. A version number is required to host your package
+on pub.dartlang.org, but can be omitted for local-only packages. If you omit
+it, your package is implicitly versioned <code class="highlighter-rouge">0.0.0</code>.</p>
+
+<p>Versioning is necessary for reusing code while letting it evolve quickly. A
+version number is three numbers separated by dots, like <code class="highlighter-rouge">0.2.43</code>. It can also
+optionally have a build (<code class="highlighter-rouge">+hotfix.oopsie</code>) or pre-release (<code class="highlighter-rouge">-alpha.12</code>) suffix.</p>
+
+<p>Each time you publish your package, you publish it at a specific version.
+Once that’s been done, consider it hermetically sealed: you can’t touch it
+anymore. To make more changes, you’ll need a new version.</p>
+
+<p>When you select a version, follow <a href="http://semver.org/spec/v2.0.0-rc.1.html">semantic versioning</a>.</p>
+
+<h3 id="description">
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h3>
+
+<p>This is optional for your own personal packages, but if you intend to
+publish your package you must provide a description. This should
+be relatively short—a few sentences, maybe a whole paragraph—and
+tells a casual reader what they might want to know about your package.</p>
+
+<p>Think of the description as the sales pitch for your package. Users see it
+when they <a href="https://pub.dartlang.org/packages">browse for packages</a>.
+It should be simple plain text: no markdown or HTML.
+That’s what your README is for.</p>
+
+<h3 id="authorauthors">
+<a id="authorauthors" class="anchor" href="#authorauthors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Author/Authors</h3>
+
+<p>You’re encouraged to use these fields to describe the author(s) of your package
+and provide contact information. <code class="highlighter-rouge">author</code> should be used if your package has a
+single author, while <code class="highlighter-rouge">authors</code> should be used with a YAML list if more than one
+person wrote the package. Each author can either be a single name
+(<code class="highlighter-rouge">Natalie Weizenbaum</code>) or a name and an email address
+(<code class="highlighter-rouge">Natalie Weizenbaum &lt;nweiz@google.com&gt;</code>). For example:</p>
+
+<pre class="prettyprint lang-yaml">authors:
+- Natalie Weizenbaum &lt;nweiz@google.com&gt;
+- Bob Nystrom &lt;rnystrom@google.com&gt;</pre>
+
+<p>If anyone uploads your package to pub.dartlang.org, your email address is
+public.</p>
+
+<h3 id="homepage">
+<a id="homepage" class="anchor" href="#homepage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homepage</h3>
+
+<p>This should be a URL pointing to the website for your package.
+For <a href="/tools/pub/dependencies#hosted-packages">hosted packages</a>,
+this URL is linked from the package’s page.
+While providing a <code class="highlighter-rouge">homepage</code> is optional, <em>please provide</em> it or <code class="highlighter-rouge">repository</code>
+(or both). It helps users understand where your package is coming from.</p>
+
+<h3 id="repository">
+<a id="repository" class="anchor" href="#repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repository</h3>
+
+<p>The optional <code class="highlighter-rouge">repository</code> field should contain the URL for your package’s source
+code repository — for example, <code class="highlighter-rouge">https://github.com/&lt;user&gt;/&lt;repository&gt;</code>.
+If you publish your package to pub.dartlang.org, then your package’s page
+displays the repository URL.
+While providing a <code class="highlighter-rouge">repository</code> is optional, <em>please provide</em> it or <code class="highlighter-rouge">homepage</code>
+(or both). It helps users understand where your package is coming from.</p>
+
+<h3 id="issue-tracker">
+<a id="issue-tracker" class="anchor" href="#issue-tracker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issue tracker</h3>
+
+<p>The optional <code class="highlighter-rouge">issue_tracker</code> field should contain a URL for the package’s
+issue tracker, where existing bugs can be viewed and new bugs can be filed.
+The pub.dartlang.org site attempts to display a link to each package’s issue
+tracker, using the value of this field. If <code class="highlighter-rouge">issue_tracker</code> is missing but
+<code class="highlighter-rouge">repository</code> is present and points to GitHub, then pub.dartlang.org uses the
+default issue tracker (<code class="highlighter-rouge">https://github.com/&lt;user&gt;/&lt;repository&gt;/issues</code>).</p>
+
+<h3 id="documentation">
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h3>
+
+<p>Some packages may have a site that hosts documentation separate from the main
+homepage. If your package has that, you can also add a <code class="highlighter-rouge">documentation:</code> field
+with that URL. If provided, a link to it is shown on your package’s page.</p>
+
+<p>If you specify the <code class="highlighter-rouge">documentation:</code> field with a blank value,
+documentation is created automatically for you, and is linked to from
+<a href="https://pub.dartlang.org">pub.dartlang.org</a>.</p>
+
+<h3 id="dependencies">
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+
+<p><a href="/tools/pub/glossary#dependency">Dependencies</a> are the pubspec’s <em>raison d’être</em>.
+In this section you list each package that your package needs in order to work.</p>
+
+<p>Dependencies fall into one of two types. <em>Regular dependencies</em> are listed
+under <code class="highlighter-rouge">dependencies:</code>—these are packages that anyone using your package
+will also need. Dependencies that are only needed in the development phase of
+the package itself are listed under <code class="highlighter-rouge">dev_dependencies</code>.</p>
+
+<p>During the development process, you might need to temporarily override
+a dependency.  You can do so using <code class="highlighter-rouge">dependency_overrides</code>.</p>
+
+<p>For more information, see <a href="/tools/pub/dependencies">Pub Dependencies</a>.</p>
+
+<h3 id="executables">
+<a id="executables" class="anchor" href="#executables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Executables</h3>
+
+<p>A package may expose one or more of its scripts as executables that
+can be run directly from the command line. To make a script publicly
+available, list it under the <code class="highlighter-rouge">executables</code> field.
+Entries are listed as key/value pairs:</p>
+
+<pre>&lt;name-of-executable&gt;: &lt;Dart-script-from-bin&gt;</pre>
+
+<p>For example, the following pubspec entry lists two scripts:</p>
+
+<pre class="prettyprint lang-yaml">executables:
+  polymer-new-element: new_element
+  useful-script:</pre>
+
+<p>Once the package is activated using <code class="highlighter-rouge">pub global activate</code>,
+typing <code class="highlighter-rouge">polymer-new-element</code> executes <code class="highlighter-rouge">bin/new_element.dart</code>.
+Typing <code class="highlighter-rouge">useful-script</code> executes <code class="highlighter-rouge">bin/useful-script.dart</code>.
+If you don’t specify the value, it is inferred from the key.</p>
+
+<p>For more information, see
+<a href="/tools/pub/cmd/pub-global#running-a-script-from-your-path">pub global</a>.</p>
+
+<h3 id="publish_to">
+<a id="publish_to" class="anchor" href="#publish_to" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publish_to</h3>
+
+<p>The default is <code class="highlighter-rouge">https://pub.dartlang.org</code>. Specify <code class="highlighter-rouge">none</code> to prevent
+a package from being published. This setting can be used to specify a
+<a href="https://github.com/dart-lang/pub-dartlang-dart/">custom pub package server</a>
+to publish.</p>
+
+<pre class="prettyprint lang-yaml">publish_to: none</pre>
+
+<h3 id="sdk-constraints">
+<a id="sdk-constraints" class="anchor" href="#sdk-constraints" aria-hidden="true"><span class="octicon octicon-link"></span></a>SDK constraints</h3>
+
+<p>A package can indicate which versions of its dependencies it supports, but
+packages have another implicit dependency: the Dart platform itself.
+The Dart platform evolves over time, and a package might only work with certain
+versions of the platform.</p>
+
+<p>A package can specify those versions using an <em>SDK constraint</em>. This
+constraint goes inside a separate top-level <code class="highlighter-rouge">environment</code> field in the pubspec
+and uses the same
+<a href="/tools/pub/dependencies#version-constraints">version constraint</a> syntax as
+dependencies.</p>
+
+<p>For example, the following constraint says that this package
+works with any <strong>Dart 2</strong> SDK that’s version 2.0.0 or higher:</p>
+
+<pre class="prettyprint lang-yaml">environment:
+  sdk: '&gt;=2.0.0 &lt;3.0.0'</pre>
+
+<p>Pub tries to find the latest version of a package whose SDK constraint works
+with the version of the Dart SDK that you have installed.</p>
+
+<aside class="alert alert-warning">
+  <p><strong>Don’t use caret syntax</strong> (<code class="highlighter-rouge">^</code>) for the SDK constraint,
+  and <strong>do include an upper bound</strong> (<code class="highlighter-rouge">&lt;3.0.0</code>, usually).
+  For more information, see the <a href="/dart-2">Dart 2 page</a>.</p>
+</aside>
+
+<h4 id="flutter-sdk-constraints">Flutter SDK constraints</h4>
+
+<p>As of Dart 1.19.0,
+pub supports Flutter SDK constraints under the <code class="highlighter-rouge">environment:</code> field:</p>
+
+<pre class="prettyprint lang-yaml">environment:
+  sdk: '&gt;=1.19.0 &lt;3.0.0'
+  flutter: ^0.1.2</pre>
+
+<p>A Flutter SDK constraint is satisfied only if pub is running in the
+context of the <code class="highlighter-rouge">flutter</code> executable, and the Flutter SDK’s
+<code class="highlighter-rouge">version</code> file matches the given version constraint. Otherwise,
+the package will not be selected.</p>
+
+<p>To publish a package with a Flutter SDK constraint,
+you must specify a Dart SDK constraint with a minimum version of
+at least 1.19.0, to ensure that older versions of pub won’t
+accidentally install packages that need Flutter.</p>
+
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dartchina/site-www-cn"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dartchina/site-www-cn/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2019/02/11 01:24 PST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>技术</h4>
+          <ul>
+            <li><a href="https://flutterchina.club">Dart 移动开发 (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart web 开发</a></li>
+            <li><a href="/server">Dart 服务器开发</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory 工具</a></li>
+            <li><a href="/guides/libraries">Dart 库</a></li>
+            <li><a href="/guides/language">Dart 编程语言</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>资源</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>社区</h4>
+          <ul>
+            <li><a href="/community">支持和邮件列表</a></li>
+            <li><a href="/community/who-uses-dart">谁在用Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">社区</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">公告组</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter聊天室</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

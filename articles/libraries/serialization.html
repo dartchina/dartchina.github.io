@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Choose the serialization strategy that's right for your project.">
+  <title>Serialization in Dart | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Serialization in Dart" />
+  <meta name="twitter:description" content="Choose the serialization strategy that's right for your project." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Serialization in Dart" />
+  <meta property="og:description" content="Choose the serialization strategy that's right for your project." />
+  <meta property="og:url" content="https://www.dartlang.org/articles/libraries/serialization" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" integrity="sha256-EULh7n7c0RZiOHiikIAEzXBQ0AXvb71Ul6a85V4AuTc=" crossorigin="anonymous" href="/assets/main-1142e1ee7edcd116623878a2908004cd7050d005ef6fbd5497a6bce55e00b937.css">
+  <script src="/assets/main-8306ad9c5a7b0d639cab54fda750f6ae0b3fb8f964457c69a7ef962a0cc52902.js" integrity="sha256-gwatnFp7DWOcq1T9p1D2rgs/uPlkRXxpp++WKgzFKQI=" crossorigin="anonymous" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default obsolete">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
+    <li><a href="/guides/language">语言</a></li>
+    <li><a href="/guides/libraries">库</a></li>
+    <li><a href="/tools">工具</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/libraries/serialization" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
+
+        <li role="separator" class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
+  </div>
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-light" href="/guides/get-started">入门</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="语言">语言</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="概览">概览</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="风格">风格</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="文档">文档</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="使用">使用</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="设计">设计</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="示例代码">示例代码</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="库">库</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="概览">概览</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="平台">平台</a></h4>
+  <ul><li >
+          <a href="https://flutterchina.club" title="移动端 (Flutter中文网)">移动端 (Flutter中文网)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/server" title="服务器">服务器</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="测试">测试</a></h4>
+  <ul>
+  </ul><h4 >资源</h4>
+  <ul><li >
+          <a href="/install" title="安装">安装</a>
+        </li><li >
+          <a href="/codelabs" title="Codelab">Codelab</a>
+        </li><li >
+          <a href="/tutorials" title="学习指南">学习指南</a>
+        </li><li >
+          <a href="/tools" title="工具">工具</a>
+        </li><li >
+          <a href="/community" title="社区支持">社区支持</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <header class="h4 text-uppercase">
+      目录
+      <a title="Back to top" class="back-to-top float-right mr-3">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </header>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#why-do-mirrors-matter">Why do mirrors matter?</a></li>
+<li class="toc-entry toc-h3"><a href="#simple-json">What is simple JSON?</a></li>
+<li class="toc-entry toc-h3"><a href="#what-does-your-project-need">What does your project need?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#reviews">Reviews</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#dartson-review">dartson</a></li>
+<li class="toc-entry toc-h3"><a href="#serialization-review">serialization</a></li>
+<li class="toc-entry toc-h3"><a href="#protobuf-review">protobuf</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#examples">Examples</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#dartson-example">dartson</a></li>
+<li class="toc-entry toc-h3"><a href="#serialization-example">serialization</a></li>
+<li class="toc-entry toc-h3"><a href="#protobuf-example">protobuf</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#size-comparisons">Size comparisons</a></li>
+<li class="toc-entry toc-h2"><a href="#summary">Summary</a></li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+          
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/libraries/serialization.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Serialization in Dart' page issue&body=
+Page URL: https://www.dartlang.org/articles/libraries/serialization%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/libraries/serialization.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>Serialization in Dart</h1>
+          </div>
+          <p><em>Written by Nicolas Garnier<br>
+February 2015 (note updated July 2018)</em></p>
+
+<aside class="alert alert-warning">
+  <p>This article’s general information and approach
+  are still useful, but it doesn’t cover new software such as the
+  <a href="https://pub.dartlang.org/packages/built_value">built_value</a> and 
+  <a href="https://pub.dartlang.org/packages/json_serializable">json_serializable</a>
+  packages.
+  A more up-to-date discussion of Dart serialization solutions is
+  in the unofficial repo
+  <a href="https://github.com/matanlurey/dart_serialize_proposal">matanlurey/dart_serialize_proposal.</a></p>
+</aside>
+
+<p>Being able to serialize and deserialize objects is a common task in web apps.
+Here are a few typical cases of using serialization:</p>
+
+<ul>
+  <li>Communication with an external system, API, or web service</li>
+  <li>Storing objects in a database</li>
+  <li>Sending objects between a Dart web client and a Dart server</li>
+</ul>
+
+<p>This article provides an overview of
+serialization strategies for Dart programs.
+You will learn how to evaluate, choose, and implement
+a serialization solution that best fits your app.</p>
+
+<h2 id="overview">
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>After looking at many serialization options for Dart,
+we reviewed three solutions in depth:</p>
+
+<dl>
+  <dt><a href="https://pub.dartlang.org/packages/dartson">dartson</a></dt>
+  <dd>Simple JSON for simple objects.</dd>
+  <dt><a href="https://pub.dartlang.org/packages/serialization">serialization</a></dt>
+  <dd>A custom format for complex Dart objects.</dd>
+  <dt><a href="https://pub.dartlang.org/packages/protobuf">protobuf</a></dt>
+  <dd>Google’s <a href="https://developers.google.com/protocol-buffers/">protocol buffer</a>
+format.</dd>
+</dl>
+
+<p>As the following table shows,
+dartson is the easiest of the three to install and use.
+Unless you need to use protocol buffers or exchange complex Dart objects,
+try dartson first.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th> </th>
+      <th>dartson</th>
+      <th>serialization</th>
+      <th>protobuf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Easy to install</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Easy to use</td>
+      <td>✓</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Stable data format</td>
+      <td>✓</td>
+      <td> </td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>Works with non-Dart languages</td>
+      <td>✓</td>
+      <td> </td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>Supports complex objects</td>
+      <td> </td>
+      <td>✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Works well with dart2js</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Other compelling options are likely to exist on
+<a href="https://pub.dartlang.org/">pub.dartlang.org</a>,
+so we encourage you to look around.
+We focused on these solutions because they
+are all dart2js-friendly—they
+don’t rely on mirrors,
+although some also provide a mirror-based implementation.</p>
+
+<h3 id="why-do-mirrors-matter">
+<a id="why-do-mirrors-matter" class="anchor" href="#why-do-mirrors-matter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why do mirrors matter?</h3>
+
+<p>As a rule, avoid mirrors in code that runs in the browser.
+When dart2js compiles Dart code to JavaScript,
+the dynamic nature of mirrors interferes with tree shaking,
+and can dramatically increase the size of the generated JavaScript.</p>
+
+<p>For example, simple testing with a sample project shows
+a generated code size of 133KB for
+the mirrors version of dartson (with @MirrorsUsed annotations),
+compared to 56KB for the static, non-mirrors version.</p>
+
+<h3 id="simple-json">
+<a id="simple-json" class="anchor" href="#simple-json" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is simple JSON?</h3>
+
+<p>We use <em>simple JSON</em> throughout this article to refer to
+the default object JSON serialization representation used in JavaScript.
+When using JSON in JavaScript, objects are serialized by default to
+a map of their properties with certain special cases.
+(For example, JavaScript Dates are serialized to ISO8601 strings,
+by default.)</p>
+
+<p>We are calling this <em>simple JSON</em>, and not just <em>JSON</em>,
+to differentiate it from other JSON-based serialization formats.
+For example, protobuf has a JSON-based representation
+that isn’t simple JSON.</p>
+
+<p>Simple JSON serialization is becoming a de facto standard,
+and is available in libraries for many programming languages.</p>
+
+<h3 id="what-does-your-project-need">
+<a id="what-does-your-project-need" class="anchor" href="#what-does-your-project-need" aria-hidden="true"><span class="octicon octicon-link"></span></a>What does your project need?</h3>
+
+<p>Here are some criteria that can affect
+your choice of a serialization solution,
+along with examples of how they could apply to your project.</p>
+
+<p>Object complexity:</p>
+
+<ul>
+  <li>Simple:
+All of the objects to be serialized are
+<a href="http://en.wikipedia.org/wiki/Data_transfer_object">data transfer objects</a>
+(DTOs)
+with a <a href="/guides/language/language-tour#default-constructors">default constructor</a>.</li>
+  <li>Complex:
+Some or all of the objects to be serialized have cycles,
+can’t be created with no-argument constructors,
+or have special setter methods.</li>
+</ul>
+
+<p>Serialization format:</p>
+
+<ul>
+  <li>Predefined:
+You must use a specific serialization data format, like
+<a href="#simple-json">simple JSON</a> or
+<a href="https://developers.google.com/protocol-buffers/">protocol buffers</a>.</li>
+  <li>Open:
+You are free to use your own serialization format because
+you control both the emitting (serializing) and
+receiving (deserializing) systems.</li>
+</ul>
+
+<p>Cross-language support:</p>
+
+<ul>
+  <li>Required:
+The code that serializes or deserializes the objects
+might not be written in Dart.</li>
+  <li>Not required:
+Serialization and deserialization always happen in Dart code.</li>
+</ul>
+
+<p>Browser support:</p>
+
+<ul>
+  <li>Required: You need to serialize or deserialize in the browser (when Dart is
+compiled to JavaScript), so small generated JavaScript code size is
+important.</li>
+  <li>Not required: Your app runs only in the Dart VM. (It’s a server or
+command-line tool.)</li>
+</ul>
+
+<p>Data format stability:</p>
+
+<ul>
+  <li>Required: You need a stable, well-defined data format that won’t change
+over time.</li>
+  <li>Not required: The data is serialized for transient operations only.</li>
+</ul>
+
+<p>Identifying your criteria is important because
+no serialization library or data format works in every scenario.
+Some criteria are even mutually exclusive—for example,
+simple JSON cannot represent objects with circular dependencies.</p>
+
+<h2 id="reviews">
+<a id="reviews" class="anchor" href="#reviews" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reviews</h2>
+
+<p>Once you know what your project needs,
+you’re ready to find a solution that matches those needs.
+This section reviews three solutions:</p>
+
+<ul>
+  <li><a href="#dartson-review">dartson</a></li>
+  <li><a href="#serialization-review">serialization</a></li>
+  <li><a href="#protobuf-review">protobuf</a></li>
+</ul>
+
+<h3 id="dartson-review">
+<a id="dartson-review" class="anchor" href="#dartson-review" aria-hidden="true"><span class="octicon octicon-link"></span></a>dartson</h3>
+
+<p>Recommended use cases:</p>
+
+<ul>
+  <li>Communication with a web service using simple JSON as the data format</li>
+  <li>Communication between between a web client and a server written in
+different languages</li>
+</ul>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+Dartson is a community project started by
+<a href="https://github.com/eredo">Eric Schneller</a>.</p>
+</aside>
+
+<p>Dartson allows serializing to and deserializing from
+<a href="#simple-json">simple JSON</a>.
+Several Dart packages offer simple JSON serialization,
+but a significant advantage of dartson is that
+it doesn’t require mirrors.
+Instead, it provides a
+<a href="/tools/pub/assets-and-transformers">pub transformer</a>
+that generates static serialization rules.</p>
+
+<p>You can provide custom serialization rules
+using <em>type transformers</em>—dartson-specific
+classes not to be confused with pub transformers.
+For example, the dartson package supplies a DateTime type transformer,
+implemented in
+<a href="https://github.com/eredo/dartson/blob/master/lib/transformers/date_time.dart">transformers/date_time.dart</a>.
+You can create your own serialization rules by subclassing
+<a href="https://www.dartdocs.org/documentation/dartson/latest/dartson.type_transformer/TypeTransformer-class.html">TypeTransformer</a>.</p>
+
+<p>During development,
+you can use dartson’s mirrors-based implementation
+to avoid waiting for builds.
+When you’re ready to deploy,
+building with the pub transformer replaces the mirrors-based implementation
+with statically generated rules.</p>
+
+<p>Pros:</p>
+
+<ul>
+  <li>Produces and reads simple JSON.</li>
+  <li>Compiles to smaller JavaScript code than other options.</li>
+  <li>Allows you to use mirrors during development
+(no need to wait for the build).</li>
+  <li>Has good cross-language support:
+Lots of simple JSON
+libraries are available in other programming languages.</li>
+</ul>
+
+<p>Cons:</p>
+
+<ul>
+  <li>Must know the class that the object is being serialized into.</li>
+  <li>Must use only public classes.</li>
+  <li>Except for basic types
+(numbers, booleans, strings, lists, and maps),
+must either annotate each serializable class as <code class="highlighter-rouge">@Entity</code> or
+provide a type transformer.</li>
+  <li>Can’t always infer the type of objects when deserializing.
+For example, if a field declared as <code class="highlighter-rouge">List&lt;Person&gt;</code> is actually
+a <code class="highlighter-rouge">List&lt;Superhero&gt;</code>, then you lose the type information about Superhero.</li>
+  <li>Can’t serialize some complex objects.
+For example, you can’t serialize objects with cycles
+(objects that point to themselves, directly or indirectly),
+objects with fields defined using abstract classes
+(abstract classes can’t be instantiated),
+and objects that declare constructors.</li>
+</ul>
+
+<p>If you are looking for alternatives to
+<a href="#dartson-review">dartson</a>
+that work with simple JSON,
+here are a few. All require mirrors,
+and thus should be used only with the Dart VM:</p>
+
+<ul>
+  <li><a href="https://pub.dartlang.org/packages/json_object">json_object</a></li>
+  <li><a href="https://pub.dartlang.org/packages/exportable">exportable</a></li>
+  <li><a href="https://pub.dartlang.org/packages/jsonx">jsonx</a></li>
+</ul>
+
+<p>For more information about dartson, see these resources:</p>
+
+<ul>
+  <li>Step-by-step how-to: <a href="#dartson-example">dartson example</a>
+</li>
+  <li>Source code: <a href="https://github.com/eredo/dartson">https://github.com/eredo/dartson</a>
+</li>
+  <li>Homepage: <a href="https://pub.dartlang.org/packages/dartson">https://pub.dartlang.org/packages/dartson</a>
+</li>
+</ul>
+
+<h3 id="serialization-review">
+<a id="serialization-review" class="anchor" href="#serialization-review" aria-hidden="true"><span class="octicon octicon-link"></span></a>serialization</h3>
+
+<p>Recommended use case:</p>
+
+<ul>
+  <li>Sending objects between a Dart client and a Dart server
+that are built and deployed together</li>
+</ul>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+The serialization package is a community contribution from Google, but
+it’s not part of the Dart SDK.</p>
+</aside>
+
+<p>The serialization package offers a powerful
+serialization and deserialization mechanism with the goal of
+allowing (de)serialization of complex arbitrary objects
+(with some limitations).
+This package handles the following cases transparently:</p>
+
+<ul>
+  <li>Object graphs with relationships, including cycles</li>
+  <li>Inheritance</li>
+  <li>Final fields</li>
+  <li>Objects with declared constructors</li>
+  <li>Private fields with getter/setter pairs</li>
+  <li>Not knowing ahead of time which classes the serialized data uses</li>
+</ul>
+
+<p>By default, the serialization package uses a custom representation.
+However, the serialization package is pluggable to some extent, so
+you can customize the serialization format.
+For example, the serialization package can serialize to simple JSON
+(but not deserialize).
+It’s best used with its default format, however,
+which makes it a Dart-only option.</p>
+
+<p>Because the serialized format can change from one build to another—depending
+on the objects you’re serializing and whether you’re using mirrors—this
+package is best used for transient data,
+in clients and servers that are always built and deployed together.</p>
+
+<p>Pros:</p>
+
+<ul>
+  <li>Can serialize most Dart objects.</li>
+  <li>Pluggable, so you can define custom output formats.</li>
+  <li>Supports simple JSON
+(but not for deserialization).</li>
+</ul>
+
+<p>Cons:</p>
+
+<ul>
+  <li>Dart-only technology.</li>
+  <li>Works best with its own data format.</li>
+  <li>Unstable data format,
+which makes this package
+suitable for transient operations only,
+and only when both sides are built together.</li>
+</ul>
+
+<p>For more information about the serialization package, see these resources:</p>
+
+<ul>
+  <li>Step-by-step how-to: <a href="#serialization-example">serialization example</a>
+</li>
+  <li>Source code: <a href="https://github.com/google/serialization.dart">https://github.com/google/serialization.dart</a>
+</li>
+  <li>Homepage: <a href="https://pub.dartlang.org/packages/serialization">https://pub.dartlang.org/packages/serialization</a>
+</li>
+</ul>
+
+<h3 id="protobuf-review">
+<a id="protobuf-review" class="anchor" href="#protobuf-review" aria-hidden="true"><span class="octicon octicon-link"></span></a>protobuf</h3>
+
+<p>Recommended use cases:</p>
+
+<ul>
+  <li>Persisting objects to a database</li>
+  <li>Communication with a web service that expects
+protocol buffers as the data format</li>
+  <li>Communication between a web client and a server written in
+different languages</li>
+</ul>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+The protobuf package is a community contribution from Google, but
+it’s not part of the Dart SDK.</p>
+</aside>
+
+<p><a href="https://developers.google.com/protocol-buffers/">Protocol buffers</a>
+(<em>protobufs</em>)
+are a language-neutral way
+to serialize structured data.
+<a href="https://github.com/google/protobuf/wiki/Third-Party-Add-ons">Third-party add-ons</a>
+provide provide protocol buffer support for many programming languages,
+including Dart.</p>
+
+<p>Protocol buffers have a very compact binary format, as well as
+a JSON-based human-readable format.
+The data structure is defined in <code class="highlighter-rouge">.proto</code> files,
+which a compiler (<em>protoc</em>)
+uses to generate serialization rules and DTOs.</p>
+
+<p>To use protocol buffers in Dart code, you must generate
+a data transfer Dart class using protoc and
+the <a href="https://github.com/dart-lang/dart-protoc-plugin">Dart plugin</a>.
+If you’re interacting with a system that provides data as protocol buffers,
+that system should provide the <code class="highlighter-rouge">.proto</code> file.</p>
+
+<p>One downside of protocol buffers is that they aren’t very flexible.
+You’re limited to using a fixed set of <a href="https://developers.google.com/protocol-buffers/docs/proto#scalar">scalar value
+types</a>,
+plus whatever custom, generated classes are specified by the <code class="highlighter-rouge">.proto</code> file.
+For example, you can’t use
+Dart’s DateTime class directly in your serializable objects
+because only new classes generated by protoc can be serialized.</p>
+
+<p>Pros:</p>
+
+<ul>
+  <li>Supports the protocol buffer serialization format,
+which is compact and supported by Google APIs such as
+<a href="https://cloud.google.com/datastore/docs/concepts/overview">Google Cloud Datastore</a>.</li>
+  <li>Very good cross-language support.</li>
+  <li>Well-defined, stable, backward-compatible format.</li>
+</ul>
+
+<p>Cons:</p>
+
+<ul>
+  <li>Must know the class to serialize into.</li>
+  <li>Can’t serialize into predefined Dart classes;
+DTOs are entirely generated by the protoc compiler.</li>
+</ul>
+
+<p>For more information about using protocol buffers, see these resources:</p>
+
+<ul>
+  <li>Step-by-step how-to: <a href="#protobuf-example">protobuf example</a>
+</li>
+  <li>Protocol buffer documentation:
+<a href="https://developers.google.com/protocol-buffers/">https://developers.google.com/protocol-buffers/</a>
+</li>
+  <li>protobuf package: <a href="https://pub.dartlang.org/packages/protobuf">https://pub.dartlang.org/packages/protobuf</a>
+</li>
+  <li>Dart plugin for protoc: <a href="https://github.com/dart-lang/dart-protoc-plugin">https://github.com/dart-lang/dart-protoc-plugin</a>
+</li>
+</ul>
+
+<h2 id="examples">
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<p>This section shows how to quickly get started with
+the reviewed libraries,
+featuring code from examples in
+<a href="https://github.com/nicolasgarnier/dart-serialization-samples">this GitHub repo</a>.</p>
+
+<p>The examples serialize and deserialize Person objects.
+When defined in Dart code, the Person class looks like this:</p>
+
+<pre class="prettyprint lang-dart">class Person {
+  int id;
+  String name;
+  DateTime dateOfBirth;
+  List&lt;Person&gt; children;
+}</pre>
+
+<p>Dart code might create Person objects like this:</p>
+
+<pre class="prettyprint lang-dart">Person jerome = new Person()
+  ..id = 228
+  ..name = "Jerome Dole"
+  ..dateOfBirth = new DateTime(2013, 1, 19);
+
+Person sarah = new Person()
+  ..id = 201
+  ..name = "Sarah Dole"
+  ..dateOfBirth = new DateTime(2011, 4, 9);
+
+Person bob = new Person()
+  ..id = 123
+  ..name = "Bob Dole"
+  ..dateOfBirth = new DateTime(1980, 3, 16)
+  ..children = (new List()..add(jerome)..add(sarah));</pre>
+
+<p>The <code class="highlighter-rouge">bob</code> object,
+when serialized using simple JSON,
+looks something like this:</p>
+
+<pre class="prettyprint lang-yaml">{
+    "id": 123,
+    "name": "Bob Dole",
+    "dateOfBirth": "1980-03-16T00:00:00Z",
+    "children": [{
+        "id": 228,
+        "name": "Jerome Dole",
+        "dateOfBirth": "2013-01-19T00:00:00Z"
+    },
+    {
+        "id": 201,
+        "name": "Sarah Dole",
+        "dateOfBirth": "2011-04-09T00:00:00Z"
+    }]
+}</pre>
+
+<h3 id="dartson-example">
+<a id="dartson-example" class="anchor" href="#dartson-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>dartson</h3>
+
+<ol>
+<li>
+    <p>Edit the project’s <code class="highlighter-rouge">pubspec.yaml</code>,
+  adding a dependency on the dartson package and its pub transformer:</p>
+
+    <pre class="prettyprint lang-yaml">...
+dependencies:
+  dartson: "&gt;=0.2.0 &lt;0.3.0"
+transformers:
+- dartson</pre>
+  </li>
+
+<li>
+    <p>Annotate your serializable classes with <code class="highlighter-rouge">@Entity()</code>. For example:</p>
+
+    <pre class="prettyprint lang-dart">@Entity()
+class Person {
+  ...
+}</pre>
+  </li>
+
+<li>
+    <p>Import <code class="highlighter-rouge">dartson.dart</code> and the libraries for any type transformers
+  that you need.</p>
+
+    <pre class="prettyprint lang-dart">import 'package:dartson/dartson.dart';
+import 'package:dartson/transformers/date_time.dart';</pre>
+  </li>
+
+<li>
+    <p>Create an instance of
+  <a href="https://www.dartdocs.org/documentation/dartson/latest/index.html">Dartson</a>,
+  and add any type transformers you need:</p>
+
+    <pre class="prettyprint lang-dart">var dson = new Dartson.JSON();
+dson.addTransformer(new DateTimeParser(), DateTime);</pre>
+  </li>
+
+<li>
+    <p>Serialize objects using Dartson’s <code class="highlighter-rouge">encode()</code> method.</p>
+
+    <p>For example, the following code serializes the <code class="highlighter-rouge">bob</code> Person object,
+  along with the two Person objects that are children of <code class="highlighter-rouge">bob</code>:</p>
+
+    <pre class="prettyprint lang-dart">String personString = dson.encode(bob);
+print("Serialized Person: $personString");</pre>
+
+    <p>Here’s the output of that print:</p>
+
+    <pre class="prettyprint lang-sh">Serialized Person: {"id":123,"name":"Bob Dole","dateOfBirth":"1980-03-16T00:00:00Z","children":[{"id":228,"name":"Jerome Dole","dateOfBirth":"2013-01-19T00:00:00Z"},{"id":201,"name":"Sarah Dole","dateOfBirth":"2011-04-09T00:00:00Z"}]}</pre>
+  </li>
+
+<li>
+    <p>Deserialize objects using Dartson’s <code class="highlighter-rouge">decode()</code> method:</p>
+
+    <pre class="prettyprint lang-dart">Person deserializedPerson = dson.decode(personString, new Person());</pre>
+  </li>
+</ol>
+
+<h3 id="serialization-example">
+<a id="serialization-example" class="anchor" href="#serialization-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>serialization</h3>
+
+<p>This package is still changing. See the
+<a href="https://pub.dartlang.org/packages/serialization">serialization package page</a>
+for the latest details.</p>
+
+<h3 id="protobuf-example">
+<a id="protobuf-example" class="anchor" href="#protobuf-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>protobuf</h3>
+
+<ol>
+<li>
+    <p>Install the protocol compiler, <strong>protoc</strong>.</p>
+
+    <p>You can find instructions in the protocol buffer
+  <a href="https://developers.google.com/protocol-buffers/docs/downloads">download page</a>.
+  Or, on a Mac:</p>
+
+    <p><code class="highlighter-rouge">brew install protobuf</code></p>
+  </li>
+
+<li>
+    <p>Install the Dart protobuf plugin:</p>
+
+    <ul>
+      <li>Go to the
+<a href="https://github.com/dart-lang/dart-protoc-plugin">dart-lang/dart-protoc-plugin repo</a>,
+and clone it or download its ZIP file.</li>
+      <li>In the top directory of your copy of dart-protoc-plugin, run:
+<code class="highlighter-rouge">pub install &amp;&amp; make build-plugin</code>.</li>
+      <li>Add <code class="highlighter-rouge">out/protoc-gen-dart</code> to your PATH.</li>
+    </ul>
+  </li>
+<br>
+<li>
+    <p>Write a <code class="highlighter-rouge">.proto</code> file or use an existing one
+  provided by the API you are communicating with.</p>
+
+    <p>The <code class="highlighter-rouge">.proto</code> file describes the data types.
+  For example, here is a simple <code class="highlighter-rouge">.proto</code> file for Person objects:</p>
+
+    <pre class="prettyprint lang-dart">message Person {
+    required int32 id = 1;
+    required string name = 2;
+    required uint64 date_of_birth = 3;
+    repeated Person children = 4;
+}</pre>
+
+    <p>Note that the Person object can’t use DateTime.
+Instead, the <code class="highlighter-rouge">.proto</code> file uses a 64-bit integer for the field.
+The Dart code for creating a Person object looks like this:</p>
+
+    <pre class="prettyprint lang-dart">Person bob = new Person()
+  ..id = 123
+  ..name = "Bob Dole"
+  ..dateOfBirth = new Int64(new DateTime(1980, 3, 16).millisecondsSinceEpoch)
+  ..children.add(jerome)
+  ..children.add(sarah);</pre>
+  </li>
+
+<li>
+    <p>In your project’s <code class="highlighter-rouge">pubspec.yaml</code> file,
+  add protobuf as a dependency:</p>
+
+    <pre class="prettyprint lang-yaml">dependencies:
+  protobuf: "&gt;=0.3.4 &lt;0.4.0"</pre>
+  </li>
+
+<li>
+    <p>Compile your <code class="highlighter-rouge">.proto</code> file:</p>
+
+    <pre class="prettyprint lang-sh">protoc --dart_out=. person.proto</pre>
+
+    <p>This generates a Dart file containing
+  serialization and deserialization rules.</p>
+  </li>
+
+<li>
+    <p>Import the newly created file in your code.</p>
+
+    <pre class="prettyprint lang-dart">import 'person.pb.dart'; // This is the file generated by protoc.</pre>
+  </li>
+
+<li>
+    <p>Serialize objects using one of the generated write methods,
+  which you can find in the
+  <a href="https://www.dartdocs.org/documentation/protobuf/latest/protobuf/GeneratedMessage-class.html">GeneratedMessage class API docs</a>.</p>
+
+    <pre class="prettyprint lang-dart">Uint8List personBuffer = bob.writeToBuffer();
+String personJson = bob.writeToJson();</pre>
+  </li>
+
+<li>
+    <p>Deserialize objects using one of the generated constructors.
+  These constructors are named like the
+  <a href="https://www.dartdocs.org/documentation/protobuf/latest/protobuf/GeneratedMessage-class.html">GeneratedMessage</a> constructors.</p>
+
+    <pre class="prettyprint lang-dart">Person deserializedPerson1 = new Person.fromBuffer(personBuffer);
+Person deserializedPerson2 = new Person.fromJson(personJson);</pre>
+  </li>
+</ol>
+
+<h2 id="size-comparisons">
+<a id="size-comparisons" class="anchor" href="#size-comparisons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Size comparisons</h2>
+
+<p>The serialization solution you choose affects not only the size
+of serialized objects,
+but also the size of the JavaScript generated (for web apps
+that serialize or deserialize).
+The tables in this section show size measurements
+for the example apps described in the <a href="#examples">Examples</a> section
+(source code is <a href="https://github.com/nicolasgarnier/dart-serialization-samples">on
+GitHub</a>).</p>
+
+<p>The following table matters only if you’re writing code for web apps.
+It shows the size of the example app,
+after dart2js compiles the app into JavaScript.</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Serialization technique</th>
+      <th style="text-align: right">Generated JavaScript code size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+<strong>dartson</strong> using a pub transformer</td>
+      <td style="text-align: right">56 KB</td>
+    </tr>
+    <tr>
+      <td>
+<strong>dartson</strong> using mirrors</td>
+      <td style="text-align: right">133 KB</td>
+    </tr>
+    <tr>
+      <td>
+<strong>protobuf</strong> using the binary formatter</td>
+      <td style="text-align: right">100 KB</td>
+    </tr>
+    <tr>
+      <td>
+<strong>protobuf</strong> using the JSON-based formatter</td>
+      <td style="text-align: right">81 KB</td>
+    </tr>
+    <tr>
+      <td>
+<strong>serialization</strong> using a pub transformer</td>
+      <td style="text-align: right">74 KB</td>
+    </tr>
+    <tr>
+      <td>
+<strong>serialization</strong> using mirrors and @MirrorsUsed() annotation</td>
+      <td style="text-align: right">154 KB</td>
+    </tr>
+    <tr>
+      <td>
+<strong>serialization</strong> using mirrors without @MirrorsUsed() annotation</td>
+      <td style="text-align: right">785 KB</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The next table shows the size of the serialized Person object (<code class="highlighter-rouge">bob</code>)
+that the examples create using each solution.</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Serialization technique</th>
+      <th style="text-align: right">Serialized object size</th>
+      <th style="text-align: right">GZipped size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+<strong>dartson</strong>*</td>
+      <td style="text-align: right">227 bytes</td>
+      <td style="text-align: right">163 bytes</td>
+    </tr>
+    <tr>
+      <td>
+<strong>protobuf</strong> (binary format)</td>
+      <td style="text-align: right">68 bytes</td>
+      <td style="text-align: right">n/a</td>
+    </tr>
+    <tr>
+      <td>
+<strong>protobuf</strong> (JSON-based format)</td>
+      <td style="text-align: right">138 bytes</td>
+      <td style="text-align: right">120 bytes</td>
+    </tr>
+    <tr>
+      <td>
+<strong>serialization</strong> with transformer</td>
+      <td style="text-align: right">405 bytes</td>
+      <td style="text-align: right">199 bytes</td>
+    </tr>
+    <tr>
+      <td>
+<strong>serialization</strong> with mirrors**</td>
+      <td style="text-align: right">948 bytes</td>
+      <td style="text-align: right">302 bytes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>* Unoptimized. You can decrease the output size
+by choosing shorter names for fields—for example,
+“dob” instead of “dateOfBirth”.</p>
+
+<p>** The mirror-based implementation of the serialization package
+produces different output than the pub-transformer-based implementation.</p>
+
+<h2 id="summary">
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h2>
+
+<p>Serialization sounds simple at first,
+but no solution fits every situation.
+Factors in choosing a solution include
+the complexity of serialized objects,
+the serialization format,
+the stability of that format,
+the need for cross-language support,
+and the desire to generate small JavaScript.</p>
+
+<p>This article covered three solutions,
+recommending dartson as a starting point.
+To find more solutions,
+<a href="https://pub.dartlang.org/search?q=serialization">search pub.dartlang.org for serialization</a>.</p>
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dartchina/site-www-cn"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dartchina/site-www-cn/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2019/02/11 01:24 PST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>技术</h4>
+          <ul>
+            <li><a href="https://flutterchina.club">Dart 移动开发 (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart web 开发</a></li>
+            <li><a href="/server">Dart 服务器开发</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory 工具</a></li>
+            <li><a href="/guides/libraries">Dart 库</a></li>
+            <li><a href="/guides/language">Dart 编程语言</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>资源</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>社区</h4>
+          <ul>
+            <li><a href="/community">支持和邮件列表</a></li>
+            <li><a href="/community/who-uses-dart">谁在用Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">社区</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">公告组</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter聊天室</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

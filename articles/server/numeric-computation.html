@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How you store and use numbers can have a big impact on your app's performance. This article focuses on the Dart VM.">
+  <title>Numeric Computation | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Numeric Computation" />
+  <meta name="twitter:description" content="How you store and use numbers can have a big impact on your app's performance. This article focuses on the Dart VM." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Numeric Computation" />
+  <meta property="og:description" content="How you store and use numbers can have a big impact on your app's performance. This article focuses on the Dart VM." />
+  <meta property="og:url" content="https://www.dartlang.org/articles/server/numeric-computation" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" integrity="sha256-EULh7n7c0RZiOHiikIAEzXBQ0AXvb71Ul6a85V4AuTc=" crossorigin="anonymous" href="/assets/main-1142e1ee7edcd116623878a2908004cd7050d005ef6fbd5497a6bce55e00b937.css">
+  <script src="/assets/main-8306ad9c5a7b0d639cab54fda750f6ae0b3fb8f964457c69a7ef962a0cc52902.js" integrity="sha256-gwatnFp7DWOcq1T9p1D2rgs/uPlkRXxpp++WKgzFKQI=" crossorigin="anonymous" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default obsolete">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
+    <li><a href="/guides/language">语言</a></li>
+    <li><a href="/guides/libraries">库</a></li>
+    <li><a href="/tools">工具</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/server/numeric-computation" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
+
+        <li role="separator" class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
+  </div>
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-light" href="/guides/get-started">入门</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="语言">语言</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="概览">概览</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="风格">风格</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="文档">文档</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="使用">使用</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="设计">设计</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="示例代码">示例代码</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="库">库</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="概览">概览</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="平台">平台</a></h4>
+  <ul><li >
+          <a href="https://flutterchina.club" title="移动端 (Flutter中文网)">移动端 (Flutter中文网)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/server" title="服务器">服务器</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="测试">测试</a></h4>
+  <ul>
+  </ul><h4 >资源</h4>
+  <ul><li >
+          <a href="/install" title="安装">安装</a>
+        </li><li >
+          <a href="/codelabs" title="Codelab">Codelab</a>
+        </li><li >
+          <a href="/tutorials" title="学习指南">学习指南</a>
+        </li><li >
+          <a href="/tools" title="工具">工具</a>
+        </li><li >
+          <a href="/community" title="社区支持">社区支持</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <header class="h4 text-uppercase">
+      目录
+      <a title="Back to top" class="back-to-top float-right mr-3">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </header>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#integers">Integers</a></li>
+<li class="toc-entry toc-h3"><a href="#floating-point-numbers">Floating-point numbers</a></li>
+<li class="toc-entry toc-h3"><a href="#boxed-and-unboxed-numbers">Boxed and unboxed numbers</a></li>
+<li class="toc-entry toc-h3"><a href="#lists-of-numbers">Lists of numbers</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#pulling-back-the-curtains">Pulling back the curtains</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#integers-1">Integers</a></li>
+<li class="toc-entry toc-h3"><a href="#doubles">Doubles</a></li>
+<li class="toc-entry toc-h3"><a href="#boxing">Boxing</a></li>
+<li class="toc-entry toc-h3"><a href="#lists">Lists</a></li>
+</ul>
+</li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+          
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/server/numeric-computation.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Numeric Computation' page issue&body=
+Page URL: https://www.dartlang.org/articles/server/numeric-computation%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/server/numeric-computation.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>Numeric Computation</h1>
+          </div>
+          <p><em>Written by John Mccutchan <br>
+May 2013 (note added July 2018)</em></p>
+
+<aside class="alert alert-warning">
+  <p>In Dart 2, arbitrary-precision integers were replaced with 64-bit
+  signed, wrapping integers. The smi and mint representations still exist,
+  but overflow now results in wrapping instead of automatic conversion to
+  bigint (<code class="highlighter-rouge">BigInt</code> objects). The
+  <a href="https://api.dartlang.org/stable/dart-core%0A%20%20/BigInt-class.html"><code class="highlighter-rouge">BigInt</code> class</a>
+  is now available as a separate type that doesn’t implement <code class="highlighter-rouge">int</code>.</p>
+
+  <p>Continue to avoid <code class="highlighter-rouge">BigInt</code> when possible. The VM has optimized code for
+  <code class="highlighter-rouge">BigInt</code> arithmetic and modulus, but it never optimizes <code class="highlighter-rouge">BigInt</code> objects
+  down to mints or smis that can be handled directly with CPU instructions.</p>
+</aside>
+
+<p>Performance matters to everyone.
+It directly impacts your bottom line, conversion rates, and user satisfaction.
+Just following a few simple rules can give you 50-100% speed improvements.</p>
+
+<p>Follow the guidelines in this article
+to get the most performance from the Dart VM in numerical applications.
+You’ll learn about the four different number representations,
+how integer and floating-point numerical computation occurs,
+and how to pick the best container for your data.</p>
+
+<p>This article focuses on the Dart VM.
+If your primary compile target is JavaScript, see
+the <a href="https://webdev.dartlang.org/faq">Dart web development FAQ.</a></p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+This article does not cover the SIMD types available in Dart,
+which enable operating on four floating-point numbers in parallel.
+To learn more, read
+<a href="simd">Using SIMD in Dart</a>.</p>
+</aside>
+
+<h2 id="overview">
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>The Dart language has two numeric types: int and double.
+The former is an arbitrary-precision signed integer,
+and the latter is the IEEE-754 double-precision floating-point number.
+Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int speed = 3232943523452345329384234242323523;
+int hitPoints = 21;
+double position = 32.43432;
+double hp = hitPoints.toDouble();
+</code></pre></div></div>
+
+<h3 id="integers">
+<a id="integers" class="anchor" href="#integers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integers</h3>
+
+<p>While the language specifies an arbitrarily sized integer,
+for performance reasons the VM has
+three different internal integer representations:
+<strong>smi</strong> (rhymes with <em>pie</em>), <strong>mint</strong>, and <strong>bigint</strong>.
+Each representation is used to hold different ranges of integer numbers
+(see the table).
+The VM automatically switches between these representations behind the scenes
+as numbers grow and shrink in range.</p>
+
+<table class="table table-bordered">
+  <tr>
+    <th> Internal representation </th>
+    <td> smi (<b>sm</b>all <b>i</b>nteger) </td>
+    <td> mint (<b>m</b>edium <b>int</b>eger) </td>
+    <td> bigint </td>
+  </tr>
+  <tr>
+    <th> Minimum value </th>
+    <td> -2<sup>30</sup> (on a 32-bit machine)
+         <br>
+         -2<sup>62</sup> (on a 64-bit machine)</td>
+    <td> -2<sup>63</sup> </td>
+    <td> Limited by RAM </td>
+  </tr>
+  <tr>
+    <th> Maximum value </th>
+    <td> 2<sup>30</sup> - 1 (on a 32-bit machine)
+         <br>
+         2<sup>62</sup> - 1 (on a 64-bit machine)</td>
+    <td> 2<sup>63</sup> - 1 </td>
+    <td> Limited by RAM </td>
+  </tr>
+</table>
+
+<p>Here is an example of how a single integer value in the VM
+graduates from smi to mint to bigint:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>main() {
+  int hitPoints = 21; // starts as a smi
+  print(hitPoints);  // 21
+  hitPoints += potionOfSuperHealth.points; // becomes a mint
+  print(hitPoints); // 2133232342342423
+  hitPoints += spellOfNearlyInvinciblity.points; // becomes a bigint
+  print(hitPoints);  // 99999999999999999999999999999999999999999
+}
+</code></pre></div></div>
+
+<h3 id="floating-point-numbers">
+<a id="floating-point-numbers" class="anchor" href="#floating-point-numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Floating-point numbers</h3>
+
+<p>The VM has a single representation for floating-point numbers, the
+<a href="http://en.wikipedia.org/wiki/Double_precision_floating-point_format">IEEE-754 double-precision floating-point number</a>.</p>
+
+<h3 id="boxed-and-unboxed-numbers">
+<a id="boxed-and-unboxed-numbers" class="anchor" href="#boxed-and-unboxed-numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boxed and unboxed numbers</h3>
+
+<p>In Dart, everything is an Object, even numbers.
+If you come from a C/C++ background,
+this might surprise you.
+The result of any arithmetic or bitwise operation
+results in a <em>new</em> number object.
+Allocating a new object to store
+the result of a numeric operation is inefficient,
+and for that reason,
+the VM employs an optimization technique called <em>unboxing</em>.
+Unboxed numbers sit inside CPU registers.
+The results of all numeric and bitwise operations on unboxed numbers
+are also held in CPU registers,
+avoiding most of the overhead of numbers represented as objects.</p>
+
+<p>Presently the VM supports unboxed double and mint.
+The VM employs a trick called tagging so that
+it can box and unbox smi values without
+allocating memory or loading the value from a object.
+More on this later.</p>
+
+<h3 id="lists-of-numbers">
+<a id="lists-of-numbers" class="anchor" href="#lists-of-numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists of numbers</h3>
+
+<p>Dart has two ways to store lists of numeric data:
+<em>object lists</em> and <em>typed lists</em>.</p>
+
+<h4 id="object-lists">Object lists</h4>
+
+<p>A List stores a list of objects.
+Examples include:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var a = [ 1.0, 2.0, 3.0 ];
+var b = new List(3); // Create a new list with a fixed length of 3.
+b[0] = 5;
+b[1] = 99;
+b[2] = 34;
+</code></pre></div></div>
+
+<p>The list <code class="highlighter-rouge">b</code> is an object list,
+meaning it can store any object—for example, a String object or null.
+This means that each entry in a List is as wide as the CPU’s pointer type.</p>
+
+<h4 id="typed-lists">Typed lists</h4>
+
+<p>Dart offers typed lists that store only numbers.
+These lists are available in the
+<a href="https://api.dartlang.org/stable/dart-typed_data/dart-typed_data-library.html">dart:typed_data library.</a>
+Typed lists can store only numbers
+and cannot hold regular objects or have a null entry.
+The dart:typed_data library has a distinct list for each common integer size,
+as well as for 32-bit and 64-bit floating-point numbers.
+When working with numbers that are smaller than the pointer width,
+these lists can have considerable memory savings.
+Some examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var a = new Float64List(3);
+a[0] = 1.0;
+a[1] = 2.0;
+a[2] = 3.0;
+var b = new Int8List(3);
+b[0] = 5;
+b[1] = 99;
+b[2] = 34;
+</code></pre></div></div>
+
+<p>In both the object list and typed list examples,
+the lists named <code class="highlighter-rouge">a</code> are holding the same values.
+Same for the lists named <code class="highlighter-rouge">b</code>.
+What’s different is how the values are stored in memory
+and how they are accessed.
+More on this later.</p>
+
+<h2 id="pulling-back-the-curtains">
+<a id="pulling-back-the-curtains" class="anchor" href="#pulling-back-the-curtains" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pulling back the curtains</h2>
+
+<p>The deep dive begins.
+This section covers the above concepts in more detail
+and provides actionable tips.</p>
+
+<h3 id="integers-1">
+<a id="integers-1" class="anchor" href="#integers-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integers</h3>
+
+<p>The Dart VM has multiple internal representations of integer values.
+The following sections explain each one
+and how to efficiently perform left shifts.</p>
+
+<h4 id="smis-and-mints">Smis and mints</h4>
+
+<p>Remember that the VM has three different integer representations,
+switching between them automatically depending on the size of an integer.
+This section focuses on smi and mint.</p>
+
+<p>The first representation, smi,
+is the same size as a pointer on your platform, minus 1 bit.
+On a 32-bit machine, a smi holds a 31-bit signed integer.
+On a 64-bit machine, a smi holds a 63-bit signed integer.
+A smi doesn’t require a memory allocation to be created
+and is stored directly in a field.
+The VM can do this by storing twice the numeric value,
+guaranteeing the low bit being 0.
+For all other objects
+(including boxed doubles, mints, and bigints),
+the low bit will be 1.
+The VM uses this low bit to distinguish between smis and all other objects.</p>
+
+<p>Because the stored smi is twice the numeric value,
+the value must be right shifted by 1 before operated on;
+this is called <em>untagging</em>.
+Conversely, after being operated on the value must be added with itself
+(equivalent of a multiplication by 2);
+this is called <em>tagging</em>.
+Despite these extra operations, a smi is very efficient
+because it never requires a memory allocation
+and all accesses are direct, avoiding dependent loads.
+Note that many common operations—for example,
+addition—do not require the smi to be untagged.</p>
+
+<p>Consider an object called <code class="highlighter-rouge">entity</code>, defined as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Entity {
+  Entity() {
+    scale = 2;
+    x = 3;
+    y = 0x40000000;
+  }
+  int scale;
+  int x;
+  int y;
+}
+
+Entity entity = new Entity();
+</code></pre></div></div>
+
+<p>After the above code executes,
+in memory on a 32-bit machine the <code class="highlighter-rouge">entity</code> object looks like this:</p>
+
+<p><img src="images/1.png" alt="x and scale are smis and thus stored directly; y is 2^30, so it requires a pointer to memory"></p>
+
+<p>Now consider this Dart code:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>entity.x = entity.x * entity.scale;
+</code></pre></div></div>
+
+<p>It’s converted into the VM instructions shown in the following figure.
+Each VM instruction can return a value
+shown as v1, v2, and so on.</p>
+
+<p><img src="images/2.png" alt="3 values are needed (for x, scale, and the result)"></p>
+
+<p>After that code executes, in memory the <code class="highlighter-rouge">entity</code> object looks like this:</p>
+
+<p><img src="images/3.png" alt="Same memory illustration as before, except the value of x is now 24"></p>
+
+<p>Now consider the second representation, mint,
+which holds a 64-bit signed integer.
+When stored, a mint <em>does</em> require a memory allocation.
+The field a mint is stored into holds the address of the mint instance.
+When loading a mint value,
+the CPU must first load the address where the mint is stored
+before loading the actual value.</p>
+
+<p>The following Dart code is converted into the VM instructions shown below.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>entity.y = entity.y + entity.x;
+</code></pre></div></div>
+
+<p><img src="images/4.png" alt="6 values are needed (for y, x, unboxed y, unboxed x, the result, and the boxed result"></p>
+
+<p>After that code executes, in memory the <code class="highlighter-rouge">entity</code> object looks like this:</p>
+
+<p><img src="images/5.png" alt="y's previous memory is now garbage, and a new memory location holds y's new value"></p>
+
+<p><strong>Performance tip:</strong>
+If you can, stay in smi range.
+Small machine integers fit in a register and can be loaded and stored
+directly in the field instead of being fetched from memory.
+They also never require memory allocation.
+<strong>Note:</strong> The smi range depends on the CPU architecture.</p>
+
+<h4 id="optimally-shifting-to-the-left">Optimally shifting to the left</h4>
+
+<p>Left shifts are used for both arithmetic and logical operations.
+When shifting to the left,
+you must be careful that the values remain in smi range.
+The VM performs an optimization when it sees a left shift
+masked with a constant smi value:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>result = (int1 &lt;&lt; int2) &amp; CONSTANT;  // CONSTANT within smi range
+</code></pre></div></div>
+
+<p>For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a = (b &lt;&lt; c) &amp; 0x3FFFFFFF;
+</code></pre></div></div>
+
+<p>The VM knows that the result can be stored in a smi,
+and it generates code that doesn’t check whether
+a mint is needed to store the result.
+The constant 0x3FFFFFFF is the maximum positive smi on 32-bit architectures.
+0x3FFFFFFFFFFFFFFF is the equivalent constant on 64-bit architectures.
+The constant does not have to be 0x3FFFFFFF;
+it can be any constant that is a smi.</p>
+
+<p><strong>Performance tip:</strong>
+Because the smi range is variable,
+assume a 31-bit range unless you require more bits.</p>
+
+<p><strong>Pro tip:</strong>
+Hexadecimal constants are signed in Dart,
+so you must prefix the hexadecimal constant with a minus sign
+if you want it to be negative.
+On a 32-bit machine,
+the largest negative number that is still a smi is -0x40000000;
+the largest positive number that is still a smi is 0x3FFFFFFF.</p>
+
+<h4 id="lists-of-integers">Lists of integers</h4>
+
+<p>When a smi is loaded or stored into an object list (List)
+the smi value, unaltered, is copied into the list.
+This is the most efficient way to load and store integers
+within the smi range.
+In contrast, loading and storing a smi into a typed list (dart:typed_data)
+requires the smi to be untagged and tagged, respectively.
+These operations can add overhead when working with typed lists.</p>
+
+<p>Consider the following code,
+assuming that all integer variables stay within the smi range:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (int i = 0; i &lt; list.length; i++) {
+  list[i] = list[i] + b;
+}
+</code></pre></div></div>
+
+<p>If <code class="highlighter-rouge">list</code> is an object list,
+no smi tagging or untagging occurs.
+Note that some integer operations—for example,
+addition—can work on tagged smi values while others—for example,
+multiplication—must first untag the smi values.
+If <code class="highlighter-rouge">list</code> is a typed list,
+the loaded value must be tagged and then,
+before the result is stored,
+it must be untagged.
+Furthermore, the index (<code class="highlighter-rouge">i</code>)
+into a typed list is untagged and then tagged.</p>
+
+<p><strong>Performance tip:</strong>
+When working within the smi range,
+consider using an object list instead of a typed list,
+to improve speed.</p>
+
+<p>However, you might want to use a typed list instead of an object list
+because typed lists have a smaller GC impact
+and better CPU cache performance:</p>
+
+<ul>
+  <li>
+    <p>Because typed lists can never store an object reference,
+the garbage collection load for typed lists is very low.
+In contrast an object list must be scanned,
+and each entry is checked for an object pointer.</p>
+  </li>
+  <li>
+    <p>Typed lists can be much more dense.
+For example, if you know you need only 8 bits of precision
+you can use an Int8List,
+using much less memory and making better use of your CPU’s cache.</p>
+  </li>
+</ul>
+
+<p>In general and specifically because of the above caveats,
+it is always a good idea to <a href="benchmarking">benchmark</a>
+your algorithm using both object and typed lists.</p>
+
+<p><strong>Performance tip:</strong>
+If possible, avoiding storing integers outside the smi range in typed lists.
+When an integer is loaded from a typed list
+that can hold integer values outside of the smi or mint range,
+a check must be done and an object may be allocated.
+Int32List and Uint32List can hold numbers
+that are bigger than a smi on 32-bit architectures.
+Int64List and Uint64List can hold numbers that are bigger than a mint,
+resulting in a bigint on all platforms!</p>
+
+<h4 id="bigints">Bigints</h4>
+
+<p>The third integer representation, bigint,
+holds an arbitrarily large signed integer.
+The field a bigint is stored into holds the address of the bigint instance.
+When loading a bigint,
+the entire numeric value does not fit inside a CPU register,
+and the CPU does not have instructions for operations on bigint values.
+Thus, bigints are significantly more expensive than smis or mints.</p>
+
+<p><strong>Performance tip:</strong>
+Avoid bigint whenever possible.
+The VM doesn’t optimize operations on bigint instances.</p>
+
+<h3 id="doubles">
+<a id="doubles" class="anchor" href="#doubles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Doubles</h3>
+
+<p>Computations involving double values are unboxed,
+making them very efficient.</p>
+
+<h4 id="lists-of-doubles">Lists of doubles</h4>
+
+<p>When a double is stored into an object list,
+it must be boxed,
+which requires a memory allocation and a memory store.</p>
+
+<p>Two typed lists support double-precision values: Float32List and Float64List.
+The trade-off between the two lists is
+storage density versus the conversion cost.
+Float32List is twice as dense as Float64List,
+but values loaded from a Float32List must be converted
+to a double-precision number.
+Conversely, doubles must be converted to a single-precision number
+on storage in a Float32List.</p>
+
+<p><strong>Performance tip:</strong>
+Use Float32List or Float64List whenever you store lists of double values.
+Unlike the case with smis,
+using an object list with doubles is always slower.</p>
+
+<p><strong>Performance tip:</strong>
+<a href="benchmarking">Benchmark</a>
+your application using both Float32List and Float64List
+to determine which performs best.</p>
+
+<h3 id="boxing">
+<a id="boxing" class="anchor" href="#boxing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boxing</h3>
+
+<p><em>Boxing</em> is the operation of moving a scalar value from a register
+and placing it inside a Dart object.
+<em>Unboxing</em> is the opposite:
+taking the scalar value stored inside a Dart object
+and placing it inside a register to be operated on.</p>
+
+<p>Boxing is expensive and something that you want to avoid
+in the middle of numeric computation.
+The following operations can trigger a number to be boxed:</p>
+
+<ul>
+  <li>
+    <p>Passing a number to another function.
+Functions accept only boxed objects,
+so if you pass an unboxed number to a function,
+the number will be boxed first.</p>
+  </li>
+  <li>
+    <p>Returning a number from a function.
+Functions can return only boxed objects,
+so if you return an unboxed number from a function,
+the number will be boxed first.</p>
+  </li>
+  <li>
+    <p>Storing a non-smi number to a field.
+Fields can hold only smi values or object pointers.</p>
+  </li>
+</ul>
+
+<p>Boxing requires a memory allocation and a store.
+Unboxing requires a load.</p>
+
+<p><img src="images/6.png" alt="Illustration of boxing and unboxing 3.14159"></p>
+
+<h3 id="lists">
+<a id="lists" class="anchor" href="#lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists</h3>
+
+<p>Remember, two kinds of list can store numeric data—the
+object list and the typed list.
+This section tells you how list data is laid out in memory
+and how loading and storing work.</p>
+
+<h4 id="object-lists-instances-of-list">Object lists (instances of List)</h4>
+
+<p>At runtime, an object list (a List) is an array of pointers.
+Each entry in the array holds a pointer to the number stored in that entry.
+The only exception is smi,
+which fits in the memory used to store the pointer.
+When type checking is not enforced,
+object lists can hold objects of any type.
+Object lists can contain the null object.</p>
+
+<p><img src="images/7.png" alt="Illustration of a list's memory, which contains a smi (4) and two points to doubles (1.0 and 2.0)"></p>
+
+<p>Loading a number from an object list works like this:</p>
+
+<ol>
+  <li>
+    <p>The base address of the backing store for the list is calculated.
+(For growable lists, this includes a dependent load.)</p>
+  </li>
+  <li>
+    <p>The address of the number or the tagged smi is loaded from
+the list backing store.</p>
+  </li>
+</ol>
+
+<p><img src="images/8.png" alt="Illustration of loading a number from an object list"></p>
+
+<p>Storing a number into an object list works like this:</p>
+
+<ol>
+  <li>If the number is not a smi,
+a new number instance is allocated.</li>
+  <li>The base address of the backing store for the list is calculated.
+(For growable lists,
+this includes a dependent load.)</li>
+  <li>The address of the number or the tagged smi value is stored in
+the list backing store.</li>
+</ol>
+
+<p><img src="images/9.png" alt="Illustration of storing a number into an object list"></p>
+
+<h4 id="typed-lists-1">Typed lists</h4>
+
+<p>At runtime, a typed list is an array of numeric values.
+Each entry in the array always holds the value directly.
+Typed lists can be much denser,
+providing better memory and CPU cache usage.
+Typed lists are also faster to process at garbage collection time
+because they don’t have to be scanned for object pointers.</p>
+
+<p><img src="images/10.png" alt="Illustration of a typed list's memory, containing the numbers 4, 1.0, and 2.0 (and no pointers)"></p>
+
+<p>Loading a double-precision number from a typed data list works like this:</p>
+
+<ol>
+  <li>The base address of the backing store for the list is calculated.
+(For transferrable lists,
+this includes a dependent load.)</li>
+  <li>The value is loaded from the list backing store.</li>
+</ol>
+
+<p><img src="images/11.png" alt="Illustration of loading a number from a typed list"></p>
+
+<p>Storing a double-precision number into a typed data list works like this:</p>
+
+<ol>
+  <li>The base address of the backing store for the list is calculated.
+(For transferrable lists,
+this includes a dependent load.)</li>
+  <li>The double number is stored into the list backing store.</li>
+</ol>
+
+<p><img src="images/12.png" alt="Illustration of storing a number into a typed list"></p>
+
+<p>Loading an integer number from a typed list can be more expensive than
+the double case in the following two cases:</p>
+
+<ul>
+  <li>
+    <p>The number retrieved from the list is outside smi range
+but inside mint range.
+In this case a mint must allocated to store the number.
+This case is possible with Int32List, Uint32List, Int64List, and Uint64List.
+Optimized code can avoid the mint allocation
+by loading directly into an unboxed mint.</p>
+  </li>
+  <li>
+    <p>The number retrieved is outside mint range.
+In this case a bigint must be allocated to store the number.
+This case is possible with Int64List and Uint64List.</p>
+  </li>
+</ul>
+
+<p>Note that loading or storing a smi into a typed list requires that
+the value be tagged or untagged, respectively.</p>
+
+<p><strong>Performance tip:</strong>
+Flatten multiple-dimension lists into a single list,
+and compute the flattened index at runtime.
+This way you avoid the expense of dealing with a list of lists.</p>
+
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dartchina/site-www-cn"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dartchina/site-www-cn/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2019/02/11 01:24 PST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>技术</h4>
+          <ul>
+            <li><a href="https://flutterchina.club">Dart 移动开发 (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart web 开发</a></li>
+            <li><a href="/server">Dart 服务器开发</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory 工具</a></li>
+            <li><a href="/guides/libraries">Dart 库</a></li>
+            <li><a href="/guides/language">Dart 编程语言</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>资源</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>社区</h4>
+          <ul>
+            <li><a href="/community">支持和邮件列表</a></li>
+            <li><a href="/community/who-uses-dart">谁在用Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">社区</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">公告组</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter聊天室</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
