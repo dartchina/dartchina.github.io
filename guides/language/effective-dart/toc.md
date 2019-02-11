@@ -15,6 +15,7 @@
 **标识符**
 
 * <a href='/guides/language/effective-dart/style#%E8%A6%81-%E4%BD%BF%E7%94%A8-uppercamelcase-%E9%A3%8E%E6%A0%BC%E5%91%BD%E5%90%8D%E7%B1%BB%E5%9E%8B'><strong>要</strong> 使用 <code>UpperCamelCase</code> 风格命名类型。</a>
+* <a href='/guides/language/effective-dart/style#%E8%A6%81-%E5%9C%A8%E5%BA%93%E5%8C%85%E6%96%87%E4%BB%B6%E5%A4%B9%E6%BA%90%E6%96%87%E4%BB%B6%E4%B8%AD%E4%BD%BF%E7%94%A8-lowercase_with_underscores-%E6%96%B9%E5%BC%8F%E5%91%BD%E5%90%8D-do-name-libraries-and-source-files-using-lowercase_with_underscores'><strong>要</strong> 在<code>库</code>，<code>包</code>，<code>文件夹</code>，<code>源文件</code>中使用 <code>lowercase_with_underscores</code> 方式命名。 {#do-name-libraries-and-source-files-using-lowercase_with_underscores}</a>
 * <a href='/guides/language/effective-dart/style#%E8%A6%81-%E7%94%A8-lowercase_with_underscores-%E9%A3%8E%E6%A0%BC%E5%91%BD%E5%90%8D%E5%BA%93%E5%92%8C%E6%BA%90%E6%96%87%E4%BB%B6%E5%90%8D'><strong>要</strong> 用 <code>lowercase_with_underscores</code> 风格命名库和源文件名。</a>
 * <a href='/guides/language/effective-dart/style#%E8%A6%81-%E4%BD%BF%E7%94%A8-lowercase_with_underscores-%E9%A3%8E%E6%A0%BC%E5%91%BD%E5%90%8D%E5%AF%BC%E5%85%A5%E7%9A%84%E5%89%8D%E7%BC%80'><strong>要</strong> 使用 <code>lowercase_with_underscores</code> 风格命名导入的前缀。</a>
 * <a href='/guides/language/effective-dart/style#%E8%A6%81-%E4%BD%BF%E7%94%A8-lowercamelcase-%E9%A3%8E%E6%A0%BC%E6%9D%A5%E5%91%BD%E5%90%8D%E5%85%B6%E4%BB%96%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6'><strong>要</strong> 使用 <code>lowerCamelCase</code> 风格来命名其他的标识符。</a>
@@ -200,7 +201,6 @@
 
 **构造函数**
 
-* <a href='/guides/language/effective-dart/design#%E6%8E%A8%E8%8D%90-%E9%80%9A%E8%BF%87%E5%AE%9A%E4%B9%89%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95'><strong>推荐</strong> 通过定义构造函数创建实例，避免使用静态方法</a>
 * <a href='/guides/language/effective-dart/design#%E8%80%83%E8%99%91-%E5%9C%A8%E7%B1%BB%E6%94%AF%E6%8C%81%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%8C%87%E5%AE%9A%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%BA--const'><strong>考虑</strong> 在类支持的情况下，指定构造函数为  <code>const</code>。</a>
 
 **成员**
