@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A stream is a sequence of results; learn how to create your own.">
+  <title>Creating Streams in Dart | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Creating Streams in Dart" />
+  <meta name="twitter:description" content="A stream is a sequence of results; learn how to create your own." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Creating Streams in Dart" />
+  <meta property="og:description" content="A stream is a sequence of results; learn how to create your own." />
+  <meta property="og:url" content="https://www.dartlang.org/articles/libraries/creating-streams" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/assets/main-2ae3dd288bf374ebf77ec3b64d8af7d4e6425cb78128a7bc8d4a8aa968f4fe93.css">
+  <script src="/assets/main-3e89b739cc750412e013252d8b4ced20af281589ffe69a156e6c279177f81069.js" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
+    <li><a href="/guides/language">语言</a></li>
+    <li><a href="/guides/libraries">库</a></li>
+    <li><a href="/tools">工具</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/libraries/creating-streams" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
+
+        <li role="separator" class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-light" href="/guides/get-started">入门</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="语言">语言</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="概览">概览</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="风格">风格</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="文档">文档</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="使用">使用</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="设计">设计</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="示例代码">示例代码</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="库">库</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="概览">概览</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="平台">平台</a></h4>
+  <ul><li >
+          <a href="https://flutterchina.club" title="移动端 (Flutter中文网)">移动端 (Flutter中文网)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/server" title="服务器">服务器</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="测试">测试</a></h4>
+  <ul>
+  </ul><h4 >资源</h4>
+  <ul><li >
+          <a href="/install" title="安装">安装</a>
+        </li><li >
+          <a href="/codelabs" title="Codelab">Codelab</a>
+        </li><li >
+          <a href="/tutorials" title="学习指南">学习指南</a>
+        </li><li >
+          <a href="/tools" title="工具">工具</a>
+        </li><li >
+          <a href="/community" title="社区支持">社区支持</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <header class="h4 text-uppercase">
+      目录
+      <a title="Back to top" class="back-to-top float-right mr-3">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </header>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#transforming-an-existing-stream">Transforming an existing stream</a></li>
+<li class="toc-entry toc-h2"><a href="#creating-a-stream-from-scratch">Creating a stream from scratch</a></li>
+<li class="toc-entry toc-h2"><a href="#using-a-streamcontroller">Using a StreamController</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#waiting-for-a-subscription">Waiting for a subscription</a></li>
+<li class="toc-entry toc-h3"><a href="#honoring-the-pause-state">Honoring the pause state</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#final-hints">Final hints</a></li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+          
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/libraries/creating-streams.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Creating Streams in Dart' page issue&body=
+Page URL: https://www.dartlang.org/articles/libraries/creating-streams%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/libraries/creating-streams.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>Creating Streams in Dart</h1>
+          </div>
+          <style>
+.comment {color:red;}
+</style>
+
+<p><em>Written by Lasse Nielsen <br>
+April 2013 (updated October 2018)</em></p>
+
+<p>The dart:async library contains two types
+that are important for many Dart APIs:
+<a href="https://api.dartlang.org/stable/dart-async/Stream-class.html">Stream</a> and
+<a href="https://api.dartlang.org/stable/dart-async/Future-class.html">Future.</a>
+Where a Future represents the result of a single computation,
+a stream is a <em>sequence</em> of results.
+You listen on a stream to get notified of the results
+(both data and errors)
+and of the stream shutting down.
+You can also pause while listening or stop listening to the stream
+before it is complete.</p>
+
+<p>But this article is not about <em>using</em> streams.
+It’s about creating your own streams.
+You can create streams in a few ways:</p>
+
+<ul>
+  <li>Transforming existing streams.</li>
+  <li>Creating a stream from scratch by using an <code class="highlighter-rouge">async*</code> function.</li>
+  <li>Creating a stream by using a <code class="highlighter-rouge">StreamController</code>.</li>
+</ul>
+
+<p>This article shows the code for each approach
+and gives tips to help you implement your stream correctly.</p>
+
+<p>For help on using streams, see
+<a href="/tutorials/language/streams">Asynchronous Programming: Streams</a>.</p>
+
+<h2 id="transforming-an-existing-stream">
+<a id="transforming-an-existing-stream" class="anchor" href="#transforming-an-existing-stream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Transforming an existing stream</h2>
+
+<p>The common case for creating streams is that you already have a stream,
+and you want to create a new stream based on the original stream’s events.
+For example you might have a stream of bytes that
+you want to convert to a stream of strings by UTF-8 decoding the input.
+The most general approach is to create a new stream that
+waits for events on the original stream and then
+outputs new events. Example:</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/line_stream_generator.dart (split into lines)"?>
+<pre class="prettyprint lang-dart">/// Splits a stream of consecutive strings into lines.
+///
+/// The input string is provided in smaller chunks through
+/// the `source` stream.
+Stream&lt;String&gt; lines(Stream&lt;String&gt; source) async* {
+  // Stores any partial line from the previous chunk.
+  var partial = '';
+  // Wait until a new chunk is available, then process it.
+  await for (var chunk in source) {
+    var lines = chunk.split('\n');
+    lines[0] = partial + lines[0]; // Prepend partial line.
+    partial = lines.removeLast(); // Remove new partial line.
+    for (var line in lines) {
+      yield line; // Add lines to output stream.
+    }
+  }
+  // Add final partial line to output stream, if any.
+  if (partial.isNotEmpty) yield partial;
+}</pre>
+
+<p>For many common transformations,
+you can use <code class="highlighter-rouge">Stream</code>-supplied transforming methods
+such as <code class="highlighter-rouge">map()</code>, <code class="highlighter-rouge">where()</code>, <code class="highlighter-rouge">expand()</code>, and <code class="highlighter-rouge">take()</code>.</p>
+
+<p>For example, assume you have a stream, <code class="highlighter-rouge">counterStream</code>,
+that emits an increasing counter every second.
+Here’s how it might be implemented:</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (basic usage)"?>
+<pre class="prettyprint lang-dart">var counterStream =
+    Stream&lt;int&gt;.periodic(Duration(seconds: 1), (x) =&gt; x).take(15);</pre>
+
+<p>To quickly see the events, you can use code like this:</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (basic for each)"?>
+<pre class="prettyprint lang-dart">counterStream.forEach(print); // Print an integer every second, 15 times.</pre>
+
+<p>To transform the stream events, you can invoke a transforming method
+such as <code class="highlighter-rouge">map()</code> on the stream before listening to it.
+The method returns a new stream.</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (use-map)"?>
+<pre class="prettyprint lang-dart">// Double the integer in each event.
+var doubleCounterStream = counterStream.map((int x) =&gt; x * 2);
+doubleCounterStream.forEach(print);</pre>
+
+<p>Instead of <code class="highlighter-rouge">map()</code>, you could use any other transforming method,
+such as the following:</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (use-where)"?>
+<pre class="prettyprint lang-dart">.where((int x) =&gt; x.isEven) // Retain only even integer events.
+.expand((var x) =&gt; [x, x]) // Duplicate each event.
+.take(5) // Stop after the first five events.</pre>
+
+<p>Often, a transforming method is all you need.
+However, if you need even more control over the transformation,
+you can specify a
+<a href="https://api.dartlang.org/stable/dart-async/StreamTransformer-class.html">StreamTransformer</a>
+with <code class="highlighter-rouge">Stream</code>’s <code class="highlighter-rouge">transform()</code> method.
+The platform libraries provide stream transformers for many common tasks.
+For example, the following code uses the <code class="highlighter-rouge">utf8.decoder</code> and <code class="highlighter-rouge">LineSplitter</code>
+transformers provided by the dart:convert library.</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (use-transform)"?>
+<pre class="prettyprint lang-dart">Stream&lt;List&lt;int&gt;&gt; content = File('someFile.txt').openRead();
+List&lt;String&gt; lines =
+    await content.transform(utf8.decoder).transform(LineSplitter()).toList();</pre>
+
+<h2 id="creating-a-stream-from-scratch">
+<a id="creating-a-stream-from-scratch" class="anchor" href="#creating-a-stream-from-scratch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a stream from scratch</h2>
+
+<p>One way to create a new stream is with
+an asynchronous generator (<code class="highlighter-rouge">async*</code>) function.
+The stream is created when the function is called,
+and the function’s body starts running when the stream is listened to.
+When the function returns, the stream closes.
+Until the function returns, it can emit events on the stream by
+using <code class="highlighter-rouge">yield</code> or <code class="highlighter-rouge">yield*</code> statements.</p>
+
+<p>Here’s a primitive example that emits numbers at regular intervals:</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (async-generator)" replace="/timedCounterGenerator/timedCounter/g"?>
+<pre class="prettyprint lang-dart">Stream&lt;int&gt; timedCounter(Duration interval, [int maxCount]) async* {
+  int i = 0;
+  while (true) {
+    await Future.delayed(interval);
+    yield i++;
+    if (i == maxCount) break;
+  }
+}</pre>
+
+<p><strong>[PENDING: show code that uses it, so we have some context for
+the mention of StreamSubscription?]</strong></p>
+
+<p>This function returns a <code class="highlighter-rouge">Stream</code>.
+When that stream is listened to, the body starts running.
+It repeatedly delays for the requested interval and then yields the next number.
+If the <code class="highlighter-rouge">count</code> parameter is omitted, there is no stop condition on the loop,
+so the stream outputs increasingly larger numbers forever -
+or until the listener cancels its subscription.</p>
+
+<p>When the listener cancels
+(by invoking <code class="highlighter-rouge">cancel()</code> on the <code class="highlighter-rouge">StreamSubscription</code>
+object returned by the <code class="highlighter-rouge">listen()</code> method),
+then the next time the body reaches a <code class="highlighter-rouge">yield</code> statement,
+the <code class="highlighter-rouge">yield</code> instead acts as a <code class="highlighter-rouge">return</code> statement.
+Any enclosing <code class="highlighter-rouge">finally</code> block is executed,
+and the function exits.
+If the function attempts to yield a value before exiting,
+that fails and acts as a return.</p>
+
+<p>When the function finally exits, the future returned by
+the <code class="highlighter-rouge">cancel()</code> method completes.
+If the function exits with an error, the future completes with that error;
+otherwise, it completes with <code class="highlighter-rouge">null</code>.</p>
+
+<p>Another, more useful example is a function that converts
+a sequence of futures to a stream:</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (stream-from-futures)"?>
+<pre class="prettyprint lang-dart">Stream&lt;T&gt; streamFromFutures&lt;T&gt;(Iterable&lt;Future&lt;T&gt;&gt; futures) async* {
+  for (var future in futures) {
+    var result = await future;
+    yield result;
+  }
+}</pre>
+
+<p>This function asks the <code class="highlighter-rouge">futures</code> iterable for a new future,
+waits for that future, emits the resulting value, and then loops.
+If a future completes with an error, then the stream completes with that error.</p>
+
+<p>It’s rare to have an <code class="highlighter-rouge">async*</code> function building a stream from nothing.
+It needs to get its data from somewhere,
+and most often that somewhere is another stream.
+In some cases, like the sequence of futures above,
+the data comes from other asynchronous event sources.
+In many cases, however, an <code class="highlighter-rouge">async*</code> function is too simplistic to
+easily handle multiple data sources.
+That’s where the <code class="highlighter-rouge">StreamController</code> class comes in.</p>
+
+<h2 id="using-a-streamcontroller">
+<a id="using-a-streamcontroller" class="anchor" href="#using-a-streamcontroller" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using a StreamController</h2>
+
+<p>If the events of your stream comes from different parts of your program,
+and not just from a stream or futures that can traversed by an async function,
+then use a
+<a href="https://api.dartlang.org/stable/dart-async/StreamController-class.html">StreamController</a>
+to create and populate the stream.</p>
+
+<p>A <code class="highlighter-rouge">StreamController</code> gives you a new stream
+and a way to add events to the stream at any point, and from anywhere.
+The stream has all the logic necessary to handle listeners and pausing.
+You return the stream and keep the controller to yourself.</p>
+
+<p>The following example
+(from <a href="code/stream_controller_bad.dart">stream_controller_bad.dart</a>)
+shows a basic, though flawed, usage of <code class="highlighter-rouge">StreamController</code>
+to implement the <code class="highlighter-rouge">timedCounter()</code> function from the previous examples.
+This code creates a stream to return,
+and then feeds data into it based on timer events,
+which are neither futures nor stream events.</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller_bad.dart (flawed stream)"?>
+<pre class="prettyprint lang-dart bad-style">// NOTE: This implementation is FLAWED!
+// It starts before it has subscribers, and it doesn't implement pause.
+Stream&lt;int&gt; timedCounter(Duration interval, [int maxCount]) {
+  var controller = StreamController&lt;int&gt;();
+  int counter = 0;
+  void tick(Timer timer) {
+    counter++;
+    controller.add(counter); // Ask stream to send counter values as event.
+    if (maxCount != null &amp;&amp; counter &gt;= maxCount) {
+      timer.cancel();
+      controller.close(); // Ask stream to shut down and tell listeners.
+    }
+  }
+
+  Timer.periodic(interval, tick); // BAD: Starts before it has subscribers.
+  return controller.stream;
+}</pre>
+
+<p>As before, you can use the stream returned by <code class="highlighter-rouge">timedCounter()</code> like this:
+<strong>[PENDING: Did we show this before?]</strong></p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller_bad.dart (using stream)"?>
+<pre class="prettyprint lang-dart">var counterStream = timedCounter(const Duration(seconds: 1), 15);
+counterStream.listen(print); // Print an integer every second, 15 times.</pre>
+
+<p>This implementation of <code class="highlighter-rouge">timedCounter()</code> has
+a couple of problems:</p>
+
+<ul>
+  <li>It starts producing events before it has subscribers.</li>
+  <li>It keeps producing events even if the subscriber requests a pause.</li>
+</ul>
+
+<p>As the next sections show,
+you can fix both of these problems by specifying
+callbacks such as <code class="highlighter-rouge">onListen</code> and <code class="highlighter-rouge">onPause</code>
+when creating the <code class="highlighter-rouge">StreamController</code>.</p>
+
+<h3 id="waiting-for-a-subscription">
+<a id="waiting-for-a-subscription" class="anchor" href="#waiting-for-a-subscription" aria-hidden="true"><span class="octicon octicon-link"></span></a>Waiting for a subscription</h3>
+
+<p>As a rule, streams should wait for subscribers before starting their work.
+An <code class="highlighter-rouge">async*</code> function does this automatically,
+but when using a <code class="highlighter-rouge">StreamController</code>,
+you are in full control and can add events even when you shouldn’t.
+When a stream has no subscriber,
+its <code class="highlighter-rouge">StreamController</code> buffers events,
+which can lead to a memory leak
+if the stream never gets a subscriber.</p>
+
+<p>Try changing the code that uses the stream to the following:</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller_bad.dart (pre-subscribe problem)"?>
+<pre class="prettyprint lang-dart">void listenAfterDelay() async {
+  var counterStream = timedCounter(const Duration(seconds: 1), 15);
+  await Future.delayed(const Duration(seconds: 5));
+
+  // After 5 seconds, add a listener.
+  await for (int n in counterStream) {
+    print(n); // Print an integer every second, 15 times.
+  }
+}</pre>
+
+<p>When this code runs,
+nothing is printed for the first 5 seconds,
+although the stream is doing work.
+Then the listener is added,
+and the first 5 or so events are printed all at once,
+since they were buffered by the <code class="highlighter-rouge">StreamController</code>.</p>
+
+<p>To be notified of subscriptions, specify an
+<code class="highlighter-rouge">onListen</code> argument when you create the <code class="highlighter-rouge">StreamController</code>.
+The <code class="highlighter-rouge">onListen</code> callback is called
+when the stream gets its first subscriber.
+If you specify an <code class="highlighter-rouge">onCancel</code> callback,
+it’s called when the controller loses its last subscriber.
+In the preceding example,
+<code class="highlighter-rouge">Timer.periodic()</code>
+should move to an <code class="highlighter-rouge">onListen</code> handler,
+as shown in the next section.</p>
+
+<h3 id="honoring-the-pause-state">
+<a id="honoring-the-pause-state" class="anchor" href="#honoring-the-pause-state" aria-hidden="true"><span class="octicon octicon-link"></span></a>Honoring the pause state</h3>
+
+<p>Avoid producing events when the listener has requested a pause.
+An async* function automatically pauses at a <code class="highlighter-rouge">yield</code> statement
+while the stream subscription is paused.
+A <code class="highlighter-rouge">StreamController</code>, on the other hand, buffers events during the pause.
+If the code providing the events doesn’t respect the pause,
+the size of the buffer can grow indefinitely.
+Also, if the listener stops listening soon after pausing,
+then the work spent creating the buffer is wasted.</p>
+
+<p>To see what happens without pause support,
+try changing the code that uses the stream to the following:</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller_bad.dart (pause problem)"?>
+<pre class="prettyprint lang-dart">void listenWithPause() {
+  var counterStream = timedCounter(const Duration(seconds: 1), 15);
+  StreamSubscription&lt;int&gt; subscription;
+
+  subscription = counterStream.listen((int counter) {
+    print(counter); // Print an integer every second.
+    if (counter == 5) {
+      // After 5 ticks, pause for five seconds, then resume.
+      subscription.pause(Future.delayed(const Duration(seconds: 5)));
+    }
+  });
+}</pre>
+
+<p>When the five seconds of pause are up,
+the events fired during that time are all received at once.
+That happens because the stream’s source doesn’t honor pauses
+and keeps adding events to the stream.
+So the stream buffers the events,
+and it then empties its buffer when the stream becomes unpaused.</p>
+
+<p>The following version of <code class="highlighter-rouge">timedCounter()</code>
+(from <a href="code/stream_controller.dart">stream_controller.dart</a>)
+implements pause by using the
+<code class="highlighter-rouge">onListen</code>, <code class="highlighter-rouge">onPause</code>, <code class="highlighter-rouge">onResume</code>, and <code class="highlighter-rouge">onCancel</code> callbacks
+on the <code class="highlighter-rouge">StreamController</code>.</p>
+
+<?code-excerpt "misc/lib/articles/creating-streams/stream_controller.dart (better stream)"?>
+<pre class="prettyprint lang-dart">Stream&lt;int&gt; timedCounter(Duration interval, [int maxCount]) {
+  StreamController&lt;int&gt; controller;
+  Timer timer;
+  int counter = 0;
+
+  void tick(_) {
+    counter++;
+    controller.add(counter); // Ask stream to send counter values as event.
+    if (counter == maxCount) {
+      timer.cancel();
+      controller.close(); // Ask stream to shut down and tell listeners.
+    }
+  }
+
+  void startTimer() {
+    timer = Timer.periodic(interval, tick);
+  }
+
+  void stopTimer() {
+    if (timer != null) {
+      timer.cancel();
+      timer = null;
+    }
+  }
+
+  controller = StreamController&lt;int&gt;(
+      onListen: startTimer,
+      onPause: stopTimer,
+      onResume: startTimer,
+      onCancel: stopTimer);
+
+  return controller.stream;
+}</pre>
+
+<p>Run this code with the <code class="highlighter-rouge">listenWithPause()</code> function above.
+You’ll see that it stops counting while paused,
+and it resumes nicely afterwards.</p>
+
+<p>You must use all of the listeners—<code class="highlighter-rouge">onListen</code>,
+<code class="highlighter-rouge">onCancel</code>, <code class="highlighter-rouge">onPause</code>, and <code class="highlighter-rouge">onResume</code>—to be
+notified of changes in pause state.
+The reason is that if the
+subscription and pause states both change at the same time,
+only the <code class="highlighter-rouge">onListen</code> or <code class="highlighter-rouge">onCancel</code> callback is called.</p>
+
+<h2 id="final-hints">
+<a id="final-hints" class="anchor" href="#final-hints" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final hints</h2>
+
+<p>When creating a stream without using an async* function,
+keep these tips in mind:</p>
+
+<ul>
+  <li>
+    <p>Be careful when using a synchronous controller—for example,
+one created using <code class="highlighter-rouge">StreamController(sync: true)</code>.
+When you send an event on an unpaused synchronous controller
+(for example, using the <code class="highlighter-rouge">add()</code>, <code class="highlighter-rouge">addError()</code>, or <code class="highlighter-rouge">close()</code> methods defined by
+<a href="https://api.dartlang.org/stable/dart-async/EventSink-class.html">EventSink</a>),
+the event is sent immediately to all listeners on the stream.
+<code class="highlighter-rouge">Stream</code> listeners must never be called until
+the code that added the listener has fully returned,
+and using a synchronous controller at the wrong time can
+break this promise and cause good code to fail.
+Avoid using synchronous controllers.</p>
+  </li>
+  <li>
+    <p>If you use <code class="highlighter-rouge">StreamController</code>,
+the <code class="highlighter-rouge">onListen</code> callback is called before
+the <code class="highlighter-rouge">listen</code> call returns the <code class="highlighter-rouge">StreamSubscription</code>.
+Don’t let the <code class="highlighter-rouge">onListen</code> callback depend
+on the subscription already existing.
+For example, in the following code,
+an <code class="highlighter-rouge">onListen</code> event fires
+(and <code class="highlighter-rouge">handler</code> is called)
+before the <code class="highlighter-rouge">subscription</code> variable
+has a valid value.</p>
+
+    <pre class="prettyprint lang-dart">subscription = stream.listen(handler);</pre>
+  </li>
+  <li>
+    <p>The <code class="highlighter-rouge">onListen</code>, <code class="highlighter-rouge">onPause</code>, <code class="highlighter-rouge">onResume</code>, and <code class="highlighter-rouge">onCancel</code>
+callbacks defined by <code class="highlighter-rouge">StreamController</code> are
+called by the stream when the stream’s listener state changes,
+but never during the firing of an event
+or during the call of another state change handler.
+In those cases, the state change callback is delayed until
+the previous callback is complete.</p>
+  </li>
+  <li>
+    <p>Don’t try to implement the <code class="highlighter-rouge">Stream</code> interface yourself.
+It’s easy to get the interaction between events, callbacks,
+and adding and removing listeners subtly wrong.
+Always use an existing stream, possibly from a <code class="highlighter-rouge">StreamController</code>,
+to implement the <code class="highlighter-rouge">listen</code> call of a new stream.</p>
+  </li>
+  <li>
+    <p>Although it’s possible to create classes that extend <code class="highlighter-rouge">Stream</code> with
+more functionality by extending the <code class="highlighter-rouge">Stream</code> class and
+implementing the <code class="highlighter-rouge">listen</code> method and the extra functionality on top,
+that is generally not recommended because
+it introduces a new type that users have to consider.
+Instead you can often make a class that <em>has</em> a <code class="highlighter-rouge">Stream</code> (and more) —
+instead of one that <em>is</em> a Stream (and more).</p>
+  </li>
+</ul>
+
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dartchina/site-www-cn"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dartchina/site-www-cn/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2019/01/30 17:33 CST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>技术</h4>
+          <ul>
+            <li><a href="https://flutterchina.club">Dart 移动开发 (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart web 开发</a></li>
+            <li><a href="/server">Dart 服务器开发</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory 工具</a></li>
+            <li><a href="/guides/libraries">Dart 库</a></li>
+            <li><a href="/guides/language">Dart 编程语言</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>资源</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>社区</h4>
+          <ul>
+            <li><a href="/community">支持和邮件列表</a></li>
+            <li><a href="/community/who-uses-dart">谁在用Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">社区</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">公告组</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter聊天室</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

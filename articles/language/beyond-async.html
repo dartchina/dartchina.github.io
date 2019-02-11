@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Async*, sync*, yield, and yield* are now available as part of Dart's asynchrony support.">
+  <title>Dart Language Asynchrony Support: Phase 2 | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Dart Language Asynchrony Support: Phase 2" />
+  <meta name="twitter:description" content="Async*, sync*, yield, and yield* are now available as part of Dart's asynchrony support." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Dart Language Asynchrony Support: Phase 2" />
+  <meta property="og:description" content="Async*, sync*, yield, and yield* are now available as part of Dart's asynchrony support." />
+  <meta property="og:url" content="https://www.dartlang.org/articles/language/beyond-async" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/assets/main-2ae3dd288bf374ebf77ec3b64d8af7d4e6425cb78128a7bc8d4a8aa968f4fe93.css">
+  <script src="/assets/main-3e89b739cc750412e013252d8b4ced20af281589ffe69a156e6c279177f81069.js" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default obsolete">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
+    <li><a href="/guides/language">语言</a></li>
+    <li><a href="/guides/libraries">库</a></li>
+    <li><a href="/tools">工具</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/language/beyond-async" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
+
+        <li role="separator" class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
+  </div>
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-light" href="/guides/get-started">入门</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="语言">语言</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="概览">概览</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="风格">风格</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="文档">文档</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="使用">使用</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="设计">设计</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="示例代码">示例代码</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="库">库</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="概览">概览</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="平台">平台</a></h4>
+  <ul><li >
+          <a href="https://flutterchina.club" title="移动端 (Flutter中文网)">移动端 (Flutter中文网)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/server" title="服务器">服务器</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="测试">测试</a></h4>
+  <ul>
+  </ul><h4 >资源</h4>
+  <ul><li >
+          <a href="/install" title="安装">安装</a>
+        </li><li >
+          <a href="/codelabs" title="Codelab">Codelab</a>
+        </li><li >
+          <a href="/tutorials" title="学习指南">学习指南</a>
+        </li><li >
+          <a href="/tools" title="工具">工具</a>
+        </li><li >
+          <a href="/community" title="社区支持">社区支持</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <header class="h4 text-uppercase">
+      目录
+      <a title="Back to top" class="back-to-top float-right mr-3">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </header>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#async-sync-and-all-the-rest">Async*, sync*, and all the rest</a></li>
+<li class="toc-entry toc-h2"><a href="#generators">Generators</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#why-support-generators-in-the-language">Why support generators in the language?</a></li>
+<li class="toc-entry toc-h3"><a href="#synchronous-generators-sync">Synchronous generators: sync*</a></li>
+<li class="toc-entry toc-h3"><a href="#asynchronous-generators-async">Asynchronous generators: async*</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#await-for">await-for</a></li>
+<li class="toc-entry toc-h2"><a href="#yield">yield*</a></li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+          
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/language/beyond-async.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Dart Language Asynchrony Support: Phase 2' page issue&body=
+Page URL: https://www.dartlang.org/articles/language/beyond-async%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/language/beyond-async.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>Dart Language Asynchrony Support: Phase 2</h1>
+          </div>
+          <h2>
+<a id="async-sync-and-all-the-rest" class="anchor" href="#async-sync-and-all-the-rest" aria-hidden="true"><span class="octicon octicon-link"></span></a>Async*, sync*, and all the rest</h2>
+
+<p><em>Written by Gilad Bracha <br>
+March 2015</em></p>
+
+<p>In a <a href="/articles/language/await-async">previous article</a>,
+we discussed asynchronous methods and await expressions.
+These features are part of a complete initiative to support asynchronous
+programming and generators in Dart.</p>
+
+<h2 id="generators">
+<a id="generators" class="anchor" href="#generators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generators</h2>
+
+<p>Dart 1.9 introduced <em>generator functions</em>. These are functions that
+lazily compute a sequence of results.  There are two
+kinds of generators—synchronous and asynchronous. A synchronous generator
+produces values on demand—consumers pull the values from the generator. An
+asynchronous generator produces values at its own pace, and pushes them out
+where consumers can find them.</p>
+
+<h3 id="why-support-generators-in-the-language">
+<a id="why-support-generators-in-the-language" class="anchor" href="#why-support-generators-in-the-language" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why support generators in the language?</h3>
+
+<p>One can implement generators by hand, but that can be tricky and is certainly
+tedious.</p>
+
+<p>To implement a synchronous generator, you need to define your own iterable
+class. You can subclass <code class="highlighter-rouge">IterableBase</code> but you’ll still need to
+declare the class and implement the <code class="highlighter-rouge">iterator</code> method which
+will have to return a new iterator. To do that, you’ll have to
+declare your own iterator class.  You’ll need to implement the members
+<code class="highlighter-rouge">moveNext()</code> and <code class="highlighter-rouge">current</code> which track and update the
+position of the iterator, detecting when the you’ve
+reached the end of the underlying iterable (and whether it was empty to begin
+with).  It’s no big deal—we know you love programming and this is a great
+CS101 exercise. However, maybe, just maybe, you want to spend your time
+programming something else. Synchronous generator functions are sugar for
+implementing such iterables.</p>
+
+<p>Asynchronous generators are even more fun to write by hand.  Instead of just
+boilerplate, you get to write tricky boilerplate. You have to ensure that
+everything works when your stream gets paused or canceled, for example.</p>
+
+<p>Dart’s new built-in generator support makes  things much easier, as we’ll see
+below.</p>
+
+<h3 id="synchronous-generators-sync">
+<a id="synchronous-generators-sync" class="anchor" href="#synchronous-generators-sync" aria-hidden="true"><span class="octicon octicon-link"></span></a>Synchronous generators: sync*</h3>
+
+<p>Marking a function body with the <strong>sync*</strong> modifier identifies
+the function as a synchronous generator, and relieves the
+programmer of much of the boilerplate involved in defining an iterable
+manually.</p>
+
+<p>Suppose we want to produce the first <em>n</em> natural numbers.
+It is quite easy to do this with a synchronous generator.</p>
+
+<pre class="prettyprint lang-dart">Iterable naturalsTo(n) <span class="highlight">sync*</span> {
+  int k = 0;
+  <span class="highlight">while</span> (k &lt; n) <span class="highlight">yield</span> k++;
+}</pre>
+
+<p>When called, <code class="highlighter-rouge">naturalsTo</code> immediately returns an iterable
+(much like a function marked <strong>async</strong> immediately returns
+a future), from which you can extract an iterator.
+The body of the function won’t start running until one calls
+<code class="highlighter-rouge">moveNext</code> on that iterator. It will run until it hits
+the <strong>yield</strong> statement the first time.
+The <strong>yield</strong> statement contains an expression,
+which it evaluates.  Then, the function suspends,
+and <code class="highlighter-rouge">moveNext</code> returns <code class="highlighter-rouge">true</code> to its caller.</p>
+
+<p>The function will resume execution the next time <code class="highlighter-rouge">moveNext</code>
+is called.  When the loop ends, the method implicitly executes a
+<strong>return</strong>, which causes it to terminate. At that point,
+<code class="highlighter-rouge">moveNext</code> returns <code class="highlighter-rouge">false</code> to its caller.</p>
+
+<p>Using ordinary iterators, this can be surprisingly tedious,
+as one has to define specialized iterator and iterable classes and
+implement the complete <code class="highlighter-rouge">Iterable</code> API.</p>
+
+<h4 id="the-devils-details">The devil’s details</h4>
+
+<p>You can separate the <strong>sync</strong> from the *;
+they are distinct tokens. If you have existing code that used
+sync as an identifier, you can continue to do so.
+The word <strong>sync</strong> is not a true reserved word.
+Similar comments apply to <strong>async</strong>,
+<strong>await</strong>, and <strong>yield</strong>.
+They are only treated as reserved words inside asynchronous or generator
+functions (i.e., those marked <strong>async</strong>, <strong>sync*</strong>
+or <strong>async*</strong>).</p>
+
+<p>Bear in mind that this adherence to strict compatibility comes at a cost.
+Say you forget to use a modifier such as <strong>sync*</strong> on a function,
+and use a <strong>yield</strong> statement inside.
+The parser may get very confused and give rather bewildering error messages.</p>
+
+<h3 id="asynchronous-generators-async">
+<a id="asynchronous-generators-async" class="anchor" href="#asynchronous-generators-async" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous generators: async*</h3>
+
+<p>To asynchronously produce a sequence, we use streams. One can
+implement streams manually using <code class="highlighter-rouge">Stream</code> and allied classes.
+Asynchronous generator functions are sugar for implementing such streams.
+Marking a function body with the <strong>async*</strong> modifier
+identifies the function as an asynchronous generator.</p>
+
+<p>Let’s try generating natural numbers again, asynchronously this time.</p>
+
+<pre class="prettyprint lang-dart">Stream asynchronousNaturalsTo(n) <span class="highlight">async*</span> {
+  int k = 0;
+  <span class="highlight">while</span> (k &lt; n) <span class="highlight">yield</span> k++;
+}</pre>
+
+<p>Invoking this function immediately returns a stream—just as invoking a
+<strong>sync*</strong> function immediately returns an iterable,
+and invoking an <strong>async</strong> function immediately returns a
+future (perhaps you discern a pattern here).</p>
+
+<p>Once you listen to the stream, execution of the body begins.
+When the <strong>yield</strong> statement executes,
+it adds the result of evaluating its expression to the stream. It doesn’t
+necessarily suspend (though in the current implementations it does).</p>
+
+<p>In any event, whatever function is listening on the stream will get called with
+each new value at some point. The initiative is not the consumer’s, however;
+the stream pushes the value to the listener function at its pleasure.</p>
+
+<h4 id="fine-print">Fine print</h4>
+
+<p>As a variant, consider</p>
+
+<pre class="prettyprint lang-dart">Stream <span class="highlight">get</span> naturals <span class="highlight">async*</span> {
+  int k = 0; <span class="highlight">while</span> (<span class="highlight">true</span>) { <span class="highlight">yield await</span> k++; }
+}</pre>
+
+<p>This example raises an interesting question: since the code runs in a tight,
+infinite loop and <strong>yield</strong> doesn’t suspend,
+when is any listener going to get to run to look at the results?
+We could require that <strong>yield</strong> always suspend,
+but that can hurt performance.
+The only requirement is that the function does suspend eventually so that some
+other code can run and pull values out of the stream.</p>
+
+<p>The stream associated with an <strong>async*</strong> function could get
+paused or canceled.
+If an <strong>async*</strong> function executes a <strong>yield</strong>
+and its stream has been canceled, control transfers to the nearest enclosing
+finally clause. If the stream has been paused,
+execution suspends before the <strong>yield</strong>,
+until the stream is resumed.
+Refer to the <a href="/guides/language/spec">Dart language spec</a> for all the gory details.</p>
+
+<h2 id="await-for">
+<a id="await-for" class="anchor" href="#await-for" aria-hidden="true"><span class="octicon octicon-link"></span></a>await-for</h2>
+
+<p>As every Dart programmer knows, the <strong>for-in</strong>
+loop plays well with iterables. Similarly, the <strong>await-for</strong>
+loop is designed to play well with streams.</p>
+
+<p>Given a stream, one can loop over its values:</p>
+
+<pre class="prettyprint lang-dart"><span class="highlight">await for</span> (int i <span class="highlight">in</span> naturals) { print(‘event loop $i’); }</pre>
+
+<p>Every time an element is added to the stream, the loop body is run. After each
+iteration, the function enclosing the loop suspends until the next element is
+available or the stream is done. Just like <strong>await</strong> expressions,
+<strong>await-for</strong> loops can only appear inside asynchronous functions.</p>
+
+<h2 id="yield">
+<a id="yield" class="anchor" href="#yield" aria-hidden="true"><span class="octicon octicon-link"></span></a>yield*</h2>
+
+<p>While the use of <strong>yield</strong> is attractive, you can run into problems.
+If you are writing a recursive function, you can get quadratic behavior.
+Consider the following function,
+designed to count backwards from <em>n</em> to 1.</p>
+
+<pre class="prettyprint lang-dart">Iterable naturalsDownFrom(n) <span class="highlight">sync*</span> {
+  <span class="highlight">if</span> (n &gt; 0) {
+     <span class="highlight">yield</span> n;
+     <span class="highlight">for</span> (int i in naturalsDownFrom(n-1)) { <span class="highlight">yield</span> i; }
+  }
+}</pre>
+
+<p>The code above is functionally correct, but runs in quadratic time.
+Notice that <code class="highlighter-rouge">yield i;</code> is executed <em>n − 1</em> times for the
+<em>nth</em> element in the sequence:
+once at each level of recursion; the first element, 3,
+is only yielded by the <code class="highlighter-rouge">yield n;</code> statement;
+the second element, 2, is yielded once by <code class="highlighter-rouge">yield n;</code> and once by <code class="highlighter-rouge">yield i;</code>
+The third element is 1, which is yielded once by
+<code class="highlighter-rouge">yield n;</code> and twice by <code class="highlighter-rouge">yield i;</code>.
+Altogether we have <em>n(n − 1)</em> executions of
+<code class="highlighter-rouge">yield i;</code>, which is <em>O(n<sup>2</sup>)</em>.</p>
+
+<p>The <strong>yield*</strong> (pronounced yield-each) statement is designed to get
+around this problem.  The expression following <code class="highlighter-rouge">yield*</code> must denote
+another (sub)sequence.  What <code class="highlighter-rouge">yield*</code> does is to insert all the elements
+of the subsequence into the sequence currently being constructed,
+as if we had an individual <code class="highlighter-rouge">yield</code> for each element.
+We can rewrite our code using yield-each as follows:</p>
+
+<pre class="prettyprint lang-dart">Iterable naturalsDownFrom(n) <span class="highlight">sync*</span> {
+  <span class="highlight">if</span> ( n &gt; 0) {
+    <span class="highlight">yield</span> n;
+    <span class="highlight">yield*</span> naturalsDownFrom(n-1);
+ }
+}</pre>
+
+<p>The latter version runs in linear time.</p>
+
+<h4 id="fine-print-1">Fine print</h4>
+
+<p>In a <strong>sync*</strong> function, the subsequence must be an iterable;
+in an <strong>async*</strong> method, the subsequence must be a stream.
+It is a runtime error if they are not.
+Of course, you will also get a static warning in such a case.</p>
+
+<p>The subsequence can be empty.
+In that case, <strong>yield*</strong> skips over it without suspending.</p>
+
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dartchina/site-www-cn"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dartchina/site-www-cn/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2019/01/30 17:33 CST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>技术</h4>
+          <ul>
+            <li><a href="https://flutterchina.club">Dart 移动开发 (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart web 开发</a></li>
+            <li><a href="/server">Dart 服务器开发</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory 工具</a></li>
+            <li><a href="/guides/libraries">Dart 库</a></li>
+            <li><a href="/guides/language">Dart 编程语言</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>资源</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>社区</h4>
+          <ul>
+            <li><a href="/community">支持和邮件列表</a></li>
+            <li><a href="/community/who-uses-dart">谁在用Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">社区</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">公告组</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter聊天室</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

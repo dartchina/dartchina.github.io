@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn how to consume single-subscriber and broadcast streams.">
+  <title>Asynchronous Programming: Streams | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Asynchronous Programming: Streams" />
+  <meta name="twitter:description" content="Learn how to consume single-subscriber and broadcast streams." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Asynchronous Programming: Streams" />
+  <meta property="og:description" content="Learn how to consume single-subscriber and broadcast streams." />
+  <meta property="og:url" content="https://www.dartlang.org/tutorials/language/streams" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/assets/main-2ae3dd288bf374ebf77ec3b64d8af7d4e6425cb78128a7bc8d4a8aa968f4fe93.css">
+  <script src="/assets/main-3e89b739cc750412e013252d8b4ced20af281589ffe69a156e6c279177f81069.js" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="tutorial">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
+    <li><a href="/guides/language">语言</a></li>
+    <li><a href="/guides/libraries">库</a></li>
+    <li><a href="/tools">工具</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tutorials/language/streams" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
+
+        <li role="separator" class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-light" href="/guides/get-started">入门</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="语言">语言</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="概览">概览</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="风格">风格</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="文档">文档</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="使用">使用</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="设计">设计</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="示例代码">示例代码</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="库">库</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="概览">概览</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="平台">平台</a></h4>
+  <ul><li >
+          <a href="https://flutterchina.club" title="移动端 (Flutter中文网)">移动端 (Flutter中文网)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/server" title="服务器">服务器</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="测试">测试</a></h4>
+  <ul>
+  </ul><h4 >资源</h4>
+  <ul><li >
+          <a href="/install" title="安装">安装</a>
+        </li><li >
+          <a href="/codelabs" title="Codelab">Codelab</a>
+        </li><li class="active">
+          <a href="/tutorials" title="学习指南">学习指南</a>
+        </li><li >
+          <a href="/tools" title="工具">工具</a>
+        </li><li >
+          <a href="/community" title="社区支持">社区支持</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <header class="h4 text-uppercase">
+      目录
+      <a title="Back to top" class="back-to-top float-right mr-3">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </header>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#receiving-stream-events">Receiving stream events</a></li>
+<li class="toc-entry toc-h2"><a href="#error-events">Error events</a></li>
+<li class="toc-entry toc-h2"><a href="#working-with-streams">Working with streams</a></li>
+<li class="toc-entry toc-h2"><a href="#two-kinds-of-streams">Two kinds of streams</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#single-subscription-streams">Single subscription streams</a></li>
+<li class="toc-entry toc-h3"><a href="#broadcast-streams">Broadcast streams</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#process-stream-methods">Methods that process a stream</a></li>
+<li class="toc-entry toc-h2"><a href="#modify-stream-methods">Methods that modify a stream</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#transform-function">The transform() function</a></li>
+<li class="toc-entry toc-h3"><a href="#reading-decoding-file">Reading and decoding a file</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#listen-method">The listen() method</a></li>
+<li class="toc-entry toc-h2"><a href="#other-resources">Other resources</a></li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+          
+<nav id="subnav">
+  <ul>
+    <li class="previous">
+      
+        <a href="/tutorials/language/futures">&lang;&nbsp;&nbsp;Asynchronous Programming: Futures</a>
+      
+    </li>
+    <li class="next">
+      
+    </li>
+  </ul>
+</nav>
+
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_tutorials/language/streams.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Asynchronous Programming: Streams' page issue&body=
+Page URL: https://www.dartlang.org/tutorials/language/streams%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_tutorials/language/streams.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>Asynchronous Programming: Streams</h1>
+          </div>
+          
+<div class="mini-toc">
+  <h4>What's the point?</h4>
+
+  <ul>
+    <li>Streams provide an asynchronous sequence of data.</li>
+    <li>Data sequences include user-generated events and data read from files.</li>
+    <li>You can process a stream using either <strong>await for</strong> or <code class="highlighter-rouge">listen()</code> from the Stream API.</li>
+    <li>Streams provide a way to respond to errors.</li>
+    <li>There are two kinds of streams: single subscription or broadcast.</li>
+  </ul>
+</div>
+
+<p>Asynchronous programming in Dart is characterized by the
+<a href="https://api.dartlang.org/stable/dart-async/Future-class.html">Future</a> and <a href="https://api.dartlang.org/stable/dart-async/Stream-class.html">Stream</a> classes.</p>
+
+<p>A Future represents a computation that doesn’t complete immediately.
+Where a normal function returns the result, an asynchronous function
+returns a Future, which will eventually contain the result.
+The future will tell you when the result is ready.</p>
+
+<p>A stream is a sequence of asynchronous events.
+It is like an asynchronous Iterable—where, instead of getting
+the next event when you ask for it, the stream tells you that
+there is an event when it is ready.</p>
+
+<h2 id="receiving-stream-events">
+<a id="receiving-stream-events" class="anchor" href="#receiving-stream-events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Receiving stream events</h2>
+
+<p>Streams can be created in many ways, which is a topic for another
+article, but they can all be used in the same way: the <em>asynchronous
+for loop</em> (commonly just called <strong>await for</strong>)
+iterates over the events of a stream like the <strong>for loop</strong> iterates
+over an Iterable. For example:</p>
+
+<?code-excerpt "misc/lib/tutorial/sum_stream.dart (sumStream)" replace="/async|await for/[!$&!]/g"?>
+<pre class="prettyprint lang-dart">Future&lt;int&gt; sumStream(Stream&lt;int&gt; stream) <span class="highlight">async</span> {
+  var sum = 0;
+  <span class="highlight">await for</span> (var value in stream) {
+    sum += value;
+  }
+  return sum;
+}</pre>
+
+<p>This code simply receives each event of a stream of integer events,
+adds them up, and returns (a future of) the sum.
+When the loop body ends,
+the function is paused until the next event arrives or the stream is done.</p>
+
+<p>The function is marked with the <code class="highlighter-rouge">async</code> keyword, which is required
+when using the <strong>await for</strong> loop.</p>
+
+<p>The following example tests the previous code by
+generating a simple stream of integers using an <code class="highlighter-rouge">async*</code> function:</p>
+
+<iframe src="https://dartpad.dartlang.org/embed-inline.html?id=15d5ef986238c97dbc14&amp;verticalRatio=85" width="100%" height="490px" style="border: 1px solid #ccc;">
+</iframe>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+Click run <img alt="" src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png">
+to see the result in the <strong>Console output</strong>.</p>
+</aside>
+
+<h2 id="error-events">
+<a id="error-events" class="anchor" href="#error-events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error events</h2>
+
+<p>Streams are done when there are no more events in them,
+and the code receiving the events is notified of this just as
+it is notified that a new event arrives.
+When reading events using an <strong>await for</strong> loop,
+the loops stops when the stream is done.</p>
+
+<p>In some cases, an error happens before the stream is done;
+perhaps the network failed while fetching a file from a remote server,
+or perhaps the code creating the events has a bug,
+but someone needs to know about it.</p>
+
+<p>Streams can also deliver error events like it delivers data events.
+Most streams will stop after the first error,
+but it is possible to have streams that deliver more than one error,
+and streams that deliver more data after an error event.
+In this document we only discuss streams that deliver at most one error.</p>
+
+<p>When reading a stream using <strong>await for</strong>, the error is thrown by the
+loop statement. This ends the loop, as well. You can catch the
+error using <strong>try-catch</strong>.  The following example throws an
+error when the loop iterator equals 4:</p>
+
+<iframe src="https://dartpad.dartlang.org/embed-inline.html?id=df7c1168a5c6b20fda2a76d6ff33a1da&amp;verticalRatio=80" width="100%" height="450px" style="border: 1px solid #ccc;">
+</iframe>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+Click run <img alt="" src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png">
+to see the result in the <strong>Console output</strong>.</p>
+</aside>
+
+<h2 id="working-with-streams">
+<a id="working-with-streams" class="anchor" href="#working-with-streams" aria-hidden="true"><span class="octicon octicon-link"></span></a>Working with streams</h2>
+
+<p>The Stream class contains a number of helper methods that can do
+common operations on a stream for you,
+similar to the methods on an <a href="https://api.dartlang.org/stable/dart-core/Iterable-class.html">Iterable.</a>
+For example, you can find the last positive integer in a stream using
+<code class="highlighter-rouge">lastWhere()</code> from the Stream API.</p>
+
+<?code-excerpt "misc/lib/tutorial/misc.dart (lastPositive)"?>
+<pre class="prettyprint lang-dart">Future&lt;int&gt; lastPositive(Stream&lt;int&gt; stream) =&gt;
+    stream.lastWhere((x) =&gt; x &gt;= 0);</pre>
+
+<h2 id="two-kinds-of-streams">
+<a id="two-kinds-of-streams" class="anchor" href="#two-kinds-of-streams" aria-hidden="true"><span class="octicon octicon-link"></span></a>Two kinds of streams</h2>
+
+<p>There are two kinds of streams.</p>
+
+<h3 id="single-subscription-streams">
+<a id="single-subscription-streams" class="anchor" href="#single-subscription-streams" aria-hidden="true"><span class="octicon octicon-link"></span></a>Single subscription streams</h3>
+
+<p>The most common kind of stream contains a sequence of events that
+are parts of a larger whole.
+Events need to be delivered in the correct order and without
+missing any of them.
+This is the kind of stream you get when you read a file or receive
+a web request.</p>
+
+<p>Such a stream can only be listened to once.
+Listening again later could mean missing out on initial events,
+and then the rest of the stream makes no sense.
+When you start listening,
+the data will be fetched and provided in chunks.</p>
+
+<h3 id="broadcast-streams">
+<a id="broadcast-streams" class="anchor" href="#broadcast-streams" aria-hidden="true"><span class="octicon octicon-link"></span></a>Broadcast streams</h3>
+
+<p>The other kind of stream is intended for individual messages that
+can be handled one at a time. This kind of stream can be used for
+mouse events in a browser, for example.</p>
+
+<p>You can start listening to such a stream at any time,
+and you get the events that are fired while you listen.
+More than one listener can listen at the same time,
+and you can listen again later after canceling a previous
+subscription.</p>
+
+<h2 id="process-stream-methods">
+<a id="process-stream-methods" class="anchor" href="#process-stream-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods that process a stream</h2>
+
+<p>The following methods on <a href="https://api.dartlang.org/stable/dart-async/Stream-class.html">Stream&lt;T&gt;</a> process the stream and return a
+result:</p>
+
+<?code-excerpt "misc/lib/tutorial/stream_interface.dart (main-stream-members)" remove="/^\s*Stream/"?>
+<pre class="prettyprint lang-dart">Future&lt;T&gt; get first;
+Future&lt;bool&gt; get isEmpty;
+Future&lt;T&gt; get last;
+Future&lt;int&gt; get length;
+Future&lt;T&gt; get single;
+Future&lt;bool&gt; any(bool Function(T element) test);
+Future&lt;bool&gt; contains(Object needle);
+Future&lt;E&gt; drain&lt;E&gt;([E futureValue]);
+Future&lt;T&gt; elementAt(int index);
+Future&lt;bool&gt; every(bool Function(T element) test);
+Future&lt;T&gt; firstWhere(bool Function(T element) test, {T Function() orElse});
+Future&lt;S&gt; fold&lt;S&gt;(S initialValue, S Function(S previous, T element) combine);
+Future forEach(void Function(T element) action);
+Future&lt;String&gt; join([String separator = ""]);
+Future&lt;T&gt; lastWhere(bool Function(T element) test, {T Function() orElse});
+Future pipe(StreamConsumer&lt;T&gt; streamConsumer);
+Future&lt;T&gt; reduce(T Function(T previous, T element) combine);
+Future&lt;T&gt; singleWhere(bool Function(T element) test, {T Function() orElse});
+Future&lt;List&lt;T&gt;&gt; toList();
+Future&lt;Set&lt;T&gt;&gt; toSet();</pre>
+
+<p>All of these functions, except <code class="highlighter-rouge">drain()</code> and <code class="highlighter-rouge">pipe()</code>,
+correspond to a similar function on <a href="https://api.dartlang.org/stable/dart-core/Iterable-class.html">Iterable.</a>
+Each one can be written easily by using an async function
+with an <strong>await for</strong> loop (or just using one of the other methods).
+For example, some implementations could be:</p>
+
+<?code-excerpt "misc/lib/tutorial/misc.dart (mock-stream-method-implementations)"?>
+<pre class="prettyprint lang-dart">Future&lt;bool&gt; contains(Object needle) async {
+  await for (var event in this) {
+    if (event == needle) return true;
+  }
+  return false;
+}
+
+Future forEach(void Function(T element) action) async {
+  await for (var event in this) {
+    action(event);
+  }
+}
+
+Future&lt;List&lt;T&gt;&gt; toList() async {
+  final result = &lt;T&gt;[];
+  await this.forEach(result.add);
+  return result;
+}
+
+Future&lt;String&gt; join([String separator = ""]) async =&gt;
+    (await this.toList()).join(separator);</pre>
+
+<p>(The actual implementations are slightly more complex,
+but mainly for historical reasons.)</p>
+
+<h2 id="modify-stream-methods">
+<a id="modify-stream-methods" class="anchor" href="#modify-stream-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods that modify a stream</h2>
+
+<p>The following methods on Stream return a new stream based
+on the original stream.
+Each one waits until someone listens on the new stream before
+listening on the original.</p>
+
+<?code-excerpt "misc/lib/tutorial/stream_interface.dart (main-stream-members)" remove="/async\w+|distinct|transform/" retain="/^\s*Stream/"?>
+<pre class="prettyprint lang-dart">Stream&lt;R&gt; cast&lt;R&gt;();
+Stream&lt;S&gt; expand&lt;S&gt;(Iterable&lt;S&gt; Function(T element) convert);
+Stream&lt;S&gt; map&lt;S&gt;(S Function(T event) convert);
+Stream&lt;R&gt; retype&lt;R&gt;();
+Stream&lt;T&gt; skip(int count);
+Stream&lt;T&gt; skipWhile(bool Function(T element) test);
+Stream&lt;T&gt; take(int count);
+Stream&lt;T&gt; takeWhile(bool Function(T element) test);
+Stream&lt;T&gt; where(bool Function(T event) test);</pre>
+
+<p>The preceding methods correspond to similar methods on <a href="https://api.dartlang.org/stable/dart-core/Iterable-class.html">Iterable</a>
+which transform an iterable into another iterable.
+All of these can be written easily using an async function
+with an <strong>await for</strong> loop.</p>
+
+<?code-excerpt "misc/lib/tutorial/stream_interface.dart (main-stream-members)" remove="/transform/" retain="/async\w+|distinct/"?>
+<pre class="prettyprint lang-dart">Stream&lt;E&gt; asyncExpand&lt;E&gt;(Stream&lt;E&gt; Function(T event) convert);
+Stream&lt;E&gt; asyncMap&lt;E&gt;(FutureOr&lt;E&gt; Function(T event) convert);
+Stream&lt;T&gt; distinct([bool Function(T previous, T next) equals]);</pre>
+
+<p>The <code class="highlighter-rouge">asyncExpand()</code> and <code class="highlighter-rouge">asyncMap()</code> functions are similar to
+<code class="highlighter-rouge">expand()</code> and <code class="highlighter-rouge">map()</code>,
+but allow their function argument to be an asynchronous function.
+The <code class="highlighter-rouge">distinct()</code> function doesn’t exist on <code class="highlighter-rouge">Iterable</code>, but it could have.</p>
+
+<?code-excerpt "misc/lib/tutorial/stream_interface.dart (special-stream-members)"?>
+<pre class="prettyprint lang-dart">Stream&lt;T&gt; handleError(Function onError, {bool test(error)});
+Stream&lt;T&gt; timeout(Duration timeLimit,
+    {void Function(EventSink&lt;T&gt; sink) onTimeout});
+Stream&lt;S&gt; transform&lt;S&gt;(StreamTransformer&lt;T, S&gt; streamTransformer);</pre>
+
+<p>The final three functions are more special.
+They involve error handling which an <strong>await for</strong> loop
+can’t do—the first error reaching the loops will end
+the loop and its subscription on the stream.
+There is no recovering from that.
+You can use <code class="highlighter-rouge">handleError()</code> to remove errors from a stream
+before using it in an <strong>await for</strong> loop.</p>
+
+<h3 id="transform-function">
+<a id="transform-function" class="anchor" href="#transform-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>The transform() function</h3>
+
+<p>The <code class="highlighter-rouge">transform()</code> function is not just for error handling;
+it is a more generalized “map” for streams.
+A normal map requires one value for each incoming event.
+However, especially for I/O streams,
+it might take several incoming events to produce an output event.
+A <a href="https://api.dartlang.org/stable/dart-async/StreamTransformer-class.html">StreamTransformer</a> can work with that.
+For example, decoders like <a href="https://api.dartlang.org/stable/dart-convert/Utf8Decoder-class.html">Utf8Decoder</a> are transformers.
+A transformer requires only one function, <a href="https://api.dartlang.org/stable/dart-async/StreamTransformer/bind.html">bind()</a>, which can be
+easily implemented by an async function.</p>
+
+<?code-excerpt "misc/lib/tutorial/misc.dart (mapLogErrors)"?>
+<pre class="prettyprint lang-dart">Stream&lt;S&gt; mapLogErrors&lt;S, T&gt;(
+  Stream&lt;T&gt; stream,
+  S Function(T event) convert,
+) async* {
+  var streamWithoutErrors = stream.handleError((e) =&gt; log(e));
+  await for (var event in streamWithoutErrors) {
+    yield convert(event);
+  }
+}</pre>
+
+<h3 id="reading-decoding-file">
+<a id="reading-decoding-file" class="anchor" href="#reading-decoding-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading and decoding a file</h3>
+
+<p>The following code reads a file and runs two transforms over the stream.
+It first converts the data from UTF8 and then runs it through
+a <a href="https://api.dartlang.org/stable/dart-convert/LineSplitter-class.html">LineSplitter.</a>
+All lines are printed, except any that begin with a hashtag, <code class="highlighter-rouge">#</code>.</p>
+
+<?code-excerpt "misc/lib/tutorial/cat_no_hash.dart"?>
+<pre class="prettyprint lang-dart">import 'dart:convert';
+import 'dart:io';
+
+Future&lt;void&gt; main(List&lt;String&gt; args) async {
+  var file = File(args[0]);
+  var lines = file
+      .openRead()
+      .transform(utf8.decoder)
+      .transform(LineSplitter());
+  await for (var line in lines) {
+    if (!line.startsWith('#')) print(line);
+  }
+}</pre>
+
+<h2 id="listen-method">
+<a id="listen-method" class="anchor" href="#listen-method" aria-hidden="true"><span class="octicon octicon-link"></span></a>The listen() method</h2>
+
+<p>The final method on Stream is <code class="highlighter-rouge">listen()</code>. This is a “low-level”
+method—all other stream functions are defined in terms of <code class="highlighter-rouge">listen()</code>.</p>
+
+<?code-excerpt "misc/lib/tutorial/stream_interface.dart (listen)"?>
+<pre class="prettyprint lang-dart">StreamSubscription&lt;T&gt; listen(void Function(T event) onData,
+    {Function onError, void Function() onDone, bool cancelOnError});</pre>
+
+<p>To create a new <code class="highlighter-rouge">Stream</code> type, you can just extend the <code class="highlighter-rouge">Stream</code>
+class and implement the <code class="highlighter-rouge">listen()</code> method—all other methods
+on <code class="highlighter-rouge">Stream</code> call <code class="highlighter-rouge">listen()</code> in order to work.</p>
+
+<p>The <code class="highlighter-rouge">listen()</code> method allows you to start listening on a stream.
+Until you do so,
+the stream is an inert object describing what events you want to see.
+When you listen,
+a <a href="https://api.dartlang.org/stable/dart-async/StreamSubscription-class.html">StreamSubscription</a> object is returned which represents the
+active stream producing events.
+This is similar to how an <code class="highlighter-rouge">Iterable</code> is just a collection of objects,
+but the iterator is the one doing the actual iteration.</p>
+
+<p>The stream subscription allows you to pause the subscription,
+resume it after a pause,
+and cancel it completely.
+You can set callbacks to be called for each data event or
+error event, and when the stream is closed.</p>
+
+<h2 id="other-resources">
+<a id="other-resources" class="anchor" href="#other-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other resources</h2>
+
+<p>Read the following documentation for more details on using streams
+and asynchronous programming in Dart.</p>
+
+<ul>
+  <li>
+<a href="/articles/libraries/broadcast-streams">Single-Subscription vs Broadcast Streams</a>,
+an article about the two different types of streams</li>
+  <li>
+<a href="/articles/libraries/creating-streams">Creating Streams in Dart</a>,
+an article about creating your own streams</li>
+  <li>
+<a href="/guides/libraries/futures-error-handling">Futures and Error Handling</a>,
+an article that explains how to handle errors using the Future API</li>
+  <li>
+<a href="/guides/language/language-tour#asynchrony-support">Asynchrony support</a>,
+a section in the <a href="/guides/language/language-tour">language tour</a>
+</li>
+  <li><a href="https://api.dartlang.org/stable/dart-async/Stream-class.html">Stream API reference</a></li>
+</ul>
+
+
+
+
+
+          
+<nav id="subnav">
+  <ul>
+    <li class="previous">
+      
+        <a href="/tutorials/language/futures">&lang;&nbsp;&nbsp;Asynchronous Programming: Futures</a>
+      
+    </li>
+    <li class="next">
+      
+    </li>
+  </ul>
+</nav>
+
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dartchina/site-www-cn"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dartchina/site-www-cn/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2019/01/30 17:33 CST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>技术</h4>
+          <ul>
+            <li><a href="https://flutterchina.club">Dart 移动开发 (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart web 开发</a></li>
+            <li><a href="/server">Dart 服务器开发</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory 工具</a></li>
+            <li><a href="/guides/libraries">Dart 库</a></li>
+            <li><a href="/guides/language">Dart 编程语言</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>资源</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>社区</h4>
+          <ul>
+            <li><a href="/community">支持和邮件列表</a></li>
+            <li><a href="/community/who-uses-dart">谁在用Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">社区</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">公告组</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter聊天室</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

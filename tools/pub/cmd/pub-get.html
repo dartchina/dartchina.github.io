@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Use pub get to retrieve the dependencies used by your Dart application.">
+  <title>pub get | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="pub get" />
+  <meta name="twitter:description" content="Use pub get to retrieve the dependencies used by your Dart application." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="pub get" />
+  <meta property="og:description" content="Use pub get to retrieve the dependencies used by your Dart application." />
+  <meta property="og:url" content="https://www.dartlang.org/tools/pub/cmd/pub-get.html" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/assets/main-2ae3dd288bf374ebf77ec3b64d8af7d4e6425cb78128a7bc8d4a8aa968f4fe93.css">
+  <script src="/assets/main-3e89b739cc750412e013252d8b4ced20af281589ffe69a156e6c279177f81069.js" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
+    <li><a href="/guides/language">语言</a></li>
+    <li><a href="/guides/libraries">库</a></li>
+    <li><a href="/tools">工具</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/tools/pub/cmd/pub-get.html" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
+
+        <li role="separator" class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-light" href="/guides/get-started">入门</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="语言">语言</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="概览">概览</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="风格">风格</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="文档">文档</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="使用">使用</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="设计">设计</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="示例代码">示例代码</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="库">库</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="概览">概览</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="平台">平台</a></h4>
+  <ul><li >
+          <a href="https://flutterchina.club" title="移动端 (Flutter中文网)">移动端 (Flutter中文网)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/server" title="服务器">服务器</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="测试">测试</a></h4>
+  <ul>
+  </ul><h4 >资源</h4>
+  <ul><li >
+          <a href="/install" title="安装">安装</a>
+        </li><li >
+          <a href="/codelabs" title="Codelab">Codelab</a>
+        </li><li >
+          <a href="/tutorials" title="学习指南">学习指南</a>
+        </li><li class="active">
+          <a href="/tools" title="工具">工具</a>
+        </li><li >
+          <a href="/community" title="社区支持">社区支持</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <header class="h4 text-uppercase">
+      目录
+      <a title="Back to top" class="back-to-top float-right mr-3">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </header>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#package-resolution">Package resolution</a></li>
+<li class="toc-entry toc-h2"><a href="#getting-a-new-dependency">Getting a new dependency</a></li>
+<li class="toc-entry toc-h2"><a href="#removing-a-dependency">Removing a dependency</a></li>
+<li class="toc-entry toc-h2"><a href="#the-system-package-cache">The system package cache</a></li>
+<li class="toc-entry toc-h2"><a href="#getting-while-offline">Getting while offline</a></li>
+<li class="toc-entry toc-h2"><a href="#options">Options</a></li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+          
+
+          
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+  <li class="breadcrumb-item"
+      property="itemListElement" typeof="ListItem"><a href="/tools" property="item" typeof="WebPage"><span property="name">工具</span>
+      </a>
+      <meta property="position" content="1" />
+    </li>
+  <li class="breadcrumb-item"
+      property="itemListElement" typeof="ListItem"><a href="/tools/pub" property="item" typeof="WebPage"><span property="name">Pub</span>
+      </a>
+      <meta property="position" content="2" />
+    </li>
+  <li class="breadcrumb-item"
+      property="itemListElement" typeof="ListItem"><a href="/tools/pub/cmd" property="item" typeof="WebPage"><span property="name">Pub Commands</span>
+      </a>
+      <meta property="position" content="3" />
+    </li>
+  <li class="breadcrumb-item active"
+      property="itemListElement" typeof="ListItem" aria-current="page"><a href="/tools/pub/cmd/pub-get.html" property="item" typeof="WebPage"><span property="name">pub get</span>
+      </a>
+      <meta property="position" content="4" />
+    </li>
+  
+  </ol>
+</nav>
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/tools/pub/cmd/pub-get.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='pub get' page issue&body=
+Page URL: https://www.dartlang.org/tools/pub/cmd/pub-get.html%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/tools/pub/cmd/pub-get.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>pub get</h1>
+          </div>
+          <p><em>Get</em> is one of the commands of the <em>pub</em> tool.
+<a href="/tools/pub">Learn more about pub</a>.</p>
+
+<pre>$ pub get [--offline]</pre>
+
+<p>This command gets all the dependencies listed in the
+<a href="/tools/pub/pubspec"><code class="highlighter-rouge">pubspec.yaml</code></a> file in the current working
+directory, as well as their
+<a href="/tools/pub/glossary#transitive-dependency">transitive dependencies</a>.
+For example:</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> pub get
+<span class="go">Got dependencies!
+</span></code></pre></div></div>
+
+<p>If the <a href="/tools/pub/glossary#system-cache">system cache</a>
+doesn’t already contain the dependencies, <code class="highlighter-rouge">pub get</code>
+updates the cache,
+downloading dependencies if necessary.
+To map packages back to the system cache,
+this command creates a <code class="highlighter-rouge">.packages</code> file.</p>
+
+<p>Once the dependencies are acquired, they may be referenced in Dart code.
+For example, if a package depends on <code class="highlighter-rouge">test</code>:</p>
+
+<pre class="prettyprint lang-dart">import 'package:test/test.dart';</pre>
+
+<p>When <code class="highlighter-rouge">pub get</code> gets new dependencies, it writes a
+<a href="/tools/pub/glossary#lockfile">lockfile</a> to ensure that future
+gets will use the same versions of those dependencies.
+Application packages should check in the lockfile to source control;
+this ensures the application will use the exact same versions
+of all dependencies for all developers and when deployed to production.
+Library packages should not check in the lockfile, though, since they’re
+expected to work with a range of dependency versions.</p>
+
+<p>If a lockfile already exists, <code class="highlighter-rouge">pub get</code> uses the versions of dependencies
+locked in it if possible. If a dependency isn’t locked, pub gets the
+latest version of that dependency that satisfies all the <a href="/tools/pub/glossary#version-constraint">version
+constraints</a>.
+This is the primary difference between <code class="highlighter-rouge">pub get</code> and
+<a href="/tools/pub/cmd/pub-upgrade"><code class="highlighter-rouge">pub upgrade</code></a>, which always tries to
+get the latest versions of all dependencies.</p>
+
+<aside class="alert alert-warning">
+  <p><strong>SDK constraints and Dart 2 pre-releases:</strong>
+  The pub version solver in Dart 2 pre-releases can choose package versions that
+  haven’t been verified to work with Dart 2.
+  If you find a package that has Dart 2 issues,
+  please report those issues immediately to the package maintainer,
+  and let the Dart community know about any workarounds you find.
+  For more information, see the <a href="/dart-2">Dart 2 page</a>.</p>
+</aside>
+
+<h2 id="package-resolution">
+<a id="package-resolution" class="anchor" href="#package-resolution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Package resolution</h2>
+
+<p>By default, pub creates a <code class="highlighter-rouge">.packages</code> file
+that maps from package names to location URIs.
+Before the <code class="highlighter-rouge">.packages</code> file, pub used to create <code class="highlighter-rouge">packages</code> directories.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong> Don’t check the generated <code class="highlighter-rouge">.packages</code> file,
+<code class="highlighter-rouge">packages</code> directories (if present), or
+<code class="highlighter-rouge">.dart_tool</code> directory into your repo;
+add them to your repo’s <code class="highlighter-rouge">.gitignore</code> file.
+For more information, see
+<a href="/guides/libraries/private-files">What Not to Commit</a>.</p>
+
+</aside>
+
+<p>For more information, see the
+<a href="https://github.com/lrhn/dep-pkgspec/blob/master/DEP-pkgspec.md#proposal">package specification file proposal.</a></p>
+
+<h2 id="getting-a-new-dependency">
+<a id="getting-a-new-dependency" class="anchor" href="#getting-a-new-dependency" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting a new dependency</h2>
+
+<p>If a dependency is added to the pubspec and then <code class="highlighter-rouge">pub get</code> is run,
+it gets the new dependency and any of its transitive dependencies and
+updates the mapping in the <code class="highlighter-rouge">.packages</code> file.
+However, pub won’t change the versions of any already-acquired
+dependencies unless that’s necessary to get the new dependency.</p>
+
+<h2 id="removing-a-dependency">
+<a id="removing-a-dependency" class="anchor" href="#removing-a-dependency" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removing a dependency</h2>
+
+<p>If a dependency is removed from the pubspec and then <code class="highlighter-rouge">pub get</code> is run,
+it removes the dependency from the <code class="highlighter-rouge">.packages</code> file,
+making the dependency unavailable for importing.
+Any transitive dependencies of the removed dependency are also removed,
+as long as no remaining immediate dependencies also depend on them.
+Removing a dependency never changes the versions of any
+already-acquired dependencies.</p>
+
+<h2 id="the-system-package-cache">
+<a id="the-system-package-cache" class="anchor" href="#the-system-package-cache" aria-hidden="true"><span class="octicon octicon-link"></span></a>The system package cache</h2>
+
+<p>Dependencies downloaded over the internet, such as those from Git and
+<a href="https://pub.dartlang.org">pub.dartlang.org</a>, are stored in a
+<a href="/tools/pub/glossary#system-cache">system-wide cache</a>.
+This means that if multiple packages use the same version of the
+same dependency, it only needs to be
+downloaded and stored locally once.</p>
+
+<p>By default, the system package cache is located in the <code class="highlighter-rouge">.pub-cache</code>
+subdirectory of your home directory (on Mac and Linux),
+or in <code class="highlighter-rouge">%APPDATA%\Pub\Cache</code> (on Windows;
+the location might vary depending on the Windows version).
+You can configure the location of the cache by setting the
+<a href="/tools/pub/environment-variables"><code class="highlighter-rouge">PUB_CACHE</code></a>
+environment variable before running pub.</p>
+
+<h2 id="getting-while-offline">
+<a id="getting-while-offline" class="anchor" href="#getting-while-offline" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting while offline</h2>
+
+<p>If you don’t have network access, you can still run <code class="highlighter-rouge">pub get</code>.
+Because pub downloads packages to a central cache shared by all packages
+on your system, it can often find previously downloaded packages
+without needing to use the network.</p>
+
+<p>However, by default, <code class="highlighter-rouge">pub get</code> tries to go online if you
+have any hosted dependencies,
+so that pub can detect newer versions of dependencies.
+If you don’t want pub to do that, pass it the <code class="highlighter-rouge">--offline</code> flag.
+In offline mode, pub looks only in your local package cache,
+trying to find a set of versions that work with your package from what’s already
+available.</p>
+
+<p>Keep in mind that pub generates a lockfile. If the
+only version of some dependency in your cache happens to be old,
+offline <code class="highlighter-rouge">pub get</code> locks your app to that old version.
+The next time you are online, you will likely want to
+run <a href="/tools/pub/cmd/pub-upgrade"><code class="highlighter-rouge">pub upgrade</code></a> to upgrade to a later version.</p>
+
+<h2 id="options">
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h2>
+
+<p>The <code class="highlighter-rouge">pub get</code> command supports the <code class="highlighter-rouge">--offline</code>
+command-line argument, as discussed above.</p>
+
+<p>For options that apply to all pub commands, see
+<a href="/tools/pub/cmd#global-options">Global options</a>.</p>
+
+<aside class="alert alert-info">
+  <p><em>Problems?</em>
+See <a href="/tools/pub/troubleshoot">Troubleshooting Pub</a>.</p>
+</aside>
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dartchina/site-www-cn"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dartchina/site-www-cn/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2019/01/30 17:33 CST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>技术</h4>
+          <ul>
+            <li><a href="https://flutterchina.club">Dart 移动开发 (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart web 开发</a></li>
+            <li><a href="/server">Dart 服务器开发</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory 工具</a></li>
+            <li><a href="/guides/libraries">Dart 库</a></li>
+            <li><a href="/guides/language">Dart 编程语言</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>资源</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>社区</h4>
+          <ul>
+            <li><a href="/community">支持和邮件列表</a></li>
+            <li><a href="/community/who-uses-dart">谁在用Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">社区</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">公告组</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter聊天室</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

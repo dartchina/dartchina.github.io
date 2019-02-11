@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="学习如何使 Dart 的命令行应用调用 C/C++ 函数。">
+  <title>为独立 Dart VM 提供原生扩展 | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="为独立 Dart VM 提供原生扩展" />
+  <meta name="twitter:description" content="学习如何使 Dart 的命令行应用调用 C/C++ 函数。" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="为独立 Dart VM 提供原生扩展" />
+  <meta property="og:description" content="学习如何使 Dart 的命令行应用调用 C/C++ 函数。" />
+  <meta property="og:url" content="https://www.dartlang.org/articles/server/native-extensions" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/assets/main-2ae3dd288bf374ebf77ec3b64d8af7d4e6425cb78128a7bc8d4a8aa968f4fe93.css">
+  <script src="/assets/main-3e89b739cc750412e013252d8b4ced20af281589ffe69a156e6c279177f81069.js" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+  <body class="default">
+    <header id="page-header">
+  <nav id="mainnav">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+  </a>
+  <ul>
+    <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
+    <li><a href="/guides/language">语言</a></li>
+    <li><a href="/guides/libraries">库</a></li>
+    <li><a href="/tools">工具</a></li>
+    
+    
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
+      <ul class="dropdown-menu">
+        
+
+<li><a href="https://v1-dartlang-org.firebaseapp.com/articles/server/native-extensions" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.1.0&nbsp;&nbsp;(stable)</a></li>
+
+        <li role="separator" class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
+      </ul>
+    </li>
+    
+    <li class="searchfield">
+      <form class="navbar-search" action="/search" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
+        <button type="submit"><i class="icon icon-search"></i></button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+
+    <main id="page-content">
+      <div id="sidenav" class="">
+  <div class="content">
+    <a href="/" class="brand" title="Dart">
+      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+    </a>
+
+    <div class="sidenav__search">
+      <p>
+        <a href="/search">Search <i class="icon icon-search"></i></a>
+      </p>
+    </div>
+
+    <ul>
+      <li>
+        <a class="btn btn-light" href="/guides/get-started">入门</a>
+      </li>
+    </ul>
+    <h4 ><a href="/guides/language" title="语言">语言</a></h4>
+  <ul><li >
+          <a href="/guides/language/language-tour" title="概览">概览</a>
+        </li>
+        
+        <li >
+          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
+          <i class="icon icon-arrow"></i>
+          <ul><li >
+                <a href="/guides/language/effective-dart/style" title="风格">风格</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/documentation" title="文档">文档</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/usage" title="使用">使用</a>
+              </li><li >
+                <a href="/guides/language/effective-dart/design" title="设计">设计</a>
+              </li>
+          </ul><li >
+          <a href="/samples" title="示例代码">示例代码</a>
+        </li>
+  </ul><h4 ><a href="/guides/libraries" title="库">库</a></h4>
+  <ul><li >
+          <a href="/guides/libraries/library-tour" title="概览">概览</a>
+        </li>
+  </ul><h4 ><a href="/guides/platforms" title="平台">平台</a></h4>
+  <ul><li >
+          <a href="https://flutterchina.club" title="移动端 (Flutter中文网)">移动端 (Flutter中文网)</a>
+        </li><li >
+          <a href="https://webdev.dartlang.org" title="Web">Web</a>
+        </li><li >
+          <a href="/server" title="服务器">服务器</a>
+        </li>
+  </ul><h4 ><a href="/guides/testing" title="测试">测试</a></h4>
+  <ul>
+  </ul><h4 >资源</h4>
+  <ul><li >
+          <a href="/install" title="安装">安装</a>
+        </li><li >
+          <a href="/codelabs" title="Codelab">Codelab</a>
+        </li><li >
+          <a href="/tutorials" title="学习指南">学习指南</a>
+        </li><li >
+          <a href="/tools" title="工具">工具</a>
+        </li><li >
+          <a href="/community" title="社区支持">社区支持</a>
+        </li>
+  </ul>
+  </div>
+</div>
+
+      
+<div id="toc">
+  <div class="content">
+    <header class="h4 text-uppercase">
+      目录
+      <a title="Back to top" class="back-to-top float-right mr-3">
+        <i class="fas fa-angle-up"></i>
+      </a>
+    </header>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#本地扩展解析">本地扩展解析</a></li>
+<li class="toc-entry toc-h2"><a href="#示例代码">示例代码</a></li>
+<li class="toc-entry toc-h2"><a href="#示例中的同步扩展">示例中的同步扩展</a></li>
+<li class="toc-entry toc-h2"><a href="#在本地代码中使用-dart-内嵌-api">在本地代码中使用 Dart 内嵌 API</a></li>
+<li class="toc-entry toc-h2"><a href="#dart-handle">Dart handle</a></li>
+<li class="toc-entry toc-h2"><a href="#本地代码sample_extensioncc">本地代码：sample_extension.cc</a></li>
+<li class="toc-entry toc-h2"><a href="#本地异步扩展">本地异步扩展</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#包装-c-函数">包装 C 函数</a></li>
+<li class="toc-entry toc-h3"><a href="#设置本地端口">设置本地端口</a></li>
+<li class="toc-entry toc-h3"><a href="#在-dart-端调用本地端口">在 Dart 端调用本地端口</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#结论及更多资源">结论及更多资源</a></li>
+<li class="toc-entry toc-h2"><a href="#附录扩展的编译和链接">附录：扩展的编译和链接</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#在-linux-上构建">在 Linux 上构建</a></li>
+<li class="toc-entry toc-h3"><a href="#在-mac-上构建">在 Mac 上构建</a></li>
+<li class="toc-entry toc-h3"><a href="#在-windows-上构建">在 Windows 上构建</a></li>
+</ul>
+</li>
+</ul>
+  </div>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+          
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/server/native-extensions.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='为独立 Dart VM 提供原生扩展' page issue&body=
+Page URL: https://www.dartlang.org/articles/server/native-extensions%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/server/native-extensions.md%0D%0A
+%0D%0A
+<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>为独立 Dart VM 提供原生扩展</h1>
+          </div>
+          
+<p><em>作者：William Hesse <br>
+2012年5月</em></p>
+
+<p>在独立 Dart VM（命令行应用程序）上运行的 Dart 程序可以通过本地扩展调用共享库中的 C 或 C++ 函数。
+本文将讲解如何在 Windows，macOS，以及 Linux 上编写和构建这样的本地扩展。</p>
+
+<p>你可以提供两种类型的本地扩展：异步扩展或同步扩展。_异步扩展_在一个单独的线程中执行一个本地函数，由
+Dart VM 调度。_同步扩展_直接使用 Dart 虚拟机库的 C API （ Dart 内嵌 API ） 并在 Dart 的独占
+线程中执行。通过向 Dart 端口（ Dart port ）发送消息来调用异步函数，在应答端口（ reply port ）接受响应。</p>
+
+<h2 id="本地扩展解析">
+<a id="本地扩展解析" class="anchor" href="#%E6%9C%AC%E5%9C%B0%E6%89%A9%E5%B1%95%E8%A7%A3%E6%9E%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>本地扩展解析</h2>
+
+<p>一个 Dart 本地扩展包含两部分： Dart 库和本地库。 Dart 库的类及顶层函数的定义方式不变，
+但在这些函数中，使用本地代码中实现的函数需要使用 <strong>native</strong> 关键字声明。本地库是使用
+C 或 C++ 编写的共享库，库中包含了这些函数（使用 <strong>native</strong> 关键字声明的函数）的实现。</p>
+
+<p>Dart 库使用 <code class="highlighter-rouge">import</code> 语句和 <strong>dart-ext</strong>: URI 的方案指定本机库。截至 1.20 ，
+URI 必须是绝对路径，如 <code class="highlighter-rouge">dart-ext:/path/to/extension</code> ，或者只使用扩展名，
+如 <code class="highlighter-rouge">dart-ext:extension</code> 。 VM 修改 URI 将平台特定的前缀和后缀添加到扩展名。例如，在
+Linux 上 <code class="highlighter-rouge">extension</code> 会变成 <code class="highlighter-rouge">libextension.so</code> 。如果 URI 是绝对路径，那么文件不存
+在的情况下会导入失败。如果 URI 只是扩展的名称，那么 VM 会首先查找与导入 Dart 库相邻的文
+件。如果没有找到，那么 VM 会将扩展的文件名传递给平台的特殊调用，以加载动态库
+（例如，Linux 上的 <code class="highlighter-rouge">dlopen</code> ），此时该库的加载将遵循它所在平台的搜索过程。</p>
+
+<h2 id="示例代码">
+<a id="示例代码" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h2>
+
+<p>文中介绍的扩展示例的代码位于 Dart 仓库的
+<a href="https://github.com/dart-lang/sdk/tree/master/samples/sample_extension">samples/sample_extension</a>
+目录中。</p>
+
+<p>扩展示例调用 C 标准库的 rand() 和 srand() 函数，将伪随机数返回到 Dart 程序。由于本地的异步扩展
+和同步扩展共享了大部分本地代码，所以示例使用了单个本地源文件（以及生成单个共享库）实现了这两个扩展。
+这两个扩展的 Dart 部分分别在两个库文件中实现。另外两个 Dart 文件提供了异步和同步扩展的使用和测试示例。</p>
+
+<p>本文中扩展的共享库（本地代码）称为 sample_extension 。 它是一个 C++ 文件，
+<a href="https://github.com/dart-lang/sdk/blob/master/samples/sample_extension/sample_extension.cc">sample_extension.cc</a>，
+其中包括 6 个被 Dart 调用的函数。</p>
+
+<dl>
+  <dt>sample_extension_Init():</dt>
+  <dd>在扩展被加载时被调用。</dd>
+  <dt>ResolveName():</dt>
+  <dd>第一次调用给定名称的本地函数时，将本地函数的 Dart 名称解析为 C 函数指针。</dd>
+  <dt>SystemRand() and SystemSrand():</dt>
+  <dd>同步扩展的实现。这些本地方法由 Dart 直接调用，它们调用 C 标准库的 rand() 和 srand() 函数。</dd>
+  <dt>wrappedRandomArray() and randomArrayServicePort():</dt>
+  <dd>异步扩展的实现。 randomArrayServicePort() 函数创建一个本地端口，并将这个端口和
+wrappedRandomArray() 函数关联在一起。当 Dart 向本地端口发送一个消息， Dart VM 就会调度
+wrappedRandomArray() 函数在一个单独的线程中执行。</dd>
+</dl>
+
+<p>共享库中的一些代码用来设置和初始化，对于所有的扩展这些代码几乎是相同的。函数
+sample_extension_Init() 和 ResolveName() 在所有的扩展中几乎相同，同样在所有的异步扩展中都
+必须有一个类似于 randomArrayServicePort() 的函数。</p>
+
+<h2 id="示例中的同步扩展">
+<a id="示例中的同步扩展" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E6%89%A9%E5%B1%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例中的同步扩展</h2>
+
+<p>因为异步扩展非常像是在同步扩展的基础上增加了一些函数，所以这里我们首先说明同步扩展。
+首先，我们将展示扩展的 Dart 部分以及加载扩展时发生的函数调用序列。然后我们将解释如何使用 Dart 中嵌入的
+API ，解释本地代码，以及描述扩展被调用时会发生了什么。</p>
+
+<p>这是同步扩展的 Dart 部分，文件名
+<b>sample_synchronous_extension.dart</b>：</p>
+
+<pre class="prettyprint lang-dart">library sample_synchronous_extension;
+
+import 'dart-ext:sample_extension';
+
+// The simplest way to call native code: top-level functions.
+int systemRand() native "SystemRand";
+bool systemSrand(int seed) native "SystemSrand";</pre>
+
+<p>本地扩展的代码存在两个不同的执行时间。首先，它会在本地扩展加载的时候执行。后面，它会在
+本地扩展实现被调用时执行。</p>
+
+<p>下面是加载时的事件序列，当一个 Dart 应用导入 sample_synchronous_extension.dart 时开始执行：</p>
+
+<ol>
+  <li>Dart 库 sample_synchronous_extension.dart 被加载，Dart VM 处理
+  <b><code>import 'dart-ext:sample_extension'</code></b> 代码。</li>
+  <li>Dart VM 从 Dart 库的目录中加载共享库 ‘sample_extension’ 。</li>
+  <li>共享库中的 sample_extension_Init() 函数被调用。它将共享库函数 ResolveName() 注册为
+  sample_extension.dart 库中所有本地函数的名称解析器。通过解析器可以查找 Dart 中对应的同步
+  扩展的本地函数。</li>
+</ol>
+
+<aside class="alert alert-info">
+<strong>提示：</strong>
+共享库的文件名取决于平台。
+在 Windows 上，VM 加载 sample_extension.dll ，
+在 Linux 上加载 libsample_extension.so ，
+在 Mac 上加载 libsample_extension.dylib 。
+我们将在本文末尾的附录中展示如何构建和链接这些共享库。
+</aside>
+
+<h2 id="在本地代码中使用-dart-内嵌-api">
+<a id="在本地代码中使用-dart-内嵌-api" class="anchor" href="#%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E4%B8%AD%E4%BD%BF%E7%94%A8-dart-%E5%86%85%E5%B5%8C-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>在本地代码中使用 Dart 内嵌 API</h2>
+
+<p>如扩展示例所示，本地共享库包含初始化函数，名称解析函数以及在扩展中由 Dart 部分声明并在本地实现的函数。
+初始化函数注册本地名称解析函数，用作查找该库的本地函数名称。
+当 Dart 库中以 <strong><code>native "<em>function_name</em>"</code></strong> 声明的函数被调用时，
+本地库使用字符串 “<em>function_name</em>“，以及 “<em>function_name</em>” 函数的参数个数作为参数
+调用名称解析函数。然后，名称解析函数会返回一个函数指针，这个函数指针指向对应 “<em>function_name</em>” 
+函数的本地函数实现。所有 Dart 的原生扩展中的初始化函数以及名称解析函数看上去几乎是一样的。</p>
+
+<p>本地库中的函数使用 Dart 内嵌 API 与 VM 进行通信，因此本地代码要包含 <b>dart_api.h</b> 头文件，
+它位于 SDK 中的 dart-sdk/include/dart_api.h 或者在仓库
+<a href="https://github.com/dart-lang/sdk/blob/master/runtime/include/dart_api.h">runtime/include/dart_api.h</a>。
+Dart 内嵌 API 作为接口内嵌在包含 Dart VM 的浏览器或者运行命令行程序的独立 VM 中。API 由大约
+100 个函数接口和许多数据类型和数据结构定义组成。它们在 dart_api.h 中声明，并备有注释。它们的使用示例在单元测试文件
+<a href="https://github.com/dart-lang/sdk/blob/master/runtime/vm/dart_api_impl_test.cc">runtime/vm/dart_api_impl_test.cc</a>。</p>
+
+<p>由 Dart 调用的本地函数必须是 <strong>Dart_NativeFunction</strong> 类型，类型在 dart_api.h 中定义为：</p>
+
+<pre class="prettyprint lang-cpp">typedef void (*Dart_NativeFunction)(Dart_NativeArguments arguments);</pre>
+
+<p>可以看到 Dart_NativeFunction 是一个函数指针，函数指针指向只接受一个 Dart_NativeArguments 
+参数对象，且无返回值的函数。接受的参数对象是一个 Dart 对象，通过 API 访问该参数对象，可以得到
+参数个数，以及指定索引的参数 Dart_Handle 。本地函数向 Dart 应用返回一个 Dart 对象作为返回值。
+该返回值被 Dart_SetReturnValue() 函数保存到参数对象里。</p>
+
+<h2 id="dart-handle">
+<a id="dart-handle" class="anchor" href="#dart-handle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dart handle</h2>
+
+<p>扩展的本地函数实现广泛的使用 Dart_Handles 。调用 Dart 内嵌 API 会返回一个 Dart_Handle 并且
+常常将 Dart_Handle 作为函数参数。Dart_Handle 是一个间接不透明指针，指向一个在 Dart 堆上的对象，
+Dart_Handles 属于值拷贝（浅拷贝）。在垃圾收集阶段会移动堆上的 Dart 对象，但即使是在垃圾收集阶段
+这些句柄仍保持有效，因此本地代码必须使用句柄来存储堆上对象的引用。由于这些句柄的存储和持有需要占用
+资源，所以必须要在不使用它们的时候对它们进行释放。在释放句柄之前，VM 的垃圾收集器无法收集它指向的对
+象，即使这些对象已经不存在其他的引用。</p>
+
+<p>Dart 内嵌 API 会自动创建一个作用域来管理本地函数中句柄的生命周期。本地函数进入时会创建本地句柄的
+作用域，并在该函数退出时将作用域删除。如果函数正常返回，或以 PropagateError 退出，则作用域删除。
+Dart 内嵌 API 返回的大多数句柄和内存指针都在当前本地作用域内分配，并在函数返回后失效。如果扩展应用
+想要长时间保持指向 Dart 对象的指针，可以使用 <em>持久句柄</em>（参见 Dart_NewPersistentHandle() 和 
+Dart_NewWeakPersistentHandle() ），这样可以使句柄在本地作用域结束后仍然有效。</p>
+
+<p>调用 Dart 内嵌 API 可能会在 Dart_Handle 返回值中返回错误。这些错误或者是异常应该作为返回值传递
+给函数的调用者。</p>
+
+<p>本地扩展中的大多数函数—类型为 Dart_NativeFunction 的函数—没有返回值，必须以另一种
+方式将错误传递给错误处理程序。函数中调用 Dart_PropagateError 来传递错误并控制程序流程到错误处理的
+位置。该示例使用一个名为 HandleError() 的辅助函数使上述实现更加便捷。Dart_PropagateError() 函数
+没有返回。</p>
+
+<h2 id="本地代码sample_extensioncc">
+<a id="本地代码sample_extensioncc" class="anchor" href="#%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81sample_extensioncc" aria-hidden="true"><span class="octicon octicon-link"></span></a>本地代码：sample_extension.cc</h2>
+
+<p>这里我们将展示扩展示例的本地代码，从初始化函数开始，然后是本地函数实现，最后是称解析函数。
+两个异步扩展的本地函数会在后面内容展示。</p>
+
+<pre class="prettyprint lang-cpp">#include &lt;string.h&gt;
+#include "dart_api.h"
+// 提前声明 ResolveName 函数。
+Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_scope);
+
+// 以 _Init 扩展名结尾的初始化函数。
+DART_EXPORT Dart_Handle sample_extension_Init(Dart_Handle parent_library) {
+  if (Dart_IsError(parent_library)) return parent_library;
+
+  Dart_Handle result_code =
+      Dart_SetNativeResolver(parent_library, ResolveName, NULL);
+  if (Dart_IsError(result_code)) return result_code;
+
+  return Dart_Null();
+}
+
+Dart_Handle HandleError(Dart_Handle handle) {
+ if (Dart_IsError(handle)) Dart_PropagateError(handle);
+ return handle;
+}
+
+// 本地函数通过 Dart_NativeArguments 结构体获取函数参数，
+// 并使用函数 Dart_SetReturnValue 返回执行结果。
+void SystemRand(Dart_NativeArguments arguments) {
+  Dart_Handle result = HandleError(Dart_NewInteger(rand()));
+  Dart_SetReturnValue(arguments, result);
+}
+
+void SystemSrand(Dart_NativeArguments arguments) {
+  bool success = false;
+  Dart_Handle seed_object =
+      HandleError(Dart_GetNativeArgument(arguments, 0));
+  if (Dart_IsInteger(seed_object)) {
+    bool fits;
+    HandleError(Dart_IntegerFitsIntoInt64(seed_object, &amp;fits));
+    if (fits) {
+      int64_t seed;
+      HandleError(Dart_IntegerToInt64(seed_object, &amp;seed));
+      srand(static_cast&lt;unsigned&gt;(seed));
+      success = true;
+    }
+  }
+  Dart_SetReturnValue(arguments, HandleError(Dart_NewBoolean(success)));
+}
+
+Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_scope) {
+  // 如果执行失败，返回 NULL， Dart 会抛出异常。
+  if (!Dart_IsString(name)) return NULL;
+  Dart_NativeFunction result = NULL;
+  const char* cname;
+  HandleError(Dart_StringToCString(name, &amp;cname));
+
+  if (strcmp("SystemRand", cname) == 0) result = SystemRand;
+  if (strcmp("SystemSrand", cname) == 0) result = SystemSrand;
+  return result;
+}</pre>
+
+<p>以下是第一次调用函数 systemRand() 时在运行时产生的事件序列 （ systemRand() 定义在 sample_synchronous_extension.dart 中）。</p>
+
+<ol>
+  <li>使用包含 “SystemRand” 的 Dart 字符串和整数 0 来调用共享库中的 ResolveName() 函数，这里整数表示调用中的参数数量。
+“SystemRand” 是 systemRand（）声明中 <b>native</b> 关键字后面的字符串。</li>
+  <li>ResolveName() 返回共享库中本地函数 SystemRand() 的函数指针。</li>
+  <li>Dart 中 systemRand() 调用的参数被打包到 Dart_NativeArguments 对象中，并使用 Dart_NativeArguments 对象作为
+参数调用 SystemRand() 函数，且该对象是 SystemRand() 的唯一参数。</li>
+  <li>SystemRand() 函数执行，将函数返回值存储到 Dart_NativeArguments 对象中，并返回。</li>
+  <li>Dart VM 从 Dart_NativeArguments 对象中提取返回值，并将其作为对 systemRand() 在 Dart 调用的返回结果。</li>
+</ol>
+
+<p>后续再调用 systemRand() 时，函数查找的结果已经被缓存，因此不会再调用 ResolveName() 。</p>
+
+<h2 id="本地异步扩展">
+<a id="本地异步扩展" class="anchor" href="#%E6%9C%AC%E5%9C%B0%E5%BC%82%E6%AD%A5%E6%89%A9%E5%B1%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>本地异步扩展</h2>
+
+<p>如上所述，同步扩展使用 Dart 内嵌 API 来处理 Dart 的堆对象，并且在当前隔离的主 Dart 线程上执行。
+那么与之相反，异步扩展基本上不使用 Dart 内嵌 API ，并且它在独立的线程上执行，这样就不会阻塞主
+Dart 线程。</p>
+
+<p>在某些方面，异步扩展的编写比同步扩展更容易。异步扩展使用 Dart 内嵌 API 中的本地端口函数在独立线程
+上调度 C 函数执行。对于异步扩展 Dart 端的代码仅仅暴露为 Dart SendPort （端口）。发送到端口的消
+息会自动转换为名为 Dart_CObject 的 C 结构体，该结构体包含 C 数据类型，如 int， double，和 char* 。
+然后将结构体传递给 C 函数，C 函数在一个独立的线程中执行，此线程由 VM 管理的线程池分配。C 函数可以
+通过 Dart_CObject 响应应答端口。 Dart_CObject 被转换回 Dart 对象树，并在 Dart 异步调用的应答
+端口上作为应答返回。与同步扩展相比较，异步扩展将 Dart 对象自动转换为 Dart_CObject C 结构取代了
+同步扩展中使用 Dart 内嵌 API 从对象获取字段并将 Dart 对象转换为 C 值类型的过程。</p>
+
+<p>要创建异步本地扩展，需要做三件事情：</p>
+
+<ol>
+  <li>包装一个我们希望调用的 C 函数（包装器），在这个包装器中将 Dart_CObject 输入参数转换为期望
+  的输入参数，将函数的结果转换为 Dart_CObject ，并将其发送回 Dart 。</li>
+  <li>编写一个本地函数，创建一个本地端口并将其关联到包装器。这个本地函数是一个同步本地方法，在
+  本地扩展中看起来像是上述的同步扩展函数。这样，我们就将刚刚在步骤 1 中的包装器添加到了扩展中。</li>
+  <li>编写一个 Dart 类来获取本地端口并持有这个端口。在该类中，提供一个函数，将其参数作为消息转发
+  到本地端口，并在收到消息回复时调用一个回调处理。</li>
+</ol>
+
+<h3 id="包装-c-函数">
+<a id="包装-c-函数" class="anchor" href="#%E5%8C%85%E8%A3%85-c-%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>包装 C 函数</h3>
+
+<p>下面是一个 C 函数的例子（由于使用了 reinterpret_cast，它实际上是一个 C++ 函数），
+函数在给定种子和长度的情况下创建了一个随机字节数组。返回的数据存储在一个新分配数组中，
+该数组会在后续处理中释放：</p>
+
+<pre class="prettyprint lang-cpp">uint8_t* random_array(int seed, int length) {
+  if (length &lt;= 0 || length &gt; 10000000) return NULL;
+
+  uint8_t* values = reinterpret_cast&lt;uint8_t*&gt;(malloc(length));
+  if (NULL == values) return NULL;
+
+  srand(seed);
+  for (int i = 0; i &lt; length; ++i) {
+    values[i] = rand() % 256;
+  }
+  return values;
+}</pre>
+
+<p>在从 Dart 调用这个 C 函数之前，我们将它放到了一个包装器中，这个包装器用于解包 Dart_CObject 中包含的
+随机种子和要生成的随机数长度，以及包装返回结果到 Dart_CObject 中。 Dart_CObject 可以包含一个整数
+（任意大小值），一个浮点数，一个字符串或者一个 Dart_CObject 数组。Dart_CObject 在
+<a href="https://github.com/dart-lang/sdk/blob/master/runtime/include/dart_native_api.h">dart_native_api.h</a> 中
+实现，是一个包含 union 的结构体。查看 dart_native_api.h 来查找用于访问的 union 成员字段和标记。发送
+Dart_CObject 之后，可以释放 Dart_CObject 及其所有资源，因为它们已经被复制到了 Dart 堆上的 Dart
+对象中。</p>
+
+<pre class="prettyprint lang-cpp">void wrappedRandomArray(Dart_Port dest_port_id,
+                        Dart_Port reply_port_id,
+                        Dart_CObject* message) {
+  if (message-&gt;type == Dart_CObject::kArray &amp;&amp;
+      2 == message-&gt;value.as_array.length) {
+    // 使用 .as_array 和 .as_int32 来访问 Dart_CObject 中的数据。
+    Dart_CObject* param0 = message-&gt;value.as_array.values[0];
+    Dart_CObject* param1 = message-&gt;value.as_array.values[1];
+    if (param0-&gt;type == Dart_CObject::kInt32 &amp;&amp;
+        param1-&gt;type == Dart_CObject::kInt32) {
+      int length = param0-&gt;value.as_int32;
+      int seed = param1-&gt;value.as_int32;
+
+      uint8_t* values = randomArray(seed, length);
+
+      if (values != NULL) {
+        Dart_CObject result;
+        result.type = Dart_CObject::kUint8Array;
+        result.value.as_byte_array.values = values;
+        result.value.as_byte_array.length = length;
+        Dart_PostCObject(reply_port_id, &amp;result);
+        free(values);
+        // 在函数退出时，结果是可以被释放的。
+        // Dart_PostCObject 已经拷贝了这些数据。
+        return;
+      }
+    }
+  }
+  Dart_CObject result;
+  result.type = Dart_CObject::kNull;
+  Dart_PostCObject(reply_port_id, &amp;result);
+}</pre>
+
+<p>Dart_PostCObject() 是 Dart 内嵌 API 中唯一一个可以被包装器或 C 函数调用的函数。由于这的
+包装器或 C 函数不再当前隔离作用域，所以多数 API 在这里调用是非法的。在这里不能抛出任何错误或
+异常，因此任何错误必须被编码到在应答消息中，以便由扩展的 Dart 部分进行解码和抛出。</p>
+
+<h3 id="设置本地端口">
+<a id="设置本地端口" class="anchor" href="#%E8%AE%BE%E7%BD%AE%E6%9C%AC%E5%9C%B0%E7%AB%AF%E5%8F%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>设置本地端口</h3>
+
+<p>现在我们来设置从 Dart 代码发送消息到调用这个包装后的 C 函数的路径。我们创建一个调用此函数的
+本地端口，并返回连接到这个端口的发送端口（ send port ）。 Dart 库从此函数获取端口，并对端口
+发送调用。</p>
+
+<pre class="prettyprint lang-cpp">void randomArrayServicePort(Dart_NativeArguments arguments) {
+  Dart_SetReturnValue(arguments, Dart_Null());
+  Dart_Port service_port =
+      Dart_NewNativePort("RandomArrayService", wrappedRandomArray, true);
+  if (service_port != kIllegalPort) {
+    Dart_Handle send_port = Dart_NewSendPort(service_port);
+    Dart_SetReturnValue(arguments, send_port);
+  }
+}</pre>
+
+<h3 id="在-dart-端调用本地端口">
+<a id="在-dart-端调用本地端口" class="anchor" href="#%E5%9C%A8-dart-%E7%AB%AF%E8%B0%83%E7%94%A8%E6%9C%AC%E5%9C%B0%E7%AB%AF%E5%8F%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>在 Dart 端调用本地端口</h3>
+
+<p>在 Dart 端，为了向端口发送消息后，端口的 Dart 异步函数回调能够被调用，我们需要一个类来存储
+这个发送端口。 通常，在Dart 类第一次调用函数获取端口时，将端口缓存。下面异步扩展的 Dart 库部分：</p>
+
+<pre class="prettyprint lang-dart">library sample_asynchronous_extension;
+
+import 'dart-ext:sample_extension';
+
+// 一个缓冲本地端口的类，用于调用异步扩展。
+class RandomArray {
+  static SendPort _port;
+
+  void randomArray(int seed, int length, void callback(List result)) {
+    var args = new List(2);
+    args[0] = seed;
+    args[1] = length;
+    _servicePort.call(args).then((result) {
+      if (result != null) {
+        callback(result);
+      } else {
+        throw new Exception("Random array creation failed");
+      }
+    });
+  }
+
+  SendPort get _servicePort {
+    if (_port == null) {
+      _port = _newServicePort();
+    }
+    return _port;
+  }
+
+  SendPort _newServicePort() native "RandomArray_ServicePort";
+}</pre>
+
+<h2 id="结论及更多资源">
+<a id="结论及更多资源" class="anchor" href="#%E7%BB%93%E8%AE%BA%E5%8F%8A%E6%9B%B4%E5%A4%9A%E8%B5%84%E6%BA%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>结论及更多资源</h2>
+
+<p>到这你已经了解了本地的同步扩展和异步扩展。我们希望你可以使用这些工具来访问现有的 C 和 C++ 库，
+从而为独立的 Dart VM 添加新的有用的功能。因为异步扩展不会阻塞主 Dart 线程，而且实现更加简单，
+所以我们更建议使用异步而不是使用同步来实现扩展。内置的 Dart I/O 库就是围绕着异步调用构建的，
+从而实现了高效的，无阻塞的吞吐。扩展也应当拥有与 Dart I/O 同样的性能目标。</p>
+
+<h2 id="附录扩展的编译和链接">
+<a id="附录扩展的编译和链接" class="anchor" href="#%E9%99%84%E5%BD%95%E6%89%A9%E5%B1%95%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E9%93%BE%E6%8E%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>附录：扩展的编译和链接</h2>
+
+<p>共享库的构建会比较棘手，而且构建共享库的工具决于平台。 Dart 本地扩展构建会更加棘手，因为本地扩展
+是动态加载的，并且工具要链接 Dart 库包含的 Dart 内嵌 API 函数到动态加载的可以执行文件中。</p>
+
+<p>与所有共享库一样，编译步骤必须生成与位置无关的代码。链接步骤中必须指定在加载库时允许在可执行文件中
+存在未实现的函数。我们将在 Linux， Windows 和 Mac 平台上说明这些操作命令。如果你下载了 Dart 的
+源码仓库，示例代码还包括一个独立于平台的构建系统（被称为 gyp ）以及一个用于构建扩展示例的构建文件
+sample_extension.gypi 。</p>
+
+<h3 id="在-linux-上构建">
+<a id="在-linux-上构建" class="anchor" href="#%E5%9C%A8-linux-%E4%B8%8A%E6%9E%84%E5%BB%BA" aria-hidden="true"><span class="octicon octicon-link"></span></a>在 Linux 上构建</h3>
+
+<p>在 Linux 上，在 samples/sample_extension 目录中编译代码，如下所示：</p>
+
+<pre>g++ -fPIC -m32 -I{path to SDK include directory} -DDART_SHARED_LIB -c sample_extension.cc</pre>
+
+<p>通过目标文件创建共享库：</p>
+
+<pre>gcc -shared -m32 -Wl,-soname,libsample_extension.so -o
+libsample_extension.so sample_extension.o</pre>
+
+<p>移除 -m32 参数创建能够执行在 64 位独立 Dart VM 上的 64 位共享库。</p>
+
+<h3 id="在-mac-上构建">
+<a id="在-mac-上构建" class="anchor" href="#%E5%9C%A8-mac-%E4%B8%8A%E6%9E%84%E5%BB%BA" aria-hidden="true"><span class="octicon octicon-link"></span></a>在 Mac 上构建</h3>
+
+<ol>
+  <li>使用 Xcode（测试环境 Xcode 3.2.6 ），创建一个与本地扩展名相同的新项目，选择 Framework &amp; Library/BSD C Library，类型为 dynamic。</li>
+  <li>添加扩展的源文件到项目中。</li>
+  <li>在 Project/Edit 中进行以下更改，在对话框中选择 Build 选项卡和 All Configurations ：
+    <ol>
+      <li>在 Linking 部分， Other Linker Flags 项中，增加 -undefined dynamic_lookup 。</li>
+      <li>在 Search Paths 部分， Header Search Paths 项中，增加 dart_api.h 文件路径，在文件位于已下载的 SDK 或 Dart 仓库中。</li>
+      <li>在 Preprocessing 部分， Preprocessor Macros 项中，增加 DART_SHARED_LIB=1 。</li>
+    </ol>
+  </li>
+  <li>Choose the correct architecture (i386 or x86_64), and build by choosing Build/Build.</li>
+  <li>选择当前架构（ i386 或 x86_64 ），并选择 Build/Build 进行构建。</li>
+</ol>
+
+<p>生成的 lib[extension_name].dylib 位于项目位置的 <b>build/</b> 子目录中，因此需要将它复制到所需位置
+（这里的可能是扩展的 Dart 库部分的位置）。</p>
+
+<aside class="alert alert-info">
+  <p><strong>译者注：</strong> 
+  使用 Xcode 10.1 创建本地扩展 dylib 项目：</p>
+  <ol>
+    <li>选择新建类型：File -&gt; New -&gt; Project -&gt; macOS -&gt; Library</li>
+    <li>填写项目选项：
+      <ol>
+        <li>Project Name：sample_extension</li>
+        <li>Framework：None(Plain C/C++ Library)</li>
+        <li>Type：Dynamic</li>
+      </ol>
+    </li>
+  </ol>
+</aside>
+
+<h3 id="在-windows-上构建">
+<a id="在-windows-上构建" class="anchor" href="#%E5%9C%A8-windows-%E4%B8%8A%E6%9E%84%E5%BB%BA" aria-hidden="true"><span class="octicon octicon-link"></span></a>在 Windows 上构建</h3>
+
+<p>Windows DLL 的编译很复杂，因为我们需要链接库文件 dart.lib ，dart.lib 不包含代码本身，但
+在 DLL 在动态加载的时候，通过它能够链接到的 Dart 可执行文件（ dart.exe ）来解析对 Dart
+嵌入 API 的调用。构建 Dart 时会生成该库文件，且文件包含在 Dart SDK 中。</p>
+
+<ol>
+  <li>在 Visual Studio 2008 或 2010 中创建项目类型为 Win32/Win32 的新项目。项目命名与本地
+扩展名相同。在 wizard 的下一个屏上，将应用程序类型修改为 DLL 并选择 “Empty project” ，
+然后选择完成。</li>
+  <li>将本地扩展的 C/C++ 文件添加到项目中的源文件目录中。确保源文件中包含 [extension name]_dllmain_win.cc 文件。</li>
+  <li>修改项目属性中的以下设置：
+    <ol>
+      <li>配置属性 / Linker / Input / Additional dependencies ：增加 dart-sdk\bin\dart.lib ，文件位于已下载的 Dart SDK 中。</li>
+      <li>配置属性 / C/C++ / General / Additional Include Directories ：增加包含 dart_api.h 目录的路径，该文件位于已下载的 Dart SDK 中的 dart-sdk/include 目录。</li>
+      <li>配置属性 / C/C++ / Preprocessor / Preprocessor Definitions ：增加 DART_SHARED_LIB 。这里只是为了从 DLL 中导出 _init 函数，因为该函数在本地扩展中被声明为 DART_EXPORT 。</li>
+    </ol>
+  </li>
+  <li>构建项目，并将 DLL 复制到正确的目录，对于相对于扩展的 Dart 库部分的目录。确保对于下载的 32 位 SDK 构建的是一个 32 位的 DLL ，对于下载的 64 位 SDK 构建的是一个 64 位的 DLL 。</li>
+</ol>
+
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-3">
+        <div class="content">
+          <div class="brand">
+            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
+          </div>
+          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
+          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+            <li>
+              <a href="https://github.com/dartchina/site-www-cn"
+                 title="This site's source is on GitHub."
+                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+              &nbsp;
+              <a href="https://github.com/dartchina/site-www-cn/issues"
+                 title="File an issue about this site."
+                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+              &nbsp;
+              <a 
+                 title="Site built on 2019/01/30 17:33 CST"
+                 
+                 class="no-automatic-external"><i class="material-icons">build</i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>技术</h4>
+          <ul>
+            <li><a href="https://flutterchina.club">Dart 移动开发 (Flutter)</a></li>
+            <li><a href="https://webdev.dartlang.org">Dart web 开发</a></li>
+            <li><a href="/server">Dart 服务器开发</a></li>
+            <li><a href="https://dart-lang.github.io/observatory/">Observatory 工具</a></li>
+            <li><a href="/guides/libraries">Dart 库</a></li>
+            <li><a href="/guides/language">Dart 编程语言</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>资源</h4>
+          <ul>
+            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
+            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
+            <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>
+            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-lg-3">
+        <div class="content">
+          <h4>社区</h4>
+          <ul>
+            <li><a href="/community">支持和邮件列表</a></li>
+            <li><a href="/community/who-uses-dart">谁在用Dart</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">社区</a> &
+                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">公告组</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter聊天室</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
