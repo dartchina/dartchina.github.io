@@ -326,8 +326,8 @@ try dartson first.</p>
   </tbody>
 </table>
 
-<p>Other compelling options are likely to exist on
-<a href="https://pub.dartlang.org/">pub.dartlang.org</a>,
+<p>Other compelling options are likely to exist on the
+<a href="https://pub.dartlang.org">Pub site</a>,
 so we encourage you to look around.
 We focused on these solutions because they
 are all dart2js-friendly—they
@@ -376,10 +376,10 @@ along with examples of how they could apply to your project.</p>
 
 <ul>
   <li>Simple:
-All of the objects to be serialized are
-<a href="http://en.wikipedia.org/wiki/Data_transfer_object">data transfer objects</a>
-(DTOs)
-with a <a href="/guides/language/language-tour#default-constructors">default constructor</a>.</li>
+All of the objects to be serialized are <a href="http://en.wikipedia.org/wiki/Data_transfer_object">data transfer
+objects</a> (DTOs)
+with a <a href="/guides/language/language-tour#default-constructors">default
+constructor</a>.</li>
   <li>Complex:
 Some or all of the objects to be serialized have cycles,
 can’t be created with no-argument constructors,
@@ -478,7 +478,7 @@ For example, the dartson package supplies a DateTime type transformer,
 implemented in
 <a href="https://github.com/eredo/dartson/blob/master/lib/transformers/date_time.dart">transformers/date_time.dart</a>.
 You can create your own serialization rules by subclassing
-<a href="https://www.dartdocs.org/documentation/dartson/latest/dartson.type_transformer/TypeTransformer-class.html">TypeTransformer</a>.</p>
+<a href="https://pub.dartlang.org/documentation/dartson/latest">TypeTransformer</a>.</p>
 
 <p>During development,
 you can use dartson’s mirrors-based implementation
@@ -786,7 +786,7 @@ import 'package:dartson/transformers/date_time.dart';</pre>
 
 <li>
     <p>Create an instance of
-  <a href="https://www.dartdocs.org/documentation/dartson/latest/index.html">Dartson</a>,
+  <a href="https://pub.dartlang.org/documentation/dartson/latest">Dartson</a>,
   and add any type transformers you need:</p>
 
     <pre class="prettyprint lang-dart">var dson = new Dartson.JSON();
@@ -900,7 +900,8 @@ The Dart code for creating a Person object looks like this:</p>
 <li>
     <p>Serialize objects using one of the generated write methods,
   which you can find in the
-  <a href="https://www.dartdocs.org/documentation/protobuf/latest/protobuf/GeneratedMessage-class.html">GeneratedMessage class API docs</a>.</p>
+  <a href="https://pub.dartlang.org/protobuf/latest/GeneratedMessage-class.html">GeneratedMessage class API
+  docs</a>.</p>
 
     <pre class="prettyprint lang-dart">Uint8List personBuffer = bob.writeToBuffer();
 String personJson = bob.writeToJson();</pre>
@@ -909,7 +910,8 @@ String personJson = bob.writeToJson();</pre>
 <li>
     <p>Deserialize objects using one of the generated constructors.
   These constructors are named like the
-  <a href="https://www.dartdocs.org/documentation/protobuf/latest/protobuf/GeneratedMessage-class.html">GeneratedMessage</a> constructors.</p>
+  <a href="https://pub.dartlang.org/protobuf/latest/GeneratedMessage-class.html">GeneratedMessage</a>
+  constructors.</p>
 
     <pre class="prettyprint lang-dart">Person deserializedPerson1 = new Person.fromBuffer(personBuffer);
 Person deserializedPerson2 = new Person.fromJson(personJson);</pre>
@@ -1044,8 +1046,8 @@ and the desire to generate small JavaScript.</p>
 
 <p>This article covered three solutions,
 recommending dartson as a starting point.
-To find more solutions,
-<a href="https://pub.dartlang.org/search?q=serialization">search pub.dartlang.org for serialization</a>.</p>
+To find more solutions, <a href="https://pub.dartlang.org/search?q=serialization">search the Pub site
+for serialization</a>.</p>
 
           
 
@@ -1073,7 +1075,7 @@ To find more solutions,
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/03/08 20:19 PST"
+                 title="Site built on 2019/03/08 21:46 PST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
