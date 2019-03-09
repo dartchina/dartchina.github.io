@@ -170,19 +170,19 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h2"><a href="#变量">变量</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#默认值">默认值</a></li>
-<li class="toc-entry toc-h3"><a href="#final-和-const">Final 和 const</a></li>
+<li class="toc-entry toc-h3"><a href="#final-和-const">Final 和 Const</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#内建类型">内建类型</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#numbers">Numbers</a></li>
-<li class="toc-entry toc-h3"><a href="#strings">Strings</a></li>
-<li class="toc-entry toc-h3"><a href="#booleans">Booleans</a></li>
-<li class="toc-entry toc-h3"><a href="#lists">Lists</a></li>
+<li class="toc-entry toc-h3"><a href="#number">Number</a></li>
+<li class="toc-entry toc-h3"><a href="#string">String</a></li>
+<li class="toc-entry toc-h3"><a href="#boolean">Boolean</a></li>
+<li class="toc-entry toc-h3"><a href="#list">List</a></li>
 <li class="toc-entry toc-h3"><a href="#set">Set</a></li>
-<li class="toc-entry toc-h3"><a href="#maps">Maps</a></li>
-<li class="toc-entry toc-h3"><a href="#runes">Runes</a></li>
-<li class="toc-entry toc-h3"><a href="#symbols">Symbols</a></li>
+<li class="toc-entry toc-h3"><a href="#map">Map</a></li>
+<li class="toc-entry toc-h3"><a href="#rune">Rune</a></li>
+<li class="toc-entry toc-h3"><a href="#symbol">Symbol</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#函数">函数</a>
@@ -212,19 +212,19 @@ ga('send', 'pageview');
 </li>
 <li class="toc-entry toc-h2"><a href="#控制流程语句">控制流程语句</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#if-和-else">If 和 else</a></li>
-<li class="toc-entry toc-h3"><a href="#for-循环">For 循环</a></li>
-<li class="toc-entry toc-h3"><a href="#while-和-do-while">While 和 do-while</a></li>
-<li class="toc-entry toc-h3"><a href="#break-和-continue">Break 和 continue</a></li>
-<li class="toc-entry toc-h3"><a href="#switch-和-case">Switch 和 case</a></li>
-<li class="toc-entry toc-h3"><a href="#assert">Assert</a></li>
+<li class="toc-entry toc-h3"><a href="#if-和-else">if 和 else</a></li>
+<li class="toc-entry toc-h3"><a href="#for-循环">for 循环</a></li>
+<li class="toc-entry toc-h3"><a href="#while-和-do-while">while 和 do-while</a></li>
+<li class="toc-entry toc-h3"><a href="#break-和-continue">break 和 continue</a></li>
+<li class="toc-entry toc-h3"><a href="#switch-和-case">switch 和 case</a></li>
+<li class="toc-entry toc-h3"><a href="#assert">assert</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#异常">异常</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#throw">Throw</a></li>
-<li class="toc-entry toc-h3"><a href="#catch">Catch</a></li>
-<li class="toc-entry toc-h3"><a href="#finally">Finally</a></li>
+<li class="toc-entry toc-h3"><a href="#throw">throw</a></li>
+<li class="toc-entry toc-h3"><a href="#catch">catch</a></li>
+<li class="toc-entry toc-h3"><a href="#finally">finally</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#类">类</a>
@@ -326,9 +326,9 @@ Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_
 <div class="alert alert-info">
   <p><strong>提示:</strong>
 使用 DartPad 可以体验 Dart 的大部分语言功能
-(<a href="/tools/dartpad">learn more</a>).</p>
+(<a href="/tools/dartpad">了解更多</a>).</p>
 
-  <p><strong><a href="https://dartpad.cn" target="_blank">Open DartPad</a></strong></p>
+  <p><strong><a href="https://dartpad.cn" target="_blank">打开 DartPad</a></strong></p>
 </div>
 
 <h2 id="一个简单的-dart-程序">
@@ -681,12 +681,12 @@ assert(lineCount == null);</pre>
 </div>
 
 <h3 id="final-和-const">
-<a id="final-和-const" class="anchor" href="#final-%E5%92%8C-const" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final 和 const</h3>
+<a id="final-和-const" class="anchor" href="#final-%E5%92%8C-const" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final 和 Const</h3>
 
 <p>使用过程中从来不会被修改的变量， 可以使用 <code class="highlighter-rouge">final</code> 或 <code class="highlighter-rouge">const</code>, 而不是 <code class="highlighter-rouge">var</code> 或者其他类型，
-final 变量的值只能被设置一次；
-const 变量在编译时就已经固定 (Const 变量
-是隐式 final 的类型.) 最高级 final 变量或类变量在第一次使用时被初始化。</p>
+Final 变量的值只能被设置一次；
+Const 变量在编译时就已经固定 (Const 变量
+是隐式 Final 的类型.) 最高级 final 变量或类变量在第一次使用时被初始化。</p>
 
 <div class="alert alert-info">
   <p><strong>提示：</strong>
@@ -695,7 +695,7 @@ const 变量在编译时就已经固定 (Const 变量
 在变量声明中，参数构造函数中或构造函数的<a href="#initializer-list">初始化列表</a>中进行初始化。</p>
 </div>
 
-<p>创建和设置一个 final 变量：</p>
+<p>创建和设置一个 Final 变量：</p>
 
 <?code-excerpt "misc/lib/language_tour/variables.dart (final)"?>
 <pre class="prettyprint lang-dart">final name = 'Bob'; // Without a type annotation
@@ -707,7 +707,7 @@ final String nickname = 'Bobby';</pre>
 <pre class="prettyprint lang-dart fails-sa">name = 'Alice'; // Error: 一个 final 变量只能被设置一次。</pre>
 
 <p>如果需要在<strong>编译时</strong>就固定变量的值，可以使用 <code class="highlighter-rouge">const</code> 类型变量。
-如果 const 变量是类级别的，需要标记为 <code class="highlighter-rouge">static const</code>。
+如果 Const 变量是类级别的，需要标记为 <code class="highlighter-rouge">static const</code>。
 在这些地方可以使用在编译时就已经固定不变的值，字面量的数字和字符串，
 固定的变量，或者是用于计算的固定数字：</p>
 
@@ -715,7 +715,7 @@ final String nickname = 'Bobby';</pre>
 <pre class="prettyprint lang-dart">const bar = 1000000; // 压力单位 (dynes/cm2)
 const double atm = 1.01325 * bar; // 标准气压</pre>
 
-<p>const 关键字不仅可以用于声明常量变量。 
+<p>Const 关键字不仅可以用于声明常量变量。 
 还可以用来创建常量值，以及声明创建常量值的构造函数。
 任何变量都可以拥有常量值。</p>
 
@@ -727,13 +727,13 @@ const baz = []; // Equivalent to `const []`</pre>
 <p>声明 <code class="highlighter-rouge">const</code> 的初始化表达式中 <code class="highlighter-rouge">const</code> 可以被省略。
 比如上面的 <code class="highlighter-rouge">baz</code>。 有关更多信息，参考 <a href="/guides/language/effective-dart/usage#dont-use-const-redundantly">DON’T use const redundantly</a>。</p>
 
-<p>非 final ， 非 const 的变量是可以被修改的，即使这些变量
+<p>非 Final ， 非 const 的变量是可以被修改的，即使这些变量
 曾经引用过 const 值。</p>
 
 <?code-excerpt "misc/lib/language_tour/variables.dart (reassign-to-non-final)"?>
 <pre class="prettyprint lang-dart">foo = [1, 2, 3]; // 曾经引用过 const [] 常量值。</pre>
 
-<p>const 变量的值不可以修改：</p>
+<p>Const 变量的值不可以修改：</p>
 
 <?code-excerpt "misc/lib/language_tour/variables.dart (cant-assign-to-const)"?>
 <pre class="prettyprint lang-dart fails-sa">baz = [42]; // Error: 常量变量不能赋值修改。</pre>
@@ -747,14 +747,14 @@ const baz = []; // Equivalent to `const []`</pre>
 <p>Dart 语言支持以下内建类型：</p>
 
 <ul>
-  <li>numbers</li>
-  <li>strings</li>
-  <li>booleans</li>
-  <li>lists (也被称为 <em>arrays</em>)</li>
-  <li>maps</li>
-  <li>sets</li>
-  <li>runes (用于在字符串中表示 Unicode 字符)</li>
-  <li>symbols</li>
+  <li>Number</li>
+  <li>String</li>
+  <li>Boolean</li>
+  <li>List (也被称为 <em>Array</em>)</li>
+  <li>Map</li>
+  <li>Set</li>
+  <li>Rune (用于在字符串中表示 Unicode 字符)</li>
+  <li>Symbol</li>
 </ul>
 
 <p>这些类型都可以被初始化为字面量。
@@ -766,10 +766,10 @@ const baz = []; // Equivalent to `const []`</pre>
 一些内建类型拥有自己的构造函数。
 例如， 通过 <code class="highlighter-rouge">Map()</code> 来构造一个 map 变量。</p>
 
-<h3 id="numbers">
-<a id="numbers" class="anchor" href="#numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Numbers</h3>
+<h3 id="number">
+<a id="number" class="anchor" href="#number" aria-hidden="true"><span class="octicon octicon-link"></span></a>Number</h3>
 
-<p>Dart 语言的 numbers 有两种类型:</p>
+<p>Dart 语言的 Number 有两种类型:</p>
 
 <dl>
   <dt><a href="https://api.dartlang.org/stable/dart-core/int-class.html">int</a></dt>
@@ -855,8 +855,8 @@ assert((3 | 4) == 7); // 0011 | 0100 == 0111</pre>
 const secondsUntilRetry = 5;
 const msUntilRetry = secondsUntilRetry * msPerSecond;</pre>
 
-<h3 id="strings">
-<a id="strings" class="anchor" href="#strings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Strings</h3>
+<h3 id="string">
+<a id="string" class="anchor" href="#string" aria-hidden="true"><span class="octicon octicon-link"></span></a>String</h3>
 
 <p>Dart 字符串是一组 UTF-16 单元序列。
 字符串通过单引号或者双引号创建。</p>
@@ -943,8 +943,8 @@ const validConstString = '$aConstNum $aConstBool $aConstString'; //const 类型�
 <p>更多关于 string 的使用, 参考
 <a href="/guides/libraries/library-tour#strings-and-regular-expressions">字符串和正则表达式</a>.</p>
 
-<h3 id="booleans">
-<a id="booleans" class="anchor" href="#booleans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Booleans</h3>
+<h3 id="boolean">
+<a id="boolean" class="anchor" href="#boolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boolean</h3>
 
 <p>Dart 使用 <code class="highlighter-rouge">bool</code> 类型表示布尔值。 
 Dart 只有字面量 <code class="highlighter-rouge">true</code> and <code class="highlighter-rouge">false</code> 是布尔类型，
@@ -972,15 +972,15 @@ assert(unicorn == null);
 var iMeantToDoThis = 0 / 0;
 assert(iMeantToDoThis.isNaN);</pre>
 
-<h3 id="lists">
-<a id="lists" class="anchor" href="#lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists</h3>
+<h3 id="list">
+<a id="list" class="anchor" href="#list" aria-hidden="true"><span class="octicon octicon-link"></span></a>List</h3>
 
 <p>几乎每种编程语言中最常见的集合可能是 <em>array</em> 或有序的对象集合。
-在 Dart 中的 <em>array</em> 就是 <a href="https://api.dartlang.org/stable/dart-core/List-class.html">List</a> 对象，
-通常称之为 <em>lists</em> 。</p>
+在 Dart 中的 <em>Array</em> 就是 <a href="https://api.dartlang.org/stable/dart-core/List-class.html">List</a> 对象，
+通常称之为 <em>List</em> 。</p>
 
-<p>Dart 中的 list 字面量非常像 JavaScript 中的 array 字面量。 
-下面是一个 Dart list 的示例：</p>
+<p>Dart 中的 List 字面量非常像 JavaScript 中的 array 字面量。 
+下面是一个 Dart List 的示例：</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (list-literal)"?>
 <pre class="prettyprint lang-dart">var list = [1, 2, 3];</pre>
@@ -988,7 +988,7 @@ assert(iMeantToDoThis.isNaN);</pre>
 <aside class="alert alert-info">
   <p><strong>提示：</strong>
   Dart 推断 <code class="highlighter-rouge">list</code> 的类型为 <code class="highlighter-rouge">List&lt;int&gt;</code> 。 
-  如果尝试将非整数对象添加到此 list 中，
+  如果尝试将非整数对象添加到此 List 中，
   则分析器或运行时会引发错误。 
   有关更多信息，请阅读
   <a href="/guides/language/sound-dart#type-inference">类型推断。</a></p>
@@ -996,7 +996,7 @@ assert(iMeantToDoThis.isNaN);</pre>
 
 <p>Lists 的下标索引从 0 开始，第一个元素的索引是 0。
 list.length - 1 是最后一个元素的索引。 
-访问 list 的长度和元素与 
+访问 List 的长度和元素与 
 JavaScript 中的用法一样：</p>
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (list-indexing)"?>
@@ -1007,13 +1007,13 @@ assert(list[1] == 2);
 list[1] = 1;
 assert(list[1] == 1);</pre>
 
-<p>在 list 字面量之前添加 const 关键字，可以定义 list 类型的编译时常量：</p>
+<p>在 List 字面量之前添加 const 关键字，可以定义 List 类型的编译时常量：</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (const-list)"?>
 <pre class="prettyprint lang-dart">var constantList = const [1, 2, 3];
 // constantList[1] = 1; // 取消注释会引起错误。</pre>
 
-<p>List 类型包含了很多 lists 的操作函数。 
+<p>List 类型包含了很多 List 的操作函数。 
 更多信息参考 <a href="#generics">泛型</a> 和
 <a href="/guides/libraries/library-tour#collections">集合</a>.</p>
 
@@ -1081,14 +1081,14 @@ assert(elements.length == 5);</pre>
 <a href="#generics">Generic</a> 及
 <a href="/guides/libraries/library-tour#sets">Set</a>。</p>
 
-<h3 id="maps">
-<a id="maps" class="anchor" href="#maps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maps</h3>
+<h3 id="map">
+<a id="map" class="anchor" href="#map" aria-hidden="true"><span class="octicon octicon-link"></span></a>Map</h3>
 
-<p>通常来说， map 是用来关联 keys 和 values 的对象。
-keys 和 values 可以是任何类型的对象。在一个 map 对象中一个 <em>key</em> 只能出现一次。
-但是 <em>value</em> 可以出现多次。 Dart 中 map 通过 map 字面量 和 <a href="https://api.dartlang.org/stable/dart-core/Map-class.html">Map</a> 类型来实现。</p>
+<p>通常来说， Map 是用来关联 keys 和 values 的对象。
+keys 和 values 可以是任何类型的对象。在一个 Map 对象中一个 <em>key</em> 只能出现一次。
+但是 <em>value</em> 可以出现多次。 Dart 中 Map 通过 Map 字面量 和 <a href="https://api.dartlang.org/stable/dart-core/Map-class.html">Map</a> 类型来实现。</p>
 
-<p>下面是使用 map 字面量的两个简单例子：</p>
+<p>下面是使用 Map 字面量的两个简单例子：</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (map-literal)"?>
 <pre class="prettyprint lang-dart">var gifts = {
@@ -1112,7 +1112,7 @@ var nobleGases = {
   有关更多信息，请阅读<a href="/guides/language/sound-dart#type-inference">类型推断。</a>。</p>
 </aside>
 
-<p>以上 map 对象也可以使用 Map 构造函数创建：</p>
+<p>以上 Map 对象也可以使用 Map 构造函数创建：</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (map-constructor)"?>
 <pre class="prettyprint lang-dart">var gifts = Map();
@@ -1132,33 +1132,32 @@ nobleGases[18] = 'argon';</pre>
 有关更多信息，参考 <a href="#%E4%BD%BF%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数的使用</a>。</p>
 </aside>
 
-<p>类似 JavaScript ，添加 key-value 对到已有的 map 中：</p>
+<p>类似 JavaScript ，添加 key-value 对到已有的 Map 中：</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (map-add-item)"?>
 <pre class="prettyprint lang-dart">var gifts = {'first': 'partridge'};
 gifts['fourth'] = 'calling birds'; // Add a key-value pair</pre>
 
-<p>类似 JavaScript ，从一个 map 中获取一个 value：</p>
+<p>类似 JavaScript ，从一个 Map 中获取一个 value：</p>
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (map-retrieve-item)"?>
 <pre class="prettyprint lang-dart">var gifts = {'first': 'partridge'};
 assert(gifts['first'] == 'partridge');</pre>
 
-<p>如果 map 中不包含所要查找的 key，那么 map 返回 null：</p>
+<p>如果 Map 中不包含所要查找的 key，那么 Map 返回 null：</p>
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (map-missing-key)"?>
 <pre class="prettyprint lang-dart">var gifts = {'first': 'partridge'};
 assert(gifts['fifth'] == null);</pre>
 
-<p>使用 <code class="highlighter-rouge">.length</code> 函数获取当前 map 中的 key-value 对数量：</p>
+<p>使用 <code class="highlighter-rouge">.length</code> 函数获取当前 Map 中的 key-value 对数量：</p>
 
 <?code-excerpt "misc/test/language_tour/built_in_types_test.dart (map-length)"?>
 <pre class="prettyprint lang-dart">var gifts = {'first': 'partridge'};
 gifts['fourth'] = 'calling birds';
 assert(gifts.length == 2);</pre>
 
-<p>创建 map 类型运行时常量，要在 map 字面量前加上关键字 <code class="highlighter-rouge">const</code>。
-add <code class="highlighter-rouge">const</code> before the map literal:</p>
+<p>创建 Map 类型运行时常量，要在 Map 字面量前加上关键字 <code class="highlighter-rouge">const</code>。</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (const-map)"?>
 <pre class="prettyprint lang-dart">final constantMap = const {
@@ -1169,14 +1168,14 @@ add <code class="highlighter-rouge">const</code> before the map literal:</p>
 
 // constantMap[2] = 'Helium'; // 取消注释会引起错误。</pre>
 
-<p>更名多关于 map 的内容，参考
+<p>更名多关于 Map 的内容，参考
 <a href="#generics">Generics</a> and
 <a href="/guides/libraries/library-tour#maps">Maps</a>.</p>
 
-<h3 id="runes">
-<a id="runes" class="anchor" href="#runes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Runes</h3>
+<h3 id="rune">
+<a id="rune" class="anchor" href="#rune" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rune</h3>
 
-<p>在 Dart 中，runes 用来表示字符串中的 UTF-32 编码字符。</p>
+<p>在 Dart 中， Rune 用来表示字符串中的 UTF-32 编码字符。</p>
 
 <p>Unicode 定义了一个全球的书写系统编码，
 系统中使用的所有字母，数字和符号都对应唯一的数值编码。
@@ -1193,9 +1192,9 @@ add <code class="highlighter-rouge">const</code> before the map literal:</p>
 <p><a href="https://api.dartlang.org/stable/dart-core/String-class.html">String</a>
 类有一些属性可以获得 rune 数据。
 属性 <code class="highlighter-rouge">codeUnitAt</code> 和 <code class="highlighter-rouge">codeUnit</code> 返回16位编码数据。
-属性 <code class="highlighter-rouge">runes</code> 获取字符串中的 runes 。</p>
+属性 <code class="highlighter-rouge">runes</code> 获取字符串中的 Rune 。</p>
 
-<p>下面是示例演示了 runes、 16-bit code units、
+<p>下面是示例演示了 Rune 、 16-bit code units、
 和 32-bit code points 之间的关系。
 点击运行按钮 <img alt="" src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png" integrity="sha256-UKZuAcfnqHfbwG55nVvEtzxNrOKSbsF7RJPYw+k5xZo=" crossorigin="anonymous">
 查看 runes 结果。</p>
@@ -1205,15 +1204,15 @@ add <code class="highlighter-rouge">const</code> before the map literal:</p>
 
 <div class="alert alert-warning">
   <p><strong>提示：</strong>
-谨慎使用 list 方式操作 runes。
+谨慎使用 list 方式操作 Rune 。
 这种方法很容易引发崩溃，
 具体原因取决于特定的语言，字符集和操作。
 有关更多信息，参考
 <a href="http://stackoverflow.com/questions/21521729/how-do-i-reverse-a-string-in-dart">How do I reverse a String in Dart?</a> on Stack Overflow.</p>
 </div>
 
-<h3 id="symbols">
-<a id="symbols" class="anchor" href="#symbols" aria-hidden="true"><span class="octicon octicon-link"></span></a>Symbols</h3>
+<h3 id="symbol">
+<a id="symbol" class="anchor" href="#symbol" aria-hidden="true"><span class="octicon octicon-link"></span></a>Symbol</h3>
 
 <p>一个 Symbol 对象表示 Dart 程序中声明的运算符或者标识符。 
 你也许永远都不需要使用 Symbol ，但要按名称引用标识符的 API 时， Symbol 就非常有用了。
@@ -2301,7 +2300,7 @@ sb.write('foo')
 详见 <a href="#exceptions">Exceptions</a>。</p>
 
 <h3 id="if-和-else">
-<a id="if-和-else" class="anchor" href="#if-%E5%92%8C-else" aria-hidden="true"><span class="octicon octicon-link"></span></a>If 和 else</h3>
+<a id="if-和-else" class="anchor" href="#if-%E5%92%8C-else" aria-hidden="true"><span class="octicon octicon-link"></span></a>if 和 else</h3>
 
 <p>Dart 支持 <code class="highlighter-rouge">if - else</code> 语句，其中 <code class="highlighter-rouge">else</code> 是可选的， 
 比如下面的例子， 另参考 <a href="#conditional-expressions">conditional expressions</a>.</p>
@@ -2319,7 +2318,7 @@ sb.write('foo')
 更多信息，参考 <a href="#booleans">Booleans</a> 。</p>
 
 <h3 id="for-循环">
-<a id="for-循环" class="anchor" href="#for-%E5%BE%AA%E7%8E%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>For 循环</h3>
+<a id="for-循环" class="anchor" href="#for-%E5%BE%AA%E7%8E%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>for 循环</h3>
 
 <p>进行迭代操作，可以使用标准 <code class="highlighter-rouge">for</code> 语句。 例如：</p>
 
@@ -2359,7 +2358,7 @@ for (var x in collection) {
 }</pre>
 
 <h3 id="while-和-do-while">
-<a id="while-和-do-while" class="anchor" href="#while-%E5%92%8C-do-while" aria-hidden="true"><span class="octicon octicon-link"></span></a>While 和 do-while</h3>
+<a id="while-和-do-while" class="anchor" href="#while-%E5%92%8C-do-while" aria-hidden="true"><span class="octicon octicon-link"></span></a>while 和 do-while</h3>
 
 <p><code class="highlighter-rouge">while</code> 循环在执行前判断执行条件：</p>
 
@@ -2376,7 +2375,7 @@ for (var x in collection) {
 } while (!atEndOfPage());</pre>
 
 <h3 id="break-和-continue">
-<a id="break-和-continue" class="anchor" href="#break-%E5%92%8C-continue" aria-hidden="true"><span class="octicon octicon-link"></span></a>Break 和 continue</h3>
+<a id="break-和-continue" class="anchor" href="#break-%E5%92%8C-continue" aria-hidden="true"><span class="octicon octicon-link"></span></a>break 和 continue</h3>
 
 <p>使用 <code class="highlighter-rouge">break</code> 停止程序循环：</p>
 
@@ -2406,7 +2405,7 @@ for (var x in collection) {
     .forEach((c) =&gt; c.interview());</pre>
 
 <h3 id="switch-和-case">
-<a id="switch-和-case" class="anchor" href="#switch-%E5%92%8C-case" aria-hidden="true"><span class="octicon octicon-link"></span></a>Switch 和 case</h3>
+<a id="switch-和-case" class="anchor" href="#switch-%E5%92%8C-case" aria-hidden="true"><span class="octicon octicon-link"></span></a>switch 和 case</h3>
 
 <p>在 Dart 中 switch 语句使用 <code class="highlighter-rouge">==</code> 比较整数，字符串，或者编译时常量。
 比较的对象必须都是同一个类的实例（并且不可以是子类），
@@ -2494,7 +2493,7 @@ switch (command) {
 这些局部变量只能在这个语句的作用域中可见。</p>
 
 <h3 id="assert">
-<a id="assert" class="anchor" href="#assert" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assert</h3>
+<a id="assert" class="anchor" href="#assert" aria-hidden="true"><span class="octicon octicon-link"></span></a>assert</h3>
 
 <p>如果 <code class="highlighter-rouge">assert</code> 语句中的布尔条件为 false ， 那么正常的程序执行流程会被中断。
 在本章中包含部分 assert 的使用，
@@ -2550,7 +2549,7 @@ Flutter 中的 assert 只在 <a href="https://flutter.io/debugging/#debug-mode-a
 但是，此外 Dart 程序可以抛出任何非 null 对象， 不仅限 Exception 和 Error 对象。</p>
 
 <h3 id="throw">
-<a id="throw" class="anchor" href="#throw" aria-hidden="true"><span class="octicon octicon-link"></span></a>Throw</h3>
+<a id="throw" class="anchor" href="#throw" aria-hidden="true"><span class="octicon octicon-link"></span></a>throw</h3>
 
 <p>下面是关于抛出或者 <em>引发</em> 异常的示例：</p>
 
@@ -2573,7 +2572,7 @@ Flutter 中的 assert 只在 <a href="https://flutter.io/debugging/#debug-mode-a
 <pre class="prettyprint lang-dart">void distanceTo(Point other) =&gt; throw UnimplementedError();</pre>
 
 <h3 id="catch">
-<a id="catch" class="anchor" href="#catch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Catch</h3>
+<a id="catch" class="anchor" href="#catch" aria-hidden="true"><span class="octicon octicon-link"></span></a>catch</h3>
 
 <p>捕获异常可以避免异常继续传递（除非重新抛出（ rethrow ）异常）。 
 可以通过捕获异常的机会来处理该异常：</p>
@@ -2645,7 +2644,7 @@ void main() {
 }</pre>
 
 <h3 id="finally">
-<a id="finally" class="anchor" href="#finally" aria-hidden="true"><span class="octicon octicon-link"></span></a>Finally</h3>
+<a id="finally" class="anchor" href="#finally" aria-hidden="true"><span class="octicon octicon-link"></span></a>finally</h3>
 
 <p>不管是否抛出异常， <code class="highlighter-rouge">finally</code> 中的代码都会被执行。
 如果 <code class="highlighter-rouge">catch</code> 没有匹配到异常，
@@ -3084,11 +3083,11 @@ class Point {
   }
 }</pre>
 
-<h4 id="getters-和-setters">Getters 和 setters</h4>
+<h4 id="getter-和-setter">Getter 和 Setter</h4>
 
-<p>getters 和 setters 是用于对象属性读和写的特殊方法。 
-回想之前的例子，每个实例变量都有一个隐式 getter ，通常情况下还会有一个 setter 。
-使用 <code class="highlighter-rouge">get</code> 和 <code class="highlighter-rouge">set</code> 关键字实现 getters 和 setters ，能够为实例创建额外的属性。</p>
+<p>Getter 和 Setter 是用于对象属性读和写的特殊方法。 
+回想之前的例子，每个实例变量都有一个隐式 Getter ，通常情况下还会有一个 Setter 。
+使用 <code class="highlighter-rouge">get</code> 和 <code class="highlighter-rouge">set</code> 关键字实现 Getter 和 Setter ，能够为实例创建额外的属性。</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/rectangle.dart"?>
 <pre class="prettyprint lang-dart">class Rectangle {
@@ -3110,8 +3109,8 @@ void main() {
   assert(rect.left == -8);
 }</pre>
 
-<p>最开始实现 getters 和 setters 也许是直接返回成员变量；
-随着需求变化，getters 和 setters 可能需要进行计算处理而使用方法来实现；
+<p>最开始实现 Getter 和 Setter 也许是直接返回成员变量；
+随着需求变化， Getter 和 Setter 可能需要进行计算处理而使用方法来实现；
 但是，调用对象的代码不需要做任何的修改。</p>
 
 <div class="alert alert-info">
@@ -4352,7 +4351,7 @@ documentation.</a>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/03/09 00:12 PST"
+                 title="Site built on 2019/03/09 00:21 PST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
