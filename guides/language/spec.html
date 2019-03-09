@@ -164,7 +164,11 @@ ga('send', 'pageview');
       </a>
     </header>
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#dart-2">Dart 2</a></li>
+<li class="toc-entry toc-h2"><a href="#dart-2">Dart 2</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#in-progress-specification">In-progress specification</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#dart-1x">Dart 1.x</a></li>
 </ul>
   </div>
@@ -208,38 +212,36 @@ For a gentler introduction to Dart, see the
 <h2 id="dart-2">
 <a id="dart-2" class="anchor" href="#dart-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dart 2</h2>
 
-<p>Dart 2 has changed the Dart language in many ways,
-some of which are not backward-compatible.
-For details, see the <a href="/dart-2">Dart 2 page</a>.</p>
-
-<p>The formal language specification is not yet up-to-date.
-For information about Dart 2 changes, see the following resources.</p>
+<p>A formal Dart 2 specification is available in PDF format:</p>
 
 <ul>
-  <li>Feature specifications in the dart-lang/sdk repo:
-    <ul>
-      <li><a href="https://github.com/dart-lang/sdk/tree/master/docs/language/informal">docs/language/informal</a></li>
-    </ul>
-  </li>
-  <li>Feature specifications in the dart-lang/language repo:
-    <ul>
-      <li><a href="https://github.com/dart-lang/language/tree/master/accepted">accepted</a></li>
-      <li><a href="https://github.com/dart-lang/language/tree/master/working">working</a></li>
-    </ul>
-  </li>
-  <li>Dart language specification work in progress:
-    <ul>
-      <li><a href="https://github.com/dart-lang/sdk/blob/master/docs/language/dartLangSpec.tex">Source file (LaTeX format)</a></li>
-      <li><a href="https://github.com/chalin/dart-spec-and-grammar/blob/master/doc/dartLangSpec.pdf">Community-contributed PDF built from the source file</a></li>
-    </ul>
-  </li>
+  <li><a href="/guides/language/specifications/DartLangSpec-v2.2.pdf">Dart Programming Language Specification (Version 2.2)</a></li>
 </ul>
+
+<p>Note: Dart 2 has changed the Dart language in many ways, some of which are not
+backward-compatible. For details, see the <a href="/dart-2">Dart 2 page</a>.</p>
+
+<h3 id="in-progress-specification">
+<a id="in-progress-specification" class="anchor" href="#in-progress-specification" aria-hidden="true"><span class="octicon octicon-link"></span></a>In-progress specification</h3>
+
+<p>New language features are typically described using informal language feature specifications.
+These are located inside the dart-lang/language repo:</p>
+<ul>
+  <li>
+<a href="https://github.com/dart-lang/language/tree/master/accepted">accepted</a>: Accepted informal proposals</li>
+  <li>
+<a href="https://github.com/dart-lang/language/tree/master/working">working</a>: Drafts of potential features</li>
+</ul>
+
+<p>The in-progress formal Dart language specification is written as a
+<a href="https://github.com/dart-lang/sdk/blob/master/docs/language/dartLangSpec.tex">LaTeX file</a>,
+and is available as a <a href="https://spec.dart.dev/DartLangSpecDraft.pdf">draft specification in PDF format</a>.</p>
 
 <h2 id="dart-1x">
 <a id="dart-1x" class="anchor" href="#dart-1x" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dart 1.x</h2>
 
-<p>Download the formal language specification from the Ecma International
-website:</p>
+<p>The formal Dart 1.x language specification is available from
+the Ecma International website:</p>
 
 <ul>
   <li><a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-408.pdf" target="_blank" rel="noopener">Dart Programming Language Specification, 4<sup>th</sup> Edition</a></li>
@@ -271,7 +273,7 @@ website:</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/03/08 23:09 PST"
+                 title="Site built on 2019/03/08 23:14 PST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
