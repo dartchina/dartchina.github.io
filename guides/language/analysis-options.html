@@ -166,10 +166,11 @@ ga('send', 'pageview');
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#the-analysis-options-file">The analysis options file</a></li>
 <li class="toc-entry toc-h2"><a href="#enabling-additional-type-checks">Enabling stricter type checks</a></li>
-<li class="toc-entry toc-h2"><a href="#enabling-linter-rules">Enabling linter rules</a>
+<li class="toc-entry toc-h2"><a href="#enabling-linter-rules">Enabling and disabling linter rules</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#default-google-rules-pedantic">Default Google rules: pedantic</a></li>
-<li class="toc-entry toc-h3"><a href="#individual-rules">Individual rules</a></li>
+<li class="toc-entry toc-h3"><a href="#default-google-rules-pedantic">Enabling default Google rules: pedantic</a></li>
+<li class="toc-entry toc-h3"><a href="#individual-rules">Enabling individual rules</a></li>
+<li class="toc-entry toc-h3"><a href="#disabling-individual-rules">Disabling individual rules</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#excluding-code-from-analysis">Excluding code from analysis</a>
@@ -252,7 +253,7 @@ and other suggested guidelines in
 <a href="/guides/language/effective-dart">Effective Dart</a>. Dart tools such as the
 <a href="https://webdev.dartlang.org/tools/dartdevc">Dart dev compiler (dartdevc),</a>
 <a href="https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer"><code class="highlighter-rouge">dartanalyzer</code>,</a>
-<a href="https://flutter.io/debugging/#the-dart-analyzer"><code class="highlighter-rouge">flutter analyze</code>,</a>
+<a href="https://flutterchina.club/docs/testing/debugging#the-dart-analyzer"><code class="highlighter-rouge">flutter analyze</code>,</a>
 and <a href="/tools/jetbrains-plugin">JetBrains IDEs</a>
 use the analyzer package to evaluate your code.</p>
 
@@ -358,7 +359,7 @@ the <code class="highlighter-rouge">dynamic</code> type when it can’t determin
 </dl>
 
 <h2 id="enabling-linter-rules">
-<a id="enabling-linter-rules" class="anchor" href="#enabling-linter-rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling linter rules</h2>
+<a id="enabling-linter-rules" class="anchor" href="#enabling-linter-rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling and disabling linter rules</h2>
 
 <p>The analyzer package also provides a code linter. A wide variety of
 <a href="http://dart-lang.github.io/linter/lints/">linter rules</a> are available. Linters tend to be
@@ -368,7 +369,7 @@ and others are designed for Flutter apps.
 Note that linter rules can have false positives, unlike static analysis.</p>
 
 <h3 id="default-google-rules-pedantic">
-<a id="default-google-rules-pedantic" class="anchor" href="#default-google-rules-pedantic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default Google rules: pedantic</h3>
+<a id="default-google-rules-pedantic" class="anchor" href="#default-google-rules-pedantic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling default Google rules: pedantic</h3>
 
 <p>To enable the list of linter rules that Google uses in its own Dart code,
 depend on the <a href="https://pub.dartlang.org/packages/pedantic">pedantic package</a>
@@ -392,11 +393,12 @@ add the following line to your <code class="highlighter-rouge">analysis_options.
   code that previously passed analysis might <strong>start failing analysis.</strong>
   We recommend updating your code to work with the new rules.
   Other options are to <a href="/tools/pub/dependencies#version-constraints">use a specific version</a>
-  of <code class="highlighter-rouge">pedantic</code> or to explicitly enable individual linter rules.</p>
+  of <code class="highlighter-rouge">pedantic</code>, explicitly enable individual linter rules,
+  or <a href="#disabling-individual-rules">disable individual rules</a>.</p>
 </aside>
 
 <h3 id="individual-rules">
-<a id="individual-rules" class="anchor" href="#individual-rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Individual rules</h3>
+<a id="individual-rules" class="anchor" href="#individual-rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling individual rules</h3>
 
 <p>To enable a single linter rule, add <code class="highlighter-rouge">linter:</code> to the analysis options file,
 followed by <code class="highlighter-rouge">rules:</code>.
@@ -415,6 +417,28 @@ prefixed with dashes. For example:</p>
     - slash_for_doc_comments
     - sort_constructors_first
     - unnecessary_brace_in_string_interps</pre>
+
+<h3 id="disabling-individual-rules">
+<a id="disabling-individual-rules" class="anchor" href="#disabling-individual-rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disabling individual rules</h3>
+
+<p>If you include an analysis options file such as the one in <code class="highlighter-rouge">pedantic</code>, 
+you might want to disable some of the included rules.
+Disabling individual rules is just like enabling them,
+except that you add <code class="highlighter-rouge">: false</code> after the rule name.
+Here’s an example of an analysis options file
+that uses all pedantic rules except <code class="highlighter-rouge">unawaited_futures</code>:</p>
+
+<pre class="prettyprint lang-yaml">include: package:pedantic/analysis_options.yaml
+
+linter:
+  rules:
+    unawaited_futures: false</pre>
+
+<aside class="alert alert-warning">
+  <p><strong>Don’t include an initial dash (<code class="highlighter-rouge">- </code>)</strong> when you specify a value (<code class="highlighter-rouge">: false)</code>.
+  The YAML syntax for key-value maps is slightly different
+  from the YAML syntax for lists.</p>
+</aside>
 
 <h2 id="excluding-code-from-analysis">
 <a id="excluding-code-from-analysis" class="anchor" href="#excluding-code-from-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Excluding code from analysis</h2>
@@ -587,7 +611,7 @@ and to provide information (but not a warning or error) about dead code:</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/03/08 22:33 PST"
+                 title="Site built on 2019/03/08 23:09 PST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>

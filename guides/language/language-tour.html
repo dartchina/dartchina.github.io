@@ -179,6 +179,7 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#strings">Strings</a></li>
 <li class="toc-entry toc-h3"><a href="#booleans">Booleans</a></li>
 <li class="toc-entry toc-h3"><a href="#lists">Lists</a></li>
+<li class="toc-entry toc-h3"><a href="#set">Set</a></li>
 <li class="toc-entry toc-h3"><a href="#maps">Maps</a></li>
 <li class="toc-entry toc-h3"><a href="#runes">Runes</a></li>
 <li class="toc-entry toc-h3"><a href="#symbols">Symbols</a></li>
@@ -597,7 +598,7 @@ Dart 同样支持多行注释和文档注释。
       <td><a href="#while-%E5%92%8C-do-while">do</a></td>
       <td><a href="#if-%E5%92%8C-else">if</a></td>
       <td>
-<a href="#getters-%E5%92%8C-setters">set</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
+<a href="https://api.dartlang.org/stable/dart-core/Set-class.html">set</a> <sup title="built-in-identifier" alt="built-in-identifier">2</sup>
 </td>
       <td>
 <a href="#%E7%94%9F%E6%88%90%E5%99%A8">yield</a> <sup title="limited reserved word" alt="limited reserved word">3</sup>
@@ -751,6 +752,7 @@ const baz = []; // Equivalent to `const []`</pre>
   <li>booleans</li>
   <li>lists (也被称为 <em>arrays</em>)</li>
   <li>maps</li>
+  <li>sets</li>
   <li>runes (用于在字符串中表示 Unicode 字符)</li>
   <li>symbols</li>
 </ul>
@@ -985,7 +987,7 @@ assert(iMeantToDoThis.isNaN);</pre>
 
 <aside class="alert alert-info">
   <p><strong>提示：</strong>
- 分析器推断 <code class="highlighter-rouge">list</code> 的类型为 <code class="highlighter-rouge">List&lt;int&gt;</code> 。 
+  Dart 推断 <code class="highlighter-rouge">list</code> 的类型为 <code class="highlighter-rouge">List&lt;int&gt;</code> 。 
   如果尝试将非整数对象添加到此 list 中，
   则分析器或运行时会引发错误。 
   有关更多信息，请阅读
@@ -1015,6 +1017,70 @@ assert(list[1] == 1);</pre>
 更多信息参考 <a href="#generics">泛型</a> 和
 <a href="/guides/libraries/library-tour#collections">集合</a>.</p>
 
+<h3 id="set">
+<a id="set" class="anchor" href="#set" aria-hidden="true"><span class="octicon octicon-link"></span></a>Set</h3>
+
+<p>在 Dart 中 Set 是一个元素唯一且无需的集合。
+Dart 为 Set 提供了 Set 字面量和 <a href="https://api.dartlang.org/stable/dart-core/Set-class.html">Set</a> 类型。</p>
+
+<aside class="alert alert-info">
+  <p><strong>版本提示：</strong> 虽然 Set <em>类型</em> 一直是 Dart 的核心部分，
+  但在 Dart2.2 中才引入了 Set <em>字面量</em> 。</p>
+</aside>
+
+<p>下面是通过字面量创建 Set 的一个简单示例：</p>
+
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (set-literal)"?>
+<pre class="prettyprint lang-dart">var halogens = {'fluorine', 'chlorine', 'bromine', 'iodine', 'astatine'};</pre>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+  Dart 推断 <code class="highlighter-rouge">halogens</code> 类型为 <code class="highlighter-rouge">Set&lt;String&gt;</code> 。如果尝试为它添加一个
+  错误类型的值，分析器或执行时会抛出错误。更多内容，参阅
+  <a href="/guides/language/sound-dart#type-inference">类型推断</a>。</p>
+</aside>
+
+<p>要创建一个空集，使用前面带有类型参数的 <code class="highlighter-rouge">{}</code> ，或者将 <code class="highlighter-rouge">{}</code> 赋值给 <code class="highlighter-rouge">Set</code> 类型的变量：</p>
+
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (set-vs-map)"?>
+<pre class="prettyprint lang-dart">var names = &lt;String&gt;{};
+// Set&lt;String&gt; names = {}; // 这样也是可以的。
+// var names = {}; // 这样会创建一个 Map ，而不是 Set 。</pre>
+
+<aside class="alert alert-info">
+  <p><strong>是 Set 还是 Map ？</strong>
+  Map 字面量语法同 Set 字面量语法非常相似。
+  因为先有的 Map 字母量语法，所以 <code class="highlighter-rouge">{}</code> 默认是 <code class="highlighter-rouge">Map</code> 类型。
+  如果忘记在 <code class="highlighter-rouge">{}</code> 上注释类型或赋值到一个未声明类型的变量上，
+  那么 Dart 会创建一个类型为 <code class="highlighter-rouge">Map&lt;dynamic, dynamic&gt;</code> 的对象。</p>
+</aside>
+
+<p>使用 <code class="highlighter-rouge">add()</code> 或 <code class="highlighter-rouge">addAll()</code> 为已有的 Set 添加元素：</p>
+
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (set-add-items)"?>
+<pre class="prettyprint lang-dart">var elements = &lt;String&gt;{};
+elements.add('fluorine');
+elements.addAll(halogens);</pre>
+
+<p>使用 <code class="highlighter-rouge">.length</code> 来获取 Set 中元素的个数：</p>
+
+<?code-excerpt "misc/test/language_tour/built_in_types_test.dart (set-length)"?>
+<pre class="prettyprint lang-dart">var elements = &lt;String&gt;{};
+elements.add('fluorine');
+elements.addAll(halogens);
+assert(elements.length == 5);</pre>
+
+<p>在 Set 字面量前增加 <code class="highlighter-rouge">const</code> ，来创建一个编译时 Set 常量：</p>
+
+<?code-excerpt "misc/lib/language_tour/built_in_types.dart (const-set)"?>
+<pre class="prettyprint lang-dart">final constantSet =
+    const {'fluorine', 'chlorine', 'bromine', 'iodine', 'astatine'};
+// constantSet.add('helium'); // Uncommenting this causes an error.</pre>
+
+<p>更多关于 Set 的内容，参阅
+<a href="#generics">Generic</a> 及
+<a href="/guides/libraries/library-tour#sets">Set</a>。</p>
+
 <h3 id="maps">
 <a id="maps" class="anchor" href="#maps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maps</h3>
 
@@ -1040,7 +1106,7 @@ var nobleGases = {
 
 <aside class="alert alert-info">
   <p><strong>提示：</strong>
-  分析器会将 <code class="highlighter-rouge">gifts</code> 的类型推断为 <code class="highlighter-rouge">Map&lt;String, String&gt;</code>，
+  Dart 会将 <code class="highlighter-rouge">gifts</code> 的类型推断为 <code class="highlighter-rouge">Map&lt;String, String&gt;</code>，
   <code class="highlighter-rouge">nobleGases</code> 的类型推断为 <code class="highlighter-rouge">Map&lt;int, String&gt;</code> 。 
   如果尝试在上面的 map 中添加错误类型，那么分析器或者运行时会引发错误。 
   有关更多信息，请阅读<a href="/guides/language/sound-dart#type-inference">类型推断。</a>。</p>
@@ -3551,14 +3617,17 @@ names.add(42); // 错误</pre>
 <h3 id="使用集合字面量">
 <a id="使用集合字面量" class="anchor" href="#%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88%E5%AD%97%E9%9D%A2%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用集合字面量</h3>
 
-<p>list 和 map 字面量也是可以参数化的。
+<p>List , Set 和 Map 字面量也是可以参数化的。
 参数化字面量和之前的字面量定义类似，
-对于 list 只需要在声明语句前加 <code>&lt;<em>type</em>&gt;</code> 前缀，
-对于 map 只需要在声明语句前加 <code>&lt;<em>keyType</em>, <em>valueType</em>&gt;</code> 前缀，
+对于 List 或 Set 只需要在声明语句前加 
+<code>&lt;<em>type</em>&gt;</code> 前缀，
+对于 Map 只需要在声明语句前加 
+<code>&lt;<em>keyType</em>, <em>valueType</em>&gt;</code> 前缀，
 下面是参数化字面量的示例：</p>
 
 <?code-excerpt "misc/lib/language_tour/generics/misc.dart (collection-literals)"?>
 <pre class="prettyprint lang-dart">var names = &lt;String&gt;['Seth', 'Kathy', 'Lars'];
+var uniqueNames = &lt;String&gt;{'Seth', 'Kathy', 'Lars'};
 var pages = &lt;String, String&gt;{
   'index.html': 'Homepage',
   'robots.txt': 'Hints for web robots',
@@ -3572,9 +3641,9 @@ var pages = &lt;String, String&gt;{
 例如：</p>
 
 <?code-excerpt "misc/test/language_tour/generics_test.dart (constructor-1)"?>
-<pre class="prettyprint lang-dart">var names = List&lt;String&gt;();
-names.addAll(['Seth', 'Kathy', 'Lars']);
-var nameSet = Set&lt;String&gt;.from(names);</pre>
+<pre class="prettyprint lang-dart">var nameSet = Set&lt;String&gt;.from(names);</pre>
+
+<p>[PENDING: update this sample; it ]</p>
 
 <p>下面代码创建了一个 key 为 integer， value 为 View 的 map 对象：</p>
 
@@ -4283,7 +4352,7 @@ documentation.</a>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/03/08 22:33 PST"
+                 title="Site built on 2019/03/08 23:09 PST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
