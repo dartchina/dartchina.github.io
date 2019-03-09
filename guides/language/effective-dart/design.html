@@ -1770,7 +1770,7 @@ Duration(
 <pre class="prettyprint lang-dart good-style">class Person {
   final String name;
   // ···
-  <span class="highlight">operator ==</span>(other) =&gt; other is Person &amp;&amp; name == other.name;
+  bool <span class="highlight">operator ==</span>(other) =&gt; other is Person &amp;&amp; name == other.name;
 
   int get hashCode =&gt; name.hashCode;
 }</pre>
@@ -1779,7 +1779,7 @@ Duration(
 <pre class="prettyprint lang-dart bad-style">class Person {
   final String name;
   // ···
-  operator ==(other) =&gt; <span class="highlight">other != null</span> &amp;&amp; ...
+  bool operator ==(other) =&gt; <span class="highlight">other != null</span> &amp;&amp; ...
 }</pre>
 
 
@@ -1822,7 +1822,7 @@ Duration(
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/03/08 21:52 PST"
+                 title="Site built on 2019/03/08 22:28 PST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
