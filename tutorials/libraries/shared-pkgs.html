@@ -182,8 +182,8 @@ ga('send', 'pageview');
   <p class="banner__text">
     
     
-    Dart 2.1 现发布，具有更高的性能和可用性。
-    <a href="https://medium.com/dartlang/announcing-dart-2-1-improved-performance-usability-9f55fca6f31a">了解更多。</a>
+    Dart 2.2 现发布，更高的本地代码执行及 Set 字面量的支持。
+    <a href="https://medium.com/dartlang/announcing-dart-2-2-faster-native-code-support-for-set-literals-7e2ab19cc86d">了解更多。</a>
   </p>
 </div>
  
@@ -214,7 +214,8 @@ Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_
   <h4>What's the point?</h4>
 
   <ul>
-    <li>pub.dartlang.org is the primary public repository for Dart packages.</li>
+    <li>The <a href="https://pub.dartlang.org">Pub site</a> is the primary public repository for Dart
+packages.</li>
     <li>Following a few conventions, such as having a valid pubspec.yaml file,
 makes your app a package.</li>
     <li>If you’re developing a web or server-side app,
@@ -228,16 +229,14 @@ use <code class="highlighter-rouge">pub get</code> to download packages.</li>
 <p>Once you can create and run a Dart app,
 you’re ready to leverage code written by other programmers.
 Many interesting and useful packages of reusable Dart code
-are available at the
-<a href="https://pub.dartlang.org/">pub.dartlang.org</a>
-repository.</p>
+are available at the <a href="https://pub.dartlang.org">Pub site</a> repository.</p>
 
 <p>This tutorial shows how to use <code class="highlighter-rouge">pub</code>—a package manager
 that comes with Dart—to
 install one of the packages in the repository,
 the vector_math package.
 You can follow these same steps to install any package hosted at
-<a href="https://pub.dartlang.org/">pub.dartlang.org</a>;
+the [Pub site](https://pub.dartlang.org;
 just change the package name when you get to that step.
 This tutorial also describes some of the resources you can expect to find
 in a well-built package.</p>
@@ -248,7 +247,7 @@ in a well-built package.</p>
   concepts are the same, and you can share packages between
   your Flutter and web or server-side apps.
   For more information, see the
-  <a href="https://flutter.io/using-packages/">Flutter package documentation.</a></p>
+  <a href="https://flutterchina.club/docs/development/packages-and-plugins/using-packages">Flutter package documentation.</a></p>
 </aside>
 
 <h2 id="about-the-pubspecyaml-file">
@@ -292,17 +291,18 @@ use Stagehand to generate a command-line app:</p>
 for in-depth coverage.)
 The contents of your pubspec.yaml file should look something like this:</p>
 
-<pre class="prettyprint lang-yaml">name: vector_victor
-description: A sample command-line application.
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">vector_victor</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s">A sample command-line application.</span>
 
-environment:
-  sdk: '&gt;=2.1.0 &lt;3.0.0'
+<span class="na">environment</span><span class="pi">:</span>
+  <span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=2.1.0</span><span class="nv"> </span><span class="s">&lt;3.0.0'</span>
 
-#dependencies:
-#  path: ^1.4.1
+<span class="c1">#dependencies:</span>
+<span class="c1">#  path: ^1.4.1</span>
 
-dev_dependencies:
-  test: ^1.0.0</pre>
+<span class="na">dev_dependencies</span><span class="pi">:</span>
+  <span class="na">test</span><span class="pi">:</span> <span class="s">^1.0.0</span>
+</code></pre></div></div>
 
 <h2 id="name-the-package-dependencies">
 <a id="name-the-package-dependencies" class="anchor" href="#name-the-package-dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Name the package dependencies</h2>
@@ -317,22 +317,25 @@ of a package that your app uses.</p>
 
 <p>Let’s make the vector_victor app have a dependency
 on the vector_math package,
-which is available at pub.dartlang.org.</p>
+which is available at the <a href="https://pub.dartlang.org">Pub site</a>.</p>
 
 <ol>
   <li>
     <p>Get the current installation details for the package:</p>
 
     <ol type="a">
-      <li>Go to <a href="https://pub.dartlang.org/packages/vector_math">vector_math’s pub.dartlang.org entry.</a>
+      <li>Go to <a href="https://pub.dartlang.org/packages/vector_math">vector_math’s entry on the Package
+site.</a>
 </li>
       <li>Click the <strong>Installing</strong> tab.</li>
       <li>
         <p>Copy the <strong>vector_math</strong> line from the sample <strong>dependencies</strong> entry.
 The entry should look something like this:</p>
 
-        <pre class="prettyprint lang-yaml">dependencies:
-  vector_math: ^2.0.7</pre>
+        <div class="language-yaml highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="na">dependencies</span><span class="pi">:</span>
+  <span class="na">vector_math</span><span class="pi">:</span> <span class="s">^2.0.7</span>
+</code></pre></div>        </div>
       </li>
     </ol>
   </li>
@@ -340,18 +343,20 @@ The entry should look something like this:</p>
     <p>Edit <code class="highlighter-rouge">pubspec.yaml</code>.</p>
   </li>
   <li>
-    <p>In the dependencies section, add the string you copied from
-pub.dartlang.org. Be careful to keep the indentation the same; YAML is
+    <p>In the dependencies section, add the string you copied from the
+Pub site. Be careful to keep the indentation the same; YAML is
 picky! For example:</p>
 
-    <pre class="prettyprint lang-yaml">environment:
-  sdk: '&gt;=2.1.0 &lt;3.0.0'
+    <div class="language-yaml highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="na">environment</span><span class="pi">:</span>
+  <span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=2.1.0</span><span class="nv"> </span><span class="s">&lt;3.0.0'</span>
 
-dependencies:
-  vector_math: ^2.0.7
+<span class="na">dependencies</span><span class="pi">:</span>
+  <span class="na">vector_math</span><span class="pi">:</span> <span class="s">^2.0.7</span>
 
-dev_dependencies:
-  test: ^1.0.0</pre>
+<span class="na">dev_dependencies</span><span class="pi">:</span>
+  <span class="na">test</span><span class="pi">:</span> <span class="s">^1.0.0</span>
+</code></pre></div>    </div>
   </li>
 </ol>
 
@@ -359,7 +364,7 @@ dev_dependencies:
 for details of what version numbers mean,
 and how you can format them.</p>
 
-<p><a href="https://pub.dartlang.org/">pub.dartlang.org</a>
+<p>The <a href="https://pub.dartlang.org">Pub site</a>
 is the primary public repository for Dart packages.
 <code class="highlighter-rouge">pub</code> automatically checks that
 website when resolving package dependencies.
@@ -480,13 +485,16 @@ use the <code class="highlighter-rouge">package:</code> prefix.</p>
     <p>Get the import details for the package’s main library:</p>
 
     <ol type="a">
-      <li>Go to <a href="https://pub.dartlang.org/packages/vector_math">vector_math’s pub.dartlang.org entry.</a>
+      <li>Go to <a href="https://pub.dartlang.org/packages/vector_math">vector_math’s entry on the Package
+site.</a>
 </li>
       <li>Click the <strong>Installing</strong> tab.</li>
       <li>
         <p>Copy the <strong>import</strong> line. It should look something like this:</p>
 
-        <pre class="prettyprint lang-dart">import 'package:vector_math/vector_math.dart';</pre>
+        <div class="language-dart highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:vector_math/vector_math.dart'</span><span class="o">;</span>
+</code></pre></div>        </div>
       </li>
     </ol>
   </li>
@@ -494,8 +502,9 @@ use the <code class="highlighter-rouge">package:</code> prefix.</p>
     <p>In your vector_victor app, edit <code class="highlighter-rouge">lib/vector_victor.dart</code>,
 so that it imports the vector_math library and uses some of its API.
 For inspiration, look at the
-<a href="https://pub.dartlang.org/documentation/vector_math/latest/">vector_math API docs</a>,
-which you can find from the pub.dartlang.org entry.</p>
+<a href="https://pub.dartlang.org/documentation/vector_math/latest">vector_math API
+docs</a>,
+which you can find from the Pub site entry.</p>
 
     <aside class="alert alert-info">
       <p><strong>Note:</strong> You specify a filename, not a library name,
@@ -508,8 +517,7 @@ which you can find from the pub.dartlang.org entry.</p>
 <a id="other-resources" class="anchor" href="#other-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other resources</h2>
 
 <ul>
-  <li>Dart developers share packages at
-<a href="https://pub.dartlang.org/">pub.dartlang.org</a>.
+  <li>Dart developers share packages at the <a href="https://pub.dartlang.org">Pub site</a>.
 Look there for packages that might be useful to you,
 or share your own Dart packages.</li>
   <li>See the <a href="/tools/pub">pub documentation</a>
@@ -546,7 +554,7 @@ for more information on using and sharing packages.</li>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/03/08 23:24 PST"
+                 title="Site built on 2019/03/09 00:05 PST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -572,9 +580,9 @@ for more information on using and sharing packages.</li>
           <h4>资源</h4>
           <ul>
             <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
-            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
-            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
-            <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>
+            <li><a href="https://dartpad.dartlang.org">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org">Dart packages</a></li>
+            <li><a href="https://news.dartlang.org">Dart 新闻</a></li>
             <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
           </ul>
         </div>
@@ -587,9 +595,7 @@ for more information on using and sharing packages.</li>
             <li><a href="/community">支持和邮件列表</a></li>
             <li><a href="/community/who-uses-dart">谁在用Dart</a></li>
             <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
-            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">社区</a> &
-                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">公告组</a></li>
-            <li><a href="https://gitter.im/dart-lang/home">Gitter聊天室</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter 聊天室</a></li>
           </ul>
         </div>
       </div>

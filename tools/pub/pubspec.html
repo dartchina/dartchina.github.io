@@ -193,8 +193,8 @@ ga('send', 'pageview');
   <p class="banner__text">
     
     
-    Dart 2.1 现发布，具有更高的性能和可用性。
-    <a href="https://medium.com/dartlang/announcing-dart-2-1-improved-performance-usability-9f55fca6f31a">了解更多。</a>
+    Dart 2.2 现发布，更高的本地代码执行及 Set 字面量的支持。
+    <a href="https://medium.com/dartlang/announcing-dart-2-2-faster-native-code-support-for-set-literals-7e2ab19cc86d">了解更多。</a>
   </p>
 </div>
  
@@ -257,11 +257,11 @@ a file named <code class="highlighter-rouge">pubspec.yaml</code> that’s writte
 <a href="#name"><em>Learn more.</em></a>
 </dd>
   <dt><code class="highlighter-rouge">version</code></dt>
-  <dd>Required for packages that are hosted on pub.dartlang.org.
+  <dd>Required for packages that are hosted on the Pub site.
 <a href="#version"><em>Learn more.</em></a>
 </dd>
   <dt><code class="highlighter-rouge">description</code></dt>
-  <dd>Required for packages that are hosted on pub.dartlang.org.
+  <dd>Required for packages that are hosted on the <a href="https://pub.dartlang.org">Pub site</a>.
 <a href="#description"><em>Learn more.</em></a>
 </dd>
   <dt>
@@ -333,8 +333,8 @@ description: &gt;-
   newt-transmogrification functionality you have been looking
   for.
 author: Natalie Weizenbaum &lt;nweiz@google.com&gt;
-homepage: https://newtify.dartlang.org
-documentation: https://docs.newtify.com
+homepage: https://example-pet-store.com/newtify
+documentation: https://example-pet-store.com/newtify/docs
 environment:
   sdk: '&gt;=2.0.0 &lt;3.0.0'
 dependencies:
@@ -361,15 +361,15 @@ doesn’t start with digits and isn’t a
 <a href="/guides/language/language-tour#keywords">reserved word</a>.</p>
 
 <p>Try to pick a name that is clear, terse, and not already in use.
-A quick search of packages on
-<a href="https://pub.dartlang.org/packages">pub.dartlang.org</a>
+A quick search of packages on the
+<a href="https://pub.dartlang.org/packages">Pub site</a>
 to make sure that nothing else is using your name is recommended.</p>
 
 <h3 id="version">
 <a id="version" class="anchor" href="#version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version</h3>
 
 <p>Every package has a version. A version number is required to host your package
-on pub.dartlang.org, but can be omitted for local-only packages. If you omit
+on the Pub site, but can be omitted for local-only packages. If you omit
 it, your package is implicitly versioned <code class="highlighter-rouge">0.0.0</code>.</p>
 
 <p>Versioning is necessary for reusing code while letting it evolve quickly. A
@@ -409,7 +409,7 @@ person wrote the package. Each author can either be a single name
 - Natalie Weizenbaum &lt;nweiz@google.com&gt;
 - Bob Nystrom &lt;rnystrom@google.com&gt;</pre>
 
-<p>If anyone uploads your package to pub.dartlang.org, your email address is
+<p>If anyone uploads your package to the Pub site, your email address is
 public.</p>
 
 <h3 id="homepage">
@@ -426,7 +426,7 @@ While providing a <code class="highlighter-rouge">homepage</code> is optional, <
 
 <p>The optional <code class="highlighter-rouge">repository</code> field should contain the URL for your package’s source
 code repository — for example, <code class="highlighter-rouge">https://github.com/&lt;user&gt;/&lt;repository&gt;</code>.
-If you publish your package to pub.dartlang.org, then your package’s page
+If you publish your package to the Pub site, then your package’s page
 displays the repository URL.
 While providing a <code class="highlighter-rouge">repository</code> is optional, <em>please provide</em> it or <code class="highlighter-rouge">homepage</code>
 (or both). It helps users understand where your package is coming from.</p>
@@ -436,9 +436,9 @@ While providing a <code class="highlighter-rouge">repository</code> is optional,
 
 <p>The optional <code class="highlighter-rouge">issue_tracker</code> field should contain a URL for the package’s
 issue tracker, where existing bugs can be viewed and new bugs can be filed.
-The pub.dartlang.org site attempts to display a link to each package’s issue
+The Pub site attempts to display a link to each package’s issue
 tracker, using the value of this field. If <code class="highlighter-rouge">issue_tracker</code> is missing but
-<code class="highlighter-rouge">repository</code> is present and points to GitHub, then pub.dartlang.org uses the
+<code class="highlighter-rouge">repository</code> is present and points to GitHub, then the Pub site uses the
 default issue tracker (<code class="highlighter-rouge">https://github.com/&lt;user&gt;/&lt;repository&gt;/issues</code>).</p>
 
 <h3 id="documentation">
@@ -449,8 +449,8 @@ homepage. If your package has that, you can also add a <code class="highlighter-
 with that URL. If provided, a link to it is shown on your package’s page.</p>
 
 <p>If you specify the <code class="highlighter-rouge">documentation:</code> field with a blank value,
-documentation is created automatically for you, and is linked to from
-<a href="https://pub.dartlang.org">pub.dartlang.org</a>.</p>
+documentation is created automatically for you, and is linked to from the
+<a href="https://pub.dartlang.org">Pub site</a>.</p>
 
 <h3 id="dependencies">
 <a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h3>
@@ -495,7 +495,7 @@ If you don’t specify the value, it is inferred from the key.</p>
 <h3 id="publish_to">
 <a id="publish_to" class="anchor" href="#publish_to" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publish_to</h3>
 
-<p>The default is <code class="highlighter-rouge">https://pub.dartlang.org</code>. Specify <code class="highlighter-rouge">none</code> to prevent
+<p>The default uses the <a href="https://pub.dartlang.org">Pub site</a>. Specify <code class="highlighter-rouge">none</code> to prevent
 a package from being published. This setting can be used to specify a
 <a href="https://github.com/dart-lang/pub-dartlang-dart/">custom pub package server</a>
 to publish.</p>
@@ -577,7 +577,7 @@ accidentally install packages that need Flutter.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/03/08 23:24 PST"
+                 title="Site built on 2019/03/09 00:05 PST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -603,9 +603,9 @@ accidentally install packages that need Flutter.</p>
           <h4>资源</h4>
           <ul>
             <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
-            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
-            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
-            <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>
+            <li><a href="https://dartpad.dartlang.org">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org">Dart packages</a></li>
+            <li><a href="https://news.dartlang.org">Dart 新闻</a></li>
             <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
           </ul>
         </div>
@@ -618,9 +618,7 @@ accidentally install packages that need Flutter.</p>
             <li><a href="/community">支持和邮件列表</a></li>
             <li><a href="/community/who-uses-dart">谁在用Dart</a></li>
             <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
-            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">社区</a> &
-                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">公告组</a></li>
-            <li><a href="https://gitter.im/dart-lang/home">Gitter聊天室</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter 聊天室</a></li>
           </ul>
         </div>
       </div>

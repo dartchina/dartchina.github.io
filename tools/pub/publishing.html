@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn how to publish a Dart package to pub.dartlang.org.">
+  <meta name="description" content="Learn how to publish a Dart package to the Pub site.">
   <title>Publishing a Package | Dart</title>
 
   <!-- Favicon / Touch Icons -->
@@ -19,11 +19,11 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
   <meta name="twitter:title" content="Publishing a Package" />
-  <meta name="twitter:description" content="Learn how to publish a Dart package to pub.dartlang.org." />
+  <meta name="twitter:description" content="Learn how to publish a Dart package to the Pub site." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Publishing a Package" />
-  <meta property="og:description" content="Learn how to publish a Dart package to pub.dartlang.org." />
+  <meta property="og:description" content="Learn how to publish a Dart package to the Pub site." />
   <meta property="og:url" content="https://www.dartlang.org/tools/pub/publishing" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -185,8 +185,8 @@ ga('send', 'pageview');
   <p class="banner__text">
     
     
-    Dart 2.1 现发布，具有更高的性能和可用性。
-    <a href="https://medium.com/dartlang/announcing-dart-2-1-improved-performance-usability-9f55fca6f31a">了解更多。</a>
+    Dart 2.2 现发布，更高的本地代码执行及 Set 字面量的支持。
+    <a href="https://medium.com/dartlang/announcing-dart-2-2-faster-native-code-support-for-set-literals-7e2ab19cc86d">了解更多。</a>
   </p>
 </div>
  
@@ -238,7 +238,7 @@ command.</p>
 
 <aside class="alert alert-info">
   <p><strong>Note:</strong>
-To publish to a location other than <code class="highlighter-rouge">pub.dartlang.org</code>,
+To publish to a location other than the Pub site,
 or to prevent publication anywhere, use the <code class="highlighter-rouge">publish_to</code> field,
 as defined in the <a href="/tools/pub/pubspec">pubspec</a>.</p>
 </aside>
@@ -277,14 +277,14 @@ dependencies do.</p>
 </ul>
 
 <p>Be aware that the email address associated with your Google account is
-displayed on <a href="https://pub.dartlang.org">pub.dartlang.org</a> along with any
+displayed on the <a href="https://pub.dartlang.org">Pub site</a> along with any
 packages you upload.</p>
 
 <h3 id="important-files">
 <a id="important-files" class="anchor" href="#important-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Important files</h3>
 
 <p>Pub uses the contents of a few files to create a page for your
-package at <code class="highlighter-rouge">pub.dartlang.org/packages/&lt;your_package&gt;</code>. Here are the files that
+package at <code class="highlighter-rouge">&lt;package site&gt;/packages/&lt;your_package&gt;</code>. Here are the files that
 affect how your package’s page looks:</p>
 
 <ul>
@@ -295,7 +295,7 @@ affect how your package’s page looks:</p>
 <strong>CHANGELOG</strong>: Your package’s CHANGELOG (<code class="highlighter-rouge">CHANGELOG</code>, <code class="highlighter-rouge">CHANGELOG.md</code>,
 <code class="highlighter-rouge">CHANGELOG.mdown</code>, <code class="highlighter-rouge">CHANGELOG.markdown</code>), if found, will also be featured in a
 tab on your package’s page, so that developers can read it right from
-pub.dartlang.org.</li>
+the Pub site.</li>
   <li>
 <strong>The pubspec</strong>: Your package’s <code class="highlighter-rouge">pubspec.yaml</code> file is used to fill out
 details about your package on the right side of your package’s page, like its
@@ -311,12 +311,13 @@ description, authors, etc.</li>
 
 <p>Pub will check to make sure that your package follows the
 <a href="/tools/pub/pubspec">pubspec format</a> and
-<a href="/tools/pub/package-layout">package layout conventions</a>, and then upload your package
-to <a href="https://pub.dartlang.org">pub.dartlang.org</a>. Pub will also show you all of
+<a href="/tools/pub/package-layout">package layout conventions</a>,
+and then upload your package to the
+<a href="https://pub.dartlang.org">Pub site</a>. Pub will also show you all of
 the files it intends to publish. Here’s an example of publishing a package
 named <code class="highlighter-rouge">transmogrify</code>:</p>
 
-<pre>Publishing transmogrify 1.0.0 to https://pub.dartlang.org:
+<pre>Publishing transmogrify 1.0.0
     .gitignore
     CHANGELOG.md
     README.md
@@ -336,7 +337,7 @@ Package has 0 warnings.</pre>
 <pre>$ pub publish</pre>
 
 <p>After your package has been successfully uploaded to
-<a href="https://pub.dartlang.org/">pub.dartlang.org</a>, any pub user will be able to
+<a href="https://pub.dartlang.org">Pub site</a>, any pub user will be able to
 download it or depend on it in their projects. For example, if you just
 published version 1.0.0 of your <code class="highlighter-rouge">transmogrify</code> package, then another Dart
 developer can add it as a dependency in their <code class="highlighter-rouge">pubspec.yaml</code>:</p>
@@ -419,7 +420,7 @@ upgrade yet.</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/03/08 23:24 PST"
+                 title="Site built on 2019/03/09 00:05 PST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -445,9 +446,9 @@ upgrade yet.</p>
           <h4>资源</h4>
           <ul>
             <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
-            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
-            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
-            <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>
+            <li><a href="https://dartpad.dartlang.org">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org">Dart packages</a></li>
+            <li><a href="https://news.dartlang.org">Dart 新闻</a></li>
             <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
           </ul>
         </div>
@@ -460,9 +461,7 @@ upgrade yet.</p>
             <li><a href="/community">支持和邮件列表</a></li>
             <li><a href="/community/who-uses-dart">谁在用Dart</a></li>
             <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
-            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">社区</a> &
-                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">公告组</a></li>
-            <li><a href="https://gitter.im/dart-lang/home">Gitter聊天室</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter 聊天室</a></li>
           </ul>
         </div>
       </div>

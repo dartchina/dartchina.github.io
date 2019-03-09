@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Use pub global to run Dart scripts hosted on pub.dartlang.org from the command line.">
+  <meta name="description" content="Use pub global to run Dart scripts hosted on the Pub site from the command line.">
   <title>pub global | Dart</title>
 
   <!-- Favicon / Touch Icons -->
@@ -19,11 +19,11 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
   <meta name="twitter:title" content="pub global" />
-  <meta name="twitter:description" content="Use pub global to run Dart scripts hosted on pub.dartlang.org from the command line." />
+  <meta name="twitter:description" content="Use pub global to run Dart scripts hosted on the Pub site from the command line." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="pub global" />
-  <meta property="og:description" content="Use pub global to run Dart scripts hosted on pub.dartlang.org from the command line." />
+  <meta property="og:description" content="Use pub global to run Dart scripts hosted on the Pub site from the command line." />
   <meta property="og:url" content="https://www.dartlang.org/tools/pub/cmd/pub-global" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -166,7 +166,7 @@ ga('send', 'pageview');
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#activating-a-package">Activating a package</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#activating-a-package-on-pubdartlangorg">Activating a package on pub.dartlang.org</a></li>
+<li class="toc-entry toc-h3"><a href="#activating-a-package-on-the-pub-site">Activating a package on the Pub site</a></li>
 <li class="toc-entry toc-h3"><a href="#activating-a-package-with-git">Activating a package with Git</a></li>
 <li class="toc-entry toc-h3"><a href="#activating-a-package-on-your-local-machine">Activating a package on your local machine</a></li>
 <li class="toc-entry toc-h3"><a href="#updating-an-activated-package">Updating an activated package</a></li>
@@ -193,8 +193,8 @@ ga('send', 'pageview');
   <p class="banner__text">
     
     
-    Dart 2.1 现发布，具有更高的性能和可用性。
-    <a href="https://medium.com/dartlang/announcing-dart-2-1-improved-performance-usability-9f55fca6f31a">了解更多。</a>
+    Dart 2.2 现发布，更高的本地代码执行及 Set 字面量的支持。
+    <a href="https://medium.com/dartlang/announcing-dart-2-2-faster-native-code-support-for-set-literals-7e2ab19cc86d">了解更多。</a>
   </p>
 </div>
  
@@ -274,8 +274,8 @@ package that your package depends on, see <a href="/tools/pub/cmd/pub-run">pub r
 <pre><code class="language-nocode">pub global activate [--noexecutables] [--executable=&lt;name&gt;] [--overwrite] &lt;package&gt; [constraint]
 </code></pre>
 
-<p>You can activate packages that live on
-<a href="https://pub.dartlang.org/">pub.dartlang.org</a>, a Git repository,
+<p>You can activate packages that live on the
+<a href="https://pub.dartlang.org">Pub site</a>, a Git repository,
 or your local machine.
 Once you have activated a package, see <a href="#running-a-script">Running a
 script</a> to run scripts from the package’s
@@ -284,13 +284,13 @@ script</a> to run scripts from the package’s
 <p>When you activate a package you can specify an optional version
 constraint.  See the <a href="#options">constraint</a> flag for usage examples.</p>
 
-<h3 id="activating-a-package-on-pubdartlangorg">
-<a id="activating-a-package-on-pubdartlangorg" class="anchor" href="#activating-a-package-on-pubdartlangorg" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activating a package on pub.dartlang.org</h3>
+<h3 id="activating-a-package-on-the-pub-site">
+<a id="activating-a-package-on-the-pub-site" class="anchor" href="#activating-a-package-on-the-pub-site" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activating a package on the Pub site</h3>
 
 <div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> pub global activate &lt;pub.dartlang package&gt;
 </code></pre></div></div>
 
-<p>Specify a package on pub.dartlang.org to activate it. For example:</p>
+<p>Specify a package on the Pub site to activate it. For example:</p>
 
 <div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> pub global activate markdown
 </code></pre></div></div>
@@ -532,7 +532,7 @@ the new executable overwrites the previously activated executable.</dd>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/03/08 23:24 PST"
+                 title="Site built on 2019/03/09 00:05 PST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -558,9 +558,9 @@ the new executable overwrites the previously activated executable.</dd>
           <h4>资源</h4>
           <ul>
             <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
-            <li><a href="https://dartpad.dartlang.org/">DartPad</a></li>
-            <li><a href="https://pub.dartlang.org/">Pub packages</a></li>
-            <li><a href="http://news.dartlang.org/">Dart 新闻</a></li>
+            <li><a href="https://dartpad.dartlang.org">DartPad</a></li>
+            <li><a href="https://pub.dartlang.org">Dart packages</a></li>
+            <li><a href="https://news.dartlang.org">Dart 新闻</a></li>
             <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
           </ul>
         </div>
@@ -573,9 +573,7 @@ the new executable overwrites the previously activated executable.</dd>
             <li><a href="/community">支持和邮件列表</a></li>
             <li><a href="/community/who-uses-dart">谁在用Dart</a></li>
             <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
-            <li>G+ <a href="https://plus.google.com/communities/114566943291919232850">社区</a> &
-                <a href="https://plus.google.com/b/109866369054280216564/+dartlang">公告组</a></li>
-            <li><a href="https://gitter.im/dart-lang/home">Gitter聊天室</a></li>
+            <li><a href="https://gitter.im/dart-lang/home">Gitter 聊天室</a></li>
           </ul>
         </div>
       </div>
