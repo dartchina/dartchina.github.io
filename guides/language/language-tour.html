@@ -239,7 +239,7 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#隐式接口">隐式接口</a></li>
 <li class="toc-entry toc-h3"><a href="#扩展类继承">扩展类（继承）</a></li>
 <li class="toc-entry toc-h3"><a href="#枚举类型">枚举类型</a></li>
-<li class="toc-entry toc-h3"><a href="#为类添加功能mixins">为类添加功能：mixins</a></li>
+<li class="toc-entry toc-h3"><a href="#为类添加功能-mixin">为类添加功能： Mixin</a></li>
 <li class="toc-entry toc-h3"><a href="#类变量和方法">类变量和方法</a></li>
 </ul>
 </li>
@@ -3415,14 +3415,14 @@ switch (aColor) {
 <p>有关更多信息，参考
 <a href="/guides/language/spec">Dart Language Specification</a>.</p>
 
-<h3 id="为类添加功能mixins">
-<a id="为类添加功能mixins" class="anchor" href="#%E4%B8%BA%E7%B1%BB%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BDmixins" aria-hidden="true"><span class="octicon octicon-link"></span></a>为类添加功能：mixins</h3>
+<h3 id="为类添加功能-mixin">
+<a id="为类添加功能-mixin" class="anchor" href="#%E4%B8%BA%E7%B1%BB%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BD-mixin" aria-hidden="true"><span class="octicon octicon-link"></span></a>为类添加功能： Mixin</h3>
 
-<p>mixins 是复用类代码的一种途径，
+<p>Mixin 是复用类代码的一种途径，
 复用的类可以在不同层级，之间可以不存在继承关系。</p>
 
-<p>通过 <code class="highlighter-rouge">with</code> 后面跟一个或多个混入的名称，来 <em>使用</em> mixin，
-下面的示例演示了两个使用 mixin 的类：</p>
+<p>通过 <code class="highlighter-rouge">with</code> 后面跟一个或多个混入的名称，来 <em>使用</em> Mixin ，
+下面的示例演示了两个使用 Mixin 的类：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/orchestra.dart (Musician and Maestro)" replace="/(with.*) \{/[!$1!] {/g"?>
 <pre class="prettyprint lang-dart">class Musician extends Performer <span class="highlight">with Musical</span> {
@@ -3437,8 +3437,8 @@ class Maestro extends Person
   }
 }</pre>
 
-<p>通过创建一个继承自 Object 且没有构造函数的类，来 <em>实现</em> 一个 mixin 。
-如果 mixin 不希望作为常规类被使用，使用关键字 <code class="highlighter-rouge">mixin</code> 替换 <code class="highlighter-rouge">class</code> 。
+<p>通过创建一个继承自 Object 且没有构造函数的类，来 <em>实现</em> 一个 Mixin 。
+如果 Mixin 不希望作为常规类被使用，使用关键字 <code class="highlighter-rouge">mixin</code> 替换 <code class="highlighter-rouge">class</code> 。
 例如：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/orchestra.dart (Musical)"?>
@@ -3458,9 +3458,9 @@ class Maestro extends Person
   }
 }</pre>
 
-<p>指定只有某些类型可以使用的 mixin - 
-比如，mixin 可以调用 mixin 自身没有定义的方法 - 
-使用 <code class="highlighter-rouge">on</code> 来指定可以使用 mixin 的父类类型：</p>
+<p>指定只有某些类型可以使用的 Mixin - 
+比如， Mixin 可以调用 Mixin 自身没有定义的方法 - 
+使用 <code class="highlighter-rouge">on</code> 来指定可以使用 Mixin 的父类类型：</p>
 
 <?code-excerpt "misc/lib/language_tour/classes/orchestra.dart (mixin-on)"?>
 <pre class="prettyprint lang-dart">mixin MusicalPerformer on Musician {
@@ -3474,17 +3474,17 @@ class Maestro extends Person
 <aside class="alert alert-info">
   <p><strong>版本提示：</strong> <code class="highlighter-rouge">mixin</code> 关键字在 Dart 2.1 中被引用支持。
   早期版本中的代码通常使用 <code class="highlighter-rouge">abstract class</code> 代替。
-  更多有关 mixin 在 2.1 中的变更信息，请参见
+  更多有关 Mixin 在 2.1 中的变更信息，请参见
   <a href="https://github.com/dart-lang/sdk/blob/master/CHANGELOG.md">Dart SDK changelog</a> 和 <a href="https://github.com/dart-lang/language/blob/master/accepted/2.1/super-mixins/feature-specification.md#dart-2-mixin-declarations">2.1 mixin specification</a> 。</p>
 </aside>
 
 <div class="alert alert-info">
-  <p><strong>提示：</strong> 对 mixins 的一些限制正在被移除。 关于更多详情，参考
+  <p><strong>提示：</strong> 对 Mixin 的一些限制正在被移除。 关于更多详情，参考
   <a href="https://github.com/dart-lang/sdk/blob/master/docs/language/informal/mixin-declaration.md">proposed mixin specification.</a></p>
 
 </div>
 
-<p>有关 Dart 中 mixins 的理论演变，参考
+<p>有关 Dart 中 Mixin 的理论演变，参考
 <a href="/articles/language/mixins">A Brief History of Mixins in Dart</a>.</p>
 
 <h3 id="类变量和方法">
@@ -4351,7 +4351,7 @@ documentation.</a>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/03/09 00:21 PST"
+                 title="Site built on 2019/03/09 00:27 PST"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
