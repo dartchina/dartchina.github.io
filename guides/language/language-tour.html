@@ -1073,8 +1073,13 @@ assert(elements.length == 5);</pre>
 <p>在 Set 字面量前增加 <code class="highlighter-rouge">const</code> ，来创建一个编译时 Set 常量：</p>
 
 <?code-excerpt "misc/lib/language_tour/built_in_types.dart (const-set)"?>
-<pre class="prettyprint lang-dart">final constantSet =
-    const {'fluorine', 'chlorine', 'bromine', 'iodine', 'astatine'};
+<pre class="prettyprint lang-dart">final constantSet = const {
+  'fluorine',
+  'chlorine',
+  'bromine',
+  'iodine',
+  'astatine',
+};
 // constantSet.add('helium'); // Uncommenting this causes an error.</pre>
 
 <p>更多关于 Set 的内容，参阅
@@ -1648,7 +1653,7 @@ assert(foo() == null);</pre>
     <tr>
       <td>shift</td>
       <td>
-<code class="highlighter-rouge">&lt;&lt;</code>    <code class="highlighter-rouge">&gt;&gt;</code>
+<code class="highlighter-rouge">&lt;&lt;</code>    <code class="highlighter-rouge">&gt;&gt;</code>    <code class="highlighter-rouge">&gt;&gt;&gt;</code>
 </td>
     </tr>
     <tr>
@@ -1697,11 +1702,17 @@ assert(foo() == null);</pre>
     <tr>
       <td>assignment</td>
       <td>
-<code class="highlighter-rouge">=</code>    <code class="highlighter-rouge">*=</code>    <code class="highlighter-rouge">/=</code>    <code class="highlighter-rouge">~/=</code>    <code class="highlighter-rouge">%=</code>    <code class="highlighter-rouge">+=</code>    <code class="highlighter-rouge">-=</code>    <code class="highlighter-rouge">&lt;&lt;=</code>    <code class="highlighter-rouge">&gt;&gt;=</code>    <code class="highlighter-rouge">&amp;=</code>    <code class="highlighter-rouge">^=</code>    <code class="highlighter-rouge">|=</code>    <code class="highlighter-rouge">??=</code>
+<code class="highlighter-rouge">=</code>    <code class="highlighter-rouge">*=</code>    <code class="highlighter-rouge">/=</code>    <code class="highlighter-rouge">+=</code>    <code class="highlighter-rouge">-=</code>    <code class="highlighter-rouge">&amp;=</code>    <code class="highlighter-rouge">^=</code>    <em>etc.</em>
 </td>
     </tr>
   </tbody>
 </table>
+
+<aside class="alert alert-warning">
+  <p><strong>提示：</strong>
+  上述表格中描述的运算符优先级近似于Dart 解析器实际行为。
+  更准确的描述，请参阅 <a href="/guides/language/spec">Dart language specification</a> 中的语法。</p>
+</aside>
 
 <p>创建表达式的时候会用到运算符。 
 下面是一些运算符表达式的实例：</p>
@@ -3412,8 +3423,7 @@ switch (aColor) {
   <li>枚举不能被显式实例化。</li>
 </ul>
 
-<p>有关更多信息，参考
-<a href="/guides/language/spec">Dart Language Specification</a>.</p>
+<p>有关更多信息，参考 <a href="/guides/language/spec">Dart language specification</a> 。</p>
 
 <h3 id="为类添加功能-mixin">
 <a id="为类添加功能-mixin" class="anchor" href="#%E4%B8%BA%E7%B1%BB%E6%B7%BB%E5%8A%A0%E5%8A%9F%E8%83%BD-mixin" aria-hidden="true"><span class="octicon octicon-link"></span></a>为类添加功能： Mixin</h3>
@@ -3641,8 +3651,6 @@ var pages = &lt;String, String&gt;{
 
 <?code-excerpt "misc/test/language_tour/generics_test.dart (constructor-1)"?>
 <pre class="prettyprint lang-dart">var nameSet = Set&lt;String&gt;.from(names);</pre>
-
-<p>[PENDING: update this sample; it ]</p>
 
 <p>下面代码创建了一个 key 为 integer， value 为 View 的 map 对象：</p>
 
@@ -4027,7 +4035,7 @@ await 表达式会阻塞代码的执行，直到需要的对象返回为止。</
 <a href="/articles/language/await-async">Dart Language Asynchrony Support: Phase 1</a>
 和
 <a href="/articles/language/beyond-async">Dart Language Asynchrony Support: Phase 2</a>,
-以及 <a href="/guides/language/spec">Dart language specification</a>.</p>
+以及 <a href="/guides/language/spec">Dart language specification</a> 。</p>
 
 <p><a id="generator"></a></p>
 <h2 id="生成器">
@@ -4318,7 +4326,7 @@ documentation.</a>
 <p>本页概述了 Dart 语言中常用的功能。
 还有更多特性有待实现，但我们希望它们不会破坏现有代码。
 有关更多信息，请参考
-<a href="/guides/language/spec">Dart Language Specification</a> 和
+<a href="/guides/language/spec">Dart language specification</a> 和
 <a href="/guides/language/effective-dart">Effective Dart</a>.</p>
 
 <p>要了解更多关于 Dart 核心库的内容，请参考
@@ -4351,7 +4359,7 @@ documentation.</a>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/03/22 21:09 PDT"
+                 title="Site built on 2019/03/22 21:51 PDT"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
