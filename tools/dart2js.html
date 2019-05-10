@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The dart2js tool compiles Dart code to deployable JavaScript.">
+  <title>dart2js | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="dart2js: Dart-to-JavaScript compiler" />
+  <meta name="twitter:description" content="The dart2js tool compiles Dart code to deployable JavaScript." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="dart2js: Dart-to-JavaScript compiler" />
+  <meta property="og:description" content="The dart2js tool compiles Dart code to deployable JavaScript." />
+  <meta property="og:url" content="https://www.dartlang.org/tools/dart2js.html" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" integrity="sha256-lXNilrVoDl/TpTBbRIJ9fTZIFZ6OcziJrUwDEUq+4zk=" crossorigin="anonymous" href="/assets/main-95736296b5680e5fd3a5305b44827d7d3648159e8e733889ad4c03114abee339.css">
+  <script src="/assets/main-81783b1b9a1d39209aa2ec2eab702b1f7908b15082a3aef81ba13f2255d48ec4.js" integrity="sha256-gXg7G5odOSCaouwuq3ArH3kIsVCCo674G6E/IlXUjsQ=" crossorigin="anonymous" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+ </head>
+  <body class="default show_banner">
+    <header id="page-header" class="site-header">
+  <nav id="mainnav" class="site-header">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/white-e71fb382ad5229792cc704b3ee7a88f8013e986d6e34f0956d89c453b454d0a5.svg" alt="Dart">
+  </a>
+  <ul class="navbar">
+    <li class="mainnav__get-started">
+      <a href="/docs" class="nav-link active"><span>文档</span></a>
+    </li>
+    <li>
+      <a href="/platforms" class="nav-link">平台</a>
+    </li>
+    <li>
+      <a href="/community" class="nav-link">社区</a>
+    </li>
+    <li>
+      <a href="https://dartpad.cn/" target="_blank" class="nav-link no-automatic-external">体验 Dart</a>
+    </li>
+    <li>
+      <a href="/get-dart" class="nav-link">安装 Dart</a>
+    </li>
+    <li><a href="/about_zh_CN">关于</a></li>
+    <li class="searchfield">
+      <form action="/search" class="site-header__search form-inline" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+ <div class="banner">
+  <p class="banner__text">
+    
+    
+    Dart 2.3 发布，针对构建用户界面进行了优化。
+    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">了解更多。</a>
+  </p>
+</div>
+ 
+
+    <div id="sidenav" class="">
+  <form action="/search/" class="site-header__search form-inline">
+    <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+  </form>
+
+  <div class="site-sidebar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="/platforms" class="nav-link">平台</a>
+      </li>
+      <li class="nav-item">
+        <a href="/community" class="nav-link">社区</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://dartpad.dartlang.org" class="nav-link">体验 Dart</a>
+      </li>
+      <li class="nav-item">
+        <a href="/guides" class="nav-link active">文档</a>
+      </li>
+    </ul>
+
+    <ul class="nav flex-column"><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-1" role="button"
+        aria-expanded="false" aria-controls="sidenav-1"
+      >示例 & 概览</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-1">
+        <li class="nav-item">
+    <a class="nav-link" href="/samples">语言示例</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/codelabs">Codelab</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials">概览</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-2" role="button"
+        aria-expanded="false" aria-controls="sidenav-2"
+      >语言</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/language/language-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-dart">类型系统</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/spec">规范</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/effective-dart">Effective Dart</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-3" role="button"
+        aria-expanded="false" aria-controls="sidenav-3"
+      >核心库</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/libraries">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/library-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-3-3"
+      href="#sidenav-3-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-3-3"
+    >文章
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/dart-io">Intro to dart:io</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/creating-streams">Creating streams</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-4" role="button"
+        aria-expanded="false" aria-controls="sidenav-4"
+      >包</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/packages">如何使用包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/useful-libraries">常用的包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/create-library-packages">创建包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/publishing">发布包</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-4-5"
+      href="#sidenav-4-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-4-5"
+    >引用包
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/dependencies">依赖</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/glossary">术语</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/package-layout">包的设计约定</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/environment-variables">Pub 环境变量</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/pubspec">Pubspec 文件</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/troubleshoot">Pub 问题分析与解决</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/versioning">版本</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-5" role="button"
+        aria-expanded="false" aria-controls="sidenav-5"
+      >开发</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5">
+        <li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/futures">Futures & Async-Await</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/json">使用 JSON</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/streams">Stream</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/mobile">移动应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-5"
+      href="#sidenav-5-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-5"
+    >命令行应用 & 服务应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/server">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/cmdline">编写命令行应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/httpserver">编写 HTTP 客户端和服务端应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/c-interop">C & C++ 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/libraries">库和包</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-6"
+      href="#sidenav-5-6" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-6"
+    >Web 应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/web">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/fetch-data">动态获取数据</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-6-4"
+      href="#sidenav-5-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-6-4"
+    >底层 Web 编程
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Dart 和 HTML 关联</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">在 DOM 中增加 Element</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">在 DOM 中移除 Element</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link" href="/web/js-interop">JS/TS 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/deployment">开发</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/libraries">库和包</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link active" data-toggle="collapse" href="#sidenav-6" role="button"
+        aria-expanded="true" aria-controls="sidenav-6"
+      >工具 & 技巧</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6">
+        <li class="nav-item">
+    <a class="nav-link" href="/tools">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-2"
+      href="#sidenav-6-2" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-2"
+    >编辑 & 调试
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-devtools">Dart DevTool</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/dartpad">DartPad</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/jetbrains-plugin">IntelliJ & Android Studio</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/vs-code">VS Code</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link active collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3"
+      href="#sidenav-6-3" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3"
+    >Command-line tools
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3">
+      <li class="nav-item">
+    <a class="nav-link active collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-1"
+      href="#sidenav-6-3-1" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-1"
+    >Dart SDK
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-1">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/sdk">综述</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-vm">dart (Dart VM)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2aot">dart2aot & dartaotruntime</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="/tools/dart2js">dart2js (prod JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartanalyzer">dartanalyzer</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdevc">dartdevc (dev JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdoc">dartdoc</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartfmt">dartfmt</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/cmd">pub</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-2"
+      href="#sidenav-6-3-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-2"
+    >其他命令行工具
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/build_runner">build_runner</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/webdev">webdev</a>
+  </li>
+  </ul>
+  </li>
+</ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-4"
+      href="#sidenav-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-4"
+    >源码管理
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/formatting">格式化代码</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/private-files">哪些内容不应该被提交</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-5"
+      href="#sidenav-6-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-5"
+    >静态分析
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/analysis-options">Customizing static analysis</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-problems">Fixing common type problems</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-6"
+      href="#sidenav-6-6" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-6"
+    >测试 & 优化
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/testing">测试</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/debugging">调试 Web 应用</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-7" role="button"
+        aria-expanded="false" aria-controls="sidenav-7"
+      >资源</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7">
+        <li class="nav-item">
+    <a class="nav-link" href="/code-of-conduct">行为守则</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/faq">FAQ</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-7-3"
+      href="#sidenav-7-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-7-3"
+    >历史
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/dart-2">迁移到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/dart-2">迁移 Web 应用到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/obsolete">过时的 Pub 功能</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link " data-toggle="collapse" href="#sidenav-8" role="button"
+        aria-expanded="true" aria-controls="sidenav-8"
+      >相关网站</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-8">
+        <li class="nav-item">
+    <a class="nav-link" href="https://api.dartlang.org" target="_blank" rel="noopener">API 参考<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://medium.com/dartlang" target="_blank" rel="noopener">Blog<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://dartpad.cn" target="_blank" rel="noopener">DartPad (在线编辑器)<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://flutter.dev" target="_blank" rel="noopener">Flutter<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Pub 包资源<i class="fas fa-external-link-alt"></i></a>
+  </li>
+</ul>
+    </li></ul>
+
+  </div>
+</div>
+
+    <main id="page-content">
+      
+
+
+
+
+
+
+
+<div id="site-toc--side" class="site-toc ">
+  <header class="site-toc__title">
+    内容
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+  </header>
+  <ul class="section-nav nav">
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#basic-usage">Basic usage</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#build-config-usage">Build config usage</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#options">Options</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#helping-dart2js-generate-efficient-code">Helping dart2js generate better code</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#debugging">Debugging</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#dart2js-debugging-chrome">Chrome</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#dart2js-debugging-ie">Internet Explorer</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#dart2js-debugging-firefox">Firefox</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#dart2js-debugging-safari">Safari</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/tools/dart2js.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='dart2js: Dart-to-JavaScript compiler' page issue&body=
+Page URL: https://www.dartlang.org/tools/dart2js.html%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/tools/dart2js.md%0D%0A
+%0D%0A
+Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
+%0D%0A
+Description of issue:" class="btn no-automatic-external" title="Report an issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>dart2js: Dart-to-JavaScript compiler</h1>
+          </div>
+          
+
+
+
+
+
+
+
+<div id="site-toc--inline" class="site-toc ">
+  <header class="site-toc__title">
+    内容
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+  </header>
+  <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#basic-usage">Basic usage</a></li>
+<li class="toc-entry toc-h2"><a href="#build-config-usage">Build config usage</a></li>
+<li class="toc-entry toc-h2"><a href="#options">Options</a></li>
+<li class="toc-entry toc-h2"><a href="#helping-dart2js-generate-efficient-code">Helping dart2js generate better code</a></li>
+<li class="toc-entry toc-h2"><a href="#debugging">Debugging</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#dart2js-debugging-chrome">Chrome</a></li>
+<li class="toc-entry toc-h3"><a href="#dart2js-debugging-ie">Internet Explorer</a></li>
+<li class="toc-entry toc-h3"><a href="#dart2js-debugging-firefox">Firefox</a></li>
+<li class="toc-entry toc-h3"><a href="#dart2js-debugging-safari">Safari</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+          <p>Use the <em>dart2js</em> tool to compile Dart code to deployable JavaScript.
+Another Dart-to-JavaScript compiler, <a href="/tools/dartdevc">dartdevc</a>, is for development use only.
+The <a href="/tools/webdev#build">webdev build</a> command uses dart2js by default.
+The <a href="/tools/webdev#serve">webdev serve</a> command uses dartdevc by default, but you can switch
+to dart2js using the <code class="highlighter-rouge">--release</code> flag.</p>
+
+<p>The dart2js tool provides hints for improving your Dart code and removing
+unused code.
+Also see <a href="/tools/dartanalyzer">dartanalyzer,</a>
+which performs a similar analysis but has a different implementation.</p>
+
+<p>This page tells you how to use dart2js on the command line. It also give tips
+on debugging the JavaScript that dart2js generates.</p>
+
+<h2 id="basic-usage">
+<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic usage</h2>
+
+<p>Here’s an example of compiling a Dart file to JavaScript:</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> dart2js <span class="nt">-O2</span> <span class="nt">-o</span> test.js test.dart
+</code></pre></div></div>
+
+<p>This command produces a file that contains the JavaScript equivalent of your
+Dart code. It also produces a source map, which can help you debug the
+JavaScript version of the app more easily.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+  The <code>-O<em>n</em></code> argument specifies the optimization level.
+  We recommend starting at <code class="highlighter-rouge">-O1</code> (the default) and then increasing to <code class="highlighter-rouge">-O2</code> or
+  higher when you’re ready to deploy.
+  The <code class="highlighter-rouge">-O3</code> and <code class="highlighter-rouge">-O4</code> optimization levels are suitable only for
+  <strong>well tested code</strong> (<a href="#basic-options">see the <code>-O<em>n</em></code> descriptions,
+  below</a>).</p>
+</aside>
+
+<h2 id="build-config-usage">
+<a id="build-config-usage" class="anchor" href="#build-config-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build config usage</h2>
+
+<p>You can also configure dart2js options in a build config file.
+For more information, see the <a href="https://pub.dev/packages/build_web_compilers">build_web_compilers README.</a></p>
+
+<h2 id="options">
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h2>
+
+<ul>
+  <li><a href="#basic-options">Basic options</a></li>
+  <li><a href="#path-and-environment-options">Path and environment options</a></li>
+  <li><a href="#display-options">Display options</a></li>
+  <li><a href="#analysis-options">Analysis options</a></li>
+</ul>
+
+<h4 id="basic-options">Basic options</h4>
+
+<p>Common command-line options for dart2js include:</p>
+
+<dl>
+  <dt>
+<code class="highlighter-rouge">-o &lt;file&gt;</code> or <code class="highlighter-rouge">--out=&lt;file&gt;</code>
+</dt>
+  <dd>Generates the output into <code class="highlighter-rouge">&lt;file&gt;</code>. If not specified,
+the output goes in a file named <code class="highlighter-rouge">out.js</code>.</dd>
+  <dt><code class="highlighter-rouge">--enable-asserts</code></dt>
+  <dd>Enables assertion checking.</dd>
+  <dt><code class="highlighter-rouge">-O{0|1|2|3|4}</code></dt>
+  <dd>Controls optimizations that can help reduce code size and
+improve performance of the generated code.
+For more details on these optimizations, run <code class="highlighter-rouge">dart2js -hv</code>.
+
+    <ul>
+      <li>
+<code class="highlighter-rouge">-O0</code>: Disables many optimizations.</li>
+      <li>
+<code class="highlighter-rouge">-O1</code>: Enables default optimizations.</li>
+      <li>
+<code class="highlighter-rouge">-O2</code>: Enables <code class="highlighter-rouge">-O1</code> optimizations, plus additional ones
+(such as minification) that respect the language semantics and
+are safe for all programs.
+        <aside class="alert alert-info">
+          <p><strong>Note:</strong>
+  With <code class="highlighter-rouge">-O2</code>, string representations of types are no longer the same as
+  those in the Dart VM and <a href="/tools/dartdevc">dartdevc</a>.</p>
+        </aside>
+      </li>
+      <li>
+<code class="highlighter-rouge">-O3</code>: Enables <code class="highlighter-rouge">-O2</code> optimizations, plus omits implicit type checks.
+        <aside class="alert alert-warning">
+          <p><strong>Warning:</strong>
+  Omitting type checks can cause your app to crash due to type errors.
+  Before using <code class="highlighter-rouge">-O3</code>, <strong>test using <code class="highlighter-rouge">-O2</code></strong> to ensure that your app
+  <strong>never</strong> throws a subtype of <code class="highlighter-rouge">Error</code> (such as <code class="highlighter-rouge">TypeError</code>).</p>
+        </aside>
+      </li>
+      <li>
+<code class="highlighter-rouge">-O4</code>: Enables more aggressive optimizations than <code class="highlighter-rouge">-O3</code>,
+but with the same assumptions.
+        <aside class="alert alert-warning">
+          <p><strong>Warning:</strong>
+  The <code class="highlighter-rouge">-O4</code> optimizations are susceptible to variations in input data.
+  Before relying on <code class="highlighter-rouge">-O4</code>, <strong>test for edge cases in user input</strong>.</p>
+        </aside>
+      </li>
+    </ul>
+  </dd>
+  <dt>
+<code class="highlighter-rouge">-h</code> or <code class="highlighter-rouge">--help</code>
+</dt>
+  <dd>Displays help. To get information about all options, use <code class="highlighter-rouge">-hv</code>.</dd>
+</dl>
+
+<h4 id="path-and-environment-options">Path and environment options</h4>
+
+<p>Some other handy options include:</p>
+
+<dl>
+  <dt><code class="highlighter-rouge">--packages=&lt;path&gt;</code></dt>
+  <dd>Specifies the path to the package resolution configuration file.
+For more information, see
+<a href="https://github.com/lrhn/dep-pkgspec/blob/master/DEP-pkgspec.md">Package Resolution Configuration File.</a>
+</dd>
+  <dt><code class="highlighter-rouge">-D&lt;flag&gt;=&lt;value&gt;</code></dt>
+  <dd>Defines an environment variable.</dd>
+  <dt><code class="highlighter-rouge">--version</code></dt>
+  <dd>Displays version information for dart2js.</dd>
+</dl>
+
+<h4 id="display-options">Display options</h4>
+
+<p>The following options help you control the output of dart2js:</p>
+
+<dl>
+  <dt><code class="highlighter-rouge">--suppress-warnings</code></dt>
+  <dd>Doesn’t display warnings.</dd>
+  <dt><code class="highlighter-rouge">--suppress-hints</code></dt>
+  <dd>Doesn’t display hints.</dd>
+  <dt><code class="highlighter-rouge">--terse</code></dt>
+  <dd>Emits diagnostics, without suggesting how to get rid of the diagnosed problems.</dd>
+  <dt>
+<code class="highlighter-rouge">-v</code> or <code class="highlighter-rouge">--verbose</code>
+</dt>
+  <dd>Displays lots of information.</dd>
+</dl>
+
+<h4 id="analysis-options">Analysis options</h4>
+
+<p>The following options control the analysis that dart2js performs on Dart code:</p>
+
+<dl>
+  <dt><code class="highlighter-rouge">--enable-diagnostic-colors</code></dt>
+  <dd>Adds colors to diagnostic messages.</dd>
+  <dt><code class="highlighter-rouge">--show-package-warnings</code></dt>
+  <dd>Shows warnings and hints generated from packages.</dd>
+  <dt><code class="highlighter-rouge">--csp</code></dt>
+  <dd>Disables dynamic generation of code in the generated output.
+This is necessary to satisfy CSP restrictions
+(see <a href="http://www.w3.org/TR/CSP/">W3C Content Security Policy.</a>)</dd>
+  <dt><code class="highlighter-rouge">--dump-info</code></dt>
+  <dd>Generates a file (with the suffix <code class="highlighter-rouge">.info.json</code>)
+that contains information about the generated code.
+You can inspect the generated file with the
+<a href="https://github.com/dart-lang/dump-info-visualizer">Dump Info Visualizer.</a>
+</dd>
+</dl>
+
+<h2 id="helping-dart2js-generate-efficient-code">
+<a id="helping-dart2js-generate-efficient-code" class="anchor" href="#helping-dart2js-generate-efficient-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Helping dart2js generate better code</h2>
+
+<p>Follow these practices to help dart2js do better type inference, so it can generate smaller and faster JavaScript code:</p>
+
+<ul>
+  <li>Don’t use <code class="highlighter-rouge">Function.apply()</code>.</li>
+  <li>Don’t override <code class="highlighter-rouge">noSuchMethod()</code>.</li>
+  <li>Avoid setting variables to null.</li>
+  <li>Be consistent with the types of arguments you pass into each function or
+method.</li>
+</ul>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+  Don’t worry about the size of your app’s included libraries. The dart2js tool
+  performs tree shaking to omit unused classes, functions, methods, and so on.
+  Just import the libraries you need, and let dart2js get rid of what you don’t
+  need.</p>
+</aside>
+
+<h2 id="debugging">
+<a id="debugging" class="anchor" href="#debugging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Debugging</h2>
+
+<p>This section gives tips for debugging dart2js-produced code in Chrome, Firefox,
+and Safari. Debugging the JavaScript produced by dart2js is easiest in
+browsers such as Chrome that support source maps.</p>
+
+<p>Whichever browser you use, you should enable pausing on at least
+uncaught exceptions, and perhaps on all exceptions. For frameworks such
+as dart:async that wrap user code in try-catch, we
+recommend pausing on all exceptions.</p>
+
+<h3 id="dart2js-debugging-chrome">
+<a id="dart2js-debugging-chrome" class="anchor" href="#dart2js-debugging-chrome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chrome</h3>
+
+<p>To debug in Chrome:</p>
+
+<ol>
+  <li>Open the Developer Tools window, as described in the
+<a href="https://developer.chrome.com/devtools/index">Chrome DevTools documentation.</a>
+</li>
+  <li>Turn on source maps, as described in the video
+<a href="http://bit.ly/YugIUY">SourceMaps in Chrome.</a>
+</li>
+  <li>Enable debugging, either on all exceptions or only on uncaught exceptions,
+as described in
+<a href="https://developers.google.com/web/tools/chrome-devtools/debug/breakpoints/add-breakpoints">How to set breakpoints.</a>
+</li>
+  <li>Reload your app.</li>
+</ol>
+
+<h3 id="dart2js-debugging-ie">
+<a id="dart2js-debugging-ie" class="anchor" href="#dart2js-debugging-ie" aria-hidden="true"><span class="octicon octicon-link"></span></a>Internet Explorer</h3>
+
+<p>To debug in Internet Explorer:</p>
+
+<ol>
+  <li>Update to the latest version of Internet Explorer. (Source-map support
+was added to IE in April 2014).</li>
+  <li>Load <strong>Developer Tools</strong> (<strong>F12</strong>). For more information, see
+<a href="http://msdn.microsoft.com/library/ie/bg182326(v=vs.85)">Using the F12 developer tools.</a>
+</li>
+  <li>Reload the app. The <strong>debugger</strong> tab shows source-mapped files.</li>
+  <li>Exception behavior can be controlled through <strong>Ctrl+Shift+E</strong>;
+the default is <strong>Break on unhandled exceptions</strong>.</li>
+</ol>
+
+<h3 id="dart2js-debugging-firefox">
+<a id="dart2js-debugging-firefox" class="anchor" href="#dart2js-debugging-firefox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Firefox</h3>
+
+<p>Firefox doesn’t yet support source maps (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=771597">bug #771597.</a>)</p>
+
+<p>To debug in Firefox:</p>
+
+<ol>
+  <li>
+    <p>Enable the Developer Toolbar, as described in Kevin Dangoor’s blog post,
+<a href="https://hacks.mozilla.org/2012/08/new-firefox-command-line-helps-you-develop-faster/">New Firefox Command Line Helps You Develop
+Faster”</a>.</p>
+  </li>
+  <li>Click <strong>Pause on exceptions</strong>, as shown in the
+following figure.
+<img src="/assets/ff-debug-6940b08acde3d4a3b38b66b2469dfcc2c4ba9ab71a5b8e3dd18176f80af5e057.png" alt="Firefox Toolbar"><br><br>
+</li>
+  <li>Reload your app.</li>
+</ol>
+
+<h3 id="dart2js-debugging-safari">
+<a id="dart2js-debugging-safari" class="anchor" href="#dart2js-debugging-safari" aria-hidden="true"><span class="octicon octicon-link"></span></a>Safari</h3>
+
+<p>To debug in Safari:</p>
+
+<ol>
+  <li>Turn on the Develop menu, as described in the <a href="https://developer.apple.com/library/content/documentation/NetworkingInternetWeb/Conceptual/Web_Inspector_Tutorial/EnableWebInspector/EnableWebInspector.html">Safari Web Inspector Tutorial.</a>
+</li>
+  <li>Enable breaks, either on all exceptions or only on uncaught exceptions.
+See <a href="https://support.apple.com/en-ca/guide/safari-developer/add-a-javascript-breakpoint-dev5e4caf347/mac">Add a JavaScript breakpoint</a> under <a href="https://support.apple.com/en-ca/guide/safari-developer/welcome/mac">Safari Developer Help.</a>
+</li>
+  <li>Reload your app.</li>
+</ol>
+
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="content">
+      <div class="text-center" martdown="1">
+        <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/security">Security</a></li>
+          <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
+          <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+          <li><a href="/about_zh_CN">关于 dartlang 中文版</a></li>
+          <li>
+            <a href="https://github.com/dartchina/site-www-cn"
+               title="该站在 GitHub 开源"
+               class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+            &nbsp;
+            <a href="https://github.com/dartchina/site-www-cn/issues"
+               title="为该站提交 issue"
+               class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+            &nbsp;
+            <a 
+               title="Site built on 2019/05/10 02:48 PDT"
+               
+               class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

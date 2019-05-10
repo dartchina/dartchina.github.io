@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="You have an Element object, now what?">
+  <title>Add elements to the DOM | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Add elements to the DOM" />
+  <meta name="twitter:description" content="You have an Element object, now what?" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Add elements to the DOM" />
+  <meta property="og:description" content="You have an Element object, now what?" />
+  <meta property="og:url" content="https://www.dartlang.org/tutorials/web/low-level-html/add-elements" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" integrity="sha256-lXNilrVoDl/TpTBbRIJ9fTZIFZ6OcziJrUwDEUq+4zk=" crossorigin="anonymous" href="/assets/main-95736296b5680e5fd3a5305b44827d7d3648159e8e733889ad4c03114abee339.css">
+  <script src="/assets/main-81783b1b9a1d39209aa2ec2eab702b1f7908b15082a3aef81ba13f2255d48ec4.js" integrity="sha256-gXg7G5odOSCaouwuq3ArH3kIsVCCo674G6E/IlXUjsQ=" crossorigin="anonymous" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+ </head>
+  <body class="tutorial show_banner">
+    <header id="page-header" class="site-header">
+  <nav id="mainnav" class="site-header">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/white-e71fb382ad5229792cc704b3ee7a88f8013e986d6e34f0956d89c453b454d0a5.svg" alt="Dart">
+  </a>
+  <ul class="navbar">
+    <li class="mainnav__get-started">
+      <a href="/docs" class="nav-link active"><span>文档</span></a>
+    </li>
+    <li>
+      <a href="/platforms" class="nav-link">平台</a>
+    </li>
+    <li>
+      <a href="/community" class="nav-link">社区</a>
+    </li>
+    <li>
+      <a href="https://dartpad.cn/" target="_blank" class="nav-link no-automatic-external">体验 Dart</a>
+    </li>
+    <li>
+      <a href="/get-dart" class="nav-link">安装 Dart</a>
+    </li>
+    <li><a href="/about_zh_CN">关于</a></li>
+    <li class="searchfield">
+      <form action="/search" class="site-header__search form-inline" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+ <div class="banner">
+  <p class="banner__text">
+    
+    
+    Dart 2.3 发布，针对构建用户界面进行了优化。
+    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">了解更多。</a>
+  </p>
+</div>
+ 
+
+    <div id="sidenav" class="">
+  <form action="/search/" class="site-header__search form-inline">
+    <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+  </form>
+
+  <div class="site-sidebar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="/platforms" class="nav-link">平台</a>
+      </li>
+      <li class="nav-item">
+        <a href="/community" class="nav-link">社区</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://dartpad.dartlang.org" class="nav-link">体验 Dart</a>
+      </li>
+      <li class="nav-item">
+        <a href="/guides" class="nav-link active">文档</a>
+      </li>
+    </ul>
+
+    <ul class="nav flex-column"><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-1" role="button"
+        aria-expanded="false" aria-controls="sidenav-1"
+      >示例 & 概览</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-1">
+        <li class="nav-item">
+    <a class="nav-link" href="/samples">语言示例</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/codelabs">Codelab</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials">概览</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-2" role="button"
+        aria-expanded="false" aria-controls="sidenav-2"
+      >语言</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/language/language-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-dart">类型系统</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/spec">规范</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/effective-dart">Effective Dart</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-3" role="button"
+        aria-expanded="false" aria-controls="sidenav-3"
+      >核心库</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/libraries">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/library-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-3-3"
+      href="#sidenav-3-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-3-3"
+    >文章
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/dart-io">Intro to dart:io</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/creating-streams">Creating streams</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-4" role="button"
+        aria-expanded="false" aria-controls="sidenav-4"
+      >包</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/packages">如何使用包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/useful-libraries">常用的包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/create-library-packages">创建包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/publishing">发布包</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-4-5"
+      href="#sidenav-4-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-4-5"
+    >引用包
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/dependencies">依赖</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/glossary">术语</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/package-layout">包的设计约定</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/environment-variables">Pub 环境变量</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/pubspec">Pubspec 文件</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/troubleshoot">Pub 问题分析与解决</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/versioning">版本</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link active" data-toggle="collapse" href="#sidenav-5" role="button"
+        aria-expanded="true" aria-controls="sidenav-5"
+      >开发</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-5">
+        <li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/futures">Futures & Async-Await</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/json">使用 JSON</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/streams">Stream</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/mobile">移动应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-5"
+      href="#sidenav-5-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-5"
+    >命令行应用 & 服务应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/server">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/cmdline">编写命令行应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/httpserver">编写 HTTP 客户端和服务端应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/c-interop">C & C++ 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/libraries">库和包</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link active collapsable"
+      data-toggle="collapse" data-target="#sidenav-5-6"
+      href="#sidenav-5-6" role="button"
+      aria-expanded="true" aria-controls="sidenav-5-6"
+    >Web 应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-5-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/web">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/fetch-data">动态获取数据</a>
+  </li><li class="nav-item">
+    <a class="nav-link active collapsable"
+      data-toggle="collapse" data-target="#sidenav-5-6-4"
+      href="#sidenav-5-6-4" role="button"
+      aria-expanded="true" aria-controls="sidenav-5-6-4"
+    >底层 Web 编程
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-5-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Dart 和 HTML 关联</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="/tutorials/web/low-level-html/add-elements">在 DOM 中增加 Element</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">在 DOM 中移除 Element</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link" href="/web/js-interop">JS/TS 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/deployment">开发</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/libraries">库和包</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-6" role="button"
+        aria-expanded="false" aria-controls="sidenav-6"
+      >工具 & 技巧</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6">
+        <li class="nav-item">
+    <a class="nav-link" href="/tools">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-2"
+      href="#sidenav-6-2" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-2"
+    >编辑 & 调试
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-devtools">Dart DevTool</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/dartpad">DartPad</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/jetbrains-plugin">IntelliJ & Android Studio</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/vs-code">VS Code</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-3"
+      href="#sidenav-6-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-3"
+    >Command-line tools
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-3">
+      <li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-1"
+      href="#sidenav-6-3-1" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-1"
+    >Dart SDK
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-1">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/sdk">综述</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-vm">dart (Dart VM)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2aot">dart2aot & dartaotruntime</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2js">dart2js (prod JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartanalyzer">dartanalyzer</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdevc">dartdevc (dev JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdoc">dartdoc</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartfmt">dartfmt</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/cmd">pub</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-2"
+      href="#sidenav-6-3-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-2"
+    >其他命令行工具
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/build_runner">build_runner</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/webdev">webdev</a>
+  </li>
+  </ul>
+  </li>
+</ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-4"
+      href="#sidenav-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-4"
+    >源码管理
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/formatting">格式化代码</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/private-files">哪些内容不应该被提交</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-5"
+      href="#sidenav-6-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-5"
+    >静态分析
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/analysis-options">Customizing static analysis</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-problems">Fixing common type problems</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-6"
+      href="#sidenav-6-6" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-6"
+    >测试 & 优化
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/testing">测试</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/debugging">调试 Web 应用</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-7" role="button"
+        aria-expanded="false" aria-controls="sidenav-7"
+      >资源</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7">
+        <li class="nav-item">
+    <a class="nav-link" href="/code-of-conduct">行为守则</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/faq">FAQ</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-7-3"
+      href="#sidenav-7-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-7-3"
+    >历史
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/dart-2">迁移到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/dart-2">迁移 Web 应用到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/obsolete">过时的 Pub 功能</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link " data-toggle="collapse" href="#sidenav-8" role="button"
+        aria-expanded="true" aria-controls="sidenav-8"
+      >相关网站</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-8">
+        <li class="nav-item">
+    <a class="nav-link" href="https://api.dartlang.org" target="_blank" rel="noopener">API 参考<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://medium.com/dartlang" target="_blank" rel="noopener">Blog<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://dartpad.cn" target="_blank" rel="noopener">DartPad (在线编辑器)<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://flutter.dev" target="_blank" rel="noopener">Flutter<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Pub 包资源<i class="fas fa-external-link-alt"></i></a>
+  </li>
+</ul>
+    </li></ul>
+
+  </div>
+</div>
+
+    <main id="page-content">
+      
+
+
+
+
+
+
+
+<div id="site-toc--side" class="site-toc ">
+  <header class="site-toc__title">
+    内容
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+  </header>
+  <ul class="section-nav nav">
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#try-app">Running the Todo app</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#tree-structure">About parent and child Elements in Dart</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#html-code">Setting up the page in HTML</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#dart-code">Getting an element from the DOM</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#event-handler">Registering an event handler</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#about-event-listeners">About EventListener functions</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#add-elem">Adding an element to the DOM tree</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#about-css">Styling the page elements</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#moving-elements">Moving elements within the DOM tree</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#other-resources">Other resources</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#what-next">What next?</a></li>
+</ul>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+<nav id="subnav">
+  <ul>
+    <li class="previous">
+      
+        <a href="/tutorials/web/low-level-html/connect-dart-html">&lang;&nbsp;&nbsp;Connect Dart & HTML</a>
+      
+    </li>
+    <li class="next">
+      
+        <a href="/tutorials/web/low-level-html/remove-elements">Remove DOM elements&nbsp;&nbsp;&rang;</a>
+      
+    </li>
+  </ul>
+</nav>
+
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_tutorials/web/low-level-html/add-elements.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Add elements to the DOM' page issue&body=
+Page URL: https://www.dartlang.org/tutorials/web/low-level-html/add-elements%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_tutorials/web/low-level-html/add-elements.md%0D%0A
+%0D%0A
+Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
+%0D%0A
+Description of issue:" class="btn no-automatic-external" title="Report an issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>Add elements to the DOM</h1>
+          </div>
+          
+
+
+
+
+
+
+
+<div id="site-toc--inline" class="site-toc toc-collapsible toc-collapsed">
+  <header class="site-toc__title">
+    内容
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+      <span class="site-toc--inline__toggle toc-toggle-down"><i class="fas fa-chevron-down fa-m"></i></span>
+      <span class="site-toc--inline__toggle toc-toggle-up"><i class="fas fa-chevron-up fa-m"></i></span>
+    
+  </header>
+  <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#try-app">Running the Todo app</a></li>
+<li class="toc-entry toc-h2"><a href="#tree-structure">About parent and child Elements in Dart</a></li>
+<li class="toc-entry toc-h2"><a href="#html-code">Setting up the page in HTML</a></li>
+<li class="toc-entry toc-h2"><a href="#dart-code">Getting an element from the DOM</a></li>
+<li class="toc-entry toc-h2"><a href="#event-handler">Registering an event handler</a></li>
+<li class="toc-entry toc-h2"><a href="#about-event-listeners">About EventListener functions</a></li>
+<li class="toc-entry toc-h2"><a href="#add-elem">Adding an element to the DOM tree</a></li>
+<li class="toc-entry toc-h2"><a href="#about-css">Styling the page elements</a></li>
+<li class="toc-entry toc-h2"><a href="#moving-elements">Moving elements within the DOM tree</a></li>
+<li class="toc-entry toc-h2"><a href="#other-resources">Other resources</a></li>
+<li class="toc-entry toc-h2"><a href="#what-next">What next?</a></li>
+</ul>
+</div>
+
+
+          
+
+<div class="panel">
+
+  <h4 id="whats-the-point">
+<a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What’s the point?</h4>
+
+  <ul>
+    <li>In Dart, page elements are of type Element.</li>
+    <li>An Element knows its parent.</li>
+    <li>An Element keeps its children in a List &lt;Element&gt;.</li>
+    <li>Change the DOM by adding or removing children of elements.</li>
+    <li>Respond to user input with an EventListener.</li>
+  </ul>
+
+</div>
+
+<p>As you learned in the previous tutorial,
+the DOM represents the structure
+of a web page document using a simple tree structure.
+Each node in the tree represents an item on the page.
+Each node in the tree keeps track of both
+its parent and its children.
+In Dart, the
+<a href="https://api.dartlang.org/stable/dart-html/Node-class.html" target="_blank" rel="noopener">Node</a>
+class contains the methods and properties
+that implement a node’s tree functionality.</p>
+
+<p>HTML page elements are one kind of node that can be in the DOM tree.
+They have a rectangular area on the page and can receive events.
+Examples of elements include
+heading elements, paragraph elements, table elements,
+button elements, and so on.</p>
+
+<p>In Dart,
+elements are implemented by the
+<a href="https://api.dartlang.org/stable/dart-html/Element-class.html" target="_blank" rel="noopener">Element</a>
+class, which is a subclass of Node.
+Because the nodes you care about most are usually elements,
+this tutorial focuses on Element,
+rather than on Node.</p>
+
+<h2 id="try-app">
+<a id="try-app" class="anchor" href="#try-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running the Todo app</h2>
+
+<p>In this tutorial, you will be working with a sample web app
+that is a partial implementation of a todo list.
+This program dynamically changes the DOM,
+and therefore the web page,
+by adding elements to the DOM tree.</p>
+
+<p><strong>Try it!</strong>
+Click run ( <img src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png" integrity="sha256-UKZuAcfnqHfbwG55nVvEtzxNrOKSbsF7RJPYw+k5xZo=" crossorigin="anonymous"> ) to start the web app.
+Then type in the app’s text field, and press return.
+The app adds an item to the list.
+Enter a few items into the input field.</p>
+
+<p>Example goes here…</p>
+
+<!-- need to fix this section, not working properly -->
+<!-- https://gist.github.com/Sfshaza/65c90ff6b078c332d4b6
+
+main.dart:
+// Copyright (c) 2012, the Dart project authors.
+// Please see the AUTHORS file for details.
+// All rights reserved. Use of this source code
+// is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+import 'dart:html';
+
+InputElement toDoInput;
+UListElement toDoList;
+
+void main() {
+  toDoInput = querySelector('#to-do-input');
+  toDoList = querySelector('#to-do-list');
+  toDoInput.onChange.listen(addToDoItem);
+}
+
+void addToDoItem(Event e) {
+  var newToDo = new LIElement();
+  newToDo.text = toDoInput.value;
+  toDoInput.value = '';
+  toDoList.children.add(newToDo);
+} -->
+
+<!-- <iframe
+src="https://dartpad.cn/embed-html.html?id=65c90ff6b078c332d4b6&horizontalRatio=60&verticalRatio=80"
+    width="100%"
+    height="500px"
+    style="border: 1px solid #ccc;">
+</iframe>-->
+
+<p>This is the beginning of an app to manage a list of things to do.
+Right now, this app is for procrastinators only
+because the program can only add items to your to do list
+but not remove them.</p>
+
+<h2 id="tree-structure">
+<a id="tree-structure" class="anchor" href="#tree-structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>About parent and child Elements in Dart</h2>
+
+<p>The Node class in Dart implements the basic treeing behavior
+for nodes in the Dart DOM.
+The Element class is a subclass of Node that implements
+the behavior specific to page element nodes.
+For example,
+an element knows the width and height of
+its enclosing rectangle on the page
+and it can receive events.</p>
+
+<p>You can manipulate the DOM tree by adding and deleting nodes.
+However, many Dart apps are concerned only with page elements.
+So for convenience and code simplicity,
+the Element class implements API
+for interacting with
+a subset of the DOM that includes
+only the nodes that are Elements.
+You can work with a virtual tree of Elements
+rather than the more complex tree of Nodes.
+This tutorial shows you how to manipulate the
+DOM through the Element class.</p>
+
+<p>An Element has a parent Element
+and maintains references to its child Elements in a list.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/relationships.png" alt="An element with multiple child elements and a parent element"></p>
+
+<p>An Element has at most one parent Element.
+An Element’s parent is final and cannot be changed.
+So you cannot move an Element by changing its parent.
+Get an Element’s parent with the getter <code class="highlighter-rouge">parent</code>.
+For example, if you have an Element with the name <code class="highlighter-rouge">anElement</code>
+you would refer to its parent element with <code class="highlighter-rouge">anElement.parent</code>.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/parent-reference.png" alt="Dart code reference to anElement's parent"></p>
+
+<p>An Element maintains references to its child elements in a list.
+<a href="https://api.dartlang.org/stable/dart-core/List-class.html" target="_blank" rel="noopener">List</a>
+is a class in the dart:core library
+that implements an indexable collection with a length.
+A list can be of fixed size or extendable.</p>
+
+<p>List is an example of a <em>generic</em> (or <em>parameterized</em>) type—a type
+that can declare formal type parameters.
+This means that a list can be declared
+to contain only objects of a particular type.
+For example:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>List declaration</th>
+      <th>List description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>List&lt;String&gt;</td>
+      <td>list of strings</td>
+    </tr>
+    <tr>
+      <td>List&lt;int&gt;</td>
+      <td>list of integers</td>
+    </tr>
+    <tr>
+      <td>List&lt;Element&gt;</td>
+      <td>list of elements</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>An Element maintains references to its child element in a List&lt;Element&gt;,
+which your Dart code can refer to with the getter <code class="highlighter-rouge">children</code>.
+The List class has various methods and operators
+whereby you can refer to each child Element individually,
+iterate over the list, and add and remove elements.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/child-references.png" alt="Dart code references to anElement's list of children and individual child Elements"></p>
+
+<p>You can change the tree structure by adding children to
+and removing children from an Element’s list of children.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/add-element.png" alt="Add a child element"></p>
+
+<p>When you change an Element or its child Elements in your Dart program,
+you change the DOM and therefore the web page.
+The browser re-renders the page automatically.</p>
+
+<h2 id="html-code">
+<a id="html-code" class="anchor" href="#html-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up the page in HTML</h2>
+
+<p>Let’s take a look at the todo app
+to see how it dynamically
+adds an element to the DOM
+and displays a new item in the list of things to do.</p>
+
+<p>The HTML code for the todo app sets up the initial HTML page,
+and thereby the initial DOM tree.
+You could get the same results using Dart code,
+but it’s usually better to define the primary page elements
+in HTML code (easier to read, quicker to load).</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/todo-html.png" alt="todo app and its corresponding HTML code"></p>
+
+<p>The following diagram shows a partial DOM tree for the todo app.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/todo-dom.png" alt="The todo app and part of its DOM tree"></p>
+
+<p>Of interest are the two page elements that have IDs:
+<code class="highlighter-rouge">to-do-input</code> and <code class="highlighter-rouge">to-do-list</code>.
+The first identifies the &lt;input&gt; element into which the user types.
+The second identifies the &lt;ul&gt; (unordered list) element
+containing the task items.
+Dart code adds elements to this list
+whenever the user enters text into the input element.</p>
+
+<h2 id="dart-code">
+<a id="dart-code" class="anchor" href="#dart-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting an element from the DOM</h2>
+
+<p>The following diagram shows
+the Dart code for the todo app.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/todo-dart.png" alt="todo app and its corresponding Dart code"></p>
+
+<p>The main() function uses dart:html’s top-level querySelector()
+function to get the interesting elements from the DOM.
+Because calling querySelector() isn’t free,
+if a program refers to an element more than once
+it should stash a reference to the element.</p>
+
+<p>This program stashes a reference
+to the input element
+in a top-level variable called <code class="highlighter-rouge">toDoInput</code>.
+The unordered list
+is in the top-level variable <code class="highlighter-rouge">toDoList</code>.</p>
+
+<p>Note the types of these variables: InputElement and UListElement.
+These are both subclasses of Element.
+The dart:html library has dozens of Element subclasses,
+many of which correspond to certain HTML tags.
+This program uses three:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>HTML tag</th>
+      <th>Dart class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&lt;input&gt;</td>
+      <td><a href="https://api.dartlang.org/stable/dart-html/InputElement-class.html" target="_blank" rel="noopener">InputElement</a></td>
+    </tr>
+    <tr>
+      <td>&lt;ul&gt;</td>
+      <td><a href="https://api.dartlang.org/stable/dart-html/UListElement-class.html" target="_blank" rel="noopener">UListElement</a></td>
+    </tr>
+    <tr>
+      <td>&lt;li&gt;</td>
+      <td><a href="https://api.dartlang.org/stable/dart-html/LIElement-class.html" target="_blank" rel="noopener">LIElement</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="event-handler">
+<a id="event-handler" class="anchor" href="#event-handler" aria-hidden="true"><span class="octicon octicon-link"></span></a>Registering an event handler</h2>
+
+<p>When a user enters text into the input field,
+a <em>change</em> event fires,
+indicating that the value in the input field has just changed.
+The todo app defines a function, addToDoItem(),
+that can handle these change events.
+The following code connects addToDoItem() to the input field:</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/event-handler-todo.png" alt="Add an event handler to the toDoInput element"></p>
+
+<p>Rather than dissect this busy line of code,
+think of it as a Dart idiom
+for adding an event handler to an Element.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/event-handler-idiom.png" alt="Dart idiom: Add an event handler to an Element"></p>
+
+<p>A change event is just one of many different types of events
+that an input element can generate.
+For example, you can use <code class="highlighter-rouge">click</code> to handle mouse clicks,
+or <code class="highlighter-rouge">keyDown</code> for when the user presses a key on the keyboard.</p>
+
+<h2 id="about-event-listeners">
+<a id="about-event-listeners" class="anchor" href="#about-event-listeners" aria-hidden="true"><span class="octicon octicon-link"></span></a>About EventListener functions</h2>
+
+<p>The argument passed to the listen() method is a <em>callback function</em>
+of type
+<a href="https://api.dartlang.org/stable/dart-html/EventListener.html" target="_blank" rel="noopener">EventListener</a>.
+EventListener is a typedef defined in the dart:html library as follows:</p>
+
+<pre class="prettyprint lang-dart">typedef void EventListener(Event event)</pre>
+
+<p>As you can see, an EventListener returns no value (void) and takes an
+<a href="https://api.dartlang.org/stable/dart-html/Event-class.html" target="_blank" rel="noopener">Event</a>
+object as an argument.
+Any function with this signature is an EventListener.
+Based on its signature, the addToDoItem() function is an EventListener.</p>
+
+<pre class="prettyprint lang-dart">void addToDoItem(Event e) { ... }</pre>
+
+<p>The Event object passed into an EventListener function
+carries information about the Event that occurred.
+For example, the Event object knows which Element fired the event,
+and when.
+For location-specific events such as mouse clicks,
+the Event object also knows where the event occurred.</p>
+
+<p>The addToDoItem() function ignores the Event object passed to it.</p>
+
+<h2 id="add-elem">
+<a id="add-elem" class="anchor" href="#add-elem" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding an element to the DOM tree</h2>
+
+<p>The change event handler has the following code:</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/add-element-code.png" alt="The addToDoItem() function explained"></p>
+
+<p>The final line of code is where the DOM gets changed.</p>
+
+<p>An Element keeps references to all of its children in a list called <code class="highlighter-rouge">children</code>.
+By adding and removing elements to and from this list,
+the code changes the DOM.
+When the DOM changes, the browser re-renders the browser page.
+The effect, in our todo app, is that a new bullet item appears
+in the to do list.</p>
+
+<h2 id="about-css">
+<a id="about-css" class="anchor" href="#about-css" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styling the page elements</h2>
+
+<p>Let’s take a look at the CSS file for this app.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/css-code.png" alt="The effect of CSS styles"></p>
+
+<p>This code uses three different kinds of CSS selectors.
+The first is an HTML element selector that matches the &lt;body&gt; element
+and sets some basic style attributes,
+such as the background color,
+for the entire page.
+Next in the file are two ID selectors:
+#to-do-input controls the appearance of the input field
+and #to-do-list sets the appearance of the unordered list element
+in general.
+The elements in the list are controlled by the final rule,
+which uses both an ID selector and an HTML selector.
+This rule matches all &lt;li&gt; elements in the
+element with the ID to-do-list, thus styling
+each item in the to do list.</p>
+
+<h2 id="moving-elements">
+<a id="moving-elements" class="anchor" href="#moving-elements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Moving elements within the DOM tree</h2>
+
+<p>The Anagram app shows how to move an element within the DOM.</p>
+
+<p><strong>Try it!</strong>
+Click run ( <img src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png" integrity="sha256-UKZuAcfnqHfbwG55nVvEtzxNrOKSbsF7RJPYw+k5xZo=" crossorigin="anonymous"> ) to start the web app.
+Then form a word by clicking the app’s letter tiles.
+You might prefer to
+<a href="https://dartpad.cn/0532bfcb70bf5e4a900c" target="_blank" rel="noopener">open
+the app in DartPad</a>
+to have more space for the app’s code and UI.</p>
+
+<iframe src="https://dartpad.cn/embed-html.html?id=0532bfcb70bf5e4a900c&amp;horizontalRatio=70&amp;verticalRatio=80" width="100%" height="600px" style="border: 1px solid #ccc;">
+</iframe>
+
+<p>When the program starts,
+it creates one button element for each of seven
+randomly selected letters.
+The program adds each button to a DOM element—a simple
+&lt;div&gt; element identified by the CSS selector <code class="highlighter-rouge">letterpile</code>—with
+a call to letterpile.children.add().</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/anagram-newletters.png" alt="Dart code populates the letter pile with buttons"></p>
+
+<p>Each button element in the letter pile
+has a mouse click handler called moveLetter().
+If the button is in the letterpile,
+the mouse click handler moves the button to the end of the word.
+If the button is in the word,
+the mouse click handler moves the button back to the letter pile.</p>
+
+<p>To move the button from the letter pile to the word or back,
+the code simply adds the button to a DOM element
+that is different from the button’s current parent.
+Because an element can have only one parent,
+adding the button to a different parent
+automatically removes it from its previous parent.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/anagram-move.png" alt="The mouse click handler adds the button to the word, thus moving it"></p>
+
+<p>The <code class="highlighter-rouge">+=</code> operator is a compound assignment operator,
+which combines an operation (<code class="highlighter-rouge">+</code>) with an assignment.</p>
+
+<p>The <code class="highlighter-rouge">scrabbleValues</code> variable is a
+<a href="https://api.dartlang.org/stable/dart-core/Map-class.html" target="_blank" rel="noopener">Map</a>—a
+data structure that contains key/value pairs.
+Use the square bracket syntax to retrieve a value by its key
+and the <code class="highlighter-rouge">length</code> property to get the number of pairs it contains.</p>
+
+<h2 id="other-resources">
+<a id="other-resources" class="anchor" href="#other-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other resources</h2>
+
+<ul>
+  <li>
+    You can find more information about the DOM and CSS in the
+    <a href="/guides/language/language-tour">language tour</a>,
+    which also provides thorough coverage of the Dart language.
+  </li>
+</ul>
+
+<h2 id="what-next">
+<a id="what-next" class="anchor" href="#what-next" aria-hidden="true"><span class="octicon octicon-link"></span></a>What next?</h2>
+
+<p>The next tutorial, <a href="remove-elements">Remove DOM Elements</a>,
+describes how to remove elements from the DOM and items off your todo list.</p>
+
+
+
+
+          
+<nav id="subnav">
+  <ul>
+    <li class="previous">
+      
+        <a href="/tutorials/web/low-level-html/connect-dart-html">&lang;&nbsp;&nbsp;Connect Dart & HTML</a>
+      
+    </li>
+    <li class="next">
+      
+        <a href="/tutorials/web/low-level-html/remove-elements">Remove DOM elements&nbsp;&nbsp;&rang;</a>
+      
+    </li>
+  </ul>
+</nav>
+
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="content">
+      <div class="text-center" martdown="1">
+        <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/security">Security</a></li>
+          <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
+          <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+          <li><a href="/about_zh_CN">关于 dartlang 中文版</a></li>
+          <li>
+            <a href="https://github.com/dartchina/site-www-cn"
+               title="该站在 GitHub 开源"
+               class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+            &nbsp;
+            <a href="https://github.com/dartchina/site-www-cn/issues"
+               title="为该站提交 issue"
+               class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+            &nbsp;
+            <a 
+               title="Site built on 2019/05/10 02:48 PDT"
+               
+               class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shows basic scaffolding of a Dart web app.">
+  <title>Connect Dart &amp; HTML | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Connect Dart &amp; HTML" />
+  <meta name="twitter:description" content="Shows basic scaffolding of a Dart web app." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Connect Dart &amp; HTML" />
+  <meta property="og:description" content="Shows basic scaffolding of a Dart web app." />
+  <meta property="og:url" content="https://www.dartlang.org/tutorials/web/low-level-html/connect-dart-html" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" integrity="sha256-lXNilrVoDl/TpTBbRIJ9fTZIFZ6OcziJrUwDEUq+4zk=" crossorigin="anonymous" href="/assets/main-95736296b5680e5fd3a5305b44827d7d3648159e8e733889ad4c03114abee339.css">
+  <script src="/assets/main-81783b1b9a1d39209aa2ec2eab702b1f7908b15082a3aef81ba13f2255d48ec4.js" integrity="sha256-gXg7G5odOSCaouwuq3ArH3kIsVCCo674G6E/IlXUjsQ=" crossorigin="anonymous" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+ </head>
+  <body class="tutorial show_banner">
+    <header id="page-header" class="site-header">
+  <nav id="mainnav" class="site-header">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/white-e71fb382ad5229792cc704b3ee7a88f8013e986d6e34f0956d89c453b454d0a5.svg" alt="Dart">
+  </a>
+  <ul class="navbar">
+    <li class="mainnav__get-started">
+      <a href="/docs" class="nav-link active"><span>文档</span></a>
+    </li>
+    <li>
+      <a href="/platforms" class="nav-link">平台</a>
+    </li>
+    <li>
+      <a href="/community" class="nav-link">社区</a>
+    </li>
+    <li>
+      <a href="https://dartpad.cn/" target="_blank" class="nav-link no-automatic-external">体验 Dart</a>
+    </li>
+    <li>
+      <a href="/get-dart" class="nav-link">安装 Dart</a>
+    </li>
+    <li><a href="/about_zh_CN">关于</a></li>
+    <li class="searchfield">
+      <form action="/search" class="site-header__search form-inline" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+ <div class="banner">
+  <p class="banner__text">
+    
+    
+    Dart 2.3 发布，针对构建用户界面进行了优化。
+    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">了解更多。</a>
+  </p>
+</div>
+ 
+
+    <div id="sidenav" class="">
+  <form action="/search/" class="site-header__search form-inline">
+    <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+  </form>
+
+  <div class="site-sidebar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="/platforms" class="nav-link">平台</a>
+      </li>
+      <li class="nav-item">
+        <a href="/community" class="nav-link">社区</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://dartpad.dartlang.org" class="nav-link">体验 Dart</a>
+      </li>
+      <li class="nav-item">
+        <a href="/guides" class="nav-link active">文档</a>
+      </li>
+    </ul>
+
+    <ul class="nav flex-column"><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-1" role="button"
+        aria-expanded="false" aria-controls="sidenav-1"
+      >示例 & 概览</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-1">
+        <li class="nav-item">
+    <a class="nav-link" href="/samples">语言示例</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/codelabs">Codelab</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials">概览</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-2" role="button"
+        aria-expanded="false" aria-controls="sidenav-2"
+      >语言</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/language/language-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-dart">类型系统</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/spec">规范</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/effective-dart">Effective Dart</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-3" role="button"
+        aria-expanded="false" aria-controls="sidenav-3"
+      >核心库</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/libraries">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/library-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-3-3"
+      href="#sidenav-3-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-3-3"
+    >文章
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/dart-io">Intro to dart:io</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/creating-streams">Creating streams</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-4" role="button"
+        aria-expanded="false" aria-controls="sidenav-4"
+      >包</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/packages">如何使用包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/useful-libraries">常用的包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/create-library-packages">创建包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/publishing">发布包</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-4-5"
+      href="#sidenav-4-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-4-5"
+    >引用包
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/dependencies">依赖</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/glossary">术语</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/package-layout">包的设计约定</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/environment-variables">Pub 环境变量</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/pubspec">Pubspec 文件</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/troubleshoot">Pub 问题分析与解决</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/versioning">版本</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link active" data-toggle="collapse" href="#sidenav-5" role="button"
+        aria-expanded="true" aria-controls="sidenav-5"
+      >开发</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-5">
+        <li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/futures">Futures & Async-Await</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/json">使用 JSON</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/streams">Stream</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/mobile">移动应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-5"
+      href="#sidenav-5-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-5"
+    >命令行应用 & 服务应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/server">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/cmdline">编写命令行应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/httpserver">编写 HTTP 客户端和服务端应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/c-interop">C & C++ 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/libraries">库和包</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link active collapsable"
+      data-toggle="collapse" data-target="#sidenav-5-6"
+      href="#sidenav-5-6" role="button"
+      aria-expanded="true" aria-controls="sidenav-5-6"
+    >Web 应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-5-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/web">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/fetch-data">动态获取数据</a>
+  </li><li class="nav-item">
+    <a class="nav-link active collapsable"
+      data-toggle="collapse" data-target="#sidenav-5-6-4"
+      href="#sidenav-5-6-4" role="button"
+      aria-expanded="true" aria-controls="sidenav-5-6-4"
+    >底层 Web 编程
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-5-6-4">
+      <li class="nav-item">
+    <a class="nav-link active" href="/tutorials/web/low-level-html/connect-dart-html">Dart 和 HTML 关联</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">在 DOM 中增加 Element</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">在 DOM 中移除 Element</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link" href="/web/js-interop">JS/TS 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/deployment">开发</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/libraries">库和包</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-6" role="button"
+        aria-expanded="false" aria-controls="sidenav-6"
+      >工具 & 技巧</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6">
+        <li class="nav-item">
+    <a class="nav-link" href="/tools">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-2"
+      href="#sidenav-6-2" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-2"
+    >编辑 & 调试
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-devtools">Dart DevTool</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/dartpad">DartPad</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/jetbrains-plugin">IntelliJ & Android Studio</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/vs-code">VS Code</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-3"
+      href="#sidenav-6-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-3"
+    >Command-line tools
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-3">
+      <li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-1"
+      href="#sidenav-6-3-1" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-1"
+    >Dart SDK
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-1">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/sdk">综述</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-vm">dart (Dart VM)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2aot">dart2aot & dartaotruntime</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2js">dart2js (prod JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartanalyzer">dartanalyzer</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdevc">dartdevc (dev JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdoc">dartdoc</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartfmt">dartfmt</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/cmd">pub</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-2"
+      href="#sidenav-6-3-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-2"
+    >其他命令行工具
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/build_runner">build_runner</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/webdev">webdev</a>
+  </li>
+  </ul>
+  </li>
+</ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-4"
+      href="#sidenav-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-4"
+    >源码管理
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/formatting">格式化代码</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/private-files">哪些内容不应该被提交</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-5"
+      href="#sidenav-6-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-5"
+    >静态分析
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/analysis-options">Customizing static analysis</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-problems">Fixing common type problems</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-6"
+      href="#sidenav-6-6" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-6"
+    >测试 & 优化
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/testing">测试</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/debugging">调试 Web 应用</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-7" role="button"
+        aria-expanded="false" aria-controls="sidenav-7"
+      >资源</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7">
+        <li class="nav-item">
+    <a class="nav-link" href="/code-of-conduct">行为守则</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/faq">FAQ</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-7-3"
+      href="#sidenav-7-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-7-3"
+    >历史
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/dart-2">迁移到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/dart-2">迁移 Web 应用到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/obsolete">过时的 Pub 功能</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link " data-toggle="collapse" href="#sidenav-8" role="button"
+        aria-expanded="true" aria-controls="sidenav-8"
+      >相关网站</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-8">
+        <li class="nav-item">
+    <a class="nav-link" href="https://api.dartlang.org" target="_blank" rel="noopener">API 参考<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://medium.com/dartlang" target="_blank" rel="noopener">Blog<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://dartpad.cn" target="_blank" rel="noopener">DartPad (在线编辑器)<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://flutter.dev" target="_blank" rel="noopener">Flutter<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Pub 包资源<i class="fas fa-external-link-alt"></i></a>
+  </li>
+</ul>
+    </li></ul>
+
+  </div>
+</div>
+
+    <main id="page-content">
+      
+
+
+
+
+
+
+
+<div id="site-toc--side" class="site-toc ">
+  <header class="site-toc__title">
+    内容
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+  </header>
+  <ul class="section-nav nav">
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#source-files">About the Dart, HTML, and CSS triumvirate</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#dom-intro">About the DOM</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#create-dart-app">Create a new Dart app</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#create-html">Edit the HTML source code</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#about-html-code">About the HTML source code</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#dart-editor-happiness">Edit the Dart source code</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#about-dart-code">About the Dart source code</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#importing-libraries">Importing libraries</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#using-the-queryselector-function">Using the querySelector() function</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#setting-the-text-of-an-element">Setting the text of an Element</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#connections">HTML and Dart connections</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#add-css">Give the app some style with CSS</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#about-css-selectors">About CSS selectors</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#other-resources">Other resources</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#what-next">What next?</a></li>
+</ul>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+<nav id="subnav">
+  <ul>
+    <li class="previous">
+      
+    </li>
+    <li class="next">
+      
+        <a href="/tutorials/web/low-level-html/add-elements">Add elements to the DOM&nbsp;&nbsp;&rang;</a>
+      
+    </li>
+  </ul>
+</nav>
+
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_tutorials/web/low-level-html/connect-dart-html.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Connect Dart &amp; HTML' page issue&body=
+Page URL: https://www.dartlang.org/tutorials/web/low-level-html/connect-dart-html%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_tutorials/web/low-level-html/connect-dart-html.md%0D%0A
+%0D%0A
+Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
+%0D%0A
+Description of issue:" class="btn no-automatic-external" title="Report an issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>Connect Dart &amp; HTML</h1>
+          </div>
+          
+
+
+
+
+
+
+
+<div id="site-toc--inline" class="site-toc toc-collapsible toc-collapsed">
+  <header class="site-toc__title">
+    内容
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+      <span class="site-toc--inline__toggle toc-toggle-down"><i class="fas fa-chevron-down fa-m"></i></span>
+      <span class="site-toc--inline__toggle toc-toggle-up"><i class="fas fa-chevron-up fa-m"></i></span>
+    
+  </header>
+  <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#source-files">About the Dart, HTML, and CSS triumvirate</a></li>
+<li class="toc-entry toc-h2"><a href="#dom-intro">About the DOM</a></li>
+<li class="toc-entry toc-h2"><a href="#create-dart-app">Create a new Dart app</a></li>
+<li class="toc-entry toc-h2"><a href="#create-html">Edit the HTML source code</a></li>
+<li class="toc-entry toc-h2"><a href="#about-html-code">About the HTML source code</a></li>
+<li class="toc-entry toc-h2"><a href="#dart-editor-happiness">Edit the Dart source code</a></li>
+<li class="toc-entry toc-h2"><a href="#about-dart-code">About the Dart source code</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#importing-libraries">Importing libraries</a></li>
+<li class="toc-entry toc-h3"><a href="#using-the-queryselector-function">Using the querySelector() function</a></li>
+<li class="toc-entry toc-h3"><a href="#setting-the-text-of-an-element">Setting the text of an Element</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#connections">HTML and Dart connections</a></li>
+<li class="toc-entry toc-h2"><a href="#add-css">Give the app some style with CSS</a></li>
+<li class="toc-entry toc-h2"><a href="#about-css-selectors">About CSS selectors</a></li>
+<li class="toc-entry toc-h2"><a href="#other-resources">Other resources</a></li>
+<li class="toc-entry toc-h2"><a href="#what-next">What next?</a></li>
+</ul>
+</div>
+
+
+          
+
+<p>This tutorial is the first of a series on
+basic, low-level web programming with the dart:html library.
+If you use a web framework like <a href="https://webdev.dartlang.org/angular">AngularDart,</a>
+some of these concepts might be useful,
+but you might not need to use the dart:html library at all.</p>
+
+<div class="panel">
+
+  <h4 id="whats-the-point">
+<a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What’s the point?</h4>
+
+  <ul>
+    <li>DartPad lets you write a simple Dart web app without HTML boilerplate.</li>
+    <li>A Dart web app has Dart, HTML, and (usually) CSS code.</li>
+    <li>Compile a web app’s Dart code to JavaScript to run the app in any modern browser.</li>
+    <li>An HTML file hosts your Dart code in a browser page.</li>
+    <li>The DOM models a browser page in a tree/node structure.</li>
+    <li>Use querySelector() with an ID to get an element from the DOM.</li>
+    <li>CSS selectors are patterns used to select matching elements in the DOM.</li>
+    <li>Use CSS rules to style elements.</li>
+  </ul>
+
+</div>
+
+<p>To write a low-level web app with Dart,
+you need to understand
+several topics—the DOM tree, nodes, elements,
+HTML, and the Dart language and libraries.</p>
+
+<p>The interdependencies are circular,
+but we have to begin somewhere,
+so we begin with a simple HTML file,
+which introduces the DOM tree and nodes.
+From there,
+you build a bare bones, stripped-down
+Dart app
+that contains just enough code to
+dynamically put text on the page from the Dart side.</p>
+
+<p>Though simple,
+this example shows you how to connect a Dart
+app to an HTML page and
+one way that a Dart app can interact with items on the page.
+These concepts provide the foundation
+for more interesting and useful web apps.</p>
+
+<h2 id="source-files">
+<a id="source-files" class="anchor" href="#source-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>About the Dart, HTML, and CSS triumvirate</h2>
+
+<p>If you’ve used
+<a href="https://dartpad.cn" target="_blank" rel="noopener">DartPad,</a>
+you’ve already seen the DART, HTML, and CSS tabs
+that let you write the code for a web app.
+Each of these three languages
+is responsible for a different aspect of the web app.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Language</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dart</td>
+      <td>Implements the interactivity and dynamic behavior of the web app</td>
+    </tr>
+    <tr>
+      <td>HTML</td>
+      <td>Describes the content of the web app’s page (the elements in the document and the structure)</td>
+    </tr>
+    <tr>
+      <td>CSS</td>
+      <td>Governs the appearance of page elements</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A Dart program can
+respond to events such as mouse clicks,
+manipulate the elements on a web page dynamically,
+and save information.
+Before the web app is deployed,
+the Dart code must be compiled into JavaScript code.</p>
+
+<p>HTML is a language for describing web pages.
+Using tags, HTML sets up the initial page structure,
+puts elements on the page,
+and embeds any scripts for page interactivity.
+HTML sets up the initial document tree
+and specifies element types, classes, and IDs,
+which allow HTML, CSS, and Dart programs to refer to the same elements.</p>
+
+<p>CSS, which stands for <em>Cascading Style Sheets</em>, describes the appearance
+of the elements within a document.
+CSS controls many aspects of formatting:
+type face, font size, color, background color,
+borders, margins, and alignment, to name a few.</p>
+
+<h2 id="dom-intro">
+<a id="dom-intro" class="anchor" href="#dom-intro" aria-hidden="true"><span class="octicon octicon-link"></span></a>About the DOM</h2>
+
+<p>The Document Object Model (DOM)
+represents the structure of a web document as a tree of nodes.
+When an HTML file is loaded into a browser,
+the browser interprets the HTML
+and displays the document in a window.
+The following diagram shows a simple HTML file and
+the resulting web browser page in Chrome.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/simple-html.png" alt="A simple HTML file and its resulting web page"></p>
+
+<p>HTML uses tags to describe the document.
+For example, the simple HTML code above
+uses the &lt;title&gt; tag for the page title,
+&lt;h1&gt; for a level-one header,
+and &lt;p&gt; for a paragraph.
+Some tags in the HTML code,
+such as
+&lt;head&gt; and &lt;body&gt;,
+are not visible on the web page,
+but do contribute to the structure of the document.</p>
+
+<p>In the DOM,
+the document object sits at the root of the tree
+(it has no parent).
+Different kinds of nodes in the tree
+represent different kinds of objects in the document.
+For example, the tree has page elements,
+text nodes, and attribute nodes.
+Here is the DOM tree for the simple HTML file above.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/simple-dom-tree.png" alt="The DOM tree for a simple HTML file"></p>
+
+<p>Notice that some tags, such as the &lt;p&gt; paragraph tag,
+are represented by multiple nodes.
+The paragraph itself is an element node.
+The text within the paragraph is a text node
+(and in some cases, might be a subtree containing many nodes).
+And the ID is an attribute node.</p>
+
+<p>Except for the root node, each node in the tree has exactly one parent.
+Each node can have many children.</p>
+
+<p>An HTML file defines the initial structure of a document.
+Dart or JavaScript can dynamically modify that document
+by adding, deleting, and modifying the nodes in the DOM tree.
+When the DOM is changed,
+the browser immediately re-renders the window.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/dynamic-dart.png" alt="A Dart program can dynamically change the DOM"></p>
+
+<p>The diagram shows a small Dart program that makes
+a modest change to the DOM by dynamically
+changing a paragraph’s text.
+A program could add and delete nodes,
+or even insert an entire subtree of nodes.</p>
+
+<h2 id="create-dart-app">
+<a id="create-dart-app" class="anchor" href="#create-dart-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a new Dart app</h2>
+
+<ol>
+  <li>Go to <a href="https://dartpad.cn" target="_blank" rel="noopener">DartPad.</a>
+</li>
+  <li>Click the <strong>New Pad</strong> button to undo any changes you might have made
+the last time you visited DartPad.</li>
+</ol>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+These instructions feature DartPad,
+which hides some of the HTML boilerplate code.
+If you want to use any other editor,
+then we recommend starting with a small Dart web app sample
+and modifying the non-script tags inside the &lt;body&gt; section.
+<a href="#connections">HTML and Dart connections</a> shows the full HTML code.</p>
+</aside>
+
+<h2 id="create-html">
+<a id="create-html" class="anchor" href="#create-html" aria-hidden="true"><span class="octicon octicon-link"></span></a>Edit the HTML source code</h2>
+
+<ol>
+  <li>
+    <p>Click <strong>HTML</strong>, at the upper left of DartPad.
+The view switches from Dart code to the (non-existent) HTML code.</p>
+  </li>
+  <li>
+    <p>Add the following HTML code:</p>
+
+    <pre class="prettyprint lang-html">&lt;p id="RipVanWinkle"&gt;
+  RipVanWinkle paragraph.
+&lt;/p&gt;</pre>
+  </li>
+  <li>
+    <p>Click <strong>HTML OUTPUT</strong> to see how a browser would render your HTML.</p>
+  </li>
+</ol>
+
+<h2 id="about-html-code">
+<a id="about-html-code" class="anchor" href="#about-html-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>About the HTML source code</h2>
+
+<p>This HTML code is similar to the HTML code in the
+various diagrams earlier in this tutorial,
+but it’s even simpler.</p>
+
+<p>In DartPad you need only the tags you really care about—in
+this case, &lt;p&gt;.
+You don’t need surrounding tags such as
+&lt;html&gt; and &lt;body&gt;.
+Because DartPad knows where your Dart code is,
+you don’t need a &lt;script&gt; tag.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+<a href="#connections">HTML and Dart connections</a> shows the full HTML code
+that you need to run your web app outside of DartPad.</p>
+</aside>
+
+<p>The paragraph tag has the identifier “RipVanWinkle”.
+The Dart code you create in the next step uses this ID
+to get the paragraph element.</p>
+
+<h2 id="dart-editor-happiness">
+<a id="dart-editor-happiness" class="anchor" href="#dart-editor-happiness" aria-hidden="true"><span class="octicon octicon-link"></span></a>Edit the Dart source code</h2>
+
+<ol>
+  <li>
+    <p>Click <strong>DART</strong>, at the upper right of DartPad.
+The view switches from HTML code to Dart code.</p>
+  </li>
+  <li>
+    <p>Change the Dart code to the following:</p>
+
+    <pre class="prettyprint lang-dart">import 'dart:html';
+
+void main() {
+  querySelector('#RipVanWinkle').text = 'Wake up, sleepy head!';
+}</pre>
+  </li>
+  <li>
+    <p>Click <strong>Run</strong> to execute your code.</p>
+  </li>
+</ol>
+
+<p>The text in the HTML OUTPUT tab changes to “Wake up, sleepy head!”</p>
+
+<h2 id="about-dart-code">
+<a id="about-dart-code" class="anchor" href="#about-dart-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>About the Dart source code</h2>
+
+<p>Let’s step through the Dart code.</p>
+
+<h3 id="importing-libraries">
+<a id="importing-libraries" class="anchor" href="#importing-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Importing libraries</h3>
+
+<p>The import directive imports the specified library,
+making all of the classes and functions
+in that library
+available to your program.</p>
+
+<pre class="prettyprint lang-dart allow-scroll">
+<a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="Imports Dart's HTML classes and functions">import 'dart:html';</a>
+</pre>
+
+<p>This program imports Dart’s HTML library,
+which contains key classes and functions for programming the DOM.
+Key classes include:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Dart class</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://api.dartlang.org/stable/dart-html/Node-class.html" target="_blank" rel="noopener">Node</a></td>
+      <td>Implements a DOM node.</td>
+    </tr>
+    <tr>
+      <td><a href="https://api.dartlang.org/stable/dart-html/Element-class.html" target="_blank" rel="noopener">Element</a></td>
+      <td>A subclass of Node; implements a web page element.</td>
+    </tr>
+    <tr>
+      <td><a href="https://api.dartlang.org/stable/dart-html/Document-class.html" target="_blank" rel="noopener">Document</a></td>
+      <td>Another subclass of Node; implements the document object.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The Dart core library contains another useful class:
+<a href="https://api.dartlang.org/stable/dart-core/List-class.html" target="_blank" rel="noopener">List,</a>
+a parameterized class that can specify the type of its members.
+An instance of Element keeps its list of child Elements
+in a List&lt;Element&gt;.</p>
+
+<h3 id="using-the-queryselector-function">
+<a id="using-the-queryselector-function" class="anchor" href="#using-the-queryselector-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the querySelector() function</h3>
+
+<p>This app’s main() function contains a single
+line of code that is a little like a run-on sentence
+with multiple things happening one after another.
+Let’s deconstruct it.</p>
+
+<p>querySelector() is a top-level function provided by the Dart HTML library
+that gets an Element object from the DOM.</p>
+
+<pre class="prettyprint lang-dart allow-scroll">
+<a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="Returns the matching Element">querySelector('#RipVanWinkle')</a>.text = 'Wake up, sleepy head!';
+</pre>
+
+<p>The argument to querySelector(), a string,
+is a CSS selector that identifies the object.
+Most commonly CSS selectors specify classes, identifiers, or attributes.
+We’ll look at these in more detail later,
+when we add a CSS file to the mini app.
+In this case, RipVanWinkle is the unique ID for a paragraph element
+declared in the HTML file,
+and #RipVanWinkle specifies that ID.</p>
+
+<pre class="prettyprint lang-dart allow-scroll">
+querySelector(<a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="ID from HTML file">'#RipVanWinkle'</a>).text = 'Wake up, sleepy head!';
+</pre>
+
+<p>Another useful function for getting elements from the DOM
+is querySelectorAll(),
+which returns multiple Element objects via
+a list of elements—List<element>—all
+of which match the provided selector.</element></p>
+
+<h3 id="setting-the-text-of-an-element">
+<a id="setting-the-text-of-an-element" class="anchor" href="#setting-the-text-of-an-element" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting the text of an Element</h3>
+
+<p>In the DOM, the text of a page element is contained
+in a child node, specifically, a text node.
+In the following diagram,
+the node containing the string
+“RipVanWinkle paragraph.”
+is a text node.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/paragraph-dom.png" alt="DOM tree for a paragraph element"></p>
+
+<p>More complex text,
+such as text with style changes or
+embedded links and images,
+would be represented with a subtree of text nodes and other objects.</p>
+
+<p>In Dart,
+you can simply use the Element <code class="highlighter-rouge">text</code> property,
+which has a getter
+that walks the subtree of nodes for you and extracts their text.</p>
+
+<pre class="prettyprint lang-dart allow-scroll">
+querySelector('#RipVanWinkle')<a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="Convenience API to the Element's text">.text</a> = 'Wake up, sleepy head!';
+</pre>
+
+<p>However, if the text node has styles (and thus a subtree),
+getting text and then setting it immediately is likely
+to change the DOM, as a result of losing subtree information.
+Often, as with our RipVanWinkle example,
+this simplification has no adverse effects.</p>
+
+<p>The assignment operator (=) sets the text
+of the Element returned by the querySelector() function
+to the string “Wake up, sleepy head!”.</p>
+
+<pre class="prettyprint lang-dart allow-scroll">
+querySelector('#RipVanWinkle').text <a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="Dynamically changes the DOM">=</a> 'Wake up, sleepy head!';
+</pre>
+
+<p>This causes the browser to immediately re-render
+the browser page containing this app, thus
+dynamically displaying the text on the browser page.</p>
+
+<h2 id="connections">
+<a id="connections" class="anchor" href="#connections" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML and Dart connections</h2>
+
+<p>The Dart web app changed
+the text in the browser window dynamically at runtime.
+Of course, placing text on a browser page
+and doing nothing else
+could be accomplished with straight HTML.
+This little app only shows you how to make a connection
+from a Dart app to a browser page.</p>
+
+<p>In DartPad, the only visible connection between
+the Dart code and the HTML code
+is the RipVanWinkle ID.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/dart-html-connect.png" alt="The RipVanWinkle ID is used by both Dart and HTML"></p>
+
+<p>To run your app outside of DartPad, you need to compile your Dart
+code to JavaScript. <a href="/tools/webdev#build">Use the <strong>webdev build</strong> command</a>
+to compile your app to deployable JavaScript.
+Then you need to make another connection between the HTML and
+generated JavaScript: you must add a &lt;script&gt; tag to the HTML
+to tell the browser where to find the compiled Dart code.</p>
+
+<p>Here’s the full HTML code for this app,
+assuming that the Dart code is in a file named <code class="highlighter-rouge">main.dart</code>:</p>
+
+<pre class="prettyprint lang-dart allow-scroll">
+&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;A Minimalist App&lt;/title&gt;
+    <a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="Specifies the location of the compiled Dart code">&lt;script defer src="main.dart.js"&gt;&lt;/script&gt;</a>
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p id="RipVanWinkle"&gt;
+      RipVanWinkle paragraph.
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h2 id="add-css">
+<a id="add-css" class="anchor" href="#add-css" aria-hidden="true"><span class="octicon octicon-link"></span></a>Give the app some style with CSS</h2>
+
+<p>Most HTML uses cascading style sheets (CSS) to define <em>styles</em>
+that control the appearance of page elements.
+Let’s customize the CSS for the mini app.</p>
+
+<ol>
+  <li>
+    <p>Click <strong>CSS</strong>.
+The view switches from Dart code to the (non-existent) CSS code.</p>
+  </li>
+  <li>
+    <p>Add the following CSS code:</p>
+
+    <pre>#RipVanWinkle {
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  margin-top: 20px;
+  background-color: SlateBlue;
+  color: Yellow;
+}</pre>
+  </li>
+</ol>
+
+<p>The display under HTML OUTPUT immediately changes
+to reflect the new styles,
+which apply only to the page element
+that has the ID RipVanWinkle.</p>
+
+<h2 id="about-css-selectors">
+<a id="about-css-selectors" class="anchor" href="#about-css-selectors" aria-hidden="true"><span class="octicon octicon-link"></span></a>About CSS selectors</h2>
+
+<p>IDs, classes, and other information about elements
+are established in HTML.
+Your Dart code can use this information
+to get elements using a CSS selector—a pattern
+used to select matching elements in the DOM.
+CSS selectors allow the CSS, HTML, and Dart code
+to refer to the same objects.
+Commonly, a selector specifies an ID,
+an HTML element type,
+a class, or an attribute.
+Selectors can also be nested.</p>
+
+<p>CSS selectors are important in Dart programs
+because you use them with querySelector() and querySelectorAll()
+to get matching elements from the DOM.
+Most often Dart programs use ID selectors with querySelector()
+and class selectors with querySelectorAll().</p>
+
+<p>Here are some examples of CSS selectors:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Selector type</th>
+      <th>Example</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID selector</td>
+      <td>#RipVanWinkle</td>
+      <td>Matches a single, unique element</td>
+    </tr>
+    <tr>
+      <td>HTML element</td>
+      <td>p</td>
+      <td>Matches all paragraphs</td>
+    </tr>
+    <tr>
+      <td>HTML element</td>
+      <td>h1</td>
+      <td>Matches all level-one headers</td>
+    </tr>
+    <tr>
+      <td>Class</td>
+      <td><em>.classname</em></td>
+      <td>Matches all items with the class <em>classname</em>
+</td>
+    </tr>
+    <tr>
+      <td>Asterisk</td>
+      <td>*</td>
+      <td>Matches all elements</td>
+    </tr>
+    <tr>
+      <td>Attribute</td>
+      <td>input[type=”button”]</td>
+      <td>Matches all button input elements</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="alert alert-info">
+<strong>Tip:</strong>
+As you saw,
+the mini app used a CSS selector,
+the ID #RipVanWinkle,
+even when there was no CSS file.
+You do not need a CSS file for a Dart program.
+Nor do you need a CSS file to use CSS selectors.
+CSS selectors are established in the HTML file
+and used by the Dart program
+to select matching elements.
+</aside>
+
+<p>Let’s look at the CSS code for the mini app.
+The CSS file for the mini app has one CSS rule in it.
+A CSS rule has two main parts: a selector and a set of declarations.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/css-rule-explained.png" alt="The parts of a CSS rule"></p>
+
+<p>In the mini app, the selector #RipVanWinkle is an ID selector,
+as signaled by the hash tag (#);
+it matches a single, unique element with the specified ID,
+our now tired RipVanWinkle paragraph element.
+RipVanWinkle is the ID in the HTML file.
+It is referred to in the CSS file and in the Dart code
+using a hash tag(#).
+Classnames are specified in the HTML file without a period (.)
+and referred to in the CSS file and in Dart code with a period (.).</p>
+
+<p>Between the curly brackets of a CSS rule is
+a list of declarations,
+each of which ends in a semi-colon (;).
+Each declaration specifies a property and its value.
+Together the set of declarations define the <em>style sheet</em>
+for all matching elements.
+The style sheet is used to set the appearance
+of the matching element(s) on the web page.</p>
+
+<p><img class="scale-img-max" src="/tutorials/web/images/css-property-value.png" alt="A declaration specifies an attribute and its value"></p>
+
+<p>The CSS rule for the RipVanWinkle paragraph
+specifies several properties;
+for example, it sets the text color to Yellow.</p>
+
+<h2 id="other-resources">
+<a id="other-resources" class="anchor" href="#other-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other resources</h2>
+
+<ul>
+  <li>The <a href="/guides/language/language-tour">language tour</a>
+provides thorough coverage of the Dart language.</li>
+  <li>
+<a href="/tools">Dart tools page</a>
+lists IDEs and editors that have Dart plugins.</li>
+</ul>
+
+<h2 id="what-next">
+<a id="what-next" class="anchor" href="#what-next" aria-hidden="true"><span class="octicon octicon-link"></span></a>What next?</h2>
+
+<p>The next tutorial, <a href="add-elements">Add elements to the DOM</a>,
+shows you how to dynamically change the HTML page
+by adding elements to the DOM.</p>
+
+
+
+
+
+          
+<nav id="subnav">
+  <ul>
+    <li class="previous">
+      
+    </li>
+    <li class="next">
+      
+        <a href="/tutorials/web/low-level-html/add-elements">Add elements to the DOM&nbsp;&nbsp;&rang;</a>
+      
+    </li>
+  </ul>
+</nav>
+
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="content">
+      <div class="text-center" martdown="1">
+        <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/security">Security</a></li>
+          <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
+          <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+          <li><a href="/about_zh_CN">关于 dartlang 中文版</a></li>
+          <li>
+            <a href="https://github.com/dartchina/site-www-cn"
+               title="该站在 GitHub 开源"
+               class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+            &nbsp;
+            <a href="https://github.com/dartchina/site-www-cn/issues"
+               title="为该站提交 issue"
+               class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+            &nbsp;
+            <a 
+               title="Site built on 2019/05/10 02:48 PDT"
+               
+               class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

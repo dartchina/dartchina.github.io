@@ -26,10 +26,9 @@
   <meta property="og:description" content="You have questions about Dart, we have answers." />
   <meta property="og:url" content="https://www.dartlang.org/faq.html" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" integrity="sha256-EULh7n7c0RZiOHiikIAEzXBQ0AXvb71Ul6a85V4AuTc=" crossorigin="anonymous" href="/assets/main-1142e1ee7edcd116623878a2908004cd7050d005ef6fbd5497a6bce55e00b937.css">
-  <script src="/assets/main-8306ad9c5a7b0d639cab54fda750f6ae0b3fb8f964457c69a7ef962a0cc52902.js" integrity="sha256-gwatnFp7DWOcq1T9p1D2rgs/uPlkRXxpp++WKgzFKQI=" crossorigin="anonymous" type="text/javascript"></script>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" integrity="sha256-lXNilrVoDl/TpTBbRIJ9fTZIFZ6OcziJrUwDEUq+4zk=" crossorigin="anonymous" href="/assets/main-95736296b5680e5fd3a5305b44827d7d3648159e8e733889ad4c03114abee339.css">
+  <script src="/assets/main-81783b1b9a1d39209aa2ec2eab702b1f7908b15082a3aef81ba13f2255d48ec4.js" integrity="sha256-gXg7G5odOSCaouwuq3ArH3kIsVCCo674G6E/IlXUjsQ=" crossorigin="anonymous" type="text/javascript"></script>
   <script>
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -43,32 +42,37 @@ ga('send', 'pageview');
 </script>
 
 
-</head>
-
-  <body class="default">
-    <header id="page-header">
-  <nav id="mainnav">
+ </head>
+  <body class="default show_banner">
+    <header id="page-header" class="site-header">
+  <nav id="mainnav" class="site-header">
   <div id="menu-toggle"><i class="icon icon-menu"></i></div>
   <a href="/" class="brand" title="Dart">
-    <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/white-e71fb382ad5229792cc704b3ee7a88f8013e986d6e34f0956d89c453b454d0a5.svg" alt="Dart">
   </a>
-  <ul>
-    <li class="mainnav__get-started"><a href="/guides/get-started"><span>入门</span></a></li>
-    <li><a href="/guides/language">语言</a></li>
-    <li><a href="/guides/libraries">库</a></li>
-    <li><a href="/tools">工具</a></li>
-    
-    
-    <li><a href="/community">Community</a></li>
-    
+  <ul class="navbar">
+    <li class="mainnav__get-started">
+      <a href="/docs" class="nav-link"><span>文档</span></a>
+    </li>
+    <li>
+      <a href="/platforms" class="nav-link">平台</a>
+    </li>
+    <li>
+      <a href="/community" class="nav-link">社区</a>
+    </li>
+    <li>
+      <a href="https://dartpad.cn/" target="_blank" class="nav-link no-automatic-external">体验 Dart</a>
+    </li>
+    <li>
+      <a href="/get-dart" class="nav-link">安装 Dart</a>
+    </li>
     <li><a href="/about_zh_CN">关于</a></li>
     <li class="searchfield">
-      <form class="navbar-search" action="/search" id="cse-search-box">
+      <form action="/search" class="site-header__search form-inline" id="cse-search-box">
         <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
         <input type="hidden" name="ie" value="UTF-8">
         <input type="hidden" name="hl" value="en">
-        <input type="search" name="q" id="q" autocomplete="off" placeholder="Search">
-        <button type="submit"><i class="icon icon-search"></i></button>
+        <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
       </form>
     </li>
   </ul>
@@ -76,85 +80,521 @@ ga('send', 'pageview');
 
   
 </header>
+ <div class="banner">
+  <p class="banner__text">
+    
+    
+    Dart 2.3 发布，针对构建用户界面进行了优化。
+    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">了解更多。</a>
+  </p>
+</div>
+ 
 
-    <main id="page-content">
-      <div id="sidenav" class="">
-  <div class="content">
-    <a href="/" class="brand" title="Dart">
-      <img src="/assets/shared/dart/logo+text/horizontal/default-363c9c133ffb7780463d3d638632b64cc8221d74d93cd1002fb1efbbe9983bc9.svg" alt="Dart">
-    </a>
+    <div id="sidenav" class="">
+  <form action="/search/" class="site-header__search form-inline">
+    <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+  </form>
 
-    <div class="sidenav__search">
-      <p>
-        <a href="/search">Search <i class="icon icon-search"></i></a>
-      </p>
-    </div>
-
-    <ul>
-      <li>
-        <a class="btn btn-light" href="/guides/get-started">入门</a>
+  <div class="site-sidebar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="/platforms" class="nav-link">平台</a>
+      </li>
+      <li class="nav-item">
+        <a href="/community" class="nav-link">社区</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://dartpad.dartlang.org" class="nav-link">体验 Dart</a>
+      </li>
+      <li class="nav-item">
+        <a href="/guides" class="nav-link">文档</a>
       </li>
     </ul>
-    <h4 ><a href="/guides/language" title="语言">语言</a></h4>
-  <ul><li >
-          <a href="/guides/language/language-tour" title="概览">概览</a>
-        </li>
-        
-        <li >
-          <a href="/guides/language/effective-dart" title="Effective Dart">Effective Dart</a>
-          <i class="icon icon-arrow"></i>
-          <ul><li >
-                <a href="/guides/language/effective-dart/style" title="风格">风格</a>
-              </li><li >
-                <a href="/guides/language/effective-dart/documentation" title="文档">文档</a>
-              </li><li >
-                <a href="/guides/language/effective-dart/usage" title="使用">使用</a>
-              </li><li >
-                <a href="/guides/language/effective-dart/design" title="设计">设计</a>
-              </li>
-          </ul><li >
-          <a href="/samples" title="示例代码">示例代码</a>
-        </li>
-  </ul><h4 ><a href="/guides/libraries" title="库">库</a></h4>
-  <ul><li >
-          <a href="/guides/libraries/library-tour" title="概览">概览</a>
-        </li>
-  </ul><h4 ><a href="/guides/platforms" title="平台">平台</a></h4>
-  <ul><li >
-          <a href="https://flutterchina.club" title="移动端 (Flutter中文网)">移动端 (Flutter中文网)</a>
-        </li><li >
-          <a href="https://webdev.dartlang.org" title="Web">Web</a>
-        </li><li >
-          <a href="/server" title="服务器">服务器</a>
-        </li>
-  </ul><h4 ><a href="/guides/testing" title="测试">测试</a></h4>
-  <ul>
-  </ul><h4 >资源</h4>
-  <ul><li >
-          <a href="/install" title="安装">安装</a>
-        </li><li >
-          <a href="/codelabs" title="Codelab">Codelab</a>
-        </li><li >
-          <a href="/tutorials" title="学习指南">学习指南</a>
-        </li><li >
-          <a href="/tools" title="工具">工具</a>
-        </li><li >
-          <a href="/community" title="社区支持">社区支持</a>
-        </li>
+
+    <ul class="nav flex-column"><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-1" role="button"
+        aria-expanded="false" aria-controls="sidenav-1"
+      >示例 & 概览</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-1">
+        <li class="nav-item">
+    <a class="nav-link" href="/samples">语言示例</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/codelabs">Codelab</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials">概览</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-2" role="button"
+        aria-expanded="false" aria-controls="sidenav-2"
+      >语言</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/language/language-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-dart">类型系统</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/spec">规范</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/effective-dart">Effective Dart</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-3" role="button"
+        aria-expanded="false" aria-controls="sidenav-3"
+      >核心库</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/libraries">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/library-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-3-3"
+      href="#sidenav-3-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-3-3"
+    >文章
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/dart-io">Intro to dart:io</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/creating-streams">Creating streams</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-4" role="button"
+        aria-expanded="false" aria-controls="sidenav-4"
+      >包</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/packages">如何使用包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/useful-libraries">常用的包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/create-library-packages">创建包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/publishing">发布包</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-4-5"
+      href="#sidenav-4-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-4-5"
+    >引用包
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/dependencies">依赖</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/glossary">术语</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/package-layout">包的设计约定</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/environment-variables">Pub 环境变量</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/pubspec">Pubspec 文件</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/troubleshoot">Pub 问题分析与解决</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/versioning">版本</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-5" role="button"
+        aria-expanded="false" aria-controls="sidenav-5"
+      >开发</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5">
+        <li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/futures">Futures & Async-Await</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/json">使用 JSON</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/streams">Stream</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/mobile">移动应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-5"
+      href="#sidenav-5-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-5"
+    >命令行应用 & 服务应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/server">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/cmdline">编写命令行应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/httpserver">编写 HTTP 客户端和服务端应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/c-interop">C & C++ 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/libraries">库和包</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-6"
+      href="#sidenav-5-6" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-6"
+    >Web 应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/web">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/fetch-data">动态获取数据</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-6-4"
+      href="#sidenav-5-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-6-4"
+    >底层 Web 编程
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Dart 和 HTML 关联</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">在 DOM 中增加 Element</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">在 DOM 中移除 Element</a>
+  </li>
   </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link" href="/web/js-interop">JS/TS 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/deployment">开发</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/libraries">库和包</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-6" role="button"
+        aria-expanded="false" aria-controls="sidenav-6"
+      >工具 & 技巧</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6">
+        <li class="nav-item">
+    <a class="nav-link" href="/tools">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-2"
+      href="#sidenav-6-2" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-2"
+    >编辑 & 调试
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-devtools">Dart DevTool</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/dartpad">DartPad</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/jetbrains-plugin">IntelliJ & Android Studio</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/vs-code">VS Code</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-3"
+      href="#sidenav-6-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-3"
+    >Command-line tools
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-3">
+      <li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-1"
+      href="#sidenav-6-3-1" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-1"
+    >Dart SDK
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-1">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/sdk">综述</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-vm">dart (Dart VM)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2aot">dart2aot & dartaotruntime</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2js">dart2js (prod JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartanalyzer">dartanalyzer</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdevc">dartdevc (dev JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdoc">dartdoc</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartfmt">dartfmt</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/cmd">pub</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-2"
+      href="#sidenav-6-3-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-2"
+    >其他命令行工具
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/build_runner">build_runner</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/webdev">webdev</a>
+  </li>
+  </ul>
+  </li>
+</ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-4"
+      href="#sidenav-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-4"
+    >源码管理
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/formatting">格式化代码</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/private-files">哪些内容不应该被提交</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-5"
+      href="#sidenav-6-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-5"
+    >静态分析
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/analysis-options">Customizing static analysis</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-problems">Fixing common type problems</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-6"
+      href="#sidenav-6-6" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-6"
+    >测试 & 优化
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/testing">测试</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/debugging">调试 Web 应用</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link active" data-toggle="collapse" href="#sidenav-7" role="button"
+        aria-expanded="true" aria-controls="sidenav-7"
+      >资源</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-7">
+        <li class="nav-item">
+    <a class="nav-link" href="/code-of-conduct">行为守则</a>
+  </li><li class="nav-item">
+    <a class="nav-link active" href="/faq">FAQ</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-7-3"
+      href="#sidenav-7-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-7-3"
+    >历史
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/dart-2">迁移到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/dart-2">迁移 Web 应用到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/obsolete">过时的 Pub 功能</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link " data-toggle="collapse" href="#sidenav-8" role="button"
+        aria-expanded="true" aria-controls="sidenav-8"
+      >相关网站</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-8">
+        <li class="nav-item">
+    <a class="nav-link" href="https://api.dartlang.org" target="_blank" rel="noopener">API 参考<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://medium.com/dartlang" target="_blank" rel="noopener">Blog<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://dartpad.cn" target="_blank" rel="noopener">DartPad (在线编辑器)<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://flutter.dev" target="_blank" rel="noopener">Flutter<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Pub 包资源<i class="fas fa-external-link-alt"></i></a>
+  </li>
+</ul>
+    </li></ul>
+
   </div>
 </div>
 
+    <main id="page-content">
       
-<div id="toc">
-  <div class="content">
-    <header class="h4 text-uppercase">
-      目录
-      <a title="Back to top" class="back-to-top float-right mr-3">
-        <i class="fas fa-angle-up"></i>
-      </a>
-    </header>
-    <ul class="section-nav">
+
+
+
+
+
+
+
+<div id="site-toc--side" class="site-toc ">
+  <header class="site-toc__title">
+    内容
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+  </header>
+  <ul class="section-nav nav">
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#general">General</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-is-dart-an-open-standard">Q. Is Dart an open standard?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-how-are-you-taking-input-on-changes-to-the-dart-repository">Q. How are you taking input on changes to the Dart repository?</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#language">Language</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-isnt-dart-a-lot-like-java">Q. Isn’t Dart a lot like Java?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-how-does-dart-relate-to-go">Q. How does Dart relate to Go?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-why-isnt-dart-more-like-haskell--smalltalk--python--scala--other-language">Q. Why isn’t Dart more like Haskell / Smalltalk / Python / Scala / other language?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-why-isnt-dart-syntax-more-exciting">Q. Why isn’t Dart syntax more exciting?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-does-dart-have-reflection-capabilities">Q. Does Dart have reflection capabilities?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-can-dart-add-tuples-pattern-matching-non-nullable-types-partial-evaluation-optional-semicolons-">Q. Can Dart add tuples, pattern matching, non-nullable types, partial evaluation, optional semicolons, …?</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#types">Types</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-is-dart-a-statically-typed-language">Q. Is Dart a statically typed language?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-why-are-generics-covariant">Q. Why are generics covariant?</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#usage-and-tools">Usage and tools</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-does-dart-support-json">Q. Does Dart support JSON?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-can-dart-run-on-the-server">Q. Can Dart run on the server?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-how-do-i-use-third-party-code-or-share-code">Q. How do I use third party code, or share code?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-do-i-need-to-use-a-particular-editor-or-ide-to-write-dart-code">Q. Do I need to use a particular editor or IDE to write Dart code?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-can-i-build-an-android-app-with-dart">Q. Can I build an Android app with Dart?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-what-are-some-real-world-production-deployments-of-dart">Q. What are some real-world production deployments of Dart?</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#web-general">Web: general</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-what-browsers-do-you-support-as-javascript-compilation-targets">Q. What browsers do you support as JavaScript compilation targets?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-is-dart-supported-by-my-browser">Q. Is Dart supported by my browser?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-how-do-i-debug-an-app">Q. How do I debug an app?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-what-web-frameworks-can-i-use-with-dart">Q. What web frameworks can I use with Dart?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-will-the-dart-vm-get-into-chrome">Q. Will the Dart VM get into Chrome?</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#web-javascript-and-other-technologies">Web: JavaScript and other technologies</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-how-does-dart-code-interoperate-with-javascript-libraries">Q. How does Dart code interoperate with JavaScript libraries?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-i-have-a-large-javascript-codebase-how-can-i-migrate-it-to-dart">Q. I have a large JavaScript codebase. How can I migrate it to Dart?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-how-does-dart-compare-with-using-the-closure-compiler-on-javascript">Q. How does Dart compare with using the Closure compiler on JavaScript?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-how-does-dart-compare-with-coffeescript">Q. How does Dart compare with CoffeeScript?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-what-does-google-think-of-typescript">Q. What does Google think of TypeScript?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-i-have-a-large-app-written-in-gwt-how-do-i-port-it-to-dart">Q. I have a large app written in GWT. How do I port it to Dart?</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#web-javascript-compilation">Web: JavaScript compilation</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-will-any-valid-dart-code-compile-to-javascript-or-are-there-limitations">Q. Will any valid Dart code compile to JavaScript, or are there limitations?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-why-does-dart-have-two-javascript-compilers-dartdevc-and-dart2js">Q. Why does Dart have two JavaScript compilers, dartdevc and dart2js?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-how-can-dart2js-produce-javascript-that-runs-faster-than-handwritten-javascript">Q. How can dart2js produce JavaScript that runs faster than handwritten JavaScript?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-how-can-i-write-dart-code-that-compiles-to-performant-javascript">Q. How can I write Dart code that compiles to performant JavaScript?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-why-is-the-code-for-hello-world-so-big-compared-to-the-original-dart-code-after-compilation-to-javascript">Q. Why is the code for “Hello, World” so big, compared to the original Dart code after compilation to JavaScript?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-how-are-floating-point-numbers-handled-when-compiled-to-javascript">Q. How are floating point numbers handled when compiled to JavaScript?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-how-are-integers-handled-when-compiled-to-javascript">Q. How are integers handled when compiled to JavaScript?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-how-are-typed-lists-handled-when-compiled-to-javascript">Q. How are typed lists handled when compiled to JavaScript?</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#q-why-not-compile-dart-to-asmjs-instead-of-javascript">Q. Why not compile Dart to asm.js instead of JavaScript?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/faq.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Dart FAQ' page issue&body=
+Page URL: https://www.dartlang.org/faq.html%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/faq.md%0D%0A
+%0D%0A
+Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
+%0D%0A
+Description of issue:" class="btn no-automatic-external" title="Report an issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>Dart FAQ</h1>
+          </div>
+          
+
+
+
+
+
+
+
+<div id="site-toc--inline" class="site-toc toc-collapsible toc-collapsed">
+  <header class="site-toc__title">
+    内容
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+      <span class="site-toc--inline__toggle toc-toggle-down"><i class="fas fa-chevron-down fa-m"></i></span>
+      <span class="site-toc--inline__toggle toc-toggle-up"><i class="fas fa-chevron-up fa-m"></i></span>
+    
+  </header>
+  <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#general">General</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#q-is-dart-an-open-standard">Q. Is Dart an open standard?</a></li>
@@ -187,50 +627,46 @@ ga('send', 'pageview');
 <li class="toc-entry toc-h3"><a href="#q-what-are-some-real-world-production-deployments-of-dart">Q. What are some real-world production deployments of Dart?</a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#web-general">Web: general</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#q-what-browsers-do-you-support-as-javascript-compilation-targets">Q. What browsers do you support as JavaScript compilation targets?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-is-dart-supported-by-my-browser">Q. Is Dart supported by my browser?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-how-do-i-debug-an-app">Q. How do I debug an app?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-what-web-frameworks-can-i-use-with-dart">Q. What web frameworks can I use with Dart?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-will-the-dart-vm-get-into-chrome">Q. Will the Dart VM get into Chrome?</a></li>
 </ul>
-  </div>
+</li>
+<li class="toc-entry toc-h2"><a href="#web-javascript-and-other-technologies">Web: JavaScript and other technologies</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#q-how-does-dart-code-interoperate-with-javascript-libraries">Q. How does Dart code interoperate with JavaScript libraries?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-i-have-a-large-javascript-codebase-how-can-i-migrate-it-to-dart">Q. I have a large JavaScript codebase. How can I migrate it to Dart?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-how-does-dart-compare-with-using-the-closure-compiler-on-javascript">Q. How does Dart compare with using the Closure compiler on JavaScript?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-how-does-dart-compare-with-coffeescript">Q. How does Dart compare with CoffeeScript?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-what-does-google-think-of-typescript">Q. What does Google think of TypeScript?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-i-have-a-large-app-written-in-gwt-how-do-i-port-it-to-dart">Q. I have a large app written in GWT. How do I port it to Dart?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#web-javascript-compilation">Web: JavaScript compilation</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#q-will-any-valid-dart-code-compile-to-javascript-or-are-there-limitations">Q. Will any valid Dart code compile to JavaScript, or are there limitations?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-why-does-dart-have-two-javascript-compilers-dartdevc-and-dart2js">Q. Why does Dart have two JavaScript compilers, dartdevc and dart2js?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-how-can-dart2js-produce-javascript-that-runs-faster-than-handwritten-javascript">Q. How can dart2js produce JavaScript that runs faster than handwritten JavaScript?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-how-can-i-write-dart-code-that-compiles-to-performant-javascript">Q. How can I write Dart code that compiles to performant JavaScript?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-why-is-the-code-for-hello-world-so-big-compared-to-the-original-dart-code-after-compilation-to-javascript">Q. Why is the code for “Hello, World” so big, compared to the original Dart code after compilation to JavaScript?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-how-are-floating-point-numbers-handled-when-compiled-to-javascript">Q. How are floating point numbers handled when compiled to JavaScript?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-how-are-integers-handled-when-compiled-to-javascript">Q. How are integers handled when compiled to JavaScript?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-how-are-typed-lists-handled-when-compiled-to-javascript">Q. How are typed lists handled when compiled to JavaScript?</a></li>
+<li class="toc-entry toc-h3"><a href="#q-why-not-compile-dart-to-asmjs-instead-of-javascript">Q. Why not compile Dart to asm.js instead of JavaScript?</a></li>
+</ul>
+</li>
+</ul>
 </div>
 
 
-      <article>
-        <div class="content">
-           <div class="banner alert alert-info">
-  <p class="banner__text">
-    
-    
-    Dart 2.2 现发布，更高的本地代码执行及 Set 字面量的支持。
-    <a href="https://medium.com/dartlang/announcing-dart-2-2-faster-native-code-support-for-set-literals-7e2ab19cc86d">了解更多。</a>
-  </p>
-</div>
- 
-          
-
-          <div>
-            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
-  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/faq.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
-    <i class="fas fa-file-alt fa-sm"></i>
-  </a>
-  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Dart FAQ' page issue&body=
-Page URL: https://www.dartlang.org/faq.html%0D%0A
-Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/faq.md%0D%0A
-%0D%0A
-<!-- ADD YOUR DESCRIPTION OF THE PAGE ISSUE HERE: -->" class="btn no-automatic-external" title="Report a issue with this page"
-    target="_blank" rel="noopener">
-    <i class="fas fa-bug fa-sm"></i>
-  </a>
-</div>
-
-            <h1>Dart FAQ</h1>
-          </div>
           <p><em>Updated May 2018</em></p>
 
 <p>This page collects some of the top questions we’ve heard from the community
-since Dart was open sourced. For other questions and answers, see:</p>
-
-<ul>
-  <li><a href="https://flutterchina.club/faq/">Flutter FAQ</a></li>
-  <li><a href="https://webdev.dartlang.org/faq">Dart web development FAQ</a></li>
-</ul>
+since Dart was open sourced.</p>
 
 <h2 id="general">
 <a id="general" class="anchor" href="#general" aria-hidden="true"><span class="octicon octicon-link"></span></a>General</h2>
@@ -248,11 +684,13 @@ specification available for Ecma TC52 in the coming quarters.</p>
 <h3 id="q-how-are-you-taking-input-on-changes-to-the-dart-repository">
 <a id="q-how-are-you-taking-input-on-changes-to-the-dart-repository" class="anchor" href="#q-how-are-you-taking-input-on-changes-to-the-dart-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. How are you taking input on changes to the Dart repository?</h3>
 
-<p>We listen to feedback and <a href="https://github.com/dart-lang/sdk/issues?q=is%3Aopen+is%3Aissue+label%3Aarea-language">issues</a>, and we review patches from contributors.
+<p>We listen to feedback and <a href="https://github.com/dart-lang/sdk/issues">issues,</a> and we review patches from contributors.
 A contributor with a good track record can become a committer to the repository.
 Google engineers will also be working in the public repository, making visible
 changes. The project is lucky to have received many external patches and has
 welcomed distributed committers.</p>
+
+<hr>
 
 <h2 id="language">
 <a id="language" class="anchor" href="#language" aria-hidden="true"><span class="octicon octicon-link"></span></a>Language</h2>
@@ -307,8 +745,8 @@ literally on my first day of writing Dart code, I was productive in it.”</p>
 <h3 id="q-does-dart-have-reflection-capabilities">
 <a id="q-does-dart-have-reflection-capabilities" class="anchor" href="#q-does-dart-have-reflection-capabilities" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Does Dart have reflection capabilities?</h3>
 
-<p>For servers and command-line scripts, we have reflection support from
-the <a href="/articles/libraries/reflection-with-mirrors">mirrors API</a>.
+<p>For servers and command-line scripts, we have reflection support from the
+<a href="https://api.dartlang.org/stable/dart-mirrors">mirrors API.</a>
 There is no support for mirrors when using Dart to write web or
 Flutter apps (<a href="https://flutterchina.club/faq/#does-flutter-come-with-a-reflectionmirrors-system">more info</a>).</p>
 
@@ -320,7 +758,7 @@ we can’t include everything. Some features don’t fit the basic nature of the
 language, and some don’t play well with other features. Simplicity is the single
 most important gift we can give to future programmers.</p>
 
-<p>Please look at the <a href="https://github.com/dart-lang/sdk/issues?q=is%3Aopen+is%3Aissue+label%3Aarea-language">list of language issues</a> to see if your request is
+<p>Please look at the <a href="https://github.com/dart-lang/language/issues">list of language issues</a> to see if your request is
 already there. If it is, let us know that you care and give it a thumbs up.
 Otherwise, go ahead and add a new issue.  Make a thoughtful argument for your feature.
 Sample code with and without your feature is good evidence; a sizeable codebase
@@ -334,13 +772,16 @@ that can fit into any single language without making a total hash of it.   But
 we do very much appreciate suggestions and evidence.  We hope you’ll see our
 appreciation through careful design choices and fair communication about them.</p>
 
+<hr>
+
 <h2 id="types">
 <a id="types" class="anchor" href="#types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Types</h2>
 
 <h3 id="q-is-dart-a-statically-typed-language">
 <a id="q-is-dart-a-statically-typed-language" class="anchor" href="#q-is-dart-a-statically-typed-language" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Is Dart a statically typed language?</h3>
 
-<p>Yes, Dart 2 is statically typed. For more information, see <a href="/guides/language/sound-dart">Dart’s Type System</a>.</p>
+<p>Yes, Dart 2 is statically typed. For more information,
+read about <a href="/guides/language/sound-dart">Dart’s type system</a>.</p>
 
 <p>With its combination of static and runtime checks, Dart has a sound type system,
 which guarantees that an expression of one type cannot produce a value of
@@ -371,6 +812,8 @@ their benefit in Dart.</p>
 
 <p>Again, we’re trying to be pragmatic, and we think the outcome is reasonable.</p>
 
+<hr>
+
 <h2 id="usage-and-tools">
 <a id="usage-and-tools" class="anchor" href="#usage-and-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage and tools</h2>
 
@@ -394,10 +837,10 @@ to the site.</p>
 <h3 id="q-do-i-need-to-use-a-particular-editor-or-ide-to-write-dart-code">
 <a id="q-do-i-need-to-use-a-particular-editor-or-ide-to-write-dart-code" class="anchor" href="#q-do-i-need-to-use-a-particular-editor-or-ide-to-write-dart-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Do I need to use a particular editor or IDE to write Dart code?</h3>
 
-<p>Nope. You can try out Dart code with <a href="https://dartpad.cn">DartPad</a>, and then use your favorite
+<p>Nope. You can try out Dart code with <a href="https://dartpad.cn">DartPad,</a> and then use your favorite
 editor or IDE for development. Some full-featured IDEs such as IntelliJ IDEA,
 WebStorm, and Visual Studio Code have Dart plugins. Open source Dart plugins
-also exist for a number of editors. For more information, see <a href="/tools/">Dart Tools</a>.</p>
+also exist for a number of editors. For more information, see the <a href="/tools/">Dart tools</a>.</p>
 
 <h3 id="q-can-i-build-an-android-app-with-dart">
 <a id="q-can-i-build-an-android-app-with-dart" class="anchor" href="#q-can-i-build-an-android-app-with-dart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Can I build an Android app with Dart?</h3>
@@ -410,7 +853,255 @@ using <a href="https://flutterchina.club">Flutter.</a></p>
 
 <p>Google AdWords, AdSense, and AdMob all use Dart.
 More than 75% of Google’s revenue flows through these apps.
-See <a href="/community/who-uses-dart">Who Uses Dart</a> for a more complete list.</p>
+Inside or outside of Google, every Flutter app uses Dart.</p>
+
+<hr>
+
+<h2 id="web-general">
+<a id="web-general" class="anchor" href="#web-general" aria-hidden="true"><span class="octicon octicon-link"></span></a>Web: general</h2>
+
+<h3 id="q-what-browsers-do-you-support-as-javascript-compilation-targets">
+<a id="q-what-browsers-do-you-support-as-javascript-compilation-targets" class="anchor" href="#q-what-browsers-do-you-support-as-javascript-compilation-targets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. What browsers do you support as JavaScript compilation targets?</h3>
+
+<p>The <em>production</em> compiler (<a href="/tools/dart2js">dart2js</a>) supports Internet Explorer 11
+and the last two major releases of the following browsers:</p>
+
+<ul>
+  <li>Chrome</li>
+  <li>Edge</li>
+  <li>Firefox</li>
+  <li>Safari</li>
+</ul>
+
+<p>The <em>development</em> compiler (<a href="/tools/dartdevc">dartdevc</a>) supports only Chrome.</p>
+
+<h3 id="q-is-dart-supported-by-my-browser">
+<a id="q-is-dart-supported-by-my-browser" class="anchor" href="#q-is-dart-supported-by-my-browser" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Is Dart supported by my browser?</h3>
+
+<p>Although no production browsers can execute Dart code directly,
+all modern browsers can execute Dart code that’s been compiled to JavaScript.</p>
+
+<h3 id="q-how-do-i-debug-an-app">
+<a id="q-how-do-i-debug-an-app" class="anchor" href="#q-how-do-i-debug-an-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. How do I debug an app?</h3>
+
+<p>For setup details and a walkthrough, see <a href="/web/debugging">Debugging Dart Web Apps</a>.</p>
+
+<p>The <a href="/tools/dart2js#debugging">debugging</a> section of the dart2js documentation
+has some tips for specific browsers.</p>
+
+<h3 id="q-what-web-frameworks-can-i-use-with-dart">
+<a id="q-what-web-frameworks-can-i-use-with-dart" class="anchor" href="#q-what-web-frameworks-can-i-use-with-dart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. What web frameworks can I use with Dart?</h3>
+
+<p>You can use the low-level HTML API defined by core libraries such as dart:html,
+or you can use a framework such as <a href="https://webdev.dartlang.org/angular">AngularDart</a>.
+At <a href="https://developers.google.com/events/flutter-live/">Flutter Live</a> we announced <a href="https://medium.com/flutter-io/hummingbird-building-flutter-for-the-web-e687c2a023a8">Hummingbird</a> as
+an experimental way to write web applications.
+We’ll let you know when Hummingbird is ready to use.</p>
+
+<h3 id="q-will-the-dart-vm-get-into-chrome">
+<a id="q-will-the-dart-vm-get-into-chrome" class="anchor" href="#q-will-the-dart-vm-get-into-chrome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Will the Dart VM get into Chrome?</h3>
+
+<p><a href="http://news.dartlang.org/2015/03/dart-for-entire-web.html">No.</a>
+Dart is designed to compile to JavaScript to run across the modern web.</p>
+
+<hr>
+
+<h2 id="web-javascript-and-other-technologies">
+<a id="web-javascript-and-other-technologies" class="anchor" href="#web-javascript-and-other-technologies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Web: JavaScript and other technologies</h2>
+
+<h3 id="q-how-does-dart-code-interoperate-with-javascript-libraries">
+<a id="q-how-does-dart-code-interoperate-with-javascript-libraries" class="anchor" href="#q-how-does-dart-code-interoperate-with-javascript-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. How does Dart code interoperate with JavaScript libraries?</h3>
+
+<p>Although Dart and JavaScript are completely separate languages with
+separate VMs, they can interoperate. For more information, see
+<a href="https://pub.dev/packages/js">package:js</a> and
+the <a href="https://github.com/google/chartjs.dart/">chartjs</a> example.</p>
+
+<h3 id="q-i-have-a-large-javascript-codebase-how-can-i-migrate-it-to-dart">
+<a id="q-i-have-a-large-javascript-codebase-how-can-i-migrate-it-to-dart" class="anchor" href="#q-i-have-a-large-javascript-codebase-how-can-i-migrate-it-to-dart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. I have a large JavaScript codebase. How can I migrate it to Dart?</h3>
+
+<p>Try migrating one major feature at a time, and use the
+<a href="https://pub.dev/packages/js">JavaScript interoperability library</a>
+only when necessary.</p>
+
+<h3 id="q-how-does-dart-compare-with-using-the-closure-compiler-on-javascript">
+<a id="q-how-does-dart-compare-with-using-the-closure-compiler-on-javascript" class="anchor" href="#q-how-does-dart-compare-with-using-the-closure-compiler-on-javascript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. How does Dart compare with using the Closure compiler on JavaScript?</h3>
+
+<p>The idea of optional type annotations is similar.
+Dart’s are nicer syntactically.</p>
+
+<p>Compare the following Closure compiler code:</p>
+
+<pre class="prettyprint lang-dart">// Closure compiler code
+
+/**
+ * @param {String} name
+ * @return {String}
+ */
+makeGreeting = function(name) {
+  /** @type {String} */
+  var greeting = 'hello ' + name;
+  return greeting;
+}</pre>
+
+<p>With the following Dart code:</p>
+
+<pre class="prettyprint lang-dart">// Dart code
+
+String makeGreeting(String name) {
+  var greeting = 'hello $name';
+  return greeting;
+}</pre>
+
+<h3 id="q-how-does-dart-compare-with-coffeescript">
+<a id="q-how-does-dart-compare-with-coffeescript" class="anchor" href="#q-how-does-dart-compare-with-coffeescript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. How does Dart compare with CoffeeScript?</h3>
+
+<p>Both Dart and CoffeeScript are inspired by JavaScript, and both can be
+translated back to it.  They make different choices, particularly in the flavor
+of their syntax.  As a language we think it’s fair to say that Dart differs
+semantically from JavaScript more than CoffeeScript does; that may result in a
+less line-for-line translation, but we believe Dart-generated JavaScript can
+have excellent size and speed.</p>
+
+<p>Dart introduces new semantics, while CoffeeScript retains the semantics
+of JavaScript.</p>
+
+<p>If you like CoffeeScript for its more structured feel than raw JavaScript, you
+may like Dart’s static type annotations.</p>
+
+<h3 id="q-what-does-google-think-of-typescript">
+<a id="q-what-does-google-think-of-typescript" class="anchor" href="#q-what-does-google-think-of-typescript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. What does Google think of TypeScript?</h3>
+
+<p>TypeScript and Dart have similar goals; they make building large-scale web
+apps easier. However, their approaches are fairly different. TypeScript
+maintains backwards compatability with JavaScript, whereas Dart purposely made a
+break from certain parts of JavaScript’s syntax and semantics in order to
+eradicate large classes of bugs and to improve performance. The web has suffered
+from too little choice for too long, and we think that both Dart and TypeScript
+are pointing to a brighter future for web developers. You can read a
+<a href="http://news.dartlang.org/2012/10/the-dart-team-welcomes-typescript.html">more complete response</a> on our blog.</p>
+
+<h3 id="q-i-have-a-large-app-written-in-gwt-how-do-i-port-it-to-dart">
+<a id="q-i-have-a-large-app-written-in-gwt-how-do-i-port-it-to-dart" class="anchor" href="#q-i-have-a-large-app-written-in-gwt-how-do-i-port-it-to-dart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. I have a large app written in GWT. How do I port it to Dart?</h3>
+
+<p>Java and Dart are syntactically similar,
+so this might be easier than you think.
+You can rely on the <a href="/tools/dartanalyzer">Dart analyzer</a>
+to flag any syntax problems. Alternatively, you may
+consider porting one feature at a time to Dart and using the
+<a href="https://pub.dev/packages/js">JavaScript interoperability library</a> as the common middle
+ground. Be sure to watch <a href="https://www.youtube.com/watch?v=aIonwL-8hdE">Dart-JavaScript
+interoperability,</a>
+a talk from Dart Developer Summit 2016.</p>
+
+<hr>
+
+<h2 id="web-javascript-compilation">
+<a id="web-javascript-compilation" class="anchor" href="#web-javascript-compilation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Web: JavaScript compilation</h2>
+
+<h3 id="q-will-any-valid-dart-code-compile-to-javascript-or-are-there-limitations">
+<a id="q-will-any-valid-dart-code-compile-to-javascript-or-are-there-limitations" class="anchor" href="#q-will-any-valid-dart-code-compile-to-javascript-or-are-there-limitations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Will any valid Dart code compile to JavaScript, or are there limitations?</h3>
+
+<p>We intend for any valid Dart code to compile to JavaScript.  Of course,
+some libraries only run on the server or in Flutter.
+For example, the <code class="highlighter-rouge">dart:io</code> library
+provides access to operating system files and directories with APIs not
+available to the browser.</p>
+
+<h3 id="q-why-does-dart-have-two-javascript-compilers-dartdevc-and-dart2js">
+<a id="q-why-does-dart-have-two-javascript-compilers-dartdevc-and-dart2js" class="anchor" href="#q-why-does-dart-have-two-javascript-compilers-dartdevc-and-dart2js" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Why does Dart have two JavaScript compilers, dartdevc and dart2js?</h3>
+
+<p>The two compilers have different use cases. You don’t usually have to worry
+about which compiler you’re using, because the <a href="/tools/webdev">webdev</a> tool
+chooses the right compiler for your use case. When you’re developing your app,
+webdev chooses <a href="/tools/dartdevc">dartdevc</a>, which supports incremental compilation so
+you can quickly see the results of your edits.
+When you’re building your app for deployment, webdev chooses <a href="/tools/dart2js">dart2js</a>,
+which uses techniques such as tree shaking to produce optimized code.</p>
+
+<h3 id="q-how-can-dart2js-produce-javascript-that-runs-faster-than-handwritten-javascript">
+<a id="q-how-can-dart2js-produce-javascript-that-runs-faster-than-handwritten-javascript" class="anchor" href="#q-how-can-dart2js-produce-javascript-that-runs-faster-than-handwritten-javascript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. How can dart2js produce JavaScript that runs faster than handwritten JavaScript?</h3>
+
+<p>Think of dart2js as a real compiler,
+which can analyze your entire program and make optimizations
+that you probably can’t or won’t do. Just like gcc can output efficient code
+by moving code around, dart2js can take advantage of Dart’s structured nature
+to implement global optimizations.</p>
+
+<p>We don’t claim that all Dart code will run faster
+than handwritten JavaScript, when compiled to JavaScript,
+but we’re working to make the common cases fast.</p>
+
+<h3 id="q-how-can-i-write-dart-code-that-compiles-to-performant-javascript">
+<a id="q-how-can-i-write-dart-code-that-compiles-to-performant-javascript" class="anchor" href="#q-how-can-i-write-dart-code-that-compiles-to-performant-javascript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. How can I write Dart code that compiles to performant JavaScript?</h3>
+
+<p>See <a href="/tools/dart2js#helping-dart2js-generate-efficient-code">Helping dart2js generate better
+code</a>.
+Just be aware that this information might change as the implementation of
+dart2js changes.</p>
+
+<h3 id="q-why-is-the-code-for-hello-world-so-big-compared-to-the-original-dart-code-after-compilation-to-javascript">
+<a id="q-why-is-the-code-for-hello-world-so-big-compared-to-the-original-dart-code-after-compilation-to-javascript" class="anchor" href="#q-why-is-the-code-for-hello-world-so-big-compared-to-the-original-dart-code-after-compilation-to-javascript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Why is the code for “Hello, World” so big, compared to the original Dart code after compilation to JavaScript?</h3>
+
+<p>We believe that it’s important to create small and efficient JavaScript
+from Dart, but most developers don’t write “Hello, World” apps. It’s all
+relative, and with tree shaking (dead code elimination), minification, and
+compression, Dart apps can be compiled to JavaScript fairly efficiently.</p>
+
+<p>Kevin Moore <a href="http://work.j832.com/2012/11/excited-to-see-dart2js-minified-output.html">saw improvements</a> in the size of the generated
+JavaScript from his real-world HTML5 game.</p>
+
+<p>The dart2js team strives to generate smaller output, but is more focused on
+real-world apps instead of trivial examples.</p>
+
+<h3 id="q-how-are-floating-point-numbers-handled-when-compiled-to-javascript">
+<a id="q-how-are-floating-point-numbers-handled-when-compiled-to-javascript" class="anchor" href="#q-how-are-floating-point-numbers-handled-when-compiled-to-javascript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. How are floating point numbers handled when compiled to JavaScript?</h3>
+
+<p>JavaScript has only one number representation: an IEEE-754 double-precision
+floating-point number. This means that any number—integer or floating
+point—is represented as a double. JavaScript has typed data arrays,
+and the mapping from native Dart typed lists to JavaScript typed arrays is trivial.</p>
+
+<h3 id="q-how-are-integers-handled-when-compiled-to-javascript">
+<a id="q-how-are-integers-handled-when-compiled-to-javascript" class="anchor" href="#q-how-are-integers-handled-when-compiled-to-javascript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. How are integers handled when compiled to JavaScript?</h3>
+
+<p>Because all numbers are stored as doubles,
+integers are restricted to a 53-bit precision.
+Integer values in the range of -2<sup>53</sup> to 2<sup>53</sup> can be stored
+without loss of accuracy.
+Because JavaScript VMs play tricks
+with the internal representation of numbers
+(similar to those described above),
+staying within smi range is still good practice.</p>
+
+<h3 id="q-how-are-typed-lists-handled-when-compiled-to-javascript">
+<a id="q-how-are-typed-lists-handled-when-compiled-to-javascript" class="anchor" href="#q-how-are-typed-lists-handled-when-compiled-to-javascript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. How are typed lists handled when compiled to JavaScript?</h3>
+
+<p>JavaScript offers typed arrays
+that are compatible with Dart’s typed lists.
+The mapping is trivial—for example,
+Float32List becomes a Float32Array.
+The one exception today is that dart2js does not support 64-bit integers
+and thus does not support Int64List or Uint64List.
+Dart code compiled via dart2js results in a runtime exception
+if either of those lists is used.</p>
+
+<h3 id="q-why-not-compile-dart-to-asmjs-instead-of-javascript">
+<a id="q-why-not-compile-dart-to-asmjs-instead-of-javascript" class="anchor" href="#q-why-not-compile-dart-to-asmjs-instead-of-javascript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Q. Why not compile Dart to asm.js instead of JavaScript?</h3>
+
+<p>Asm.js is a very restricted subset of JavaScript best suited as a compilation
+target for C compilers. It does not include JavaScript objects or direct
+access to the DOM. Essentially, it allows only arithmetic operations and
+manipulations on typed arrays.</p>
+
+<p>While it is possible to implement the features that Dart requires,
+they would incur a large overhead in both speed and size, compared to
+relying on the already existing features provided by the underlying
+JavaScript engine.
+For example, any JavaScript machine comes with a garbage collector;
+implementing another one in asm.js would increase the output size, and be
+noticeably slower than the well-tuned garbage collectors of
+modern JavaScript VMs.</p>
 
 
           
@@ -420,74 +1111,34 @@ See <a href="/community/who-uses-dart">Who Uses Dart</a> for a more complete lis
     </main>
     <footer id="page-footer">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-lg-3">
-        <div class="content">
-          <div class="brand">
-            <img src="/assets/shared/dart/logo+text/horizontal/mono-004b4974b3112e2d9136b1c457037dfd9fe54e2e69e850d777891e5c2a57a78d.svg" alt="Dart logo" class="brand"/>
-          </div>
-          <h4><a href="/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a></h4>
-          <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
-            <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
-            <li>
-              <a href="https://github.com/dartchina/site-www-cn"
-                 title="该站在 GitHub 开源"
-                 class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
-              &nbsp;
-              <a href="https://github.com/dartchina/site-www-cn/issues"
-                 title="为该站提交 issue"
-                 class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
-              &nbsp;
-              <a 
-                 title="Site built on 2019/05/09 19:58 PDT"
-                 
-                 class="no-automatic-external"><i class="material-icons">build</i></a>
-            </li>
-          </ul>
-          <h4><a href="/about_zh_CN">关于 dartlang 中文版</a></h4>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-3">
-        <div class="content">
-          <h4>技术</h4>
-          <ul>
-            <li><a href="https://flutterchina.club">Dart 移动开发 (Flutter)</a></li>
-            <li><a href="https://webdev.dartlang.org">Dart web 开发</a></li>
-            <li><a href="/server">Dart 服务器开发</a></li>
-            <li><a href="https://dart-lang.github.io/observatory/">Observatory 工具</a></li>
-            <li><a href="/guides/libraries">Dart 库</a></li>
-            <li><a href="/guides/language">Dart 编程语言</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-lg-3">
-        <div class="content">
-          <h4>资源</h4>
-          <ul>
-            <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
-            <li><a href="https://dartpad.cn">DartPad</a></li>
-            <li><a href="https://pub.dev">Dart packages</a></li>
-            <li><a href="https://news.dartlang.org">Dart 新闻</a></li>
-            <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-lg-3">
-        <div class="content">
-          <h4>社区</h4>
-          <ul>
-            <li><a href="/community">支持和邮件列表</a></li>
-            <li><a href="/community/who-uses-dart">谁在用Dart</a></li>
-            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
-            <li><a href="https://gitter.im/dart-lang/home">Gitter 聊天室</a></li>
-          </ul>
-        </div>
+    <div class="content">
+      <div class="text-center" martdown="1">
+        <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/security">Security</a></li>
+          <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
+          <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+          <li><a href="/about_zh_CN">关于 dartlang 中文版</a></li>
+          <li>
+            <a href="https://github.com/dartchina/site-www-cn"
+               title="该站在 GitHub 开源"
+               class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+            &nbsp;
+            <a href="https://github.com/dartchina/site-www-cn/issues"
+               title="为该站提交 issue"
+               class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+            &nbsp;
+            <a 
+               title="Site built on 2019/05/10 02:48 PDT"
+               
+               class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </footer>
+
 
   </body>
 </html>

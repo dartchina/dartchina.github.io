@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A guide to get you quickly writing web apps in Dart.">
+  <title>Get started: web apps | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Get started: web apps" />
+  <meta name="twitter:description" content="A guide to get you quickly writing web apps in Dart." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Get started: web apps" />
+  <meta property="og:description" content="A guide to get you quickly writing web apps in Dart." />
+  <meta property="og:url" content="https://www.dartlang.org/tutorials/web/get-started" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" integrity="sha256-lXNilrVoDl/TpTBbRIJ9fTZIFZ6OcziJrUwDEUq+4zk=" crossorigin="anonymous" href="/assets/main-95736296b5680e5fd3a5305b44827d7d3648159e8e733889ad4c03114abee339.css">
+  <script src="/assets/main-81783b1b9a1d39209aa2ec2eab702b1f7908b15082a3aef81ba13f2255d48ec4.js" integrity="sha256-gXg7G5odOSCaouwuq3ArH3kIsVCCo674G6E/IlXUjsQ=" crossorigin="anonymous" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+ </head>
+  <body class="tutorial show_banner">
+    <header id="page-header" class="site-header">
+  <nav id="mainnav" class="site-header">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/white-e71fb382ad5229792cc704b3ee7a88f8013e986d6e34f0956d89c453b454d0a5.svg" alt="Dart">
+  </a>
+  <ul class="navbar">
+    <li class="mainnav__get-started">
+      <a href="/docs" class="nav-link active"><span>文档</span></a>
+    </li>
+    <li>
+      <a href="/platforms" class="nav-link">平台</a>
+    </li>
+    <li>
+      <a href="/community" class="nav-link">社区</a>
+    </li>
+    <li>
+      <a href="https://dartpad.cn/" target="_blank" class="nav-link no-automatic-external">体验 Dart</a>
+    </li>
+    <li>
+      <a href="/get-dart" class="nav-link">安装 Dart</a>
+    </li>
+    <li><a href="/about_zh_CN">关于</a></li>
+    <li class="searchfield">
+      <form action="/search" class="site-header__search form-inline" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+ <div class="banner">
+  <p class="banner__text">
+    
+    
+    Dart 2.3 发布，针对构建用户界面进行了优化。
+    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">了解更多。</a>
+  </p>
+</div>
+ 
+
+    <div id="sidenav" class="">
+  <form action="/search/" class="site-header__search form-inline">
+    <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+  </form>
+
+  <div class="site-sidebar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="/platforms" class="nav-link">平台</a>
+      </li>
+      <li class="nav-item">
+        <a href="/community" class="nav-link">社区</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://dartpad.dartlang.org" class="nav-link">体验 Dart</a>
+      </li>
+      <li class="nav-item">
+        <a href="/guides" class="nav-link active">文档</a>
+      </li>
+    </ul>
+
+    <ul class="nav flex-column"><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-1" role="button"
+        aria-expanded="false" aria-controls="sidenav-1"
+      >示例 & 概览</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-1">
+        <li class="nav-item">
+    <a class="nav-link" href="/samples">语言示例</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/codelabs">Codelab</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials">概览</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-2" role="button"
+        aria-expanded="false" aria-controls="sidenav-2"
+      >语言</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/language/language-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-dart">类型系统</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/spec">规范</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/effective-dart">Effective Dart</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-3" role="button"
+        aria-expanded="false" aria-controls="sidenav-3"
+      >核心库</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/libraries">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/library-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-3-3"
+      href="#sidenav-3-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-3-3"
+    >文章
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/dart-io">Intro to dart:io</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/creating-streams">Creating streams</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-4" role="button"
+        aria-expanded="false" aria-controls="sidenav-4"
+      >包</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/packages">如何使用包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/useful-libraries">常用的包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/create-library-packages">创建包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/publishing">发布包</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-4-5"
+      href="#sidenav-4-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-4-5"
+    >引用包
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/dependencies">依赖</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/glossary">术语</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/package-layout">包的设计约定</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/environment-variables">Pub 环境变量</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/pubspec">Pubspec 文件</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/troubleshoot">Pub 问题分析与解决</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/versioning">版本</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link active" data-toggle="collapse" href="#sidenav-5" role="button"
+        aria-expanded="true" aria-controls="sidenav-5"
+      >开发</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-5">
+        <li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/futures">Futures & Async-Await</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/json">使用 JSON</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/streams">Stream</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/mobile">移动应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-5"
+      href="#sidenav-5-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-5"
+    >命令行应用 & 服务应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/server">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/cmdline">编写命令行应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/httpserver">编写 HTTP 客户端和服务端应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/c-interop">C & C++ 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/libraries">库和包</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link active collapsable"
+      data-toggle="collapse" data-target="#sidenav-5-6"
+      href="#sidenav-5-6" role="button"
+      aria-expanded="true" aria-controls="sidenav-5-6"
+    >Web 应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-5-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/web">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link active" href="/tutorials/web/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/fetch-data">动态获取数据</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-6-4"
+      href="#sidenav-5-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-6-4"
+    >底层 Web 编程
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Dart 和 HTML 关联</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">在 DOM 中增加 Element</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">在 DOM 中移除 Element</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link" href="/web/js-interop">JS/TS 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/deployment">开发</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/libraries">库和包</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-6" role="button"
+        aria-expanded="false" aria-controls="sidenav-6"
+      >工具 & 技巧</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6">
+        <li class="nav-item">
+    <a class="nav-link" href="/tools">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-2"
+      href="#sidenav-6-2" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-2"
+    >编辑 & 调试
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-devtools">Dart DevTool</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/dartpad">DartPad</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/jetbrains-plugin">IntelliJ & Android Studio</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/vs-code">VS Code</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-3"
+      href="#sidenav-6-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-3"
+    >Command-line tools
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-3">
+      <li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-1"
+      href="#sidenav-6-3-1" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-1"
+    >Dart SDK
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-1">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/sdk">综述</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-vm">dart (Dart VM)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2aot">dart2aot & dartaotruntime</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2js">dart2js (prod JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartanalyzer">dartanalyzer</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdevc">dartdevc (dev JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdoc">dartdoc</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartfmt">dartfmt</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/cmd">pub</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-2"
+      href="#sidenav-6-3-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-2"
+    >其他命令行工具
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/build_runner">build_runner</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/webdev">webdev</a>
+  </li>
+  </ul>
+  </li>
+</ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-4"
+      href="#sidenav-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-4"
+    >源码管理
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/formatting">格式化代码</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/private-files">哪些内容不应该被提交</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-5"
+      href="#sidenav-6-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-5"
+    >静态分析
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/analysis-options">Customizing static analysis</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-problems">Fixing common type problems</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-6"
+      href="#sidenav-6-6" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-6"
+    >测试 & 优化
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/testing">测试</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/debugging">调试 Web 应用</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-7" role="button"
+        aria-expanded="false" aria-controls="sidenav-7"
+      >资源</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7">
+        <li class="nav-item">
+    <a class="nav-link" href="/code-of-conduct">行为守则</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/faq">FAQ</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-7-3"
+      href="#sidenav-7-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-7-3"
+    >历史
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/dart-2">迁移到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/dart-2">迁移 Web 应用到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/obsolete">过时的 Pub 功能</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link " data-toggle="collapse" href="#sidenav-8" role="button"
+        aria-expanded="true" aria-controls="sidenav-8"
+      >相关网站</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-8">
+        <li class="nav-item">
+    <a class="nav-link" href="https://api.dartlang.org" target="_blank" rel="noopener">API 参考<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://medium.com/dartlang" target="_blank" rel="noopener">Blog<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://dartpad.cn" target="_blank" rel="noopener">DartPad (在线编辑器)<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://flutter.dev" target="_blank" rel="noopener">Flutter<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Pub 包资源<i class="fas fa-external-link-alt"></i></a>
+  </li>
+</ul>
+    </li></ul>
+
+  </div>
+</div>
+
+    <main id="page-content">
+      
+
+
+
+
+
+
+
+<div id="site-toc--side" class="site-toc ">
+  <header class="site-toc__title">
+    内容
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+  </header>
+  <ul class="section-nav nav">
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#1-play-with-a-web-app-in-dartpad">1. Play with a web app in DartPad</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#2-install-dart">2. Install Dart</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#3-get-cli-tools-or-an-ide-or-both">3. Get CLI tools or an IDE (or both)</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#4-create-a-web-app">4. Create a web app</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#5-run-the-app">5. Run the app</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#6-add-custom-code-to-the-app">6. Add custom code to the app</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#7-use-devtools-to-inspect-the-app">7. Use DevTools to inspect the app</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#what-next">What next?</a></li>
+</ul>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_tutorials/web/get-started.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Get started: web apps' page issue&body=
+Page URL: https://www.dartlang.org/tutorials/web/get-started%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_tutorials/web/get-started.md%0D%0A
+%0D%0A
+Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
+%0D%0A
+Description of issue:" class="btn no-automatic-external" title="Report an issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>Get started: web apps</h1>
+          </div>
+          
+
+
+
+
+
+
+
+<div id="site-toc--inline" class="site-toc ">
+  <header class="site-toc__title">
+    内容
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+  </header>
+  <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#1-play-with-a-web-app-in-dartpad">1. Play with a web app in DartPad</a></li>
+<li class="toc-entry toc-h2"><a href="#2-install-dart">2. Install Dart</a></li>
+<li class="toc-entry toc-h2"><a href="#3-get-cli-tools-or-an-ide-or-both">3. Get CLI tools or an IDE (or both)</a></li>
+<li class="toc-entry toc-h2"><a href="#4-create-a-web-app">4. Create a web app</a></li>
+<li class="toc-entry toc-h2"><a href="#5-run-the-app">5. Run the app</a></li>
+<li class="toc-entry toc-h2"><a href="#6-add-custom-code-to-the-app">6. Add custom code to the app</a></li>
+<li class="toc-entry toc-h2"><a href="#7-use-devtools-to-inspect-the-app">7. Use DevTools to inspect the app</a></li>
+<li class="toc-entry toc-h2"><a href="#what-next">What next?</a></li>
+</ul>
+</div>
+
+
+          
+<p>Follow these steps to start using Dart to develop web apps.
+First you’ll play with Dart in your browser, no download required.
+Then you’ll install Dart and build a small web app.</p>
+
+<h2 id="1-play-with-a-web-app-in-dartpad">
+<a id="1-play-with-a-web-app-in-dartpad" class="anchor" href="#1-play-with-a-web-app-in-dartpad" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Play with a web app in DartPad</h2>
+
+<p>With DartPad you can experiment with the Dart language and APIs,
+no download necessary.</p>
+
+<p>For example, here’s an embedded DartPad that lets you play with
+the code for a todo-list generator.
+Click run <img alt="" src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png" integrity="sha256-UKZuAcfnqHfbwG55nVvEtzxNrOKSbsF7RJPYw+k5xZo=" crossorigin="anonymous"> to run the app;
+the console output appears beneath the code.
+Try editing the source code—perhaps you’d like to add “horses”
+to the list of pets. To get the full DartPad experience,
+which includes the web UI that the app produces,
+<a href="https://dartpad.cn/2a24f3f042f1c86cf91621c30adce771" target="_blank">open the example at dartpad.dartlang.org.</a></p>
+
+<iframe src="https://dartpad.cn/embed-inline.html?id=2a24f3f042f1c86cf91621c30adce771&amp;verticalRatio=70" width="100%" height="450px" style="border: 1px solid #ccc;">
+</iframe>
+
+<p>More information:</p>
+
+<ul>
+  <li><a href="/tools/dartpad">DartPad documentation</a></li>
+  <li><a href="/guides/language/language-tour">Dart language tour</a></li>
+  <li><a href="/guides/libraries/library-tour">Dart library tour</a></li>
+  <li><a href="/tutorials/web/low-level-html/connect-dart-html">Tutorial introduction to using Dart for basic web programming</a></li>
+</ul>
+
+<h2 id="2-install-dart">
+<a id="2-install-dart" class="anchor" href="#2-install-dart" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Install Dart</h2>
+
+<p>Once you’re ready to move beyond DartPad and develop real apps,
+you need the Dart SDK.</p>
+
+<p>As you install, <strong>note the path to the SDK.</strong>
+You’ll need it in the next step.</p>
+
+<ul class="tabs__top-bar">
+  <li class="tab-link current" data-tab="tab-sdk-install-windows">Windows</li>
+  <li class="tab-link" data-tab="tab-sdk-install-linux">Linux</li>
+  <li class="tab-link" data-tab="tab-sdk-install-mac">Mac</li>
+</ul>
+
+<div id="tab-sdk-install-windows" class="tabs__content current">
+  <p>Use <a href="https://chocolatey.org">Chocolatey</a> to install a stable release of
+  the Dart SDK:</p>
+  <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">  C:\&gt;</span> choco <span class="nb">install </span>dart-sdk
+</code></pre></div>  </div>
+</div>
+
+<div id="tab-sdk-install-linux" class="tabs__content">
+  <p>You can use Aptitude to install the Dart SDK on Linux.</p>
+
+  <ol>
+    <li>Perform the following one-time setup:
+      <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span> <span class="nb">sudo </span>apt-get update
+<span class="gp">&gt;</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>apt-transport-https
+<span class="gp">&gt;</span> <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'</span>
+<span class="gp">&gt;</span> <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list &gt; /etc/apt/sources.list.d/dart_stable.list'</span>
+</code></pre></div>      </div>
+    </li>
+    <li>Install the Dart SDK:
+      <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span> <span class="nb">sudo </span>apt-get update
+<span class="gp">&gt;</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>dart
+</code></pre></div>      </div>
+    </li>
+  </ol>
+</div>
+
+<div id="tab-sdk-install-mac" class="tabs__content">
+  <p>With <a href="http://brew.sh/">Homebrew,</a>
+  installing Dart is easy.</p>
+
+  <div class="language-terminal highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="gp">  &gt;</span> brew tap dart-lang/dart
+<span class="gp">  &gt;</span> brew <span class="nb">install </span>dart
+</code></pre></div>  </div>
+</div>
+
+<p>More information: <a href="/tools/sdk#install">Install the SDK</a></p>
+
+<h2 id="3-get-cli-tools-or-an-ide-or-both">
+<a id="3-get-cli-tools-or-an-ide-or-both" class="anchor" href="#3-get-cli-tools-or-an-ide-or-both" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Get CLI tools or an IDE (or both)</h2>
+
+<p><i class="fas fa-terminal dark"></i>
+If you like to use the command line, install <a href="/tools/webdev">webdev</a>
+and <a href="https://pub.dev/packages/stagehand">stagehand:</a></p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span> pub global activate webdev
+<span class="gp">&gt;</span> pub global activate stagehand
+</code></pre></div></div>
+
+<p><i class="material-icons">web</i>
+Although using an IDE is optional, we highly recommend using one.
+For a list of available IDEs, see the
+<a href="/tools#ides-and-editors">overview of editors &amp; debuggers</a>.</p>
+
+<h2 id="4-create-a-web-app">
+<a id="4-create-a-web-app" class="anchor" href="#4-create-a-web-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Create a web app</h2>
+
+<p><i class="fas fa-terminal dark"></i>
+To create a web app from the command line, use these commands:</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span> <span class="nb">mkdir </span>quickstart
+<span class="gp">&gt;</span> <span class="nb">cd </span>quickstart
+<span class="gp">&gt;</span> stagehand web-simple
+<span class="gp">&gt;</span> pub get
+</code></pre></div></div>
+
+<p><i class="material-icons">web</i>
+To create the same web app from an IDE that has Dart integration,
+create a project using the template named <strong>Bare-bones Web App</strong>.</p>
+
+<h2 id="5-run-the-app">
+<a id="5-run-the-app" class="anchor" href="#5-run-the-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Run the app</h2>
+
+<p><i class="fas fa-terminal dark"></i>
+To run the app from the command line, use <a href="/tools/webdev">webdev</a> to build and serve the app:</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">&gt;</span> webdev serve
+</code></pre></div></div>
+
+<p><i class="material-icons">web</i>
+Or run the app from your IDE.</p>
+
+<p>To view your app, use the Chrome browser to visit the app’s URL —
+for example, <a href="localhost:8080">localhost:8080</a>.</p>
+
+<p>Whether you use an IDE or the command line,
+<a href="/tools/webdev#serve">webdev serve</a> builds and serves your app
+using the Dart development compiler, <a href="/tools/dartdevc">dartdevc</a>.
+Startup is slowest the first time dartdevc builds and serves your app.
+After that, assets are cached on disk and incremental builds are much faster.</p>
+
+<p>Once your app has compiled, the browser should display
+“Your Dart app is running.”</p>
+
+<p><img src="/assets/bare-bones-web-app-0c0543d20c9414c4d49661b74850a856aa2a233bd1b8d8f14ca961134eafd809.png" alt="Launched bare-bones app" width="500"></p>
+
+<h2 id="6-add-custom-code-to-the-app">
+<a id="6-add-custom-code-to-the-app" class="anchor" href="#6-add-custom-code-to-the-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Add custom code to the app</h2>
+
+<p>Let’s customize the app you just created.</p>
+
+<ol>
+  <li>
+    <p>Copy the <code class="highlighter-rouge">thingsTodo()</code> function from the DartPad above
+to the <code class="highlighter-rouge">web/main.dart</code> file.</p>
+  </li>
+  <li>
+    <p>In the <code class="highlighter-rouge">main()</code> method, initialize the <code class="highlighter-rouge">output</code> element using
+<code class="highlighter-rouge">thingsTodo()</code>:</p>
+
+    <pre class="prettyprint lang-dart">void main() {
+  Element output = querySelector('#output');
+  <span class="highlight">output.children.addAll(thingsTodo().map(newLI));</span>
+}
+
+<span class="highlight">LIElement newLI(String itemText) =&gt; LIElement()..text = itemText;</span>
+
+<span class="highlight">Iterable&lt;String&gt; thingsTodo() sync* { ... }</span></pre>
+  </li>
+  <li>
+    <p>Save your changes.</p>
+  </li>
+  <li>
+    <p>The webdev tool automatically rebuilds your app.
+Refresh the app’s browser window.
+Now your simple Dart app has a todo list!
+It should look something like this:<br>
+<img src="/assets/bare-bones-todo-241f4307695311fb8e95295587a98444a4642500263d1fbee9106e113e7e6110.png" alt="Running the revised app" width="500"></p>
+  </li>
+  <li>
+    <p>Optionally, improve the formatting by editing <code class="highlighter-rouge">web/styles.css</code>,
+then reload the app to check your changes.</p>
+
+    <pre class="prettyprint lang-css">#output {
+  padding: 20px;
+  <span class="highlight">text-align: left;</span>
+}</pre>
+  </li>
+</ol>
+
+<h2 id="7-use-devtools-to-inspect-the-app">
+<a id="7-use-devtools-to-inspect-the-app" class="anchor" href="#7-use-devtools-to-inspect-the-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. Use DevTools to inspect the app</h2>
+
+<p>Use Chrome DevTools to set breakpoints, view values and types,
+and step through your app’s Dart code.
+For setup details and a walkthrough, see
+<a href="/web/debugging">Debugging Dart Web Apps</a>.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Feeling lost? Don’t worry!</strong>
+  This was a whirlwind introduction to Dart and web programming
+  that left out many details.
+  For a gentler approach, try a
+  <a href="/tutorials/web/low-level-html">low-level HTML tutorial for Dart</a>.</p>
+</aside>
+
+<h2 id="what-next">
+<a id="what-next" class="anchor" href="#what-next" aria-hidden="true"><span class="octicon octicon-link"></span></a>What next?</h2>
+
+<p>Check out these resources:</p>
+
+<ul>
+  <li>Tutorials and codelabs for Dart
+    <ul>
+      <li><a href="/tutorials">Tutorials</a></li>
+      <li><a href="/codelabs">Codelabs</a></li>
+    </ul>
+  </li>
+  <li>Dart language, libraries, and conventions
+    <ul>
+      <li><a href="/samples">Sample code</a></li>
+      <li><a href="/guides/language/language-tour">Language tour</a></li>
+      <li><a href="/guides/libraries/library-tour">Library tour</a></li>
+      <li><a href="/guides/language/effective-dart">Effective Dart</a></li>
+    </ul>
+  </li>
+  <li>Tools &amp; libraries
+    <ul>
+      <li><a href="/tools/sdk">Dart SDK</a></li>
+      <li><a href="/tools">Dart tools</a></li>
+      <li><a href="/tools#ides-and-editors">IDEs</a></li>
+      <li><a href="/web/libraries">Web libraries and packages</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>If you get stuck, find help at <a href="/community">Community and Support.</a></p>
+
+
+
+
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="content">
+      <div class="text-center" martdown="1">
+        <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/security">Security</a></li>
+          <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
+          <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+          <li><a href="/about_zh_CN">关于 dartlang 中文版</a></li>
+          <li>
+            <a href="https://github.com/dartchina/site-www-cn"
+               title="该站在 GitHub 开源"
+               class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+            &nbsp;
+            <a href="https://github.com/dartchina/site-www-cn/issues"
+               title="为该站提交 issue"
+               class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+            &nbsp;
+            <a 
+               title="Site built on 2019/05/10 02:48 PDT"
+               
+               class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

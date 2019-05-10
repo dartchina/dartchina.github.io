@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Use HttpRequest to fetch data from a file or a server.">
+  <title>Fetch data dynamically | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Fetch data dynamically" />
+  <meta name="twitter:description" content="Use HttpRequest to fetch data from a file or a server." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Fetch data dynamically" />
+  <meta property="og:description" content="Use HttpRequest to fetch data from a file or a server." />
+  <meta property="og:url" content="https://www.dartlang.org/tutorials/web/fetch-data" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" integrity="sha256-lXNilrVoDl/TpTBbRIJ9fTZIFZ6OcziJrUwDEUq+4zk=" crossorigin="anonymous" href="/assets/main-95736296b5680e5fd3a5305b44827d7d3648159e8e733889ad4c03114abee339.css">
+  <script src="/assets/main-81783b1b9a1d39209aa2ec2eab702b1f7908b15082a3aef81ba13f2255d48ec4.js" integrity="sha256-gXg7G5odOSCaouwuq3ArH3kIsVCCo674G6E/IlXUjsQ=" crossorigin="anonymous" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+ </head>
+  <body class="tutorial show_banner">
+    <header id="page-header" class="site-header">
+  <nav id="mainnav" class="site-header">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/white-e71fb382ad5229792cc704b3ee7a88f8013e986d6e34f0956d89c453b454d0a5.svg" alt="Dart">
+  </a>
+  <ul class="navbar">
+    <li class="mainnav__get-started">
+      <a href="/docs" class="nav-link active"><span>文档</span></a>
+    </li>
+    <li>
+      <a href="/platforms" class="nav-link">平台</a>
+    </li>
+    <li>
+      <a href="/community" class="nav-link">社区</a>
+    </li>
+    <li>
+      <a href="https://dartpad.cn/" target="_blank" class="nav-link no-automatic-external">体验 Dart</a>
+    </li>
+    <li>
+      <a href="/get-dart" class="nav-link">安装 Dart</a>
+    </li>
+    <li><a href="/about_zh_CN">关于</a></li>
+    <li class="searchfield">
+      <form action="/search" class="site-header__search form-inline" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+ <div class="banner">
+  <p class="banner__text">
+    
+    
+    Dart 2.3 发布，针对构建用户界面进行了优化。
+    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">了解更多。</a>
+  </p>
+</div>
+ 
+
+    <div id="sidenav" class="">
+  <form action="/search/" class="site-header__search form-inline">
+    <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+  </form>
+
+  <div class="site-sidebar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="/platforms" class="nav-link">平台</a>
+      </li>
+      <li class="nav-item">
+        <a href="/community" class="nav-link">社区</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://dartpad.dartlang.org" class="nav-link">体验 Dart</a>
+      </li>
+      <li class="nav-item">
+        <a href="/guides" class="nav-link active">文档</a>
+      </li>
+    </ul>
+
+    <ul class="nav flex-column"><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-1" role="button"
+        aria-expanded="false" aria-controls="sidenav-1"
+      >示例 & 概览</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-1">
+        <li class="nav-item">
+    <a class="nav-link" href="/samples">语言示例</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/codelabs">Codelab</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials">概览</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-2" role="button"
+        aria-expanded="false" aria-controls="sidenav-2"
+      >语言</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/language/language-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-dart">类型系统</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/spec">规范</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/effective-dart">Effective Dart</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-3" role="button"
+        aria-expanded="false" aria-controls="sidenav-3"
+      >核心库</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/libraries">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/library-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-3-3"
+      href="#sidenav-3-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-3-3"
+    >文章
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/dart-io">Intro to dart:io</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/creating-streams">Creating streams</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-4" role="button"
+        aria-expanded="false" aria-controls="sidenav-4"
+      >包</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/packages">如何使用包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/useful-libraries">常用的包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/create-library-packages">创建包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/publishing">发布包</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-4-5"
+      href="#sidenav-4-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-4-5"
+    >引用包
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/dependencies">依赖</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/glossary">术语</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/package-layout">包的设计约定</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/environment-variables">Pub 环境变量</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/pubspec">Pubspec 文件</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/troubleshoot">Pub 问题分析与解决</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/versioning">版本</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link active" data-toggle="collapse" href="#sidenav-5" role="button"
+        aria-expanded="true" aria-controls="sidenav-5"
+      >开发</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-5">
+        <li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/futures">Futures & Async-Await</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/json">使用 JSON</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/streams">Stream</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/mobile">移动应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-5"
+      href="#sidenav-5-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-5"
+    >命令行应用 & 服务应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/server">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/cmdline">编写命令行应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/httpserver">编写 HTTP 客户端和服务端应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/c-interop">C & C++ 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/libraries">库和包</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link active collapsable"
+      data-toggle="collapse" data-target="#sidenav-5-6"
+      href="#sidenav-5-6" role="button"
+      aria-expanded="true" aria-controls="sidenav-5-6"
+    >Web 应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-5-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/web">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link active" href="/tutorials/web/fetch-data">动态获取数据</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-6-4"
+      href="#sidenav-5-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-6-4"
+    >底层 Web 编程
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Dart 和 HTML 关联</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">在 DOM 中增加 Element</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">在 DOM 中移除 Element</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link" href="/web/js-interop">JS/TS 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/deployment">开发</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/libraries">库和包</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-6" role="button"
+        aria-expanded="false" aria-controls="sidenav-6"
+      >工具 & 技巧</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6">
+        <li class="nav-item">
+    <a class="nav-link" href="/tools">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-2"
+      href="#sidenav-6-2" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-2"
+    >编辑 & 调试
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-devtools">Dart DevTool</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/dartpad">DartPad</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/jetbrains-plugin">IntelliJ & Android Studio</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/vs-code">VS Code</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-3"
+      href="#sidenav-6-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-3"
+    >Command-line tools
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-3">
+      <li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-1"
+      href="#sidenav-6-3-1" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-1"
+    >Dart SDK
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-1">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/sdk">综述</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-vm">dart (Dart VM)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2aot">dart2aot & dartaotruntime</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2js">dart2js (prod JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartanalyzer">dartanalyzer</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdevc">dartdevc (dev JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdoc">dartdoc</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartfmt">dartfmt</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/cmd">pub</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-2"
+      href="#sidenav-6-3-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-2"
+    >其他命令行工具
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/build_runner">build_runner</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/webdev">webdev</a>
+  </li>
+  </ul>
+  </li>
+</ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-4"
+      href="#sidenav-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-4"
+    >源码管理
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/formatting">格式化代码</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/private-files">哪些内容不应该被提交</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-5"
+      href="#sidenav-6-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-5"
+    >静态分析
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/analysis-options">Customizing static analysis</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-problems">Fixing common type problems</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-6"
+      href="#sidenav-6-6" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-6"
+    >测试 & 优化
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/testing">测试</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/debugging">调试 Web 应用</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-7" role="button"
+        aria-expanded="false" aria-controls="sidenav-7"
+      >资源</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7">
+        <li class="nav-item">
+    <a class="nav-link" href="/code-of-conduct">行为守则</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/faq">FAQ</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-7-3"
+      href="#sidenav-7-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-7-3"
+    >历史
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/dart-2">迁移到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/dart-2">迁移 Web 应用到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/obsolete">过时的 Pub 功能</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link " data-toggle="collapse" href="#sidenav-8" role="button"
+        aria-expanded="true" aria-controls="sidenav-8"
+      >相关网站</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-8">
+        <li class="nav-item">
+    <a class="nav-link" href="https://api.dartlang.org" target="_blank" rel="noopener">API 参考<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://medium.com/dartlang" target="_blank" rel="noopener">Blog<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://dartpad.cn" target="_blank" rel="noopener">DartPad (在线编辑器)<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://flutter.dev" target="_blank" rel="noopener">Flutter<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Pub 包资源<i class="fas fa-external-link-alt"></i></a>
+  </li>
+</ul>
+    </li></ul>
+
+  </div>
+</div>
+
+    <main id="page-content">
+      
+
+
+
+
+
+
+
+<div id="site-toc--side" class="site-toc ">
+  <header class="site-toc__title">
+    内容
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+  </header>
+  <ul class="section-nav nav">
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#about-json">About JSON</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#serializing-data-into-json">Serializing data into JSON</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#parsing-json-data">Parsing JSON data</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#about-uris">About URIs and HTTP requests</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#using-getString-function">Using getString() to load a file</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#making-a-get-request">Using an HttpRequest object to load a file</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#setting-up-the-httprequest-object">Setting up the HttpRequest object</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#sending-the-request">Sending the request</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#handling-the-response">Handling the response</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#populating-the-ui-from-json">Populating the UI from JSON</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#other-resources">Other resources</a></li>
+</ul>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_tutorials/web/fetch-data.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Fetch data dynamically' page issue&body=
+Page URL: https://www.dartlang.org/tutorials/web/fetch-data%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_tutorials/web/fetch-data.md%0D%0A
+%0D%0A
+Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
+%0D%0A
+Description of issue:" class="btn no-automatic-external" title="Report an issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>Fetch data dynamically</h1>
+          </div>
+          
+
+
+
+
+
+
+
+<div id="site-toc--inline" class="site-toc toc-collapsible toc-collapsed">
+  <header class="site-toc__title">
+    内容
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+      <span class="site-toc--inline__toggle toc-toggle-down"><i class="fas fa-chevron-down fa-m"></i></span>
+      <span class="site-toc--inline__toggle toc-toggle-up"><i class="fas fa-chevron-up fa-m"></i></span>
+    
+  </header>
+  <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#about-json">About JSON</a></li>
+<li class="toc-entry toc-h2"><a href="#serializing-data-into-json">Serializing data into JSON</a></li>
+<li class="toc-entry toc-h2"><a href="#parsing-json-data">Parsing JSON data</a></li>
+<li class="toc-entry toc-h2"><a href="#about-uris">About URIs and HTTP requests</a></li>
+<li class="toc-entry toc-h2"><a href="#using-getString-function">Using getString() to load a file</a></li>
+<li class="toc-entry toc-h2"><a href="#making-a-get-request">Using an HttpRequest object to load a file</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#setting-up-the-httprequest-object">Setting up the HttpRequest object</a></li>
+<li class="toc-entry toc-h3"><a href="#sending-the-request">Sending the request</a></li>
+<li class="toc-entry toc-h3"><a href="#handling-the-response">Handling the response</a></li>
+<li class="toc-entry toc-h3"><a href="#populating-the-ui-from-json">Populating the UI from JSON</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#other-resources">Other resources</a></li>
+</ul>
+</div>
+
+
+          
+<!--?code-excerpt path-base="examples/fetch_data"?-->
+
+<div class="mini-toc">
+  <h4>What's the point?</h4>
+
+  <ul>
+    <li>Data on the web is often formatted in JSON.</li>
+    <li>JSON is text based and human readable.</li>
+    <li>The dart:convert library provides support for JSON.</li>
+    <li>Use HttpRequest to dynamically load data.</li>
+  </ul>
+</div>
+
+<p>Web apps often use
+<a href="http://www.json.org/">JSON</a>
+(JavaScript Object Notation)
+to pass data between clients and servers.
+Data can be <em>serialized</em> into a JSON string,
+which is then passed between a client and server,
+and revived as an object at its destination.
+This tutorial shows you how to use functions in the
+<a href="https://api.dartlang.org/stable/dart-convert/dart-convert-library.html" target="_blank" rel="noopener">dart:convert</a>
+library to produce and consume JSON data.
+Because JSON data is typically loaded dynamically,
+this tutorial also shows how a web app
+can use an HTTP request to get data from an HTTP server.
+For web apps,
+HTTP requests are served by the browser in which the app is running,
+and thus are subject to the browser’s security restrictions.</p>
+
+<h2 id="about-json">
+<a id="about-json" class="anchor" href="#about-json" aria-hidden="true"><span class="octicon octicon-link"></span></a>About JSON</h2>
+
+<p>The JSON data format is easy for humans
+to write and read because it is lightweight and text based.
+With JSON, various data types
+and simple data structures such as lists and maps
+can be serialized and represented by strings.</p>
+
+<p><strong>Try it!</strong>
+The following app, <code class="highlighter-rouge">its_all_about_you</code>,
+displays the JSON string for data of various types.
+Click run ( <img src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png" integrity="sha256-UKZuAcfnqHfbwG55nVvEtzxNrOKSbsF7RJPYw+k5xZo=" crossorigin="anonymous"> ) to start the app.
+Then change the values of the input elements,
+and check out the JSON format for each data type.
+You might prefer to
+<a href="https://dartpad.cn/1d42e4eadb75bcc1ffbc079e299b862e" target="_blank" rel="noopener">open the app in DartPad</a>
+to have more space for the app’s code and UI.</p>
+
+<iframe src="https://dartpad.cn/embed-html.html?id=1d42e4eadb75bcc1ffbc079e299b862e&amp;horizontalRatio=50&amp;verticalRatio=90" width="100%" height="600px" style="border: 1px solid #ccc;">
+</iframe>
+
+<p>The <code class="highlighter-rouge">dart:convert</code> library contains two convenient functions
+for working with JSON strings:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>dart:convert function</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://api.dartlang.org/stable/dart-convert/JsonCodec/decode.html" target="_blank" rel="noopener">json.decode()</a></td>
+      <td>Builds Dart objects from a string containing JSON data.</td>
+    </tr>
+    <tr>
+      <td><a href="https://api.dartlang.org/stable/dart-convert/JsonCodec/encode.html" target="_blank" rel="noopener">json.encode()</a></td>
+      <td>Serializes a Dart object into a JSON string.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To use these functions,
+you need to import dart:convert into your Dart code:</p>
+
+<!--?code-excerpt "web/main.dart" retain="dart:convert"?-->
+<pre class="prettyprint lang-dart">import 'dart:convert';</pre>
+
+<p>The <code class="highlighter-rouge">json.encode()</code> and <code class="highlighter-rouge">json.decode()</code> functions can handle these Dart types
+automatically:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">num</code></li>
+  <li><code class="highlighter-rouge">String</code></li>
+  <li><code class="highlighter-rouge">bool</code></li>
+  <li><code class="highlighter-rouge">Null</code></li>
+  <li><code class="highlighter-rouge">List</code></li>
+  <li><code class="highlighter-rouge">Map</code></li>
+</ul>
+
+<h2 id="serializing-data-into-json">
+<a id="serializing-data-into-json" class="anchor" href="#serializing-data-into-json" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serializing data into JSON</h2>
+
+<p>Use the <a href="https://api.dartlang.org/stable/dart-convert/JsonCodec/encode.html">json.encode()</a> function to serialize an object that supports JSON.
+The <code class="highlighter-rouge">showJson()</code> function, from the example,
+converts all of the data to JSON strings.</p>
+
+<!--?code-excerpt "web/main.dart (showJson)" indent-by="0" remove="FIXME" replace="/(\n\s+)(.*? json.encode.*?;)/$1[!$2!]/g"?-->
+<pre class="prettyprint lang-dart">void showJson(Event _) {
+  // Grab the data that will be converted to JSON.
+  final favNum = int.tryParse(favoriteNumber.value);
+  final pi = double.tryParse(valueOfPi.value);
+  final chocolate = loveChocolate.checked;
+  final sign = horoscope.value;
+  final favoriteThings = &lt;String&gt;[
+    favOne.value,
+    favTwo.value,
+    favThree.value,
+  ];
+
+  final formData = {
+    'favoriteNumber': favNum,
+    'valueOfPi': pi,
+    'chocolate': chocolate,
+    'horoscope': sign,
+    'favoriteThings': favoriteThings
+  };
+
+  // Convert to JSON and display results.
+  <span class="highlight">intAsJson.text = json.encode(favNum);</span>
+  <span class="highlight">doubleAsJson.text = json.encode(pi);</span>
+  <span class="highlight">boolAsJson.text = json.encode(chocolate);</span>
+  <span class="highlight">stringAsJson.text = json.encode(sign);</span>
+  <span class="highlight">listAsJson.text = json.encode(favoriteThings);</span>
+  <span class="highlight">mapAsJson.text = json.encode(formData);</span>
+}</pre>
+
+<p>Shown below is the JSON string that results from the code
+using the original values from the app:</p>
+
+<p><img class="scale-img-max" src="images/jsonstring.png" alt="The JSON string for the its_all_about_you app"></p>
+
+<ul>
+  <li>
+<strong>Numeric</strong> and boolean values
+appear as they would if they were literal values in code,
+without quotes or other delineating marks.</li>
+  <li>A <strong>boolean</strong> value is either <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>.</li>
+  <li>The <strong>null</strong> value is represented as <code class="highlighter-rouge">null</code>.</li>
+  <li>
+<strong>Strings</strong> are contained within <em>double</em> quotes.</li>
+  <li>A <strong>list</strong> is delineated with square brackets;
+its items are comma-separated.
+The list in this example contains strings.</li>
+  <li>A <strong>map</strong> is delineated with curly brackets;
+it contains comma-separated key/value pairs,
+where the key appears first, followed by a colon,
+followed by the value.
+In this example,
+the keys in the map are strings.
+The values in the map vary in type but they are all JSON-parsable.</li>
+</ul>
+
+<h2 id="parsing-json-data">
+<a id="parsing-json-data" class="anchor" href="#parsing-json-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parsing JSON data</h2>
+
+<p>Use the <a href="https://api.dartlang.org/stable/dart-convert/JsonCodec/decode.html">json.decode()</a> function from the <a href="https://api.dartlang.org/stable/dart-convert/dart-convert-library.html">dart:convert</a> library to
+create Dart objects from a JSON string.
+The example initially populates the values in the form
+from this JSON string:</p>
+
+<!--?code-excerpt "web/main.dart (jsonDataAsString)" indent-by="0" ?-->
+<pre class="prettyprint lang-dart">final jsonDataAsString = '''{
+  "favoriteNumber": 73,
+  "valueOfPi": 3.141592,
+  "chocolate": true,
+  "horoscope": "Cancer",
+  "favoriteThings": ["monkeys", "parrots", "lattes"]
+}''';
+
+Map jsonData = json.decode(jsonDataAsString);</pre>
+
+<p>This code calls <a href="https://api.dartlang.org/stable/dart-convert/JsonCodec/decode.html">json.decode()</a> with a properly formatted JSON
+string.</p>
+
+<aside class="alert alert-warning">
+  <p><strong>Note:</strong> Dart strings can use either single or double
+  quotes to denote strings. <strong>JSON requires double quotes</strong>.</p>
+</aside>
+
+<p>In this example, the full JSON string is hard coded into the Dart code,
+but it could be created by the form itself
+or read from a static file or fetched from a server.
+An example later in this page shows how to dynamically fetch
+JSON data from a file that is co-located with the code for the app.</p>
+
+<p>The <code class="highlighter-rouge">json.decode()</code> function reads the string and
+builds Dart objects from it.
+In this example,
+the <code class="highlighter-rouge">json.decode()</code> function creates a <code class="highlighter-rouge">Map</code> object based on
+the information in the JSON string.
+The <code class="highlighter-rouge">Map</code> contains objects of various types
+including an integer, a double, a boolean value, a regular string,
+and a list.
+All of the keys in the map are strings.</p>
+
+<h2 id="about-uris">
+<a id="about-uris" class="anchor" href="#about-uris" aria-hidden="true"><span class="octicon octicon-link"></span></a>About URIs and HTTP requests</h2>
+
+<p>To make an HTTP GET request from within a web app,
+you need to provide a URI (Uniform Resource Identifier) for the resource.
+A URI is a character string
+that uniquely names a resource.
+A URL (Uniform Resource Locator) is a specific kind of URI
+that also provides the location of a resource.
+URLs for resources on the World Wide Web
+contain three pieces of information:</p>
+
+<ul>
+  <li>The protocol used for communication</li>
+  <li>The hostname of the server</li>
+  <li>The path to the resource</li>
+</ul>
+
+<p>For example, the URL for this page breaks down as follows:</p>
+
+<p><img class="scale-img-max" src="images/uri-details.png" alt="The tutorial URL"></p>
+
+<p>This URL specifies the HTTP protocol.
+When you enter an HTTP address into a web browser,
+the browser sends an HTTP GET request to a web server,
+and the web server sends an HTTP response that contains the
+contents of the page (or an error message).</p>
+
+<p><img class="scale-img-max" src="images/client-server.png" alt="Basic HTTP communication between client and server"></p>
+
+<p>Most HTTP requests in a web browser are simple GET requests
+asking for the contents of a page.
+However, the HTTP protocol allows for other types of requests,
+such as POST for sending data from the client.</p>
+
+<p>A Dart web app running inside of a browser can make HTTP requests.
+These HTTP requests are handled by the browser in which the app is running.
+Even though the browser itself can make HTTP requests anywhere on the web,
+a Dart web app running inside the browser can make only <em>limited</em>
+HTTP requests because of security restrictions.
+Practically speaking,
+because of these limitations,
+HTTP requests from web apps are primarily useful for
+retrieving information in files specific to
+and co-located with the app.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Security note:</strong>
+  Browsers place tight security restrictions on HTTP requests
+  made by embedded apps.
+  Specifically, any resources requested by a web app
+  must be served from the same origin.
+  That is, the resources must be from the same protocol, host, and port
+  as the app itself.
+  This means that your web app cannot request
+  just any resource from the web with HTTP requests through the browser,
+  even if that request is seemingly harmless (like a GET.)</p>
+
+  <p>Some servers do allow cross-origin requests
+  through a mechanism called
+  CORS (Cross-origin resource sharing),
+  which uses headers in an HTTP request
+  to ask for and receive permission.
+  CORS is server specific.</p>
+</aside>
+
+<p>The SDK provides these useful classes for
+formulating URIs and making HTTP requests:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Dart code</th>
+      <th>Library</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://api.dartlang.org/stable/dart-core/Uri-class.html">Uri</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-core/dart-core-library.html">dart:core</a></td>
+      <td>Uniform resource identifier</td>
+    </tr>
+    <tr>
+      <td><a href="https://api.dartlang.org/stable/dart-html/HttpRequest-class.html">HttpRequest</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-html/dart-html-library.html">dart:html</a></td>
+      <td>Client-side HTTP request object. For use in web apps.</td>
+    </tr>
+    <tr>
+      <td><a href="https://api.dartlang.org/stable/dart-io/HttpRequest-class.html">HttpRequest</a></td>
+      <td><a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html">dart:io</a></td>
+      <td>Server-side HTTP request object. Does not work in web apps.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="using-getString-function">
+<a id="using-getString-function" class="anchor" href="#using-getString-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using getString() to load a file</h2>
+
+<p>One useful HTTP request your web app <em>can</em> make is a GET request
+for a data file served from the same origin as the app.
+The example below reads a data file called <code class="highlighter-rouge">portmanteaux.json</code>
+that contains a JSON-formatted list of words.
+When you click the button,
+the app makes a GET request of the server
+and loads the file.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Implementation note:</strong>
+  The original portmanteaux example loaded the co-located file <code class="highlighter-rouge">portmanteaux.json</code>.
+  When we moved the example into <a href="https://dartpad.cn"><strong>DartPad</strong></a>,
+  we couldn’t co-locate the JSON file because DartPad
+  supports at most 3 files: one Dart file, one HTML file,
+  and one CSS file.
+  A workaround was to move <code class="highlighter-rouge">portmanteaux.json</code> to dartlang.org and
+  configure dartlang.org’s CORS headers to allow read-only access
+  from everywhere.</p>
+</aside>
+
+<p><strong>Try it!</strong> Click run ( <img src="/assets/red-run-50a66e01c7e7a877dbc06e799d5bc4b73c4dace2926ec17b4493d8c3e939c59a.png" integrity="sha256-UKZuAcfnqHfbwG55nVvEtzxNrOKSbsF7RJPYw+k5xZo=" crossorigin="anonymous"> )
+and then click the <strong>Get portmanteaux</strong> button.</p>
+
+<iframe src="https://dartpad.cn/embed-html.html?id=6b76bce8d46986e624f4e82925c48287&amp;horizontalRatio=68&amp;verticalRatio=80" width="100%" height="500px" style="border: 1px solid #ccc;">
+</iframe>
+
+<p>This program uses a convenience method, <a href="https://api.dartlang.org/stable/dart-html/HttpRequest/getString.html">getString()</a>, provided by the
+<a href="https://api.dartlang.org/stable/dart-html/HttpRequest-class.html">HttpRequest</a> class to request the file from the server.</p>
+
+<!--?code-excerpt "web/portmanteaux/main.dart (makeRequest)" indent-by="0" remove="FIXME" replace="/\/\/ \w.*/[!$&!]/g"?-->
+<pre class="prettyprint lang-dart">Future&lt;void&gt; makeRequest(Event _) async {
+  const path = 'https://www.dartlang.org/f/portmanteaux.json';
+  try {
+    <span class="highlight">// Make the GET request</span>
+    final jsonString = await HttpRequest.getString(path);
+    <span class="highlight">// The request succeeded. Process the JSON.</span>
+    processResponse(jsonString);
+  } catch (e) {
+    <span class="highlight">// The GET request failed. Handle the error.</span>
+    // ···
+  }
+}
+
+void processResponse(String jsonString) {
+  for (final portmanteau in json.decode(jsonString)) {
+    wordList.children.add(LIElement()..text = portmanteau);
+  }
+}</pre>
+
+<p>The <code class="highlighter-rouge">getString()</code> method uses a Future object to handle the request.
+A <a href="https://api.dartlang.org/stable/dart-async/Future-class.html">Future</a> is a way to perform potentially time-consuming operations,
+such as HTTP requests, asynchronously.
+If you haven’t encountered Futures yet,
+you can learn more about them in
+<a href="/tutorials/language/futures">Asynchronous Programming: Futures</a>.
+Until then, you can use the code above as a guide
+and provide your own code for the body of the <code class="highlighter-rouge">processResponse()</code> function
+and your own code to handle the error.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+  The examples in this section use the <code class="highlighter-rouge">async</code> and <code class="highlighter-rouge">await</code> keywords.
+  If you are not familiar with these keywords, see
+  <a href="/guides/language/language-tour#asynchrony">Asynchrony support</a>
+  in the <a href="/guides/language/language-tour">language tour</a>.</p>
+</aside>
+
+<h2 id="making-a-get-request">
+<a id="making-a-get-request" class="anchor" href="#making-a-get-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using an HttpRequest object to load a file</h2>
+
+<p>The <code class="highlighter-rouge">getString()</code> method is good for an HTTP GET request that returns
+a string loaded from a resource.
+For other cases,
+you need to create an <a href="https://api.dartlang.org/stable/dart-html/HttpRequest-class.html">HttpRequest</a> object,
+configure its header and other information,
+and use the <a href="https://api.dartlang.org/stable/dart-html/HttpRequest/send.html">send()</a> method to make the request.</p>
+
+<p>This section rewrites the portmanteaux code to explicitly construct
+an HttpRequest object.</p>
+
+<iframe src="https://dartpad.cn/embed-html.html?id=c387e454cb751ab0632c68ccbbf94d12&amp;horizontalRatio=68&amp;verticalRatio=80" width="100%" height="500px" style="border: 1px solid #ccc;">
+</iframe>
+
+<h3 id="setting-up-the-httprequest-object">
+<a id="setting-up-the-httprequest-object" class="anchor" href="#setting-up-the-httprequest-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up the HttpRequest object</h3>
+
+<p>The mouse-click handler for the button
+creates an HttpRequest object,
+configures it with a URI and callback function,
+and then sends the request.
+Let’s take a look at the Dart code:</p>
+
+<!--?code-excerpt "web/portmanteaux2/main.dart (makeRequest)" indent-by="0" remove="FIXME" replace="/\/\/ \w.*/[!$&!]/g"?-->
+<pre class="prettyprint lang-dart">Future&lt;void&gt; makeRequest(Event _) async {
+  const path = 'https://dart.dev/f/portmanteaux.json';
+  final httpRequest = HttpRequest();
+  httpRequest
+    ..open('GET', path)
+    ..onLoadEnd.listen((e) =&gt; requestComplete(httpRequest))
+    ..send('');
+}</pre>
+
+<p><img class="scale-img-max" src="images/portmanteaux-code.png" alt="Making an HTTP GET request"></p>
+
+<h3 id="sending-the-request">
+<a id="sending-the-request" class="anchor" href="#sending-the-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sending the request</h3>
+
+<p>The <a href="https://api.dartlang.org/stable/dart-html/HttpRequest/send.html">send()</a> method sends the request to the server.</p>
+
+<pre class="prettyprint lang-dart">httpRequest.send('');</pre>
+
+<p>Because the request in this example is a simple GET request,
+the code can send an empty string.
+For other types of requests,
+such as POST requests,
+this string can contain relevant data.
+You can also configure the HttpRequest object
+by setting various header parameters using the <a href="https://api.dartlang.org/stable/dart-html/HttpRequest/setRequestHeader.html">setRequestHeader()</a> method.</p>
+
+<h3 id="handling-the-response">
+<a id="handling-the-response" class="anchor" href="#handling-the-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling the response</h3>
+
+<p>To handle the HTTP response,
+you need to set up a callback function
+before calling <code class="highlighter-rouge">send()</code>.
+Our example sets up a one-line callback function
+for <a href="https://api.dartlang.org/stable/dart-html/HttpRequestEventTarget/onLoadEnd.html">onLoadEnd</a> events
+that in turn calls <code class="highlighter-rouge">requestComplete()</code>.
+This callback function is called when the request completes,
+either successfully or unsuccessfully.</p>
+
+<p><img class="scale-img-max" src="images/set-callback.png" alt="Set up a callback function for request completion"></p>
+
+<p>The <code class="highlighter-rouge">requestComplete()</code> function
+checks the status code for the request.</p>
+
+<!--?code-excerpt "web/portmanteaux2/main.dart (requestComplete)" indent-by="0" replace="/request\.\w+(?=\))/[!$&!]/g"?-->
+<pre class="prettyprint lang-dart">void requestComplete(HttpRequest request) {
+  switch (<span class="highlight">request.status</span>) {
+    case 200:
+      processResponse(<span class="highlight">request.responseText</span>);
+      return;
+    default:
+      // The GET request failed. Handle the error.
+      // ···
+  }
+}</pre>
+
+<p>If the status code is 200,
+the file was found and loaded successfully.
+The content of the requested file (<code class="highlighter-rouge">portmanteaux.json</code>) is
+returned in the <a href="https://api.dartlang.org/stable/dart-html/HttpRequest/responseText.html">responseText</a> property of an HttpRequest object.</p>
+
+<h3 id="populating-the-ui-from-json">
+<a id="populating-the-ui-from-json" class="anchor" href="#populating-the-ui-from-json" aria-hidden="true"><span class="octicon octicon-link"></span></a>Populating the UI from JSON</h3>
+
+<p>The data file in the portmanteaux example,
+<code class="highlighter-rouge">portmanteaux.json</code>,
+contains the following JSON-formatted list of strings:</p>
+
+<!--?code-excerpt "web/portmanteaux.json" indent-by="0"?-->
+<pre class="prettyprint lang-json">[
+  "portmanteau", "fantabulous", "spork", "smog",
+  "spanglish", "gerrymander", "turducken", "stagflation",
+  "bromance", "freeware", "oxbridge", "palimony", "netiquette",
+  "brunch", "blog", "chortle", "Hassenpfeffer", "Schnitzelbank"
+]</pre>
+
+<p>Upon request, the server reads the file
+and sends it as a single string
+to the client program.</p>
+
+<p>Using <a href="https://api.dartlang.org/stable/dart-convert/JsonCodec/decode.html">json.decode()</a>,
+the app easily converts the JSON-formatted list of words
+to a Dart list of strings,
+creates a new <a href="https://api.dartlang.org/stable/dart-html/LIElement-class.html">LIElement</a> for each one,
+and adds it to the <code class="highlighter-rouge">&lt;ul&gt;</code> element on the page.</p>
+
+<!--?code-excerpt "web/portmanteaux2/main.dart (processResponse)" indent-by="0" replace="/json\.\w+/[!$&!]/g"?-->
+<pre class="prettyprint lang-dart">void processResponse(String jsonString) {
+  for (final portmanteau in <span class="highlight">json.decode</span>(jsonString)) {
+    wordList.children.add(LIElement()..text = portmanteau);
+  }
+}</pre>
+
+<h2 id="other-resources">
+<a id="other-resources" class="anchor" href="#other-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other resources</h2>
+
+<ul>
+  <li><a href="/guides/json">Using JSON</a></li>
+  <li><a href="/tutorials/language/futures">Asynchronous programming: futures</a></li>
+</ul>
+
+
+
+
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="content">
+      <div class="text-center" martdown="1">
+        <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/security">Security</a></li>
+          <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
+          <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+          <li><a href="/about_zh_CN">关于 dartlang 中文版</a></li>
+          <li>
+            <a href="https://github.com/dartchina/site-www-cn"
+               title="该站在 GitHub 开源"
+               class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+            &nbsp;
+            <a href="https://github.com/dartchina/site-www-cn/issues"
+               title="为该站提交 issue"
+               class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+            &nbsp;
+            <a 
+               title="Site built on 2019/05/10 02:48 PDT"
+               
+               class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
