@@ -59,17 +59,7 @@ ga('send', 'pageview');
     <li><a href="/tools">工具</a></li>
     
     
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dart 2</a>
-      <ul class="dropdown-menu">
-        
-
-<li><a href="https://v1-dartlang-org.firebaseapp.com/guides/language/analysis-options" class="dropdown-item no-automatic-external">1.24.3&nbsp;&nbsp;(archive)</a></li><li><a class="active dropdown-item">2.2.0&nbsp;&nbsp;(stable)</a></li>
-
-        <li role="separator" class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="/dart-2#migration">迁移指南</a></li>
-      </ul>
-    </li>
+    <li><a href="/community">Community</a></li>
     
     <li><a href="/about_zh_CN">关于</a></li>
     <li class="searchfield">
@@ -241,7 +231,7 @@ For example, perhaps you’ve forgotten to close a sink method:</p>
 
 <p>In the Dart ecosystem,
 the Dart Analysis Server and other tools use the
-<a href="https://pub.dartlang.org/packages/analyzer">analyzer package</a>
+<a href="https://pub.dev/packages/analyzer">analyzer package</a>
 to perform static analysis.</p>
 
 <p>You can customize static analysis to look for a variety of potential
@@ -261,7 +251,7 @@ use the analyzer package to evaluate your code.</p>
 <p>This document explains how to customize the behavior of the analyzer
 using either an analysis options file or comments in Dart source code. If you want to
 add static analysis to your tool, see the
-<a href="https://pub.dartlang.org/packages/analyzer">analyzer package</a> docs and the
+<a href="https://pub.dev/packages/analyzer">analyzer package</a> docs and the
 <a href="https://htmlpreview.github.io/?https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/doc/api.html">Analysis Server API Specification.</a></p>
 
 <aside class="alert alert-info">
@@ -373,7 +363,7 @@ Note that linter rules can have false positives, unlike static analysis.</p>
 <a id="default-google-rules-pedantic" class="anchor" href="#default-google-rules-pedantic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling default Google rules: pedantic</h3>
 
 <p>To enable the list of linter rules that Google uses in its own Dart code,
-depend on the <a href="https://pub.dartlang.org/packages/pedantic">pedantic package</a>
+depend on the <a href="https://pub.dev/packages/pedantic">pedantic package</a>
 and include its <code class="highlighter-rouge">analysis_options.yaml</code> file.
 Unless you need to use the <code class="highlighter-rouge">pedantic</code> API, declare a dev dependency on <code class="highlighter-rouge">pedantic</code>
 in your <code class="highlighter-rouge">pubspec.yaml</code> file:</p>
@@ -473,7 +463,7 @@ use <code class="highlighter-rouge">exclude:</code> in the analysis options file
     - lib/client/piratesapi.dart</pre>
 
 <p>You can specify a group of files using
-<a href="https://pub.dartlang.org/packages/glob">glob</a> syntax:</p>
+<a href="https://pub.dev/packages/glob">glob</a> syntax:</p>
 
 <pre class="prettyprint lang-yaml">analyzer:
   exclude:
@@ -531,16 +521,16 @@ the severity of individual rules, or to always ignore some rules.</p>
 <dl>
   <dt><code class="highlighter-rouge">info</code></dt>
   <dd>An informational message that doesn’t cause analysis to fail.
-Example: <a href="https://pub.dartlang.org/documentation/analyzer/latest/analyzer/TodoCode/TODO-constant.html"><code class="highlighter-rouge">todo</code></a>
+Example: <a href="https://pub.dev/documentation/analyzer/latest/analyzer/TodoCode/TODO-constant.html"><code class="highlighter-rouge">todo</code></a>
 </dd>
   <dt><code class="highlighter-rouge">warning</code></dt>
   <dd>A warning that doesn’t cause analysis to fail unless
 the analyzer is configured to treat warnings as errors.
-Example: <a href="https://pub.dartlang.org/documentation/analyzer/latest/analyzer/AnalysisOptionsWarningCode/ANALYSIS_OPTION_DEPRECATED-constant.html"><code class="highlighter-rouge">analysis_option_deprecated</code></a>
+Example: <a href="https://pub.dev/documentation/analyzer/latest/analyzer/AnalysisOptionsWarningCode/ANALYSIS_OPTION_DEPRECATED-constant.html"><code class="highlighter-rouge">analysis_option_deprecated</code></a>
 </dd>
   <dt><code class="highlighter-rouge">error</code></dt>
   <dd>An error that causes analysis to fail.
-Example: <a href="https://pub.dartlang.org/documentation/analyzer/latest/analyzer/StaticTypeWarningCode/INVALID_ASSIGNMENT-constant.html"><code class="highlighter-rouge">invalid_assignment</code></a>
+Example: <a href="https://pub.dev/documentation/analyzer/latest/analyzer/StaticTypeWarningCode/INVALID_ASSIGNMENT-constant.html"><code class="highlighter-rouge">invalid_assignment</code></a>
 </dd>
 </dl>
 
@@ -582,7 +572,7 @@ and to provide information (but not a warning or error) about dead code:</p>
   <li><a href="http://dart-lang.github.io/linter/lints/">Dart linter rules</a></li>
   <li><a href="https://github.com/dart-lang/sdk/tree/master/pkg/analyzer_cli#dartanalyzer">dartanalyzer</a></li>
   <li><a href="https://webdev.dartlang.org/tools/dartdevc">dartdevc</a></li>
-  <li><a href="https://pub.dartlang.org/packages/analyzer">analyzer package</a></li>
+  <li><a href="https://pub.dev/packages/analyzer">analyzer package</a></li>
 </ul>
 
 
@@ -612,7 +602,7 @@ and to provide information (but not a warning or error) about dead code:</p>
                  class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
               &nbsp;
               <a 
-                 title="Site built on 2019/05/09 19:39 PDT"
+                 title="Site built on 2019/05/09 19:58 PDT"
                  
                  class="no-automatic-external"><i class="material-icons">build</i></a>
             </li>
@@ -640,7 +630,7 @@ and to provide information (but not a warning or error) about dead code:</p>
           <ul>
             <li><a href="https://api.dartlang.org/stable">API 参考</a></li>
             <li><a href="https://dartpad.cn">DartPad</a></li>
-            <li><a href="https://pub.dartlang.org">Dart packages</a></li>
+            <li><a href="https://pub.dev">Dart packages</a></li>
             <li><a href="https://news.dartlang.org">Dart 新闻</a></li>
             <li><a href="https://github.com/dart-lang/sdk/issues">Dart bugs 和 <br> 新需求</a></li>
           </ul>
