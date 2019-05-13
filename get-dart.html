@@ -489,8 +489,8 @@ ga('send', 'pageview');
   <ul class="section-nav nav">
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#install">安装 Dart SDK</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#upgrade">Upgrade</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#switch-release">Switch release</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#section-1">升级</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#section-2">切换版本</a></li>
 </ul>
 </li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#关于发布渠道和版本号">关于发布渠道和版本号</a></li>
@@ -538,8 +538,8 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#install">安装 Dart SDK</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#upgrade">Upgrade</a></li>
-<li class="toc-entry toc-h3"><a href="#switch-release">Switch release</a></li>
+<li class="toc-entry toc-h3"><a href="#section-1">升级</a></li>
+<li class="toc-entry toc-h3"><a href="#section-2">切换版本</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#关于发布渠道和版本号">关于发布渠道和版本号</a></li>
@@ -567,12 +567,12 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 <p>如下介绍，可以使用包管理器轻松的安装更新 Dart SDK。也可以，从源代码<a href="https://github.com/dart-lang/sdk/wiki/Building">构建 SDK </a>或者<a href="/tools/sdk/archive">下载 SDK zip 包文件</a>。</p>
 
 <aside class="alert alert-warning">
-  <p>Dart tools may send usage metrics and crash reports to Google.
-By downloading the Dart SDK, you agree to the
-<a href="https://policies.google.com/terms">Google Terms of Service.</a>
-Note: The <a href="https://policies.google.com/privacy">Google Privacy Policy</a>
-describes how data is handled in this service.</p>
 
+  <p>Dart 工具可能会向 Google 发送使用指标和崩溃报告。
+下载 Dart SDK，即表示您已同意
+<a href="https://policies.google.com/terms">Google 服务条款</a>。
+注意：<a href="https://policies.google.com/privacy">Google 隐私权政策</a>
+介绍了在此服务中的数据被如何处理。</p>
 </aside>
 
 <ul class="tabs__top-bar">
@@ -581,58 +581,46 @@ describes how data is handled in this service.</p>
   <li class="tab-link" data-tab="tab-sdk-install-mac">Mac</li>
 </ul>
 <div id="tab-sdk-install-windows" class="tabs__content current">
-  <p>Choose one of these options:</p>
 
-  <ul>
-    <li><a href="#install-using-chocolatey">Install using Chocolatey</a></li>
-    <li><a href="#install-using-a-setup-wizard">Install using a setup wizard</a></li>
-  </ul>
+  <p>选择以下一种方式安装：</p>
 
-  <h4 id="install-using-chocolatey">Install using Chocolatey</h4>
+  <h4 id="chocolatey-">使用 Chocolatey 安装</h4>
 
-  <p>To use <a href="https://chocolatey.org">Chocolatey</a> to install a <strong>stable</strong> release of the Dart SDK, run this
-command:</p>
+  <p>使用 <a href="https://chocolatey.org">Chocolatey</a> 执行以下指令安装<strong>稳定版</strong> Dart SDK：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">C:\&gt;</span> choco <span class="nb">install </span>dart-sdk
 </code></pre></div>  </div>
 
-  <p>To install a <strong>dev</strong> release, run this command:</p>
+  <p>执行以下指令安装<strong>开发板</strong>：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">C:\&gt;</span> choco <span class="nb">install </span>dart-sdk <span class="nt">--pre</span>
 </code></pre></div>  </div>
 
-  <p>To <strong>upgrade</strong> the Dart SDK, run this command
-(add <code class="highlighter-rouge">--pre</code> to upgrade the dev release):</p>
+  <p>执行以下指令<strong>升级</strong> Dart SDK （升级开发板添加 <code class="highlighter-rouge">--pre</code> 参数）：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">C:\&gt;</span> choco upgrade dart-sdk
 </code></pre></div>  </div>
 
-  <h4 id="install-using-a-setup-wizard">Install using a setup wizard</h4>
+  <h4 id="section">使用设置向导安装</h4>
 
-  <p>Alternatively, use the community-supported
-<a href="http://www.gekorm.com/dart-windows" target="_blank">Dart SDK installer for Windows.</a>
-You can use the wizard to install <strong>stable</strong> or
-<strong>dev</strong> versions of the Dart SDK.</p>
+  <p>另外，你可以使用社区提供的
+<a href="http://www.gekorm.com/dart-windows" target="_blank"> Windows 安装包</a>。
+通过设置向导安装 <strong>稳定版</strong> 或者 <strong>开发版</strong> 的 Dart SDK 。</p>
 
   <p><img src="/assets/shared/dart/installer-screenshot-no-272278ce31f0cd3b44fbd998c55b83c945cd6c1f774de0258bf81a6fa7dcc563.png" alt="Windows Dart Setup Wizard" class="text-center" width="250"></p>
 
 </div>
 <div id="tab-sdk-install-linux" class="tabs__content">
-  <p>If you’re using Debian/Ubuntu on AMD64 (64-bit Intel), you can choose one of the
-following options, both of which can update the SDK automatically when new
-versions are released.</p>
 
-  <ul>
-    <li><a href="#install-using-apt-get">Install using apt-get</a></li>
-    <li><a href="#install-a-debian-package">Install a Debian package</a></li>
-  </ul>
+  <p>如果是在 Debian/Ubuntu 系统的 AMD64 (64-bit Intel) 机器上，可选择以下一种方式安装，
+两个方式都可以在发布新版本时自动更新 SDK 。</p>
 
-  <h4 id="install-using-apt-get">Install using apt-get</h4>
+  <h4 id="apt-get-">使用 apt-get 安装</h4>
 
-  <p>Perform the following <strong>one-time setup</strong>:</p>
+  <p>执行以下<strong>一次性</strong>设置：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>apt-get update
@@ -641,19 +629,19 @@ versions are released.</p>
 <span class="gp">$</span> <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list &gt; /etc/apt/sources.list.d/dart_stable.list'</span>
 </code></pre></div>  </div>
 
-  <p>Then install the
-<strong>stable</strong>
-release of the Dart SDK:</p>
+  <p>然后安装
+<strong>稳定版</strong>
+Dart SDK ：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>apt-get update
 <span class="gp">$</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>dart
 </code></pre></div>  </div>
 
-  <p>Or, to install the
-<strong>dev</strong>
-release of the Dart SDK,
-run the one-time setup commands followed by:</p>
+  <p>或者，安装
+<strong>开发板</strong>
+Dart SDK ，
+执行一次性设置命令：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_unstable.list &gt; /etc/apt/sources.list.d/dart_unstable.list'</span>
@@ -661,25 +649,27 @@ run the one-time setup commands followed by:</p>
 <span class="gp">$</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>dart
 </code></pre></div>  </div>
 
-  <h4 id="install-a-debian-package">Install a Debian package</h4>
+  <h4 id="debian-">安装 Debian 包</h4>
 
-  <p>Alternatively, download Dart SDK as Debian package in the <code class="highlighter-rouge">.deb</code> package format.</p>
+  <p>以.deb包格式</p>
+
+  <p>另外，可以下载 Debian <code class="highlighter-rouge">.deb</code> 格式的 Dart SDK 安装包。</p>
 
   <ul class="downloads">
     <li><a href="#" class="download-link" id="debian-link-stable" data-bits="64" data-os="debian" data-tool="sdk">Stable channel</a></li>
     <li><a href="#" class="download-link" id="debian-link-dev" data-bits="64" data-os="debian" data-tool="sdk">Dev channel</a></li>
   </ul>
 
-  <h4 id="modify-path-for-access-to-all-dart-binaries">Modify PATH for access to all Dart binaries</h4>
+  <h4 id="dart-path">修改访问 Dart 库的环境变量（PATH）</h4>
 
-  <p>After installing the SDK, <strong>add its bin directory to your PATH</strong>. For example,
-use the following command to change PATH in your active terminal session:</p>
+  <p>SDK 安装完成后，添加 SDK 的 bin 目录到环境变量中。例如：
+使用以下命令更改当前终端会话中的环境变量：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PATH</span><span class="s2">:/usr/lib/dart/bin"</span>
 </code></pre></div>  </div>
 
-  <p>To change the PATH for future terminal sessions, use a command like this:</p>
+  <p>要更改新建终端会话的环境变量，使用命令：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">echo</span> <span class="s1">'export PATH="$PATH:/usr/lib/dart/bin"'</span> <span class="o">&gt;&gt;</span> ~/.profile
@@ -687,61 +677,58 @@ use the following command to change PATH in your active terminal session:</p>
 
 </div>
 <div id="tab-sdk-install-mac" class="tabs__content">
-  <p><a href="http://brew.sh/">Install homebrew</a>, and then run:</p>
+
+  <p><a href="http://brew.sh/">安装 homebrew</a>，然后执行以下命令：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew tap dart-lang/dart
 <span class="gp">$</span> brew <span class="nb">install </span>dart
 </code></pre></div>  </div>
 
-  <p>To install a <strong>dev channel</strong> release, use <code class="highlighter-rouge">--devel</code>:</p>
+  <p>添加 <code class="highlighter-rouge">--devel</code> 参数安装<strong>稳定版</strong>：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew <span class="nb">install </span>dart <span class="nt">--devel</span>
 </code></pre></div>  </div>
 
-  <h3 id="upgrade">
-<a id="upgrade" class="anchor" href="#upgrade" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrade</h3>
+  <h3 id="section-1">
+<a id="section-1" class="anchor" href="#section-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>升级</h3>
 
-  <p>To upgrade when a new release of Dart is available run:</p>
+  <p>升级 Dart 到一个新的可用版本：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew upgrade dart
 </code></pre></div>  </div>
-  <p>To install a stable channel release when a dev release is currently active,
-run:</p>
+  <p>如果当前有效版本为开发版，想要安装稳定版，执行：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew <span class="nb">unlink </span>dart
 <span class="gp">$</span> brew <span class="nb">install </span>dart
 </code></pre></div>  </div>
 
-  <p>To upgrade to a dev channel release when a stable release is
-currently active, run:</p>
+  <p>如果当前有效版本为稳定版，要升级到开发版，执行：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew upgrade dart <span class="nt">--devel</span> <span class="nt">--force</span>
 </code></pre></div>  </div>
 
-  <h3 id="switch-release">
-<a id="switch-release" class="anchor" href="#switch-release" aria-hidden="true"><span class="octicon octicon-link"></span></a>Switch release</h3>
+  <h3 id="section-2">
+<a id="section-2" class="anchor" href="#section-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>切换版本</h3>
 
-  <p>To switch between locally installed dart releases run
-<code class="highlighter-rouge">brew switch dart &lt;version&gt;</code>. Examples:</p>
+  <p>切换本地已安装 Dart 版本，执行 <code class="highlighter-rouge">brew switch dart &lt;version&gt;</code> 。例如：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew switch dart 1.24.3
 <span class="gp">$</span> brew switch dart 2.1.0
 </code></pre></div>  </div>
 
-  <p>If you aren’t sure which versions of dart you have installed, then run:</p>
+  <p>如果无法确定本地已安装了哪些版本，可执行：</p>
 
   <div class="language-terminal highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="gp">$</span> brew info dart
 </code></pre></div>  </div>
 
-  <p>The command output lists the latest stable and dev versions at the top,
-followed by your locally installed versions.</p>
+  <p>该指令在顶部会打印最新的稳定版和开发版，随后会列出本地已安装的版本。</p>
 
 </div>
 
@@ -798,7 +785,7 @@ followed by your locally installed versions.</p>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/13 04:05 PDT"
+               title="Site built on 2019/05/13 04:12 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
