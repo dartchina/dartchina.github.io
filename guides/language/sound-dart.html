@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Why and how to write sound Dart code.">
-  <title>The Dart type system | Dart</title>
+  <meta name="description" content="如何编写健全的 Dart 代码。">
+  <title>The Dart 类型系统 | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,12 +18,12 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="The Dart type system" />
-  <meta name="twitter:description" content="Why and how to write sound Dart code." />
+  <meta name="twitter:title" content="The Dart 类型系统" />
+  <meta name="twitter:description" content="如何编写健全的 Dart 代码。" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="The Dart type system" />
-  <meta property="og:description" content="Why and how to write sound Dart code." />
+  <meta property="og:title" content="The Dart 类型系统" />
+  <meta property="og:description" content="如何编写健全的 Dart 代码。" />
   <meta property="og:url" content="https://www.dartlang.org/guides/language/sound-dart" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
@@ -491,7 +491,7 @@ ga('send', 'pageview');
     
   </header>
   <ul class="section-nav nav">
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#what-is-soundness">What is soundness?</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#什么是类型安全">什么是类型安全</a></li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#the-benefits-of-soundness">The benefits of soundness</a></li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#tips-for-passing-static-analysis">Tips for passing static analysis</a>
 <ul class="nav">
@@ -530,7 +530,7 @@ ga('send', 'pageview');
   <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/language/sound-dart.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='The Dart type system' page issue&body=
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='The Dart 类型系统' page issue&body=
 Page URL: https://www.dartlang.org/guides/language/sound-dart%0D%0A
 Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/language/sound-dart.md%0D%0A
 %0D%0A
@@ -542,7 +542,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   </a>
 </div>
 
-            <h1>The Dart type system</h1>
+            <h1>The Dart 类型系统</h1>
           </div>
           
 
@@ -562,7 +562,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
     
   </header>
   <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#what-is-soundness">What is soundness?</a></li>
+<li class="toc-entry toc-h2"><a href="#什么是类型安全">什么是类型安全</a></li>
 <li class="toc-entry toc-h2"><a href="#the-benefits-of-soundness">The benefits of soundness</a></li>
 <li class="toc-entry toc-h2"><a href="#tips-for-passing-static-analysis">Tips for passing static analysis</a>
 <ul>
@@ -594,34 +594,30 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 
           <?code-excerpt replace="/([A-Z]\w*)\d\b/$1/g; /\b(main)\d\b/$1/g"?>
 
-<p>The Dart language is type safe: it uses a combination of static type checking and
-<a href="#runtime-checks">runtime checks</a> to
-ensure that a variable’s value always matches the variable’s static type.
-Although <em>types</em> are mandatory, type <em>annotations</em> are optional
-because of <a href="#type-inference">type inference</a>.</p>
+<p>Dart 类型安全的语言：Dart 使用静态类型检查和
+<a href="#runtime-checks">运行时检查</a>
+的组合来确保变量的值始终与变量的静态类型匹配。尽管类型是必需的，但由于
+<a href="#type-inference">类型推断</a>
+，类型的注释是可选的。</p>
 
-<p>This page concentrates on the type safety features added in Dart 2.
-For a full introduction to the Dart language, including types, see the
-<a href="/guides/language/language-tour">language tour</a>.</p>
+<p>本章重点介绍 Dart 2 中添加的类型安全功能。有关 Dart 语言的完整介绍（包括类型），
+请参阅<a href="/guides/language/language-tour">语言概览</a>。</p>
 
 <aside class="alert alert-info">
-  <p><strong>Terminology note:</strong>
-  The terms <strong>sound</strong> Dart and <strong>type safe</strong> Dart
-  are often used interchangeably.
-  You might also see the term <strong>strong mode</strong>.
-  Strong mode was an opt-in Dart 1.x feature
-  that provided partial support for type safety.</p>
+  <p><strong>术语说明：</strong>
+  术语 <strong>sound</strong> Dart 和 <strong>type safe</strong> Dart 通常可互换使用。
+  你可能还会看到术语 <strong>strong mode</strong> 。 
+  <strong>strong mode</strong> 是一种在Dart 1.x中可选的功能，
+  可为类型安全提供部分支持。</p>
 </aside>
 
-<p>One benefit of static type checking is the ability to find bugs
-at compile time using Dart’s <a href="/guides/language/analysis-options">static analyzer.</a></p>
+<p>静态类型检查的一个好处是能够使用 Dart 的
+<a href="/guides/language/analysis-options">静态分析器</a>
+在编译时找到错误。</p>
 
-<p>You can fix most static analysis errors by adding type annotations to generic
-classes. The most common generic classes are the collection types
-<code class="highlighter-rouge">List&lt;T&gt;</code> and <code class="highlighter-rouge">Map&lt;K,V&gt;</code>.</p>
+<p>可以向泛型类添加类型注释来修复大多数静态分析错误。最常见的泛型类是集合类型 <code class="highlighter-rouge">List&lt;T&gt;</code> 和 <code class="highlighter-rouge">Map&lt;K,V&gt;</code> 。</p>
 
-<p>For example, in the following code the <code class="highlighter-rouge">printInts()</code> function prints an integer list,
-and <code class="highlighter-rouge">main()</code> creates a list and passes it to <code class="highlighter-rouge">printInts()</code>.</p>
+<p>例如，在下面的代码中，<code class="highlighter-rouge">main()</code> 创建一个列表并将其传递给 <code class="highlighter-rouge">printInts()</code> ，由 <code class="highlighter-rouge">printInts()</code> 函数打印这个整数列表。</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (opening-example)" replace="/list(?=\))/[!$&!]/g"?>
 <pre class="prettyprint lang-dart fails-sa">void printInts(List&lt;int&gt; a) =&gt; print(a);
@@ -633,24 +629,19 @@ void main() {
   printInts(<span class="highlight">list</span>);
 }</pre>
 
-<p>The preceding code results in a type error on <code class="highlighter-rouge">list</code> (highlighted
-above) at the call of <code class="highlighter-rouge">printInts(list)</code>:</p>
+<p>上面的代码在调用 <code class="highlighter-rouge">printInts(list)</code> 时会在 <code class="highlighter-rouge">list</code> （高亮提示）上产生类型错误：</p>
 
 <?code-excerpt "strong/analyzer-2-results.txt" retain="/List.*strong_analysis.*argument_type_not_assignable/" replace="/ at (lib|test)\/\w+\.dart:\d+:\d+//g"?>
 <pre class="console-output"><code class="language-nocode">error • The argument type 'List' can't be assigned to the parameter type 'List&lt;int&gt;' • argument_type_not_assignable
 </code></pre>
 
-<p>The error highlights an unsound implicit cast from <code class="highlighter-rouge">List&lt;dynamic&gt;</code> to <code class="highlighter-rouge">List&lt;int&gt;</code>.
-The <code class="highlighter-rouge">list</code> variable has static type <code class="highlighter-rouge">List&lt;dynamic&gt;</code>. This is because the
-initializing declaration <code class="highlighter-rouge">var list = []</code> doesn’t provide the analyzer with
-enough information for it to infer a type argument more specific than <code class="highlighter-rouge">dynamic</code>.
-The <code class="highlighter-rouge">printInts()</code> function expects a parameter of type <code class="highlighter-rouge">List&lt;int&gt;</code>,
-causing a mismatch of types.</p>
+<p>高亮错误是因为产生了从 <code class="highlighter-rouge">List&lt;dynamic&gt;</code> 到 <code class="highlighter-rouge">List&lt;int&gt;</code> 的不正确的隐式转换。
+<code class="highlighter-rouge">list</code> 变量是 <code class="highlighter-rouge">List&lt;dynamic&gt;</code> 静态类型。这是因为 <code class="highlighter-rouge">list</code> 变量的初始化声明 <code class="highlighter-rouge">var list = []</code>
+没有为分析器提供足够的信息来推断比 <code class="highlighter-rouge">dynamic</code> 更具体的类型参数。
+<code class="highlighter-rouge">printInts()</code> 函数需要 <code class="highlighter-rouge">List&lt;int&gt;</code> 类型的参数，因此导致类型不匹配。</p>
 
-<p>When adding a type annotation (<code class="highlighter-rouge">&lt;int&gt;</code>) on creation of the list
-(highlighted below) the analyzer complains that a string argument can’t be assigned to
-an <code class="highlighter-rouge">int</code> parameter. Removing the quotes in <code class="highlighter-rouge">list.add("2")</code> results
-in code that passes static analysis and runs with no errors or warnings.</p>
+<p>在创建 <code class="highlighter-rouge">list</code> 时添加类型注释 <code class="highlighter-rouge">&lt;int&gt;</code>（代码中高亮显示部分）后，分析器会提示无法将字符串参数分配给 <code class="highlighter-rouge">int</code> 参数。
+删除 <code class="highlighter-rouge">list.add("2")</code> 中的字符串引号使代码通过静态分析并能够正常执行。</p>
 
 <?code-excerpt "strong/test/strong_test.dart (opening-example)" replace="/<int.(?=\[)|2/[!$&!]/g"?>
 <pre class="prettyprint lang-dart passes-sa">void printInts(List&lt;int&gt; a) =&gt; print(a);
@@ -662,24 +653,19 @@ void main() {
   printInts(list);
 }</pre>
 
-<p><a href="https://dartpad.cn/f64e963cb5f894e2146c2b28d5efa4ed">Try it in DartPad</a>.</p>
+<p><a href="https://dartpad.cn/f64e963cb5f894e2146c2b28d5efa4ed">尝试在 DartPad 中练习</a>.</p>
 
-<h2 id="what-is-soundness">
-<a id="what-is-soundness" class="anchor" href="#what-is-soundness" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is soundness?</h2>
+<h2 id="什么是类型安全">
+<a id="什么是类型安全" class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>什么是类型安全</h2>
 
-<p><em>Soundness</em> is about ensuring your program can’t get into certain
-invalid states. A sound <em>type system</em> means you can never get into
-a state where an expression evaluates to a value that doesn’t match
-the expression’s static type. For example, if an expression’s static
-type is <code class="highlighter-rouge">String</code>, at runtime you are guaranteed to only get a string
-when you evaluate it.</p>
+<p>类型安全是为了确保程序不会进入某些无效状态。
+安全类型系统意味着程序永远不会进入表达式求值为与表达式的静态类型不匹配的值的状态。
+例如，如果表达式的静态类型是 <code class="highlighter-rouge">String</code> ，则在运行时保证在评估它的时候只会获取字符串。</p>
 
-<p>Dart’s type system, like the type systems in Java and C#, is sound. It
-enforces that soundness using a combination of static checking
-(compile-time errors) and runtime checks. For example, assigning a <code class="highlighter-rouge">String</code>
-to <code class="highlighter-rouge">int</code> is a compile-time error. Casting an <code class="highlighter-rouge">Object</code> to a string using
-<code class="highlighter-rouge">as String</code> fails with a runtime error if the object isn’t a
-string.</p>
+<p>Dart 的类型系统，同 Java 和 C＃ 中的类型系统类似，是安全的。
+它使用静态检查（编译时错误）和运行时检查的组合来强制执行类型安全。
+例如，将 <code class="highlighter-rouge">String</code> 分配给 <code class="highlighter-rouge">int</code> 是一个编译时错误。如果<code class="highlighter-rouge">对象</code>不是字符串，
+使用 <code class="highlighter-rouge">as String</code> 将<code class="highlighter-rouge">对象</code>转换为字符串时，会由于运行时错误而导致转换失败。</p>
 
 <h2 id="the-benefits-of-soundness">
 <a id="the-benefits-of-soundness" class="anchor" href="#the-benefits-of-soundness" aria-hidden="true"><span class="octicon octicon-link"></span></a>The benefits of soundness</h2>
@@ -1080,7 +1066,7 @@ options file.</li>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/13 22:35 PDT"
+               title="Site built on 2019/05/13 23:13 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
