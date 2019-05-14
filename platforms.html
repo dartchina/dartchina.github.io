@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="You can use Dart to write mobile apps, web apps, command-line apps, backends, and more.">
-  <title>Platforms | Dart</title>
+  <meta name="description" content="你可以使用 Dart 编写移动， Web ，命令行，后端等应用程序。">
+  <title>平台 | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,12 +18,12 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="Platforms" />
-  <meta name="twitter:description" content="You can use Dart to write mobile apps, web apps, command-line apps, backends, and more." />
+  <meta name="twitter:title" content="平台" />
+  <meta name="twitter:description" content="你可以使用 Dart 编写移动， Web ，命令行，后端等应用程序。" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Platforms" />
-  <meta property="og:description" content="You can use Dart to write mobile apps, web apps, command-line apps, backends, and more." />
+  <meta property="og:title" content="平台" />
+  <meta property="og:description" content="你可以使用 Dart 编写移动， Web ，命令行，后端等应用程序。" />
   <meta property="og:url" content="https://www.dartlang.org/platforms.html" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
@@ -491,16 +491,16 @@ ga('send', 'pageview');
     
   </header>
   <ul class="section-nav nav">
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#dart-native-vm-jit-and-aot">Dart Native (VM JIT and AOT)</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#dart-native-vm-jit-和-aot">Dart Native (VM JIT 和 AOT)</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#lightning-fast-developer-workflow-dart-vm-jit">Lightning fast developer workflow (Dart VM JIT)</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#optimized-production-code-dart-aot">Optimized production code (Dart AOT)</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#极速开发-dart-vm-jit">极速开发 (Dart VM JIT)</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#生产代码优化-dart-aot">生产代码优化 (Dart AOT)</a></li>
 </ul>
 </li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#dart-web-javascript">Dart Web (JavaScript)</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#lightning-fast-developer-workflow-dart-dev-compiler">Lightning fast developer workflow (Dart dev compiler)</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#optimized-production-code-dart-js-compiler">Optimized production code (Dart JS compiler)</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#极速开发-dart-开发编译器">极速开发 (Dart 开发编译器)</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#生产代码优化-dart-js-编译器">生产代码优化 (Dart JS 编译器)</a></li>
 </ul>
 </li>
 </ul>
@@ -516,7 +516,7 @@ ga('send', 'pageview');
   <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/platforms.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Platforms' page issue&body=
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='平台' page issue&body=
 Page URL: https://www.dartlang.org/platforms.html%0D%0A
 Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/platforms.md%0D%0A
 %0D%0A
@@ -528,7 +528,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   </a>
 </div>
 
-            <h1>Platforms</h1>
+            <h1>平台</h1>
           </div>
           
 
@@ -545,125 +545,115 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
     
   </header>
   <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#dart-native-vm-jit-and-aot">Dart Native (VM JIT and AOT)</a>
+<li class="toc-entry toc-h2"><a href="#dart-native-vm-jit-和-aot">Dart Native (VM JIT 和 AOT)</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#lightning-fast-developer-workflow-dart-vm-jit">Lightning fast developer workflow (Dart VM JIT)</a></li>
-<li class="toc-entry toc-h3"><a href="#optimized-production-code-dart-aot">Optimized production code (Dart AOT)</a></li>
+<li class="toc-entry toc-h3"><a href="#极速开发-dart-vm-jit">极速开发 (Dart VM JIT)</a></li>
+<li class="toc-entry toc-h3"><a href="#生产代码优化-dart-aot">生产代码优化 (Dart AOT)</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#dart-web-javascript">Dart Web (JavaScript)</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#lightning-fast-developer-workflow-dart-dev-compiler">Lightning fast developer workflow (Dart dev compiler)</a></li>
-<li class="toc-entry toc-h3"><a href="#optimized-production-code-dart-js-compiler">Optimized production code (Dart JS compiler)</a></li>
+<li class="toc-entry toc-h3"><a href="#极速开发-dart-开发编译器">极速开发 (Dart 开发编译器)</a></li>
+<li class="toc-entry toc-h3"><a href="#生产代码优化-dart-js-编译器">生产代码优化 (Dart JS 编译器)</a></li>
 </ul>
 </li>
 </ul>
 </div>
 
 
-          <p>You can use Dart to write simple scripts or full-featured apps. Whether you’re
-creating a mobile app, web app, command-line script, or server-side app, there’s
-a Dart solution for that.</p>
+          
+<p>Dart 可以用来编写简单的脚本或完整功能的应用程序。无论是创建移动应用，Web应用，命令行脚本还是服务端应用，
+都可以选择 Dart 作为解决方案。</p>
 
-<p>Flexible compiler technology lets you run Dart code in different ways,
-depending on your target platform and goals:</p>
+<p>灵活的编译器技术允许以不同的方式运行 Dart 程序，具体的运行方式取决于目标平台以及需求：</p>
 
 <ul>
+  <li>**Dart Native **: 对于针对设备（移动设备，桌面设备，服务器等）的程序，
+Dart Native 包括带有 JIT（just-in-time）编译的 Dart VM
+和用于生成机器代码的 AOT（ahead-of-time）编译器。</li>
   <li>
-<strong>Dart Native</strong>: For programs targeting devices (mobile, desktop, server,
-and more), Dart Native includes both a Dart VM with JIT (just-in-time)
-compilation and an AOT (ahead-of-time) compiler for producing machine
-code.</li>
-  <li>
-<strong>Dart Web</strong>: For programs targeting the web, Dart Web includes both a
-development time compiler (<code class="highlighter-rouge">dartdevc</code>) and a production time compiler
-(<code class="highlighter-rouge">dart2js</code>).</li>
+<strong>Dart Web 应用</strong>: 对于面向 Web 的程序，
+Dart Web 包括开发时编译器（<code class="highlighter-rouge">dartdevc</code>）
+和生产时编译器（<code class="highlighter-rouge">dart2js</code>）。</li>
 </ul>
 
 <p><img src="/assets/platforms-7f4d540acf9fe801b456ad74f9f855230a385014d05d9f5997c878b889a67a0f.svg" width="800px" alt="Dart platform"></p>
 
-<h2 id="dart-native-vm-jit-and-aot">
-<a id="dart-native-vm-jit-and-aot" class="anchor" href="#dart-native-vm-jit-and-aot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dart Native (VM JIT and AOT)</h2>
+<h2 id="dart-native-vm-jit-和-aot">
+<a id="dart-native-vm-jit-和-aot" class="anchor" href="#dart-native-vm-jit-%E5%92%8C-aot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dart Native (VM JIT 和 AOT)</h2>
 
-<p>Dart Native enables running Dart code compiled to native ARM or X64
-machine code for mobile, desktop, and server apps.</p>
+<p>Dart Native 支持将可执行的 Dart 代码编译为适用于移动，桌面和服务器应用程序的本机 ARM 或 X64 机器代码。</p>
 
-<p>The <a href="https://flutterchina.club">Flutter framework</a> is a popular multi-platform UI toolkit
-that’s powered by Dart Native when targeting mobile or desktop devices.</p>
+<p><a href="https://flutterchina.club">Flutter 框架</a>是一个流行的多平台 UI 工具包，
+当应用的设备是移动端或桌面端时由 Dart Native 提供支持。</p>
 
-<p>More information:</p>
+<p>更多内容：</p>
 <ul>
-  <li><a href="https://flutterchina.club/docs/get-started/">Flutter get started documentation</a></li>
-  <li><a href="/tutorials/server/get-started">Get started: command-line and server apps</a></li>
-  <li><a href="/tutorials/server/cmdline">Write command-line apps</a></li>
-  <li><a href="/tutorials/server/httpserver">Write HTTP clients and servers</a></li>
+  <li><a href="https://flutterchina.club/docs/get-started/">Flutter 入门文档</a></li>
+  <li><a href="/tutorials/server/get-started">命令行及服务端应用入门</a></li>
+  <li><a href="/tutorials/server/cmdline">编写命令行应用</a></li>
+  <li><a href="/tutorials/server/httpserver">编写 HTTP 客户端和服务端应用</a></li>
 </ul>
 
-<h3 id="lightning-fast-developer-workflow-dart-vm-jit">
-<a id="lightning-fast-developer-workflow-dart-vm-jit" class="anchor" href="#lightning-fast-developer-workflow-dart-vm-jit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lightning fast developer workflow (Dart VM JIT)</h3>
+<h3 id="极速开发-dart-vm-jit">
+<a id="极速开发-dart-vm-jit" class="anchor" href="#%E6%9E%81%E9%80%9F%E5%BC%80%E5%8F%91-dart-vm-jit" aria-hidden="true"><span class="octicon octicon-link"></span></a>极速开发 (Dart VM JIT)</h3>
 
-<p>Having a fast developer cycle is critical for iteration.</p>
+<p>缩短开发周期对于迭代至关重要。</p>
 
-<p>The Dart VM has a just-in-time compiler (JIT) that supports both pure interpretation
-(as required on iOS devices, for example) and runtime optimization.</p>
+<p>Dart VM 拥有 JIT （just-in-time）编译器
+Dart VM 具有即时编译器（JIT），它支持纯解释（例如，基于 iOS 开发中的需求）和运行时优化。</p>
 
-<p>More information: <a href="/tools/dart-vm"><code class="highlighter-rouge">dart</code> VM tool</a></p>
+<p>更多内容： <a href="/tools/dart-vm"><code class="highlighter-rouge">dart</code> VM 工具</a></p>
 
-<h3 id="optimized-production-code-dart-aot">
-<a id="optimized-production-code-dart-aot" class="anchor" href="#optimized-production-code-dart-aot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optimized production code (Dart AOT)</h3>
+<h3 id="生产代码优化-dart-aot">
+<a id="生产代码优化-dart-aot" class="anchor" href="#%E7%94%9F%E4%BA%A7%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96-dart-aot" aria-hidden="true"><span class="octicon octicon-link"></span></a>生产代码优化 (Dart AOT)</h3>
 
-<p>When apps are ready to be deployed to production — whether you’re
-publishing to an app store or deploying to a production backend —
-you can use the Dart AOT compiler to ahead-of-time compile your app
-to native ARM or X64 code machine code.
-Your AOT-compiled app starts instantly and runs smoothly.</p>
+<p>当应用程序准备好部署到生产环境时 - 无论是发布到应用程序商店还是部署到生产后端 - 
+都可以使用 Dart AOT 编译器将应用程序提前编译为本机 ARM 或 X64 的机器码。
+经过 AOT 编译的应用程序，能够快速启动和更流畅的运行。</p>
 
-<p>The AOT-compiled code runs inside an efficient Dart runtime that enforces
-the sound Dart type system and manages memory using fast object allocation and a <a href="https://medium.com/flutter-io/flutter-dont-fear-the-garbage-collector-d69b3ff1ca30">generational garbage
-collector.</a></p>
+<p>AOT 编译的程序在高效的 Dart 运行时内运行，该运行时会强制执行健全的 Dart 类型系统并使用快速对象分配和
+<a href="https://medium.com/flutter-io/flutter-dont-fear-the-garbage-collector-d69b3ff1ca30">分代垃圾收集器管理</a>内存。</p>
 
-<p>More information: <a href="/tools/dart2aot"><code class="highlighter-rouge">dart2aot</code> tool</a></p>
+<p>更多内容：<a href="/tools/dart2aot"><code class="highlighter-rouge">dart2aot</code> 工具</a></p>
 
 <h2 id="dart-web-javascript">
 <a id="dart-web-javascript" class="anchor" href="#dart-web-javascript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dart Web (JavaScript)</h2>
 
-<p>Dart Web enables running Dart code on web platforms powered by
-JavaScript. With Dart Web, you compile Dart code to JavaScript code, which in
-turn runs in a browser — for example, <a href="https://v8.dev/">V8</a> inside
-<a href="https://www.google.com/chrome/">Chrome</a>.</p>
+<p>Dart Web 可以让 Dart 代码运行在支持 JavaScript 的 Web 平台。
+Dart Web 可以将 Dart 代码编译为 JavaScript 代码，
+从而运行在浏览器中 - 
+例如，内嵌 <a href="https://v8.dev/">V8</a> 的 <a href="https://www.google.com/chrome/">Chrome</a> 浏览器。</p>
 
-<p>The <a href="https://flutterchina.club">Flutter framework</a>, a popular multi-platform UI toolkit,
-is powered by Dart Web when targeting web apps. The
-<a href="https://webdev.dartlang.org/angular">AngularDart</a> framework, a popular web app toolkit, is
-also powered by Dart Web.</p>
+<p><a href="https://flutterchina.club">Flutter 框架</a>是一个流行的多平台 UI 工具包，当应用的环境是 Web 时由 Dart Web 提供支持。
+<a href="https://webdev.dartlang.org/angular">AngularDart</a> 框架是一个流行的 Web 应用程序工具包，也由 Dart Web 提供支持。</p>
 
-<p>More information: <a href="/tutorials/web/get-started">Get started: web apps</a></p>
+<p>更多内容： <a href="/tutorials/web/get-started">Web 应用入门</a></p>
 
-<h3 id="lightning-fast-developer-workflow-dart-dev-compiler">
-<a id="lightning-fast-developer-workflow-dart-dev-compiler" class="anchor" href="#lightning-fast-developer-workflow-dart-dev-compiler" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lightning fast developer workflow (Dart dev compiler)</h3>
+<h3 id="极速开发-dart-开发编译器">
+<a id="极速开发-dart-开发编译器" class="anchor" href="#%E6%9E%81%E9%80%9F%E5%BC%80%E5%8F%91-dart-%E5%BC%80%E5%8F%91%E7%BC%96%E8%AF%91%E5%99%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>极速开发 (Dart 开发编译器)</h3>
 
-<p>The Dart dev compiler (dartdevc) is a Dart-to-JavaScript compiler
-that’s optimized for quick turnaround. Instead of using dartdevc directly,
-you use it with <code class="highlighter-rouge">webdev</code>, a tool that supports core developer tasks such as
-running, debugging, and building.</p>
+<p>Dart 开发编译器（dartdevc）是一个 Dart 转 JavaScript 编译器，编译器针对快速转译进行了优化。
+避免直接使用 dartdevc，应该与 <code class="highlighter-rouge">webdev</code> 配合一起使用。
+<code class="highlighter-rouge">webdev</code> 是一种支持核心开发任务（如运行，调试和构建）的工具。</p>
 
-<p>More information:</p>
+<p>更多内容：</p>
 <ul>
-  <li><a href="/tools/dartdevc"><code class="highlighter-rouge">dartdevc</code> compiler</a></li>
-  <li><a href="/tools/webdev"><code class="highlighter-rouge">webdev</code> tool</a></li>
+  <li><a href="/tools/dartdevc"><code class="highlighter-rouge">dartdevc</code> 编译器</a></li>
+  <li><a href="/tools/webdev"><code class="highlighter-rouge">webdev</code> 工具</a></li>
 </ul>
 
-<h3 id="optimized-production-code-dart-js-compiler">
-<a id="optimized-production-code-dart-js-compiler" class="anchor" href="#optimized-production-code-dart-js-compiler" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optimized production code (Dart JS compiler)</h3>
+<h3 id="生产代码优化-dart-js-编译器">
+<a id="生产代码优化-dart-js-编译器" class="anchor" href="#%E7%94%9F%E4%BA%A7%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96-dart-js-%E7%BC%96%E8%AF%91%E5%99%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>生产代码优化 (Dart JS 编译器)</h3>
 
-<p>The <code class="highlighter-rouge">dart2js</code> tool compiles Dart code to fast, compact, deployable JavaScript.
-It employs techniques such as dead-code elimination</p>
+<p><code class="highlighter-rouge">dart2js</code> 工具将 Dar t代码编译为快速，紧凑，可部署的 JavaScript 应用。
+工具使用了诸如死码消除之类的技术。</p>
 
-<p>More information:</p>
+<p>更多内容：</p>
 <ul>
-  <li><a href="/web/deployment">Deployment tips</a></li>
-  <li><a href="/tools/dart2js"><code class="highlighter-rouge">dart2js</code> compiler</a></li>
-  <li><a href="/tools/webdev"><code class="highlighter-rouge">webdev</code> tool</a></li>
+  <li><a href="/web/deployment">部署技巧</a></li>
+  <li><a href="/tools/dart2js"><code class="highlighter-rouge">dart2js</code> 编译器</a></li>
+  <li><a href="/tools/webdev"><code class="highlighter-rouge">webdev</code> 工具</a></li>
 </ul>
 
           
@@ -691,7 +681,7 @@ It employs techniques such as dead-code elimination</p>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/13 20:01 PDT"
+               title="Site built on 2019/05/13 22:17 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
