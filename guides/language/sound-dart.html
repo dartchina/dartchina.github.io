@@ -509,14 +509,14 @@ ga('send', 'pageview');
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#参数类型推断">参数类型推断</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#substituting-types">Substituting types</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#替换类型">替换类型</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#simple-type-assignment">Simple type assignment</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#generic-type-assignment">Generic type assignment</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#methods">Methods</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#普通类型赋值">普通类型赋值</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#泛型赋值">泛型赋值</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#方法">方法</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#other-resources">Other resources</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#其他资源">其他资源</a></li>
 </ul>
 </div>
 
@@ -580,14 +580,14 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 <li class="toc-entry toc-h3"><a href="#参数类型推断">参数类型推断</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#substituting-types">Substituting types</a>
+<li class="toc-entry toc-h2"><a href="#替换类型">替换类型</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#simple-type-assignment">Simple type assignment</a></li>
-<li class="toc-entry toc-h3"><a href="#generic-type-assignment">Generic type assignment</a></li>
-<li class="toc-entry toc-h3"><a href="#methods">Methods</a></li>
+<li class="toc-entry toc-h3"><a href="#普通类型赋值">普通类型赋值</a></li>
+<li class="toc-entry toc-h3"><a href="#泛型赋值">泛型赋值</a></li>
+<li class="toc-entry toc-h3"><a href="#方法">方法</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#other-resources">Other resources</a></li>
+<li class="toc-entry toc-h2"><a href="#其他资源">其他资源</a></li>
 </ul>
 </div>
 
@@ -895,127 +895,111 @@ var ints = listOfDouble.map((x) =&gt; x.toInt());</pre>
 <p>在最后一个示例中，根据向下信息 <code class="highlighter-rouge">x</code> 被推断为 <code class="highlighter-rouge">double</code> 。 闭包的返回类型根据向上信息推断为 <code class="highlighter-rouge">int</code> 。
 在推断 <code class="highlighter-rouge">map()</code> 方法的类型参数：<code class="highlighter-rouge">&lt;int&gt;</code> 时，Dart 使用此返回值的类型作为向上信息。</p>
 
-<h2 id="substituting-types">
-<a id="substituting-types" class="anchor" href="#substituting-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Substituting types</h2>
+<h2 id="替换类型">
+<a id="替换类型" class="anchor" href="#%E6%9B%BF%E6%8D%A2%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>替换类型</h2>
 
-<p>When you override a method, you are replacing something of one type (in the
-old method) with something that might have a new type (in the new method).
-Similarly, when you pass an argument to a function,
-you are replacing something that has one type (a parameter
-with a declared type) with something that has another type
-(the actual argument). When can you replace something that
-has one type with something that has a subtype or a supertype?</p>
+<p>当重写方法时，可以使用一个新类型（在新方法中）替换旧类型（在旧方法中）。
+类似地，当参数传递给函数时，可以使用另一种类型（实际参数）的对象替换现有类型（具有声明类型的参数）要求的对象。
+什么时候可以用具有子类型或父类型的对象替换具有一种类型的对象那？</p>
 
-<p>When substituting types, it helps to think in terms of <em>consumers</em>
-and <em>producers</em>. A consumer absorbs a type and a producer generates a type.</p>
+<p>从_消费者_和_生产者_的角度有助于我们思考替换类型的情况。
+消费者接受类型，生产者产生类型。</p>
 
-<p><strong>You can replace a consumer’s type with a supertype and a producer’s
-type with a subtype.</strong></p>
+<p><strong>可以使用父类型替换消费者类型，使用子类型替换生产者类型。</strong></p>
 
-<p>Let’s look at examples of simple type assignment and assignment with
-generic types.</p>
+<p>下面让我们看一下普通类型赋值和泛型类型赋值的示例。</p>
 
-<h3 id="simple-type-assignment">
-<a id="simple-type-assignment" class="anchor" href="#simple-type-assignment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple type assignment</h3>
+<h3 id="普通类型赋值">
+<a id="普通类型赋值" class="anchor" href="#%E6%99%AE%E9%80%9A%E7%B1%BB%E5%9E%8B%E8%B5%8B%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>普通类型赋值</h3>
 
-<p>When assigning objects to objects, when can you replace a type with a
-different type? The answer depends on whether the object is a consumer
-or a producer.</p>
+<p>将对象赋值给对象时，什么时候可以用其他类型替换当前类型？
+答案取决于对象是消费者还是生产者。</p>
 
-<p>Consider the following type hierarchy:</p>
+<p>分析以下类型层次结构：</p>
 
 <p><img src="images/type-hierarchy.png" alt="a hierarchy of animals where the supertype is Animal and the subtypes are Alligator, Cat, and HoneyBadger. Cat has the subtypes of Lion and MaineCoon"></p>
 
-<p>Consider the following simple assignment where <code class="highlighter-rouge">Cat c</code> is a <em>consumer</em> and <code class="highlighter-rouge">Cat()</code>
-is a <em>producer</em>:</p>
+<p>思考下面示例中的普通赋值，其中 <code class="highlighter-rouge">Cat c</code> 是_消费者_而 <code class="highlighter-rouge">Cat()</code> 是_生产者_：</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (Cat-Cat-ok)"?>
 <pre class="prettyprint lang-dart">Cat c = Cat();</pre>
 
-<p>In a consuming position, it’s safe to replace something that consumes a
-specific type (<code class="highlighter-rouge">Cat</code>) with something that consumes anything (<code class="highlighter-rouge">Animal</code>),
-so replacing <code class="highlighter-rouge">Cat c</code> with <code class="highlighter-rouge">Animal c</code> is allowed, because Animal is
-a supertype of Cat.</p>
+<p>在消费者的位置，任意类型（<code class="highlighter-rouge">Animal</code>）的对象替换特定类型（<code class="highlighter-rouge">Cat</code>）的对象是安全的。
+因此使用 <code class="highlighter-rouge">Animal c</code> 替换 <code class="highlighter-rouge">Cat c</code> 是允许的，因为 Animal 是 Cat 的父类。</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (Animal-Cat-ok)"?>
 <pre class="prettyprint lang-dart passes-sa">Animal c = Cat();</pre>
 
-<p>But replacing <code class="highlighter-rouge">Cat c</code> with <code class="highlighter-rouge">MaineCoon c</code> breaks type safety, because the
-superclass may provide a type of Cat with different behaviors, such
-as Lion:</p>
+<p>但是使用 <code class="highlighter-rouge">MaineCoon c</code> 替换 <code class="highlighter-rouge">Cat c</code> 会打破类型的安全性，
+因为父类可能会提供一种具有不同行为的 Cat ，例如 Lion ：</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (MaineCoon-Cat-err)"?>
 <pre class="prettyprint lang-dart fails-sa">MaineCoon c = Cat();</pre>
 
-<p>In a producing position, it’s safe to replace something that produces a
-type (Cat) with a more specific type (MaineCoon). So, the following
-is allowed:</p>
+<p>在生产者的位置，可以安全地将生产类型 (Cat) 替换成一个更具体的类型 （MaineCoon）的对象。
+因此，下面的操作是允许的：</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (Cat-MaineCoon-ok)"?>
 <pre class="prettyprint lang-dart passes-sa">Cat c = MaineCoon();</pre>
 
-<h3 id="generic-type-assignment">
-<a id="generic-type-assignment" class="anchor" href="#generic-type-assignment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generic type assignment</h3>
+<h3 id="泛型赋值">
+<a id="泛型赋值" class="anchor" href="#%E6%B3%9B%E5%9E%8B%E8%B5%8B%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>泛型赋值</h3>
 
-<p>Are the rules the same for generic types? Yes. Consider the hierarchy
-of lists of animals—a List of Cat is a subtype of a List of
-Animal, and a supertype of a List of MaineCoon:</p>
+<p>上面的规则同样适用于泛型类型吗？是的。
+考虑动物列表的层次结构— Cat 类型的 List 是 Animal 类型 List 的子类型，
+是 MaineCoon 类型 List 的父类型。</p>
 
 <p><img src="images/type-hierarchy-generics.png" alt="List&lt;Animal&gt; -&gt; List&lt;Cat&gt; -&gt; List&lt;MaineCoon&gt;"></p>
 
-<p>In the following example, you can assign a <code class="highlighter-rouge">MaineCoon</code> list to <code class="highlighter-rouge">myCats</code> because
-<code class="highlighter-rouge">List&lt;MaineCoon&gt;</code> is a subtype of <code class="highlighter-rouge">List&lt;Cat&gt;</code>:</p>
+<p>在下面的示例中，可以将 <code class="highlighter-rouge">MaineCoon</code> 类型的 List 赋值给 <code class="highlighter-rouge">myCats</code> ，
+因为 <code class="highlighter-rouge">List&lt;MaineCoon&gt;</code> 是 <code class="highlighter-rouge">List&lt;Cat&gt;</code> 的子类型：</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (generic-type-assignment-MaineCoon)" replace="/MaineCoon/[!$&!]/g"?>
 <pre class="prettyprint lang-dart passes-sa">List&lt;Cat&gt; myCats = List&lt;<span class="highlight">MaineCoon</span>&gt;();</pre>
 
-<p>What about going in the other direction? Can you assign an <code class="highlighter-rouge">Animal</code> list to a <code class="highlighter-rouge">List&lt;Cat&gt;</code>?</p>
+<p>从另一个角度看？可以将 <code class="highlighter-rouge">Animal</code> 类型的 List 赋值给 <code class="highlighter-rouge">List&lt;Cat&gt;</code> 吗？</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (generic-type-assignment-Animal)" replace="/Animal/[!$&!]/g"?>
 <pre class="prettyprint lang-dart passes-sa">List&lt;Cat&gt; myCats = List&lt;<span class="highlight">Animal</span>&gt;();</pre>
 
-<p>This assignment passes static analysis,
-but it creates an implicit cast. It is equivalent to:</p>
+<p>上面的赋值通过了静态分析，但它进行了隐式的强制转换。上面的赋值相当于：</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (generic-type-assignment-implied-cast)" replace="/as.*(?=;)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">List&lt;Cat&gt; myCats = List&lt;Animal&gt;() <span class="highlight">as List&lt;Cat&gt;</span>;</pre>
 
-<p>The code may fail at runtime. You can disallow implicit casts
-by specifying <code class="highlighter-rouge">implicit-casts: false</code> in the <a href="/guides/language/analysis-options">analysis options file.</a></p>
+<p>代码在运行时可能会执行失败。通过在 <a href="/guides/language/analysis-options">静态分析配置文件</a> 
+中指定 <code class="highlighter-rouge">implicit-casts: false</code> 来禁止隐式强制转换。</p>
 
-<h3 id="methods">
-<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h3>
+<h3 id="方法">
+<a id="方法" class="anchor" href="#%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>方法</h3>
 
-<p>When overriding a method, the producer and consumer rules still apply.
-For example:</p>
+<p>在重写方法中，生产者和消费者规则仍然适用。例如：</p>
 
 <p><img src="images/consumer-producer-methods.png" alt="Animal class showing the chase method as the consumer and the parent getter as the producer"></p>
 
-<p>For a consumer (such as the <code class="highlighter-rouge">chase(Animal)</code> method), you can replace
-the parameter type with a supertype. For a producer (such as
-the <code class="highlighter-rouge">parent</code> getter method), you can replace the return type with
-a subtype.</p>
+<p>对于使用者（例如 <code class="highlighter-rouge">chase(Animal)</code> 方法），可以使用父类型替换参数类型。
+对于生产者（例如 <code class="highlighter-rouge">父类</code> 的 Getter 方法），可以使用子类型替换返回值类型。</p>
 
-<p>For more information, see
-<a href="#use-proper-return-types">Use sound return types when overriding methods</a>
-and <a href="#use-proper-param-types">Use sound parameter types when overriding methods</a>.</p>
+<p>有关更多信息，请参阅
+<a href="#use-proper-return-types">重写方法时，使用安全类型的返回值</a>
+以及
+<a href="#use-proper-param-types">重写方法时，使用安全类型的参数</a>。</p>
 
-<h2 id="other-resources">
-<a id="other-resources" class="anchor" href="#other-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other resources</h2>
+<h2 id="其他资源">
+<a id="其他资源" class="anchor" href="#%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>其他资源</h2>
 
-<p>The following resources have further information on sound Dart:</p>
+<p>以下是更多关于 Dart 类型安全的相关资源：</p>
 
 <ul>
   <li>
-<a href="/guides/language/sound-problems">Fixing common type problems</a> -
-Errors you may encounter when
-writing sound Dart code, and how to fix them.</li>
+<a href="/guides/language/sound-problems">修复常见类型问题</a> -
+编写安全类型的 Dart 代码时可能遇到的错误，
+以及解决错误的方法。</li>
   <li>
-<a href="/dart-2">Dart 2</a> - How to update Dart 1.x code to Dart 2.</li>
+<a href="/dart-2">Dart 2</a> - 如何从 Dart 1.x 代码迁移到 Dart 2 。</li>
   <li>
-<a href="/guides/language/analysis-options">Customizing static analysis</a> - How
-to set up and customize the analyzer and linter using an analysis
-options file.</li>
+<a href="/guides/language/analysis-options">Customizing static analysis</a> - 如何使用
+分析配置文件设置及自定义分析器和 linter 。</li>
 </ul>
 
 
@@ -1044,7 +1028,7 @@ options file.</li>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/14 23:12 PDT"
+               title="Site built on 2019/05/15 00:12 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
