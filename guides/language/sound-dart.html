@@ -495,8 +495,8 @@ ga('send', 'pageview');
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#类型安全的好处">类型安全的好处</a></li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#静态检查中的一些技巧">静态检查中的一些技巧</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#重写方法时使用安全类型的返回值">重写方法时，使用安全类型的返回值</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#重写方法时使用安全类型的参数">重写方法时，使用安全类型的参数。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#重写方法时使用类型安全的返回值">重写方法时，使用类型安全的返回值</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#重写方法时使用类型安全的参数">重写方法时，使用类型安全的参数。</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#不要将动态类型的-list-看做是有类型的-list">不要将动态类型的 List 看做是有类型的 List</a></li>
 </ul>
 </li>
@@ -566,8 +566,8 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 <li class="toc-entry toc-h2"><a href="#类型安全的好处">类型安全的好处</a></li>
 <li class="toc-entry toc-h2"><a href="#静态检查中的一些技巧">静态检查中的一些技巧</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#重写方法时使用安全类型的返回值">重写方法时，使用安全类型的返回值</a></li>
-<li class="toc-entry toc-h3"><a href="#重写方法时使用安全类型的参数">重写方法时，使用安全类型的参数。</a></li>
+<li class="toc-entry toc-h3"><a href="#重写方法时使用类型安全的返回值">重写方法时，使用类型安全的返回值</a></li>
+<li class="toc-entry toc-h3"><a href="#重写方法时使用类型安全的参数">重写方法时，使用类型安全的参数。</a></li>
 <li class="toc-entry toc-h3"><a href="#不要将动态类型的-list-看做是有类型的-list">不要将动态类型的 List 看做是有类型的 List</a></li>
 </ul>
 </li>
@@ -594,7 +594,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 
           <?code-excerpt replace="/([A-Z]\w*)\d\b/$1/g; /\b(main)\d\b/$1/g"?>
 
-<p>Dart 类型安全的语言：Dart 使用静态类型检查和
+<p>Dart 是类型安全的编程语言：Dart 使用静态类型检查和
 <a href="#runtime-checks">运行时检查</a>
 的组合来确保变量的值始终与变量的静态类型匹配。尽管类型是必需的，但由于
 <a href="#type-inference">类型推断</a>
@@ -659,7 +659,7 @@ void main() {
 <a id="什么是类型安全" class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>什么是类型安全</h2>
 
 <p>类型安全是为了确保程序不会进入某些无效状态。
-安全类型系统意味着程序永远不会进入表达式求值为与表达式的静态类型不匹配的值的状态。
+安全的类型系统意味着程序永远不会进入表达式求值为与表达式的静态类型不匹配的值的状态。
 例如，如果表达式的静态类型是 <code class="highlighter-rouge">String</code> ，则在运行时保证在评估它的时候只会获取字符串。</p>
 
 <p>Dart 的类型系统，同 Java 和 C＃ 中的类型系统类似，是安全的。
@@ -670,12 +670,12 @@ void main() {
 <h2 id="类型安全的好处">
 <a id="类型安全的好处" class="anchor" href="#%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%A5%BD%E5%A4%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>类型安全的好处</h2>
 
-<p>安全类型系统有以下几个好处：</p>
+<p>安全的类型系统有以下几个好处：</p>
 
 <ul>
   <li>
     <p>在编译时就可以检查并显示类型相关的错误。<br>
-安全类型系统强制要求代码明确类型，
+安全的类型系统强制要求代码明确类型，
 因此在编译时会显示与类型相关的错误，
 这些错误可能在运行时可能很难发现。</p>
   </li>
@@ -686,7 +686,7 @@ void main() {
   </li>
   <li>
     <p>代码可维护性更高。<br>
-在安全类型系统下，当更改一处代码后，
+在安全的类型系统下，当更改一处代码后，
 类型系统会警告因此影响到的其他代码块。</p>
   </li>
   <li>
@@ -703,8 +703,8 @@ void main() {
 下面是一些不太明显的规则：</p>
 
 <ul>
-  <li>重写方法时，使用安全类型的返回值。</li>
-  <li>重写方法时，使用安全类型的参数。</li>
+  <li>重写方法时，使用类型安全返回值。</li>
+  <li>重写方法时，使用类型安全的参数。</li>
   <li>不要将动态类型的 List 看做是有类型的 List 。</li>
 </ul>
 
@@ -713,8 +713,8 @@ void main() {
 <p><img src="images/type-hierarchy.png" alt="a hierarchy of animals where the supertype is Animal and the subtypes are Alligator, Cat, and HoneyBadger. Cat has the subtypes of Lion and MaineCoon"></p>
 
 <p><a name="use-proper-return-types"></a></p>
-<h3 id="重写方法时使用安全类型的返回值">
-<a id="重写方法时使用安全类型的返回值" class="anchor" href="#%E9%87%8D%E5%86%99%E6%96%B9%E6%B3%95%E6%97%B6%E4%BD%BF%E7%94%A8%E5%AE%89%E5%85%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>重写方法时，使用安全类型的返回值</h3>
+<h3 id="重写方法时使用类型安全的返回值">
+<a id="重写方法时使用类型安全的返回值" class="anchor" href="#%E9%87%8D%E5%86%99%E6%96%B9%E6%B3%95%E6%97%B6%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>重写方法时，使用类型安全的返回值</h3>
 
 <p>子类方法中返回值类型必须与父类方法中返回值类型的类型相同或其子类型。
 考虑 Animal 类中的 Getter 方法：</p>
@@ -742,8 +742,8 @@ void main() {
 }</pre>
 
 <p><a name="use-proper-param-types"></a></p>
-<h3 id="重写方法时使用安全类型的参数">
-<a id="重写方法时使用安全类型的参数" class="anchor" href="#%E9%87%8D%E5%86%99%E6%96%B9%E6%B3%95%E6%97%B6%E4%BD%BF%E7%94%A8%E5%AE%89%E5%85%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>重写方法时，使用安全类型的参数。</h3>
+<h3 id="重写方法时使用类型安全的参数">
+<a id="重写方法时使用类型安全的参数" class="anchor" href="#%E9%87%8D%E5%86%99%E6%96%B9%E6%B3%95%E6%97%B6%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>重写方法时，使用类型安全的参数。</h3>
 
 <p>子类方法的参数必须与父类方法中参数的类型相同或是其参数的父类型。
 不要使用原始参数的子类型，替换原有类型，这样会导致参数类型”收紧”。</p>
@@ -981,9 +981,9 @@ var ints = listOfDouble.map((x) =&gt; x.toInt());</pre>
 对于生产者（例如 <code class="highlighter-rouge">父类</code> 的 Getter 方法），可以使用子类型替换返回值类型。</p>
 
 <p>有关更多信息，请参阅
-<a href="#use-proper-return-types">重写方法时，使用安全类型的返回值</a>
+<a href="#use-proper-return-types">重写方法时，使用类型安全的返回值</a>
 以及
-<a href="#use-proper-param-types">重写方法时，使用安全类型的参数</a>。</p>
+<a href="#use-proper-param-types">重写方法时，使用类型安全的参数</a>。</p>
 
 <h2 id="其他资源">
 <a id="其他资源" class="anchor" href="#%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>其他资源</h2>
@@ -993,7 +993,7 @@ var ints = listOfDouble.map((x) =&gt; x.toInt());</pre>
 <ul>
   <li>
 <a href="/guides/language/sound-problems">修复常见类型问题</a> -
-编写安全类型的 Dart 代码时可能遇到的错误，
+编写类型安全的 Dart 代码时可能遇到的错误，
 以及解决错误的方法。</li>
   <li>
 <a href="/dart-2">Dart 2</a> - 如何从 Dart 1.x 代码迁移到 Dart 2 。</li>
@@ -1028,7 +1028,7 @@ var ints = listOfDouble.map((x) =&gt; x.toInt());</pre>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/15 00:12 PDT"
+               title="Site built on 2019/05/15 00:29 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
