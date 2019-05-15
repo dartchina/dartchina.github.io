@@ -492,7 +492,7 @@ ga('send', 'pageview');
   </header>
   <ul class="section-nav nav">
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#什么是类型安全">什么是类型安全</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#the-benefits-of-soundness">The benefits of soundness</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#类型安全的好处">类型安全的好处</a></li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#tips-for-passing-static-analysis">Tips for passing static analysis</a>
 <ul class="nav">
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#use-sound-return-types-when-overriding-methods">Use sound return types when overriding methods</a></li>
@@ -563,7 +563,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   </header>
   <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#什么是类型安全">什么是类型安全</a></li>
-<li class="toc-entry toc-h2"><a href="#the-benefits-of-soundness">The benefits of soundness</a></li>
+<li class="toc-entry toc-h2"><a href="#类型安全的好处">类型安全的好处</a></li>
 <li class="toc-entry toc-h2"><a href="#tips-for-passing-static-analysis">Tips for passing static analysis</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#use-sound-return-types-when-overriding-methods">Use sound return types when overriding methods</a></li>
@@ -667,33 +667,32 @@ void main() {
 例如，将 <code class="highlighter-rouge">String</code> 分配给 <code class="highlighter-rouge">int</code> 是一个编译时错误。如果<code class="highlighter-rouge">对象</code>不是字符串，
 使用 <code class="highlighter-rouge">as String</code> 将<code class="highlighter-rouge">对象</code>转换为字符串时，会由于运行时错误而导致转换失败。</p>
 
-<h2 id="the-benefits-of-soundness">
-<a id="the-benefits-of-soundness" class="anchor" href="#the-benefits-of-soundness" aria-hidden="true"><span class="octicon octicon-link"></span></a>The benefits of soundness</h2>
+<h2 id="类型安全的好处">
+<a id="类型安全的好处" class="anchor" href="#%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%A5%BD%E5%A4%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>类型安全的好处</h2>
 
-<p>A sound type system has several benefits:</p>
+<p>安全类型系统有以下几个好处：</p>
 
 <ul>
   <li>
-    <p>Revealing type-related bugs at compile time.<br>
-A sound type system forces code to be unambiguous about its types,
-so type-related bugs that might be tricky to find at runtime are
-revealed at compile time.</p>
+    <p>在编译时就可以检查并显示类型相关的错误。<br>
+安全类型系统强制要求代码明确类型，
+因此在编译时会显示与类型相关的错误，
+这些错误可能在运行时可能很难发现。</p>
   </li>
   <li>
-    <p>More readable code.<br>
-Code is easier to read because you can rely on a value actually having
-the specified type. In sound Dart, types can’t lie.</p>
+    <p>代码更容易阅读。<br>
+代码更容易阅读，因为我们信赖一个拥有指定类型的值。
+在类型安全的 Dart 中，类型是不会骗人的。 因为一个拥有指定类型的值是可以被信赖的。</p>
   </li>
   <li>
-    <p>More maintainable code.<br>
-With a sound type system, when you change one piece of code, the
-type system can warn you about the other pieces
-of code that just broke.</p>
+    <p>代码可维护性更高。<br>
+在安全类型系统下，当更改一处代码后，
+类型系统会警告因此影响到的其他代码块。</p>
   </li>
   <li>
-    <p>Better ahead of time (AOT) compilation.<br>
-While AOT compilation is possible without types, the generated
-code is much less efficient.</p>
+    <p>更好的 AOT 编译。<br>
+虽然在没有类型的情况下可以进行 AOT 编译，
+但生成的代码效率要低很多。</p>
   </li>
 </ul>
 
@@ -1066,7 +1065,7 @@ options file.</li>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/14 18:42 PDT"
+               title="Site built on 2019/05/14 19:10 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
