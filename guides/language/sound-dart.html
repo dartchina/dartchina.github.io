@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="如何编写健全的 Dart 代码。">
-  <title>The Dart 类型系统 | Dart</title>
+  <title>Dart 类型系统 | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,11 +18,11 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="The Dart 类型系统" />
+  <meta name="twitter:title" content="Dart 类型系统" />
   <meta name="twitter:description" content="如何编写健全的 Dart 代码。" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="The Dart 类型系统" />
+  <meta property="og:title" content="Dart 类型系统" />
   <meta property="og:description" content="如何编写健全的 Dart 代码。" />
   <meta property="og:url" content="https://www.dartlang.org/guides/language/sound-dart" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
@@ -493,20 +493,20 @@ ga('send', 'pageview');
   <ul class="section-nav nav">
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#什么是类型安全">什么是类型安全</a></li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#类型安全的好处">类型安全的好处</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#tips-for-passing-static-analysis">Tips for passing static analysis</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#静态检查中的一些技巧">静态检查中的一些技巧</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#use-sound-return-types-when-overriding-methods">Use sound return types when overriding methods</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#use-sound-parameter-types-when-overriding-methods">Use sound parameter types when overriding methods</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#dont-use-a-dynamic-list-as-a-typed-list">Don’t use a dynamic list as a typed list</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#重写方法时使用安全类型的返回值">重写方法时，使用安全类型的返回值</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#重写方法时使用安全类型的参数">重写方法时，使用安全类型的参数。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#不要将动态类型的-list-看做是有类型的-list">不要将动态类型的 List 看做是有类型的 List</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#runtime-checks">Runtime checks</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#type-inference">Type inference</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#运行时检查">运行时检查</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#类型推断">类型推断</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#field-and-method-inference">Field and method inference</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#static-field-inference">Static field inference</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#local-variable-inference">Local variable inference</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#type-argument-inference">Type argument inference</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#字段和方法推断">字段和方法推断</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#静态字段推断">静态字段推断</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#局部变量推断">局部变量推断</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#参数类型推断">参数类型推断</a></li>
 </ul>
 </li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#substituting-types">Substituting types</a>
@@ -530,7 +530,7 @@ ga('send', 'pageview');
   <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/language/sound-dart.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='The Dart 类型系统' page issue&body=
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Dart 类型系统' page issue&body=
 Page URL: https://www.dartlang.org/guides/language/sound-dart%0D%0A
 Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/language/sound-dart.md%0D%0A
 %0D%0A
@@ -542,7 +542,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   </a>
 </div>
 
-            <h1>The Dart 类型系统</h1>
+            <h1>Dart 类型系统</h1>
           </div>
           
 
@@ -564,20 +564,20 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#什么是类型安全">什么是类型安全</a></li>
 <li class="toc-entry toc-h2"><a href="#类型安全的好处">类型安全的好处</a></li>
-<li class="toc-entry toc-h2"><a href="#tips-for-passing-static-analysis">Tips for passing static analysis</a>
+<li class="toc-entry toc-h2"><a href="#静态检查中的一些技巧">静态检查中的一些技巧</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#use-sound-return-types-when-overriding-methods">Use sound return types when overriding methods</a></li>
-<li class="toc-entry toc-h3"><a href="#use-sound-parameter-types-when-overriding-methods">Use sound parameter types when overriding methods</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-use-a-dynamic-list-as-a-typed-list">Don’t use a dynamic list as a typed list</a></li>
+<li class="toc-entry toc-h3"><a href="#重写方法时使用安全类型的返回值">重写方法时，使用安全类型的返回值</a></li>
+<li class="toc-entry toc-h3"><a href="#重写方法时使用安全类型的参数">重写方法时，使用安全类型的参数。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要将动态类型的-list-看做是有类型的-list">不要将动态类型的 List 看做是有类型的 List</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#runtime-checks">Runtime checks</a></li>
-<li class="toc-entry toc-h2"><a href="#type-inference">Type inference</a>
+<li class="toc-entry toc-h2"><a href="#运行时检查">运行时检查</a></li>
+<li class="toc-entry toc-h2"><a href="#类型推断">类型推断</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#field-and-method-inference">Field and method inference</a></li>
-<li class="toc-entry toc-h3"><a href="#static-field-inference">Static field inference</a></li>
-<li class="toc-entry toc-h3"><a href="#local-variable-inference">Local variable inference</a></li>
-<li class="toc-entry toc-h3"><a href="#type-argument-inference">Type argument inference</a></li>
+<li class="toc-entry toc-h3"><a href="#字段和方法推断">字段和方法推断</a></li>
+<li class="toc-entry toc-h3"><a href="#静态字段推断">静态字段推断</a></li>
+<li class="toc-entry toc-h3"><a href="#局部变量推断">局部变量推断</a></li>
+<li class="toc-entry toc-h3"><a href="#参数类型推断">参数类型推断</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#substituting-types">Substituting types</a>
@@ -696,30 +696,28 @@ void main() {
   </li>
 </ul>
 
-<h2 id="tips-for-passing-static-analysis">
-<a id="tips-for-passing-static-analysis" class="anchor" href="#tips-for-passing-static-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tips for passing static analysis</h2>
+<h2 id="静态检查中的一些技巧">
+<a id="静态检查中的一些技巧" class="anchor" href="#%E9%9D%99%E6%80%81%E6%A3%80%E6%9F%A5%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8A%80%E5%B7%A7" aria-hidden="true"><span class="octicon octicon-link"></span></a>静态检查中的一些技巧</h2>
 
-<p>Most of the rules for static types are easy to understand.
-Here are some of the less obvious rules:</p>
+<p>大多数静态类型的规则都很容易理解。
+下面是一些不太明显的规则：</p>
 
 <ul>
-  <li>Use sound return types when overriding methods.</li>
-  <li>Use sound parameter types when overriding methods.</li>
-  <li>Don’t use a dynamic list as a typed list.</li>
+  <li>重写方法时，使用安全类型的返回值。</li>
+  <li>重写方法时，使用安全类型的参数。</li>
+  <li>不要将动态类型的 List 看做是有类型的 List 。</li>
 </ul>
 
-<p>Let’s see these rules in detail, with examples that use the following
-type hierarchy:</p>
+<p>让我们通过下面示例的类型结构，来更深入的了解这些规则：</p>
 
 <p><img src="images/type-hierarchy.png" alt="a hierarchy of animals where the supertype is Animal and the subtypes are Alligator, Cat, and HoneyBadger. Cat has the subtypes of Lion and MaineCoon"></p>
 
 <p><a name="use-proper-return-types"></a></p>
-<h3 id="use-sound-return-types-when-overriding-methods">
-<a id="use-sound-return-types-when-overriding-methods" class="anchor" href="#use-sound-return-types-when-overriding-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use sound return types when overriding methods</h3>
+<h3 id="重写方法时使用安全类型的返回值">
+<a id="重写方法时使用安全类型的返回值" class="anchor" href="#%E9%87%8D%E5%86%99%E6%96%B9%E6%B3%95%E6%97%B6%E4%BD%BF%E7%94%A8%E5%AE%89%E5%85%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>重写方法时，使用安全类型的返回值</h3>
 
-<p>The return type of a method in a subclass must be the same type or a
-subtype of the return type of the method in the superclass. Consider
-the getter method in the Animal class:</p>
+<p>子类方法中返回值类型必须与父类方法中返回值类型的类型相同或其子类型。
+考虑 Animal 类中的 Getter 方法：</p>
 
 <?code-excerpt "strong/lib/animal.dart (Animal)" replace="/Animal get.*/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">class Animal {
@@ -727,9 +725,9 @@ the getter method in the Animal class:</p>
   <span class="highlight">Animal get parent =&gt; ...</span>
 }</pre>
 
-<p>The <code class="highlighter-rouge">parent</code> getter method returns an Animal. In the HoneyBadger subclass,
-you can replace the getter’s return type with HoneyBadger (or any other subtype
-of Animal), but an unrelated type is not allowed.</p>
+<p><code class="highlighter-rouge">父类</code> Getter 方法返回一个 Animal 。在 HoneyBadger 子类中，
+可以使用 HoneyBadger（或 Animal 的任何其他子类型）替换 Getter 的返回值类型，
+但不允许使用其他的无关类型。</p>
 
 <?code-excerpt "strong/lib/animal.dart (HoneyBadger)" replace="/(\w+)(?= get)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart passes-sa">class HoneyBadger extends Animal {
@@ -744,20 +742,17 @@ of Animal), but an unrelated type is not allowed.</p>
 }</pre>
 
 <p><a name="use-proper-param-types"></a></p>
-<h3 id="use-sound-parameter-types-when-overriding-methods">
-<a id="use-sound-parameter-types-when-overriding-methods" class="anchor" href="#use-sound-parameter-types-when-overriding-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use sound parameter types when overriding methods</h3>
+<h3 id="重写方法时使用安全类型的参数">
+<a id="重写方法时使用安全类型的参数" class="anchor" href="#%E9%87%8D%E5%86%99%E6%96%B9%E6%B3%95%E6%97%B6%E4%BD%BF%E7%94%A8%E5%AE%89%E5%85%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>重写方法时，使用安全类型的参数。</h3>
 
-<p>The parameter of an overridden method must have either the same type
-or a supertype of the corresponding parameter in the superclass.
-Don’t “tighten” the parameter type by replacing the type with a
-subtype of the original parameter.</p>
+<p>子类方法的参数必须与父类方法中参数的类型相同或是其参数的父类型。
+不要使用原始参数的子类型，替换原有类型，这样会导致参数类型”收紧”。</p>
 
 <aside class="alert alert-info">
-  <p><strong>Note:</strong> If you have a valid reason to use a subtype, you can use the
-  <a href="/guides/language/sound-problems#the-covariant-keyword"><code class="highlighter-rouge">covariant</code> keyword</a>.</p>
+  <p><strong>提示：</strong> 如果有合理的理由使用子类型，可以使用 <a href="/guides/language/sound-problems#the-covariant-keyword"><code class="highlighter-rouge">covariant</code> 关键字</a>。</p>
 </aside>
 
-<p>Consider the <code class="highlighter-rouge">chase(Animal)</code> method for the Animal class:</p>
+<p>考虑 Animal 的 <code class="highlighter-rouge">chase(Animal)</code> 方法：</p>
 
 <?code-excerpt "strong/lib/animal.dart (Animal)" replace="/void chase.*/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">class Animal {
@@ -765,8 +760,8 @@ subtype of the original parameter.</p>
   Animal get parent =&gt; ...
 }</pre>
 
-<p>The <code class="highlighter-rouge">chase()</code> method takes an Animal. A HoneyBadger chases anything.
-It’s OK to override the <code class="highlighter-rouge">chase()</code> method to take anything (Object).</p>
+<p><code class="highlighter-rouge">chase()</code> 方法的参数类型是 Animal 。一个 HoneyBadger 可以追逐任何东西。
+因此可以在重写 <code class="highlighter-rouge">chase()</code> 方法时将参数类型指定为任意类型 （Object） 。</p>
 
 <?code-excerpt "strong/lib/animal.dart (chase-Object)" replace="/Object/[!$&!]/g"?>
 <pre class="prettyprint lang-dart passes-sa">class HoneyBadger extends Animal {
@@ -774,8 +769,7 @@ It’s OK to override the <code class="highlighter-rouge">chase()</code> method 
   Animal get parent =&gt; ...
 }</pre>
 
-<p>The following code tightens the parameter on the <code class="highlighter-rouge">chase()</code> method
-from Animal to Mouse, a subclass of Animal.</p>
+<p>Mouse 是 Animal 的子类，下面的代码将 <code class="highlighter-rouge">chase()</code> 方法中参数的范围从 Animal 缩小到 Mouse 。</p>
 
 <?code-excerpt "strong/lib/animal_bad.dart (chase-Mouse)" replace="/(\w+)(?= x)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart fails-sa">class Mouse extends Animal {...}
@@ -784,24 +778,22 @@ class Cat extends Animal {
   void chase(<span class="highlight">Mouse</span> x) { ... }
 }</pre>
 
-<p>This code is not type safe because it would then be possible to define
-a cat and send it after an alligator:</p>
+<p>下面的代码不是类型安全的，因为 a 可以是一个 cat 对象，却可以给它传入一个 alligator 对象。</p>
 
 <?code-excerpt "strong/lib/animal_bad.dart (chase-Alligator)" replace="/Alligator/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">Animal a = Cat();
 a.chase(<span class="highlight">Alligator</span>()); // Not type safe or feline safe</pre>
 
-<h3 id="dont-use-a-dynamic-list-as-a-typed-list">
-<a id="dont-use-a-dynamic-list-as-a-typed-list" class="anchor" href="#dont-use-a-dynamic-list-as-a-typed-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Don’t use a dynamic list as a typed list</h3>
+<h3 id="不要将动态类型的-list-看做是有类型的-list">
+<a id="不要将动态类型的-list-看做是有类型的-list" class="anchor" href="#%E4%B8%8D%E8%A6%81%E5%B0%86%E5%8A%A8%E6%80%81%E7%B1%BB%E5%9E%8B%E7%9A%84-list-%E7%9C%8B%E5%81%9A%E6%98%AF%E6%9C%89%E7%B1%BB%E5%9E%8B%E7%9A%84-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>不要将动态类型的 List 看做是有类型的 List</h3>
 
-<p>A dynamic list is good when you want to have a list with
-different kinds of things in it. However, you can’t use a
-dynamic list as a typed list.</p>
+<p>当期望在一个 List 中可以包含不同类型的对象时，动态列表是很好的选择。
+但是不能将动态类型的 List 看做是有类型的 List 。</p>
 
-<p>This rule also applies to instances of generic types.</p>
+<p>这个规则也适用于泛型类型的实例。</p>
 
-<p>The following code creates a dynamic list of Dog, and assigns it to
-a list of type Cat, which generates an error during static analysis.</p>
+<p>下面代码创建一个 Dog 的动态 List ，并将其分配给 Cat 类型的 List ，
+表达式在静态分析期间会产生错误。</p>
 
 <?code-excerpt "strong/lib/animal_bad.dart (dynamic-list)" replace="/.dynamic.(?!.*OK)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart fails-sa">class Cat extends Animal { ... }
@@ -813,14 +805,14 @@ void main() {
   List&lt;dynamic&gt; bar = &lt;dynamic&gt;[Dog(), Cat()]; // OK
 }</pre>
 
-<h2 id="runtime-checks">
-<a id="runtime-checks" class="anchor" href="#runtime-checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Runtime checks</h2>
+<h2 id="运行时检查">
+<a id="运行时检查" class="anchor" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A3%80%E6%9F%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>运行时检查</h2>
 
-<p>Runtime checks in tools like the <a href="/server/tools/dart-vm">Dart VM</a> and <a href="/tools/dartdevc">dartdevc</a>
-deal with type safety issues that the analyzer can’t catch.</p>
+<p>运行时检查工具，比如 <a href="/server/tools/dart-vm">Dart VM</a> 和 <a href="/tools/dartdevc">dartdevc</a>，
+处理分析器无法捕获的类型安全问题。</p>
 
-<p>For example, the following code throws an exception at runtime because it is an error
-to assign a list of Dogs to a list of Cats:</p>
+<p>例如，以下代码在运行时会抛出异常，
+因为将 Dog 类型的 List 赋值给 Cat 类型的 List 是错误的：</p>
 
 <?code-excerpt "strong/test/strong_test.dart (runtime-checks)" replace="/cats[^;]*/[!$&!]/g"?>
 <pre class="prettyprint lang-dart runtime-fail">void main() {
@@ -828,60 +820,51 @@ to assign a list of Dogs to a list of Cats:</p>
   List&lt;Cat&gt; <span class="highlight">cats = animals</span>;
 }</pre>
 
-<h2 id="type-inference">
-<a id="type-inference" class="anchor" href="#type-inference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Type inference</h2>
+<h2 id="类型推断">
+<a id="类型推断" class="anchor" href="#%E7%B1%BB%E5%9E%8B%E6%8E%A8%E6%96%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>类型推断</h2>
 
-<p>The analyzer can infer types for fields, methods, local variables,
-and most generic type arguments.
-When the analyzer doesn’t have enough information to infer
-a specific type, it uses the <code class="highlighter-rouge">dynamic</code> type.</p>
+<p>分析器（analyzer）可以推断字段，方法，局部变量和大多数泛型类型参数的类型。
+当分析器没有足够的信息来推断出一个特定类型时，会使用 <code class="highlighter-rouge">dynamic</code> 作为类型。</p>
 
-<p>Here’s an example of how type inference works with generics.
-In this example, a variable named <code class="highlighter-rouge">arguments</code> holds a map that
-pairs string keys with values of various types.</p>
+<p>下面是在泛型中如何进行类型推断的示例。在此示例中，名为 <code class="highlighter-rouge">arguments</code> 的变量包含一个 Map ，
+该 Map 将字符串键与各种类型的值配对。</p>
 
-<p>If you explicitly type the variable, you might write this:</p>
+<p>如果显式键入变量，则可以这样写：</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (type-inference-1-orig)" replace="/Map<String, dynamic\x3E/[!$&!]/g"?>
 <pre class="prettyprint lang-dart"><span class="highlight">Map&lt;String, dynamic&gt;</span> arguments = {'argA': 'hello', 'argB': 42};</pre>
 
-<p>Alternatively, you can use <code class="highlighter-rouge">var</code> and let Dart infer the type:</p>
+<p>或者，使用 <code class="highlighter-rouge">var</code> 让 Dart 来推断类型：</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (type-inference-1)" replace="/var/[!$&!]/g"?>
 <pre class="prettyprint lang-dart"><span class="highlight">var</span> arguments = {'argA': 'hello', 'argB': 42}; // Map&lt;String, Object&gt;</pre>
 
-<p>The map literal infers its type from its entries,
-and then the variable infers its type from the map literal’s type.
-In this map, the keys are both strings, but the values have different
-types (String and int, which have the upper bound Object).
-So the map literal has the type <code class="highlighter-rouge">Map&lt;String, Object&gt;</code>,
-and so does the <code class="highlighter-rouge">arguments</code> variable.</p>
+<p>Map 字面量从其条目中推断出它的类型，然后变量从 Map 字面量的类型中推断出它的类型。
+在此 Map 中，键都是字符串，但值具有不同的类型（ String 和 int ，它们具有共同的上限类型 Object ）。
+因此，Map 字面量的类型为 <code class="highlighter-rouge">Map&lt;String, Object&gt;</code> ，也就是 <code class="highlighter-rouge">arguments</code> 的类型。</p>
 
-<h3 id="field-and-method-inference">
-<a id="field-and-method-inference" class="anchor" href="#field-and-method-inference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Field and method inference</h3>
+<h3 id="字段和方法推断">
+<a id="字段和方法推断" class="anchor" href="#%E5%AD%97%E6%AE%B5%E5%92%8C%E6%96%B9%E6%B3%95%E6%8E%A8%E6%96%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>字段和方法推断</h3>
 
-<p>A field or method that has no specified type and that overrides
-a field or method from the superclass, inherits the type of the
-superclass method or field.</p>
+<p>重写父类的且没有指定类型的字段或方法，继承父类中字段或方法的类型。</p>
 
-<p>A field that does not have a declared or inherited type but that is declared
-with an initial value, gets an inferred type based on the initial value.</p>
+<p>没有声明类型且不存在继承类型的字段，如果在声明时被初始化，
+那么字段的类型为初始化值的类型。</p>
 
-<h3 id="static-field-inference">
-<a id="static-field-inference" class="anchor" href="#static-field-inference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Static field inference</h3>
+<h3 id="静态字段推断">
+<a id="静态字段推断" class="anchor" href="#%E9%9D%99%E6%80%81%E5%AD%97%E6%AE%B5%E6%8E%A8%E6%96%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>静态字段推断</h3>
 
-<p>Static fields and variables get their types inferred from their
-initializer. Note that inference fails if it encounters a cycle
-(that is, inferring a type for the variable depends on knowing the
-type of that variable).</p>
+<p>静态字段和变量的类型从其初始化程序中推断获得。 
+需要注意的是，如果推断是个循环，推断会失败
+（也就是说，推断变量的类型取决于知道该变量的类型）。</p>
 
-<h3 id="local-variable-inference">
-<a id="local-variable-inference" class="anchor" href="#local-variable-inference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Local variable inference</h3>
+<h3 id="局部变量推断">
+<a id="局部变量推断" class="anchor" href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E6%8E%A8%E6%96%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>局部变量推断</h3>
 
-<p>Local variable types are inferred from their initializer, if any.
-Subsequent assignments are not taken into account.
-This may mean that too precise a type may be inferred.
-If so, you can add a type annotation.</p>
+<p>在不考虑连续赋值的情况下，局部变量如果有初始化值的情况下，其类型是从初始化值推断出来的。
+这可能意味着推断出来的类型会非常严格。
+如果是这样，可以为他们添加类型注释。（🤔 This may mean that too precise a type may be inferred.
+If so, you can add a type annotation.）</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (local-var-type-inference-error)"?>
 <pre class="prettyprint lang-dart fails-sa">var x = 3; // x is inferred as an int
@@ -891,15 +874,13 @@ x = 4.0;</pre>
 <pre class="prettyprint lang-dart passes-sa">num y = 3; // a num can be double or int
 y = 4.0;</pre>
 
-<h3 id="type-argument-inference">
-<a id="type-argument-inference" class="anchor" href="#type-argument-inference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Type argument inference</h3>
+<h3 id="参数类型推断">
+<a id="参数类型推断" class="anchor" href="#%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B%E6%8E%A8%E6%96%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>参数类型推断</h3>
 
-<p>Type arguments to constructor calls and
-<a href="/guides/language/language-tour#using-generic-methods">generic method</a> invocations are
-inferred based on a combination of downward information from the context
-of occurrence, and upward information from the arguments to the constructor
-or generic method. If inference is not doing what you want or expect,
-you can always explicitly specify the type arguments.</p>
+<p>构造函数调用的类型参数和
+<a href="/guides/language/language-tour#using-generic-methods">泛型方法</a>调用
+是根据上下文的向下信息和构造函数或泛型方法的参数的向上信息组合推断的。
+如果推断没有按照意愿或期望进行，那么你可以显式的指定他们的参数类型。</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (type-arg-inference)"?>
 <pre class="prettyprint lang-dart passes-sa">// Inferred as if you wrote &lt;int&gt;[].
@@ -911,10 +892,8 @@ var listOfDouble = [3.0];
 // Inferred as Iterable&lt;int&gt;
 var ints = listOfDouble.map((x) =&gt; x.toInt());</pre>
 
-<p>In the last example, <code class="highlighter-rouge">x</code> is inferred as <code class="highlighter-rouge">double</code> using downward information.
-The return type of the closure is inferred as <code class="highlighter-rouge">int</code> using upward information.
-Dart uses this return type as upward information when inferring the <code class="highlighter-rouge">map()</code>
-method’s type argument: <code class="highlighter-rouge">&lt;int&gt;</code>.</p>
+<p>在最后一个示例中，根据向下信息 <code class="highlighter-rouge">x</code> 被推断为 <code class="highlighter-rouge">double</code> 。 闭包的返回类型根据向上信息推断为 <code class="highlighter-rouge">int</code> 。
+在推断 <code class="highlighter-rouge">map()</code> 方法的类型参数：<code class="highlighter-rouge">&lt;int&gt;</code> 时，Dart 使用此返回值的类型作为向上信息。</p>
 
 <h2 id="substituting-types">
 <a id="substituting-types" class="anchor" href="#substituting-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Substituting types</h2>
@@ -1065,7 +1044,7 @@ options file.</li>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/14 20:20 PDT"
+               title="Site built on 2019/05/14 23:12 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
