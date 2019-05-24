@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage your asynchronous code: handle uncaught errors, override behavior (such as printing and scheduling tasks), and more.">
+  <title>Zones | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Zones" />
+  <meta name="twitter:description" content="Manage your asynchronous code: handle uncaught errors, override behavior (such as printing and scheduling tasks), and more." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Zones" />
+  <meta property="og:description" content="Manage your asynchronous code: handle uncaught errors, override behavior (such as printing and scheduling tasks), and more." />
+  <meta property="og:url" content="https://www.dartlang.org/articles/archive/zones" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" integrity="sha256-BpIIsuW7Gte7jAle0YIjbVILHBuILdco9exkucUKDgY=" crossorigin="anonymous" href="/assets/main-069208b2e5bb1ad7bb8c095ed182236d520b1c1b882dd728f5ec64b9c50a0e06.css">
+  <link href="/articles/styles.css" rel="stylesheet" type="text/css">
+  <script src="/assets/main-f7f2f2125f3c379daf0f5ca0ecf142cd2e10b030af396a510324fddb1682c5e2.js" integrity="sha256-9/LyEl88N52vD1yg7PFCzS4QsDCvOWpRAyT92xaCxeI=" crossorigin="anonymous" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+ </head>
+  <body class="default obsolete show_banner">
+    <header id="page-header" class="site-header">
+  <nav id="mainnav" class="site-header">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/white-e71fb382ad5229792cc704b3ee7a88f8013e986d6e34f0956d89c453b454d0a5.svg" alt="Dart">
+  </a>
+  <ul class="navbar">
+    <li class="mainnav__get-started">
+      <a href="/guides" class="nav-link"><span>文档</span></a>
+    </li>
+    <li>
+      <a href="/platforms" class="nav-link">平台</a>
+    </li>
+    <li>
+      <a href="/community" class="nav-link">社区</a>
+    </li>
+    <li>
+      <a href="https://dartpad.cn/" target="_blank" class="nav-link no-automatic-external">体验 Dart</a>
+    </li>
+    <li>
+      <a href="/get-dart" class="nav-link">安装 Dart</a>
+    </li>
+    <li>
+      <a href="/about_zh_CN" class="nav-link">关于</a>
+    </li>
+    <li class="searchfield">
+      <form action="/search" class="site-header__search form-inline" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
+  </div>
+  
+</header>
+ <div class="banner">
+  <p class="banner__text">
+    
+    
+    Dart 2.3 发布，针对构建用户界面进行了优化。
+    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">了解更多。</a>
+  </p>
+</div>
+ 
+
+    <div id="sidenav" class="">
+  <form action="/search/" class="site-header__search form-inline">
+    <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+  </form>
+
+  <div class="site-sidebar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="/platforms" class="nav-link">平台</a>
+      </li>
+      <li class="nav-item">
+        <a href="/community" class="nav-link">社区</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://dartpad.cn" class="nav-link">体验 Dart</a>
+      </li>
+      <li class="nav-item">
+        <a href="/guides" class="nav-link">文档</a>
+      </li>
+      <li>
+        <a href="/about_zh_CN" class="nav-link">关于</a>
+      </li>
+    </ul>
+
+    <ul class="nav flex-column"><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-1" role="button"
+        aria-expanded="false" aria-controls="sidenav-1"
+      >示例 & 教程</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-1">
+        <li class="nav-item">
+    <a class="nav-link" href="/samples">示例程序</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/codelabs">Codelab</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials">教程</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-2" role="button"
+        aria-expanded="false" aria-controls="sidenav-2"
+      >语言</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/language/language-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-dart">类型系统</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/spec">规范</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/effective-dart">Effective Dart</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-3" role="button"
+        aria-expanded="false" aria-controls="sidenav-3"
+      >核心库</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/libraries">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/library-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-3-3"
+      href="#sidenav-3-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-3-3"
+    >文章
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/dart-io">Intro to dart:io</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/creating-streams">Creating streams</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-4" role="button"
+        aria-expanded="false" aria-controls="sidenav-4"
+      >包</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/packages">如何使用包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/useful-libraries">常用的包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/create-library-packages">创建包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/publishing">发布包</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-4-5"
+      href="#sidenav-4-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-4-5"
+    >引用包
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/dependencies">依赖</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/glossary">术语</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/package-layout">包的设计约定</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/environment-variables">Pub 环境变量</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/pubspec">Pubspec 文件</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/troubleshoot">Pub 问题分析与解决</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/versioning">版本</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-5" role="button"
+        aria-expanded="false" aria-controls="sidenav-5"
+      >开发</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5">
+        <li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/futures">Futures & Async-Await</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/json">使用 JSON</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/streams">Stream</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/mobile">移动应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-5"
+      href="#sidenav-5-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-5"
+    >命令行应用 & 服务应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/server">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/cmdline">编写命令行应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/httpserver">编写 HTTP 客户端和服务端应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/c-interop">C & C++ 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/libraries">库和包</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-6"
+      href="#sidenav-5-6" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-6"
+    >Web 应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/web">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/fetch-data">动态获取数据</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-6-4"
+      href="#sidenav-5-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-6-4"
+    >底层 Web 编程
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Dart 和 HTML 关联</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">在 DOM 中增加 Element</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">在 DOM 中移除 Element</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link" href="/web/js-interop">JS/TS 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/deployment">开发</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/libraries">库和包</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-6" role="button"
+        aria-expanded="false" aria-controls="sidenav-6"
+      >工具 & 技巧</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6">
+        <li class="nav-item">
+    <a class="nav-link" href="/tools">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-2"
+      href="#sidenav-6-2" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-2"
+    >编辑 & 调试
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-devtools">Dart DevTool</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/dartpad">DartPad</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/jetbrains-plugin">IntelliJ & Android Studio</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/vs-code">VS Code</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-3"
+      href="#sidenav-6-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-3"
+    >命令行工具
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-3">
+      <li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-1"
+      href="#sidenav-6-3-1" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-1"
+    >Dart SDK
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-1">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/sdk">综述</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-vm">dart (Dart VM)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2aot">dart2aot & dartaotruntime</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2js">dart2js (prod JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartanalyzer">dartanalyzer</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdevc">dartdevc (dev JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdoc">dartdoc</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartfmt">dartfmt</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/cmd">pub</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-2"
+      href="#sidenav-6-3-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-2"
+    >其他命令行工具
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/build_runner">build_runner</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/webdev">webdev</a>
+  </li>
+  </ul>
+  </li>
+</ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-4"
+      href="#sidenav-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-4"
+    >源码管理
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/formatting">格式化代码</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/private-files">哪些内容不应该被提交</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-5"
+      href="#sidenav-6-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-5"
+    >静态分析
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/analysis-options">Customizing static analysis</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-problems">Fixing common type problems</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-6"
+      href="#sidenav-6-6" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-6"
+    >测试 & 优化
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/testing">测试</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/debugging">调试 Web 应用</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-7" role="button"
+        aria-expanded="false" aria-controls="sidenav-7"
+      >资源</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7">
+        <li class="nav-item">
+    <a class="nav-link" href="/code-of-conduct">行为守则</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/faq">FAQ</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-7-3"
+      href="#sidenav-7-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-7-3"
+    >历史
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/dart-2">迁移到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/dart-2">迁移 Web 应用到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/obsolete">过时的 Pub 功能</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link " data-toggle="collapse" href="#sidenav-8" role="button"
+        aria-expanded="true" aria-controls="sidenav-8"
+      >相关网站</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-8">
+        <li class="nav-item">
+    <a class="nav-link" href="https://api.dartlang.org" target="_blank" rel="noopener">API 参考<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://medium.com/dartlang" target="_blank" rel="noopener">Blog<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://dartpad.cn" target="_blank" rel="noopener">DartPad (在线编辑器)<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://flutter.dev" target="_blank" rel="noopener">Flutter<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Pub 包资源<i class="fas fa-external-link-alt"></i></a>
+  </li>
+</ul>
+    </li></ul>
+
+  </div>
+</div>
+
+    <main id="page-content">
+      
+
+
+
+
+
+
+
+<div id="site-toc--side" class="site-toc ">
+  <header class="site-toc__title">
+    大纲
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+  </header>
+  <ul class="section-nav nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#asynchronous-dynamic-extents">Asynchronous dynamic extents</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#zone-basics">Zone basics</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#handling-asynchronous-errors">Handling asynchronous errors</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#example-errors-cant-cross-into-error-zones">Example: Errors can’t cross into error zones</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#example-errors-cant-leave-error-zones">Example: Errors can’t leave error zones</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#using-zones-with-streams">Using zones with streams</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#example-using-a-stream-with-runzoned">Example: Using a stream with runZoned()</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#storing-zone-local-values">Storing zone-local values</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#example-using-a-zone-local-value-for-debug-logs">Example: Using a zone-local value for debug logs</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#overriding-functionality">Overriding functionality</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#example-overriding-print">Example: Overriding print</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#arguments-to-interceptors-and-delegates">Arguments to interceptors and delegates</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#example-delegating-to-the-parent-zone">Example: Delegating to the parent zone</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#example-executing-code-when-entering-and-leaving-a-zone">Example: Executing code when entering and leaving a zone</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#example-handling-callbacks">Example: Handling callbacks</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#implementing-asynchronous-callbacks">Implementing asynchronous callbacks</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#summary">Summary</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#more-resources">More resources</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#more-examples">More examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/archive/zones.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Zones' page issue&body=
+Page URL: https://www.dartlang.org/articles/archive/zones%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/archive/zones.md%0D%0A
+%0D%0A
+Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
+%0D%0A
+Description of issue:" class="btn no-automatic-external" title="Report an issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>Zones</h1>
+          </div>
+          
+
+
+
+
+
+
+
+<div id="site-toc--inline" class="site-toc toc-collapsible toc-collapsed">
+  <header class="site-toc__title">
+    大纲
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+      <span class="site-toc--inline__toggle toc-toggle-down"><i class="fas fa-chevron-down fa-m"></i></span>
+      <span class="site-toc--inline__toggle toc-toggle-up"><i class="fas fa-chevron-up fa-m"></i></span>
+    
+  </header>
+  <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#asynchronous-dynamic-extents">Asynchronous dynamic extents</a></li>
+<li class="toc-entry toc-h2"><a href="#zone-basics">Zone basics</a></li>
+<li class="toc-entry toc-h2"><a href="#handling-asynchronous-errors">Handling asynchronous errors</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#example-errors-cant-cross-into-error-zones">Example: Errors can’t cross into error zones</a></li>
+<li class="toc-entry toc-h3"><a href="#example-errors-cant-leave-error-zones">Example: Errors can’t leave error zones</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#using-zones-with-streams">Using zones with streams</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#example-using-a-stream-with-runzoned">Example: Using a stream with runZoned()</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#storing-zone-local-values">Storing zone-local values</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#example-using-a-zone-local-value-for-debug-logs">Example: Using a zone-local value for debug logs</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#overriding-functionality">Overriding functionality</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#example-overriding-print">Example: Overriding print</a></li>
+<li class="toc-entry toc-h3"><a href="#arguments-to-interceptors-and-delegates">Arguments to interceptors and delegates</a></li>
+<li class="toc-entry toc-h3"><a href="#example-delegating-to-the-parent-zone">Example: Delegating to the parent zone</a></li>
+<li class="toc-entry toc-h3"><a href="#example-executing-code-when-entering-and-leaving-a-zone">Example: Executing code when entering and leaving a zone</a></li>
+<li class="toc-entry toc-h3"><a href="#example-handling-callbacks">Example: Handling callbacks</a></li>
+<li class="toc-entry toc-h3"><a href="#implementing-asynchronous-callbacks">Implementing asynchronous callbacks</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#summary">Summary</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#more-resources">More resources</a></li>
+<li class="toc-entry toc-h3"><a href="#more-examples">More examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+          <h3 id="asynchronous-dynamic-extents">
+<a id="asynchronous-dynamic-extents" class="anchor" href="#asynchronous-dynamic-extents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous dynamic extents</h3>
+
+<p><em>Written by Florian Loitsch and Kathy Walrath<br>
+March 2014</em></p>
+
+<p>This article discusses zone-related APIs in the dart:async library,
+with a focus on the top-level <code class="highlighter-rouge">runZoned()</code> function.
+Before reading this article,
+you should be familiar with the techniques covered in
+<a href="/guides/libraries/futures-error-handling">Futures and Error Handling</a>.</p>
+
+<p>Currently, the most common use of zones is
+to handle errors raised in asynchronously executed code.
+For example,
+a simple HTTP server
+might use the following code:</p>
+
+<pre class="prettyprint lang-dart"><span class="highlight">runZoned(() {</span>
+  HttpServer.bind('0.0.0.0', port).then((server) {
+    server.listen(staticFiles.serveRequest);
+  });
+<span class="highlight">},
+onError: (e, stackTrace) =&gt; print('Oh noes! $e $stackTrace'));</span></pre>
+
+<p>Running the HTTP server in a zone
+enables the app to continue running despite uncaught (but non-fatal)
+errors in the server’s asynchronous code.</p>
+
+<aside class="alert alert-info">
+  <p><strong>API note:</strong>
+  This use case won’t always require zones.
+  We expect that isolates will have an API enabling you to
+  listen for uncaught errors.</p>
+</aside>
+
+<p>Zones make the following tasks possible:</p>
+
+<ul>
+  <li>
+    <p>Protecting your app from exiting due to
+an uncaught exception thrown by asynchronous code,
+as shown in the preceding example.</p>
+  </li>
+  <li>
+    <p>Associating data—known as
+<em>zone-local values</em>—with individual zones.</p>
+  </li>
+  <li>
+    <p>Overriding a limited set of methods,
+such as <code class="highlighter-rouge">print()</code> and <code class="highlighter-rouge">scheduleMicrotask()</code>,
+within part or all of the code.</p>
+  </li>
+  <li>
+    <p>Performing an operation—such as
+starting or stopping a timer,
+or saving a stack trace—each time that
+code enters or exits a zone.</p>
+  </li>
+</ul>
+
+<p>You might have encountered something similar to zones in other languages.
+<em>Domains</em> in Node.js were an inspiration for Dart’s zones.
+Java’s <em>thread-local storage</em>
+also has some similarities.
+Closest of all is Brian Ford’s JavaScript port of Dart zones,
+<a href="https://github.com/btford/zone.js/">zone.js</a>, which he describes in
+<a href="https://www.youtube.com/watch?v=3IqtmUscE_U">this video</a>.</p>
+
+<h2 id="zone-basics">
+<a id="zone-basics" class="anchor" href="#zone-basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Zone basics</h2>
+
+<p>A <em>zone</em> represents the asynchronous dynamic extent of a call.
+It is the computation that is performed as part of a call and, transitively,
+the asynchronous callbacks that have been registered by that code.</p>
+
+<p>For example,
+in the HTTP server example,
+<code class="highlighter-rouge">bind()</code>, <code class="highlighter-rouge">then()</code>, and the callback of <code class="highlighter-rouge">then()</code>
+all execute in the same zone—the zone
+that was created using <code class="highlighter-rouge">runZoned()</code>.</p>
+
+<p>In the next example,
+the code executes in 3 different zones:
+<span class="zone1">zone #1</span> (the root zone),
+<span class="zone2">zone #2</span>, and
+<span class="zone3">zone #3</span>.</p>
+
+<!-- ex1.dart -->
+<!-- Using pre instead of prettify so we can use background colors -->
+<pre>
+import 'dart:async';
+
+<span class="zone1">main() {
+  foo();
+  var future;
+  runZoned(() {</span>          // Starts a new child zone (zone #2).
+<span class="zone2">    future = new Future(bar).then(baz);
+  </span><span class="zone1">});
+  future.then(qux);
+}</span>
+
+foo() =&gt; <em><span class="zone1">...foo</span><span class="zone3">-body...</span></em>  // Executed twice (once each in two zones).
+bar() =&gt; <em><span class="zone2">...bar-body...</span></em>
+baz(x) =&gt; <span class="zone2">runZoned(() =&gt;</span> <span class="zone3">foo()</span><span class="zone2">);</span> // New child zone (zone #3).
+qux(x) =&gt; <em><span class="zone1">...qux-body...</span></em>
+</pre>
+
+<p>The following figure shows the code’s execution order,
+as well as which zone the code executes in.</p>
+
+<p><img src="images/trace.png" alt="illustration of program execution"></p>
+
+<p>Each call to <code class="highlighter-rouge">runZoned()</code> creates a new zone
+and executes code in that zone.
+When that code schedules a task—such
+as calling baz()—that
+task executes in the zone where it was scheduled.
+For example, the call to qux() (last line of main())
+runs in
+<span class="zone1">zone #1</span> (the root zone)
+even though it’s attached to a future that itself runs in
+<span class="zone2">zone #2</span>.</p>
+
+<p>Child zones don’t completely replace their parent zone.
+Instead new zones are nested inside their surrounding zone.
+For example,
+<span class="zone2">zone #2</span> contains
+<span class="zone3">zone #3</span>, and
+<span class="zone1">zone #1</span> (the root zone)
+contains both
+<span class="zone2">zone #2</span> and
+<span class="zone3">zone #3</span>.</p>
+
+<p>All Dart code executes in the root zone.
+Code might execute in other nested child zones as well,
+but at a minimum it always runs in the root zone.</p>
+
+<h2 id="handling-asynchronous-errors">
+<a id="handling-asynchronous-errors" class="anchor" href="#handling-asynchronous-errors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling asynchronous errors</h2>
+
+<p>One of the most used features of zones is
+their ability to handle uncaught errors
+in asynchronously executing code.
+The concept is similar to a try-catch in synchronous code.</p>
+
+<p>An <em>uncaught error</em> is often caused by some code using <code class="highlighter-rouge">throw</code>
+to raise an exception that is not handled by a <code class="highlighter-rouge">catch</code> statement.
+Another way to produce an uncaught error is
+to call <code class="highlighter-rouge">new Future.error()</code> or
+a Completer’s <code class="highlighter-rouge">completeError()</code> method.</p>
+
+<p>Use the <code class="highlighter-rouge">onError</code> argument to <code class="highlighter-rouge">runZoned()</code> to
+install a <em>zoned error handler</em>—an asynchronous error handler
+that’s invoked for every uncaught error in the zone.
+For example:</p>
+
+<!-- run_zoned1.dart -->
+<pre class="prettyprint lang-dart">runZoned(() {
+  Timer.run(() { throw 'Would normally kill the program'; });
+}, onError: (error, stackTrace) {
+  print('Uncaught error: $error');
+});</pre>
+
+<p>The preceding code has an asynchronous callback
+(through <code class="highlighter-rouge">Timer.run()</code>) that throws an exception.
+Normally this exception would be an unhandled error and reach the top level
+(which, in the standalone Dart executable, would kill the running process).
+However, with the zoned error handler,
+the error is passed to the error handler and doesn’t shut down the program.</p>
+
+<p>One notable difference between try-catch and zoned error handlers is
+that zones continue to execute after uncaught errors occur.
+If other asynchronous callbacks are scheduled within the zone,
+they still execute.
+As a consequence a zoned error handler might
+be invoked multiple times.</p>
+
+<p>Also note that an <em>error zone</em>—a zone that has an error handler—might
+handle errors that originate in a child (or other descendant)
+of that zone.
+A simple rule determines where
+errors are handled in a sequence of future transformations
+(using <code class="highlighter-rouge">then()</code> or <code class="highlighter-rouge">catchError()</code>):</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+Errors on Future chains never cross the boundaries of error zones.</p>
+</aside>
+
+<p>If an error reaches an error zone boundary,
+it is treated as unhandled error at that point.</p>
+
+<h3 id="example-errors-cant-cross-into-error-zones">
+<a id="example-errors-cant-cross-into-error-zones" class="anchor" href="#example-errors-cant-cross-into-error-zones" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Errors can’t cross into error zones</h3>
+
+<p>In the following example,
+the error raised by the first line
+can’t cross into an error zone.</p>
+
+<!-- run_zoned2.dart -->
+<pre class="prettyprint lang-dart">var f = new Future.error(499);
+f = f.whenComplete(() { print('Outside runZoned'); });
+runZoned(() {
+  f = f.whenComplete(() { print('Inside non-error zone'); });
+});
+runZoned(() {
+  f = f.whenComplete(() { print('Inside error zone (not called)'); });
+}, onError: print);</pre>
+
+<p>Here’s the output you see if you run the example:</p>
+
+<pre class="prettyprint lang-xml">Outside runZoned
+Inside non-error zone
+Uncaught Error: 499
+Unhandled exception:
+499
+...stack trace...</pre>
+
+<p>If you remove the calls to <code class="highlighter-rouge">runZoned()</code> or
+remove the <code class="highlighter-rouge">onError</code> argument,
+you see this output:</p>
+
+<pre class="prettyprint lang-xml">Outside runZoned
+Inside non-error zone
+<span class="highlight">Inside error zone (not called)</span>
+Uncaught Error: 499
+Unhandled exception:
+499
+...stack trace...</pre>
+
+<p>Note how removing either the zones or the error zone causes
+the error to propagate further.</p>
+
+<p>The stack trace appears because the error happens outside an error zone.
+If you add an error zone around the whole code snippet,
+then you can avoid the stack trace.</p>
+
+<h3 id="example-errors-cant-leave-error-zones">
+<a id="example-errors-cant-leave-error-zones" class="anchor" href="#example-errors-cant-leave-error-zones" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Errors can’t leave error zones</h3>
+
+<p>As the preceding code shows,
+errors can’t cross into error zones.
+Similarly, errors can’t cross <em>out</em> of error zones.
+Consider this example:</p>
+
+<!-- run_zoned3.dart -->
+<pre class="prettyprint lang-dart">var completer = new Completer();
+var future = completer.future.then((x) =&gt; x + 1);
+var zoneFuture;
+runZoned(() {
+  zoneFuture = future.then((y) =&gt; throw 'Inside zone');
+}, onError: (error) {
+  print('Caught: $error');
+});
+zoneFuture.catchError((e) { print('Never reached'); });
+completer.complete(499);</pre>
+
+<p>Even though the future chain ends in a <code class="highlighter-rouge">catchError()</code>,
+the asynchronous error can’t leave the error zone.
+Instead, the zoned error handler (the one specified in <code class="highlighter-rouge">onError</code>)
+handles the error.
+As a result, <em>zoneFuture never completes</em>—neither
+with a value, nor with an error.</p>
+
+<h2 id="using-zones-with-streams">
+<a id="using-zones-with-streams" class="anchor" href="#using-zones-with-streams" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using zones with streams</h2>
+
+<p>The rule for zones and streams
+is simpler than for futures:</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+Transformations and other callbacks execute in the zone
+where the stream is listened to.</p>
+</aside>
+
+<p>This rule follows from the guideline that
+streams should have no side effect until listened to.
+A similar situation in synchronous code is the behavior of Iterables,
+which aren’t evaluated until you ask for values.</p>
+
+<h3 id="example-using-a-stream-with-runzoned">
+<a id="example-using-a-stream-with-runzoned" class="anchor" href="#example-using-a-stream-with-runzoned" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Using a stream with runZoned()</h3>
+
+<p>Here is an example of using a stream with <code class="highlighter-rouge">runZoned()</code>:</p>
+
+<!-- stream.dart -->
+<pre class="prettyprint lang-dart">var stream = new File('stream.dart').openRead()
+    .map((x) =&gt; throw 'Callback throws');
+
+runZoned(() { stream.listen(print); },
+         onError: (e) { print('Caught error: $e'); });</pre>
+
+<p>The exception thrown by the callback
+is caught by the error handler of <code class="highlighter-rouge">runZoned()</code>.
+Here’s the output:</p>
+
+<pre class="prettyprint lang-xml">Caught error: Callback throws</pre>
+
+<p>As the output shows,
+the callback is associated with the listening zone,
+not with the zone where <code class="highlighter-rouge">map()</code> is called.</p>
+
+<h2 id="storing-zone-local-values">
+<a id="storing-zone-local-values" class="anchor" href="#storing-zone-local-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>Storing zone-local values</h2>
+
+<p>If you ever wanted to use a static variable
+but couldn’t because
+multiple concurrently running computations interfered with each other,
+consider using a zone-local value.
+You might add a zone-local value to help with debugging.
+Another use case is dealing with an HTTP request:
+you could have the user ID
+and its authorization token in zone-local values.</p>
+
+<p>Use the <code class="highlighter-rouge">zoneValues</code> argument to <code class="highlighter-rouge">runZoned()</code> to
+store values in the newly created zone:</p>
+
+<!-- value1.dart -->
+<pre class="prettyprint lang-dart">runZoned(() {
+  print(Zone.current[#key]);
+}, zoneValues: { #key: 499 });</pre>
+
+<p>To read zone-local values, use the zone’s index operator and the value’s key:
+<code>[<em>key</em>]</code>.
+Any object can be used as a key, as long as it has compatible
+<code class="highlighter-rouge">operator ==</code> and <code class="highlighter-rouge">hashCode</code> implementations.
+Typically, a key is a symbol literal:
+<code>#<em>identifier</em></code>.</p>
+
+<p>You can’t change the object that a key maps to,
+but you can manipulate the object.
+For example, the following code
+adds an item to a zone-local list:</p>
+
+<!-- value1_1.dart -->
+<pre class="prettyprint lang-dart">runZoned(() {
+  Zone.current[#key].add(499);
+  print(Zone.current[#key]); // [499]
+}, zoneValues: { #key: [] });</pre>
+
+<p>A zone inherits zone-local values from its parent zone,
+so adding nested zones doesn’t accidentally drop existing values.
+Nested zones can, however, shadow parent values.</p>
+
+<aside class="alert alert-warning">
+  <p><strong>Important:</strong>
+  Try to use unique objects for keys,
+  so they’re less likely to conflict with other libraries.</p>
+</aside>
+
+<h3 id="example-using-a-zone-local-value-for-debug-logs">
+<a id="example-using-a-zone-local-value-for-debug-logs" class="anchor" href="#example-using-a-zone-local-value-for-debug-logs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Using a zone-local value for debug logs</h3>
+
+<p>Say you have two files, foo.txt and bar.txt,
+and want to print all of their lines.
+The program might look like this:</p>
+
+<!-- value2.dart -->
+<pre class="prettyprint lang-dart">import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+
+Future splitLinesStream(stream) {
+  return stream
+      .transform(ASCII.decoder)
+      .transform(const LineSplitter())
+      .toList();
+}
+
+Future splitLines(filename) {
+  return splitLinesStream(new File(filename).openRead());
+}
+main() {
+  Future.forEach(['foo.txt', 'bar.txt'],
+                 (file) =&gt; splitLines(file)
+                     .then((lines) { lines.forEach(print); }));
+}</pre>
+
+<p>This program works,
+but let’s assume that you now want to know
+which file each line comes from,
+and that you can’t just add an filename argument to <code class="highlighter-rouge">splitLinesStream()</code>.
+With zone-local values you can add the filename to the returned string
+(new lines are highlighted):</p>
+
+<!-- value3.dart -->
+<pre class="prettyprint lang-dart">import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+
+Future splitLinesStream(stream) {
+  return stream
+      .transform(ASCII.decoder)
+      .transform(const LineSplitter())
+<span class="highlight">      .map((line) =&gt; '${Zone.current[#filename]}: $line')</span>
+      .toList();
+}
+
+Future splitLines(filename) {
+<span class="highlight">  return runZoned(() {</span>
+    return splitLinesStream(new File(filename).openRead());
+<span class="highlight">  }, zoneValues: { #filename: filename });</span>
+}
+
+main() {
+  Future.forEach(['foo.txt', 'bar.txt'],
+                 (file) =&gt; splitLines(file)
+                     .then((lines) { lines.forEach(print); }));
+}</pre>
+
+<p>Note that the new code doesn’t modify the function signatures or
+pass the filename from <code class="highlighter-rouge">splitLines()</code> to <code class="highlighter-rouge">splitLinesStream()</code>.
+Instead, it uses zone-local values to implement
+a feature similar to a static variable
+that works in asynchronous contexts.</p>
+
+<h2 id="overriding-functionality">
+<a id="overriding-functionality" class="anchor" href="#overriding-functionality" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overriding functionality</h2>
+
+<p>Use the <code class="highlighter-rouge">zoneSpecification</code> argument to <code class="highlighter-rouge">runZoned()</code>
+to override functionality that is managed by zones.
+The argument’s value is a
+<a href="https://api.dartlang.org/stable/dart-async/ZoneSpecification-class.html">ZoneSpecification</a> object,
+with which you can override any of the following functionality:</p>
+
+<ul>
+  <li>Forking child zones</li>
+  <li>Registering and running callbacks in the zone</li>
+  <li>Scheduling microtasks and timers</li>
+  <li>Handling uncaught asynchronous errors
+(<code class="highlighter-rouge">onError</code> is a shortcut for this)</li>
+  <li>Printing</li>
+</ul>
+
+<h3 id="example-overriding-print">
+<a id="example-overriding-print" class="anchor" href="#example-overriding-print" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Overriding print</h3>
+
+<p>As a simple example of overriding functionality,
+here is a way to silence all prints inside a zone:</p>
+
+<!-- specification1.dart -->
+<pre class="prettyprint lang-dart">import 'dart:async';
+
+main() {
+  runZoned(() {
+    print('Will be ignored');
+  }, zoneSpecification: new ZoneSpecification(
+    print: (self, parent, zone, message) {
+      // Ignore message.
+    }));
+}</pre>
+
+<p>Inside the forked zone,
+the <code class="highlighter-rouge">print()</code> function is overridden by the specified print interceptor,
+which simply discards the message.
+Overriding print is possible because <code class="highlighter-rouge">print()</code>
+(like <code class="highlighter-rouge">scheduleMicrotask()</code> and the Timer constructors)
+uses the current zone (<code class="highlighter-rouge">Zone.current</code>) to do its work.</p>
+
+<h3 id="arguments-to-interceptors-and-delegates">
+<a id="arguments-to-interceptors-and-delegates" class="anchor" href="#arguments-to-interceptors-and-delegates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arguments to interceptors and delegates</h3>
+
+<p>As the print example shows,
+an interceptor adds three arguments
+to those defined in the Zone class’s corresponding method.
+For example, Zone’s <code class="highlighter-rouge">print()</code> method has one argument:
+<code class="highlighter-rouge">print(String line)</code>.
+The interceptor version of <code class="highlighter-rouge">print()</code>,
+as defined by ZoneSpecification,
+has four arguments:
+<code class="highlighter-rouge">print(Zone self, ZoneDelegate parent, Zone zone, String line)</code>.</p>
+
+<p>The three interceptor arguments always appear in the same order,
+before any other arguments.</p>
+
+<dl>
+  <dt><code class="highlighter-rouge">self</code></dt>
+  <dd>The zone that’s handling the callback.</dd>
+  <dt><code class="highlighter-rouge">parent</code></dt>
+  <dd>A ZoneDelegate representing the parent zone.
+Use it to forward operations to the parent.</dd>
+  <dt><code class="highlighter-rouge">zone</code></dt>
+  <dd>The zone where the operation originated.
+Some operations need to know which zone the operation was invoked on.
+For example, <code class="highlighter-rouge">zone.fork(specification)</code> must
+create a new zone as child of <code class="highlighter-rouge">zone</code>.
+As another example,
+even when you delegate <code class="highlighter-rouge">scheduleMicrotask()</code> to another zone,
+the original <code class="highlighter-rouge">zone</code> must be the one that executes the microtask.</dd>
+</dl>
+
+<p>When an interceptor delegates a method to the parent,
+the parent (ZoneDelegate) version of the method
+has just one additional argument:
+<code class="highlighter-rouge">zone</code>, the zone where the original call originated from.
+For example,
+the signature of the <code class="highlighter-rouge">print()</code> method on a ZoneDelegate is
+<code class="highlighter-rouge">print(Zone zone, String line)</code>.</p>
+
+<p>Here’s an example of the arguments
+for another interceptable method, <code class="highlighter-rouge">scheduleMicrotask()</code>:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Where defined</strong></td>
+      <td><strong>Method signature</strong></td>
+    </tr>
+    <tr>
+      <td>Zone</td>
+      <td><code class="highlighter-rouge">void scheduleMicrotask(void f())</code></td>
+    </tr>
+    <tr>
+      <td>ZoneSpecification </td>
+      <td><code class="highlighter-rouge">void scheduleMicrotask(Zone self, ZoneDelegate parent, Zone zone, void f())</code></td>
+    </tr>
+    <tr>
+      <td>ZoneDelegate</td>
+      <td><code class="highlighter-rouge">void scheduleMicrotask(Zone zone, void f())</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-delegating-to-the-parent-zone">
+<a id="example-delegating-to-the-parent-zone" class="anchor" href="#example-delegating-to-the-parent-zone" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Delegating to the parent zone</h3>
+
+<p>Here is an example that shows how to delegate to the parent zone:</p>
+
+<!-- specification2.dart -->
+<pre class="prettyprint lang-dart">import 'dart:async';
+
+main() {
+  runZoned(() {
+    var currentZone = Zone.current;
+    scheduleMicrotask(() {
+      print(identical(currentZone, Zone.current));  // prints true.
+    });
+  }, zoneSpecification: new ZoneSpecification(
+    scheduleMicrotask: (self, parent, zone, task) {
+      print('scheduleMicrotask has been called inside the zone');
+      // The origin `zone` needs to be passed to the parent so that
+      // the task can be executed in it.
+      parent.scheduleMicrotask(zone, task);
+    }));
+}</pre>
+
+<h3 id="example-executing-code-when-entering-and-leaving-a-zone">
+<a id="example-executing-code-when-entering-and-leaving-a-zone" class="anchor" href="#example-executing-code-when-entering-and-leaving-a-zone" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Executing code when entering and leaving a zone</h3>
+
+<p>Say you want to know how much time some asynchronous code
+spends executing.
+You can do this by putting the code in a zone,
+starting a timer every time the zone is entered,
+and stopping the timer whenever the zone is left.</p>
+
+<p>Providing <code class="highlighter-rouge">run*</code> parameters to the ZoneSpecification
+lets you specify the code that the zone executes.</p>
+
+<aside class="alert alert-info">
+  <p><strong>API note:</strong>
+  In the future, zones might provide a simpler alternative
+  for the common case of sandwiching zone code:
+  an onEnter/onLeave API.
+  See <a href="https://github.com/dart-lang/sdk/issues/17532">issue 17532</a>
+  for details.</p>
+</aside>
+
+<p>The <code class="highlighter-rouge">run*</code> parameters—<code class="highlighter-rouge">run</code>, <code class="highlighter-rouge">runUnary</code>, and <code class="highlighter-rouge">runBinary</code>—specify
+code to execute every time the zone is asked to execute code.
+These parameters work for zero-argument, one-argument,
+and two-argument callbacks, respectively.
+The <code class="highlighter-rouge">run</code> parameter also works for the initial, synchronous code
+that executes just after calling <code class="highlighter-rouge">runZoned()</code>.</p>
+
+<p>Here’s an example of profiling code using <code class="highlighter-rouge">run*</code>:</p>
+
+<!-- profile_run.dart -->
+<pre class="prettyprint lang-dart">final total = new Stopwatch();
+final user = new Stopwatch();
+
+final specification = new ZoneSpecification(
+  run: (self, parent, zone, f) {
+    user.start();
+    try { return parent.run(zone, f); } finally { user.stop(); }
+  },
+  runUnary: (self, parent, zone, f, arg) {
+    user.start();
+    try { return parent.runUnary(zone, f, arg); } finally { user.stop(); }
+  },
+  runBinary: (self, parent, zone, f, arg1, arg2) {
+    user.start();
+    try {
+      return parent.runBinary(zone, f, arg1, arg2);
+    } finally {
+      user.stop();
+    }
+  });
+
+runZoned(() {
+  total.start();
+  // ... Code that runs synchronously...
+  // ... Then code that runs asynchronously ...
+    .then((...) {
+      print(total.elapsedMilliseconds);
+      print(user.elapsedMilliseconds);
+    });
+}, zoneSpecification: specification);</pre>
+
+<p>In this code,
+each <code class="highlighter-rouge">run*</code> override just starts the user timer,
+executes the specified function,
+and then stops the user timer.</p>
+
+<h3 id="example-handling-callbacks">
+<a id="example-handling-callbacks" class="anchor" href="#example-handling-callbacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example: Handling callbacks</h3>
+
+<p>Provide <code class="highlighter-rouge">register*Callback</code> parameters to the ZoneSpecification
+to wrap or change callback code—the code
+that’s executed asynchronously in the zone.
+Like the <code class="highlighter-rouge">run*</code> parameters,
+the <code class="highlighter-rouge">register*Callback</code> parameters have three forms:
+<code class="highlighter-rouge">registerCallback</code> (for callbacks with no arguments),
+<code class="highlighter-rouge">registerUnaryCallback</code> (one argument), and
+<code class="highlighter-rouge">registerBinaryCallback</code> (two arguments).</p>
+
+<p>Here’s an example that makes the zone
+save a stack trace
+before the code disappears into an asynchronous context.</p>
+
+<!-- debug.dart -->
+<pre class="prettyprint lang-dart">import 'dart:async';
+
+get currentStackTrace {
+  try {
+    throw 0;
+  } catch(_, st) {
+    return st;
+  }
+}
+
+var lastStackTrace = null;
+
+bar() =&gt; throw "in bar";
+foo() =&gt; new Future(bar);
+
+main() {
+  final specification = new ZoneSpecification(
+    registerCallback: (self, parent, zone, f) {
+      var stackTrace = currentStackTrace;
+      return parent.registerCallback(zone, () {
+        lastStackTrace = stackTrace;
+        return f();
+      });
+    },
+    registerUnaryCallback: (self, parent, zone, f) {
+      var stackTrace = currentStackTrace;
+      return parent.registerUnaryCallback(zone, (arg) {
+        lastStackTrace = stackTrace;
+        return f(arg);
+      });
+    },
+    registerBinaryCallback: (self, parent, zone, f) {
+      var stackTrace = currentStackTrace;
+      return parent.registerBinaryCallback(zone, (arg1, arg2) {
+        lastStackTrace = stackTrace;
+        return f(arg1, arg2);
+      });
+    },
+    handleUncaughtError: (self, parent, zone, error, stackTrace) {
+      if (lastStackTrace != null) print("last stack: $lastStackTrace");
+      return parent.handleUncaughtError(zone, error, stackTrace);
+    });
+
+  runZoned(() {
+    foo();
+  }, zoneSpecification: specification);
+}</pre>
+
+<p>Go ahead and run the example.
+You’ll see a “last stack” trace (<code class="highlighter-rouge">lastStackTrace</code>)
+that includes <code class="highlighter-rouge">foo()</code>,
+since <code class="highlighter-rouge">foo()</code> was called synchronously.
+The next stack trace (<code class="highlighter-rouge">stackTrace</code>)
+is from the asynchronous context,
+which knows about <code class="highlighter-rouge">bar()</code> but not <code class="highlighter-rouge">foo()</code>.</p>
+
+<h3 id="implementing-asynchronous-callbacks">
+<a id="implementing-asynchronous-callbacks" class="anchor" href="#implementing-asynchronous-callbacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementing asynchronous callbacks</h3>
+
+<p>Even if you’re implementing an asynchronous API,
+you might not have to deal with zones at all.
+For example, although you might expect the dart:io library
+to keep track of the current zones,
+it instead relies on the zone handling of dart:async classes
+such as Future and Stream.</p>
+
+<p>If you do handle zones explicitly,
+then you need to register all asynchronous callbacks
+and ensure that each callback is invoked in the zone
+where it was registered.
+The <code class="highlighter-rouge">bind*Callback</code> helper methods of Zone
+make this task easier.
+They’re shortcuts for <code class="highlighter-rouge">register*Callback</code> and <code class="highlighter-rouge">run*</code>,
+ensuring that each callback is registered and runs in that Zone.</p>
+
+<p>If you need more control than <code class="highlighter-rouge">bind*Callback</code> gives you,
+then you need to use <code class="highlighter-rouge">register*Callback</code> and <code class="highlighter-rouge">run*</code>.
+You might also want to use the <code class="highlighter-rouge">run*Guarded</code> methods of Zone,
+which wrap the call into a try-catch
+and invoke the <code class="highlighter-rouge">uncaughtErrorHandler</code>
+if an error occurs.</p>
+
+<h2 id="summary">
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h2>
+
+<p>Zones are good for protecting your code from
+uncaught exceptions in asynchronous code,
+but they can do much more.
+You can associate data with zones,
+and you can override core functionality such as
+printing and task scheduling.
+Zones enable better debugging and provide hooks
+that you can use for functionality such as profiling.</p>
+
+<h3 id="more-resources">
+<a id="more-resources" class="anchor" href="#more-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>More resources</h3>
+
+<dl>
+  <dt>Zone-related API documentation</dt>
+  <dd>Read the docs for
+<a href="https://api.dartlang.org/stable/dart-async/runZoned.html">runZoned()</a>,
+<a href="https://api.dartlang.org/stable/dart-async/Zone-class.html">Zone</a>,
+<a href="https://api.dartlang.org/stable/dart-async/ZoneDelegate-class.html">ZoneDelegate</a>, and
+<a href="https://api.dartlang.org/stable/dart-async/ZoneSpecification-class.html">ZoneSpecification</a>.</dd>
+  <dt>stack_trace</dt>
+  <dd>With the stack_trace library’s
+<a href="https://pub.dev/documentation/stack_trace/latest/stack_trace/Chain-class.html">Chain class</a>
+you can get better stack traces for asynchronously executed code.
+See the <a href="https://pub.dev/packages/stack_trace">stack_trace package</a>
+at the Pub site for more information.</dd>
+</dl>
+
+<h3 id="more-examples">
+<a id="more-examples" class="anchor" href="#more-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>More examples</h3>
+
+<p>Here are some more complex examples of using zones.</p>
+
+<dl>
+  <dt>The task_interceptor example</dt>
+  <dd>The toy zone in
+<a href="https://github.com/dart-lang/dartlang.org/blob/master/src/tests/site/articles/zones/task_interceptor.dart">task_interceptor.dart</a>
+intercepts <code class="highlighter-rouge">scheduleMicrotask</code>, <code class="highlighter-rouge">createTimer</code>, and <code class="highlighter-rouge">createPeriodicTimer</code>
+to simulate the behavior of the Dart primitives
+without yielding to the event loop.</dd>
+  <dt>The source code for the stack_trace package</dt>
+  <dd>The <a href="https://pub.dev/packages/stack_trace">stack_trace package</a>
+uses zones to form chains of stack traces
+for debugging asynchronous code.
+Zone features used include error handling, zone-local values, and callbacks.
+You can find the stack_trace source code in the
+<a href="https://github.com/dart-lang/stack_trace">stack_trace GitHub project</a>.</dd>
+  <dt>The source code for dart:html and dart:async</dt>
+  <dd>These two SDK libraries implement APIs featuring asynchronous callbacks,
+and thus they deal with zones.
+You can browse or download their source code under the
+<a href="https://github.com/dart-lang/sdk/tree/master/sdk/lib">sdk/lib directory</a>
+of the
+<a href="https://github.com/dart-lang/sdk">Dart GitHub project</a>.</dd>
+</dl>
+
+<p><em>Thanks to Anders Johnsen and Lasse Reichstein Nielsen
+for their reviews of this article.</em></p>
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="content">
+      <div class="text-center" martdown="1">
+        <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/security">Security</a></li>
+          <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
+          <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+          <li><a href="/about_zh_CN">关于 dart.dev 中文版</a></li>
+          <li>
+            <a href="https://github.com/dartchina/site-www-cn"
+               title="该站在 GitHub 开源"
+               class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+            &nbsp;
+            <a href="https://github.com/dartchina/site-www-cn/issues"
+               title="为该站提交 issue"
+               class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+            &nbsp;
+            <a 
+               title="Site built on 2019/05/23 19:31 PDT"
+               
+               class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

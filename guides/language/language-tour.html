@@ -1489,7 +1489,7 @@ assert(list2.length == 4);</pre>
 var list2 = [0, ...?list];
 assert(list2.length == 1);</pre>
 
-<p>更多 Spread 操作符的内容和使用示例，参见 <a href="https://github.com/dart-lang/language/blob/master/accepted/future-releases/spread-collections/feature-specification.md">Spread 操作符提案。</a></p>
+<p>更多 Spread 操作符的内容和使用示例，参见 <a href="https://github.com/dart-lang/language/blob/master/accepted/2.3/spread-collections/feature-specification.md">Spread 操作符提案。</a></p>
 
 <p><a id="collection-operators"> </a>
 Dart 在 2.3 还同时引入了 <strong>Collection If</strong> 和 <strong>Collection For</strong>，
@@ -1517,7 +1517,7 @@ var listOfStrings = [
 assert(listOfStrings[1] == '#1');</pre>
 
 <p>更多 <strong>Collection If</strong> 和 <strong>Collection For</strong> 的内容和使用示例，参阅 
-<a href="https://github.com/dart-lang/language/blob/master/accepted/future-releases/control-flow-collections/feature-specification.md">集合的流控制提案。</a></p>
+<a href="https://github.com/dart-lang/language/blob/master/accepted/2.3/control-flow-collections/feature-specification.md">集合的流控制提案。</a></p>
 
 <p>List 类型包含了很多 List 的操作函数。 
 更多信息参考 <a href="#generics">泛型</a> 和
@@ -4547,12 +4547,7 @@ await 表达式会阻塞代码的执行，直到需要的对象返回为止。</
 
 <p>有关异步编程的更多信息，请参考
 <a href="/guides/libraries/library-tour#dartasync---asynchronous-programming">dart:async</a> 
-部分。
-同时也可参考文章
-<a href="/articles/language/await-async">Dart Language Asynchrony Support: Phase 1</a>
-和
-<a href="/articles/language/beyond-async">Dart Language Asynchrony Support: Phase 2</a>,
-以及 <a href="/guides/language/spec">Dart language specification</a> 。</p>
+部分。</p>
 
 <p><a id="generator"></a></p>
 <h2 id="生成器">
@@ -4599,14 +4594,10 @@ Dart 内置支持两种生成器函数：</p>
   }
 }</pre>
 
-<p>有关生成器的更多信息，请参考文章
-<a href="/articles/language/beyond-async">Dart Language Asynchrony Support: Phase 2</a> 。</p>
-
 <h2 id="可调用类">
 <a id="可调用类" class="anchor" href="#%E5%8F%AF%E8%B0%83%E7%94%A8%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>可调用类</h2>
 
-<p>通过实现类的 call() 方法，
-能够让类像函数一样被调用。</p>
+<p>通过实现类的 call() 方法，允许使用类似函数调用的方式来使用该类的实例。</p>
 
 <p>在下面的示例中，<code class="highlighter-rouge">WannabeFunction</code> 类定义了一个 call() 函数，
 函数接受三个字符串参数，函数体将三个字符串拼接，字符串间用空格分割，并在结尾附加了一个感叹号。
@@ -4614,9 +4605,6 @@ Dart 内置支持两种生成器函数：</p>
 
 <iframe src="https://dartpad.cn/embed-inline.html?id=405379bacf30335f3aed&amp;verticalRatio=73" width="100%" height="240px" style="border: 1px solid #ccc;">
 </iframe>
-
-<p>有关把类当做方法使用的更多信息，请参考
-<a href="/articles/language/emulating-functions">Emulating Functions in Dart</a> 。</p>
 
 <h2 id="isolates">
 <a id="isolates" class="anchor" href="#isolates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Isolates</h2>
@@ -4875,7 +4863,7 @@ documentation.</a>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/23 19:13 PDT"
+               title="Site built on 2019/05/23 19:31 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>

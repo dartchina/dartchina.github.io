@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn how Dart handles the event queue and microtask queue, so you can write better asynchronous code with fewer surprises.">
+  <title>The Event Loop and Dart | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="The Event Loop and Dart" />
+  <meta name="twitter:description" content="Learn how Dart handles the event queue and microtask queue, so you can write better asynchronous code with fewer surprises." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Event Loop and Dart" />
+  <meta property="og:description" content="Learn how Dart handles the event queue and microtask queue, so you can write better asynchronous code with fewer surprises." />
+  <meta property="og:url" content="https://www.dartlang.org/articles/archive/event-loop" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" integrity="sha256-BpIIsuW7Gte7jAle0YIjbVILHBuILdco9exkucUKDgY=" crossorigin="anonymous" href="/assets/main-069208b2e5bb1ad7bb8c095ed182236d520b1c1b882dd728f5ec64b9c50a0e06.css">
+  <script src="/assets/main-f7f2f2125f3c379daf0f5ca0ecf142cd2e10b030af396a510324fddb1682c5e2.js" integrity="sha256-9/LyEl88N52vD1yg7PFCzS4QsDCvOWpRAyT92xaCxeI=" crossorigin="anonymous" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+ </head>
+  <body class="default obsolete show_banner">
+    <header id="page-header" class="site-header">
+  <nav id="mainnav" class="site-header">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/white-e71fb382ad5229792cc704b3ee7a88f8013e986d6e34f0956d89c453b454d0a5.svg" alt="Dart">
+  </a>
+  <ul class="navbar">
+    <li class="mainnav__get-started">
+      <a href="/guides" class="nav-link"><span>文档</span></a>
+    </li>
+    <li>
+      <a href="/platforms" class="nav-link">平台</a>
+    </li>
+    <li>
+      <a href="/community" class="nav-link">社区</a>
+    </li>
+    <li>
+      <a href="https://dartpad.cn/" target="_blank" class="nav-link no-automatic-external">体验 Dart</a>
+    </li>
+    <li>
+      <a href="/get-dart" class="nav-link">安装 Dart</a>
+    </li>
+    <li>
+      <a href="/about_zh_CN" class="nav-link">关于</a>
+    </li>
+    <li class="searchfield">
+      <form action="/search" class="site-header__search form-inline" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+  <div class="alert alert-warning">
+    <h4 class="text-center">
+      Some of the content of this page might be out of date.
+    </h4>
+  </div>
+  
+</header>
+ <div class="banner">
+  <p class="banner__text">
+    
+    
+    Dart 2.3 发布，针对构建用户界面进行了优化。
+    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">了解更多。</a>
+  </p>
+</div>
+ 
+
+    <div id="sidenav" class="">
+  <form action="/search/" class="site-header__search form-inline">
+    <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+  </form>
+
+  <div class="site-sidebar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="/platforms" class="nav-link">平台</a>
+      </li>
+      <li class="nav-item">
+        <a href="/community" class="nav-link">社区</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://dartpad.cn" class="nav-link">体验 Dart</a>
+      </li>
+      <li class="nav-item">
+        <a href="/guides" class="nav-link">文档</a>
+      </li>
+      <li>
+        <a href="/about_zh_CN" class="nav-link">关于</a>
+      </li>
+    </ul>
+
+    <ul class="nav flex-column"><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-1" role="button"
+        aria-expanded="false" aria-controls="sidenav-1"
+      >示例 & 教程</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-1">
+        <li class="nav-item">
+    <a class="nav-link" href="/samples">示例程序</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/codelabs">Codelab</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials">教程</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-2" role="button"
+        aria-expanded="false" aria-controls="sidenav-2"
+      >语言</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/language/language-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-dart">类型系统</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/spec">规范</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/effective-dart">Effective Dart</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-3" role="button"
+        aria-expanded="false" aria-controls="sidenav-3"
+      >核心库</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/libraries">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/library-tour">概览</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-3-3"
+      href="#sidenav-3-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-3-3"
+    >文章
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/dart-io">Intro to dart:io</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/creating-streams">Creating streams</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-4" role="button"
+        aria-expanded="false" aria-controls="sidenav-4"
+      >包</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/packages">如何使用包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/useful-libraries">常用的包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/create-library-packages">创建包</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/publishing">发布包</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-4-5"
+      href="#sidenav-4-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-4-5"
+    >引用包
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/dependencies">依赖</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/glossary">术语</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/package-layout">包的设计约定</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/environment-variables">Pub 环境变量</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/pubspec">Pubspec 文件</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/troubleshoot">Pub 问题分析与解决</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/versioning">版本</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-5" role="button"
+        aria-expanded="false" aria-controls="sidenav-5"
+      >开发</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5">
+        <li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/futures">Futures & Async-Await</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/json">使用 JSON</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/streams">Stream</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/mobile">移动应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-5"
+      href="#sidenav-5-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-5"
+    >命令行应用 & 服务应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/server">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/cmdline">编写命令行应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/httpserver">编写 HTTP 客户端和服务端应用</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/c-interop">C & C++ 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/libraries">库和包</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-6"
+      href="#sidenav-5-6" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-6"
+    >Web 应用
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/web">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/get-started">入门</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/fetch-data">动态获取数据</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-6-4"
+      href="#sidenav-5-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-6-4"
+    >底层 Web 编程
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Dart 和 HTML 关联</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">在 DOM 中增加 Element</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">在 DOM 中移除 Element</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link" href="/web/js-interop">JS/TS 交互</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/deployment">开发</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/libraries">库和包</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-6" role="button"
+        aria-expanded="false" aria-controls="sidenav-6"
+      >工具 & 技巧</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6">
+        <li class="nav-item">
+    <a class="nav-link" href="/tools">综述</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-2"
+      href="#sidenav-6-2" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-2"
+    >编辑 & 调试
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-devtools">Dart DevTool</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/dartpad">DartPad</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/jetbrains-plugin">IntelliJ & Android Studio</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/vs-code">VS Code</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-3"
+      href="#sidenav-6-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-3"
+    >命令行工具
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-3">
+      <li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-1"
+      href="#sidenav-6-3-1" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-1"
+    >Dart SDK
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-1">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/sdk">综述</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-vm">dart (Dart VM)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2aot">dart2aot & dartaotruntime</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2js">dart2js (prod JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartanalyzer">dartanalyzer</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdevc">dartdevc (dev JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdoc">dartdoc</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartfmt">dartfmt</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/cmd">pub</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-2"
+      href="#sidenav-6-3-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-2"
+    >其他命令行工具
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/build_runner">build_runner</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/webdev">webdev</a>
+  </li>
+  </ul>
+  </li>
+</ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-4"
+      href="#sidenav-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-4"
+    >源码管理
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/formatting">格式化代码</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/private-files">哪些内容不应该被提交</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-5"
+      href="#sidenav-6-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-5"
+    >静态分析
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/analysis-options">Customizing static analysis</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-problems">Fixing common type problems</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-6"
+      href="#sidenav-6-6" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-6"
+    >测试 & 优化
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/testing">测试</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/debugging">调试 Web 应用</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-7" role="button"
+        aria-expanded="false" aria-controls="sidenav-7"
+      >资源</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7">
+        <li class="nav-item">
+    <a class="nav-link" href="/code-of-conduct">行为守则</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/faq">FAQ</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-7-3"
+      href="#sidenav-7-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-7-3"
+    >历史
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/dart-2">迁移到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/dart-2">迁移 Web 应用到 Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/obsolete">过时的 Pub 功能</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link " data-toggle="collapse" href="#sidenav-8" role="button"
+        aria-expanded="true" aria-controls="sidenav-8"
+      >相关网站</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-8">
+        <li class="nav-item">
+    <a class="nav-link" href="https://api.dartlang.org" target="_blank" rel="noopener">API 参考<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://medium.com/dartlang" target="_blank" rel="noopener">Blog<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://dartpad.cn" target="_blank" rel="noopener">DartPad (在线编辑器)<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://flutter.dev" target="_blank" rel="noopener">Flutter<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Pub 包资源<i class="fas fa-external-link-alt"></i></a>
+  </li>
+</ul>
+    </li></ul>
+
+  </div>
+</div>
+
+    <main id="page-content">
+      
+
+
+
+
+
+
+
+<div id="site-toc--side" class="site-toc ">
+  <header class="site-toc__title">
+    大纲
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+  </header>
+  <ul class="section-nav nav">
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#basic-concepts">Basic concepts</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#event-loops-and-queues">Event loops and queues</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#darts-single-thread-of-execution">Dart’s single thread of execution</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#darts-event-loop-and-queues">Dart’s event loop and queues</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#tip-chain-futures-to-specify-task-order">Tip: Chain futures to specify task order</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#how-to-schedule-a-task">How to schedule a task</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#use-the-appropriate-queue-usually-the-event-queue">Use the appropriate queue (usually: the event queue)</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#use-isolates-or-workers-if-necessary">Use isolates or workers if necessary</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#test-your-understanding">Test your understanding</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#question-1">Question #1</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#question-2">Question #2</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#summary">Summary</a></li>
+</ul>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/archive/event-loop.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='The Event Loop and Dart' page issue&body=
+Page URL: https://www.dartlang.org/articles/archive/event-loop%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_articles/archive/event-loop.md%0D%0A
+%0D%0A
+Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
+%0D%0A
+Description of issue:" class="btn no-automatic-external" title="Report an issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>The Event Loop and Dart</h1>
+          </div>
+          
+
+
+
+
+
+
+
+<div id="site-toc--inline" class="site-toc toc-collapsible toc-collapsed">
+  <header class="site-toc__title">
+    大纲
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+      <span class="site-toc--inline__toggle toc-toggle-down"><i class="fas fa-chevron-down fa-m"></i></span>
+      <span class="site-toc--inline__toggle toc-toggle-up"><i class="fas fa-chevron-up fa-m"></i></span>
+    
+  </header>
+  <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#basic-concepts">Basic concepts</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#event-loops-and-queues">Event loops and queues</a></li>
+<li class="toc-entry toc-h3"><a href="#darts-single-thread-of-execution">Dart’s single thread of execution</a></li>
+<li class="toc-entry toc-h3"><a href="#darts-event-loop-and-queues">Dart’s event loop and queues</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#tip-chain-futures-to-specify-task-order">Tip: Chain futures to specify task order</a></li>
+<li class="toc-entry toc-h2"><a href="#how-to-schedule-a-task">How to schedule a task</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#use-the-appropriate-queue-usually-the-event-queue">Use the appropriate queue (usually: the event queue)</a></li>
+<li class="toc-entry toc-h3"><a href="#use-isolates-or-workers-if-necessary">Use isolates or workers if necessary</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#test-your-understanding">Test your understanding</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#question-1">Question #1</a></li>
+<li class="toc-entry toc-h3"><a href="#question-2">Question #2</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#summary">Summary</a></li>
+</ul>
+</div>
+
+
+          <p><em>Written by Kathy Walrath <br>
+September 2013 (updated October 2013)</em></p>
+
+<p>Asynchronous code is everywhere in Dart.
+Many library functions return Future objects,
+and you can register handlers to respond to events such as
+mouse clicks, file I/O completions, and timer expirations.</p>
+
+<p>This article describes Dart’s event loop architecture,
+so that you can write better asynchronous code with fewer surprises.
+You’ll learn options for scheduling future tasks,
+and you’ll be able to predict the order of execution.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+Everything in this article applies both to Dart apps running natively
+(using a Dart VM)
+and to Dart apps that have been compiled to JavaScript
+(the output of dart2js).
+This article uses the term <em>Dart</em> to differentiate between
+Dart apps and software written in other languages.</p>
+</aside>
+
+<p>Before reading this article,
+you should be familiar with the basics of
+<a href="/tutorials/language/futures">futures and error handling</a>.</p>
+
+<aside class="alert alert-warning">
+  <p><strong>Note:</strong>
+This article doesn’t reflect features added after Dart 1.0,
+such as async-await and zones.
+It also hasn’t been updated to reflect the current status of linked-to issues,
+or the fact that web apps should use web workers instead of isolates.</p>
+</aside>
+
+<h2 id="basic-concepts">
+<a id="basic-concepts" class="anchor" href="#basic-concepts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic concepts</h2>
+
+<p>If you’ve written UI code,
+you’re probably familiar with the concepts of
+the <em>event loop</em> and the <em>event queue</em>.
+They ensure that graphics operations and events
+such as mouse clicks are handled one at a time.</p>
+
+<h3 id="event-loops-and-queues">
+<a id="event-loops-and-queues" class="anchor" href="#event-loops-and-queues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Event loops and queues</h3>
+
+<p>An event loop’s job is to take an item from the event queue and handle it,
+repeating these two steps for as long as the queue has items.</p>
+
+<p><img src="images/event-loop.png" alt="events going into a queue, feeding into an event loop"></p>
+
+<p>The items in the queue might represent user input,
+file I/O notifications, timers, and more.
+For example, here’s a picture of the event queue that contains
+timer and user input events:</p>
+
+<p><img src="images/event-loop-example.png" alt="same figure, but with explicit events: 1. key, 2.click, 3. timer, etc."></p>
+
+<p>All of that might be familiar from non-Dart languages you know.
+Now let’s talk about how it fits into the Dart platform.</p>
+
+<h3 id="darts-single-thread-of-execution">
+<a id="darts-single-thread-of-execution" class="anchor" href="#darts-single-thread-of-execution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dart’s single thread of execution</h3>
+
+<p>Once a Dart function starts executing,
+it continues executing until it exits.
+In other words, Dart functions can’t be interrupted by other Dart code.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+A Dart <em>command-line</em> app can run code in parallel by creating <em>isolates</em>.
+(Dart <em>web</em> apps can’t currently create additional isolates,
+but they can create <em>workers</em>.)
+Isolates don’t share memory;
+they’re like separate apps that communicate with each other
+by passing messages.
+With the exception of code that an app explicitly
+runs in additional isolates or workers,
+all of an app’s code runs in the app’s <em>main isolate</em>.
+For more information, see
+<a href="#use-isolates-or-workers-if-necessary">Use isolates or workers if necessary</a>,
+later in this article.</p>
+</aside>
+
+<p>As the following figure shows,
+a Dart app starts execution when
+its main isolate executes the app’s main() function.
+After main() exits,
+the main isolate’s thread begins to handle any items on the app’s event queue,
+one by one.</p>
+
+<p><img src="images/event-loop-and-main.png" alt="Add the main isolate executing tasks off the queue: main(), then key event handler, then click event handler, then timer task, etc."></p>
+
+<p>Actually, that’s a slight oversimplification.</p>
+
+<h3 id="darts-event-loop-and-queues">
+<a id="darts-event-loop-and-queues" class="anchor" href="#darts-event-loop-and-queues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dart’s event loop and queues</h3>
+
+<p>A Dart app has a single event loop with <em>two</em> queues—the
+<em>event queue</em> and the <em>microtask queue</em>.</p>
+
+<p>The <strong>event queue</strong> contains all outside events:
+I/O, mouse events, drawing events, timers,
+messages between Dart isolates, and so on.</p>
+
+<p>The <strong>microtask queue</strong> is necessary because
+event-handling code sometimes needs to complete a task later,
+but before returning control to the event loop.
+For example, when an observable object changes,
+it groups several mutation changes together
+and reports them asychronously.
+The microtask queue allows the observable object
+to report these mutation changes
+before the DOM can show the inconsistent state.</p>
+
+<p>The event queue contains events both from Dart and
+from elsewhere in the system.
+Currently, the microtask queue contains only entries originating
+from within Dart code,
+but we expect the web implementation to plug into
+the browser microtask queue.
+(For the latest status, see
+<a href="https://github.com/dart-lang/sdk/issues/13433">dartbug.com/13433</a>.)</p>
+
+<p>As the following figure shows,
+when main() exits,
+the event loop starts its work.
+First, it executes any microtasks, in FIFO order.
+Then it dequeues and handles the first item on the event queue.
+Then it repeats the cycle: execute all microtasks,
+and then handle the next item on the event queue.
+Once both queues are empty and no more events are expected,
+the app’s <em>embedder</em> (such as the browser or a test framework)
+can dispose of the app.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+If a web app’s user closes its window,
+then the web app might exit before its event queue is empty.</p>
+</aside>
+
+<p><img src="images/both-queues.png" alt="flowchart: main() -&gt; microtasks -&gt; next event -&gt; microtasks -&gt; ..."></p>
+
+<aside class="alert alert-warning">
+  <p><strong>Important:</strong>
+While the event loop is executing tasks from the microtask queue,
+the event queue is stuck:
+the app can’t
+draw graphics, handle mouse clicks, react to I/O, and so on.</p>
+</aside>
+
+<p>Although you can predict the <em>order</em> of task execution,
+you can’t predict exactly <em>when</em> an event loop will take a task off the queue.
+The Dart event handling system is based on a single-threaded cycle;
+it isn’t based on ticks or any other kind of time measurement.
+For example, when you create a delayed task,
+an event is enqueued at the time you specify.
+However, that event can’t be handled until
+everything before it in the event queue
+(as well as every single task in the microtask queue) is handled.</p>
+
+<h2 id="tip-chain-futures-to-specify-task-order">
+<a id="tip-chain-futures-to-specify-task-order" class="anchor" href="#tip-chain-futures-to-specify-task-order" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tip: Chain futures to specify task order</h2>
+
+<p>If your code has dependencies, make them explicit.
+Explicit dependencies help other developers to understand your code,
+and they make your program more resistant to code refactoring.</p>
+
+<p>Here’s an example of the <em>wrong</em> way to code:</p>
+
+<pre class="prettyprint lang-dart">// BAD because of no explicit dependency between setting and using
+// the variable.
+future.then(...set an important variable...);
+Timer.run(() {...use the important variable...});</pre>
+
+<p>Instead, write code like this:</p>
+
+<pre class="prettyprint lang-dart">// BETTER because the dependency is explicit.
+future.then(...set an important variable...)
+  .then((_) {...use the important variable...});</pre>
+
+<p>The better code uses then() to specify that
+the variable must be set before it can be used.
+(You can use whenComplete() instead of then()
+if you want the code to execute even if an error occurs.)</p>
+
+<p>If using the variable takes time and can be done later,
+consider putting that code in a new Future:</p>
+
+<pre class="prettyprint lang-dart">// MAYBE EVEN BETTER: Explicit dependency plus delayed execution.
+future.then(...set an important variable...)
+  .then((_) {new Future(() {...use the important variable...})});</pre>
+
+<p>Using a new Future gives the event loop a chance to
+process other events from the event queue.
+The next section gives details on scheduling code to run later.</p>
+
+<h2 id="how-to-schedule-a-task">
+<a id="how-to-schedule-a-task" class="anchor" href="#how-to-schedule-a-task" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to schedule a task</h2>
+
+<p>When you need to specify some code to be executed later,
+you can use the following APIs provided by the dart:async library:</p>
+
+<ol>
+  <li>The <strong>Future</strong> class,
+which adds an item to the end of the <strong>event queue</strong>.</li>
+  <li>The top-level <strong>scheduleMicrotask()</strong> function,
+which adds an item to the end of the <strong>microtask queue</strong>.</li>
+</ol>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+The <strong>scheduleMicrotask()</strong> function used to be named <strong>runAsync()</strong>.
+(See the <a href="https://groups.google.com/a/dartlang.org/d/msg/misc/7sAIhWXfIKQ/PzYJy1QqtWUJ">announcement.)</a></p>
+</aside>
+
+<p>Examples of using these APIs are in the next section under
+<a href="#event-queue-new-future">Event queue: new Future()</a> and
+<a href="#microtask-queue-schedulemicrotask">Microtask queue: scheduleMicrotask()</a>.</p>
+
+<h3 id="use-the-appropriate-queue-usually-the-event-queue">
+<a id="use-the-appropriate-queue-usually-the-event-queue" class="anchor" href="#use-the-appropriate-queue-usually-the-event-queue" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use the appropriate queue (usually: the event queue)</h3>
+
+<p>Whenever possible, schedule tasks on the event queue, with Future.
+Using the event queue helps keep the the microtask queue short,
+reducing the likelihood of the microtask queue starving the event queue.</p>
+
+<p>If a task absolutely must complete before
+any items from the event queue are handled,
+then you should usually just execute the function immediately.
+If you can’t, then use scheduleMicrotask() to
+add an item to the microtask queue.
+For example, in a web app use a microtask to
+avoid prematurely releasing a js-interop proxy or
+ending an IndexedDB transaction or event handler.</p>
+
+<p><img src="images/scheduling-tasks.png" alt="shows chain of event handler execution, with tasks added using Future and scheduleMicrotask()."></p>
+
+<h4 id="event-queue-new-future">Event queue: new Future()</h4>
+
+<p>To schedule a task on the event queue,
+use <code class="highlighter-rouge">new Future()</code> or <code class="highlighter-rouge">new Future.delayed()</code>.
+These are two of the
+<a href="https://api.dartlang.org/stable/dart-async/Future-class.html">Future</a>
+constructors defined in the dart:async library.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+You can also use
+<a href="https://api.dartlang.org/stable/dart-async/Timer-class.html">Timer</a> to schedule tasks,
+but if any uncaught exceptions occur in the task,
+your app will exit.
+Instead, we recommend Future,
+which is built on top of Timer and adds features such as
+detecting task completion and responding to errors.</p>
+</aside>
+
+<p>To immediately put an item on the event queue, use <code class="highlighter-rouge">new Future()</code>:</p>
+
+<pre class="prettyprint lang-dart">// Adds a task to the event queue.
+new Future(() {
+  // ...code goes here...
+});</pre>
+
+<p>You can add a call to <code class="highlighter-rouge">then()</code> or <code class="highlighter-rouge">whenComplete()</code> to
+execute some code immediately after the new Future completes.
+For example, the following code prints “42” when
+the new Future’s task is dequeued:</p>
+
+<pre class="prettyprint lang-dart">new Future(() =&gt; 21)
+    .then((v) =&gt; v*2)
+    .then((v) =&gt; print(v));</pre>
+
+<p>To enqueue an item after some time elapses, use <code class="highlighter-rouge">new Future.delayed()</code>:</p>
+
+<pre class="prettyprint lang-dart">// After a one-second delay, adds a task to the event queue.
+new Future.delayed(const Duration(seconds:1), () {
+  // ...code goes here...
+});</pre>
+
+<p>Although the preceding example adds the task to the event queue
+after one second,
+that task can’t execute until the main isolate is idle,
+the microtask queue is empty,
+and previously enqueued entries in the event queue are gone.
+For example, if the main() function or an event handler are
+running an expensive computation,
+the task can’t execute until after that computation completes.
+In that case, the delay might be much more than one second.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Tip:</strong>
+If you’re drawing frames for animation in a web app,
+don’t use a Future (or Timer or Stream).
+Instead, use
+<a href="https://api.dartlang.org/stable/dart-html/Window/animationFrame.html">animationFrame</a>,
+which is the Dart interface to
+<a href="http://www.html5rocks.com/en/tutorials/speed/animations/">requestAnimationFrame</a>.</p>
+</aside>
+
+<p>Fun facts about Future:</p>
+
+<ol>
+  <li>The function that you pass into Future’s <strong>then()</strong> method
+executes immediately when the Future completes.
+(The function isn’t enqueued, it’s just called.)</li>
+  <li>If a Future is <em>already complete</em> before <strong>then()</strong> is invoked on it,
+then a task is added to the <em>microtask queue</em>,
+and <em>that</em> task executes the function passed into then().</li>
+  <li>The <strong>Future()</strong> and <strong>Future.delayed()</strong> constructors
+don’t complete immediately;
+they add an item to the event queue.</li>
+  <li>The <strong>Future.value()</strong> constructor completes in a microtask,
+similar to #2.</li>
+  <li>The <strong>Future.sync()</strong> constructor executes its function argument immediately
+and (unless that function returns a Future)
+completes in a microtask, similar to #2.</li>
+</ol>
+
+<h4 id="microtask-queue-schedulemicrotask">Microtask queue: scheduleMicrotask()</h4>
+
+<p>The dart:async library defines scheduleMicrotask() as a top-level function.
+You can call scheduleMicrotask() like this:</p>
+
+<pre class="prettyprint lang-dart">scheduleMicrotask(() {
+  // ...code goes here...
+});</pre>
+
+<p>Due to bugs <a href="https://github.com/dart-lang/sdk/issues/9001">9001</a>
+and <a href="https://github.com/dart-lang/sdk/issues/9002">9002</a>,
+the first call to scheduleMicrotask() schedules a task on the event queue;
+this task creates the microtask queue and
+enqueues the function specified to scheduleMicrotask().
+As long as the microtask queue has at least one entry,
+subsequent calls to scheduleMicrotask() correctly add to the microtask queue.
+Once the microtask queue is empty,
+it must be created again the next time scheduleMicrotask() is called.</p>
+
+<p>The upshot of these bugs:
+The first task that you schedule with scheduleMicrotask() seems
+like it’s on the event queue.</p>
+
+<p>A workaround is to put your first call to scheduleMicrotask() before
+your first call to new Future().
+This creates the microtask queue before
+executing other tasks on the event queue.
+However, it doesn’t stop external events from being added to the event queue.
+It also doesn’t help when you have a delayed task.</p>
+
+<p>Another way to add a task to the microtask queue is
+to invoke then() on a Future that’s already complete.
+See the previous section for more information.</p>
+
+<h3 id="use-isolates-or-workers-if-necessary">
+<a id="use-isolates-or-workers-if-necessary" class="anchor" href="#use-isolates-or-workers-if-necessary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use isolates or workers if necessary</h3>
+
+<p>What if you have a compute-intensive task to run?
+To keep your app responsive,
+you should put the task into its own isolate or worker.
+Isolates might run in a separate process or thread,
+depending on the Dart implementation.
+In 1.0 we don’t expect web apps to support isolates or Dart-language workers.
+However, you can use the
+<a href="https://api.dartlang.org/stable/dart-html/Worker-class.html">dart:html Worker class</a>
+to add a JavaScript worker to a Dart web app.</p>
+
+<p>How many isolates should you use? For compute-intensive tasks,
+you should generally use as many isolates as you expect to have CPUs available.
+Any additional isolates are just wasted if they’re purely computational.
+However, if the isolates perform asynchronous calls—to perform I/O,
+for example—then they won’t spend much time on the CPUs,
+so having more isolates than CPUs makes sense.</p>
+
+<p>You can also use more isolates than CPUs
+if that’s a good architecture for your app.
+For example, you might use a separate isolate
+for each piece of functionality,
+or when you need to ensure that data isn’t shared.</p>
+
+<h2 id="test-your-understanding">
+<a id="test-your-understanding" class="anchor" href="#test-your-understanding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test your understanding</h2>
+
+<p>Now that you’ve read all about scheduling tasks,
+let’s test your understanding.</p>
+
+<p>Remember, you shouldn’t depend on Dart’s event queue implementation
+to specify task order.
+The implementation might change,
+and Future’s then() and whenComplete() methods are a better alternative.
+Still, won’t you feel smart if you can answer these questions correctly?</p>
+
+<h3 id="question-1">
+<a id="question-1" class="anchor" href="#question-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question #1</h3>
+
+<p>What does this sample print out?</p>
+
+<pre class="prettyprint lang-dart">import 'dart:async';
+void main() {
+  print('main #1 of 2');
+  scheduleMicrotask(() =&gt; print('microtask #1 of 2'));
+
+  new Future.delayed(new Duration(seconds:1),
+                     () =&gt; print('future #1 (delayed)'));
+  new Future(() =&gt; print('future #2 of 3'));
+  new Future(() =&gt; print('future #3 of 3'));
+
+  scheduleMicrotask(() =&gt; print('microtask #2 of 2'));
+
+  print('main #2 of 2');
+}</pre>
+
+<p>The answer:</p>
+
+<pre>main #1 of 2
+main #2 of 2
+microtask #1 of 2
+microtask #2 of 2
+future #2 of 3
+future #3 of 3
+future #1 (delayed)</pre>
+
+<p>That order should be what you expected,
+since the example’s code executes in three batches:</p>
+
+<ol>
+  <li>code in the main() function</li>
+  <li>tasks in the microtask queue (scheduleMicrotask())</li>
+  <li>tasks in the event queue (new Future() or new Future.delayed())</li>
+</ol>
+
+<p>Keep in mind that all the calls in the main() function execute synchronously,
+start to finish.
+First main() calls print(), then scheduleMicrotask(),
+then new Future.delayed(), then new Future(), and so on.
+Only the callbacks—the code in the closure bodies specified as
+arguments to scheduleMicrotask(), new Future.delayed(), and
+new Future()—execute at a later time.</p>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+Currently, if you comment out the first call to scheduleMicrotask(),
+then the callbacks for futures #2 and #3 execute before microtask #2.
+This is due to bugs 9001 and 9002, as discussed in
+<a href="#microtask-queue-schedulemicrotask">Microtask queue: scheduleMicrotask()</a>.</p>
+</aside>
+
+<h3 id="question-2">
+<a id="question-2" class="anchor" href="#question-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question #2</h3>
+
+<p>Here’s a more complex example.
+If you can correctly predict the output of this code,
+you get a gold star.</p>
+
+<pre class="prettyprint lang-dart">import 'dart:async';
+void main() {
+  print('main #1 of 2');
+  scheduleMicrotask(() =&gt; print('microtask #1 of 3'));
+
+  new Future.delayed(new Duration(seconds:1),
+      () =&gt; print('future #1 (delayed)'));
+
+  new Future(() =&gt; print('future #2 of 4'))
+      .then((_) =&gt; print('future #2a'))
+      .then((_) {
+        print('future #2b');
+        scheduleMicrotask(() =&gt; print('microtask #0 (from future #2b)'));
+      })
+      .then((_) =&gt; print('future #2c'));
+
+  scheduleMicrotask(() =&gt; print('microtask #2 of 3'));
+
+  new Future(() =&gt; print('future #3 of 4'))
+      .then((_) =&gt; new Future(
+                   () =&gt; print('future #3a (a new future)')))
+      .then((_) =&gt; print('future #3b'));
+
+  new Future(() =&gt; print('future #4 of 4'));
+  scheduleMicrotask(() =&gt; print('microtask #3 of 3'));
+  print('main #2 of 2');
+}</pre>
+
+<p>The output, assuming bugs 9001/9002 aren’t fixed:</p>
+
+<pre>main #1 of 2
+main #2 of 2
+microtask #1 of 3
+microtask #2 of 3
+microtask #3 of 3
+future #2 of 4
+future #2a
+future #2b
+future #2c
+future #3 of 4
+future #4 of 4
+microtask #0 (from future #2b)
+future #3a (a new future)
+future #3b
+future #1 (delayed)</pre>
+
+<aside class="alert alert-info">
+  <p><strong>Note:</strong>
+Due to bugs 9001/9002,
+microtask #0 executes after future #4;
+it should instead execute before future #3.
+This bug shows up because by the time future #2b executes,
+no microtasks are queued,
+so microtask #0 results in a new task on the event queue,
+which creates a new microtask queue.
+This microtask queue contains microtask #0.
+If you comment out microtask #1,
+then the microtasks all appear together just after future #2c,
+and before future #3.</p>
+</aside>
+
+<p>Like before, the main() function executes,
+and then everything on the microtask queue,
+and then tasks on the event queue.
+Here are a few interesting points:</p>
+
+<ul>
+  <li>When the then() callback for future 3 calls new Future(),
+it creates a new task (#3a) that’s added to the end of the event queue.</li>
+  <li>All the then() callbacks execute as soon as
+the Future they’re invoked on completes.
+Thus, future 2, 2a, 2b, and 2c execute all in one go,
+before control returns to the embedder.
+Similarly, future 3a and 3b execute all in one go.</li>
+  <li>If you change the 3a code from
+<code class="highlighter-rouge">then((_) =&gt; new Future(...))</code> to
+<code class="highlighter-rouge">then((_) {new Future(...); })</code>,
+then “future #3b” appears earlier
+(after future #3, instead of future #3a).
+The reason is that returning a Future from your callback
+is how you get then() (which itself returns a new Future)
+to <em>chain</em> those two Futures together,
+so that the Future returned by then() completes
+when the Future returned by the callback completes.
+See the <a href="https://api.dartlang.org/stable/dart-async/Future/then.html">then() reference</a>
+for more information.</li>
+</ul>
+
+<h4 id="annotated-sample-and-output">Annotated sample and output</h4>
+
+<p>Here are some figures that might clarify the answer to question #2.
+First, here’s the annotated program source:</p>
+
+<p><img src="images/test-annotated.png" alt="Lines that schedule a microtask are gold; lines that schedule an event are blue"></p>
+
+<p>And here’s what the queues and output look like at various points in time,
+assuming no external events come in:</p>
+
+<p><img src="images/test-queue-output.png" alt="3 columns: Time, Output, Queues"></p>
+
+<h2 id="summary">
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h2>
+
+<p>You should now understand Dart’s event loops and how to schedule tasks.
+Here are some of the major concepts of event loops in Dart:</p>
+
+<ul>
+  <li>A Dart app’s event loop executes tasks from two queues:
+the event queue and the microtask queue.</li>
+  <li>The event queue has entries from both Dart
+(futures, timers, isolate messages, and so on)
+and the system (user actions, I/O, and so on).</li>
+  <li>Currently, the microtask queue has entries only from Dart,
+but we expect it to be merged with the browser microtask queue.</li>
+  <li>The event loop empties the microtask queue before
+dequeuing and handling the next item on the event queue.</li>
+  <li>Once both queues are empty, the app has completed its work
+and (depending on its embedder) can exit.</li>
+  <li>The main() function and all items from the microtask and event queues
+run on the Dart app’s main isolate.</li>
+</ul>
+
+<p>When you schedule a task, follow these rules:</p>
+
+<ul>
+  <li>If possible, put it on the event queue
+(using new Future() or new Future.delayed()).</li>
+  <li>Use Future’s then() or whenComplete() method to specify task order.</li>
+  <li>To avoid starving the event loop,
+keep the microtask queue as short as possible.</li>
+  <li>To keep your app responsive,
+avoid compute-intensive tasks on either event loop.</li>
+  <li>To perform compute-intensive tasks,
+create additional isolates or workers.</li>
+</ul>
+
+<p>As you write asynchronous code, you might find these resources helpful:</p>
+
+<ul>
+  <li><a href="tutorials/language/futures">Futures tutorial</a></li>
+  <li><a href="/guides/language/language-tour#asynchrony-support">dart:async library tour</a></li>
+  <li><a href="https://api.dartlang.org/stable/dart-async/dart-async-library.html">dart:async API reference</a></li>
+</ul>
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="content">
+      <div class="text-center" martdown="1">
+        <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/security">Security</a></li>
+          <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
+          <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+          <li><a href="/about_zh_CN">关于 dart.dev 中文版</a></li>
+          <li>
+            <a href="https://github.com/dartchina/site-www-cn"
+               title="该站在 GitHub 开源"
+               class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+            &nbsp;
+            <a href="https://github.com/dartchina/site-www-cn/issues"
+               title="为该站提交 issue"
+               class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+            &nbsp;
+            <a 
+               title="Site built on 2019/05/23 19:31 PDT"
+               
+               class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
