@@ -547,16 +547,16 @@ ga('send', 'pageview');
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#darthtml">dart:html - 基于浏览器应用</a>
 <ul class="nav">
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#dom-操作">DOM 操作</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#using-http-resources-with-httprequest">Using HTTP resources with HttpRequest</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#sending-and-receiving-real-time-data-with-websockets">Sending and receiving real-time data with WebSockets</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#more-information">More information</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#通过-httprequest-访问-http-资源">通过 HttpRequest 访问 HTTP 资源</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#通过-websocket-发送和接收实时数据">通过 WebSocket 发送和接收实时数据</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#更多内容-2">更多内容</a></li>
 </ul>
 </li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#dartio">dart:io - 服务器和命令行应用程序的 I/O 。</a>
 <ul class="nav">
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#files-and-directories">Files and directories</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#http-clients-and-servers">HTTP clients and servers</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#more-information-1">More information</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#more-information">More information</a></li>
 </ul>
 </li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#总结">总结</a></li>
@@ -643,16 +643,16 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 <li class="toc-entry toc-h2"><a href="#darthtml">dart:html - 基于浏览器应用</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#dom-操作">DOM 操作</a></li>
-<li class="toc-entry toc-h3"><a href="#using-http-resources-with-httprequest">Using HTTP resources with HttpRequest</a></li>
-<li class="toc-entry toc-h3"><a href="#sending-and-receiving-real-time-data-with-websockets">Sending and receiving real-time data with WebSockets</a></li>
-<li class="toc-entry toc-h3"><a href="#more-information">More information</a></li>
+<li class="toc-entry toc-h3"><a href="#通过-httprequest-访问-http-资源">通过 HttpRequest 访问 HTTP 资源</a></li>
+<li class="toc-entry toc-h3"><a href="#通过-websocket-发送和接收实时数据">通过 WebSocket 发送和接收实时数据</a></li>
+<li class="toc-entry toc-h3"><a href="#更多内容-2">更多内容</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#dartio">dart:io - 服务器和命令行应用程序的 I/O 。</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#files-and-directories">Files and directories</a></li>
 <li class="toc-entry toc-h3"><a href="#http-clients-and-servers">HTTP clients and servers</a></li>
-<li class="toc-entry toc-h3"><a href="#more-information-1">More information</a></li>
+<li class="toc-entry toc-h3"><a href="#more-information">More information</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#总结">总结</a></li>
@@ -2178,76 +2178,67 @@ DOM 中的每个节点都有一个父节点，且可能有许多子节点。</p>
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">elem</span><span class="o">.</span><span class="na">attributes</span><span class="o">[</span><span class="s">'someAttribute'</span><span class="o">]</span> <span class="o">=</span> <span class="s">'someValue'</span><span class="o">;</span>
 </code></pre></div></div>
 
-<h4 id="creating-elements">Creating elements</h4>
+<h4 id="创建元素">创建元素</h4>
 
-<p>You can add to existing HTML pages by creating new elements and
-attaching them to the DOM. Here’s an example of creating a paragraph
-(&lt;p&gt;) element:</p>
+<p>在已有的 HTML 上，你可以创建元素并将它们添加到 DOM 中。
+下面是一个创建段落元素 (&lt;p&gt;) 的实例：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">var</span> <span class="n">elem</span> <span class="o">=</span> <span class="n">ParagraphElement</span><span class="o">();</span>
   <span class="n">elem</span><span class="o">.</span><span class="na">text</span> <span class="o">=</span> <span class="s">'Creating is easy!'</span><span class="o">;</span>
 </code></pre></div></div>
-
-<p>You can also create an element by parsing HTML text. Any child elements
-are also parsed and created.</p>
+<p>同样你可以通过解析 HTML 文本来创建元素。
+元素的其他的子元素也将被解析和创建。</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">var</span> <span class="n">elem2</span> <span class="o">=</span> <span class="n">Element</span><span class="o">.</span><span class="na">html</span><span class="o">(</span>
     <span class="s">'&lt;p&gt;Creating &lt;em&gt;is&lt;/em&gt; easy!&lt;/p&gt;'</span><span class="o">,</span>
   <span class="o">);</span>
 </code></pre></div></div>
 
-<p>Note that <code class="highlighter-rouge">elem2</code> is a <code class="highlighter-rouge">ParagraphElement</code> in the preceding example.</p>
+<p>请注意， <code class="highlighter-rouge">elem2</code> 是前面示例中的 <code class="highlighter-rouge">ParagraphElement</code> 。、</p>
 
-<p>Attach the newly created element to the document by assigning a parent
-to the element. You can add an element to any existing element’s
-children. In the following example, <code class="highlighter-rouge">body</code> is an element, and its child
-elements are accessible (as a List&lt;Element&gt;) from the <code class="highlighter-rouge">children</code>
-property.</p>
+<p>你可以向任何现有元素的子元素添加元素。
+在以下示例中，<code class="highlighter-rouge">body</code> 是一个元素，其子元素可以从 <code class="highlighter-rouge">children</code> 属性访问（类型为 List&lt;Element&gt;）。</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">document</span><span class="o">.</span><span class="na">body</span><span class="o">.</span><span class="na">children</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">elem2</span><span class="o">);</span>
 </code></pre></div></div>
 
-<h4 id="adding-replacing-and-removing-nodes">Adding, replacing, and removing nodes</h4>
+<h4 id="增加替换以及移除节点">增加，替换，以及移除节点</h4>
 
-<p>Recall that elements are just a kind of node. You can find all the
-children of a node using the <code class="highlighter-rouge">nodes</code> property of Node, which returns a
-List&lt;Node&gt; (as opposed to <code class="highlighter-rouge">children</code>, which omits non-Element nodes).
-Once you have this list, you can use the usual List methods and
-operators to manipulate the children of the node.</p>
+<p>回忆一下，元素只是节点的一种。你可以使用节点的 <code class="highlighter-rouge">nodes</code> 属性找到该节点的所有子节点，
+该属性返回 List&lt;Node&gt;（与 <code class="highlighter-rouge">children</code> 不同， <code class="highlighter-rouge">children</code> 省略了非元素节点（non-Element nodes））。
+获得此列表后，可以使用常用的 List 方法和运算符来操作这些子节点。</p>
 
-<p>To add a node as the last child of its parent, use the List <code class="highlighter-rouge">add()</code>
-method:</p>
+<p>使用 List 的 <code class="highlighter-rouge">add()</code> 方法，在父节点的最后一个子节点：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">querySelector</span><span class="o">(</span><span class="s">'#inputs'</span><span class="o">).</span><span class="na">nodes</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">elem</span><span class="o">);</span>
 </code></pre></div></div>
 
-<p>To replace a node, use the Node <code class="highlighter-rouge">replaceWith()</code> method:</p>
+<p>使用 <code class="highlighter-rouge">replaceWith()</code> 方法，替换一个节点：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">querySelector</span><span class="o">(</span><span class="s">'#status'</span><span class="o">).</span><span class="na">replaceWith</span><span class="o">(</span><span class="n">elem</span><span class="o">);</span>
 </code></pre></div></div>
 
-<p>To remove a node, use the Node <code class="highlighter-rouge">remove()</code> method:</p>
+<p>使用 <code class="highlighter-rouge">remove()</code> 方法，移除一个节点：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// Find a node by ID, and remove it from the DOM.</span>
   <span class="n">querySelector</span><span class="o">(</span><span class="s">'#expendable'</span><span class="o">).</span><span class="na">remove</span><span class="o">();</span>
 </code></pre></div></div>
 
-<h4 id="manipulating-css-styles">Manipulating CSS styles</h4>
+<h4 id="操作-css-样式">操作 CSS 样式</h4>
 
-<p>CSS, or <em>cascading style sheets</em>, defines the presentation styles of DOM
-elements. You can change the appearance of an element by attaching ID
-and class attributes to it.</p>
+<p>CSS ，也称为<em>级联样式表</em>，用来定义 DOM 元素的显示风格。
+你可以通过将 ID 和类属性附加到元素上来更改元素的外观。</p>
 
-<p>Each element has a <code class="highlighter-rouge">classes</code> field, which is a list. Add and remove CSS
-classes simply by adding and removing strings from this collection. For
-example, the following sample adds the <code class="highlighter-rouge">warning</code> class to an element:</p>
+<p>每个元素都有一个 List 类型的 <code class="highlighter-rouge">classes</code> 字段。
+只要在这个 List 中添加或删除字符串即可实现 CSS 类的添加和删除。 
+例如，以下示例将 <code class="highlighter-rouge">warning</code> 类添加到元素中：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">var</span> <span class="n">elem</span> <span class="o">=</span> <span class="n">querySelector</span><span class="o">(</span><span class="s">'#message'</span><span class="o">);</span>
   <span class="n">elem</span><span class="o">.</span><span class="na">classes</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">'warning'</span><span class="o">);</span>
 </code></pre></div></div>
 
-<p>It’s often very efficient to find an element by ID. You can dynamically
-set an element ID with the <code class="highlighter-rouge">id</code> property:</p>
+<p>通常使用 ID 查找元素是非常高效的。
+使用 <code class="highlighter-rouge">id</code> 属性可以动态设置元素的 ID ：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">var</span> <span class="n">message</span> <span class="o">=</span> <span class="n">DivElement</span><span class="o">();</span>
   <span class="n">message</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="s">'message2'</span><span class="o">;</span>
@@ -2256,6 +2247,8 @@ set an element ID with the <code class="highlighter-rouge">id</code> property:</
 
 <p>You can reduce the redundant text in this example by using method
 cascades:</p>
+
+<p>使用方法级联可以简化上述代码：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">var</span> <span class="n">message</span> <span class="o">=</span> <span class="n">DivElement</span><span class="o">()</span>
     <span class="o">..</span><span class="na">id</span> <span class="o">=</span> <span class="s">'message2'</span>
@@ -2266,26 +2259,25 @@ cascades:</p>
 is best practice, sometimes you want to attach a specific style directly
 to the element:</p>
 
+<p>虽然使用 ID 和 classes 将元素与一组样式相关联是非常有效的方法，
+但有时你也可以为元素直接指定特定的样式：</p>
+
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">message</span><span class="o">.</span><span class="na">style</span>
     <span class="o">..</span><span class="na">fontWeight</span> <span class="o">=</span> <span class="s">'bold'</span>
     <span class="o">..</span><span class="na">fontSize</span> <span class="o">=</span> <span class="s">'3em'</span><span class="o">;</span>
 </code></pre></div></div>
 
-<h4 id="handling-events">Handling events</h4>
+<h4 id="处理事件">处理事件</h4>
 
-<p>To respond to external events such as clicks, changes of focus, and
-selections, add an event listener. You can add an event listener to any
-element on the page. Event dispatch and propagation is a complicated
-subject; <a href="http://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture">research the
-details</a>
-if you’re new to web programming.</p>
+<p>通过添加事件监听来实现对外部事件的响应，例如：点击，焦点更改，选择等。
+事件监听可以添加到页面的任意元素上。事件的传播和分发的原理比较复杂，
+如果你的 Web 新手，<a href="http://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture">可以在这里了解更多细节</a>。</p>
 
-<p>Add an event handler using
-<code><em>element</em>.on<em>Event</em>.listen(<em>function</em>)</code>,
-where <code><em>Event</em></code> is the event
-name and <code><em>function</em></code> is the event handler.</p>
+<p>使用 <code><em>element</em>.on<em>Event</em>.listen(<em>function</em>)</code> 添加事件处理程序，
+其中 <code><em>Event</em></code> 是事件名称，
+<code><em>function</em></code> 是事件处理程序。</p>
 
-<p>For example, here’s how you can handle clicks on a button:</p>
+<p>例如，下面是处理按钮点击的示例：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// Find a button by ID and add an event handler.</span>
   <span class="n">querySelector</span><span class="o">(</span><span class="s">'#submitInfo'</span><span class="o">).</span><span class="na">onClick</span><span class="o">.</span><span class="na">listen</span><span class="o">((</span><span class="n">e</span><span class="o">)</span> <span class="o">{</span>
@@ -2294,8 +2286,7 @@ name and <code><em>function</em></code> is the event handler.</p>
   <span class="o">});</span>
 </code></pre></div></div>
 
-<p>Events can propagate up and down through the DOM tree. To discover which
-element originally fired the event, use <code class="highlighter-rouge">e.target</code>:</p>
+<p>事件可以通过 DOM 树向上或向下传播。可以使用 <code class="highlighter-rouge">e.target</code> 要找到最初触发事件的元素：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">document</span><span class="o">.</span><span class="na">body</span><span class="o">.</span><span class="na">onClick</span><span class="o">.</span><span class="na">listen</span><span class="o">((</span><span class="n">e</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">final</span> <span class="n">clickedElem</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="na">target</span><span class="o">;</span>
@@ -2303,9 +2294,8 @@ element originally fired the event, use <code class="highlighter-rouge">e.target
   <span class="o">});</span>
 </code></pre></div></div>
 
-<p>To see all the events for which you can register an event listener, look
-for “onEventType” properties in the API docs for <a href="https://api.dartlang.org/stable/dart-html/Element-class.html">Element</a> and its
-subclasses. Some common events include:</p>
+<p>要查看所有可以注册的监听器事件，可以在 <a href="https://api.dartlang.org/stable/dart-html/Element-class.html">Element</a> 及其子类的 API 文档中查找 “onEventType” 属性来获取事件类型。
+下面是一些常见的事件：</p>
 
 <ul>
   <li>change</li>
@@ -2316,20 +2306,19 @@ subclasses. Some common events include:</p>
   <li>mouseUp</li>
 </ul>
 
-<h3 id="using-http-resources-with-httprequest">
-<a id="using-http-resources-with-httprequest" class="anchor" href="#using-http-resources-with-httprequest" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using HTTP resources with HttpRequest</h3>
+<h3 id="通过-httprequest-访问-http-资源">
+<a id="通过-httprequest-访问-http-资源" class="anchor" href="#%E9%80%9A%E8%BF%87-httprequest-%E8%AE%BF%E9%97%AE-http-%E8%B5%84%E6%BA%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>通过 HttpRequest 访问 HTTP 资源</h3>
 
-<p>Formerly known as XMLHttpRequest, the <a href="https://api.dartlang.org/stable/dart-html/HttpRequest-class.html">HttpRequest</a> class
-gives you access to HTTP resources from within your browser-based app.
-Traditionally, AJAX-style apps make heavy use of HttpRequest. Use
-HttpRequest to dynamically load JSON data or any other resource from a
-web server. You can also dynamically send data to a web server.</p>
+<p><a href="https://api.dartlang.org/stable/dart-html/HttpRequest-class.html">HttpRequest</a> 之前被称为 XMLHttpRequest ，在浏览器应用中可以通过
+<a href="https://api.dartlang.org/stable/dart-html/HttpRequest-class.html">HttpRequest</a> 来访问 HTTP 资源。
+在传统的 AJAX 风格应用程序中会大量使用 HttpRequest 。
+使用 HttpRequest 可以从 Web 服务器动态加载 JSON 数据以及其他资源。
+也还可以将数据动态发送到 Web 服务器。</p>
 
-<h4 id="getting-data-from-the-server">Getting data from the server</h4>
+<h4 id="从服务器获取数据">从服务器获取数据</h4>
 
-<p>The HttpRequest static method <code class="highlighter-rouge">getString()</code> is an easy way to get data
-from a web server. Use <code class="highlighter-rouge">await</code> with the <code class="highlighter-rouge">getString()</code> call
-to ensure that you have the data before continuing execution.</p>
+<p>HttpRequest 静态方法 <code class="highlighter-rouge">getString()</code> 是从 Web 服务器获取数据的一种简便方法。
+配合 <code class="highlighter-rouge">await</code> 使用，可以确保获得请求数据之后，再继续执行后续操作。</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">Future</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="n">async</span> <span class="o">{</span>
     <span class="kt">String</span> <span class="n">pageHtml</span> <span class="o">=</span> <span class="o">[!</span><span class="n">await</span> <span class="n">HttpRequest</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">url</span><span class="o">);!]</span>
@@ -2337,7 +2326,7 @@ to ensure that you have the data before continuing execution.</p>
   <span class="o">}</span>
 </code></pre></div></div>
 
-<p>Use try-catch to specify an error handler:</p>
+<p>使用 Try-Catch 来捕获处理错误：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">try</span> <span class="o">{</span>
     <span class="kd">var</span> <span class="n">data</span> <span class="o">=</span> <span class="n">await</span> <span class="n">HttpRequest</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">jsonUri</span><span class="o">);</span>
@@ -2347,9 +2336,9 @@ to ensure that you have the data before continuing execution.</p>
   <span class="o">}</span>
 </code></pre></div></div>
 
-<p>If you need access to the HttpRequest, not just the text data it
-retrieves, you can use the <code class="highlighter-rouge">request()</code> static method instead of
-<code class="highlighter-rouge">getString()</code>. Here’s an example of reading XML data:</p>
+<p>HttpRequest 请求不仅仅可以通过 <code class="highlighter-rouge">getString()</code> 检索文本数据，
+这里可以使用 <code class="highlighter-rouge">request()</code> 访问更丰富的 HTTP 资源。
+下面是读取 XML 数据的示例：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">Future</span> <span class="nf">main</span><span class="p">(</span><span class="o">)</span> <span class="n">async</span> <span class="o">{</span>
     <span class="n">HttpRequest</span> <span class="n">req</span> <span class="o">=</span> <span class="n">await</span> <span class="n">HttpRequest</span><span class="o">.</span><span class="na">request</span><span class="o">(</span>
@@ -2363,19 +2352,18 @@ retrieves, you can use the <code class="highlighter-rouge">request()</code> stat
   <span class="o">}</span>
 </code></pre></div></div>
 
-<p>You can also use the full API to handle more interesting cases. For
-example, you can set arbitrary headers.</p>
+<p>使用完整的 API 可以处理更复杂的情况。比如，我们可以设置任意请求头（Header） 。</p>
 
-<p>The general flow for using the full API of HttpRequest is as follows:</p>
+<p>一般使用 HttpRequest 完整 API 的流程如下：</p>
 
 <ol>
-  <li>Create the HttpRequest object.</li>
-  <li>Open the URL with either <code class="highlighter-rouge">GET</code> or <code class="highlighter-rouge">POST</code>.</li>
-  <li>Attach event handlers.</li>
-  <li>Send the request.</li>
+  <li>创建 HttpRequest 对象。</li>
+  <li>使用 <code class="highlighter-rouge">GET</code> 或 <code class="highlighter-rouge">POST</code> 方式打开 URL。</li>
+  <li>添加附加的事件处理程序。</li>
+  <li>发送请求。</li>
 </ol>
 
-<p>For example:</p>
+<p>例如：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">HttpRequest</span><span class="o">();</span>
   <span class="n">request</span>
@@ -2384,18 +2372,14 @@ example, you can set arbitrary headers.</p>
     <span class="o">..</span><span class="na">send</span><span class="o">(</span><span class="n">encodedData</span><span class="o">);</span>
 </code></pre></div></div>
 
-<h4 id="sending-data-to-the-server">Sending data to the server</h4>
+<h4 id="向服务器发送数据">向服务器发送数据</h4>
 
-<p>HttpRequest can send data to the server using the HTTP method POST. For
-example, you might want to dynamically submit data to a form handler.
-Sending JSON data to a RESTful web service is another common example.</p>
+<p>HttpRequest 可以通过 HTTP POST 方式将数据发送到服务器。
+例如，动态的提交表单数据。另一个常见情况是将 JSON 数据发送到 RESTful Web 服务。</p>
 
-<p>Submitting data to a form handler requires you to provide name-value
-pairs as URI-encoded strings. (Information about the URI class is in
-the <a href="/guides/libraries/library-tour#uris">URIs section</a> of the <a href="/guides/libraries/library-tour">Dart Library Tour.</a>)
-You must also set the <code class="highlighter-rouge">Content-type</code> header to
-<code class="highlighter-rouge">application/x-www-form-urlencode</code> if you wish to send data to a form
-handler.</p>
+<p>提交表单数据要求提供键-值对的 URI 编码字符串。
+（有关 URI 类的信息位于 <a href="/guides/libraries/library-tour">Dart 概览</a>的 <a href="/guides/libraries/library-tour#uris">URIs 章节</a>。）
+如果要将数据发送给表单处理程序，还必须将 <code class="highlighter-rouge">Content-type</code> Header 设置为 <code class="highlighter-rouge">application/x-www-form-urlencode</code> 。</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kt">String</span> <span class="nf">encodeMap</span><span class="p">(</span><span class="n">Map</span> <span class="n">data</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">data</span><span class="o">.</span><span class="na">keys</span>
       <span class="o">.</span><span class="na">map</span><span class="o">((</span><span class="n">k</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="s">'</span><span class="si">${Uri.encodeComponent(k)}</span><span class="s">=</span><span class="si">${Uri.encodeComponent(data[k])}</span><span class="s">'</span><span class="o">)</span>
@@ -2422,47 +2406,40 @@ handler.</p>
   <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="sending-and-receiving-real-time-data-with-websockets">
-<a id="sending-and-receiving-real-time-data-with-websockets" class="anchor" href="#sending-and-receiving-real-time-data-with-websockets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sending and receiving real-time data with WebSockets</h3>
+<h3 id="通过-websocket-发送和接收实时数据">
+<a id="通过-websocket-发送和接收实时数据" class="anchor" href="#%E9%80%9A%E8%BF%87-websocket-%E5%8F%91%E9%80%81%E5%92%8C%E6%8E%A5%E6%94%B6%E5%AE%9E%E6%97%B6%E6%95%B0%E6%8D%AE" aria-hidden="true"><span class="octicon octicon-link"></span></a>通过 WebSocket 发送和接收实时数据</h3>
 
-<p>A WebSocket allows your web app to exchange data with a server
-interactively—no polling necessary. A server creates the WebSocket and
-listens for requests on a URL that starts with <strong>ws://</strong>—for example,
-ws://127.0.0.1:1337/ws. The data transmitted over a WebSocket can be a
-string or a blob.  Often, the data is a JSON-formatted string.</p>
+<p>WebSocket 允许 Web 应用程序以交互方式与服务器交换数据，且无需轮询。
+服务器创建 WebSocket 并侦听以 <strong>ws://</strong> 开头的 URL 请求 - 例如，ws://127.0.0.1:1337/ws 。
+通过 WebSocket 传输的数据可以是字符串或 blob 。通常，数据为 JSON 格式的字符串。</p>
 
-<p>To use a WebSocket in your web app, first create a <a href="https://api.dartlang.org/stable/dart-io/WebSocket-class.html">WebSocket</a> object, passing
-the WebSocket URL as an argument:</p>
+<p>要在 Web 应用程序中使用 WebSocket ，
+使用 WebSocket URL 作为一个参数创建一个 <a href="https://api.dartlang.org/stable/dart-io/WebSocket-class.html">WebSocket</a> 对象：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">var</span> <span class="n">ws</span> <span class="o">=</span> <span class="n">WebSocket</span><span class="o">(</span><span class="s">'ws://echo.websocket.org'</span><span class="o">);</span>
 </code></pre></div></div>
 
-<h4 id="sending-data">Sending data</h4>
+<h4 id="发送数据">发送数据</h4>
 
-<p>To send string data on the WebSocket, use the <code class="highlighter-rouge">send()</code> method:</p>
+<p>使用 <code class="highlighter-rouge">send()</code> 方法在 WebSocket 发送字符串数据：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">ws</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="s">'Hello from Dart!'</span><span class="o">);</span>
 </code></pre></div></div>
 
-<h4 id="receiving-data">Receiving data</h4>
-
-<p>To receive data on the WebSocket, register a listener for message
-events:</p>
+<p>注册监听事件，来接收 WebSocket 数据：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">ws</span><span class="o">.</span><span class="na">onMessage</span><span class="o">.</span><span class="na">listen</span><span class="o">((</span><span class="n">MessageEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">print</span><span class="o">(</span><span class="s">'Received message: </span><span class="si">${e.data}</span><span class="s">'</span><span class="o">);</span>
   <span class="o">});</span>
 </code></pre></div></div>
 
-<p>The message event handler receives a <a href="https://api.dartlang.org/stable/dart-html/MessageEvent-class.html">MessageEvent</a> object.
-This object’s <code class="highlighter-rouge">data</code> field has the data from the server.</p>
+<p>消息处理时间会接收到一个 <a href="https://api.dartlang.org/stable/dart-html/MessageEvent-class.html">MessageEvent</a> 对象。
+该对象的 <code class="highlighter-rouge">data</code> 字段包含来自服务器的数据。</p>
 
-<h4 id="handling-websocket-events">Handling WebSocket events</h4>
+<h4 id="处理-websocket-事件">处理 WebSocket 事件</h4>
 
-<p>Your app can handle the following WebSocket events: open, close, error,
-and (as shown earlier) message. Here’s an example of a method that
-creates a WebSocket object and registers handlers for open, close,
-error, and message events:</p>
+<p>应用能够处理以下 WebSocket 事件：打开，关闭，错误和（如前所示的）消息。
+下面是一个创建 WebSocket 对象并为打开，关闭，错误和消息事件注册处理程序的示例：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kt">void</span> <span class="nf">initWebSocket</span><span class="p">(</span><span class="o">[</span><span class="kt">int</span> <span class="n">retrySeconds</span> <span class="o">=</span> <span class="mi">1</span><span class="o">])</span> <span class="o">{</span>
     <span class="kd">var</span> <span class="n">reconnectScheduled</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
@@ -2498,17 +2475,14 @@ error, and message events:</p>
   <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="more-information">
-<a id="more-information" class="anchor" href="#more-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h3>
+<h3 id="更多内容-2">
+<a id="更多内容-2" class="anchor" href="#%E6%9B%B4%E5%A4%9A%E5%86%85%E5%AE%B9-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>更多内容</h3>
 
-<p>This section barely scratched the surface of using the dart:html
-library. For more information, see the documentation for
-<a href="https://api.dartlang.org/stable/dart-html/dart-html-library.html">dart:html.</a>
-Dart has additional libraries for more specialized web APIs, such as
-<a href="https://api.dartlang.org/stable/dart-web_audio/dart-web_audio-library.html">web audio,</a> <a href="https://api.dartlang.org/stable/dart-indexed_db/dart-indexed_db-library.html">IndexedDB,</a> and <a href="https://api.dartlang.org/stable/dart-web_gl/dart-web_gl-library.html">WebGL.</a></p>
+<p>本章只是介绍了 dart:html 库使用的一些皮毛。更多内容，参见 <a href="https://api.dartlang.org/stable/dart-html/dart-html-library.html">dart:html</a> 文档。
+Dart 一些额外的库提供了更专业的 Web API ，
+例如 <a href="https://api.dartlang.org/stable/dart-web_audio/dart-web_audio-library.html">Web Audio</a> , <a href="https://api.dartlang.org/stable/dart-indexed_db/dart-indexed_db-library.html">IndexedDB</a>, 以及 <a href="https://api.dartlang.org/stable/dart-web_gl/dart-web_gl-library.html">WebGL</a> 。</p>
 
-<p>For more information about Dart web libraries, see the
-<a href="/web/libraries">web library overview.</a></p>
+<p>更多关于 Dart Web 库的内容，参见 <a href="/web/libraries">Web 库综述</a> 。</p>
 
 <h2 id="dartio">
 <a id="dartio" class="anchor" href="#dartio" aria-hidden="true"><span class="octicon octicon-link"></span></a>dart:io - 服务器和命令行应用程序的 I/O 。</h2>
@@ -2753,8 +2727,8 @@ Here’s an example of using HttpClient:</p>
   httpClient.close();
 }</pre>
 
-<h3 id="more-information-1">
-<a id="more-information-1" class="anchor" href="#more-information-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h3>
+<h3 id="more-information">
+<a id="more-information" class="anchor" href="#more-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h3>
 
 <p>This page showed how to use the major features of the <a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html">dart:io</a> library.
 Besides the APIs discussed in this section, the dart:io library also
@@ -2811,7 +2785,7 @@ For more information about server-side and command-line app development, see the
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/26 20:32 PDT"
+               title="Site built on 2019/05/27 00:38 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
