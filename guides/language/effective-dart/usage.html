@@ -740,89 +740,6 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 库的<em>使用者</em>可能不需要知道你在其中的一些想法，
 但是<em>维护者</em>肯定是需要的。</p>
 
-<ul id="markdown-toc">
-  <li>
-<a href="#%E5%BA%93" id="markdown-toc-库">库</a>    <ul>
-      <li><a href="#%E8%A6%81-%E5%9C%A8-part-of-%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2" id="markdown-toc-要-在-part-of-中使用字符串"><strong>要</strong> 在 <code class="highlighter-rouge">part of</code> 中使用字符串。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E5%AF%BC%E5%85%A5-package-%E4%B8%AD-src-%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%BA%93" id="markdown-toc-不要-导入-package-中-src-目录下的库"><strong>不要</strong> 导入 package 中 <code class="highlighter-rouge">src</code> 目录下的库。</a></li>
-      <li><a href="#%E5%BB%BA%E8%AE%AE-%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%9C%A8%E5%AF%BC%E5%85%A5%E4%BD%A0%E8%87%AA%E5%B7%B1-package-%E4%B8%AD%E7%9A%84-lib-%E7%9B%AE%E5%BD%95" id="markdown-toc-建议-使用相对路径在导入你自己-package-中的-lib-目录"><strong>建议</strong> 使用相对路径在导入你自己 package 中的 <code class="highlighter-rouge">lib</code> 目录。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2" id="markdown-toc-字符串">字符串</a>    <ul>
-      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E4%B8%B4%E8%BF%91%E5%AD%97%E7%AC%A6%E5%AD%97%E7%9A%84%E6%96%B9%E5%BC%8F%E8%BF%9E%E6%8E%A5%E5%AD%97%E9%9D%A2%E9%87%8F%E5%AD%97%E7%AC%A6%E4%B8%B2" id="markdown-toc-要-使用临近字符字的方式连接字面量字符串"><strong>要</strong> 使用临近字符字的方式连接字面量字符串。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E6%8F%92%E5%80%BC%E7%9A%84%E5%BD%A2%E5%BC%8F%E6%9D%A5%E7%BB%84%E5%90%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%80%BC" id="markdown-toc-推荐-使用插值的形式来组合字符串和值"><strong>推荐</strong> 使用插值的形式来组合字符串和值。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8F%92%E5%80%BC%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%A4%A7%E6%8B%AC%E5%8F%B7" id="markdown-toc-避免-在字符串插值中使用不必要的大括号"><strong>避免</strong> 在字符串插值中使用不必要的大括号。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E9%9B%86%E5%90%88" id="markdown-toc-集合">集合</a>    <ul>
-      <li><a href="#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88%E5%AD%97%E9%9D%A2%E9%87%8F" id="markdown-toc-要-尽可能的使用集合字面量"><strong>要</strong> 尽可能的使用集合字面量。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-length-%E6%9D%A5%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E9%9B%86%E5%90%88%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA" id="markdown-toc-不要-使用-length-来判断一个集合是否为空"><strong>不要</strong> 使用 <code class="highlighter-rouge">.length</code> 来判断一个集合是否为空。</a></li>
-      <li><a href="#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6higher-order%E5%87%BD%E6%95%B0%E6%9D%A5%E8%BD%AC%E6%8D%A2%E9%9B%86%E5%90%88%E6%95%B0%E6%8D%AE" id="markdown-toc-考虑-使用高阶higher-order函数来转换集合数据"><strong>考虑</strong> 使用高阶（higher-order）函数来转换集合数据。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8-iterableforeach-%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%97%E9%9D%A2%E9%87%8F%E5%87%BD%E6%95%B0" id="markdown-toc-避免-在-iterableforeach-中使用字面量函数"><strong>避免</strong> 在 <code class="highlighter-rouge">Iterable.forEach()</code> 中使用字面量函数。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-listfrom-%E9%99%A4%E9%9D%9E%E6%83%B3%E4%BF%AE%E6%94%B9%E7%BB%93%E6%9E%9C%E7%9A%84%E7%B1%BB%E5%9E%8B" id="markdown-toc-不要-使用-listfrom-除非想修改结果的类型"><strong>不要</strong> 使用 <code class="highlighter-rouge">List.from()</code> 除非想修改结果的类型。</a></li>
-      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-wheretype-%E6%8C%89%E7%B1%BB%E5%9E%8B%E8%BF%87%E6%BB%A4%E9%9B%86%E5%90%88" id="markdown-toc-要-使用-wheretype-按类型过滤集合"><strong>要</strong> 使用 <code class="highlighter-rouge">whereType()</code> 按类型过滤集合。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-cast%E5%A6%82%E6%9E%9C%E6%9C%89%E6%9B%B4%E5%90%88%E9%80%82%E7%9A%84%E6%96%B9%E6%B3%95" id="markdown-toc-不要-使用-cast如果有更合适的方法"><strong>不要</strong> 使用 <code class="highlighter-rouge">cast()</code>，如果有更合适的方法。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8-cast-" id="markdown-toc-避免-使用-cast-"><strong>避免</strong> 使用 <code class="highlighter-rouge">cast()</code> 。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E5%87%BD%E6%95%B0" id="markdown-toc-函数">函数</a>    <ul>
-      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E7%9A%84%E6%96%B9%E5%BC%8F%E4%B8%BA%E5%87%BD%E6%95%B0%E7%BB%91%E5%AE%9A%E5%90%8D%E7%A7%B0" id="markdown-toc-要-使用函数声明的方式为函数绑定名称"><strong>要</strong> 使用函数声明的方式为函数绑定名称。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9D%A5%E6%9B%BF%E4%BB%A3-tear-off" id="markdown-toc-不要-使用-lambda-表达式来替代-tear-off"><strong>不要</strong> 使用 lambda 表达式来替代 tear-off。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E5%8F%82%E6%95%B0" id="markdown-toc-参数">参数</a>    <ul>
-      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8--%E6%9D%A5%E5%88%86%E9%9A%94%E5%8F%82%E6%95%B0%E5%90%8D%E5%92%8C%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC" id="markdown-toc-要-使用--来分隔参数名和参数默认值"><strong>要</strong> 使用 <code class="highlighter-rouge">=</code> 来分隔参数名和参数默认值。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E6%98%BE%E5%BC%8F%E7%9A%84%E4%B8%BA%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE-null-%E5%80%BC" id="markdown-toc-不要-显式的为参数设置-null-值"><strong>不要</strong> 显式的为参数设置 <code class="highlighter-rouge">null</code> 值。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E5%8F%98%E9%87%8F" id="markdown-toc-变量">变量</a>    <ul>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E6%98%BE%E7%A4%BA%E7%9A%84%E4%B8%BA%E5%8F%82%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96-null-%E5%80%BC" id="markdown-toc-不要-显示的为参数初始化-null-值"><strong>不要</strong> 显示的为参数初始化 <code class="highlighter-rouge">null</code> 值。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E4%BF%9D%E5%AD%98%E5%8F%AF%E8%AE%A1%E7%AE%97%E7%9A%84%E7%BB%93%E6%9E%9C" id="markdown-toc-避免-保存可计算的结果"><strong>避免</strong> 保存可计算的结果。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E6%88%90%E5%91%98" id="markdown-toc-成员">成员</a>    <ul>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%B8%BA%E5%AD%97%E6%AE%B5%E5%88%9B%E5%BB%BA%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84-getter-%E5%92%8C-setter-%E6%96%B9%E6%B3%95" id="markdown-toc-不要-为字段创建不必要的-getter-和-setter-方法"><strong>不要</strong> 为字段创建不必要的 getter 和 setter 方法。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-final-%E5%85%B3%E9%94%AE%E5%AD%97%E6%9D%A5%E5%88%9B%E5%BB%BA%E5%8F%AA%E8%AF%BB%E5%B1%9E%E6%80%A7" id="markdown-toc-推荐-使用-final-关键字来创建只读属性"><strong>推荐</strong> 使用 <code class="highlighter-rouge">final</code> 关键字来创建只读属性。</a></li>
-      <li><a href="#%E8%80%83%E8%99%91-%E5%AF%B9%E7%AE%80%E5%8D%95%E6%88%90%E5%91%98%E4%BD%BF%E7%94%A8--" id="markdown-toc-考虑-对简单成员使用--"><strong>考虑</strong> 对简单成员使用 <code class="highlighter-rouge">=&gt;</code> 。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-this-%E5%9C%A8%E9%87%8D%E5%AE%9A%E5%90%91%E5%91%BD%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E9%81%BF%E5%85%8D%E5%86%B2%E7%AA%81%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E9%99%A4%E5%A4%96" id="markdown-toc-不要-使用-this-在重定向命名函数和避免冲突的情况下除外"><strong>不要</strong> 使用 <code class="highlighter-rouge">this.</code> ，在重定向命名函数和避免冲突的情况下除外。</a></li>
-      <li><a href="#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E5%9C%A8%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%E7%9A%84%E6%97%B6%E5%80%99%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%98%E9%87%8F%E5%80%BC" id="markdown-toc-要-尽可能的在定义变量的时候初始化变量值"><strong>要</strong> 尽可能的在定义变量的时候初始化变量值。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" id="markdown-toc-构造函数">构造函数</a>    <ul>
-      <li><a href="#%E8%A6%81-%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BD%A2%E5%BC%8F" id="markdown-toc-要-尽可能的使用初始化形式"><strong>要</strong> 尽可能的使用初始化形式。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BD%A2%E5%BC%8F%E4%B8%AD%E5%81%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A" id="markdown-toc-不要-在初始化形式中做类型注释"><strong>不要</strong> 在初始化形式中做类型注释。</a></li>
-      <li><a href="#%E8%A6%81-%E7%94%A8--%E6%9D%A5%E6%9B%BF%E4%BB%A3%E7%A9%BA%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%BD%93-" id="markdown-toc-要-用--来替代空的构造函数体-"><strong>要</strong> 用 <code class="highlighter-rouge">;</code> 来替代空的构造函数体 <code class="highlighter-rouge">{}</code>。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8-new-" id="markdown-toc-不要-使用-new-"><strong>不要</strong> 使用 <code class="highlighter-rouge">new</code> 。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E5%86%97%E4%BD%99%E5%9C%B0%E4%BD%BF%E7%94%A8-const-" id="markdown-toc-不要-冗余地使用-const-"><strong>不要</strong> 冗余地使用 <code class="highlighter-rouge">const</code> 。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86" id="markdown-toc-错误处理">错误处理</a>    <ul>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8%E6%B2%A1%E6%9C%89-on-%E8%AF%AD%E5%8F%A5%E7%9A%84-catch" id="markdown-toc-避免-使用没有-on-语句的-catch"><strong>避免</strong> 使用没有 <code class="highlighter-rouge">on</code> 语句的 catch。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%B8%A2%E5%BC%83%E6%B2%A1%E6%9C%89%E4%BD%BF%E7%94%A8-on-%E8%AF%AD%E5%8F%A5%E6%8D%95%E8%8E%B7%E7%9A%84%E5%BC%82%E5%B8%B8" id="markdown-toc-不要-丢弃没有使用-on-语句捕获的异常"><strong>不要</strong> 丢弃没有使用 <code class="highlighter-rouge">on</code> 语句捕获的异常。</a></li>
-      <li><a href="#%E8%A6%81-%E5%8F%AA%E5%9C%A8%E4%BB%A3%E8%A1%A8%E7%BC%96%E7%A8%8B%E9%94%99%E8%AF%AF%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%89%8D%E6%8A%9B%E5%87%BA%E5%AE%9E%E7%8E%B0%E4%BA%86-error-%E7%9A%84%E5%BC%82%E5%B8%B8" id="markdown-toc-要-只在代表编程错误的情况下才抛出实现了-error-的异常"><strong>要</strong> 只在代表编程错误的情况下才抛出实现了 <code class="highlighter-rouge">Error</code> 的异常。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E6%98%BE%E7%A4%BA%E7%9A%84%E6%8D%95%E8%8E%B7-error-%E6%88%96%E8%80%85%E5%85%B6%E5%AD%90%E7%B1%BB" id="markdown-toc-不要-显示的捕获-error-或者其子类"><strong>不要</strong> 显示的捕获 <code class="highlighter-rouge">Error</code> 或者其子类。</a></li>
-      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-rethrow-%E6%9D%A5%E9%87%8D%E6%96%B0%E6%8A%9B%E5%87%BA%E6%8D%95%E8%8E%B7%E7%9A%84%E5%BC%82%E5%B8%B8" id="markdown-toc-要-使用-rethrow-来重新抛出捕获的异常"><strong>要</strong> 使用 <code class="highlighter-rouge">rethrow</code> 来重新抛出捕获的异常。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E5%BC%82%E6%AD%A5" id="markdown-toc-异步">异步</a>    <ul>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-asyncawait-%E8%80%8C%E4%B8%8D%E6%98%AF%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%E5%BA%95%E5%B1%82%E7%9A%84%E7%89%B9%E6%80%A7" id="markdown-toc-推荐-使用-asyncawait-而不是直接使用底层的特性"><strong>推荐</strong> 使用 async/await 而不是直接使用底层的特性。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E6%B2%A1%E6%9C%89%E6%9C%89%E7%94%A8%E6%95%88%E6%9E%9C%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E4%BD%BF%E7%94%A8-async-" id="markdown-toc-不要-在没有有用效果的情况下使用-async-"><strong>不要</strong> 在没有有用效果的情况下使用 <code class="highlighter-rouge">async</code> 。</a></li>
-      <li><a href="#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E6%9D%A5%E8%BD%AC%E6%8D%A2%E4%BA%8B%E4%BB%B6%E6%B5%81stream" id="markdown-toc-考虑-使用高阶函数来转换事件流stream"><strong>考虑</strong> 使用高阶函数来转换事件流（stream）</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8-completer--" id="markdown-toc-避免-直接使用-completer--"><strong>避免</strong> 直接使用 Completer  。</a></li>
-      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-futuret-%E5%AF%B9-futureort-%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95%E4%BB%A5%E6%B6%88%E9%99%A4%E5%8F%82%E6%95%B0%E5%8F%AF%E8%83%BD%E6%98%AF-object-%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%AD%A7%E4%B9%89" id="markdown-toc-要-使用-futuret-对-futureort-参数进行测试以消除参数可能是-object-类型的歧义"><strong>要</strong> 使用 <code class="highlighter-rouge">Future&lt;T&gt;</code> 对 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 参数进行测试，以消除参数可能是 <code class="highlighter-rouge">Object</code> 类型的歧义。</a></li>
-    </ul>
-  </li>
-</ul>
-
 <h2 id="库">
 <a id="库" class="anchor" href="#%E5%BA%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>库</h2>
 
@@ -2095,7 +2012,7 @@ correctly.</p>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/26 20:12 PDT"
+               title="Site built on 2019/05/26 20:19 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>

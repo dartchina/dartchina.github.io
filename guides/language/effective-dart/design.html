@@ -752,97 +752,6 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 
 <p>下面给出的准则用于指导为库编写一致的、可用的 API。</p>
 
-<ul id="markdown-toc">
-  <li>
-<a href="#%E5%91%BD%E5%90%8D" id="markdown-toc-命名">命名</a>    <ul>
-      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E4%B8%80%E8%87%B4%E7%9A%84%E6%9C%AF%E8%AF%AD" id="markdown-toc-要-使用一致的术语"><strong>要</strong> 使用一致的术语。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E7%BC%A9%E5%86%99" id="markdown-toc-避免-缩写"><strong>避免</strong> 缩写。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E6%8A%8A%E6%9C%80%E5%85%B7%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%9A%84%E5%90%8D%E8%AF%8D%E6%94%BE%E5%88%B0%E6%9C%80%E5%90%8E" id="markdown-toc-推荐-把最具描述性的名词放到最后"><strong>推荐</strong> 把最具描述性的名词放到最后。</a></li>
-      <li><a href="#%E8%80%83%E8%99%91-%E5%B0%BD%E9%87%8F%E8%AE%A9%E4%BB%A3%E7%A0%81%E7%9C%8B%E8%B5%B7%E6%9D%A5%E5%83%8F%E6%99%AE%E9%80%9A%E7%9A%84%E5%8F%A5%E5%AD%90" id="markdown-toc-考虑-尽量让代码看起来像普通的句子"><strong>考虑</strong> 尽量让代码看起来像普通的句子。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E5%90%8D%E8%AF%8D%E7%9F%AD%E8%AF%AD%E6%9D%A5%E5%91%BD%E5%90%8D%E4%B8%8D%E6%98%AF%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%9E%E6%80%A7" id="markdown-toc-推荐-使用名词短语来命名不是布尔类型的变量和属性"><strong>推荐</strong> 使用名词短语来命名不是布尔类型的变量和属性。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E9%9D%9E%E5%91%BD%E4%BB%A4%E5%BC%8F%E5%8A%A8%E8%AF%8D%E7%9F%AD%E8%AF%AD%E5%91%BD%E5%90%8D%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%9E%E6%80%A7" id="markdown-toc-推荐-使用非命令式动词短语命名布尔类型的变量和属性"><strong>推荐</strong> 使用非命令式动词短语命名布尔类型的变量和属性。</a></li>
-      <li><a href="#%E8%80%83%E8%99%91-%E7%9C%81%E7%95%A5%E5%91%BD%E5%90%8D%E5%B8%83%E5%B0%94%E5%8F%82%E6%95%B0%E7%9A%84%E5%8A%A8%E8%AF%8D" id="markdown-toc-考虑-省略命名布尔参数的动词"><strong>考虑</strong> 省略命名布尔<em>参数</em>的动词。</a></li>
-      <li><a href="#%E8%80%83%E8%99%91-%E4%B8%BA%E5%B8%83%E5%B0%94%E5%B1%9E%E6%80%A7%E6%88%96%E5%8F%98%E9%87%8F%E5%8F%96%E8%82%AF%E5%AE%9A%E5%90%AB%E4%B9%89%E7%9A%84%E5%90%8D%E5%AD%97" id="markdown-toc-考虑-为布尔属性或变量取肯定含义的名字"><strong>考虑</strong> 为布尔属性或变量取“肯定”含义的名字。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E5%BC%8F%E5%8A%A8%E8%AF%8D%E7%9F%AD%E8%AF%AD%E6%9D%A5%E5%91%BD%E5%90%8D%E5%B8%A6%E6%9C%89%E5%89%AF%E4%BD%9C%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0%E6%88%96%E8%80%85%E6%96%B9%E6%B3%95" id="markdown-toc-推荐-使用命令式动词短语来命名带有副作用的函数或者方法"><strong>推荐</strong> 使用命令式动词短语来命名带有副作用的函数或者方法。</a></li>
-      <li><a href="#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E5%90%8D%E8%AF%8D%E7%9F%AD%E8%AF%AD%E6%88%96%E8%80%85%E9%9D%9E%E5%91%BD%E4%BB%A4%E5%BC%8F%E5%8A%A8%E8%AF%8D%E7%9F%AD%E8%AF%AD%E5%91%BD%E5%90%8D%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE%E4%B8%BA%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95%E6%88%96%E8%80%85%E5%87%BD%E6%95%B0" id="markdown-toc-考虑-使用名词短语或者非命令式动词短语命名返回数据为主要功能的方法或者函数"><strong>考虑</strong> 使用名词短语或者非命令式动词短语命名返回数据为主要功能的方法或者函数。</a></li>
-      <li><a href="#%E8%80%83%E8%99%91-%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E5%BC%8F%E5%8A%A8%E8%AF%8D%E7%9F%AD%E8%AF%AD%E5%91%BD%E5%90%8D%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E6%88%96%E6%96%B9%E6%B3%95%E8%8B%A5%E6%9E%9C%E4%BD%A0%E5%B8%8C%E6%9C%9B%E5%AE%83%E7%9A%84%E6%89%A7%E8%A1%8C%E8%83%BD%E8%A2%AB%E9%87%8D%E8%A7%86" id="markdown-toc-考虑-使用命令式动词短语命名一个函数或方法若果你希望它的执行能被重视"><strong>考虑</strong> 使用命令式动词短语命名一个函数或方法，若果你希望它的执行能被重视。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E6%96%B9%E6%B3%95%E5%91%BD%E5%90%8D%E4%B8%AD%E4%BD%BF%E7%94%A8-get-%E5%BC%80%E5%A4%B4" id="markdown-toc-避免-在方法命名中使用-get-开头"><strong>避免</strong> 在方法命名中使用 <code class="highlighter-rouge">get</code> 开头。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-to___-%E6%9D%A5%E5%91%BD%E5%90%8D%E6%8A%8A%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%88%B0%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%BD%E6%95%B0" id="markdown-toc-推荐-使用-to___-来命名把对象的状态转换到一个新的对象的函数"><strong>推荐</strong> 使用 <code class="highlighter-rouge">to___()</code> 来命名把对象的状态转换到一个新的对象的函数。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-as___-%E6%9D%A5%E5%91%BD%E5%90%8D%E6%8A%8A%E5%8E%9F%E6%9D%A5%E5%AF%B9%E8%B1%A1%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%8F%A6%E5%A4%96%E4%B8%80%E7%A7%8D%E8%A1%A8%E7%8E%B0%E5%BD%A2%E5%BC%8F%E7%9A%84%E5%87%BD%E6%95%B0" id="markdown-toc-推荐-使用-as___-来命名把原来对象转换为另外一种表现形式的函数"><strong>推荐</strong> 使用 <code class="highlighter-rouge">as___()</code> 来命名把原来对象转换为另外一种表现形式的函数。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E6%96%B9%E6%B3%95%E6%88%96%E8%80%85%E5%87%BD%E6%95%B0%E5%90%8D%E7%A7%B0%E4%B8%AD%E6%8F%8F%E8%BF%B0%E5%8F%82%E6%95%B0" id="markdown-toc-避免-在方法或者函数名称中描述参数"><strong>避免</strong> 在方法或者函数名称中描述参数。</a></li>
-      <li><a href="#%E8%A6%81-%E5%9C%A8%E5%91%BD%E5%90%8D%E5%8F%82%E6%95%B0%E6%97%B6%E9%81%B5%E5%BE%AA%E7%8E%B0%E6%9C%89%E7%9A%84%E5%8A%A9%E8%AE%B0%E7%AC%A6%E7%BA%A6%E5%AE%9A" id="markdown-toc-要-在命名参数时遵循现有的助记符约定"><strong>要</strong> 在命名参数时，遵循现有的助记符约定。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E5%BA%93" id="markdown-toc-库">库</a>    <ul>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E5%A3%B0%E6%98%8E" id="markdown-toc-推荐-使用私有声明"><strong>推荐</strong> 使用私有声明。</a></li>
-      <li><a href="#%E8%80%83%E8%99%91-%E5%A3%B0%E6%98%8E%E5%A4%9A%E4%B8%AA%E7%B1%BB%E5%9C%A8%E4%B8%80%E4%B8%AA%E5%BA%93%E4%B8%AD" id="markdown-toc-考虑-声明多个类在一个库中"><strong>考虑</strong> 声明多个类在一个库中。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E7%B1%BB" id="markdown-toc-类">类</a>    <ul>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E9%81%BF%E5%85%8D%E4%B8%BA%E4%BA%86%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%87%BD%E6%95%B0%E8%80%8C%E5%8E%BB%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E5%8D%95%E4%B8%80%E6%88%90%E5%91%98%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB" id="markdown-toc-避免-避免为了使用一个简单的函数而去定义一个单一成员的抽象类"><strong>避免</strong> 避免为了使用一个简单的函数而去定义一个单一成员的抽象类</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E5%AE%9A%E4%B9%89%E4%BB%85%E5%8C%85%E5%90%AB%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E7%9A%84%E7%B1%BB" id="markdown-toc-避免-定义仅包含静态成员的类"><strong>避免</strong> 定义仅包含静态成员的类。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E9%9B%86%E6%88%90%E4%B8%80%E4%B8%AA%E4%B8%8D%E6%9C%9F%E6%9C%9B%E8%A2%AB%E9%9B%86%E6%88%90%E7%9A%84%E7%B1%BB" id="markdown-toc-避免-集成一个不期望被集成的类"><strong>避免</strong> 集成一个不期望被集成的类。</a></li>
-      <li><a href="#%E8%A6%81-%E6%8A%8A%E8%83%BD%E5%A4%9F%E7%BB%A7%E6%89%BF%E7%9A%84%E8%AF%B4%E6%98%8E%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%96%87%E6%A1%A3%E4%B8%AD%E5%A6%82%E6%9E%9C%E8%BF%99%E4%B8%AA%E7%B1%BB%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF" id="markdown-toc-要-把能够继承的说明添加到文档中如果这个类可以继承"><strong>要</strong> 把能够继承的说明添加到文档中，如果这个类可以继承。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E5%8E%BB%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%B8%8D%E6%9C%9F%E6%9C%9B%E6%88%90%E4%B8%BA%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%B1%BB%E8%AF%A5%E7%B1%BB%E4%B8%8D%E6%83%B3%E4%BD%9C%E4%B8%BA%E6%8E%A5%E5%8F%A3%E8%A2%AB%E5%AE%9E%E7%8E%B0" id="markdown-toc-避免-去实现一个不期望成为接口的类该类不想作为接口被实现"><strong>避免</strong> 去实现一个不期望成为接口的类（该类不想作为接口被实现）。</a></li>
-      <li><a href="#%E8%A6%81-%E5%AF%B9%E6%94%AF%E6%8C%81%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%B1%BB%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E6%98%8E" id="markdown-toc-要-对支持接口的类在文档注明"><strong>要</strong> 对支持接口的类在文档注明</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E5%8E%BB-mixin-%E4%B8%80%E4%B8%AA%E4%B8%8D%E6%9C%9F%E6%9C%9B%E8%A2%AB-mixin-%E7%9A%84%E7%B1%BB" id="markdown-toc-避免-去-mixin-一个不期望被-mixin-的类"><strong>避免</strong> 去 mixin 一个不期望被 mixin 的类</a></li>
-      <li><a href="#%E8%A6%81-%E5%AF%B9%E6%94%AF%E6%8C%81-mixin-%E7%9A%84%E7%B1%BB%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E6%98%8E" id="markdown-toc-要-对支持-mixin-的类在文档注明"><strong>要</strong> 对支持 mixin 的类在文档注明</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" id="markdown-toc-构造函数">构造函数</a>    <ul>
-      <li><a href="#%E8%80%83%E8%99%91-%E5%9C%A8%E7%B1%BB%E6%94%AF%E6%8C%81%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%8C%87%E5%AE%9A%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%BA--const" id="markdown-toc-考虑-在类支持的情况下指定构造函数为--const"><strong>考虑</strong> 在类支持的情况下，指定构造函数为  <code class="highlighter-rouge">const</code>。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E6%88%90%E5%91%98" id="markdown-toc-成员">成员</a>    <ul>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E6%8C%87%E5%AE%9A%E5%AD%97%E6%AE%B5%E6%88%96%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E4%B8%BA-final-" id="markdown-toc-推荐-指定字段或顶级变量为-final-"><strong>推荐</strong> 指定字段或顶级变量为 <code class="highlighter-rouge">final</code> 。</a></li>
-      <li><a href="#%E8%A6%81-%E5%AF%B9%E6%A6%82%E5%BF%B5%E4%B8%8A%E6%98%AF%E8%AE%BF%E9%97%AE%E7%9A%84%E5%B1%9E%E6%80%A7%E4%BD%BF%E7%94%A8-getter-%E6%96%B9%E6%B3%95" id="markdown-toc-要-对概念上是访问的属性使用-getter-方法"><strong>要</strong> 对概念上是访问的属性使用 getter 方法。</a></li>
-      <li><a href="#%E8%A6%81-%E5%AF%B9%E6%A6%82%E5%BF%B5%E4%B8%8A%E6%98%AF%E4%BF%AE%E6%94%B9%E7%9A%84%E5%B1%9E%E6%80%A7%E4%BD%BF%E7%94%A8-setter-%E6%96%B9%E6%B3%95" id="markdown-toc-要-对概念上是修改的属性使用-setter-方法"><strong>要</strong> 对概念上是修改的属性使用 setter 方法。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E6%B2%A1%E6%9C%89%E5%AF%B9%E5%BA%94%E7%9A%84-getter-%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E5%AE%9A%E4%B9%89-setter" id="markdown-toc-不要-在没有对应的-getter-的情况下定义-setter"><strong>不要</strong> 在没有对应的 getter 的情况下定义 setter。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E4%BB%8E%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B%E4%B8%BA-bool--double--int-%E6%88%96-num-%E7%9A%84%E6%88%90%E5%91%98%E8%BF%94%E5%9B%9E-null-" id="markdown-toc-避免-从返回类型为-bool--double--int-或-num-的成员返回-null-"><strong>避免</strong> 从返回类型为 <code class="highlighter-rouge">bool</code> ， <code class="highlighter-rouge">double</code> ， <code class="highlighter-rouge">int</code> 或 <code class="highlighter-rouge">num</code> 的成员返回 <code class="highlighter-rouge">null</code> 。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E4%B8%BA%E4%BA%86%E4%B9%A6%E5%86%99%E6%B5%81%E7%95%85%E8%80%8C%E4%BB%8E%E6%96%B9%E6%B3%95%E4%B8%AD%E8%BF%94%E5%9B%9E-this-" id="markdown-toc-避免-为了书写流畅而从方法中返回-this-"><strong>避免</strong> 为了书写流畅，而从方法中返回 <code class="highlighter-rouge">this</code> 。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E7%B1%BB%E5%9E%8B" id="markdown-toc-类型">类型</a>    <ul>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E5%85%AC%E5%85%B1%E5%AD%97%E6%AE%B5%E5%92%8C%E5%85%AC%E5%85%B1%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" id="markdown-toc-推荐-为类型不明显的公共字段和公共顶级变量指定类型注解"><strong>推荐</strong> 为类型不明显的公共字段和公共顶级变量指定类型注解。</a></li>
-      <li><a href="#%E8%80%83%E8%99%91-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%98%8E%E6%98%BE%E7%9A%84%E7%A7%81%E6%9C%89%E5%AD%97%E6%AE%B5%E5%92%8C%E7%A7%81%E6%9C%89%E9%A1%B6%E7%BA%A7%E5%8F%98%E9%87%8F%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" id="markdown-toc-考虑-为类型不明显的私有字段和私有顶级变量指定类型注解"><strong>考虑</strong> 为类型不明显的私有字段和私有顶级变量指定类型注解。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E4%B8%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E6%B7%BB%E5%8A%A0%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" id="markdown-toc-避免-为初始化的局部变量添加类型注解"><strong>避免</strong> 为初始化的局部变量添加类型注解。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8A%E6%B3%A8%E8%A7%A3%E6%8E%A8%E6%96%AD%E7%9A%84%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B" id="markdown-toc-避免-在函数表达式上注解推断的参数类型"><strong>避免</strong> 在函数表达式上注解推断的参数类型。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E6%B3%9B%E5%9E%8B%E8%B0%83%E7%94%A8%E4%B8%AD%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%86%97%E4%BD%99%E4%BD%BF%E7%94%A8" id="markdown-toc-避免-在泛型调用中参数类型的冗余使用"><strong>避免</strong> 在泛型调用中参数类型的冗余使用。</a></li>
-      <li><a href="#%E8%A6%81-%E5%9C%A8-dart-%E6%8E%A8%E6%96%AD%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF%E7%9A%84%E6%97%B6%E5%80%99%E8%BF%9B%E8%A1%8C%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3" id="markdown-toc-要-在-dart-推断类型错误的时候进行类型注解"><strong>要</strong> 在 Dart 推断类型错误的时候进行类型注解。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-dynamic-%E6%B3%A8%E8%A7%A3%E6%9B%BF%E6%8D%A2%E6%8E%A8%E6%96%AD%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%83%85%E5%86%B5" id="markdown-toc-推荐-使用-dynamic-注解替换推断失败的情况"><strong>推荐</strong> 使用 <code class="highlighter-rouge">dynamic</code> 注解替换推断失败的情况。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF-function-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3%E7%9A%84%E7%89%B9%E5%BE%81%E6%9B%B4%E6%98%8E%E6%98%BE" id="markdown-toc-推荐-使-function-类型注解的特征更明显"><strong>推荐</strong> 使 function 类型注解的特征更明显</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%B8%BA-setter-%E6%96%B9%E6%B3%95%E6%8C%87%E5%AE%9A%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B" id="markdown-toc-不要-为-setter-方法指定返回类型"><strong>不要</strong> 为 setter 方法指定返回类型。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%BC%83%E7%94%A8%E7%9A%84-typedef-%E8%AF%AD%E6%B3%95" id="markdown-toc-不要-使用弃用的-typedef-语法"><strong>不要</strong> 使用弃用的 typedef 语法。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BC%98%E5%85%88%E4%BD%BF%E7%94%A8%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E8%80%8C%E5%90%8E%E6%98%AF-typedef-" id="markdown-toc-推荐-优先使用内联函数类型而后是-typedef-"><strong>推荐</strong> 优先使用内联函数类型，而后是 typedef 。</a></li>
-      <li><a href="#%E8%80%83%E8%99%91-%E5%9C%A8%E5%8F%82%E6%95%B0%E4%B8%8A%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E8%AF%AD%E6%B3%95" id="markdown-toc-考虑-在参数上使用函数类型语法"><strong>考虑</strong> 在参数上使用函数类型语法。</a></li>
-      <li><a href="#%E8%A6%81-%E4%B8%BA%E7%B1%BB%E5%9E%8B%E6%98%AF%E4%BB%BB%E4%BD%95%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8F%82%E6%95%B0%E4%BD%BF%E7%94%A8-object-%E6%B3%A8%E8%A7%A3%E8%80%8C%E4%B8%8D%E6%98%AF-dynamic-" id="markdown-toc-要-为类型是任何对象的参数使用-object-注解而不是-dynamic-"><strong>要</strong> 为类型是任何对象的参数使用 <code class="highlighter-rouge">Object</code> 注解，而不是 <code class="highlighter-rouge">dynamic</code> 。</a></li>
-      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-futurevoid-%E4%BD%9C%E4%B8%BA%E6%97%A0%E6%B3%95%E5%9B%9E%E5%80%BC%E5%BC%82%E6%AD%A5%E6%88%90%E5%91%98%E7%9A%84%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B" id="markdown-toc-要-使用-futurevoid-作为无法回值异步成员的返回类型"><strong>要</strong> 使用 <code class="highlighter-rouge">Future&lt;void&gt;</code> 作为无法回值异步成员的返回类型。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8-futureort-%E4%BD%9C%E4%B8%BA%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B" id="markdown-toc-避免-使用-futureort-作为返回类型"><strong>避免</strong> 使用 <code class="highlighter-rouge">FutureOr&lt;T&gt;</code> 作为返回类型。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E5%8F%82%E6%95%B0" id="markdown-toc-参数">参数</a>    <ul>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0" id="markdown-toc-避免-布尔类型的位置参数"><strong>避免</strong> 布尔类型的位置参数。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E5%9C%A8%E8%B0%83%E7%94%A8%E8%80%85%E9%9C%80%E8%A6%81%E7%9C%81%E7%95%A5%E5%89%8D%E9%9D%A2%E5%8F%82%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%BD%8D%E7%BD%AE%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0" id="markdown-toc-避免-在调用者需要省略前面参数的方法中使用位置可选参数"><strong>避免</strong> 在调用者需要省略前面参数的方法中，使用位置可选参数。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E5%BC%BA%E5%88%B6%E5%8F%82%E6%95%B0%E5%8E%BB%E6%8E%A5%E5%8F%97%E4%B8%80%E4%B8%AA%E7%89%B9%E5%AE%9A%E8%A1%A8%E7%A4%BA%E7%A9%BA%E5%8F%82%E6%95%B0%E7%9A%84%E5%80%BC" id="markdown-toc-避免-强制参数去接受一个特定表示空参数的值"><strong>避免</strong> 强制参数去接受一个特定表示”空参数”的值。</a></li>
-      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%BC%80%E5%A7%8B%E4%B8%BA%E9%97%AD%E5%8C%BA%E9%97%B4%E7%BB%93%E6%9D%9F%E4%B8%BA%E5%BC%80%E5%8C%BA%E9%97%B4%E7%9A%84%E5%8D%8A%E5%BC%80%E5%8D%8A%E9%97%AD%E5%8C%BA%E9%97%B4%E4%BD%9C%E4%B8%BA%E6%8E%A5%E5%8F%97%E8%8C%83%E5%9B%B4" id="markdown-toc-要-使用开始为闭区间结束为开区间的半开半闭区间作为接受范围"><strong>要</strong> 使用开始为闭区间，结束为开区间的半开半闭区间作为接受范围。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E7%9B%B8%E7%AD%89" id="markdown-toc-相等">相等</a>    <ul>
-      <li><a href="#%E8%A6%81-%E5%AF%B9%E9%87%8D%E5%86%99--%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E7%B1%BB%E9%87%8D%E5%86%99-hashcode-%E6%96%B9%E6%B3%95" id="markdown-toc-要-对重写--操作符的类重写-hashcode-方法"><strong>要</strong> 对重写 <code class="highlighter-rouge">==</code> 操作符的类，重写 <code class="highlighter-rouge">hashCode</code> 方法。</a></li>
-      <li><a href="#%E8%A6%81-%E8%AE%A9--%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E7%9B%B8%E7%AD%89%E9%81%B5%E5%AE%88%E6%95%B0%E5%AD%A6%E8%A7%84%E5%88%99" id="markdown-toc-要-让--操作符的相等遵守数学规则"><strong>要</strong> 让 <code class="highlighter-rouge">==</code> 操作符的相等遵守数学规则。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E4%B8%BA%E5%8F%AF%E5%8F%98%E7%B1%BB%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%B8%E7%AD%89" id="markdown-toc-避免-为可变类自定义相等"><strong>避免</strong> 为可变类自定义相等。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89--%E6%93%8D%E4%BD%9C%E7%AC%A6%E4%B8%AD%E6%A3%80%E6%9F%A5-null-" id="markdown-toc-不要-在自定义--操作符中检查-null-"><strong>不要</strong> 在自定义 <code class="highlighter-rouge">==</code> 操作符中检查 <code class="highlighter-rouge">null</code> 。</a></li>
-    </ul>
-  </li>
-</ul>
-
 <h2 id="命名">
 <a id="命名" class="anchor" href="#%E5%91%BD%E5%90%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>命名</h2>
 
@@ -2268,7 +2177,7 @@ Duration(
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/26 20:12 PDT"
+               title="Site built on 2019/05/26 20:19 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>

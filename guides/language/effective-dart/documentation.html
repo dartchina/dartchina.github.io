@@ -659,47 +659,6 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 和练习一样：从技术上你<em>可以</em>做很多，但是实际上你
 只做了一点点。尝试着逐步提高。</p>
 
-<ul id="markdown-toc">
-  <li>
-<a href="#%E6%B3%A8%E9%87%8A" id="markdown-toc-注释">注释</a>    <ul>
-      <li><a href="#%E8%A6%81-%E5%83%8F%E5%8F%A5%E5%AD%90%E4%B8%80%E6%A0%B7%E6%9D%A5%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%B3%A8%E9%87%8A" id="markdown-toc-要-像句子一样来格式化注释"><strong>要</strong> 像句子一样来格式化注释。</a></li>
-      <li><a href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%9D%97%E6%B3%A8%E9%87%8A%E4%BD%9C%E7%94%A8%E4%BD%9C%E8%A7%A3%E9%87%8A%E8%AF%B4%E6%98%8E" id="markdown-toc-不要-使用块注释作用作解释说明"><strong>不要</strong> 使用块注释作用作解释说明。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A" id="markdown-toc-文档注释">文档注释</a>    <ul>
-      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8--%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E6%9D%A5%E6%B3%A8%E9%87%8A%E6%88%90%E5%91%98%E5%92%8C%E7%B1%BB%E5%9E%8B" id="markdown-toc-要-使用--文档注释来注释成员和类型"><strong>要</strong> 使用 <code class="highlighter-rouge">///</code> 文档注释来注释成员和类型。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E5%85%AC%E5%BC%80%E5%8F%91%E5%B8%83%E7%9A%84-api-%E7%BC%96%E5%86%99%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A" id="markdown-toc-推荐-为公开发布的-api-编写文档注释"><strong>推荐</strong> 为公开发布的 API 编写文档注释。</a></li>
-      <li><a href="#%E8%80%83%E8%99%91-%E7%BC%96%E5%86%99%E5%BA%93%E7%BA%A7%E5%88%ABlibrary-level%E7%9A%84%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A" id="markdown-toc-考虑-编写库级别library-level的文档注释"><strong>考虑</strong> 编写库级别（library-level）的文档注释。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%B8%BA%E7%A7%81%E6%9C%89api-%E7%BC%96%E5%86%99%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A" id="markdown-toc-推荐-为私有api-编写文档注释"><strong>推荐</strong> 为私有API 编写文档注释。</a></li>
-      <li><a href="#%E8%A6%81-%E8%A6%81%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E5%BC%80%E5%A4%B4%E6%9C%89%E4%B8%80%E4%B8%AA%E5%8D%95%E5%8F%A5%E6%80%BB%E7%BB%93" id="markdown-toc-要-要在文档注释开头有一个单句总结"><strong>要</strong> 要在文档注释开头有一个单句总结。</a></li>
-      <li><a href="#%E8%A6%81-%E8%AE%A9%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E7%9A%84%E7%AC%AC%E4%B8%80%E5%8F%A5%E4%BB%8E%E6%AE%B5%E8%90%BD%E4%B8%AD%E5%88%86%E5%BC%80" id="markdown-toc-要-让文档注释的第一句从段落中分开"><strong>要</strong> 让文档注释的第一句从段落中分开。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E4%B8%8E%E5%91%A8%E5%9B%B4%E4%B8%8A%E4%B8%8B%E6%96%87%E5%86%97%E4%BD%99" id="markdown-toc-避免-与周围上下文冗余"><strong>避免</strong> 与周围上下文冗余。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E7%94%A8%E7%AC%AC%E4%B8%89%E4%BA%BA%E7%A7%B0%E6%9D%A5%E5%BC%80%E5%A7%8B%E5%87%BD%E6%95%B0%E6%88%96%E8%80%85%E6%96%B9%E6%B3%95%E7%9A%84%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A" id="markdown-toc-推荐-用第三人称来开始函数或者方法的文档注释"><strong>推荐</strong> 用第三人称来开始函数或者方法的文档注释。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E5%90%8D%E8%AF%8D%E7%9F%AD%E8%AF%AD%E6%9D%A5%E5%BC%80%E5%A7%8B%E5%8F%98%E9%87%8Fgettersetter-%E7%9A%84%E6%B3%A8%E9%87%8A" id="markdown-toc-推荐-使用名词短语来开始变量gettersetter-的注释"><strong>推荐</strong> 使用名词短语来开始变量、getter、setter 的注释。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E5%90%8D%E8%AF%8D%E7%9F%AD%E8%AF%AD%E6%9D%A5%E5%BC%80%E5%A7%8B%E5%BA%93%E5%92%8C%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A" id="markdown-toc-推荐-使用名词短语来开始库和类型注释"><strong>推荐</strong> 使用名词短语来开始库和类型注释。</a></li>
-      <li><a href="#%E8%80%83%E8%99%91-%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81" id="markdown-toc-考虑-在文档注释中添加示例代码"><strong>考虑</strong> 在文档注释中添加示例代码。</a></li>
-      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%8B%AC%E5%8F%B7%E5%9C%A8%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A%E4%B8%AD%E5%BC%95%E7%94%A8%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%86%85%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6" id="markdown-toc-要-使用方括号在文档注释中引用作用域内的标识符"><strong>要</strong> 使用方括号在文档注释中引用作用域内的标识符。</a></li>
-      <li><a href="#%E8%A6%81-%E4%BD%BF%E7%94%A8%E6%95%A3%E6%96%87%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9D%A5%E6%8F%8F%E8%BF%B0%E5%8F%82%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC%E4%BB%A5%E5%8F%8A%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF" id="markdown-toc-要-使用散文的方式来描述参数返回值以及异常信息"><strong>要</strong> 使用散文的方式来描述参数、返回值以及异常信息。</a></li>
-      <li><a href="#%E8%A6%81-%E6%8A%8A%E6%B3%A8%E9%87%8A%E6%96%87%E6%A1%A3%E6%94%BE%E5%88%B0%E6%B3%A8%E8%A7%A3%E4%B9%8B%E5%89%8D" id="markdown-toc-要-把注释文档放到注解之前"><strong>要</strong> 把注释文档放到注解之前。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#markdown" id="markdown-toc-markdown">Markdown</a>    <ul>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E8%BF%87%E5%BA%A6%E4%BD%BF%E7%94%A8-markdown" id="markdown-toc-避免-过度使用-markdown"><strong>避免</strong> 过度使用 markdown。</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E4%BD%BF%E7%94%A8-html-%E6%9D%A5%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%96%87%E5%AD%97" id="markdown-toc-避免-使用-html-来格式化文字"><strong>避免</strong> 使用 HTML 来格式化文字。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8%E5%8F%8D%E5%BC%95%E5%8F%B7%E6%A0%87%E6%B3%A8%E4%BB%A3%E7%A0%81" id="markdown-toc-推荐-使用反引号标注代码"><strong>推荐</strong> 使用反引号标注代码。</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#%E5%A6%82%E4%BD%95%E5%86%99%E6%B3%A8%E9%87%8A" id="markdown-toc-如何写注释">如何写注释</a>    <ul>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E7%AE%80%E6%B4%81" id="markdown-toc-推荐-简洁"><strong>推荐</strong> 简洁.</a></li>
-      <li><a href="#%E9%81%BF%E5%85%8D-%E7%BC%A9%E5%86%99%E5%92%8C%E9%A6%96%E5%AD%97%E6%AF%8D%E7%BC%A9%E5%86%99%E8%AF%8D%E9%99%A4%E9%9D%9E%E5%BE%88%E5%B8%B8%E8%A7%81" id="markdown-toc-避免-缩写和首字母缩写词除非很常见"><strong>避免</strong> 缩写和首字母缩写词，除非很常见。</a></li>
-      <li><a href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-this-%E8%80%8C%E4%B8%8D%E6%98%AF-the-%E6%9D%A5%E5%BC%95%E7%94%A8%E5%AE%9E%E4%BE%8B%E6%88%90%E5%91%98" id="markdown-toc-推荐-使用-this-而不是-the-来引用实例成员"><strong>推荐</strong> 使用 “this” 而不是 “the” 来引用实例成员。</a></li>
-    </ul>
-  </li>
-</ul>
-
 <h2 id="注释">
 <a id="注释" class="anchor" href="#%E6%B3%A8%E9%87%8A" aria-hidden="true"><span class="octicon octicon-link"></span></a>注释</h2>
 
@@ -1169,7 +1128,7 @@ best practices for technical writing, in general, from articles such as
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/26 20:12 PDT"
+               title="Site built on 2019/05/26 20:19 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
