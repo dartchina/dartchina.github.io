@@ -554,9 +554,9 @@ ga('send', 'pageview');
 </li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#dartio">dart:io - 服务器和命令行应用程序的 I/O 。</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#files-and-directories">Files and directories</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#http-clients-and-servers">HTTP clients and servers</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#more-information">More information</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#文件和目录">文件和目录</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#http-客户端和服务端">HTTP 客户端和服务端</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#更多内容-3">更多内容</a></li>
 </ul>
 </li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#总结">总结</a></li>
@@ -650,9 +650,9 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 </li>
 <li class="toc-entry toc-h2"><a href="#dartio">dart:io - 服务器和命令行应用程序的 I/O 。</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#files-and-directories">Files and directories</a></li>
-<li class="toc-entry toc-h3"><a href="#http-clients-and-servers">HTTP clients and servers</a></li>
-<li class="toc-entry toc-h3"><a href="#more-information">More information</a></li>
+<li class="toc-entry toc-h3"><a href="#文件和目录">文件和目录</a></li>
+<li class="toc-entry toc-h3"><a href="#http-客户端和服务端">HTTP 客户端和服务端</a></li>
+<li class="toc-entry toc-h3"><a href="#更多内容-3">更多内容</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#总结">总结</a></li>
@@ -2489,67 +2489,60 @@ Dart 一些额外的库提供了更专业的 Web API ，
 
 <?code-excerpt plaster="none"?>
 
-<p>The <a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html">dart:io</a> library provides APIs to deal with
-files, directories, processes, sockets, WebSockets, and HTTP
-clients and servers.</p>
+<p><a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html">dart:io</a> 库提供处理文件，目录，进程，套接字， WebSocket ，以及 HTTP 客户端和服务端
+的 API 。</p>
 
 <div class="alert alert-warning">
-  <p><strong>Important:</strong>
-  Only <a href="https://flutterchina.club">Flutter mobile apps,</a> command-line scripts, and servers
-  can import and use <code class="highlighter-rouge">dart:io</code>, not web apps.</p>
+  <p><strong>重要：</strong>
+  <code class="highlighter-rouge">dart:io</code> 只能被 <a href="https://flutterchina.club">Flutter 移动应用</a>，命令行脚本，以及服务端应用引入和使用，
+  Web 应用无法使用。</p>
 </div>
 
-<p>In general, the dart:io library implements and promotes an asynchronous
-API. Synchronous methods can easily block an application, making it
-difficult to scale. Therefore, most operations return results via Future
-or Stream objects, a pattern common with modern server platforms such as
-Node.js.</p>
+<p>通常，dart:io 库提供的 API 为异步调用方法。同步方法常常会导致应用阻塞，且难以扩展。
+因此，大多数操作的返回值为 Future 或 Stream 对象，
+此模式与 Node.js 等现代服务器平台的模式相同。</p>
 
-<p>The few synchronous methods in the dart:io library are clearly marked
-with a Sync suffix on the method name. Synchronous methods aren’t covered here.</p>
+<p>dart:io 库中包含少量的同步方法，这些方法名后会明确标有 Sync 后缀。本节内容不涉及同步方法。</p>
 
-<p>To use the dart:io library you must import it:
+<p>使用 dart:io 库前必须导入：
 <?code-excerpt "misc/test/library_tour/io_test.dart (import)"?></p>
 <pre class="prettyprint lang-dart">import 'dart:io';</pre>
 
-<h3 id="files-and-directories">
-<a id="files-and-directories" class="anchor" href="#files-and-directories" aria-hidden="true"><span class="octicon octicon-link"></span></a>Files and directories</h3>
+<h3 id="文件和目录">
+<a id="文件和目录" class="anchor" href="#%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>文件和目录</h3>
 
-<p>The I/O library enables command-line apps to read and write files and
-browse directories. You have two choices for reading the contents of a
-file: all at once, or streaming. Reading a file all at once requires
-enough memory to store all the contents of the file. If the file is very
-large or you want to process it while reading it, you should use a
-Stream, as described in
-<a href="#streaming-file-contents">Streaming file contents</a>.</p>
+<p>命令行应用程序通过 I/O 库读取和写入文件以及浏览目录。
+这里有两种读取文件内容的方式：一次性读取或使用 Stream 方式操作。
+一次文件读取需要足够的内存来存储要读取文件的全部内容。
+如果文件非常大或者在读取文件时想对其进行一些其他处理，
+此时应该使用 Stream 方式，使用方式介绍见<a href="#streaming-file-contents">流式文件操作</a>。</p>
 
-<h4 id="reading-a-file-as-text">Reading a file as text</h4>
+<h4 id="以文本方式读取文件">以文本方式读取文件</h4>
 
-<p>When reading a text file encoded using UTF-8, you can read the entire
-file contents with <code class="highlighter-rouge">readAsString()</code>. When the individual lines are
-important, you can use <code class="highlighter-rouge">readAsLines()</code>. In both cases, a Future object
-is returned that provides the contents of the file as one or more
-strings.</p>
+<p>读取 UTF-8 编码的文本文件时，可以使用 <code class="highlighter-rouge">readAsString()</code> 读取整个文件内容，
+使用 <code class="highlighter-rouge">readAsLines()</code> 按行读取。
+以上两种读取方式都会返回一个 Future 对象， 文件内容通过Future 对象以一个或多个字符串的方式提供。</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (readAsString)" replace="/\btest_data\///g"?>
 <pre class="prettyprint lang-dart">Future main() async {
   var config = File('config.txt');
   var contents;
 
-  // Put the whole file in a single string.
+  // 将整个文件内容读取到一个字符串中。
   contents = await config.readAsString();
   print('The file is ${contents.length} characters long.');
 
-  // Put each line of the file into its own string.
+  // 将整个文件内容按行读取。
   contents = await config.readAsLines();
   print('The file is ${contents.length} lines long.');
 }</pre>
 
-<h4 id="reading-a-file-as-binary">Reading a file as binary</h4>
+<h4 id="以库的方式读取文件">以库的方式读取文件</h4>
 
-<p>The following code reads an entire file as bytes into a list of ints.
-The call to <code class="highlighter-rouge">readAsBytes()</code> returns a Future, which provides the result
-when it’s available.</p>
+<p>以下代码将整个文件按字节读取到整数 List 中。
+<code class="highlighter-rouge">readAsBytes()</code> 函数返回一个 Future 对象，
+当 Future 对象有效时，
+由 Future 对象提供读取内容。</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (readAsBytes)" replace="/\btest_data\///g"?>
 <pre class="prettyprint lang-dart">Future main() async {
@@ -2559,11 +2552,11 @@ when it’s available.</p>
   print('The file is ${contents.length} bytes long.');
 }</pre>
 
-<h4 id="handling-errors">Handling errors</h4>
+<h4 id="错误处理">错误处理</h4>
 
-<p>To capture errors so they don’t result in uncaught exceptions, you can
-register a <code class="highlighter-rouge">catchError</code> handler on the Future,
-or (in an async function) use try-catch:</p>
+<p>为了防止产生未捕获异常，应该对错误进行捕获。
+错误捕获可以通过对 Future 注册 <code class="highlighter-rouge">catchError</code> 处理函数，
+或者（在异步方法中）使用 Try-Catch 进行处理。</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (try-catch)" replace="/does-not-exist/config/g"?>
 <pre class="prettyprint lang-dart">Future main() async {
@@ -2576,12 +2569,11 @@ or (in an async function) use try-catch:</p>
   }
 }</pre>
 
-<h4 id="streaming-file-contents">Streaming file contents</h4>
+<h4 id="流式文件操作">流式文件操作</h4>
 
-<p>Use a Stream to read a file, a little at a time.
-You can use either the <a href="/guides/libraries/library-tour#stream">Stream API</a>
-or <code class="highlighter-rouge">await for</code>, part of Dart’s
-<a href="/guides/language/language-tour#asynchrony-support">asynchrony support.</a></p>
+<p>使用 Stream 一次读取一个文件，可以每次只读取文件的一小部分。
+操作可以使用 <a href="/guides/libraries/library-tour#stream">Stream API</a> 
+或 <code class="highlighter-rouge">await for</code> ，这些异步操作包含在 Dart <a href="/guides/language/language-tour#asynchrony-support">异步支持中</a>。</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (read-from-stream)" replace="/_?test_\w*\/?//g"?>
 <pre class="prettyprint lang-dart">import 'dart:io';
@@ -2604,12 +2596,11 @@ Future main() async {
   }
 }</pre>
 
-<h4 id="writing-file-contents">Writing file contents</h4>
+<h4 id="写入文件内容">写入文件内容</h4>
 
-<p>You can use an <a href="https://api.dartlang.org/stable/dart-io/IOSink-class.html">IOSink</a> to
-write data to a file. Use the File <code class="highlighter-rouge">openWrite()</code> method to get an IOSink
-that you can write to. The default mode, <code class="highlighter-rouge">FileMode.write</code>, completely
-overwrites existing data in the file.</p>
+<p>文件数据的写入使用 <a href="https://api.dartlang.org/stable/dart-io/IOSink-class.html">IOSink</a> 对象。 <a href="https://api.dartlang.org/stable/dart-io/IOSink-class.html">IOSink</a> 对象可以通过 File 对象的 <code class="highlighter-rouge">openWrite()</code> 获取，
+获取 IOSink][] 后即可通过它想文件写入数据。
+文件写入的默认模式为 <code class="highlighter-rouge">FileMode.write</code> ，写入数据将完全覆盖文件现有内容。</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (write-file)" replace="/\btest_data\///g"?>
 <pre class="prettyprint lang-dart">var logFile = File('log.txt');
@@ -2618,19 +2609,17 @@ sink.write('FILE ACCESSED ${DateTime.now()}\n');
 await sink.flush();
 await sink.close();</pre>
 
-<p>To add to the end of the file, use the optional <code class="highlighter-rouge">mode</code> parameter to
-specify <code class="highlighter-rouge">FileMode.append</code>:</p>
+<p>要在文件末尾追加内容，需要指定 <code class="highlighter-rouge">openWrite()</code> 的可选参数 <code class="highlighter-rouge">mode</code> 为 <code class="highlighter-rouge">FileMode.append</code> 模式：</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (append)" replace="/_?test_\w*\/?//g"?>
 <pre class="prettyprint lang-dart">var sink = logFile.openWrite(mode: FileMode.append);</pre>
 
-<p>To write binary data, use <code class="highlighter-rouge">add(List&lt;int&gt; data)</code>.</p>
+<p>使用 <code class="highlighter-rouge">add(List&lt;int&gt; data)</code> 方法为文件写入二进制数据。</p>
 
-<h4 id="listing-files-in-a-directory">Listing files in a directory</h4>
+<h4 id="获取目录中的文件列表">获取目录中的文件列表</h4>
 
-<p>Finding all files and subdirectories for a directory is an asynchronous
-operation. The <code class="highlighter-rouge">list()</code> method returns a Stream that emits an object
-when a file or directory is encountered.</p>
+<p>查找目录的所有文件和子目录是一个异步操作。<code class="highlighter-rouge">list()</code> 返回一个 Stream 对象。
+当异步检索到一个文件或目录时，会得到一个文件或目录的实体对象（FileSystemEntity）。</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (list-dir)" replace="/\btest_data\b/tmp/g"?>
 <pre class="prettyprint lang-dart">Future main() async {
@@ -2650,37 +2639,32 @@ when a file or directory is encountered.</p>
   }
 }</pre>
 
-<h4 id="other-common-functionality">Other common functionality</h4>
+<h4 id="其他公共方法">其他公共方法</h4>
 
-<p>The File and Directory classes contain other functionality, including
-but not limited to:</p>
+<p>File 和 Directory 类中包含的其他方法，方法包括但不限于以下内容：</p>
 
 <ul>
-  <li>Creating a file or directory: <code class="highlighter-rouge">create()</code> in File and Directory</li>
-  <li>Deleting a file or directory: <code class="highlighter-rouge">delete()</code> in File and Directory</li>
-  <li>Getting the length of a file: <code class="highlighter-rouge">length()</code> in File</li>
-  <li>Getting random access to a file: <code class="highlighter-rouge">open()</code> in File</li>
+  <li>在 File 和 Directory 中使用 <code class="highlighter-rouge">create()</code> 方法创建一个文件或目录</li>
+  <li>在 File 和 Directory 中使用 <code class="highlighter-rouge">delete()</code> 方法删除一个文件或目录</li>
+  <li>在 File 中使用 <code class="highlighter-rouge">length()</code> 方法获取一个文件的长度。</li>
+  <li>在 File 中使用 <code class="highlighter-rouge">open()</code> 方法随机访问一个文件。</li>
 </ul>
 
-<p>Refer to the API docs for <a href="https://api.dartlang.org/stable/dart-io/File-class.html">File</a> and <a href="https://api.dartlang.org/stable/dart-io/Directory-class.html">Directory</a> for a full
-list of methods.</p>
+<p>全部方法列表参考 <a href="https://api.dartlang.org/stable/dart-io/File-class.html">File</a> 和 <a href="https://api.dartlang.org/stable/dart-io/Directory-class.html">Directory</a> API 文档。</p>
 
-<h3 id="http-clients-and-servers">
-<a id="http-clients-and-servers" class="anchor" href="#http-clients-and-servers" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP clients and servers</h3>
+<h3 id="http-客户端和服务端">
+<a id="http-客户端和服务端" class="anchor" href="#http-%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%92%8C%E6%9C%8D%E5%8A%A1%E7%AB%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP 客户端和服务端</h3>
 
-<p>The dart:io library provides classes that command-line apps can use for
-accessing HTTP resources, as well as running HTTP servers.</p>
+<p>dart:io 库提供 HTTP 相关的类，基于这些类命令行应用可以访问 HTTP 资源及运行 HTTP 服务。</p>
 
-<h4 id="http-server">HTTP server</h4>
+<h4 id="http-服务">HTTP 服务</h4>
 
-<p>The <a href="https://api.dartlang.org/stable/dart-io/HttpServer-class.html">HttpServer</a> class
-provides the low-level functionality for building web servers. You can
-match request handlers, set headers, stream data, and more.</p>
+<p><a href="https://api.dartlang.org/stable/dart-io/HttpServer-class.html">HttpServer</a> 类提供用于构建 Web 服务的底层方法。 
+该类用于匹配请求处理程序，设置 Header ，Stream 数据等。</p>
 
-<p>The following sample web server returns simple text information.
-This server listens on port 8888 and address 127.0.0.1 (localhost),
-responding to requests for the path <code class="highlighter-rouge">/dart</code>. For any other path,
-the response is status code 404 (page not found).</p>
+<p>下面 Web 服务示例返回简单文本信息。
+服务侦听端口 8888 和地址 127.0.0.1（localhost），响应 <code class="highlighter-rouge">/dart</code> 路径的请求。
+对于任何其他路径，响应状态码 404（找不到页面）。</p>
 
 <?code-excerpt "misc/lib/library_tour/io/http_server.dart" replace="/\b_//g"?>
 <pre class="prettyprint lang-dart">Future main() async {
@@ -2706,15 +2690,13 @@ void processRequest(HttpRequest request) {
   response.close();
 }</pre>
 
-<h4 id="http-client">HTTP client</h4>
+<h4 id="http-客户端">HTTP 客户端</h4>
 
-<p>The <a href="https://api.dartlang.org/stable/dart-io/HttpClient-class.html">HttpClient</a> class
-helps you connect to HTTP resources from your Dart command-line or
-server-side application. You can set headers, use HTTP methods, and read
-and write data. The HttpClient class does not work in browser-based
-apps. When programming in the browser, use the
-<a href="https://api.dartlang.org/stable/dart-html/HttpRequest-class.html">dart:html HttpRequest class.</a>
-Here’s an example of using HttpClient:</p>
+<p>通过 HttpClient 类从 Dart 命令行或服务端应用程序访问 HTTP 资源。
+该类可以设置 Header ，HTTP 访问方式（GET，POST）以及读取和写入数据。
+HttpClient 类无法在浏览器的应用中使用。
+为浏览器编写应用时，应该使用<a href="https://api.dartlang.org/stable/dart-html/HttpRequest-class.html">dart:html HttpRequest 类</a>。
+下面是 HttpClient 的使用示例：</p>
 
 <?code-excerpt "misc/test/library_tour/io_test.dart (client)"?>
 <pre class="prettyprint lang-dart">Future main() async {
@@ -2727,18 +2709,14 @@ Here’s an example of using HttpClient:</p>
   httpClient.close();
 }</pre>
 
-<h3 id="more-information">
-<a id="more-information" class="anchor" href="#more-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h3>
+<h3 id="更多内容-3">
+<a id="更多内容-3" class="anchor" href="#%E6%9B%B4%E5%A4%9A%E5%86%85%E5%AE%B9-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>更多内容</h3>
 
-<p>This page showed how to use the major features of the <a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html">dart:io</a> library.
-Besides the APIs discussed in this section, the dart:io library also
-provides APIs for <a href="https://api.dartlang.org/stable/dart-io/Process-class.html">processes,</a> <a href="https://api.dartlang.org/stable/dart-io/Socket-class.html">sockets,</a> and
-<a href="https://api.dartlang.org/stable/dart-io/WebSocket-class.html">web sockets.</a>
-For more information about server-side and command-line app development, see the
-<a href="/server">server-side Dart overview.</a></p>
+<p>本章只是介绍了 <a href="https://api.dartlang.org/stable/dart-io/dart-io-library.html">dart:io</a> 库主要功能的使用。除了本章中提到的 API 以外，dart:io 库还提供了
+<a href="https://api.dartlang.org/stable/dart-io/Process-class.html">进程</a>， <a href="https://api.dartlang.org/stable/dart-io/Socket-class.html">套接字</a>，以及 <a href="https://api.dartlang.org/stable/dart-io/WebSocket-class.html">WebSocket</a> 的 API 。
+有关服务端和命令行应用程序开发的更多内容，请参阅<a href="/server">服务端 Dart 综述</a>。</p>
 
-<p>For information on other dart:* libraries, see the
-<a href="/guides/libraries/library-tour">library tour.</a></p>
+<p>有关其他 dart:* 库的内容，请参阅<a href="/guides/libraries/library-tour">库概览</a>。</p>
 
 <h2 id="总结">
 <a id="总结" class="anchor" href="#%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
@@ -2785,7 +2763,7 @@ For more information about server-side and command-line app development, see the
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/27 19:02 PDT"
+               title="Site built on 2019/05/27 20:31 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
