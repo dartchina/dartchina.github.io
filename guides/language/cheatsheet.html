@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="学习使用 Dart 语言和库。">
-  <title>Dart 文档 | Dart</title>
+  <meta name="description" content="A one-page summary of some of Dart's most useful, interesting features.">
+  <title>Dart language cheatsheet | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,13 +18,13 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="Dart 文档" />
-  <meta name="twitter:description" content="学习使用 Dart 语言和库。" />
+  <meta name="twitter:title" content="Dart language cheatsheet" />
+  <meta name="twitter:description" content="A one-page summary of some of Dart's most useful, interesting features." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Dart 文档" />
-  <meta property="og:description" content="学习使用 Dart 语言和库。" />
-  <meta property="og:url" content="https://www.dartlang.org/guides/index" />
+  <meta property="og:title" content="Dart language cheatsheet" />
+  <meta property="og:description" content="A one-page summary of some of Dart's most useful, interesting features." />
+  <meta property="og:url" content="https://www.dartlang.org/guides/language/cheatsheet" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" integrity="sha256-OYYqoMfowxw5dTtxCHxOHrDkykaDztc6SJ1qi+We+CM=" crossorigin="anonymous" href="/assets/main-39862aa0c7e8c31c39753b71087c4e1eb0e4ca4683ced73a489d6a8be59ef823.css">
@@ -43,7 +43,7 @@ ga('send', 'pageview');
 
 
  </head>
-  <body class="default hide_toc show_banner">
+  <body class="default show_banner">
     <header id="page-header" class="site-header">
   <nav id="mainnav" class="site-header">
   <div id="menu-toggle"><i class="icon icon-menu"></i></div>
@@ -508,18 +508,74 @@ ga('send', 'pageview');
     <main id="page-content">
       
 
+
+
+
+
+
+
+<div id="site-toc--side" class="site-toc ">
+  <header class="site-toc__title">
+    大纲
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+  </header>
+  <ul class="section-nav nav">
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#using-literals">Using literals</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#substitution-val">‘Substitution ${val}’</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#type-">&lt;type&gt;[ ]</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#const-1-2-3">const [1, 2, 3]</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#--">= { }</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#declaring-fields">Declaring fields</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#checking-types">Checking types</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#chaining-method-calls">Chaining method calls</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#ab--truec--5">a..b = true..c = 5;</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#dealing-with-null">Dealing with null</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#b--val">b ??= val;</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#a--value--0">a = value ?? 0;</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#ab">a?.b</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#implementing-functions">Implementing functions</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#fnbool-bold-false-bool-hidden-false">fn({bool bold: false, bool hidden: false})</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#int-incrint-a--a--1">int incr(int a) =&gt; a + 1;</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#handling-exceptions">Handling exceptions</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#implementing-constructors">Implementing constructors</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#normal-constructor">Normal constructor</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#factory-constructor">Factory constructor</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#named-constructor">Named constructor</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#delegating-constructor">Delegating constructor</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#const-constructor">Const constructor</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#initializer-list">Initializer list</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
       <article>
         <div class="content">
           
 
           <div>
             <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
-  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/index.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/language/cheatsheet.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Dart 文档' page issue&body=
-Page URL: https://www.dartlang.org/guides/index%0D%0A
-Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/index.md%0D%0A
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Dart language cheatsheet' page issue&body=
+Page URL: https://www.dartlang.org/guides/language/cheatsheet%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/language/cheatsheet.md%0D%0A
 %0D%0A
 Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
 %0D%0A
@@ -529,52 +585,256 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   </a>
 </div>
 
-            <h1>Dart 文档</h1>
+            <h1>Dart language cheatsheet</h1>
           </div>
           
 
-          
-<p>欢迎来到 Dart 文档！以下是一些访问量最多的内容：</p>
 
-<div class="card-grid">
 
-  
-  <div class="card">
-    <h3><a href="/samples"></a></h3>
-    <p>对 Dart 语言的介绍，介绍内容基于简短的示例程序。</p>
-  </div>
 
-  
-  <div class="card">
-    <h3><a href="/guides/language/language-tour">语言概览</a></h3>
-    <p>对 Dart 语言更为详细的介绍（介绍内容仍基于示例程序）。</p>
-  </div>
 
-  
-  <div class="card">
-    <h3><a href="/guides/language/effective-dart">Effective Dart</a></h3>
-    <p>构建一致，可维护，高效 Dart 代码的最佳实践。</p>
-  </div>
 
-  
-  <div class="card">
-    <h3><a href="/guides/libraries/library-tour">库概览</a></h3>
-    <p>对 Dart SDK 的核心库主要功能介绍，介绍内容基于示例程序。</p>
-  </div>
 
-  
-  <div class="card">
-    <h3><a href="/tools/sdk">Dart SDK</a></h3>
-    <p>SDK 中包含了什么，以及如何安装 SDK 。</p>
-  </div>
-
-  
-  <div class="card">
-    <h3><a href="/tutorials/language/futures">Future &amp; Async-Await</a></h3>
-    <p>如何在 Dart 代码中使用 Future 、 Async 和 Await 在实现异步调用。</p>
-  </div>
+<div id="site-toc--inline" class="site-toc toc-collapsible toc-collapsed">
+  <header class="site-toc__title">
+    大纲
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+      <span class="site-toc--inline__toggle toc-toggle-down"><i class="fas fa-chevron-down fa-m"></i></span>
+      <span class="site-toc--inline__toggle toc-toggle-up"><i class="fas fa-chevron-up fa-m"></i></span>
+    
+  </header>
+  <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#using-literals">Using literals</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#substitution-val">‘Substitution ${val}’</a></li>
+<li class="toc-entry toc-h3"><a href="#type-">&lt;type&gt;[ ]</a></li>
+<li class="toc-entry toc-h3"><a href="#const-1-2-3">const [1, 2, 3]</a></li>
+<li class="toc-entry toc-h3"><a href="#--">= { }</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#declaring-fields">Declaring fields</a></li>
+<li class="toc-entry toc-h2"><a href="#checking-types">Checking types</a></li>
+<li class="toc-entry toc-h2"><a href="#chaining-method-calls">Chaining method calls</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#ab--truec--5">a..b = true..c = 5;</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#dealing-with-null">Dealing with null</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#b--val">b ??= val;</a></li>
+<li class="toc-entry toc-h3"><a href="#a--value--0">a = value ?? 0;</a></li>
+<li class="toc-entry toc-h3"><a href="#ab">a?.b</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#implementing-functions">Implementing functions</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#fnbool-bold-false-bool-hidden-false">fn({bool bold: false, bool hidden: false})</a></li>
+<li class="toc-entry toc-h3"><a href="#int-incrint-a--a--1">int incr(int a) =&gt; a + 1;</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#handling-exceptions">Handling exceptions</a></li>
+<li class="toc-entry toc-h2"><a href="#implementing-constructors">Implementing constructors</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#normal-constructor">Normal constructor</a></li>
+<li class="toc-entry toc-h3"><a href="#factory-constructor">Factory constructor</a></li>
+<li class="toc-entry toc-h3"><a href="#named-constructor">Named constructor</a></li>
+<li class="toc-entry toc-h3"><a href="#delegating-constructor">Delegating constructor</a></li>
+<li class="toc-entry toc-h3"><a href="#const-constructor">Const constructor</a></li>
+<li class="toc-entry toc-h3"><a href="#initializer-list">Initializer list</a></li>
+</ul>
+</li>
+</ul>
 </div>
 
+
+          <p>This cheatsheet is based on an internal document
+created by Googler <a href="https://medium.com/@mehmetf_71205">Mehmet Fidanboylu</a>
+to help Google engineers remember the syntax for
+some of Dart’s commonly used features.
+For an interactive guide to these features and more, see the
+<a href="/codelabs/dart-cheatsheet">Dart cheatsheet codelab</a>.</p>
+
+<h2 id="using-literals">
+<a id="using-literals" class="anchor" href="#using-literals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using literals</h2>
+
+<h3 id="substitution-val">
+<a id="substitution-val" class="anchor" href="#substitution-val" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">‘Substitution ${val}’</code>
+</h3>
+
+<p>Puts the value of <code class="highlighter-rouge">val</code> into a string literal.
+Equivalent: <code class="highlighter-rouge">‘Substitution’ + val</code></p>
+
+<h3 id="type-">
+<a id="type-" class="anchor" href="#type-" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">&lt;type&gt;[ ]</code>
+</h3>
+
+<p>Creates an object of type <code class="highlighter-rouge">List&lt;type&gt;</code>.
+Equivalent: <code class="highlighter-rouge">new List&lt;type&gt;();</code></p>
+
+<h3 id="const-1-2-3">
+<a id="const-1-2-3" class="anchor" href="#const-1-2-3" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">const [1, 2, 3]</code>
+</h3>
+
+<p>Creates a compile-time constant list.</p>
+
+<h3 id="--">
+<a id="--" class="anchor" href="#--" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">= { }</code>
+</h3>
+
+<p>Initializes a map.
+Equivalent: <code class="highlighter-rouge">new Map&lt;&gt;();</code></p>
+
+<h2 id="declaring-fields">
+<a id="declaring-fields" class="anchor" href="#declaring-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Declaring fields</h2>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">var</code></td>
+      <td>Generic <code class="highlighter-rouge">var</code> (dynamic)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">final</code></td>
+      <td>Same as <code class="highlighter-rouge">var</code> but final</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">const</code></td>
+      <td>Constant</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="checking-types">
+<a id="checking-types" class="anchor" href="#checking-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Checking types</h2>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">as</code></td>
+      <td>Typecast</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">is</code></td>
+      <td>instanceof</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">is!</code></td>
+      <td>!instanceof</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="chaining-method-calls">
+<a id="chaining-method-calls" class="anchor" href="#chaining-method-calls" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chaining method calls</h2>
+
+<h3 id="ab--truec--5">
+<a id="ab--truec--5" class="anchor" href="#ab--truec--5" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">a..b = true..c = 5;</code>
+</h3>
+
+<p>Cascade used for chaining access to methods and other members.
+Equivalent: <code class="highlighter-rouge">a.b = true; a.c = 5;</code></p>
+
+<h2 id="dealing-with-null">
+<a id="dealing-with-null" class="anchor" href="#dealing-with-null" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dealing with null</h2>
+
+<h3 id="b--val">
+<a id="b--val" class="anchor" href="#b--val" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">b ??= val;</code>
+</h3>
+
+<p>If <code class="highlighter-rouge">b</code> is null, assign the value of <code class="highlighter-rouge">val</code> to <code class="highlighter-rouge">b</code>;
+otherwise, <code class="highlighter-rouge">b</code> stays the same.</p>
+
+<h3 id="a--value--0">
+<a id="a--value--0" class="anchor" href="#a--value--0" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">a = value ?? 0;</code>
+</h3>
+
+<p>If value is null, set <code class="highlighter-rouge">a</code> to 0.
+Otherwise, set <code class="highlighter-rouge">a</code> to value.</p>
+
+<h3 id="ab">
+<a id="ab" class="anchor" href="#ab" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">a?.b</code>
+</h3>
+
+<p>Conditional access.
+Equivalent: <code class="highlighter-rouge">a == null ? null : a.b</code></p>
+
+<h2 id="implementing-functions">
+<a id="implementing-functions" class="anchor" href="#implementing-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementing functions</h2>
+
+<h3 id="fnbool-bold-false-bool-hidden-false">
+<a id="fnbool-bold-false-bool-hidden-false" class="anchor" href="#fnbool-bold-false-bool-hidden-false" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">fn({bool bold: false, bool hidden: false})</code>
+</h3>
+
+<p>Named params with default values.</p>
+
+<h3 id="int-incrint-a--a--1">
+<a id="int-incrint-a--a--1" class="anchor" href="#int-incrint-a--a--1" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">int incr(int a) =&gt; a + 1;</code>
+</h3>
+
+<p>Single return statement can be abbreviated.</p>
+
+<h2 id="handling-exceptions">
+<a id="handling-exceptions" class="anchor" href="#handling-exceptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling exceptions</h2>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{...}</span>
+<span class="n">on</span> <span class="n">MyException</span> <span class="o">{...}</span>
+<span class="k">catch</span> <span class="o">(</span><span class="n">e</span><span class="o">)</span> <span class="o">{...}</span>
+<span class="k">finally</span> <span class="o">{...}</span>
+</code></pre></div></div>
+
+<p>Use <code class="highlighter-rouge">on</code> to catch a type.
+Use <code class="highlighter-rouge">catch</code> to catch an instance.</p>
+
+<h2 id="implementing-constructors">
+<a id="implementing-constructors" class="anchor" href="#implementing-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementing constructors</h2>
+
+<h3 id="normal-constructor">
+<a id="normal-constructor" class="anchor" href="#normal-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Normal constructor</h3>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Point</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="factory-constructor">
+<a id="factory-constructor" class="anchor" href="#factory-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Factory constructor</h3>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">factory</span> <span class="nf">Point</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">...;</span>
+</code></pre></div></div>
+
+<p>Use <code class="highlighter-rouge">factory</code> when implementing a constructor that
+doesn’t always create a new instance.</p>
+
+<h3 id="named-constructor">
+<a id="named-constructor" class="anchor" href="#named-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Named constructor</h3>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Point</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">Map</span> <span class="n">json</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">json</span><span class="o">[</span><span class="s">'x'</span><span class="o">];</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">json</span><span class="o">[</span><span class="s">'y'</span><span class="o">];</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="delegating-constructor">
+<a id="delegating-constructor" class="anchor" href="#delegating-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Delegating constructor</h3>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Point</span><span class="o">.</span><span class="na">alongXAxis</span><span class="o">(</span><span class="kt">num</span> <span class="n">x</span><span class="o">)</span> <span class="o">:</span> <span class="k">this</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="const-constructor">
+<a id="const-constructor" class="anchor" href="#const-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Const constructor</h3>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nf">ImmutablePoint</span><span class="p">(</span><span class="k">this</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Produces an object that will never change. All vars have to be final.</p>
+
+<h3 id="initializer-list">
+<a id="initializer-list" class="anchor" href="#initializer-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initializer list</h3>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Point</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">Map</span> <span class="n">jsonMap</span><span class="o">)</span>
+      <span class="o">:</span> <span class="n">x</span> <span class="o">=</span> <span class="n">jsonMap</span><span class="o">[</span><span class="s">'x'</span><span class="o">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">jsonMap</span><span class="o">[</span><span class="s">'y'</span><span class="o">];</span>
+</code></pre></div></div>
+
+<p>Initializer lists are handy when setting up final fields.</p>
 
           
 

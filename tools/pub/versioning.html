@@ -27,7 +27,7 @@
   <meta property="og:url" content="https://www.dartlang.org/tools/pub/versioning.html" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" integrity="sha256-BpIIsuW7Gte7jAle0YIjbVILHBuILdco9exkucUKDgY=" crossorigin="anonymous" href="/assets/main-069208b2e5bb1ad7bb8c095ed182236d520b1c1b882dd728f5ec64b9c50a0e06.css">
+  <link rel="stylesheet" type="text/css" integrity="sha256-OYYqoMfowxw5dTtxCHxOHrDkykaDztc6SJ1qi+We+CM=" crossorigin="anonymous" href="/assets/main-39862aa0c7e8c31c39753b71087c4e1eb0e4ca4683ced73a489d6a8be59ef823.css">
   <script src="/assets/main-f7f2f2125f3c379daf0f5ca0ecf142cd2e10b030af396a510324fddb1682c5e2.js" integrity="sha256-9/LyEl88N52vD1yg7PFCzS4QsDCvOWpRAyT92xaCxeI=" crossorigin="anonymous" type="text/javascript"></script>
   <script>
 
@@ -125,8 +125,20 @@ ga('send', 'pageview');
         <li class="nav-item">
     <a class="nav-link" href="/samples">示例程序</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/codelabs">Codelab</a>
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-1-2"
+      href="#sidenav-1-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-1-2"
+    >Codelab
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-1-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/codelabs">综述</a>
   </li><li class="nav-item">
+    <a class="nav-link" href="/codelabs/dart-cheatsheet">Cheatsheet Codelab</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
     <a class="nav-link" href="/tutorials">教程</a>
   </li>
 </ul>
@@ -510,9 +522,13 @@ ga('send', 'pageview');
   </header>
   <ul class="section-nav nav">
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#a-name-and-a-number">A name and a number</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#shared-dependencies-and-unshared-libraries">Shared dependencies and unshared libraries</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#version-lock">Version lock</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#version-constraints">Version constraints</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#resolving-shared-dependencies">Resolving shared dependencies</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#unshared-libraries-the-npm-approach">Unshared libraries (the npm approach)</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#version-lock-the-dead-end-approach">Version lock (the dead end approach)</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#version-constraints-the-dart-approach">Version constraints (the Dart approach)</a></li>
+</ul>
+</li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#semantic-versions">Semantic versions</a></li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#constraint-solving">Constraint solving</a></li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#constraint-context">Constraint context</a></li>
@@ -572,9 +588,13 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   </header>
   <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#a-name-and-a-number">A name and a number</a></li>
-<li class="toc-entry toc-h2"><a href="#shared-dependencies-and-unshared-libraries">Shared dependencies and unshared libraries</a></li>
-<li class="toc-entry toc-h2"><a href="#version-lock">Version lock</a></li>
-<li class="toc-entry toc-h2"><a href="#version-constraints">Version constraints</a></li>
+<li class="toc-entry toc-h2"><a href="#resolving-shared-dependencies">Resolving shared dependencies</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#unshared-libraries-the-npm-approach">Unshared libraries (the npm approach)</a></li>
+<li class="toc-entry toc-h3"><a href="#version-lock-the-dead-end-approach">Version lock (the dead end approach)</a></li>
+<li class="toc-entry toc-h3"><a href="#version-constraints-the-dart-approach">Version constraints (the Dart approach)</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#semantic-versions">Semantic versions</a></li>
 <li class="toc-entry toc-h2"><a href="#constraint-solving">Constraint solving</a></li>
 <li class="toc-entry toc-h2"><a href="#constraint-context">Constraint context</a></li>
@@ -614,12 +634,13 @@ laid a feast of software at their feet.</p>
 <p>But this doesn’t come for free: There’s a challenge to code
 reuse, especially reusing code you don’t maintain. When your app uses code
 being developed by other people, what happens when they change it?
-They don’t want to break your app, and you certainly don’t either.</p>
+They don’t want to break your app, and you certainly don’t either.
+We solve this problem by <em>versioning</em>.</p>
 
 <h2 id="a-name-and-a-number">
 <a id="a-name-and-a-number" class="anchor" href="#a-name-and-a-number" aria-hidden="true"><span class="octicon octicon-link"></span></a>A name and a number</h2>
 
-<p>We solve this by <em>versioning</em>. When you depend on some piece of outside code,
+<p>When you depend on some piece of outside code,
 you don’t just say “My app uses <code class="highlighter-rouge">widgets</code>.” You say, “My app uses
 <code class="highlighter-rouge">widgets 2.0.5</code>.” That combination of name and version number uniquely
 identifies an <em>immutable</em> chunk of code. The people updating <code class="highlighter-rouge">widgets</code> can
@@ -629,12 +650,12 @@ one whit because the version you use is unchanged.</p>
 
 <p>When you <em>do</em> want to get those changes, you can always point your app to a
 newer version of <code class="highlighter-rouge">widgets</code> and you don’t have to coordinate with those
-developers to do it. So, problem solved, right?</p>
+developers to do it. However, that doesn’t entirely solve the problem.</p>
 
-<h2 id="shared-dependencies-and-unshared-libraries">
-<a id="shared-dependencies-and-unshared-libraries" class="anchor" href="#shared-dependencies-and-unshared-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shared dependencies and unshared libraries</h2>
+<h2 id="resolving-shared-dependencies">
+<a id="resolving-shared-dependencies" class="anchor" href="#resolving-shared-dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resolving shared dependencies</h2>
 
-<p>Well, no. Depending on specific versions works fine when your dependency
+<p>Depending on specific versions works fine when your dependency
 <em>graph</em> is really just a dependency <em>tree</em>. If your app depends on a bunch of
 packages, and those things in turn have their own dependencies and so on, that
 all works fine as long as none of those dependencies <em>overlap</em>.</p>
@@ -647,6 +668,9 @@ all works fine as long as none of those dependencies <em>overlap</em>.</p>
 <code class="highlighter-rouge">collection</code>. This is called a <strong>shared dependency</strong>. Now what happens when
 <code class="highlighter-rouge">widgets</code> wants to use <code class="highlighter-rouge">collection 2.3.5</code> and <code class="highlighter-rouge">templates</code> wants
 <code class="highlighter-rouge">collection 2.3.7</code>? What if they don’t agree on a version?</p>
+
+<h3 id="unshared-libraries-the-npm-approach">
+<a id="unshared-libraries-the-npm-approach" class="anchor" href="#unshared-libraries-the-npm-approach" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unshared libraries (the npm approach)</h3>
 
 <p>One option is to just let the app use both
 versions of <code class="highlighter-rouge">collection</code>. It will have two copies of the library at different
@@ -677,8 +701,8 @@ annotation in the receiving library. Oops.</p>
 has multiple versions of things with the same name), we’ve decided npm’s model
 isn’t a good fit.</p>
 
-<h2 id="version-lock">
-<a id="version-lock" class="anchor" href="#version-lock" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version lock</h2>
+<h3 id="version-lock-the-dead-end-approach">
+<a id="version-lock-the-dead-end-approach" class="anchor" href="#version-lock-the-dead-end-approach" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version lock (the dead end approach)</h3>
 
 <p>Instead, when you depend on a package, your app only uses a single copy of
 that package. When you have a shared dependency, everything that depends on it
@@ -708,8 +732,8 @@ That’s called <strong>version lock</strong>:
 everyone wants to move their dependencies forward,
 but no one can take the first step because it forces everyone else to as well.</p>
 
-<h2 id="version-constraints">
-<a id="version-constraints" class="anchor" href="#version-constraints" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version constraints</h2>
+<h3 id="version-constraints-the-dart-approach">
+<a id="version-constraints-the-dart-approach" class="anchor" href="#version-constraints-the-dart-approach" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version constraints (the Dart approach)</h3>
 
 <p>To solve version lock, we loosen the constraints that packages place on their
 dependencies. If <code class="highlighter-rouge">widgets</code> and <code class="highlighter-rouge">templates</code> can both indicate a <em>range</em> of
@@ -733,7 +757,7 @@ and <code class="highlighter-rouge">templates</code> have their constraints sati
 <a id="semantic-versions" class="anchor" href="#semantic-versions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Semantic versions</h2>
 
 <p>When you add a dependency to your package, you’ll sometimes want to specify a
-range of versions to allow. How do you know what range to pick? You need to
+range of versions to allow. How do you know what range to pick? You need to be
 forward compatible, so ideally the range encompasses future versions that
 haven’t been released yet. But how do you know your package is going to work
 with some new version that doesn’t even exist yet?</p>
@@ -1059,7 +1083,7 @@ see the article
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/27 20:31 PDT"
+               title="Site built on 2019/05/30 19:03 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>

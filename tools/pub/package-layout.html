@@ -27,7 +27,7 @@
   <meta property="og:url" content="https://www.dartlang.org/tools/pub/package-layout.html" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" integrity="sha256-BpIIsuW7Gte7jAle0YIjbVILHBuILdco9exkucUKDgY=" crossorigin="anonymous" href="/assets/main-069208b2e5bb1ad7bb8c095ed182236d520b1c1b882dd728f5ec64b9c50a0e06.css">
+  <link rel="stylesheet" type="text/css" integrity="sha256-OYYqoMfowxw5dTtxCHxOHrDkykaDztc6SJ1qi+We+CM=" crossorigin="anonymous" href="/assets/main-39862aa0c7e8c31c39753b71087c4e1eb0e4ca4683ced73a489d6a8be59ef823.css">
   <script src="/assets/main-f7f2f2125f3c379daf0f5ca0ecf142cd2e10b030af396a510324fddb1682c5e2.js" integrity="sha256-9/LyEl88N52vD1yg7PFCzS4QsDCvOWpRAyT92xaCxeI=" crossorigin="anonymous" type="text/javascript"></script>
   <script>
 
@@ -125,8 +125,20 @@ ga('send', 'pageview');
         <li class="nav-item">
     <a class="nav-link" href="/samples">示例程序</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/codelabs">Codelab</a>
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-1-2"
+      href="#sidenav-1-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-1-2"
+    >Codelab
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-1-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/codelabs">综述</a>
   </li><li class="nav-item">
+    <a class="nav-link" href="/codelabs/dart-cheatsheet">Cheatsheet Codelab</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
     <a class="nav-link" href="/tutorials">教程</a>
   </li>
 </ul>
@@ -509,7 +521,8 @@ ga('send', 'pageview');
     
   </header>
   <ul class="section-nav nav">
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#the-basics">The basics</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#the-pubspec">The pubspec</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#license">LICENSE</a></li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#readme">README</a></li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#changelog">CHANGELOG</a></li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#public-directories">Public directories</a>
@@ -571,7 +584,8 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
     
   </header>
   <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#the-basics">The basics</a></li>
+<li class="toc-entry toc-h2"><a href="#the-pubspec">The pubspec</a></li>
+<li class="toc-entry toc-h2"><a href="#license">LICENSE</a></li>
 <li class="toc-entry toc-h2"><a href="#readme">README</a></li>
 <li class="toc-entry toc-h2"><a href="#changelog">CHANGELOG</a></li>
 <li class="toc-entry toc-h2"><a href="#public-directories">Public directories</a>
@@ -603,7 +617,7 @@ package, and how to name things.</p>
       <p><strong>Note:</strong>
   Flutter apps can use custom directories for their assets.
   For details, see
-  <a href="https://flutterchina.club/assets-and-images/">Adding Assets and Images in Flutter</a>
+  <a href="https://flutterchina.club/assets-and-images/">Adding assets and images</a>
   on the <a href="https://flutterchina.club">Flutter website.</a></p>
     </div>
 </div></aside>
@@ -617,9 +631,9 @@ might look like:</p>
   .packages *
   pubspec.yaml
   pubspec.lock **
+  LICENSE
   README.md
   CHANGELOG.md
-  LICENSE
   benchmark/
     make_lunch.dart
   bin/
@@ -654,7 +668,7 @@ might look like:</p>
     <a href="/tools/pub/glossary#application-package">application package</a>.</p>
 
 <p>*** The <code class="highlighter-rouge">doc/api</code> directory exists locally after you’ve run
-      <a href="https://github.com/dart-lang/dartdoc#dartdoc">dartdoc</a>.
+      <a href="https://github.com/dart-lang/dartdoc#dartdoc">dartdoc.</a>
       Don’t check the <code class="highlighter-rouge">api</code> directory into source control.</p>
 
 <aside class="alert alert-info">
@@ -663,8 +677,8 @@ might look like:</p>
   For more information, see <a href="/tools/pub/cmd/pub-get">pub get</a>.</p>
 </aside>
 
-<h2 id="the-basics">
-<a id="the-basics" class="anchor" href="#the-basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>The basics</h2>
+<h2 id="the-pubspec">
+<a id="the-pubspec" class="anchor" href="#the-pubspec" aria-hidden="true"><span class="octicon octicon-link"></span></a>The pubspec</h2>
 
 <pre>enchilada/
   pubspec.yaml
@@ -674,24 +688,26 @@ might look like:</p>
 <code class="highlighter-rouge">pubspec.yaml</code>, in the root directory of the package. That’s what <em>makes</em> it a
 package.</p>
 
-<p>Once you’ve run <a href="/tools/pub/cmd/pub-get"><code class="highlighter-rouge">pub get</code></a>,
+<p>Running <a href="/tools/pub/cmd/pub-get"><code class="highlighter-rouge">pub get</code></a>,
 <a href="/tools/pub/cmd/pub-upgrade"><code class="highlighter-rouge">pub upgrade</code></a>, or
-<a href="/tools/pub/cmd/pub-downgrade"><code class="highlighter-rouge">pub downgrade</code></a> on the package, you will also have a
+<a href="/tools/pub/cmd/pub-downgrade"><code class="highlighter-rouge">pub downgrade</code></a> on the package creates a
 <strong>lockfile</strong>, named <code class="highlighter-rouge">pubspec.lock</code>. If your package is an <a href="/tools/pub/glossary#application-package">application
 package</a>, check the lockfile into source
 control. Otherwise, don’t.</p>
 
-<pre>enchilada/
-  .packages</pre>
-
-<p>Running pub also generates a <code class="highlighter-rouge">.packages</code> file.
-Don’t check this into source control.</p>
-
-<p>The open source community has a few other files that commonly appear at
-the top level of a project: <code class="highlighter-rouge">LICENSE</code>, <code class="highlighter-rouge">AUTHORS</code>, etc. If you use any
-of those, they can go in the top level of the package too.</p>
-
 <p>For more information, see the <a href="/tools/pub/pubspec">pubspec page</a>.</p>
+
+<h2 id="license">
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>LICENSE</h2>
+
+<pre>enchilada/
+  LICENSE</pre>
+
+<p>If you’re publishing your package, include a license file named <code class="highlighter-rouge">LICENSE</code>,
+optionally with a file extension such as <code class="highlighter-rouge">.md</code>. 
+We recommend using an <a href="https://opensource.org/licenses">OSI-approved license</a>
+such as <a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause,</a>
+so that others can reuse your work.</p>
 
 <h2 id="readme">
 <a id="readme" class="anchor" href="#readme" aria-hidden="true"><span class="octicon octicon-link"></span></a>README</h2>
@@ -701,12 +717,12 @@ of those, they can go in the top level of the package too.</p>
 
 <p>One file that’s very common in open source is a README file that
 describes the project. This is especially important in pub. When you upload
-to the <a href="https://pub.dev">Pub site</a>, your README is shown on
+to the <a href="https://pub.dev">Pub site,</a> your README is shown on
 the page for your package. This is the perfect place to introduce people to
 your code.</p>
 
-<p>If your README ends in <code class="highlighter-rouge">.md</code>, <code class="highlighter-rouge">.markdown</code>, or <code class="highlighter-rouge">.mdown</code>, it is parsed as
-<a href="http://daringfireball.net/projects/markdown/">Markdown</a>.</p>
+<p>If your README ends in <code class="highlighter-rouge">.md</code>, it’s parsed as
+<a href="http://daringfireball.net/projects/markdown/">Markdown.</a></p>
 
 <h2 id="changelog">
 <a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>CHANGELOG</h2>
@@ -717,11 +733,11 @@ your code.</p>
 <p>To show users the latest changes to your package, you can include a changelog
 file where you can write a short note about the changes in your latest
 release. When you upload your package to the
-<a href="https://pub.dev">Pub site</a>, your package’s changelog file (if any)
+<a href="https://pub.dev">Pub site,</a> your package’s changelog file (if any)
 appears in the changelog tab.</p>
 
-<p>If your CHANGELOG ends in <code class="highlighter-rouge">.md</code>, <code class="highlighter-rouge">.markdown</code>, or <code class="highlighter-rouge">.mdown</code>, it is parsed as
-<a href="http://daringfireball.net/projects/markdown/">Markdown</a>.</p>
+<p>If your CHANGELOG ends in <code class="highlighter-rouge">.md</code>, it’s parsed as
+<a href="http://daringfireball.net/projects/markdown/">Markdown.</a></p>
 
 <h2 id="public-directories">
 <a id="public-directories" class="anchor" href="#public-directories" aria-hidden="true"><span class="octicon octicon-link"></span></a>Public directories</h2>
@@ -787,7 +803,7 @@ Also, avoid imports of <code>package:<em>package_name</em>/src/...</code>.</p>
 </aside>
 
 <p>For more information on library packages, see
-<a href="/guides/libraries/create-library-packages">Create Library Packages</a>.</p>
+<a href="/guides/libraries/create-library-packages">Creating packages</a>.</p>
 
 <h3 id="public-tools">
 <a id="public-tools" class="anchor" href="#public-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Public tools</h3>
@@ -821,7 +837,7 @@ for consumers of the package to use.</p>
 in there and organize it with subdirectories however you like.</p>
 
 <p>You can reference another package’s assets using the
-<a href="https://github.com/dart-lang/resource">resource package</a>.</p>
+<a href="https://github.com/dart-lang/resource">resource package.</a></p>
 
 <aside class="alert alert-warning">
   <p><strong>Warning:</strong>
@@ -951,24 +967,29 @@ and use multiple files, consider making a directory for each example. Otherwise,
 you can place each one right inside <code class="highlighter-rouge">example</code>.</p>
 
 <p>In your examples, use <code class="highlighter-rouge">package:</code> to import files from your own package.
-That ensures the example code in your package looks exactly
+That ensures that the example code in your package looks exactly
 like code outside of your package would look.</p>
 
 <p>If you might publish your package,
-consider creating an example file with one of the following names:</p>
+consider creating an example file with one of the following names
+(case insensitive):</p>
 
 <ul>
+  <li><code>example/readme[.md]</code></li>
+  <li><code>example/example[.md]</code></li>
   <li><code>example[/lib]/main.dart</code></li>
   <li><code>example[/lib]/<em>package_name</em>.dart</code></li>
   <li><code>example[/lib]/<em>package_name</em>_example.dart</code></li>
   <li><code>example[/lib]/example.dart</code></li>
 </ul>
 
-<p>When you publish a package that contains one of the above files,
-the pub site creates an <strong>Example</strong> tab to display that file.
-For example, the json_serializable package contains a file named
-<code class="highlighter-rouge">example/example.dart</code>, which appears in the
-<a href="https://pub.dev/packages/json_serializable#pub-pkg-tab-example">json_serializable Example tab.</a></p>
+<p>When you publish a package that contains one or more of the above files,
+the Pub site creates an <strong>Example</strong> tab to display the first file it finds
+(searching in the order shown in the list above).
+For example, if your package has many files under its <code class="highlighter-rouge">example</code> directory,
+including a file named <code class="highlighter-rouge">README.md</code>,
+then your package’s Example tab displays the contents of <code class="highlighter-rouge">example/README.md</code>
+(parsed as <a href="http://daringfireball.net/projects/markdown/">Markdown.)</a></p>
 
 <h2 id="internal-tools-and-scripts">
 <a id="internal-tools-and-scripts" class="anchor" href="#internal-tools-and-scripts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Internal tools and scripts</h2>
@@ -1009,7 +1030,7 @@ If you have any of these, place them in a directory called <code class="highligh
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/27 20:31 PDT"
+               title="Site built on 2019/05/30 19:03 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>

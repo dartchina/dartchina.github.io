@@ -27,7 +27,7 @@
   <meta property="og:url" content="https://www.dartlang.org/tools/pub/pubspec.html" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" integrity="sha256-BpIIsuW7Gte7jAle0YIjbVILHBuILdco9exkucUKDgY=" crossorigin="anonymous" href="/assets/main-069208b2e5bb1ad7bb8c095ed182236d520b1c1b882dd728f5ec64b9c50a0e06.css">
+  <link rel="stylesheet" type="text/css" integrity="sha256-OYYqoMfowxw5dTtxCHxOHrDkykaDztc6SJ1qi+We+CM=" crossorigin="anonymous" href="/assets/main-39862aa0c7e8c31c39753b71087c4e1eb0e4ca4683ced73a489d6a8be59ef823.css">
   <script src="/assets/main-f7f2f2125f3c379daf0f5ca0ecf142cd2e10b030af396a510324fddb1682c5e2.js" integrity="sha256-9/LyEl88N52vD1yg7PFCzS4QsDCvOWpRAyT92xaCxeI=" crossorigin="anonymous" type="text/javascript"></script>
   <script>
 
@@ -125,8 +125,20 @@ ga('send', 'pageview');
         <li class="nav-item">
     <a class="nav-link" href="/samples">示例程序</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/codelabs">Codelab</a>
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-1-2"
+      href="#sidenav-1-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-1-2"
+    >Codelab
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-1-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/codelabs">综述</a>
   </li><li class="nav-item">
+    <a class="nav-link" href="/codelabs/dart-cheatsheet">Cheatsheet Codelab</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
     <a class="nav-link" href="/tutorials">教程</a>
   </li>
 </ul>
@@ -516,7 +528,7 @@ ga('send', 'pageview');
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#name">Name</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#version">Version</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#description">Description</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#authorauthors">Author/Authors</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#authorauthors">Author/authors</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#homepage">Homepage</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#repository">Repository</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#issue-tracker">Issue tracker</a></li>
@@ -579,7 +591,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 <li class="toc-entry toc-h3"><a href="#name">Name</a></li>
 <li class="toc-entry toc-h3"><a href="#version">Version</a></li>
 <li class="toc-entry toc-h3"><a href="#description">Description</a></li>
-<li class="toc-entry toc-h3"><a href="#authorauthors">Author/Authors</a></li>
+<li class="toc-entry toc-h3"><a href="#authorauthors">Author/authors</a></li>
 <li class="toc-entry toc-h3"><a href="#homepage">Homepage</a></li>
 <li class="toc-entry toc-h3"><a href="#repository">Repository</a></li>
 <li class="toc-entry toc-h3"><a href="#issue-tracker">Issue tracker</a></li>
@@ -616,7 +628,7 @@ a file named <code class="highlighter-rouge">pubspec.yaml</code> that’s writte
 <a href="#version"><em>Learn more.</em></a>
 </dd>
   <dt><code class="highlighter-rouge">description</code></dt>
-  <dd>Required for packages that are hosted on the <a href="https://pub.dev">Pub site</a>.
+  <dd>Required for packages that are hosted on the <a href="https://pub.dev">Pub site.</a>
 <a href="#description"><em>Learn more.</em></a>
 </dd>
   <dt>
@@ -638,7 +650,7 @@ a file named <code class="highlighter-rouge">pubspec.yaml</code> that’s writte
 <a href="#issue-tracker"><em>Learn more.</em></a>
 </dd>
   <dt><code class="highlighter-rouge">documentation</code></dt>
-  <dd>Optional. Can be used to automatically create documentation.
+  <dd>Optional. URL pointing to documentation for the package.
 <a href="#documentation"><em>Learn more.</em></a>
 </dd>
   <dt><code class="highlighter-rouge">dependencies</code></dt>
@@ -667,13 +679,18 @@ a file named <code class="highlighter-rouge">pubspec.yaml</code> that’s writte
 </dd>
 </dl>
 
-<p>Pub ignores all other fields.</p>
+<p>Pub ignores all other fields,</p>
 
 <aside class="alert alert-info">
   <p><strong>Flutter note:</strong> Pubspecs for <a href="https://flutterchina.club">Flutter apps</a> can have
 <a href="https://flutterchina.club/assets-and-images">a few additional fields</a>
 for managing assets.</p>
 </aside>
+
+<p>If you add a custom field, give it a unique name
+that won’t clash with future pubspec fields.
+For example, instead of adding <code class="highlighter-rouge">bugs</code>,
+you might add a field named <code class="highlighter-rouge">my_pkg_bugs</code>.</p>
 
 <h2 id="example">
 <a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
@@ -735,28 +752,27 @@ optionally have a build (<code class="highlighter-rouge">+hotfix.oopsie</code>) 
 Once that’s been done, consider it hermetically sealed: you can’t touch it
 anymore. To make more changes, you’ll need a new version.</p>
 
-<p>When you select a version, follow <a href="http://semver.org/spec/v2.0.0-rc.1.html">semantic versioning</a>.</p>
+<p>When you select a version, follow <a href="http://semver.org/spec/v2.0.0-rc.1.html">semantic versioning.</a></p>
 
 <h3 id="description">
 <a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h3>
 
 <p>This is optional for your own personal packages, but if you intend to
-publish your package you must provide a description. This should
-be relatively short—a few sentences, maybe a whole paragraph—and
-tells a casual reader what they might want to know about your package.</p>
+publish your package you must provide a description, which should be in English.
+The description should be relatively short—60 to 180 characters—and
+tell a casual reader what they might want to know about your package.</p>
 
 <p>Think of the description as the sales pitch for your package. Users see it
-when they <a href="https://pub.dev/packages">browse for packages</a>.
-It should be simple plain text: no markdown or HTML.
-That’s what your README is for.</p>
+when they <a href="https://pub.dev/packages">browse for packages.</a>
+The description is plain text: no markdown or HTML.</p>
 
 <h3 id="authorauthors">
-<a id="authorauthors" class="anchor" href="#authorauthors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Author/Authors</h3>
+<a id="authorauthors" class="anchor" href="#authorauthors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Author/authors</h3>
 
 <p>You’re encouraged to use these fields to describe the author(s) of your package
-and provide contact information. <code class="highlighter-rouge">author</code> should be used if your package has a
-single author, while <code class="highlighter-rouge">authors</code> should be used with a YAML list if more than one
-person wrote the package. Each author can either be a single name
+and provide contact information. Use <code class="highlighter-rouge">author</code> if your package has a
+single author, or use <code class="highlighter-rouge">authors</code> with a YAML list if more than one
+person wrote the package. Each author can be either a single name
 (<code class="highlighter-rouge">Natalie Weizenbaum</code>) or a name and an email address
 (<code class="highlighter-rouge">Natalie Weizenbaum &lt;nweiz@google.com&gt;</code>). For example:</p>
 
@@ -799,13 +815,10 @@ default issue tracker (<code class="highlighter-rouge">https://github.com/&lt;us
 <h3 id="documentation">
 <a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h3>
 
-<p>Some packages may have a site that hosts documentation separate from the main
-homepage. If your package has that, you can also add a <code class="highlighter-rouge">documentation:</code> field
-with that URL. If provided, a link to it is shown on your package’s page.</p>
-
-<p>If you specify the <code class="highlighter-rouge">documentation:</code> field with a blank value,
-documentation is created automatically for you, and is linked to from the
-<a href="https://pub.dev">Pub site</a>.</p>
+<p>Some packages have a site that hosts documentation, separate from the main
+homepage and from the Pub-generated API reference.
+If your package has additional documentation, add a <code class="highlighter-rouge">documentation:</code> field
+with that URL; pub shows a link to this documentation on your package’s page.</p>
 
 <h3 id="dependencies">
 <a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h3>
@@ -821,7 +834,7 @@ the package itself are listed under <code class="highlighter-rouge">dev_dependen
 <p>During the development process, you might need to temporarily override
 a dependency.  You can do so using <code class="highlighter-rouge">dependency_overrides</code>.</p>
 
-<p>For more information, see <a href="/tools/pub/dependencies">Pub Dependencies</a>.</p>
+<p>For more information, see <a href="/tools/pub/dependencies">Package dependencies</a>.</p>
 
 <h3 id="executables">
 <a id="executables" class="anchor" href="#executables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Executables</h3>
@@ -850,7 +863,7 @@ If you don’t specify the value, it is inferred from the key.</p>
 <h3 id="publish_to">
 <a id="publish_to" class="anchor" href="#publish_to" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publish_to</h3>
 
-<p>The default uses the <a href="https://pub.dev">Pub site</a>. Specify <code class="highlighter-rouge">none</code> to prevent
+<p>The default uses the <a href="https://pub.dev">Pub site.</a> Specify <code class="highlighter-rouge">none</code> to prevent
 a package from being published. This setting can be used to specify a
 <a href="https://github.com/dart-lang/pub-dartlang-dart/">custom pub package server</a>
 to publish.</p>
@@ -931,7 +944,7 @@ accidentally install packages that need Flutter.</p>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/27 20:31 PDT"
+               title="Site built on 2019/05/30 19:03 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>

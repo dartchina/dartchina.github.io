@@ -27,7 +27,7 @@
   <meta property="og:url" content="https://www.dartlang.org/search-all.html" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" integrity="sha256-BpIIsuW7Gte7jAle0YIjbVILHBuILdco9exkucUKDgY=" crossorigin="anonymous" href="/assets/main-069208b2e5bb1ad7bb8c095ed182236d520b1c1b882dd728f5ec64b9c50a0e06.css">
+  <link rel="stylesheet" type="text/css" integrity="sha256-OYYqoMfowxw5dTtxCHxOHrDkykaDztc6SJ1qi+We+CM=" crossorigin="anonymous" href="/assets/main-39862aa0c7e8c31c39753b71087c4e1eb0e4ca4683ced73a489d6a8be59ef823.css">
   <script src="/assets/main-f7f2f2125f3c379daf0f5ca0ecf142cd2e10b030af396a510324fddb1682c5e2.js" integrity="sha256-9/LyEl88N52vD1yg7PFCzS4QsDCvOWpRAyT92xaCxeI=" crossorigin="anonymous" type="text/javascript"></script>
   <script>
 
@@ -125,8 +125,20 @@ ga('send', 'pageview');
         <li class="nav-item">
     <a class="nav-link" href="/samples">示例程序</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/codelabs">Codelab</a>
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-1-2"
+      href="#sidenav-1-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-1-2"
+    >Codelab
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-1-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/codelabs">综述</a>
   </li><li class="nav-item">
+    <a class="nav-link" href="/codelabs/dart-cheatsheet">Cheatsheet Codelab</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
     <a class="nav-link" href="/tutorials">教程</a>
   </li>
 </ul>
@@ -571,7 +583,7 @@ Want only results from dart.dev? <a href="search.html">Search dart.dev.</a>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/27 20:31 PDT"
+               title="Site built on 2019/05/30 19:03 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>

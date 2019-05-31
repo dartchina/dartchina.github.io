@@ -27,7 +27,7 @@
   <meta property="og:url" content="https://www.dartlang.org/codelabs/dart-cheatsheet/" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" integrity="sha256-BpIIsuW7Gte7jAle0YIjbVILHBuILdco9exkucUKDgY=" crossorigin="anonymous" href="/assets/main-069208b2e5bb1ad7bb8c095ed182236d520b1c1b882dd728f5ec64b9c50a0e06.css">
+  <link rel="stylesheet" type="text/css" integrity="sha256-OYYqoMfowxw5dTtxCHxOHrDkykaDztc6SJ1qi+We+CM=" crossorigin="anonymous" href="/assets/main-39862aa0c7e8c31c39753b71087c4e1eb0e4ca4683ced73a489d6a8be59ef823.css">
   <script src="/assets/main-f7f2f2125f3c379daf0f5ca0ecf142cd2e10b030af396a510324fddb1682c5e2.js" integrity="sha256-9/LyEl88N52vD1yg7PFCzS4QsDCvOWpRAyT92xaCxeI=" crossorigin="anonymous" type="text/javascript"></script>
   <script>
 
@@ -125,8 +125,20 @@ ga('send', 'pageview');
         <li class="nav-item">
     <a class="nav-link" href="/samples">示例程序</a>
   </li><li class="nav-item">
-    <a class="nav-link active" href="/codelabs">Codelab</a>
+    <a class="nav-link active collapsable"
+      data-toggle="collapse" data-target="#sidenav-1-2"
+      href="#sidenav-1-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-1-2"
+    >Codelab
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-1-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/codelabs">综述</a>
   </li><li class="nav-item">
+    <a class="nav-link active" href="/codelabs/dart-cheatsheet">Cheatsheet Codelab</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
     <a class="nav-link" href="/tutorials">教程</a>
   </li>
 </ul>
@@ -589,6 +601,7 @@ ga('send', 'pageview');
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-15">Code example</a></li>
 </ul>
 </li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#what-next">What next?</a></li>
 </ul>
 </div>
 
@@ -714,6 +727,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 <li class="toc-entry toc-h3"><a href="#code-example-15">Code example</a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#what-next">What next?</a></li>
 </ul>
 </div>
 
@@ -730,51 +744,73 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   }
 </style>
 
-<aside class="alert alert-warning">
-This codelab is being used to test out some new features of DartPad! You may encounter bugs,
-malapropisms, annoyances, and other general weirdness. If that happens, please take a moment to
-<a target="_BLANK" href="https://github.com/dart-lang/dart-pad/issues/new">fill out a bug report on GitHub</a>
-and let us know. Feature requests and suggestions are also greatly appreciated.
-</aside>
+<p>The Dart language is designed to be easy to learn for
+coders coming from other languages,
+but it has a few unique features.
+This codelab — which is based on a 
+<a href="/guides/language/cheatsheet">Dart language cheatsheet</a>
+written by and for Google engineers —
+walks you through the most important of these language features.</p>
 
-<p>Dart is designed to be easy to learn for coders coming from other languages,
-but it also has a few unique features.
-This codelab will walk you through the most important ones,
-and can be a handy place to return for a refresher as you grow your Dart skills.</p>
-
-<p>In addition to explanations and examples,
-the codelab includes embedded editors with partially completed code snippets.
+<p>The embedded editors in this codelab have partially completed code snippets.
 You can use these editors to test your knowledge by completing the code and
-clicking the <strong>Run</strong> button.</p>
+clicking the <strong>Run</strong> button.
+If you need help, click the <strong>Hint</strong> button.
+To run the code formatter (<a href="/tools/dartfmt">dartfmt</a>), click <strong>Format</strong>.
+The <strong>Reset</strong> button erases your work and
+restores the editor to its original state.</p>
+
+<aside class="alert alert-warning">
+The embedded editors use an experimental version of DartPad.
+If you find a DartPad bug or have suggestions for DartPad, please
+<a target="_BLANK" href="https://github.com/dart-lang/dart-pad/issues/new">create a DartPad issue.</a>
+If you have suggestions for the text or examples in this codelab,
+you can create a site issue by clicking the bug icon
+at the top right of this page.
+</aside>
 
 <h2 id="string-interpolation">
 <a id="string-interpolation" class="anchor" href="#string-interpolation" aria-hidden="true"><span class="octicon octicon-link"></span></a>String interpolation</h2>
 
-<p>Dart offers string interpolation to simplify formatting variables and expressions
-as strings. You can put the value of an expression inside a string by using
-<code class="highlighter-rouge">${expression}</code>. If the expression is an identifier, you can
-skip the <code class="highlighter-rouge">{}</code>.</p>
+<p>To put the value of an expression inside a string, use <code class="highlighter-rouge">${expression}</code>.
+If the expression is an identifier, you can omit the <code class="highlighter-rouge">{}</code>.</p>
 
-<p>Some examples:</p>
+<p>Here are some examples of using string interpolation:</p>
 
-<ul>
-  <li>
-<code class="highlighter-rouge">'${3 + 2}'</code> becomes <code class="highlighter-rouge">'5'</code>
-</li>
-  <li>
-<code class="highlighter-rouge">'${"word".toUpperCase()}'</code> becomes <code class="highlighter-rouge">'WORD'</code>
-</li>
-  <li>
-<code class="highlighter-rouge">'$myObject'</code> becomes the value of <code class="highlighter-rouge">myObject.toString()</code>
-</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>String</th>
+      <th> </th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">'${3 + 2}'</code></td>
+      <td> </td>
+      <td><code class="highlighter-rouge">'5'</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">'${"word".toUpperCase()}'</code></td>
+      <td> </td>
+      <td><code class="highlighter-rouge">'WORD'</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">'$myObject'</code></td>
+      <td> </td>
+      <td>The value of <code class="highlighter-rouge">myObject.toString()</code>
+</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="code-example">
 <a id="code-example" class="anchor" href="#code-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>The following function takes two integers as parameters. Add code to make it return
-a string containing both numbers separated by a space (e.g.
-<code class="highlighter-rouge">2</code> and <code class="highlighter-rouge">3</code> become <code class="highlighter-rouge">'2 3'</code>).</p>
+<p>The following function takes two integers as parameters.
+Make it return a string containing both integers separated by a space.
+For example, <code class="highlighter-rouge">stringify(2, 3)</code> should return <code class="highlighter-rouge">'2 3'</code>.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=43f3db47b0632c557200270807696687"></iframe>
 
@@ -785,36 +821,36 @@ a string containing both numbers separated by a space (e.g.
 <code class="highlighter-rouge">??=</code> assignment operator, which assigns a value to a variable only if that
 variable is currently null:</p>
 
-<pre class="prettyprint lang-dart">int a = null;
+<pre class="prettyprint lang-dart">int a; // The initial value of any object is null.
 a ??= 3;
-print(a); // &lt;-- Prints 3;
+print(a); // &lt;-- Prints 3.
 
 a ??= 5;
-print(a); // &lt;-- Still prints 3;</pre>
+print(a); // &lt;-- Still prints 3.</pre>
 
-<p>There’s also the <code class="highlighter-rouge">??</code> operator, which returns the expression on its left unless
-its value is null, in which case it evaluates and returns the expression on its right:</p>
+<p>Another null-aware operator is <code class="highlighter-rouge">??</code>,
+which returns the expression on its left unless that expression’s value is null,
+in which case it evaluates and returns the expression on its right:</p>
 
-<pre class="prettyprint lang-dart">print(1 ?? 3); // &lt;-- Prints 1;
+<pre class="prettyprint lang-dart">print(1 ?? 3); // &lt;-- Prints 1.
 print(null ?? 12); // &lt;-- Prints 12.</pre>
 
 <h3 id="code-example-1">
 <a id="code-example-1" class="anchor" href="#code-example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>Try putting the <code class="highlighter-rouge">??=</code> and <code class="highlighter-rouge">??</code>
-operators to work below:</p>
+<p>Try putting the <code class="highlighter-rouge">??=</code> and <code class="highlighter-rouge">??</code> operators to work below.</p>
 
-<iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=f8ab52228b9c03aee9504dbdc15d797d"></iframe>
+<iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=ee3d441f60acc95a07d73762a61b3b98"></iframe>
 
 <h2 id="conditional-property-access">
 <a id="conditional-property-access" class="anchor" href="#conditional-property-access" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conditional property access</h2>
 
-<p>To access a property or method on a reference that might be null, you can use
-<code class="highlighter-rouge">?.</code> to guard the call:</p>
+<p>To guard access to a property or method of an object that might be null,
+put a question mark (<code class="highlighter-rouge">?</code>) before the dot (<code class="highlighter-rouge">.</code>):</p>
 
 <pre class="prettyprint lang-dart">myObject?.someProperty</pre>
 
-<p>The above code is equivalent to:</p>
+<p>The preceding code is equivalent to the following:</p>
 
 <pre class="prettyprint lang-dart">(myObject != null) ? myObject.someProperty : null</pre>
 
@@ -822,21 +858,22 @@ operators to work below:</p>
 
 <pre class="prettyprint lang-dart">myObject?.someProperty?.someMethod()</pre>
 
-<p>The above code returns null (and never calls <code class="highlighter-rouge">someMethod</code>) if either
+<p>The preceding code returns null (and never calls <code class="highlighter-rouge">someMethod</code>) if either
 <code class="highlighter-rouge">myObject</code> or <code class="highlighter-rouge">myObject.someProperty</code> is
 null.</p>
 
 <h3 id="code-example-2">
 <a id="code-example-2" class="anchor" href="#code-example-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>Try using conditional property access to finish the code snippet below:</p>
+<p>Try using conditional property access to finish the code snippet below.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=58f14a3d943be6231ae611036fcfc80d"></iframe>
 
 <h2 id="collection-literals">
 <a id="collection-literals" class="anchor" href="#collection-literals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Collection literals</h2>
 
-<p>Dart has built-in support for lists, maps, and sets. You can create them using literals:</p>
+<p>Dart has built-in support for lists, maps, and sets.
+You can create them using literals:</p>
 
 <pre class="prettyprint lang-dart">final aListOfStrings = ['one', 'two', 'three'];
 final aSetOfStrings = {'one', 'two', 'three'};
@@ -846,33 +883,33 @@ final aMapOfStringsToInts = {
   'three': 3,
 };</pre>
 
-<p>Dart’s type inference is capable of assigning types to these variables for you. In this case, the
-inferred types are <code class="highlighter-rouge">List&lt;String&gt;</code>,
+<p>Dart’s type inference can assign types to these variables for you.
+In this case, the inferred types are <code class="highlighter-rouge">List&lt;String&gt;</code>,
 <code class="highlighter-rouge">Set&lt;String&gt;</code>, and <code class="highlighter-rouge">Map&lt;String, int&gt;</code>.</p>
 
-<p>You can also specify the type for a collection literal:</p>
+<p>Or you can specify the type yourself:</p>
 
 <pre class="prettyprint lang-dart">final aListOfInts = &lt;int&gt;[];
 final aSetOfInts = &lt;int&gt;{};
 final aMapOfIntToDouble = &lt;int, double&gt;{};</pre>
 
-<p>Specifying types is handy if you initialize a list with contents of a subtype, but still want the list
-itself to be <code class="highlighter-rouge">List&lt;BaseType&gt;</code>:</p>
+<p>Specifying types is handy when you initialize a list with contents of a subtype,
+but still want the list to be <code class="highlighter-rouge">List&lt;BaseType&gt;</code>:</p>
 
 <pre class="prettyprint lang-dart">final aListOfBaseType = &lt;BaseType&gt;[SubType(), SubType()];</pre>
 
 <h3 id="code-example-3">
 <a id="code-example-3" class="anchor" href="#code-example-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>Try setting the following variables to the indicated values:</p>
+<p>Try setting the following variables to the indicated values.</p>
 
-<iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=f0d6e5f14e4606befa388f52eebc2647"></iframe>
+<iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=8ba5e98559ff2a2e92e58ac5a28f1cff"></iframe>
 
 <h2 id="arrow-syntax">
 <a id="arrow-syntax" class="anchor" href="#arrow-syntax" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arrow syntax</h2>
 
-<p>In the previous examples, you may have noticed an operator that looks like <code class="highlighter-rouge">=&gt;</code>.
-Dart’s docs refer to it as “arrow syntax,” and it’s a way to define a function that executes the
+<p>You might have seen the <code class="highlighter-rouge">=&gt;</code> symbol in Dart code.
+This arrow syntax is a way to define a function that executes the
 expression to its right and returns its value.</p>
 
 <p>For example, consider this call to the <code class="highlighter-rouge">List</code> class’s
@@ -889,14 +926,14 @@ expression to its right and returns its value.</p>
 <h3 id="code-example-4">
 <a id="code-example-4" class="anchor" href="#code-example-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>Try finishing these statements that use arrow syntax:</p>
+<p>Try finishing the following statements, which use arrow syntax.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=7c287c55dcc7f414a5dfa5837e3450e3"></iframe>
 
 <h2 id="cascades">
 <a id="cascades" class="anchor" href="#cascades" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cascades</h2>
 
-<p>Cascades (<code class="highlighter-rouge">..</code>) allow you to make a sequence of operations on the same object.
+<p>To perform a sequence of operations on the same object, use cascades (<code class="highlighter-rouge">..</code>).
 We’ve all seen an expression like this:</p>
 
 <pre class="prettyprint lang-dart">myObject.someMethod()</pre>
@@ -904,22 +941,23 @@ We’ve all seen an expression like this:</p>
 <p>It invokes <code class="highlighter-rouge">someMethod</code> on <code class="highlighter-rouge">myObject</code>, and the result of
 the expression is the return value of <code class="highlighter-rouge">someMethod</code>.</p>
 
-<p>The same expression with a cascade, however:</p>
+<p>Here’s the same expression with a cascade:</p>
 
 <pre class="prettyprint lang-dart">myObject..someMethod()</pre>
 
-<p>Still invokes <code class="highlighter-rouge">someMethod</code> on <code class="highlighter-rouge">myObject</code>, but the result
-of the expression isn’t the return value – it’s a reference to <code class="highlighter-rouge">myObject</code>! This
-way, you can chain together operations that would otherwise require separate statements. For example,
-consider this code:</p>
+<p>Although it still invokes <code class="highlighter-rouge">someMethod</code> on <code class="highlighter-rouge">myObject</code>, the result
+of the expression <strong>isn’t</strong> the return value — it’s a reference to <code class="highlighter-rouge">myObject</code>!
+Using cascades, you can chain together operations that
+would otherwise require separate statements.
+For example, consider this code:</p>
 
 <pre class="prettyprint lang-dart">var button = querySelector('#confirm');
 button.text = 'Confirm';
 button.classes.add('important');
 button.onClick.listen((e) =&gt; window.alert('Confirmed!'));</pre>
 
-<p>With cascades, the code becomes much shorter, and you don’t need the <code class="highlighter-rouge">button</code>
-variable:</p>
+<p>With cascades, the code becomes much shorter,
+and you don’t need the <code class="highlighter-rouge">button</code> variable:</p>
 
 <pre class="prettyprint lang-dart">querySelector('#confirm')
 ..text = 'Confirm'
@@ -929,40 +967,44 @@ variable:</p>
 <h3 id="code-example-5">
 <a id="code-example-5" class="anchor" href="#code-example-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>Use cascades to create a single statement that sets a <code class="highlighter-rouge">BigObject</code>’s
-<code class="highlighter-rouge">anInt</code>, <code class="highlighter-rouge">aString</code>, and <code class="highlighter-rouge">aList</code>
-properties to <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">'String!'</code>, and
-<code class="highlighter-rouge">[3.0]</code>, respectively, and then calls <code class="highlighter-rouge">allDone</code>:</p>
+<p>Use cascades to create a single statement that
+sets the <code class="highlighter-rouge">anInt</code>, <code class="highlighter-rouge">aString</code>, and <code class="highlighter-rouge">aList</code> properties of a <code class="highlighter-rouge">BigObject</code>
+to <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">'String!'</code>, and <code class="highlighter-rouge">[3.0]</code> (respectively)
+and then calls <code class="highlighter-rouge">allDone()</code>.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=72bde0b4d5c8c6046b4853a3b4053c3a"></iframe>
 
 <h2 id="getters-and-setters">
 <a id="getters-and-setters" class="anchor" href="#getters-and-setters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getters and setters</h2>
 
-<p>Dart supports getters and setters for properties via the <code class="highlighter-rouge">get</code> and <code class="highlighter-rouge">set</code> keywords.
-You can use getters and setters to guard access of a private variable:</p>
+<p>You can define getters and setters
+whenever you need more control over a property
+than a simple field allows.</p>
+
+<p>For example, you can make sure a property’s value is valid:</p>
 
 <pre class="prettyprint lang-dart">class MyClass {
-  int _privateField = 0;
+  int _aProperty = 0;
 
-  int get privateField =&gt; _privateField;
+  int get aProperty =&gt; _aProperty;
 
-  set privateField(int value) {
+  set aProperty(int value) {
     if (value &gt;= 0) {
-      _privateField = value;
+      _aProperty = value;
     }
   }
 }</pre>
 
-<p>You can also define getters for computed properties like this one:</p>
+<p>You can also use a getter to define a computed property:</p>
 
 <pre class="prettyprint lang-dart">class MyClass {
-  List&lt;div&gt; _values = [];
+  List&lt;int&gt; _values = [];
 
   void addValue(int value) {
     _values.add(value);
   }
 
+  // A computed property.
   int get count {
     return _values.length;
   }
@@ -1010,8 +1052,9 @@ int total = sumUp(1, 2, 3);</pre>
 int total = sumUptoFive(1, 2);
 int otherTotal = sumUpToFive(1, 2, 3, 4, 5);</pre>
 
-<p>Optional positional parameters should always be placed last in a function’s parameter list. They default
-to null, but you can provide default values if desired:</p>
+<p>Optional positional parameters are always last
+in a function’s parameter list.
+Their default value is null unless you provide another default value:</p>
 
 <pre class="prettyprint lang-dart">int sumUpToFive(int a, [int b = 2, int c = 3, int d = 4, int e = 5]) {
   ...
@@ -1023,26 +1066,46 @@ print(newTotal); // &lt;-- prints 15</pre>
 <h3 id="code-example-7">
 <a id="code-example-7" class="anchor" href="#code-example-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>Implement a function called <code class="highlighter-rouge">joinWithCommas</code> that accepts at least one and up to
-five integers, then returns a string of those numbers separated by commas:</p>
+<p>Implement a function called <code class="highlighter-rouge">joinWithCommas</code> that accepts one to
+five integers, then returns a string of those numbers separated by commas.
+Here are some examples of function calls and returned values:</p>
 
-<ul>
-  <li>
-<code class="highlighter-rouge">joinWithCommas(1)</code> should return <code class="highlighter-rouge">'1'</code>.</li>
-  <li>
-<code class="highlighter-rouge">joinWithCommas(1, 2, 3)</code> should return <code class="highlighter-rouge">'1,2,3'</code>.</li>
-  <li>
-<code class="highlighter-rouge">joinWithCommas(1, 1, 1, 1, 1)</code> should return <code class="highlighter-rouge">'1,1,1,1,1'</code>.</li>
-  <li>etc.</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Function call</th>
+      <th> </th>
+      <th>Returned value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">joinWithCommas(1)</code></td>
+      <td> </td>
+      <td><code class="highlighter-rouge">'1'</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">joinWithCommas(1, 2, 3)</code></td>
+      <td> </td>
+      <td><code class="highlighter-rouge">'1,2,3'</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">joinWithCommas(1, 1, 1, 1, 1)</code></td>
+      <td> </td>
+      <td><code class="highlighter-rouge">'1,1,1,1,1'</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br></p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=9e7d5b6b56319b7e3b12b791c0ae27c1"></iframe>
 
 <h2 id="optional-named-parameters">
 <a id="optional-named-parameters" class="anchor" href="#optional-named-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional named parameters</h2>
 
-<p>Dart also allows for optional parameters that are referenced by name when the function is invoked. These
-are defined using a brace syntax:</p>
+<p>Using a curly brace syntax,
+you can define optional parameters that have names.</p>
 
 <pre class="prettyprint lang-dart">void printName(String firstName, String lastName, {String suffix}) {
   print('$firstName $lastName ${suffix ?? ''}');
@@ -1051,14 +1114,14 @@ are defined using a brace syntax:</p>
 printName('Avinash', 'Gupta');
 printName('Poshmeister', 'Moneybuckets', suffix: 'IV');</pre>
 
-<p>Like optional positional parameters they default to null, but it’s possible to provide default values as
-well:</p>
+<p>As you might expect, the value of these parameters is null by default,
+but you can provide default values:</p>
 
 <pre class="prettyprint lang-dart">void printName(String firstName, String lastName, {String suffix = ''}) {
   print('$firstName $lastName ${suffix}');
 }</pre>
 
-<p>A function cannot have both optional positional and optional named parameters.</p>
+<p>A function can’t have both optional positional and optional named parameters.</p>
 
 <h3 id="code-example-8">
 <a id="code-example-8" class="anchor" href="#code-example-8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
@@ -1072,10 +1135,12 @@ class. It should take three named parameters:</p>
   <li><code class="highlighter-rouge">double newDouble</code></li>
 </ul>
 
-<p>When called, it should return a new <code class="highlighter-rouge">MyDataObject</code> based on the current
-instance, with data from the above parameters copied into the object’s properties (e.g. the value of
-<code class="highlighter-rouge">newInt</code> is copied into <code class="highlighter-rouge">anInt</code>). Any parameters that
-aren’t supplied (they’ll be null) should be ignored.</p>
+<p>When called, <code class="highlighter-rouge">copyWith</code> should return a new <code class="highlighter-rouge">MyDataObject</code>
+based on the current instance,
+with data from the preceding parameters (if any)
+copied into the object’s properties.
+For example, if <code class="highlighter-rouge">newInt</code> is non-null,
+then copy its value into <code class="highlighter-rouge">anInt</code>.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=1dd9cc9654f9e6d080f99bfb9772dae4"></iframe>
 
@@ -1083,7 +1148,7 @@ aren’t supplied (they’ll be null) should be ignored.</p>
 <a id="exceptions" class="anchor" href="#exceptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exceptions</h2>
 
 <p>Dart code can throw and catch exceptions. In contrast to Java, all of Dart’s exceptions are unchecked
-exceptions. Methods do not declare which exceptions they might throw, and you are not required to catch
+exceptions. Methods don’t declare which exceptions they might throw, and you aren’t required to catch
 any exceptions.</p>
 
 <p>Dart provides <code class="highlighter-rouge">Exception</code> and <code class="highlighter-rouge">Error</code> types, but you’re
@@ -1092,8 +1157,7 @@ allowed to throw any non-null object:</p>
 <pre class="prettyprint lang-dart">throw Exception('Something bad happened.');
 throw 'Waaaaaaah!';</pre>
 
-<p>There are three keywords to remember for handling exceptions: <code class="highlighter-rouge">try</code>,
-<code class="highlighter-rouge">on</code>, and <code class="highlighter-rouge">catch</code>:</p>
+<p>Use the <code class="highlighter-rouge">try</code>, <code class="highlighter-rouge">on</code>, and <code class="highlighter-rouge">catch</code> keywords when handling exceptions:</p>
 
 <pre class="prettyprint lang-dart">try {
   breedMoreLlamas();
@@ -1108,12 +1172,12 @@ throw 'Waaaaaaah!';</pre>
   print('Something really unknown: $e');
 }</pre>
 
-<p>The <code class="highlighter-rouge">try</code> keyword works as it does in most other languages. The
-<code class="highlighter-rouge">on</code> keyword is used to filter for specific exceptions by type, and the
-<code class="highlighter-rouge">catch</code> keyword is used to get a reference to the exception object. They can be
-used together or separately, as shown in the previous example.</p>
+<p>The <code class="highlighter-rouge">try</code> keyword works as it does in most other languages.
+Use the <code class="highlighter-rouge">on</code> keyword to filter for specific exceptions by type,
+and the <code class="highlighter-rouge">catch</code> keyword to get a reference to the exception object.</p>
 
-<p>Exceptions can be rethrown using the <code class="highlighter-rouge">rethrow</code> keyword:</p>
+<p>If you can’t completely handle the exception, use the <code class="highlighter-rouge">rethrow</code> keyword
+to propagate the exception:</p>
 
 <pre class="prettyprint lang-dart">try {
   breedMoreLlamas();
@@ -1122,8 +1186,8 @@ used together or separately, as shown in the previous example.</p>
   rethrow;
 }</pre>
 
-<p>And if you need to execute code whether or not an exception is thrown, you can do so with
-<code class="highlighter-rouge">finally</code>:</p>
+<p>To execute code whether or not an exception is thrown,
+use <code class="highlighter-rouge">finally</code>:</p>
 
 <pre class="prettyprint lang-dart">try {
   breedMoreLlamas();
@@ -1141,23 +1205,15 @@ used together or separately, as shown in the previous example.</p>
 then do the following:</p>
 
 <ul>
-  <li>
-    <p>If <code class="highlighter-rouge">untrustworthy</code> throws an <code class="highlighter-rouge">ExceptionWithMessage</code>,
-<code class="highlighter-rouge">logger.logException</code> should be called with the exception type and message
-(try using <code class="highlighter-rouge">on</code> and <code class="highlighter-rouge">catch</code>).</p>
-  </li>
-  <li>
-    <p>If <code class="highlighter-rouge">untrustworthy</code> throws an <code class="highlighter-rouge">Exception</code>,
-<code class="highlighter-rouge">logger.logException</code> should be called with the exception type (try using
-<code class="highlighter-rouge">on</code> for this one).</p>
-  </li>
-  <li>
-    <p>If <code class="highlighter-rouge">untrustworthy</code> throws any other object, it shouldn’t be caught.</p>
-  </li>
-  <li>
-    <p>After everything’s caught and handled, <code class="highlighter-rouge">logger.doneLogging</code> should be called
-(try using <code class="highlighter-rouge">finally</code>).</p>
-  </li>
+  <li>If <code class="highlighter-rouge">untrustworthy</code> throws an <code class="highlighter-rouge">ExceptionWithMessage</code>,
+call <code class="highlighter-rouge">logger.logException</code> with the exception type and message
+(try using <code class="highlighter-rouge">on</code> and <code class="highlighter-rouge">catch</code>).</li>
+  <li>If <code class="highlighter-rouge">untrustworthy</code> throws an <code class="highlighter-rouge">Exception</code>,
+call <code class="highlighter-rouge">logger.logException</code> with the exception type
+(try using <code class="highlighter-rouge">on</code> for this one).</li>
+  <li>If <code class="highlighter-rouge">untrustworthy</code> throws any other object, don’t catch the exception.</li>
+  <li>After everything’s caught and handled, call <code class="highlighter-rouge">logger.doneLogging</code>
+(try using <code class="highlighter-rouge">finally</code>).</li>
 </ul>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=e221e3fd667825e62aac79079b8b5c59"></iframe>
@@ -1165,8 +1221,9 @@ then do the following:</p>
 <h2 id="using-this-in-a-constructor">
 <a id="using-this-in-a-constructor" class="anchor" href="#using-this-in-a-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using <code class="highlighter-rouge">this</code> in a constructor</h2>
 
-<p>Dart provides a handy shortcut for assigning values to properties in a constructor. Simply use
-<code class="highlighter-rouge">this.propertyName</code> when declaring the constructor:</p>
+<p>Dart provides a handy shortcut for assigning
+values to properties in a constructor:
+use <code class="highlighter-rouge">this.propertyName</code> when declaring the constructor:</p>
 
 <pre class="prettyprint lang-dart">class MyColor {
   int red;
@@ -1178,7 +1235,8 @@ then do the following:</p>
 
 final color = MyColor(80, 80, 128);</pre>
 
-<p>This works for named parameters as well. Property names become the names of the parameters:</p>
+<p>This technique works for named parameters, too.
+Property names become the names of the parameters:</p>
 
 <pre class="prettyprint lang-dart">class MyColor {
   ...
@@ -1188,7 +1246,7 @@ final color = MyColor(80, 80, 128);</pre>
 
 final color = MyColor(red: 80, green: 80, blue: 80);</pre>
 
-<p>Default values work as expected for both parameter types:</p>
+<p>For optional parameters, default values work as expected:</p>
 
 <pre class="prettyprint lang-dart">MyColor([this.red = 0, this.green = 0, this.blue = 0]);
 // or
@@ -1197,27 +1255,30 @@ MyColor({this.red = 0, this.green = 0, this.blue = 0});</pre>
 <h3 id="code-example-10">
 <a id="code-example-10" class="anchor" href="#code-example-10" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>Add a one-line constructor to <code class="highlighter-rouge">MyClass</code> that will use
-<code class="highlighter-rouge">this.</code> syntax to receive and assign values for all three of the class’s
-properties:</p>
+<p>Add a one-line constructor to <code class="highlighter-rouge">MyClass</code> that uses
+<code class="highlighter-rouge">this.</code> syntax to receive and assign values for
+all three properties of the class.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=2778e81ae2c5729d45c611829f3888c2"></iframe>
 
 <h2 id="initializer-lists">
 <a id="initializer-lists" class="anchor" href="#initializer-lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initializer lists</h2>
 
-<p>In between a constructor’s signature and its body, you can place an initializer list:</p>
+<p>Sometimes when you implement a constructor,
+you need to do some setup before the constructor body executes.
+For example, final fields must have values
+before the constructor body executes.
+Do this work in an initializer list,
+which goes between the constructor’s signature and its body:</p>
 
-<pre class="prettyprint lang-dart">// Initializer list sets instance variables before
-// the constructor body runs.
-Point.fromJson(Map&lt;String, num&gt; json)
+<pre class="prettyprint lang-dart">Point.fromJson(Map&lt;String, num&gt; json)
     : x = json['x'],
       y = json['y'] {
   print('In Point.fromJson(): ($x, $y)');
 }</pre>
 
-<p>This is a good place to initialize final fields, and it’s executed before the constructor body. In
-addition, the initializer list is a handy place to put asserts for running in debug mode:</p>
+<p>The initializer list is also a handy place to put asserts,
+which run only during development:</p>
 
 <pre class="prettyprint lang-dart">NonNegativePoint(this.x, this.y)
     : assert(x &gt;= 0),
@@ -1228,20 +1289,18 @@ addition, the initializer list is a handy place to put asserts for running in de
 <h3 id="code-example-11">
 <a id="code-example-11" class="anchor" href="#code-example-11" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>Complete the <code class="highlighter-rouge">FirstTwoLetters</code> constructor below. It should use an initializer
-list to assign the first two characters in <code class="highlighter-rouge">word</code> to the
-<code class="highlighter-rouge">letterOne</code> and <code class="highlighter-rouge">LetterTwo</code> properties. You can also
-throw in an <code class="highlighter-rouge">assert</code> to catch words less than two characters in length for extra
-credit!</p>
+<p>Complete the <code class="highlighter-rouge">FirstTwoLetters</code> constructor below.
+Use an initializer list to assign the first two characters in <code class="highlighter-rouge">word</code> to
+the <code class="highlighter-rouge">letterOne</code> and <code class="highlighter-rouge">LetterTwo</code> properties.
+For extra credit, add an <code class="highlighter-rouge">assert</code> to catch words of less than two characters.</p>
 
-<iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=4bf47cf7e11bc5902e605a3efc3183ec"></iframe>
+<iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=df45dfc1af2e6af712930c331115eb78"></iframe>
 
 <h2 id="named-constructors">
 <a id="named-constructors" class="anchor" href="#named-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Named constructors</h2>
 
-<p>Much like JavaScript, Dart does not support method overloads (two methods with the same name but
-different signatures). To allow for classes with multiple constructors, Dart supports named
-constructors:</p>
+<p>To allow classes to have multiple constructors,
+Dart supports named constructors:</p>
 
 <pre class="prettyprint lang-dart">class Point {
   num x, y;
@@ -1254,23 +1313,24 @@ constructors:</p>
   }
 }</pre>
 
-<p>These are invoked using their full name:</p>
+<p>To use a named constructor, invoke it using its full name:</p>
 
 <pre class="prettyprint lang-dart">final myPoint = Point.origin();</pre>
 
 <h3 id="code-example-12">
 <a id="code-example-12" class="anchor" href="#code-example-12" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>Try giving this class a named constructor called <code class="highlighter-rouge">black</code> that sets all three
-properties to zero.</p>
+<p>Give the Color class a constructor named <code class="highlighter-rouge">Color.black</code>
+that sets all three properties to zero.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=e1a82c77547e659eb24f4e698abf1eca"></iframe>
 
 <h2 id="factory-constructors">
 <a id="factory-constructors" class="anchor" href="#factory-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Factory constructors</h2>
 
-<p>Dart also supports factory constructors, which are named constructors that can return subtypes or even
-null. To create one, use the <code class="highlighter-rouge">factory</code> keyword:</p>
+<p>Dart supports factory constructors,
+which can return subtypes or even null.
+To create a factory constructor, use the <code class="highlighter-rouge">factory</code> keyword:</p>
 
 <pre class="prettyprint lang-dart">class Square extends Shape {}
 
@@ -1291,13 +1351,16 @@ class Shape {
 <h3 id="code-example-13">
 <a id="code-example-13" class="anchor" href="#code-example-13" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>Fill in the factory constructor for <code class="highlighter-rouge">IntegerHolder</code> below. It should do the
-following:</p>
+<p>Fill in the factory constructor named <code class="highlighter-rouge">IntegerHolder.fromList</code>,
+making it do the following:</p>
 
 <ul>
-  <li>If there’s one value in the list, create an <code class="highlighter-rouge">IntegerSingle</code> with that value.</li>
-  <li>If there are two values, create an <code class="highlighter-rouge">IntegerDouble</code> with the values in order.</li>
-  <li>If there are three values, create an <code class="highlighter-rouge">IntegerTriple</code> with values in order.</li>
+  <li>If the list has <strong>one</strong> value,
+create an <code class="highlighter-rouge">IntegerSingle</code> with that value.</li>
+  <li>If the list has <strong>two</strong> values,
+create an <code class="highlighter-rouge">IntegerDouble</code> with the values in order.</li>
+  <li>If the list has <strong>three</strong> values,
+create an <code class="highlighter-rouge">IntegerTriple</code> with the values in order.</li>
   <li>Otherwise, return null.</li>
 </ul>
 
@@ -1306,8 +1369,10 @@ following:</p>
 <h2 id="redirecting-constructors">
 <a id="redirecting-constructors" class="anchor" href="#redirecting-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Redirecting constructors</h2>
 
-<p>Sometimes a constructor’s only purpose is to redirect to another constructor in the same class. A
-redirecting constructor’s body is empty, with the constructor call appearing after a colon (:).</p>
+<p>Sometimes a constructor’s only purpose is to redirect to
+another constructor in the same class.
+A redirecting constructor’s body is empty,
+with the constructor call appearing after a colon (<code class="highlighter-rouge">:</code>).</p>
 
 <pre class="prettyprint lang-dart">class Automobile {
   String make;
@@ -1353,19 +1418,35 @@ are final.</p>
 <h3 id="code-example-15">
 <a id="code-example-15" class="anchor" href="#code-example-15" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>Create a constant constructor for the <code class="highlighter-rouge">Recipe</code> class below. It should do the
-following:</p>
+<p>Modify the <code class="highlighter-rouge">Recipe</code> class so its instances can be constants,
+and create a constant constructor that does the following:</p>
 
 <ul>
-  <li>Have three parameters: <code class="highlighter-rouge">ingredients</code>, <code class="highlighter-rouge">calories</code>,
+  <li>Has three parameters: <code class="highlighter-rouge">ingredients</code>, <code class="highlighter-rouge">calories</code>,
 and <code class="highlighter-rouge">milligramsOfSodium</code> (in that order).</li>
-  <li>Use <code class="highlighter-rouge">this.</code> syntax to automatically assign the parameter values to the
+  <li>Uses <code class="highlighter-rouge">this.</code> syntax to automatically assign the parameter values to the
 object properties of the same name.</li>
-  <li>Be constant (use the <code class="highlighter-rouge">const</code> keyword just before
-<code class="highlighter-rouge">Recipe</code> when declaring the constructor.</li>
+  <li>Is constant, with the <code class="highlighter-rouge">const</code> keyword just before
+<code class="highlighter-rouge">Recipe</code> in the constructor declaration.</li>
 </ul>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=c400cb84fab309ddbbb436c1ced90dad"></iframe>
+
+<h2 id="what-next">
+<a id="what-next" class="anchor" href="#what-next" aria-hidden="true"><span class="octicon octicon-link"></span></a>What next?</h2>
+
+<p>We hope you enjoyed using this codelab to learn or test your knowledge of
+some of the most interesting features of the Dart language.
+Here are some suggestions for what to do now:</p>
+
+<ul>
+  <li>Try <a href="/codelabs">other Dart codelabs</a>.</li>
+  <li>Read the <a href="/guides/language/language-tour">Dart language tour</a>.</li>
+  <li>Play with <a href="https://dartpad.cn">DartPad.</a>
+</li>
+  <li>
+<a href="/get-dart">Get the Dart SDK</a>.</li>
+</ul>
 
           
 
@@ -1392,7 +1473,7 @@ object properties of the same name.</li>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/05/27 20:31 PDT"
+               title="Site built on 2019/05/30 19:03 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
