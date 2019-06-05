@@ -786,8 +786,10 @@ add the following line to your <code class="highlighter-rouge">analysis_options.
   When a <strong>new version of <code class="highlighter-rouge">pedantic</code></strong> is published,
   code that previously passed analysis might <strong>start failing analysis.</strong>
   We recommend updating your code to work with the new rules.
-  Other options are to <a href="https://github.com/dart-lang/pedantic/blob/master/README.md#using-the-lints">use a specific version</a>
-  of <code class="highlighter-rouge">pedantic</code>, explicitly enable individual linter rules,
+  Other options are to
+  include a specific version of the pedantic analysis options file
+  (as described <a href="https://pub.dev/packages/pedantic#using-the-lints">in the pedantic README</a>),
+  explicitly enable individual linter rules,
   or <a href="#disabling-individual-rules">disable individual rules</a>.</p>
 </aside>
 
@@ -817,20 +819,29 @@ prefixed with dashes. For example:</p>
 
 <p>If you include an analysis options file such as the one in <code class="highlighter-rouge">pedantic</code>, 
 you might want to disable some of the included rules.
-Disabling individual rules is just like enabling them,
-except that you add <code class="highlighter-rouge">: false</code> after the rule name.
-Here’s an example of an analysis options file
-that uses all pedantic rules except <code class="highlighter-rouge">unawaited_futures</code>:</p>
+Disabling individual rules is similar enabling them,
+but with two differences:</p>
+
+<ul>
+  <li>Omit the dash (<code class="highlighter-rouge">-</code>) before the rule name.</li>
+  <li>Add <code class="highlighter-rouge">: false</code> <em>after</em> the rule name.</li>
+</ul>
+
+<p>Here’s an example of an analysis options file
+that uses all pedantic rules except <code class="highlighter-rouge">avoid_shadowing_type_parameters</code>.
+It also adds the lint <code class="highlighter-rouge">await_only_futures</code>:</p>
 
 <pre class="prettyprint lang-yaml">include: package:pedantic/analysis_options.yaml
 
 linter:
   rules:
-    unawaited_futures: false</pre>
+    avoid_shadowing_type_parameters: false
+    - await_only_futures</pre>
 
-<aside class="alert alert-warning">
-  <p><strong>Don’t include an initial dash (<code class="highlighter-rouge">- </code>)</strong> when you specify a value (<code class="highlighter-rouge">: false)</code>.
-  The YAML syntax for key-value maps is slightly different
+<aside class="alert alert-info">
+  <p>The reason you don’t include an initial dash (<code class="highlighter-rouge">- </code>)
+  when you specify a value (<code class="highlighter-rouge">: false</code>) is that
+  the YAML syntax for key-value maps is slightly different
   from the YAML syntax for lists.</p>
 </aside>
 
@@ -1004,7 +1015,7 @@ and to provide information (but not a warning or error) about dead code:</p>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/06/05 02:01 PDT"
+               title="Site built on 2019/06/05 02:31 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
