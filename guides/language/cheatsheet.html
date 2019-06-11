@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A one-page summary of some of Dart's most useful, interesting features.">
-  <title>Dart language cheatsheet | Dart</title>
+  <meta name="description" content="总结一些 Dart 最有用、有趣的功能。">
+  <title>Dart 语言速查 | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,12 +18,12 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="Dart language cheatsheet" />
-  <meta name="twitter:description" content="A one-page summary of some of Dart's most useful, interesting features." />
+  <meta name="twitter:title" content="Dart 语言速查" />
+  <meta name="twitter:description" content="总结一些 Dart 最有用、有趣的功能。" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Dart language cheatsheet" />
-  <meta property="og:description" content="A one-page summary of some of Dart's most useful, interesting features." />
+  <meta property="og:title" content="Dart 语言速查" />
+  <meta property="og:description" content="总结一些 Dart 最有用、有趣的功能。" />
   <meta property="og:url" content="https://www.dartlang.org/guides/language/cheatsheet" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
@@ -135,7 +135,7 @@ ga('send', 'pageview');
       <li class="nav-item">
     <a class="nav-link" href="/codelabs">综述</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/codelabs/dart-cheatsheet">Cheatsheet Codelab</a>
+    <a class="nav-link" href="/codelabs/dart-cheatsheet">Codelab 速查</a>
   </li></ul>
   </li>
 <li class="nav-item">
@@ -521,43 +521,43 @@ ga('send', 'pageview');
     
   </header>
   <ul class="section-nav nav">
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#using-literals">Using literals</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#字面量的使用">字面量的使用</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#substitution-val">‘Substitution ${val}’</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#插值-val">‘插值 ${val}’</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#type-">&lt;type&gt;[ ]</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#const-1-2-3">const [1, 2, 3]</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#--">= { }</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#declaring-fields">Declaring fields</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#checking-types">Checking types</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#chaining-method-calls">Chaining method calls</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#字段声明">字段声明</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#类型检查">类型检查</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#链式方法调用">链式方法调用</a>
 <ul class="nav">
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#ab--truec--5">a..b = true..c = 5;</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#dealing-with-null">Dealing with null</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#null-处理">null 处理</a>
 <ul class="nav">
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#b--val">b ??= val;</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#a--value--0">a = value ?? 0;</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#ab">a?.b</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#implementing-functions">Implementing functions</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#函数实现">函数实现</a>
 <ul class="nav">
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#fnbool-bold-false-bool-hidden-false">fn({bool bold: false, bool hidden: false})</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#int-incrint-a--a--1">int incr(int a) =&gt; a + 1;</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#handling-exceptions">Handling exceptions</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#implementing-constructors">Implementing constructors</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#异常处理">异常处理</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#构造函数实现">构造函数实现</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#normal-constructor">Normal constructor</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#factory-constructor">Factory constructor</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#named-constructor">Named constructor</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#delegating-constructor">Delegating constructor</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#const-constructor">Const constructor</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#initializer-list">Initializer list</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#标准构造函数normal-constructor">标准构造函数（Normal constructor）</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#工厂构造函数factory-constructor">工厂构造函数（Factory constructor）</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#命名构造函数named-constructor">命名构造函数（Named constructor）</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#代理构造函数delegating-constructor">代理构造函数（Delegating constructor）</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#常量构造函数const-constructor">常量构造函数（Const constructor）</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#初始化列表">初始化列表</a></li>
 </ul>
 </li>
 </ul>
@@ -573,7 +573,7 @@ ga('send', 'pageview');
   <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/language/cheatsheet.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Dart language cheatsheet' page issue&body=
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Dart 语言速查' page issue&body=
 Page URL: https://www.dartlang.org/guides/language/cheatsheet%0D%0A
 Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/language/cheatsheet.md%0D%0A
 %0D%0A
@@ -585,7 +585,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   </a>
 </div>
 
-            <h1>Dart language cheatsheet</h1>
+            <h1>Dart 语言速查</h1>
           </div>
           
 
@@ -605,177 +605,176 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
     
   </header>
   <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#using-literals">Using literals</a>
+<li class="toc-entry toc-h2"><a href="#字面量的使用">字面量的使用</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#substitution-val">‘Substitution ${val}’</a></li>
+<li class="toc-entry toc-h3"><a href="#插值-val">‘插值 ${val}’</a></li>
 <li class="toc-entry toc-h3"><a href="#type-">&lt;type&gt;[ ]</a></li>
 <li class="toc-entry toc-h3"><a href="#const-1-2-3">const [1, 2, 3]</a></li>
 <li class="toc-entry toc-h3"><a href="#--">= { }</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#declaring-fields">Declaring fields</a></li>
-<li class="toc-entry toc-h2"><a href="#checking-types">Checking types</a></li>
-<li class="toc-entry toc-h2"><a href="#chaining-method-calls">Chaining method calls</a>
+<li class="toc-entry toc-h2"><a href="#字段声明">字段声明</a></li>
+<li class="toc-entry toc-h2"><a href="#类型检查">类型检查</a></li>
+<li class="toc-entry toc-h2"><a href="#链式方法调用">链式方法调用</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#ab--truec--5">a..b = true..c = 5;</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#dealing-with-null">Dealing with null</a>
+<li class="toc-entry toc-h2"><a href="#null-处理">null 处理</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#b--val">b ??= val;</a></li>
 <li class="toc-entry toc-h3"><a href="#a--value--0">a = value ?? 0;</a></li>
 <li class="toc-entry toc-h3"><a href="#ab">a?.b</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#implementing-functions">Implementing functions</a>
+<li class="toc-entry toc-h2"><a href="#函数实现">函数实现</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#fnbool-bold-false-bool-hidden-false">fn({bool bold: false, bool hidden: false})</a></li>
 <li class="toc-entry toc-h3"><a href="#int-incrint-a--a--1">int incr(int a) =&gt; a + 1;</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#handling-exceptions">Handling exceptions</a></li>
-<li class="toc-entry toc-h2"><a href="#implementing-constructors">Implementing constructors</a>
+<li class="toc-entry toc-h2"><a href="#异常处理">异常处理</a></li>
+<li class="toc-entry toc-h2"><a href="#构造函数实现">构造函数实现</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#normal-constructor">Normal constructor</a></li>
-<li class="toc-entry toc-h3"><a href="#factory-constructor">Factory constructor</a></li>
-<li class="toc-entry toc-h3"><a href="#named-constructor">Named constructor</a></li>
-<li class="toc-entry toc-h3"><a href="#delegating-constructor">Delegating constructor</a></li>
-<li class="toc-entry toc-h3"><a href="#const-constructor">Const constructor</a></li>
-<li class="toc-entry toc-h3"><a href="#initializer-list">Initializer list</a></li>
+<li class="toc-entry toc-h3"><a href="#标准构造函数normal-constructor">标准构造函数（Normal constructor）</a></li>
+<li class="toc-entry toc-h3"><a href="#工厂构造函数factory-constructor">工厂构造函数（Factory constructor）</a></li>
+<li class="toc-entry toc-h3"><a href="#命名构造函数named-constructor">命名构造函数（Named constructor）</a></li>
+<li class="toc-entry toc-h3"><a href="#代理构造函数delegating-constructor">代理构造函数（Delegating constructor）</a></li>
+<li class="toc-entry toc-h3"><a href="#常量构造函数const-constructor">常量构造函数（Const constructor）</a></li>
+<li class="toc-entry toc-h3"><a href="#初始化列表">初始化列表</a></li>
 </ul>
 </li>
 </ul>
 </div>
 
 
-          <p>This cheatsheet is based on an internal document
-created by Googler <a href="https://medium.com/@mehmetf_71205">Mehmet Fidanboylu</a>
-to help Google engineers remember the syntax for
-some of Dart’s commonly used features.
-For an interactive guide to these features and more, see the
-<a href="/codelabs/dart-cheatsheet">Dart cheatsheet codelab</a>.</p>
+          
+<p>本速查基于 Google 工程师 <a href="https://medium.com/@mehmetf_71205">Mehmet Fidanboylu</a>
+撰写的一份内部文档。该文档用来帮助 Google 工程师记忆一些 Dart 通用的语法功能。</p>
 
-<h2 id="using-literals">
-<a id="using-literals" class="anchor" href="#using-literals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using literals</h2>
+<p>有关这些功能的交互式指南，参见 <a href="/codelabs/dart-cheatsheet">Dart Codelab 速查</a>。</p>
 
-<h3 id="substitution-val">
-<a id="substitution-val" class="anchor" href="#substitution-val" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">‘Substitution ${val}’</code>
+<h2 id="字面量的使用">
+<a id="字面量的使用" class="anchor" href="#%E5%AD%97%E9%9D%A2%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>字面量的使用</h2>
+
+<h3 id="插值-val">
+<a id="插值-val" class="anchor" href="#%E6%8F%92%E5%80%BC-val" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">‘插值 ${val}’</code>
 </h3>
 
-<p>Puts the value of <code class="highlighter-rouge">val</code> into a string literal.
-Equivalent: <code class="highlighter-rouge">‘Substitution’ + val</code></p>
+<p>在字面量字符串中引入 <code class="highlighter-rouge">val</code> 的值。
+等价于： <code class="highlighter-rouge">‘Substitution’ + val</code></p>
 
 <h3 id="type-">
 <a id="type-" class="anchor" href="#type-" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">&lt;type&gt;[ ]</code>
 </h3>
 
-<p>Creates an object of type <code class="highlighter-rouge">List&lt;type&gt;</code>.
-Equivalent: <code class="highlighter-rouge">new List&lt;type&gt;();</code></p>
+<p>创建一个 <code class="highlighter-rouge">List&lt;type&gt;</code> 类型的对象。
+等价于：<code class="highlighter-rouge">new List&lt;type&gt;();</code></p>
 
 <h3 id="const-1-2-3">
 <a id="const-1-2-3" class="anchor" href="#const-1-2-3" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">const [1, 2, 3]</code>
 </h3>
 
-<p>Creates a compile-time constant list.</p>
+<p>创建一个编译时 List 常量。</p>
 
 <h3 id="--">
 <a id="--" class="anchor" href="#--" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">= { }</code>
 </h3>
 
-<p>Initializes a map.
-Equivalent: <code class="highlighter-rouge">new Map&lt;&gt;();</code></p>
+<p>初始化一个 Map 。
+等价于：<code class="highlighter-rouge">new Map&lt;&gt;();</code></p>
 
-<h2 id="declaring-fields">
-<a id="declaring-fields" class="anchor" href="#declaring-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Declaring fields</h2>
+<h2 id="字段声明">
+<a id="字段声明" class="anchor" href="#%E5%AD%97%E6%AE%B5%E5%A3%B0%E6%98%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>字段声明</h2>
 
 <table class="table">
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">var</code></td>
-      <td>Generic <code class="highlighter-rouge">var</code> (dynamic)</td>
+      <td>一般 <code class="highlighter-rouge">var</code> (动态的)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">final</code></td>
-      <td>Same as <code class="highlighter-rouge">var</code> but final</td>
+      <td>同 <code class="highlighter-rouge">var</code> 但仅能单次赋值</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">const</code></td>
-      <td>Constant</td>
+      <td>常量</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="checking-types">
-<a id="checking-types" class="anchor" href="#checking-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Checking types</h2>
+<h2 id="类型检查">
+<a id="类型检查" class="anchor" href="#%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>类型检查</h2>
 
 <table class="table">
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">as</code></td>
-      <td>Typecast</td>
+      <td>类型转换</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">is</code></td>
-      <td>instanceof</td>
+      <td>示例类型判断</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">is!</code></td>
-      <td>!instanceof</td>
+      <td>示例类型判断结果取反</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="chaining-method-calls">
-<a id="chaining-method-calls" class="anchor" href="#chaining-method-calls" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chaining method calls</h2>
+<h2 id="链式方法调用">
+<a id="链式方法调用" class="anchor" href="#%E9%93%BE%E5%BC%8F%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>链式方法调用</h2>
 
 <h3 id="ab--truec--5">
 <a id="ab--truec--5" class="anchor" href="#ab--truec--5" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">a..b = true..c = 5;</code>
 </h3>
 
-<p>Cascade used for chaining access to methods and other members.
-Equivalent: <code class="highlighter-rouge">a.b = true; a.c = 5;</code></p>
+<p>使用级联来链接方法和访问其他成员。
+等价于：<code class="highlighter-rouge">a.b = true; a.c = 5;</code></p>
 
-<h2 id="dealing-with-null">
-<a id="dealing-with-null" class="anchor" href="#dealing-with-null" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dealing with null</h2>
+<h2 id="null-处理">
+<a id="null-处理" class="anchor" href="#null-%E5%A4%84%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>null 处理</h2>
 
 <h3 id="b--val">
 <a id="b--val" class="anchor" href="#b--val" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">b ??= val;</code>
 </h3>
 
-<p>If <code class="highlighter-rouge">b</code> is null, assign the value of <code class="highlighter-rouge">val</code> to <code class="highlighter-rouge">b</code>;
-otherwise, <code class="highlighter-rouge">b</code> stays the same.</p>
+<p>如果 <code class="highlighter-rouge">b</code> 为 null ，设置 <code class="highlighter-rouge">b</code> 的值为 <code class="highlighter-rouge">val</code> ，
+否则，保持 <code class="highlighter-rouge">b</code> 的原值。</p>
 
 <h3 id="a--value--0">
 <a id="a--value--0" class="anchor" href="#a--value--0" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">a = value ?? 0;</code>
 </h3>
 
-<p>If value is null, set <code class="highlighter-rouge">a</code> to 0.
-Otherwise, set <code class="highlighter-rouge">a</code> to value.</p>
+<p>如果 value 的值为 null ，设置 <code class="highlighter-rouge">a</code> 为 0 。
+否则，设置 <code class="highlighter-rouge">a</code> 为 value 。</p>
 
 <h3 id="ab">
 <a id="ab" class="anchor" href="#ab" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">a?.b</code>
 </h3>
 
-<p>Conditional access.
-Equivalent: <code class="highlighter-rouge">a == null ? null : a.b</code></p>
+<p>条件访问。
+等价于：<code class="highlighter-rouge">a == null ? null : a.b</code></p>
 
-<h2 id="implementing-functions">
-<a id="implementing-functions" class="anchor" href="#implementing-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementing functions</h2>
+<h2 id="函数实现">
+<a id="函数实现" class="anchor" href="#%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>函数实现</h2>
 
 <h3 id="fnbool-bold-false-bool-hidden-false">
 <a id="fnbool-bold-false-bool-hidden-false" class="anchor" href="#fnbool-bold-false-bool-hidden-false" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">fn({bool bold: false, bool hidden: false})</code>
 </h3>
 
-<p>Named params with default values.</p>
+<p>为命名参数设置默认值。</p>
 
 <h3 id="int-incrint-a--a--1">
 <a id="int-incrint-a--a--1" class="anchor" href="#int-incrint-a--a--1" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">int incr(int a) =&gt; a + 1;</code>
 </h3>
 
-<p>Single return statement can be abbreviated.</p>
+<p>可以简化单个返回语句。</p>
 
-<h2 id="handling-exceptions">
-<a id="handling-exceptions" class="anchor" href="#handling-exceptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling exceptions</h2>
+<h2 id="异常处理">
+<a id="异常处理" class="anchor" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>异常处理</h2>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{...}</span>
 <span class="n">on</span> <span class="n">MyException</span> <span class="o">{...}</span>
@@ -783,29 +782,28 @@ Equivalent: <code class="highlighter-rouge">a == null ? null : a.b</code></p>
 <span class="k">finally</span> <span class="o">{...}</span>
 </code></pre></div></div>
 
-<p>Use <code class="highlighter-rouge">on</code> to catch a type.
-Use <code class="highlighter-rouge">catch</code> to catch an instance.</p>
+<p>通过 <code class="highlighter-rouge">on</code> 来捕获一种类型的异常。
+通过 <code class="highlighter-rouge">catch</code> 来捕获异常的实例。</p>
 
-<h2 id="implementing-constructors">
-<a id="implementing-constructors" class="anchor" href="#implementing-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementing constructors</h2>
+<h2 id="构造函数实现">
+<a id="构造函数实现" class="anchor" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>构造函数实现</h2>
 
-<h3 id="normal-constructor">
-<a id="normal-constructor" class="anchor" href="#normal-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Normal constructor</h3>
+<h3 id="标准构造函数normal-constructor">
+<a id="标准构造函数normal-constructor" class="anchor" href="#%E6%A0%87%E5%87%86%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0normal-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>标准构造函数（Normal constructor）</h3>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Point</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
 </code></pre></div></div>
 
-<h3 id="factory-constructor">
-<a id="factory-constructor" class="anchor" href="#factory-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Factory constructor</h3>
+<h3 id="工厂构造函数factory-constructor">
+<a id="工厂构造函数factory-constructor" class="anchor" href="#%E5%B7%A5%E5%8E%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0factory-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>工厂构造函数（Factory constructor）</h3>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">factory</span> <span class="nf">Point</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">...;</span>
 </code></pre></div></div>
 
-<p>Use <code class="highlighter-rouge">factory</code> when implementing a constructor that
-doesn’t always create a new instance.</p>
+<p>构造函数不总是创建一个新的对象时，使用 <code class="highlighter-rouge">factory</code> 方式实现构造函数。</p>
 
-<h3 id="named-constructor">
-<a id="named-constructor" class="anchor" href="#named-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Named constructor</h3>
+<h3 id="命名构造函数named-constructor">
+<a id="命名构造函数named-constructor" class="anchor" href="#%E5%91%BD%E5%90%8D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0named-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>命名构造函数（Named constructor）</h3>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Point</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">Map</span> <span class="n">json</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">json</span><span class="o">[</span><span class="s">'x'</span><span class="o">];</span>
@@ -813,28 +811,28 @@ doesn’t always create a new instance.</p>
   <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="delegating-constructor">
-<a id="delegating-constructor" class="anchor" href="#delegating-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Delegating constructor</h3>
+<h3 id="代理构造函数delegating-constructor">
+<a id="代理构造函数delegating-constructor" class="anchor" href="#%E4%BB%A3%E7%90%86%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0delegating-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>代理构造函数（Delegating constructor）</h3>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Point</span><span class="o">.</span><span class="na">alongXAxis</span><span class="o">(</span><span class="kt">num</span> <span class="n">x</span><span class="o">)</span> <span class="o">:</span> <span class="k">this</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
 </code></pre></div></div>
 
-<h3 id="const-constructor">
-<a id="const-constructor" class="anchor" href="#const-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Const constructor</h3>
+<h3 id="常量构造函数const-constructor">
+<a id="常量构造函数const-constructor" class="anchor" href="#%E5%B8%B8%E9%87%8F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0const-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>常量构造函数（Const constructor）</h3>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nf">ImmutablePoint</span><span class="p">(</span><span class="k">this</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
 </code></pre></div></div>
 
-<p>Produces an object that will never change. All vars have to be final.</p>
+<p>生成一个永远不会改变的对象。 这里所有的变量必须都是 final 。</p>
 
-<h3 id="initializer-list">
-<a id="initializer-list" class="anchor" href="#initializer-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initializer list</h3>
+<h3 id="初始化列表">
+<a id="初始化列表" class="anchor" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>初始化列表</h3>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Point</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">Map</span> <span class="n">jsonMap</span><span class="o">)</span>
       <span class="o">:</span> <span class="n">x</span> <span class="o">=</span> <span class="n">jsonMap</span><span class="o">[</span><span class="s">'x'</span><span class="o">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">jsonMap</span><span class="o">[</span><span class="s">'y'</span><span class="o">];</span>
 </code></pre></div></div>
 
-<p>Initializer lists are handy when setting up final fields.</p>
+<p>设置的字段为 final 时，使用初始化程序列表会很便捷。</p>
 
           
 
@@ -861,7 +859,7 @@ doesn’t always create a new instance.</p>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/06/05 02:31 PDT"
+               title="Site built on 2019/06/10 20:07 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
