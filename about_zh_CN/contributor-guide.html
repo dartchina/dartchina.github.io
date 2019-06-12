@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The dart2js tool compiles Dart code to deployable JavaScript.">
-  <title>dart2js | Dart</title>
+  <meta name="description" content="Dart 编程语言中文版贡献者指北">
+  <title>贡献者指北 | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,13 +18,13 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="dart2js: Dart-to-JavaScript compiler" />
-  <meta name="twitter:description" content="The dart2js tool compiles Dart code to deployable JavaScript." />
+  <meta name="twitter:title" content="贡献者指北" />
+  <meta name="twitter:description" content="Dart 编程语言中文版贡献者指北" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="dart2js: Dart-to-JavaScript compiler" />
-  <meta property="og:description" content="The dart2js tool compiles Dart code to deployable JavaScript." />
-  <meta property="og:url" content="https://www.dartlang.org/tools/dart2js.html" />
+  <meta property="og:title" content="贡献者指北" />
+  <meta property="og:description" content="Dart 编程语言中文版贡献者指北" />
+  <meta property="og:url" content="https://www.dartlang.org/about_zh_CN/contributor-guide" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" integrity="sha256-OYYqoMfowxw5dTtxCHxOHrDkykaDztc6SJ1qi+We+CM=" crossorigin="anonymous" href="/assets/main-39862aa0c7e8c31c39753b71087c4e1eb0e4ca4683ced73a489d6a8be59ef823.css">
@@ -52,7 +52,7 @@ ga('send', 'pageview');
   </a>
   <ul class="navbar">
     <li class="mainnav__get-started">
-      <a href="/guides" class="nav-link active"><span>文档</span></a>
+      <a href="/guides" class="nav-link"><span>文档</span></a>
     </li>
     <li>
       <a href="/platforms" class="nav-link">平台</a>
@@ -67,7 +67,7 @@ ga('send', 'pageview');
       <a href="/get-dart" class="nav-link">安装 Dart</a>
     </li>
     <li>
-      <a href="/about_zh_CN" class="nav-link">关于</a>
+      <a href="/about_zh_CN" class="nav-link active">关于</a>
     </li>
     <li class="searchfield">
       <form action="/search" class="site-header__search form-inline" id="cse-search-box">
@@ -109,10 +109,10 @@ ga('send', 'pageview');
         <a href="https://dartpad.cn" class="nav-link">体验 Dart</a>
       </li>
       <li class="nav-item">
-        <a href="/guides" class="nav-link active">文档</a>
+        <a href="/guides" class="nav-link">文档</a>
       </li>
       <li>
-        <a href="/about_zh_CN" class="nav-link">关于</a>
+        <a href="/about_zh_CN" class="nav-link active">关于</a>
       </li>
     </ul>
 
@@ -322,11 +322,11 @@ ga('send', 'pageview');
 
 </ul>
     </li><li class="nav-item">
-      <a class="nav-link active" data-toggle="collapse" href="#sidenav-6" role="button"
-        aria-expanded="true" aria-controls="sidenav-6"
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-6" role="button"
+        aria-expanded="false" aria-controls="sidenav-6"
       >工具 & 技巧</a>
 
-      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6">
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6">
         <li class="nav-item">
     <a class="nav-link" href="/tools">综述</a>
   </li><li class="nav-item">
@@ -348,15 +348,15 @@ ga('send', 'pageview');
   </li></ul>
   </li>
 <li class="nav-item">
-    <a class="nav-link active collapsable"
+    <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-6-3"
       href="#sidenav-6-3" role="button"
-      aria-expanded="true" aria-controls="sidenav-6-3"
+      aria-expanded="false" aria-controls="sidenav-6-3"
     >命令行工具
     </a>
-    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3">
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-3">
       <li class="nav-item">
-    <a class="nav-link active collapsable"
+    <a class="nav-link collapsable"
       data-toggle="collapse" data-target="#sidenav-6-3-1"
       href="#sidenav-6-3-1" role="button"
       aria-expanded="true" aria-controls="sidenav-6-3-1"
@@ -373,7 +373,7 @@ ga('send', 'pageview');
     <a class="nav-link" href="/tools/dart2aot">dart2aot & dartaotruntime</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="/tools/dart2js">dart2js (prod JS)</a>
+    <a class="nav-link" href="/tools/dart2js">dart2js (prod JS)</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/tools/dartanalyzer">dartanalyzer</a>
@@ -501,7 +501,7 @@ ga('send', 'pageview');
   </li>
 </ul>
     </li><li class="nav-item">
-      <a class="nav-link " data-toggle="collapse" href="#sidenav-9" role="button"
+      <a class="nav-link active" data-toggle="collapse" href="#sidenav-9" role="button"
         aria-expanded="true" aria-controls="sidenav-9"
       >关于</a>
 
@@ -509,7 +509,7 @@ ga('send', 'pageview');
         <li class="nav-item">
     <a class="nav-link" href="/about_zh_CN">关于本站</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/about_zh_CN/contributor-guide">贡献者指北</a>
+    <a class="nav-link active" href="/about_zh_CN/contributor-guide">贡献者指北</a>
   </li><li class="nav-item">
     <a class="nav-link" href="/about_zh_CN/chinese-copywriting-guidelines">中文排版指北</a>
   </li>
@@ -535,16 +535,19 @@ ga('send', 'pageview');
     
   </header>
   <ul class="section-nav nav">
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#basic-usage">Basic usage</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#build-config-usage">Build config usage</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#options">Options</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#helping-dart2js-generate-efficient-code">Helping dart2js generate better code</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#debugging">Debugging</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#贡献者指北">贡献者指北</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#中文排版指北">中文排版指北</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#译文仓库">译文仓库</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#dart2js-debugging-chrome">Chrome</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#dart2js-debugging-ie">Internet Explorer</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#dart2js-debugging-firefox">Firefox</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#dart2js-debugging-safari">Safari</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#分支结构">分支结构</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#目录结构">目录结构</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#贡献及翻译">贡献及翻译</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#非成员">非成员</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#成员">成员</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#增加译文">增加译文</a></li>
 </ul>
 </li>
 </ul>
@@ -557,12 +560,12 @@ ga('send', 'pageview');
 
           <div>
             <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
-  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/tools/dart2js.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_about_zh_CN/contributor-guide.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='dart2js: Dart-to-JavaScript compiler' page issue&body=
-Page URL: https://www.dartlang.org/tools/dart2js.html%0D%0A
-Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/tools/dart2js.md%0D%0A
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='贡献者指北' page issue&body=
+Page URL: https://www.dartlang.org/about_zh_CN/contributor-guide%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_about_zh_CN/contributor-guide.md%0D%0A
 %0D%0A
 Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
 %0D%0A
@@ -572,7 +575,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   </a>
 </div>
 
-            <h1>dart2js: Dart-to-JavaScript compiler</h1>
+            <h1>贡献者指北</h1>
           </div>
           
 
@@ -589,287 +592,210 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
     
   </header>
   <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#basic-usage">Basic usage</a></li>
-<li class="toc-entry toc-h2"><a href="#build-config-usage">Build config usage</a></li>
-<li class="toc-entry toc-h2"><a href="#options">Options</a></li>
-<li class="toc-entry toc-h2"><a href="#helping-dart2js-generate-efficient-code">Helping dart2js generate better code</a></li>
-<li class="toc-entry toc-h2"><a href="#debugging">Debugging</a>
+<li class="toc-entry toc-h2"><a href="#贡献者指北">贡献者指北</a></li>
+<li class="toc-entry toc-h2"><a href="#中文排版指北">中文排版指北</a></li>
+<li class="toc-entry toc-h2"><a href="#译文仓库">译文仓库</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#dart2js-debugging-chrome">Chrome</a></li>
-<li class="toc-entry toc-h3"><a href="#dart2js-debugging-ie">Internet Explorer</a></li>
-<li class="toc-entry toc-h3"><a href="#dart2js-debugging-firefox">Firefox</a></li>
-<li class="toc-entry toc-h3"><a href="#dart2js-debugging-safari">Safari</a></li>
+<li class="toc-entry toc-h3"><a href="#分支结构">分支结构</a></li>
+<li class="toc-entry toc-h3"><a href="#目录结构">目录结构</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#贡献及翻译">贡献及翻译</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#非成员">非成员</a></li>
+<li class="toc-entry toc-h3"><a href="#成员">成员</a></li>
+<li class="toc-entry toc-h3"><a href="#增加译文">增加译文</a></li>
 </ul>
 </li>
 </ul>
 </div>
 
 
-          <p>Use the <em>dart2js</em> tool to compile Dart code to deployable JavaScript.
-Another Dart-to-JavaScript compiler, <a href="/tools/dartdevc">dartdevc</a>, is for development use only.
-The <a href="/tools/webdev#build">webdev build</a> command uses dart2js by default.
-The <a href="/tools/webdev#serve">webdev serve</a> command uses dartdevc by default, but you can switch
-to dart2js using the <code class="highlighter-rouge">--release</code> flag.</p>
+          <h2 id="贡献者指北">
+<a id="贡献者指北" class="anchor" href="#%E8%B4%A1%E7%8C%AE%E8%80%85%E6%8C%87%E5%8C%97" aria-hidden="true"><span class="octicon octicon-link"></span></a>贡献者指北</h2>
 
-<p>The dart2js tool provides hints for improving your Dart code and removing
-unused code.
-Also see <a href="/tools/dartanalyzer">dartanalyzer,</a>
-which performs a similar analysis but has a different implementation.</p>
+<p>本章意期望或已加入本站翻译的成员了解一下本站整体流程，有助于更快的参与到翻译贡献当中。
+以下<code class="highlighter-rouge">中文译文</code>简称<code class="highlighter-rouge">译文</code>，<code class="highlighter-rouge">英文原文</code>简称<code class="highlighter-rouge">原文</code>。</p>
 
-<p>This page tells you how to use dart2js on the command line. It also give tips
-on debugging the JavaScript that dart2js generates.</p>
+<h2 id="中文排版指北">
+<a id="中文排版指北" class="anchor" href="#%E4%B8%AD%E6%96%87%E6%8E%92%E7%89%88%E6%8C%87%E5%8C%97" aria-hidden="true"><span class="octicon octicon-link"></span></a>中文排版指北</h2>
 
-<h2 id="basic-usage">
-<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic usage</h2>
+<p>见：<a href="/about_zh_CN/chinese-copywriting-guidelines">中文排版指北</a>。</p>
 
-<p>Here’s an example of compiling a Dart file to JavaScript:</p>
+<h2 id="译文仓库">
+<a id="译文仓库" class="anchor" href="#%E8%AF%91%E6%96%87%E4%BB%93%E5%BA%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>译文仓库</h2>
 
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> dart2js <span class="nt">-O2</span> <span class="nt">-o</span> test.js test.dart
-</code></pre></div></div>
+<p>译文仓库 <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN">site-www-cn</a>
+Fork 于官方原文仓库 <a href="https://github.com/dart-lang/site-www">site-www</a> 。</p>
 
-<p>This command produces a file that contains the JavaScript equivalent of your
-Dart code. It also produces a source map, which can help you debug the
-JavaScript version of the app more easily.</p>
+<h3 id="分支结构">
+<a id="分支结构" class="anchor" href="#%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>分支结构</h3>
 
-<aside class="alert alert-info">
-  <p><strong>Note:</strong>
-  The <code>-O<em>n</em></code> argument specifies the optimization level.
-  We recommend starting at <code class="highlighter-rouge">-O1</code> (the default) and then increasing to <code class="highlighter-rouge">-O2</code> or
-  higher when you’re ready to deploy.
-  The <code class="highlighter-rouge">-O3</code> and <code class="highlighter-rouge">-O4</code> optimization levels are suitable only for
-  <strong>well tested code</strong> (<a href="#basic-options">see the <code>-O<em>n</em></code> descriptions,
-  below</a>).</p>
-</aside>
+<table class="table">
+  <thead>
+    <tr>
+      <th>分支名称</th>
+      <th>分支描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">master</code></td>
+      <td>主分支</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">src_zh_CN</code></td>
+      <td>译文分支</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">1.x</code></td>
+      <td>原文 1.0 版本分支</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">2.2_src</code></td>
+      <td>原文 2.2 版本分支</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">2.2_src_zh_CN</code></td>
+      <td>译文 2.2 版本分支</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">其他分支</code></td>
+      <td>错误修改，翻译任务及其他任务分支</td>
+    </tr>
+  </tbody>
+</table>
 
-<h2 id="build-config-usage">
-<a id="build-config-usage" class="anchor" href="#build-config-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build config usage</h2>
+<h4 id="master-分支">master 分支</h4>
 
-<p>You can also configure dart2js options in a build config file.
-For more information, see the <a href="https://pub.dev/packages/build_web_compilers">build_web_compilers README.</a></p>
+<p>译文仓库的 master 分支不加入任何修改，仅用来合并官方原文仓库 master 分支，保持与官方同步。</p>
 
-<h2 id="options">
-<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h2>
+<h4 id="src_zh_cn-分支">src_zh_CN 分支</h4>
+
+<p>译文仓库 src_zh_CN 分支包括译文文件，经修改或增加的配置构建文件。</p>
+
+<h3 id="目录结构">
+<a id="目录结构" class="anchor" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>目录结构</h3>
+
+<h4 id="src-目录">src 目录</h4>
+
+<p>src 为原文文件夹。翻译不在该文件夹做任何操作或修改，文件夹内容保持与官网原文同步。
+保持原始文件内容的目的是为了方便与已翻译译文内容进行对比，保持译文与原文版本同步。</p>
+
+<h4 id="src_zh_cn-目录">src_zh_CN 目录</h4>
+
+<p>src_zh_CN 为译文文件夹。翻译译文在该文件夹中进行。src_zh_CN 文件夹由译文仓库创建，
+初始 src_zh_CN 文件夹拷贝自 src 文件夹，文件数量及文件名称与 src 相同。进行翻译时
+直接打开 src_zh_CN 文件夹下的原文文件，增加译文即可。</p>
+
+<h2 id="贡献及翻译">
+<a id="贡献及翻译" class="anchor" href="#%E8%B4%A1%E7%8C%AE%E5%8F%8A%E7%BF%BB%E8%AF%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>贡献及翻译</h2>
+
+<p>贡献及翻译的人员分两种角色：非成员和成员（在 github 上加入了 DartChina 组织的账户）。</p>
+
+<h3 id="非成员">
+<a id="非成员" class="anchor" href="#%E9%9D%9E%E6%88%90%E5%91%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>非成员</h3>
+
+<h4 id="完整章节">完整章节</h4>
+
+<p>非成员需要 Fork 本仓库，基于仓库 src_zh_CN 分支创建新分支，翻译完成后通过 PR 进行提交，
+后由 DartChina 成员处理及合并。</p>
+
+<h4 id="错误和-issue">错误和 Issue</h4>
+
+<p>如果页面存在错误或异议可点击当前页面的
+<span class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_about_zh_CN/contributor-guide.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='%E8%B4%A1%E7%8C%AE%E8%80%85%E6%8C%87%E5%8C%97'%20page%20issue&amp;body=%20Page%20URL:%20https://www.dartlang.org/about_zh_CN/contributor-guide%0D%0A%20Page%20source:%20https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_about_zh_CN/contributor-guide.md%0D%0A%20%0D%0A%20Found%20a%20typo?%20You%20can%20fix%20it%20yourself%20by%20going%20to%20the%20page%20source%20and%20clicking%20the%20pencil%20icon.%20Or%20finish%20creating%20this%20issue.%0D%0A%20%0D%0A%20Description%20of%20issue:" class="btn no-automatic-external" title="Report an issue with this page" target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</span>
+提交 Bug 或 Issue 。</p>
+
+<h3 id="成员">
+<a id="成员" class="anchor" href="#%E6%88%90%E5%91%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>成员</h3>
+
+<p>除可以通过非成员方式进行贡献外，还可以在原仓库 src_zh_CN 上创建新分支进行翻译贡献或错误更正。
+在原仓库中创建分支应遵循分支命名规则。</p>
+
+<h4 id="分支命名规则">分支命名规则</h4>
+
+<p>分支名称应始终使用<code class="highlighter-rouge">小写</code>加<code class="highlighter-rouge">中划线</code>原则进行命名，如：<code class="highlighter-rouge">hj-tra-effective-dart-design</code> 。其中前两节意义固定：</p>
 
 <ul>
-  <li><a href="#basic-options">Basic options</a></li>
-  <li><a href="#path-and-environment-options">Path and environment options</a></li>
-  <li><a href="#display-options">Display options</a></li>
-  <li><a href="#analysis-options">Analysis options</a></li>
-</ul>
-
-<h4 id="basic-options">Basic options</h4>
-
-<p>Common command-line options for dart2js include:</p>
-
-<dl>
-  <dt>
-<code class="highlighter-rouge">-o &lt;file&gt;</code> or <code class="highlighter-rouge">--out=&lt;file&gt;</code>
-</dt>
-  <dd>Generates the output into <code class="highlighter-rouge">&lt;file&gt;</code>. If not specified,
-the output goes in a file named <code class="highlighter-rouge">out.js</code>.</dd>
-  <dt><code class="highlighter-rouge">--enable-asserts</code></dt>
-  <dd>Enables assertion checking.</dd>
-  <dt><code class="highlighter-rouge">-O{0|1|2|3|4}</code></dt>
-  <dd>Controls optimizations that can help reduce code size and
-improve performance of the generated code.
-For more details on these optimizations, run <code class="highlighter-rouge">dart2js -hv</code>.
-
+  <li>第一节：成员简称，限两个字母</li>
+  <li>第二节：分支意图，限三个字母，以下列出可选意图简写
     <ul>
       <li>
-<code class="highlighter-rouge">-O0</code>: Disables many optimizations.</li>
+<code class="highlighter-rouge">tra</code> 文章翻译</li>
       <li>
-<code class="highlighter-rouge">-O1</code>: Enables default optimizations.</li>
+<code class="highlighter-rouge">fix</code> 错误、歧义等问题的修改</li>
       <li>
-<code class="highlighter-rouge">-O2</code>: Enables <code class="highlighter-rouge">-O1</code> optimizations, plus additional ones
-(such as minification) that respect the language semantics and
-are safe for all programs.
-        <aside class="alert alert-info">
-          <p><strong>Note:</strong>
-  With <code class="highlighter-rouge">-O2</code>, string representations of types are no longer the same as
-  those in the Dart VM and <a href="/tools/dartdevc">dartdevc</a>.</p>
-        </aside>
-      </li>
+<code class="highlighter-rouge">dev</code> 译文站点功能、配置开发等</li>
       <li>
-<code class="highlighter-rouge">-O3</code>: Enables <code class="highlighter-rouge">-O2</code> optimizations, plus omits implicit type checks.
-        <aside class="alert alert-warning">
-          <p><strong>Warning:</strong>
-  Omitting type checks can cause your app to crash due to type errors.
-  Before using <code class="highlighter-rouge">-O3</code>, <strong>test using <code class="highlighter-rouge">-O2</code></strong> to ensure that your app
-  <strong>never</strong> throws a subtype of <code class="highlighter-rouge">Error</code> (such as <code class="highlighter-rouge">TypeError</code>).</p>
-        </aside>
-      </li>
-      <li>
-<code class="highlighter-rouge">-O4</code>: Enables more aggressive optimizations than <code class="highlighter-rouge">-O3</code>,
-but with the same assumptions.
-        <aside class="alert alert-warning">
-          <p><strong>Warning:</strong>
-  The <code class="highlighter-rouge">-O4</code> optimizations are susceptible to variations in input data.
-  Before relying on <code class="highlighter-rouge">-O4</code>, <strong>test for edge cases in user input</strong>.</p>
-        </aside>
-      </li>
+<code class="highlighter-rouge">syn</code> 译文原文同步</li>
     </ul>
-  </dd>
-  <dt>
-<code class="highlighter-rouge">-h</code> or <code class="highlighter-rouge">--help</code>
-</dt>
-  <dd>Displays help. To get information about all options, use <code class="highlighter-rouge">-hv</code>.</dd>
-</dl>
-
-<h4 id="path-and-environment-options">Path and environment options</h4>
-
-<p>Some other handy options include:</p>
-
-<dl>
-  <dt><code class="highlighter-rouge">--packages=&lt;path&gt;</code></dt>
-  <dd>Specifies the path to the package resolution configuration file.
-For more information, see
-<a href="https://github.com/lrhn/dep-pkgspec/blob/master/DEP-pkgspec.md">Package Resolution Configuration File.</a>
-</dd>
-  <dt><code class="highlighter-rouge">-D&lt;flag&gt;=&lt;value&gt;</code></dt>
-  <dd>Defines an environment variable.</dd>
-  <dt><code class="highlighter-rouge">--version</code></dt>
-  <dd>Displays version information for dart2js.</dd>
-</dl>
-
-<h4 id="display-options">Display options</h4>
-
-<p>The following options help you control the output of dart2js:</p>
-
-<dl>
-  <dt><code class="highlighter-rouge">--suppress-warnings</code></dt>
-  <dd>Doesn’t display warnings.</dd>
-  <dt><code class="highlighter-rouge">--suppress-hints</code></dt>
-  <dd>Doesn’t display hints.</dd>
-  <dt><code class="highlighter-rouge">--terse</code></dt>
-  <dd>Emits diagnostics, without suggesting how to get rid of the diagnosed problems.</dd>
-  <dt>
-<code class="highlighter-rouge">-v</code> or <code class="highlighter-rouge">--verbose</code>
-</dt>
-  <dd>Displays lots of information.</dd>
-</dl>
-
-<h4 id="analysis-options">Analysis options</h4>
-
-<p>The following options control the analysis that dart2js performs on Dart code:</p>
-
-<dl>
-  <dt><code class="highlighter-rouge">--enable-diagnostic-colors</code></dt>
-  <dd>Adds colors to diagnostic messages.</dd>
-  <dt><code class="highlighter-rouge">--show-package-warnings</code></dt>
-  <dd>Shows warnings and hints generated from packages.</dd>
-  <dt><code class="highlighter-rouge">--csp</code></dt>
-  <dd>Disables dynamic generation of code in the generated output.
-This is necessary to satisfy CSP restrictions
-(see <a href="http://www.w3.org/TR/CSP/">W3C Content Security Policy.</a>)</dd>
-  <dt><code class="highlighter-rouge">--dump-info</code></dt>
-  <dd>Generates a file (with the suffix <code class="highlighter-rouge">.info.json</code>)
-that contains information about the generated code.
-You can inspect the generated file with the
-<a href="https://github.com/dart-lang/dump-info-visualizer">Dump Info Visualizer.</a>
-</dd>
-</dl>
-
-<h2 id="helping-dart2js-generate-efficient-code">
-<a id="helping-dart2js-generate-efficient-code" class="anchor" href="#helping-dart2js-generate-efficient-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Helping dart2js generate better code</h2>
-
-<p>Follow these practices to help dart2js do better type inference, so it can generate smaller and faster JavaScript code:</p>
-
-<ul>
-  <li>Don’t use <code class="highlighter-rouge">Function.apply()</code>.</li>
-  <li>Don’t override <code class="highlighter-rouge">noSuchMethod()</code>.</li>
-  <li>Avoid setting variables to null.</li>
-  <li>Be consistent with the types of arguments you pass into each function or
-method.</li>
+  </li>
+  <li>第三节及更多：分支涉及的主题、内容或文件等，小节数量不限。</li>
 </ul>
 
+<h4 id="示例解释">示例解释：</h4>
+
+<p><code class="highlighter-rouge">hj-tra-effective-dart-design</code> 示例解释：</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>小节内容</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">hj</code></td>
+      <td>成员简称</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tra</code></td>
+      <td>分支意图 – 文章翻译</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">effective-dart-design</code></td>
+      <td>翻译内容为 effective-dart-design</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="增加译文">
+<a id="增加译文" class="anchor" href="#%E5%A2%9E%E5%8A%A0%E8%AF%91%E6%96%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>增加译文</h3>
+
+<p>贡献者需要使用 <code class="highlighter-rouge">{% comment %}</code> <code class="highlighter-rouge">{% endcomment %}</code> 注释的方式保留原文内容，
+然后在被注释的原文后增加译文内容，其中 <code class="highlighter-rouge">{% comment %}</code> 注释语句的前面应空两行，后面空一行。
+<code class="highlighter-rouge">{% endcomment %}</code> 注释语句的前面应空一行，后面空两行。
+如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+// 空两行
+// 
+{% comment %}    
+// 空一行
+English：Everything you can imagine is real.
+// 空一行
+{% endcomment %}
+// 空两行
+// 
+中文：你能想象到的都是真实的。
+</code></pre></div></div>
+
 <aside class="alert alert-info">
-  <p><strong>Note:</strong>
-  Don’t worry about the size of your app’s included libraries. The dart2js tool
-  performs tree shaking to omit unused classes, functions, methods, and so on.
-  Just import the libraries you need, and let dart2js get rid of what you don’t
-  need.</p>
+  <p><strong>提示：</strong>
+之所以采用注释保留原文，增加译文的方式进行文章翻译，目的是为了保持译文与官方原文的同步。
+官方会频繁的对原文进行增加，删除和修改，注释并保留译文文件中的原文，有利于使用对比工具进行对比溯源，
+从而减少译文同步所带来的负担，增加译文的可维护性。
+这里常用的对比工具如：<code class="highlighter-rouge">BeyondCompare</code> ， <code class="highlighter-rouge">vscode + 对比插件</code> 等。</p>
 </aside>
-
-<h2 id="debugging">
-<a id="debugging" class="anchor" href="#debugging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Debugging</h2>
-
-<p>This section gives tips for debugging dart2js-produced code in Chrome, Firefox,
-and Safari. Debugging the JavaScript produced by dart2js is easiest in
-browsers such as Chrome that support source maps.</p>
-
-<p>Whichever browser you use, you should enable pausing on at least
-uncaught exceptions, and perhaps on all exceptions. For frameworks such
-as dart:async that wrap user code in try-catch, we
-recommend pausing on all exceptions.</p>
-
-<h3 id="dart2js-debugging-chrome">
-<a id="dart2js-debugging-chrome" class="anchor" href="#dart2js-debugging-chrome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chrome</h3>
-
-<p>To debug in Chrome:</p>
-
-<ol>
-  <li>Open the Developer Tools window, as described in the
-<a href="https://developer.chrome.com/devtools/index">Chrome DevTools documentation.</a>
-</li>
-  <li>Turn on source maps, as described in the video
-<a href="http://bit.ly/YugIUY">SourceMaps in Chrome.</a>
-</li>
-  <li>Enable debugging, either on all exceptions or only on uncaught exceptions,
-as described in
-<a href="https://developers.google.com/web/tools/chrome-devtools/debug/breakpoints/add-breakpoints">How to set breakpoints.</a>
-</li>
-  <li>Reload your app.</li>
-</ol>
-
-<h3 id="dart2js-debugging-ie">
-<a id="dart2js-debugging-ie" class="anchor" href="#dart2js-debugging-ie" aria-hidden="true"><span class="octicon octicon-link"></span></a>Internet Explorer</h3>
-
-<p>To debug in Internet Explorer:</p>
-
-<ol>
-  <li>Update to the latest version of Internet Explorer. (Source-map support
-was added to IE in April 2014).</li>
-  <li>Load <strong>Developer Tools</strong> (<strong>F12</strong>). For more information, see
-<a href="http://msdn.microsoft.com/library/ie/bg182326(v=vs.85)">Using the F12 developer tools.</a>
-</li>
-  <li>Reload the app. The <strong>debugger</strong> tab shows source-mapped files.</li>
-  <li>Exception behavior can be controlled through <strong>Ctrl+Shift+E</strong>;
-the default is <strong>Break on unhandled exceptions</strong>.</li>
-</ol>
-
-<h3 id="dart2js-debugging-firefox">
-<a id="dart2js-debugging-firefox" class="anchor" href="#dart2js-debugging-firefox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Firefox</h3>
-
-<p>Firefox doesn’t yet support source maps (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=771597">bug #771597.</a>)</p>
-
-<p>To debug in Firefox:</p>
-
-<ol>
-  <li>
-    <p>Enable the Developer Toolbar, as described in Kevin Dangoor’s blog post,
-<a href="https://hacks.mozilla.org/2012/08/new-firefox-command-line-helps-you-develop-faster/">New Firefox Command Line Helps You Develop
-Faster”</a>.</p>
-  </li>
-  <li>Click <strong>Pause on exceptions</strong>, as shown in the
-following figure.
-<img src="/assets/ff-debug-6940b08acde3d4a3b38b66b2469dfcc2c4ba9ab71a5b8e3dd18176f80af5e057.png" alt="Firefox Toolbar"><br><br>
-</li>
-  <li>Reload your app.</li>
-</ol>
-
-<h3 id="dart2js-debugging-safari">
-<a id="dart2js-debugging-safari" class="anchor" href="#dart2js-debugging-safari" aria-hidden="true"><span class="octicon octicon-link"></span></a>Safari</h3>
-
-<p>To debug in Safari:</p>
-
-<ol>
-  <li>Turn on the Develop menu, as described in the <a href="https://developer.apple.com/library/content/documentation/NetworkingInternetWeb/Conceptual/Web_Inspector_Tutorial/EnableWebInspector/EnableWebInspector.html">Safari Web Inspector Tutorial.</a>
-</li>
-  <li>Enable breaks, either on all exceptions or only on uncaught exceptions.
-See <a href="https://support.apple.com/en-ca/guide/safari-developer/add-a-javascript-breakpoint-dev5e4caf347/mac">Add a JavaScript breakpoint</a> under <a href="https://support.apple.com/en-ca/guide/safari-developer/welcome/mac">Safari Developer Help.</a>
-</li>
-  <li>Reload your app.</li>
-</ol>
 
 
           
