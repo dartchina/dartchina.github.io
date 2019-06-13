@@ -548,8 +548,11 @@ ga('send', 'pageview');
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#非成员">非成员</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#成员">成员</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#增加译文">增加译文</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#翻译规则">翻译规则</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#译后检查">译后检查</a></li>
 </ul>
 </li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#禁止事项">禁止事项</a></li>
 </ul>
 </div>
 
@@ -585,10 +588,13 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 
 
 
-<div id="site-toc--inline" class="site-toc ">
+<div id="site-toc--inline" class="site-toc toc-collapsible toc-collapsed">
   <header class="site-toc__title">
     大纲
     <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+      <span class="site-toc--inline__toggle toc-toggle-down"><i class="fas fa-chevron-down fa-m"></i></span>
+      <span class="site-toc--inline__toggle toc-toggle-up"><i class="fas fa-chevron-up fa-m"></i></span>
     
   </header>
   <ul class="section-nav">
@@ -605,8 +611,11 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 <li class="toc-entry toc-h3"><a href="#非成员">非成员</a></li>
 <li class="toc-entry toc-h3"><a href="#成员">成员</a></li>
 <li class="toc-entry toc-h3"><a href="#增加译文">增加译文</a></li>
+<li class="toc-entry toc-h3"><a href="#翻译规则">翻译规则</a></li>
+<li class="toc-entry toc-h3"><a href="#译后检查">译后检查</a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#禁止事项">禁止事项</a></li>
 </ul>
 </div>
 
@@ -699,7 +708,7 @@ Fork 于官方原文仓库 <a href="https://github.com/dart-lang/site-www">site-
 <h4 id="完整章节">完整章节</h4>
 
 <p>非成员需要 Fork 本仓库，基于仓库 src_zh_CN 分支创建新分支，翻译完成后通过 PR 进行提交，
-后由 DartChina 成员处理及合并。</p>
+后由 DartChina 成员处理及合并。需要注意的是：没有全部完成之前，不可以通过 PR 推送到译文仓库。</p>
 
 <h4 id="错误和-issue">错误和 Issue</h4>
 
@@ -797,6 +806,51 @@ English：Everything you can imagine is real.
 这里常用的对比工具如：<code class="highlighter-rouge">BeyondCompare</code> ， <code class="highlighter-rouge">vscode + 对比插件</code> 等。</p>
 </aside>
 
+<h3 id="翻译规则">
+<a id="翻译规则" class="anchor" href="#%E7%BF%BB%E8%AF%91%E8%A7%84%E5%88%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>翻译规则</h3>
+
+<aside class="alert alert-info">
+  <p><strong>提示：</strong>
+章节节选自<a href="https://github.com/LCTT/wiki/blob/master/guide/translation.md">LCTT</a></p>
+</aside>
+
+<ul>
+  <li>要忠实原文，可以在不损失原文含义的情况下进行意译，但是不能导致读者有误解和难以理解的语素增加。</li>
+  <li>译文的排版要求符合<a href="/about_zh_CN/chinese-copywriting-guidelines">中文排版指北</a>。</li>
+  <li>所有内置的代码要格式正确（通常选题会确保正确），如果原文有误，可以修改。</li>
+  <li>正确使用 Markdown 标签，通常沿袭选题原文中的标签即可。</li>
+  <li>在必要时，如原文有误、原文需要进一步解释时，可以增加译注。</li>
+</ul>
+
+<h3 id="译后检查">
+<a id="译后检查" class="anchor" href="#%E8%AF%91%E5%90%8E%E6%A3%80%E6%9F%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>译后检查</h3>
+
+<aside class="alert alert-info">
+  <p><strong>提示：</strong>
+章节节选自<a href="https://github.com/LCTT/wiki/blob/master/guide/translation.md">LCTT</a></p>
+</aside>
+
+<p>完成翻译后，译者应至少自行检查一遍：</p>
+
+<ul>
+  <li>检查全篇是否格式排版规范。</li>
+  <li>检查全篇是否通顺、行文是否一致。</li>
+  <li>检查段落组织是否合理，必要时可以调整段落设置。</li>
+</ul>
+
+<h2 id="禁止事项">
+<a id="禁止事项" class="anchor" href="#%E7%A6%81%E6%AD%A2%E4%BA%8B%E9%A1%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>禁止事项</h2>
+
+<aside class="alert alert-info">
+  <p><strong>提示：</strong>
+章节节选自<a href="https://github.com/LCTT/wiki/blob/master/guide/translation.md">LCTT</a></p>
+</aside>
+
+<ul>
+  <li>我们允许使用类似谷歌翻译这样的工具来辅助翻译，但是<strong>绝不允许</strong>直接提交翻译工具的结果，略加修改就提交上来。</li>
+  <li>我们鼓励各种英语水平和技术水平的人参与翻译贡献，因此，选择符合自己能力和兴趣的文章翻译即可。</li>
+  <li>如参考引用已有译文，应联系译者获得许可，按照译文许可方式引用，<strong>绝不允许</strong>出现盗用和侵权行为。</li>
+</ul>
 
           
 
@@ -823,7 +877,7 @@ English：Everything you can imagine is real.
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/06/12 06:40 PDT"
+               title="Site built on 2019/06/12 20:45 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
