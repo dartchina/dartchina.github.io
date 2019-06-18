@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dart is a platform for building structured apps. It includes a language, a VM, libraries, tools, and compilers to many targets, including JavaScript.">
-  <title>Security | Dart</title>
+  <meta name="description" content="Dart 编程语言中文版贡献者指北">
+  <title>贡献者指北 | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,13 +18,13 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="Security" />
-  <meta name="twitter:description" content="Dart is a platform for building structured apps. It includes a language, a VM, libraries, tools, and compilers to many targets, including JavaScript." />
+  <meta name="twitter:title" content="贡献者指北" />
+  <meta name="twitter:description" content="Dart 编程语言中文版贡献者指北" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Security" />
-  <meta property="og:description" content="Dart is a platform for building structured apps. It includes a language, a VM, libraries, tools, and compilers to many targets, including JavaScript." />
-  <meta property="og:url" content="https://www.dartlang.org/security.html" />
+  <meta property="og:title" content="贡献者指北" />
+  <meta property="og:description" content="Dart 编程语言中文版贡献者指北" />
+  <meta property="og:url" content="https://www.dartlang.org/about_zh_CN/contributor-guide" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" integrity="sha256-S0f9nOqFuIcXJSRb1Y4WwIH+QKL9f54WrcUkklWPM4k=" crossorigin="anonymous" href="/assets/main-4b47fd9cea85b8871725245bd58e16c081fe40a2fd7f9e16adc52492558f3389.css">
@@ -67,7 +67,7 @@ ga('send', 'pageview');
       <a href="/get-dart" class="nav-link">安装 Dart</a>
     </li>
     <li>
-      <a href="/about_zh_CN" class="nav-link">关于</a>
+      <a href="/about_zh_CN" class="nav-link active">关于</a>
     </li>
     <li class="searchfield">
       <form action="/search" class="site-header__search form-inline" id="cse-search-box">
@@ -112,7 +112,7 @@ ga('send', 'pageview');
         <a href="/guides" class="nav-link">文档</a>
       </li>
       <li>
-        <a href="/about_zh_CN" class="nav-link">关于</a>
+        <a href="/about_zh_CN" class="nav-link active">关于</a>
       </li>
     </ul>
 
@@ -501,7 +501,7 @@ ga('send', 'pageview');
   </li>
 </ul>
     </li><li class="nav-item">
-      <a class="nav-link " data-toggle="collapse" href="#sidenav-9" role="button"
+      <a class="nav-link active" data-toggle="collapse" href="#sidenav-9" role="button"
         aria-expanded="true" aria-controls="sidenav-9"
       >关于</a>
 
@@ -509,7 +509,7 @@ ga('send', 'pageview');
         <li class="nav-item">
     <a class="nav-link" href="/about_zh_CN">关于本站</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/about_zh_CN/contributor-guide">贡献者指北</a>
+    <a class="nav-link active" href="/about_zh_CN/contributor-guide">贡献者指北</a>
   </li><li class="nav-item">
     <a class="nav-link" href="/about_zh_CN/chinese-copywriting-guidelines">中文排版指北</a>
   </li>
@@ -535,8 +535,24 @@ ga('send', 'pageview');
     
   </header>
   <ul class="section-nav nav">
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#reporting-vulnerabilities">Reporting vulnerabilities</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#best-practices">Best practices</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#贡献者指北">贡献者指北</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#中文排版指北">中文排版指北</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#译文仓库">译文仓库</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#分支结构">分支结构</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#目录结构">目录结构</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#贡献及翻译">贡献及翻译</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#非成员">非成员</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#成员">成员</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#增加译文">增加译文</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#翻译规则">翻译规则</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#译后检查">译后检查</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#禁止事项">禁止事项</a></li>
 </ul>
 </div>
 
@@ -547,12 +563,12 @@ ga('send', 'pageview');
 
           <div>
             <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
-  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/security.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_about_zh_CN/contributor-guide.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Security' page issue&body=
-Page URL: https://www.dartlang.org/security.html%0D%0A
-Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/security.md%0D%0A
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='贡献者指北' page issue&body=
+Page URL: https://www.dartlang.org/about_zh_CN/contributor-guide%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_about_zh_CN/contributor-guide.md%0D%0A
 %0D%0A
 Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
 %0D%0A
@@ -562,7 +578,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   </a>
 </div>
 
-            <h1>Security</h1>
+            <h1>贡献者指北</h1>
           </div>
           
 
@@ -572,53 +588,268 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 
 
 
-<div id="site-toc--inline" class="site-toc ">
+<div id="site-toc--inline" class="site-toc toc-collapsible toc-collapsed">
   <header class="site-toc__title">
     大纲
     <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
     
+      <span class="site-toc--inline__toggle toc-toggle-down"><i class="fas fa-chevron-down fa-m"></i></span>
+      <span class="site-toc--inline__toggle toc-toggle-up"><i class="fas fa-chevron-up fa-m"></i></span>
+    
   </header>
   <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#reporting-vulnerabilities">Reporting vulnerabilities</a></li>
-<li class="toc-entry toc-h2"><a href="#best-practices">Best practices</a></li>
+<li class="toc-entry toc-h2"><a href="#贡献者指北">贡献者指北</a></li>
+<li class="toc-entry toc-h2"><a href="#中文排版指北">中文排版指北</a></li>
+<li class="toc-entry toc-h2"><a href="#译文仓库">译文仓库</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#分支结构">分支结构</a></li>
+<li class="toc-entry toc-h3"><a href="#目录结构">目录结构</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#贡献及翻译">贡献及翻译</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#非成员">非成员</a></li>
+<li class="toc-entry toc-h3"><a href="#成员">成员</a></li>
+<li class="toc-entry toc-h3"><a href="#增加译文">增加译文</a></li>
+<li class="toc-entry toc-h3"><a href="#翻译规则">翻译规则</a></li>
+<li class="toc-entry toc-h3"><a href="#译后检查">译后检查</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#禁止事项">禁止事项</a></li>
 </ul>
 </div>
 
 
-          <p>The Dart team takes the security of Dart and the applications
-created with it seriously. This page describes how to report any
-vulnerabilities you may find, and lists best practices to minimize
-the risk of introducing a vulnerability.</p>
+          <h2 id="贡献者指北">
+<a id="贡献者指北" class="anchor" href="#%E8%B4%A1%E7%8C%AE%E8%80%85%E6%8C%87%E5%8C%97" aria-hidden="true"><span class="octicon octicon-link"></span></a>贡献者指北</h2>
 
-<h2 id="reporting-vulnerabilities">
-<a id="reporting-vulnerabilities" class="anchor" href="#reporting-vulnerabilities" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reporting vulnerabilities</h2>
+<p>本章意期望或已加入本站翻译的成员了解一下本站整体流程，有助于更快的参与到翻译贡献当中。
+以下<code class="highlighter-rouge">中文译文</code>简称<code class="highlighter-rouge">译文</code>，<code class="highlighter-rouge">英文原文</code>简称<code class="highlighter-rouge">原文</code>。</p>
 
-<p>In the rare event that you find a vulnerability in Dart itself,
-email us at
-<a href="mailto:product-security@google.com">product-security@google.com</a>.
-For more information about how Google handles security issues, see
-<a href="https://www.google.com/about/appsecurity/">Google’s security philosophy.</a></p>
+<h2 id="中文排版指北">
+<a id="中文排版指北" class="anchor" href="#%E4%B8%AD%E6%96%87%E6%8E%92%E7%89%88%E6%8C%87%E5%8C%97" aria-hidden="true"><span class="octicon octicon-link"></span></a>中文排版指北</h2>
 
-<h2 id="best-practices">
-<a id="best-practices" class="anchor" href="#best-practices" aria-hidden="true"><span class="octicon octicon-link"></span></a>Best practices</h2>
+<p>见：<a href="/about_zh_CN/chinese-copywriting-guidelines">中文排版指北</a>。</p>
+
+<h2 id="译文仓库">
+<a id="译文仓库" class="anchor" href="#%E8%AF%91%E6%96%87%E4%BB%93%E5%BA%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>译文仓库</h2>
+
+<p>译文仓库 <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN">site-www-cn</a>
+Fork 于官方原文仓库 <a href="https://github.com/dart-lang/site-www">site-www</a> 。</p>
+
+<h3 id="分支结构">
+<a id="分支结构" class="anchor" href="#%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>分支结构</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>分支名称</th>
+      <th>分支描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">master</code></td>
+      <td>主分支</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">src_zh_CN</code></td>
+      <td>译文分支</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">1.x</code></td>
+      <td>原文 1.0 版本分支</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">2.2_src</code></td>
+      <td>原文 2.2 版本分支</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">2.2_src_zh_CN</code></td>
+      <td>译文 2.2 版本分支</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">其他分支</code></td>
+      <td>错误修改，翻译任务及其他任务分支</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="master-分支">master 分支</h4>
+
+<p>译文仓库的 master 分支不加入任何修改，仅用来合并官方原文仓库 master 分支，保持与官方同步。</p>
+
+<h4 id="src_zh_cn-分支">src_zh_CN 分支</h4>
+
+<p>译文仓库 src_zh_CN 分支包括译文文件，经修改或增加的配置构建文件。</p>
+
+<h3 id="目录结构">
+<a id="目录结构" class="anchor" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>目录结构</h3>
+
+<h4 id="src-目录">src 目录</h4>
+
+<p>src 为原文文件夹。翻译不在该文件夹做任何操作或修改，文件夹内容保持与官网原文同步。
+保持原始文件内容的目的是为了方便与已翻译译文内容进行对比，保持译文与原文版本同步。</p>
+
+<h4 id="src_zh_cn-目录">src_zh_CN 目录</h4>
+
+<p>src_zh_CN 为译文文件夹。翻译译文在该文件夹中进行。src_zh_CN 文件夹由译文仓库创建，
+初始 src_zh_CN 文件夹拷贝自 src 文件夹，文件数量及文件名称与 src 相同。进行翻译时
+直接打开 src_zh_CN 文件夹下的原文文件，增加译文即可。</p>
+
+<h2 id="贡献及翻译">
+<a id="贡献及翻译" class="anchor" href="#%E8%B4%A1%E7%8C%AE%E5%8F%8A%E7%BF%BB%E8%AF%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>贡献及翻译</h2>
+
+<p>贡献及翻译的人员分两种角色：非成员和成员（在 github 上加入了 DartChina 组织的账户）。</p>
+
+<h3 id="非成员">
+<a id="非成员" class="anchor" href="#%E9%9D%9E%E6%88%90%E5%91%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>非成员</h3>
+
+<h4 id="完整章节">完整章节</h4>
+
+<p>非成员需要 Fork 本仓库，基于仓库 src_zh_CN 分支创建新分支，翻译完成后通过 PR 进行提交，
+后由 DartChina 成员处理及合并。需要注意的是：没有全部完成之前，不可以通过 PR 推送到译文仓库。</p>
+
+<h4 id="错误和-issue">错误和 Issue</h4>
+
+<p>如果页面存在错误或异议可点击当前页面的
+<span class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_about_zh_CN/contributor-guide.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='%E8%B4%A1%E7%8C%AE%E8%80%85%E6%8C%87%E5%8C%97'%20page%20issue&amp;body=%20Page%20URL:%20https://www.dartlang.org/about_zh_CN/contributor-guide%0D%0A%20Page%20source:%20https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_about_zh_CN/contributor-guide.md%0D%0A%20%0D%0A%20Found%20a%20typo?%20You%20can%20fix%20it%20yourself%20by%20going%20to%20the%20page%20source%20and%20clicking%20the%20pencil%20icon.%20Or%20finish%20creating%20this%20issue.%0D%0A%20%0D%0A%20Description%20of%20issue:" class="btn no-automatic-external" title="Report an issue with this page" target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</span>
+提交 Bug 或 Issue 。</p>
+
+<h3 id="成员">
+<a id="成员" class="anchor" href="#%E6%88%90%E5%91%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>成员</h3>
+
+<p>除可以通过非成员方式进行贡献外，还可以在原仓库 src_zh_CN 上创建新分支进行翻译贡献或错误更正。
+在原仓库中创建分支应遵循分支命名规则。</p>
+
+<h4 id="分支命名规则">分支命名规则</h4>
+
+<p>分支名称应始终使用<code class="highlighter-rouge">小写</code>加<code class="highlighter-rouge">中划线</code>原则进行命名，如：<code class="highlighter-rouge">hj-tra-effective-dart-design</code> 。其中前两节意义固定：</p>
 
 <ul>
-  <li>
-    <p><strong>Keep current with the latest Dart SDK releases.</strong>
-We regularly update Dart, and these updates may fix security
-defects discovered in previous versions. Check the Dart
-<a href="https://github.com/dart-lang/sdk/blob/master/CHANGELOG.md">change log</a>
-for security-related updates.</p>
+  <li>第一节：成员简称，限两个字母</li>
+  <li>第二节：分支意图，限三个字母，以下列出可选意图简写
+    <ul>
+      <li>
+<code class="highlighter-rouge">tra</code> 文章翻译</li>
+      <li>
+<code class="highlighter-rouge">fix</code> 错误、歧义等问题的修改</li>
+      <li>
+<code class="highlighter-rouge">dev</code> 译文站点功能、配置开发等</li>
+      <li>
+<code class="highlighter-rouge">syn</code> 译文原文同步</li>
+    </ul>
   </li>
-  <li>
-    <p><strong>Keep your application’s dependencies up to date.</strong>
-Make sure you <a href="/guides/packages#upgrading-a-dependency">upgrade your package
-dependencies</a>
-to keep the dependencies up to date. Avoid pinning to specific versions
-for your dependencies and, if you do, make sure you check
-periodically to see if your dependencies have had security updates,
-and update the pin accordingly.</p>
-  </li>
+  <li>第三节及更多：分支涉及的主题、内容或文件等，小节数量不限。</li>
+</ul>
+
+<h4 id="示例解释">示例解释：</h4>
+
+<p><code class="highlighter-rouge">hj-tra-effective-dart-design</code> 示例解释：</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>小节内容</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">hj</code></td>
+      <td>成员简称</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tra</code></td>
+      <td>分支意图 – 文章翻译</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">effective-dart-design</code></td>
+      <td>翻译内容为 effective-dart-design</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="增加译文">
+<a id="增加译文" class="anchor" href="#%E5%A2%9E%E5%8A%A0%E8%AF%91%E6%96%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>增加译文</h3>
+
+<p>贡献者需要使用 <code class="highlighter-rouge">{% comment %}</code> <code class="highlighter-rouge">{% endcomment %}</code> 注释的方式保留原文内容，
+然后在被注释的原文后增加译文内容，其中 <code class="highlighter-rouge">{% comment %}</code> 注释语句的前面应空两行，后面空一行。
+<code class="highlighter-rouge">{% endcomment %}</code> 注释语句的前面应空一行，后面空两行。
+如：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+// 空两行
+// 
+{% comment %}    
+// 空一行
+English：Everything you can imagine is real.
+// 空一行
+{% endcomment %}
+// 空两行
+// 
+中文：你能想象到的都是真实的。
+</code></pre></div></div>
+
+<aside class="alert alert-info">
+  <p><strong>提示：</strong>
+之所以采用注释保留原文，增加译文的方式进行文章翻译，目的是为了保持译文与官方原文的同步。
+官方会频繁的对原文进行增加，删除和修改，注释并保留译文文件中的原文，有利于使用对比工具进行对比溯源，
+从而减少译文同步所带来的负担，增加译文的可维护性。
+这里常用的对比工具如：<code class="highlighter-rouge">BeyondCompare</code> ， <code class="highlighter-rouge">vscode + 对比插件</code> 等。</p>
+</aside>
+
+<h3 id="翻译规则">
+<a id="翻译规则" class="anchor" href="#%E7%BF%BB%E8%AF%91%E8%A7%84%E5%88%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>翻译规则</h3>
+
+<aside class="alert alert-info">
+  <p><strong>提示：</strong>
+章节节选自<a href="https://github.com/LCTT/wiki/blob/master/guide/translation.md">LCTT</a></p>
+</aside>
+
+<ul>
+  <li>要忠实原文，可以在不损失原文含义的情况下进行意译，但是不能导致读者有误解和难以理解的语素增加。</li>
+  <li>译文的排版要求符合<a href="/about_zh_CN/chinese-copywriting-guidelines">中文排版指北</a>。</li>
+  <li>所有内置的代码要格式正确（通常选题会确保正确），如果原文有误，可以修改。</li>
+  <li>正确使用 Markdown 标签，通常沿袭选题原文中的标签即可。</li>
+  <li>在必要时，如原文有误、原文需要进一步解释时，可以增加译注。</li>
+</ul>
+
+<h3 id="译后检查">
+<a id="译后检查" class="anchor" href="#%E8%AF%91%E5%90%8E%E6%A3%80%E6%9F%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>译后检查</h3>
+
+<aside class="alert alert-info">
+  <p><strong>提示：</strong>
+章节节选自<a href="https://github.com/LCTT/wiki/blob/master/guide/translation.md">LCTT</a></p>
+</aside>
+
+<p>完成翻译后，译者应至少自行检查一遍：</p>
+
+<ul>
+  <li>检查全篇是否格式排版规范。</li>
+  <li>检查全篇是否通顺、行文是否一致。</li>
+  <li>检查段落组织是否合理，必要时可以调整段落设置。</li>
+</ul>
+
+<h2 id="禁止事项">
+<a id="禁止事项" class="anchor" href="#%E7%A6%81%E6%AD%A2%E4%BA%8B%E9%A1%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>禁止事项</h2>
+
+<aside class="alert alert-info">
+  <p><strong>提示：</strong>
+章节节选自<a href="https://github.com/LCTT/wiki/blob/master/guide/translation.md">LCTT</a></p>
+</aside>
+
+<ul>
+  <li>我们允许使用类似谷歌翻译这样的工具来辅助翻译，但是<strong>绝不允许</strong>直接提交翻译工具的结果，略加修改就提交上来。</li>
+  <li>我们鼓励各种英语水平和技术水平的人参与翻译贡献，因此，选择符合自己能力和兴趣的文章翻译即可。</li>
+  <li>如参考引用已有译文，应联系译者获得许可，按照译文许可方式引用，<strong>绝不允许</strong>出现盗用和侵权行为。</li>
 </ul>
 
           

@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Formatting and naming rules for consistent, readable code.">
-  <title>Effective Dart: Style | Dart</title>
+  <title>Effective Dart: 风格 | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,11 +18,11 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="Effective Dart: Style" />
+  <meta name="twitter:title" content="Effective Dart: 风格" />
   <meta name="twitter:description" content="Formatting and naming rules for consistent, readable code." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Effective Dart: Style" />
+  <meta property="og:title" content="Effective Dart: 风格" />
   <meta property="og:description" content="Formatting and naming rules for consistent, readable code." />
   <meta property="og:url" content="https://www.dartlang.org/guides/language/effective-dart/style" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
@@ -52,19 +52,22 @@ ga('send', 'pageview');
   </a>
   <ul class="navbar">
     <li class="mainnav__get-started">
-      <a href="/docs" class="nav-link active"><span>Docs</span></a>
+      <a href="/guides" class="nav-link active"><span>文档</span></a>
     </li>
     <li>
-      <a href="/platforms" class="nav-link">Platforms</a>
+      <a href="/platforms" class="nav-link">平台</a>
     </li>
     <li>
-      <a href="/community" class="nav-link">Community</a>
+      <a href="/community" class="nav-link">社区</a>
     </li>
     <li>
-      <a href="https://dartpad.dartlang.org/" target="_blank" class="nav-link no-automatic-external">Try Dart</a>
+      <a href="https://dartpad.cn/" target="_blank" class="nav-link no-automatic-external">体验 Dart</a>
     </li>
     <li>
-      <a href="/get-dart" class="nav-link">Get Dart</a>
+      <a href="/get-dart" class="nav-link">安装 Dart</a>
+    </li>
+    <li>
+      <a href="/about_zh_CN" class="nav-link">关于</a>
     </li>
     <li class="searchfield">
       <form action="/search" class="site-header__search form-inline" id="cse-search-box">
@@ -82,8 +85,9 @@ ga('send', 'pageview');
  <div class="banner">
   <p class="banner__text">
     
-    Announcing Dart 2.3: Optimized for building user interfaces.
-    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">Learn more.</a>
+    
+    Dart 2.3 发布，针对构建用户界面进行了优化。
+    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">了解更多。</a>
   </p>
 </div>
  
@@ -96,57 +100,60 @@ ga('send', 'pageview');
   <div class="site-sidebar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a href="/platforms" class="nav-link">Platforms</a>
+        <a href="/platforms" class="nav-link">平台</a>
       </li>
       <li class="nav-item">
-        <a href="/community" class="nav-link">Community</a>
+        <a href="/community" class="nav-link">社区</a>
       </li>
       <li class="nav-item">
-        <a href="https://dartpad.dartlang.org" class="nav-link">Try Dart</a>
+        <a href="https://dartpad.cn" class="nav-link">体验 Dart</a>
       </li>
       <li class="nav-item">
-        <a href="/guides" class="nav-link active">Docs</a>
+        <a href="/guides" class="nav-link active">文档</a>
+      </li>
+      <li>
+        <a href="/about_zh_CN" class="nav-link">关于</a>
       </li>
     </ul>
 
     <ul class="nav flex-column"><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-1" role="button"
         aria-expanded="false" aria-controls="sidenav-1"
-      >Samples & tutorials</a>
+      >示例 & 教程</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-1">
         <li class="nav-item">
-    <a class="nav-link" href="/samples">Language samples</a>
+    <a class="nav-link" href="/samples">示例程序</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable"
       data-toggle="collapse" data-target="#sidenav-1-2"
       href="#sidenav-1-2" role="button"
       aria-expanded="true" aria-controls="sidenav-1-2"
-    >Codelabs
+    >Codelab
     </a>
     <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-1-2">
       <li class="nav-item">
-    <a class="nav-link" href="/codelabs">Overview</a>
+    <a class="nav-link" href="/codelabs">综述</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/codelabs/dart-cheatsheet">Cheatsheet codelab</a>
+    <a class="nav-link" href="/codelabs/dart-cheatsheet">Codelab 速查</a>
   </li></ul>
   </li>
 <li class="nav-item">
-    <a class="nav-link" href="/tutorials">Tutorials</a>
+    <a class="nav-link" href="/tutorials">教程</a>
   </li>
 </ul>
     </li><li class="nav-item">
       <a class="nav-link active" data-toggle="collapse" href="#sidenav-2" role="button"
         aria-expanded="true" aria-controls="sidenav-2"
-      >Language</a>
+      >语言</a>
 
       <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-2">
         <li class="nav-item">
-    <a class="nav-link" href="/guides/language/language-tour">Tour</a>
+    <a class="nav-link" href="/guides/language/language-tour">概览</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/sound-dart">Type system</a>
+    <a class="nav-link" href="/guides/language/sound-dart">类型系统</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/spec">Specification</a>
+    <a class="nav-link" href="/guides/language/spec">规范</a>
   </li><li class="nav-item">
     <a class="nav-link active collapsable"
       data-toggle="collapse" data-target="#sidenav-2-4"
@@ -156,15 +163,15 @@ ga('send', 'pageview');
     </a>
     <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-2-4">
       <li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart">Overview</a>
+    <a class="nav-link" href="/guides/language/effective-dart">综述</a>
   </li><li class="nav-item">
-    <a class="nav-link active" href="/guides/language/effective-dart/style">Style</a>
+    <a class="nav-link active" href="/guides/language/effective-dart/style">风格</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/documentation">Documentation</a>
+    <a class="nav-link" href="/guides/language/effective-dart/documentation">文档</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/usage">Usage</a>
+    <a class="nav-link" href="/guides/language/effective-dart/usage">使用</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/design">Design</a>
+    <a class="nav-link" href="/guides/language/effective-dart/design">设计</a>
   </li></ul>
   </li>
 
@@ -172,19 +179,19 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-3" role="button"
         aria-expanded="false" aria-controls="sidenav-3"
-      >Core libraries</a>
+      >核心库</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3">
         <li class="nav-item">
-    <a class="nav-link" href="/guides/libraries">Overview</a>
+    <a class="nav-link" href="/guides/libraries">综述</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/library-tour">Tour</a>
+    <a class="nav-link" href="/guides/libraries/library-tour">概览</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-3-3"
       href="#sidenav-3-3" role="button"
       aria-expanded="false" aria-controls="sidenav-3-3"
-    >Articles
+    >文章
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3-3">
       <li class="nav-item">
@@ -198,39 +205,39 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-4" role="button"
         aria-expanded="false" aria-controls="sidenav-4"
-      >Packages</a>
+      >包</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4">
         <li class="nav-item">
-    <a class="nav-link" href="/guides/packages">How to use packages</a>
+    <a class="nav-link" href="/guides/packages">如何使用包</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/useful-libraries">Commonly used packages</a>
+    <a class="nav-link" href="/guides/libraries/useful-libraries">常用的包</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/create-library-packages">Creating packages</a>
+    <a class="nav-link" href="/guides/libraries/create-library-packages">创建包</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/publishing">Publishing packages</a>
+    <a class="nav-link" href="/tools/pub/publishing">发布包</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-4-5"
       href="#sidenav-4-5" role="button"
       aria-expanded="false" aria-controls="sidenav-4-5"
-    >Package reference
+    >引用包
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4-5">
       <li class="nav-item">
-    <a class="nav-link" href="/tools/pub/dependencies">Dependencies</a>
+    <a class="nav-link" href="/tools/pub/dependencies">依赖</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/glossary">Glossary</a>
+    <a class="nav-link" href="/tools/pub/glossary">术语</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/package-layout">Package layout conventions</a>
+    <a class="nav-link" href="/tools/pub/package-layout">包的设计约定</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/environment-variables">Pub environment variables</a>
+    <a class="nav-link" href="/tools/pub/environment-variables">Pub 环境变量</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/pubspec">Pubspec file</a>
+    <a class="nav-link" href="/tools/pub/pubspec">Pubspec 文件</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/troubleshoot">Troubleshooting pub</a>
+    <a class="nav-link" href="/tools/pub/troubleshoot">Pub 问题分析与解决</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/versioning">Versioning</a>
+    <a class="nav-link" href="/tools/pub/versioning">版本</a>
   </li></ul>
   </li>
 
@@ -238,37 +245,37 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-5" role="button"
         aria-expanded="false" aria-controls="sidenav-5"
-      >Development</a>
+      >开发</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5">
         <li class="nav-item">
-    <a class="nav-link" href="/tutorials/language/futures">Futures & async-await</a>
+    <a class="nav-link" href="/tutorials/language/futures">Futures & Async-Await</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/json">Using JSON</a>
+    <a class="nav-link" href="/guides/json">使用 JSON</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/language/streams">Streams</a>
+    <a class="nav-link" href="/tutorials/language/streams">Stream</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/mobile">Mobile apps</a>
+    <a class="nav-link" href="/mobile">移动应用</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-5-5"
       href="#sidenav-5-5" role="button"
       aria-expanded="false" aria-controls="sidenav-5-5"
-    >Command-line & server apps
+    >命令行应用 & 服务应用
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-5">
       <li class="nav-item">
-    <a class="nav-link" href="/server">Overview</a>
+    <a class="nav-link" href="/server">综述</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/server/get-started">Get started</a>
+    <a class="nav-link" href="/tutorials/server/get-started">入门</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/server/cmdline">Write command-line apps</a>
+    <a class="nav-link" href="/tutorials/server/cmdline">编写命令行应用</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/server/httpserver">Write HTTP clients & servers</a>
+    <a class="nav-link" href="/tutorials/server/httpserver">编写 HTTP 客户端和服务端应用</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/server/c-interop">C & C++ interop</a>
+    <a class="nav-link" href="/server/c-interop">C & C++ 交互</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/server/libraries">Libraries and packages</a>
+    <a class="nav-link" href="/server/libraries">库和包</a>
   </li></ul>
   </li>
 <li class="nav-item">
@@ -276,40 +283,40 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-5-6"
       href="#sidenav-5-6" role="button"
       aria-expanded="false" aria-controls="sidenav-5-6"
-    >Web apps
+    >Web 应用
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6">
       <li class="nav-item">
-    <a class="nav-link" href="/web">Overview</a>
+    <a class="nav-link" href="/web">综述</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/get-started">Get started</a>
+    <a class="nav-link" href="/tutorials/web/get-started">入门</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/fetch-data">Fetch data dynamically</a>
+    <a class="nav-link" href="/tutorials/web/fetch-data">动态获取数据</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-5-6-4"
       href="#sidenav-5-6-4" role="button"
       aria-expanded="false" aria-controls="sidenav-5-6-4"
-    >Low-level web programming
+    >底层 Web 编程
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6-4">
       <li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Connect Dart & HTML</a>
+    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Dart 和 HTML 关联</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">Add elements to the DOM</a>
+    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">在 DOM 中增加 Element</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">Remove DOM elements</a>
+    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">在 DOM 中移除 Element</a>
   </li>
   </ul>
   </li>
 <li class="nav-item">
-    <a class="nav-link" href="/web/js-interop">JS/TS interop</a>
+    <a class="nav-link" href="/web/js-interop">JS/TS 交互</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/deployment">Deployment</a>
+    <a class="nav-link" href="/web/deployment">开发</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/libraries">Libraries and packages</a>
+    <a class="nav-link" href="/web/libraries">库和包</a>
   </li></ul>
   </li>
 
@@ -317,21 +324,21 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-6" role="button"
         aria-expanded="false" aria-controls="sidenav-6"
-      >Tools & techniques</a>
+      >工具 & 技巧</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6">
         <li class="nav-item">
-    <a class="nav-link" href="/tools">Overview</a>
+    <a class="nav-link" href="/tools">综述</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-6-2"
       href="#sidenav-6-2" role="button"
       aria-expanded="false" aria-controls="sidenav-6-2"
-    >Editors & debuggers
+    >编辑 & 调试
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-2">
       <li class="nav-item">
-    <a class="nav-link" href="/tools/dart-devtools">Dart DevTools</a>
+    <a class="nav-link" href="/tools/dart-devtools">Dart DevTool</a>
   </li><li class="nav-item">
     <a class="nav-link" href="/tools/dartpad">DartPad</a>
   </li><li class="nav-item">
@@ -345,7 +352,7 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-3"
       href="#sidenav-6-3" role="button"
       aria-expanded="false" aria-controls="sidenav-6-3"
-    >Command-line tools
+    >命令行工具
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-3">
       <li class="nav-item">
@@ -357,7 +364,7 @@ ga('send', 'pageview');
     </a>
     <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-1">
       <li class="nav-item">
-    <a class="nav-link" href="/tools/sdk">Overview</a>
+    <a class="nav-link" href="/tools/sdk">综述</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/tools/dart-vm">dart (Dart VM)</a>
@@ -390,7 +397,7 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-3-2"
       href="#sidenav-6-3-2" role="button"
       aria-expanded="true" aria-controls="sidenav-6-3-2"
-    >Other command-line tools
+    >其他命令行工具
     </a>
     <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-2">
       <li class="nav-item">
@@ -408,13 +415,13 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-4"
       href="#sidenav-6-4" role="button"
       aria-expanded="false" aria-controls="sidenav-6-4"
-    >Managing source code
+    >源码管理
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-4">
       <li class="nav-item">
-    <a class="nav-link" href="/guides/language/formatting">Formatting code</a>
+    <a class="nav-link" href="/guides/language/formatting">格式化代码</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/private-files">What not to commit</a>
+    <a class="nav-link" href="/guides/libraries/private-files">哪些内容不应该被提交</a>
   </li></ul>
   </li>
 <li class="nav-item">
@@ -422,7 +429,7 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-5"
       href="#sidenav-6-5" role="button"
       aria-expanded="false" aria-controls="sidenav-6-5"
-    >Static analysis
+    >静态分析
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-5">
       <li class="nav-item">
@@ -436,13 +443,13 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-6"
       href="#sidenav-6-6" role="button"
       aria-expanded="false" aria-controls="sidenav-6-6"
-    >Testing & optimization
+    >测试 & 优化
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-6">
       <li class="nav-item">
-    <a class="nav-link" href="/guides/testing">Testing</a>
+    <a class="nav-link" href="/guides/testing">测试</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/debugging">Debugging web apps</a>
+    <a class="nav-link" href="/web/debugging">调试 Web 应用</a>
   </li></ul>
   </li>
 
@@ -450,11 +457,11 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-7" role="button"
         aria-expanded="false" aria-controls="sidenav-7"
-      >Resources</a>
+      >资源</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7">
         <li class="nav-item">
-    <a class="nav-link" href="/code-of-conduct">Code of conduct</a>
+    <a class="nav-link" href="/code-of-conduct">行为守则</a>
   </li><li class="nav-item">
     <a class="nav-link" href="/faq">FAQ</a>
   </li><li class="nav-item">
@@ -462,35 +469,49 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-7-3"
       href="#sidenav-7-3" role="button"
       aria-expanded="false" aria-controls="sidenav-7-3"
-    >History
+    >历史
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7-3">
       <li class="nav-item">
-    <a class="nav-link" href="/dart-2">Migrating to Dart&nbsp;2</a>
+    <a class="nav-link" href="/dart-2">迁移到 Dart&nbsp;2</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/dart-2">Migrating web apps to Dart&nbsp;2</a>
+    <a class="nav-link" href="/web/dart-2">迁移 Web 应用到 Dart&nbsp;2</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/obsolete">Obsolete pub features</a>
+    <a class="nav-link" href="/tools/pub/obsolete">过时的 Pub 功能</a>
   </li></ul>
   </li>
 
 </ul>
     </li><li class="nav-item">
-      <a class="nav-link " data-toggle="collapse" href="#sidenav-8" role="button"
-        aria-expanded="true" aria-controls="sidenav-8"
-      >Related sites</a>
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-8" role="button"
+        aria-expanded="false" aria-controls="sidenav-8"
+      >相关网站</a>
 
-      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-8">
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-8">
         <li class="nav-item">
-    <a class="nav-link" href="https://api.dart.dev" target="_blank" rel="noopener">API reference<i class="fas fa-external-link-alt"></i></a>
+    <a class="nav-link" href="https://api.dart.dev" target="_blank" rel="noopener">API 参考<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
     <a class="nav-link" href="https://medium.com/dartlang" target="_blank" rel="noopener">Blog<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
-    <a class="nav-link" href="https://dartpad.dartlang.org" target="_blank" rel="noopener">DartPad (online editor)<i class="fas fa-external-link-alt"></i></a>
+    <a class="nav-link" href="https://dartpad.dartlang.org" target="_blank" rel="noopener">DartPad (在线编辑器)<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
     <a class="nav-link" href="https://flutter.dev" target="_blank" rel="noopener">Flutter<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
-    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Package site<i class="fas fa-external-link-alt"></i></a>
+    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Pub 包资源<i class="fas fa-external-link-alt"></i></a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link " data-toggle="collapse" href="#sidenav-9" role="button"
+        aria-expanded="true" aria-controls="sidenav-9"
+      >关于</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-9">
+        <li class="nav-item">
+    <a class="nav-link" href="/about_zh_CN">关于本站</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/about_zh_CN/contributor-guide">贡献者指北</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/about_zh_CN/chinese-copywriting-guidelines">中文排版指北</a>
   </li>
 </ul>
     </li></ul>
@@ -509,37 +530,38 @@ ga('send', 'pageview');
 
 <div id="site-toc--side" class="site-toc ">
   <header class="site-toc__title">
-    Contents
+    大纲
     <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
     
   </header>
   <ul class="section-nav nav">
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#identifiers">Identifiers</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#标识符">标识符</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#do-name-types-using-uppercamelcase">DO name types using UpperCamelCase.</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#do-name-libraries-and-source-files-using-lowercase_with_underscores">DO name libraries, packages, directories, and source files using lowercase_with_underscores.</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#do-name-import-prefixes-using-lowercase_with_underscores">DO name import prefixes using lowercase_with_underscores.</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#do-name-other-identifiers-using-lowercamelcase">DO name other identifiers using lowerCamelCase.</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#prefer-using-lowercamelcase-for-constant-names">PREFER using lowerCamelCase for constant names.</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#do-capitalize-acronyms-and-abbreviations-longer-than-two-letters-like-words">DO capitalize acronyms and abbreviations longer than two letters like words.</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#dont-use-prefix-letters">DON’T use prefix letters.</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#要-使用-uppercamelcase-风格命名类型">要 使用 UpperCamelCase 风格命名类型。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#do-name-libraries-and-source-files-using-lowercase_with_underscores">要 在库，包，文件夹，源文件中使用 lowercase_with_underscores 方式命名。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#要-用-lowercase_with_underscores-风格命名库和源文件名">要 用 lowercase_with_underscores 风格命名库和源文件名。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#要-使用-lowercase_with_underscores-风格命名导入的前缀">要 使用 lowercase_with_underscores 风格命名导入的前缀。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#要-使用-lowercamelcase-风格来命名其他的标识符">要 使用 lowerCamelCase 风格来命名其他的标识符。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#推荐-使用-lowercamelcase-来命名常量">推荐 使用 lowerCamelCase 来命名常量。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#要-把超过两个字母的首字母大写缩略词和缩写词当做一般单词来对待">要 把超过两个字母的首字母大写缩略词和缩写词当做一般单词来对待。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#不要-使用前缀字母">不要 使用前缀字母</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#ordering">Ordering</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#顺序">顺序</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#do-place-dart-imports-before-other-imports">DO place “dart:” imports before other imports.</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#do-place-package-imports-before-relative-imports">DO place “package:” imports before relative imports.</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#prefer-placing-third-party-package-imports-before-other-imports">PREFER placing external “package:” imports before other imports.</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#do-specify-exports-in-a-separate-section-after-all-imports">DO specify exports in a separate section after all imports.</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#do-sort-sections-alphabetically">DO sort sections alphabetically.</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#要-把-dart-导入语句放到其他导入语句之前">要 把 “dart:” 导入语句放到其他导入语句之前。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#要-把-package-导入语句放到项目相关导入语句之前">要 把 “package:” 导入语句放到项目相关导入语句之前。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#推荐-把外部扩展-package-导入语句放到其他语句之前">推荐 把外部扩展 “package:” 导入语句放到其他语句之前。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#要-把导出export语句作为一个单独的部分放到所有导入语句之后">要 把导出（export）语句作为一个单独的部分放到所有导入语句之后。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#要-按照字母顺序来排序每个部分中的语句">要 按照字母顺序来排序每个部分中的语句。</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#formatting">Formatting</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#格式化">格式化</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#do-format-your-code-using-dartfmt">DO format your code using dartfmt.</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#consider-changing-your-code-to-make-it-more-formatter-friendly">CONSIDER changing your code to make it more formatter-friendly.</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#avoid-lines-longer-than-80-characters">AVOID lines longer than 80 characters.</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#do-use-curly-braces-for-all-flow-control-structures">DO use curly braces for all flow control structures.</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#要-使用-dartfmt-格式化你的代码">要 使用 dartfmt 格式化你的代码。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#考虑-修改你的代码让格式更友好">考虑 修改你的代码让格式更友好。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#避免-单行超过-80-个字符">避免 单行超过 80 个字符。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#要-对所有流控制结构使用花括号">要 对所有流控制结构使用花括号。</a></li>
 </ul>
 </li>
 </ul>
@@ -553,12 +575,12 @@ ga('send', 'pageview');
   <ul>
     <li class="previous">
       
-        <a href="/guides/language/effective-dart">&lang;&nbsp;&nbsp;Overview</a>
+        <a href="/guides/language/effective-dart">&lang;&nbsp;&nbsp;概述</a>
       
     </li>
     <li class="next">
       
-        <a href="/guides/language/effective-dart/documentation">Documentation&nbsp;&nbsp;&rang;</a>
+        <a href="/guides/language/effective-dart/documentation">注释&nbsp;&nbsp;&rang;</a>
       
     </li>
   </ul>
@@ -567,12 +589,12 @@ ga('send', 'pageview');
 
           <div>
             <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
-  <a href="https://github.com/dart-lang/site-www/tree/master/src/_guides/language/effective-dart/style.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/language/effective-dart/style.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dart-lang/site-www/issues/new?title='Effective Dart: Style' page issue&body=
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Effective Dart: 风格' page issue&body=
 Page URL: https://www.dartlang.org/guides/language/effective-dart/style%0D%0A
-Page source: https://github.com/dart-lang/site-www/tree/master/src/_guides/language/effective-dart/style.md%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/language/effective-dart/style.md%0D%0A
 %0D%0A
 Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
 %0D%0A
@@ -582,7 +604,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   </a>
 </div>
 
-            <h1>Effective Dart: Style</h1>
+            <h1>Effective Dart: 风格</h1>
           </div>
           
 
@@ -594,7 +616,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 
 <div id="site-toc--inline" class="site-toc toc-collapsible toc-collapsed">
   <header class="site-toc__title">
-    Contents
+    大纲
     <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
     
       <span class="site-toc--inline__toggle toc-toggle-down"><i class="fas fa-chevron-down fa-m"></i></span>
@@ -602,32 +624,33 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
     
   </header>
   <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#identifiers">Identifiers</a>
+<li class="toc-entry toc-h2"><a href="#标识符">标识符</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#do-name-types-using-uppercamelcase">DO name types using UpperCamelCase.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-name-libraries-and-source-files-using-lowercase_with_underscores">DO name libraries, packages, directories, and source files using lowercase_with_underscores.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-name-import-prefixes-using-lowercase_with_underscores">DO name import prefixes using lowercase_with_underscores.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-name-other-identifiers-using-lowercamelcase">DO name other identifiers using lowerCamelCase.</a></li>
-<li class="toc-entry toc-h3"><a href="#prefer-using-lowercamelcase-for-constant-names">PREFER using lowerCamelCase for constant names.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-capitalize-acronyms-and-abbreviations-longer-than-two-letters-like-words">DO capitalize acronyms and abbreviations longer than two letters like words.</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-use-prefix-letters">DON’T use prefix letters.</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用-uppercamelcase-风格命名类型">要 使用 UpperCamelCase 风格命名类型。</a></li>
+<li class="toc-entry toc-h3"><a href="#do-name-libraries-and-source-files-using-lowercase_with_underscores">要 在库，包，文件夹，源文件中使用 lowercase_with_underscores 方式命名。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-用-lowercase_with_underscores-风格命名库和源文件名">要 用 lowercase_with_underscores 风格命名库和源文件名。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用-lowercase_with_underscores-风格命名导入的前缀">要 使用 lowercase_with_underscores 风格命名导入的前缀。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用-lowercamelcase-风格来命名其他的标识符">要 使用 lowerCamelCase 风格来命名其他的标识符。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-使用-lowercamelcase-来命名常量">推荐 使用 lowerCamelCase 来命名常量。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-把超过两个字母的首字母大写缩略词和缩写词当做一般单词来对待">要 把超过两个字母的首字母大写缩略词和缩写词当做一般单词来对待。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要-使用前缀字母">不要 使用前缀字母</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#ordering">Ordering</a>
+<li class="toc-entry toc-h2"><a href="#顺序">顺序</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#do-place-dart-imports-before-other-imports">DO place “dart:” imports before other imports.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-place-package-imports-before-relative-imports">DO place “package:” imports before relative imports.</a></li>
-<li class="toc-entry toc-h3"><a href="#prefer-placing-third-party-package-imports-before-other-imports">PREFER placing external “package:” imports before other imports.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-specify-exports-in-a-separate-section-after-all-imports">DO specify exports in a separate section after all imports.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-sort-sections-alphabetically">DO sort sections alphabetically.</a></li>
+<li class="toc-entry toc-h3"><a href="#要-把-dart-导入语句放到其他导入语句之前">要 把 “dart:” 导入语句放到其他导入语句之前。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-把-package-导入语句放到项目相关导入语句之前">要 把 “package:” 导入语句放到项目相关导入语句之前。</a></li>
+<li class="toc-entry toc-h3"><a href="#推荐-把外部扩展-package-导入语句放到其他语句之前">推荐 把外部扩展 “package:” 导入语句放到其他语句之前。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-把导出export语句作为一个单独的部分放到所有导入语句之后">要 把导出（export）语句作为一个单独的部分放到所有导入语句之后。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-按照字母顺序来排序每个部分中的语句">要 按照字母顺序来排序每个部分中的语句。</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#formatting">Formatting</a>
+<li class="toc-entry toc-h2"><a href="#格式化">格式化</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#do-format-your-code-using-dartfmt">DO format your code using dartfmt.</a></li>
-<li class="toc-entry toc-h3"><a href="#consider-changing-your-code-to-make-it-more-formatter-friendly">CONSIDER changing your code to make it more formatter-friendly.</a></li>
-<li class="toc-entry toc-h3"><a href="#avoid-lines-longer-than-80-characters">AVOID lines longer than 80 characters.</a></li>
-<li class="toc-entry toc-h3"><a href="#do-use-curly-braces-for-all-flow-control-structures">DO use curly braces for all flow control structures.</a></li>
+<li class="toc-entry toc-h3"><a href="#要-使用-dartfmt-格式化你的代码">要 使用 dartfmt 格式化你的代码。</a></li>
+<li class="toc-entry toc-h3"><a href="#考虑-修改你的代码让格式更友好">考虑 修改你的代码让格式更友好。</a></li>
+<li class="toc-entry toc-h3"><a href="#避免-单行超过-80-个字符">避免 单行超过 80 个字符。</a></li>
+<li class="toc-entry toc-h3"><a href="#要-对所有流控制结构使用花括号">要 对所有流控制结构使用花括号。</a></li>
 </ul>
 </li>
 </ul>
@@ -636,49 +659,47 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 
           <?code-excerpt plaster="none"?>
 
-<p>A surprisingly important part of good code is good style. Consistent naming,
-ordering, and formatting helps code that <em>is</em> the same <em>look</em> the same. It takes
-advantage of the powerful pattern-matching hardware most of us have in our
-ocular systems.  If we use a consistent style across the entire Dart ecosystem,
-it makes it easier for all of us to learn from and contribute to each others’
-code.</p>
+<p>好的代码有一个非常重要的特点就是拥有好的风格。
+一致的命名、一致的顺序、 以及一致的格式让代码看起来是一样的。
+这非常有利于发挥我们视力系统强大的模式匹配能力。
+如果我们整个 Dart 生态系统中都使用统一的风格，
+那么这将让我们彼此之间更容易的互相学习和互相贡献。
+它使我们所有人都可以更容易地学习并为彼此的代码做出贡献。</p>
 
-<h2 id="identifiers">
-<a id="identifiers" class="anchor" href="#identifiers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Identifiers</h2>
+<h2 id="标识符">
+<a id="标识符" class="anchor" href="#%E6%A0%87%E8%AF%86%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>标识符</h2>
 
-<p>Identifiers come in three flavors in Dart.</p>
+<p>在 Dart 中标识符有三种类型。</p>
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">UpperCamelCase</code> names capitalize the first letter of each word, including
-the first.</p>
+    <p><code class="highlighter-rouge">UpperCamelCase</code> 每个单词的首字母都大写，包含第一个单词。</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">lowerCamelCase</code> names capitalize the first letter of each word, <em>except</em>
-the first which is always lowercase, even if it’s an acronym.</p>
+    <p><code class="highlighter-rouge">lowerCamelCase</code> 每个单词的首字母都大写，<em>除了</em>第一个单词，
+第一个单词首字母小写，即使是缩略词。</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">lowercase_with_underscores</code> use only lowercase letters, even for acronyms,
-and separate words with <code class="highlighter-rouge">_</code>.</p>
+    <p><code class="highlighter-rouge">lowercase_with_underscores</code> 只是用小写字母单词，即使是缩略词，
+并且单词之间使用 <code class="highlighter-rouge">_</code> 连接。</p>
   </li>
 </ul>
 
-<h3 id="do-name-types-using-uppercamelcase">
-<a id="do-name-types-using-uppercamelcase" class="anchor" href="#do-name-types-using-uppercamelcase" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO name types using <code class="highlighter-rouge">UpperCamelCase</code>.</h3>
+<h3 id="要-使用-uppercamelcase-风格命名类型">
+<a id="要-使用-uppercamelcase-风格命名类型" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-uppercamelcase-%E9%A3%8E%E6%A0%BC%E5%91%BD%E5%90%8D%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">UpperCamelCase</code> 风格命名类型。</h3>
 
-<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/camel_case_types.html">camel_case_types</a></p>
-
-<p>Classes, enums, typedefs, and type parameters should capitalize the first letter
-of each word (including the first word), and use no separators.</p>
+<p>Classes（类名）、 enums（枚举类型）、 typedefs（类型定义）、
+以及 type parameters（类型参数）应该把每个单词的首字母都大写（包含第一个单词）， 
+不使用分隔符。</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (type-names)"?>
 <pre class="prettyprint lang-dart good-style">class SliderMenu { ... }
 
 class HttpRequest { ... }
 
-typedef Predicate&lt;T&gt; = bool Function(T value);</pre>
+typedef Predicate = bool Function&lt;T&gt;(T value);</pre>
 
-<p>This even includes classes intended to be used in metadata annotations.</p>
+<p>这里包括使用元数据注解的类。</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (annotation-type-names)"?>
 <pre class="prettyprint lang-dart good-style">class Foo {
@@ -691,8 +712,8 @@ class A { ... }
 @Foo()
 class B { ... }</pre>
 
-<p>If the annotation class’s constructor takes no parameters, you might want to
-create a separate <code class="highlighter-rouge">lowerCamelCase</code> constant for it.</p>
+<p>如果注解类的构造函数是无参函数，
+则可以使用一个 <code class="highlighter-rouge">lowerCamelCase</code> 风格的常量来初始化这个注解。</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (annotation-const)"?>
 <pre class="prettyprint lang-dart good-style">const foo = Foo();
@@ -701,7 +722,7 @@ create a separate <code class="highlighter-rouge">lowerCamelCase</code> constant
 class C { ... }</pre>
 
 <h3 id="do-name-libraries-and-source-files-using-lowercase_with_underscores">
-<a id="do-name-libraries-and-source-files-using-lowercase_with_underscores" class="anchor" href="#do-name-libraries-and-source-files-using-lowercase_with_underscores" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO name libraries, packages, directories, and source files using <code class="highlighter-rouge">lowercase_with_underscores</code>.</h3>
+<a id="do-name-libraries-and-source-files-using-lowercase_with_underscores" class="anchor" href="#do-name-libraries-and-source-files-using-lowercase_with_underscores" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 在<code class="highlighter-rouge">库</code>，<code class="highlighter-rouge">包</code>，<code class="highlighter-rouge">文件夹</code>，<code class="highlighter-rouge">源文件</code>中使用 <code class="highlighter-rouge">lowercase_with_underscores</code> 方式命名。</h3>
 
 <p class="linter-rule">Linter rules: <a href="https://dart-lang.github.io/linter/lints/library_names.html">library_names,</a> <a href="https://dart-lang.github.io/linter/lints/file_names.html">file_names</a></p>
 
@@ -709,11 +730,12 @@ class C { ... }</pre>
 https://github.com/dart-lang/linter/blob/master/lib/src/rules/library_names.dart
 https://github.com/dart-lang/linter/blob/master/lib/src/rules/file_names.dart -->
 
-<p>Some file systems are not case-sensitive, so many projects require filenames to
-be all lowercase. Using a separating character allows names to still be readable
-in that form. Using underscores as the separator ensures that the name is still
-a valid Dart identifier, which may be helpful if the language later supports
-symbolic imports.</p>
+<h3 id="要-用-lowercase_with_underscores-风格命名库和源文件名">
+<a id="要-用-lowercase_with_underscores-风格命名库和源文件名" class="anchor" href="#%E8%A6%81-%E7%94%A8-lowercase_with_underscores-%E9%A3%8E%E6%A0%BC%E5%91%BD%E5%90%8D%E5%BA%93%E5%92%8C%E6%BA%90%E6%96%87%E4%BB%B6%E5%90%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 用 <code class="highlighter-rouge">lowercase_with_underscores</code> 风格命名库和源文件名。</h3>
+
+<p>一些文件系统不区分大小写，所以很多项目要求文件名必须是小写字母。
+使用分隔符这种形式可以保证命名的可读性。使用下划线作为分隔符可确保名称仍然是有效的Dart标识符，
+如果语言后续支持符号导入，这将会起到非常大的帮助。</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_lib_good.dart" replace="/foo\///g"?>
 <pre class="prettyprint lang-dart good-style">library peg_parser.source_scanner;
@@ -728,12 +750,12 @@ import 'file-system.dart';
 import 'SliderMenu.dart';</pre>
 
 <aside class="alert alert-info">
-  <p><strong>Note:</strong> This guideline specifies <em>how</em> to name a library <em>if you choose to
-  name it</em>. It is fine to <em>omit</em> the library directive in a file if you want.</p>
+  <p><strong>注意：</strong> 如果你<em>选择命名库</em>，本准则给定了<em>如何</em>为库取名。
+  如果需要，可以在文件中_省略_库指令。</p>
 </aside>
 
-<h3 id="do-name-import-prefixes-using-lowercase_with_underscores">
-<a id="do-name-import-prefixes-using-lowercase_with_underscores" class="anchor" href="#do-name-import-prefixes-using-lowercase_with_underscores" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO name import prefixes using <code class="highlighter-rouge">lowercase_with_underscores</code>.</h3>
+<h3 id="要-使用-lowercase_with_underscores-风格命名导入的前缀">
+<a id="要-使用-lowercase_with_underscores-风格命名导入的前缀" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-lowercase_with_underscores-%E9%A3%8E%E6%A0%BC%E5%91%BD%E5%90%8D%E5%AF%BC%E5%85%A5%E7%9A%84%E5%89%8D%E7%BC%80" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">lowercase_with_underscores</code> 风格命名导入的前缀。</h3>
 
 <p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/library_prefixes.html">library_prefixes</a></p>
 
@@ -749,14 +771,13 @@ import 'package:angular_components/angular_components'
     as angularComponents;
 import 'package:js/js.dart' as JS;</pre>
 
-<h3 id="do-name-other-identifiers-using-lowercamelcase">
-<a id="do-name-other-identifiers-using-lowercamelcase" class="anchor" href="#do-name-other-identifiers-using-lowercamelcase" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO name other identifiers using <code class="highlighter-rouge">lowerCamelCase</code>.</h3>
+<h3 id="要-使用-lowercamelcase-风格来命名其他的标识符">
+<a id="要-使用-lowercamelcase-风格来命名其他的标识符" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-lowercamelcase-%E9%A3%8E%E6%A0%BC%E6%9D%A5%E5%91%BD%E5%90%8D%E5%85%B6%E4%BB%96%E7%9A%84%E6%A0%87%E8%AF%86%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">lowerCamelCase</code> 风格来命名其他的标识符。</h3>
 
 <p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/non_constant_identifier_names.html">non_constant_identifier_names</a></p>
 
-<p>Class members, top-level definitions, variables, parameters, and named
-parameters should capitalize the first letter of each word <em>except</em> the first
-word, and use no separators.</p>
+<p>类成员、顶级定义、变量、参数以及命名参数等
+<em>除了</em>第一个单词，每个单词首字母都应大写，并且不使用分隔符。</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (misc-names)"?>
 <pre class="prettyprint lang-dart good-style">var item;
@@ -767,12 +788,14 @@ void align(bool clearItems) {
   // ...
 }</pre>
 
-<h3 id="prefer-using-lowercamelcase-for-constant-names">
-<a id="prefer-using-lowercamelcase-for-constant-names" class="anchor" href="#prefer-using-lowercamelcase-for-constant-names" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER using <code class="highlighter-rouge">lowerCamelCase</code> for constant names.</h3>
+<h3 id="推荐-使用-lowercamelcase-来命名常量">
+<a id="推荐-使用-lowercamelcase-来命名常量" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E4%BD%BF%E7%94%A8-lowercamelcase-%E6%9D%A5%E5%91%BD%E5%90%8D%E5%B8%B8%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 使用 <code class="highlighter-rouge">lowerCamelCase</code> 来命名常量。</h3>
 
 <p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/constant_identifier_names.html">constant_identifier_names</a></p>
 
-<p>In new code, use <code class="highlighter-rouge">lowerCamelCase</code> for constant variables, including enum values.</p>
+<p>在新的代码中，使用 <code class="highlighter-rouge">lowerCamelCase</code> 来命名常量，包括枚举的值。
+已有的代码使用了 <code class="highlighter-rouge">SCREAMING_CAPS</code> 风格，
+你可以继续全部使用该风格来保持代码的一致性。</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (const-names)"?>
 <pre class="prettyprint lang-dart good-style">const pi = 3.14;
@@ -792,42 +815,39 @@ class Dice {
   static final NUMBER_GENERATOR = Random();
 }</pre>
 
-<p>You may use <code class="highlighter-rouge">SCREAMING_CAPS</code> for consistency with existing code,
-as in the following cases:</p>
+<p>您可以使用 <code class="highlighter-rouge">SCREAMING_CAPS</code> 与现有代码保持一致，比如：</p>
 
 <ul>
-  <li>When adding code to a file or library that already uses <code class="highlighter-rouge">SCREAMING_CAPS</code>.</li>
-  <li>When generating Dart code that’s parallel to Java code —
-for example, in enumerated types generated from <a href="https://pub.dev/packages/protobuf">protobufs.</a>
-</li>
+  <li>将代码添加到已使用 <code class="highlighter-rouge">SCREAMING_CAPS</code> 的文件或库时。</li>
+  <li>生成与 Java 代码并行的 Dart 代码时。例如，来自 <a href="https://pub.dev/packages/protobuf">protobufs</a> 的枚举类型</li>
 </ul>
 
 <aside class="alert alert-info">
-  <p><strong>Note:</strong> We initially used Java’s <code class="highlighter-rouge">SCREAMING_CAPS</code> style for constants. We
-  changed for a few reasons:</p>
+  <p><strong>注意：</strong> 我们一开始使用 Java <code class="highlighter-rouge">SCREAMING_CAPS</code> 风格来命名常量。
+  我们之所以不再使用，是因为：</p>
 
   <ul>
     <li>
-<code class="highlighter-rouge">SCREAMING_CAPS</code> looks bad for many cases, particularly enum values for
-things like CSS colors.</li>
-    <li>Constants are often changed to final non-const variables, which would
-necessitate a name change.</li>
-    <li>The <code class="highlighter-rouge">values</code> property automatically defined on an enum type is const and
-lowercase.</li>
+<code class="highlighter-rouge">SCREAMING_CAPS</code> 很多情况下看起来比较糟糕，
+尤其类似于 CSS 颜色这类的枚举值。</li>
+    <li>常量常常被修改为 final 类型的非常量变量，
+这种情况你还需要修改变量的名字为小写字母形式。</li>
+    <li>在枚举类型中自动定义的 <code class="highlighter-rouge">values</code> 属性为常量并且是小写字母
+形式的。</li>
   </ul>
 </aside>
 
-<h3 id="do-capitalize-acronyms-and-abbreviations-longer-than-two-letters-like-words">
-<a id="do-capitalize-acronyms-and-abbreviations-longer-than-two-letters-like-words" class="anchor" href="#do-capitalize-acronyms-and-abbreviations-longer-than-two-letters-like-words" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO capitalize acronyms and abbreviations longer than two letters like words.</h3>
+<h3 id="要-把超过两个字母的首字母大写缩略词和缩写词当做一般单词来对待">
+<a id="要-把超过两个字母的首字母大写缩略词和缩写词当做一般单词来对待" class="anchor" href="#%E8%A6%81-%E6%8A%8A%E8%B6%85%E8%BF%87%E4%B8%A4%E4%B8%AA%E5%AD%97%E6%AF%8D%E7%9A%84%E9%A6%96%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%86%99%E7%BC%A9%E7%95%A5%E8%AF%8D%E5%92%8C%E7%BC%A9%E5%86%99%E8%AF%8D%E5%BD%93%E5%81%9A%E4%B8%80%E8%88%AC%E5%8D%95%E8%AF%8D%E6%9D%A5%E5%AF%B9%E5%BE%85" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 把超过两个字母的首字母大写缩略词和缩写词当做一般单词来对待。</h3>
 
-<p>Capitalized acronyms can be hard to read, and
-multiple adjacent acronyms can lead to ambiguous names.
-For example, given a name that starts with <code class="highlighter-rouge">HTTPSFTP</code>, there’s no way
-to tell if it’s referring to HTTPS FTP or HTTP SFTP.</p>
+<p>首字母大写缩略词比较难阅读，
+特别是多个缩略词连载一起的时候会引起歧义。
+例如，一个以 <code class="highlighter-rouge">HTTPSFTP</code> 开头的名字，
+没有办法判断它是指 HTTPS FTP 还是 HTTP SFTP 。</p>
 
-<p>To avoid this, acronyms and abbreviations are capitalized like regular words,
-except for two-letter acronyms. (Two-letter <em>abbreviations</em> like
-ID and Mr. are still capitalized like words.)</p>
+<p>为了避免上面的情况，缩略词和缩写词要像普通单词一样首字母大写，
+两个字母的单词除外。
+（像 ID 和 Mr. 这样的双字母<em>缩写词</em>仍然像一般单词一样首字母大写。）</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (acronyms and abbreviations)" replace="/,//g"?>
 <pre class="prettyprint lang-dart good-style">HttpConnectionInfo
@@ -844,30 +864,41 @@ HTTPRequest
 ID
 Db</pre>
 
-<h3 id="dont-use-prefix-letters">
-<a id="dont-use-prefix-letters" class="anchor" href="#dont-use-prefix-letters" aria-hidden="true"><span class="octicon octicon-link"></span></a>DON’T use prefix letters.</h3>
+<aside class="alert alert-info">
+  <p><strong>译者注：</strong></p>
 
-<p><a href="https://en.wikipedia.org/wiki/Hungarian_notation">Hungarian notation</a> and
-other schemes arose in the time of BCPL, when the compiler didn’t do much to
-help you understand your code. Because Dart can tell you the type, scope,
-mutability, and other properties of your declarations, there’s no reason to
-encode those properties in identifier names.</p>
+  <ul>
+    <li>
+<code class="highlighter-rouge">acronyms</code> ：首字母缩略词，指取若干单词首字母组成一个新单词，如：HTTP = HyperText Transfer Protocol</li>
+    <li>
+<code class="highlighter-rouge">abbreviations</code> : 缩写词，指取某一单词的部分字母（或其他缩短单词的方式）代表整个单词，如：ID = identification</li>
+  </ul>
+</aside>
+
+<h3 id="不要-使用前缀字母">
+<a id="不要-使用前缀字母" class="anchor" href="#%E4%B8%8D%E8%A6%81-%E4%BD%BF%E7%94%A8%E5%89%8D%E7%BC%80%E5%AD%97%E6%AF%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>不要</strong> 使用前缀字母</h3>
+
+<p>在编译器无法帮助你了解自己代码的时，
+<a href="https://en.wikipedia.org/wiki/Hungarian_notation">匈牙利命名法</a>
+和其他方案出现在了 BCPL ，
+但是因为 Dart 可以提示你声明的类型，范围，可变性和其他属性，
+所以没有理由在标识符名称中对这些属性进行编码。</p>
 
 <pre class="prettyprint lang-dart good-style">defaultTimeout</pre>
 
 <pre class="prettyprint lang-dart bad-style">kDefaultTimeout</pre>
 
-<h2 id="ordering">
-<a id="ordering" class="anchor" href="#ordering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ordering</h2>
+<h2 id="顺序">
+<a id="顺序" class="anchor" href="#%E9%A1%BA%E5%BA%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>顺序</h2>
 
-<p>To keep the preamble of your file tidy, we have a prescribed order that
-directives should appear in. Each “section” should be separated by a blank line.</p>
+<p>为了使文件前面部分保持整洁，我们规定了关键字出现顺序的规则。
+每个“部分”应该使用空行分割。</p>
 
 <p>A single linter rule handles all the ordering guidelines:
 <a href="https://dart-lang.github.io/linter/lints/directives_ordering.html">directives_ordering.</a></p>
 
-<h3 id="do-place-dart-imports-before-other-imports">
-<a id="do-place-dart-imports-before-other-imports" class="anchor" href="#do-place-dart-imports-before-other-imports" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO place “dart:” imports before other imports.</h3>
+<h3 id="要-把-dart-导入语句放到其他导入语句之前">
+<a id="要-把-dart-导入语句放到其他导入语句之前" class="anchor" href="#%E8%A6%81-%E6%8A%8A-dart-%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E6%94%BE%E5%88%B0%E5%85%B6%E4%BB%96%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E4%B9%8B%E5%89%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 把 “dart:” 导入语句放到其他导入语句之前。</h3>
 
 <p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/directives_ordering.html">directives_ordering</a></p>
 
@@ -878,8 +909,8 @@ import 'dart:html';
 import 'package:bar/bar.dart';
 import 'package:foo/foo.dart';</pre>
 
-<h3 id="do-place-package-imports-before-relative-imports">
-<a id="do-place-package-imports-before-relative-imports" class="anchor" href="#do-place-package-imports-before-relative-imports" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO place “package:” imports before relative imports.</h3>
+<h3 id="要-把-package-导入语句放到项目相关导入语句之前">
+<a id="要-把-package-导入语句放到项目相关导入语句之前" class="anchor" href="#%E8%A6%81-%E6%8A%8A-package-%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E6%94%BE%E5%88%B0%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E4%B9%8B%E5%89%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 把 “package:” 导入语句放到项目相关导入语句之前。</h3>
 
 <p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/directives_ordering.html">directives_ordering</a></p>
 
@@ -889,13 +920,11 @@ import 'package:foo/foo.dart';
 
 import 'util.dart';</pre>
 
-<h3 id="prefer-placing-third-party-package-imports-before-other-imports">
-<a id="prefer-placing-third-party-package-imports-before-other-imports" class="anchor" href="#prefer-placing-third-party-package-imports-before-other-imports" aria-hidden="true"><span class="octicon octicon-link"></span></a>PREFER placing external “package:” imports before other imports.</h3>
+<h3 id="推荐-把外部扩展-package-导入语句放到其他语句之前">
+<a id="推荐-把外部扩展-package-导入语句放到其他语句之前" class="anchor" href="#%E6%8E%A8%E8%8D%90-%E6%8A%8A%E5%A4%96%E9%83%A8%E6%89%A9%E5%B1%95-package-%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E6%94%BE%E5%88%B0%E5%85%B6%E4%BB%96%E8%AF%AD%E5%8F%A5%E4%B9%8B%E5%89%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>推荐</strong> 把外部扩展 “package:” 导入语句放到其他语句之前。</h3>
 
-<p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/directives_ordering.html">directives_ordering</a></p>
-
-<p>If you have a number of “package:” imports for your own package along with other
-external packages, place yours in a separate section after the external ones.</p>
+<p>如果你使用了多个 “package:” 导入语句来导入自己的包以及其他外部扩展包，
+推荐将自己的包分开放到一个额外的部分。</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_lib_good.dart (third-party)" replace="/\w+\/effective_dart\///g;/(package):foo(.dart)/$1:my_package\/util$2/g"?>
 <pre class="prettyprint lang-dart good-style">import 'package:bar/bar.dart';
@@ -903,8 +932,8 @@ import 'package:foo/foo.dart';
 
 import 'package:my_package/util.dart';</pre>
 
-<h3 id="do-specify-exports-in-a-separate-section-after-all-imports">
-<a id="do-specify-exports-in-a-separate-section-after-all-imports" class="anchor" href="#do-specify-exports-in-a-separate-section-after-all-imports" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO specify exports in a separate section after all imports.</h3>
+<h3 id="要-把导出export语句作为一个单独的部分放到所有导入语句之后">
+<a id="要-把导出export语句作为一个单独的部分放到所有导入语句之后" class="anchor" href="#%E8%A6%81-%E6%8A%8A%E5%AF%BC%E5%87%BAexport%E8%AF%AD%E5%8F%A5%E4%BD%9C%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%8D%95%E7%8B%AC%E7%9A%84%E9%83%A8%E5%88%86%E6%94%BE%E5%88%B0%E6%89%80%E6%9C%89%E5%AF%BC%E5%85%A5%E8%AF%AD%E5%8F%A5%E4%B9%8B%E5%90%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 把导出（export）语句作为一个单独的部分放到所有导入语句之后。</h3>
 
 <p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/directives_ordering.html">directives_ordering</a></p>
 
@@ -919,8 +948,8 @@ export 'src/error.dart';</pre>
 export 'src/error.dart';
 import 'src/foo_bar.dart';</pre>
 
-<h3 id="do-sort-sections-alphabetically">
-<a id="do-sort-sections-alphabetically" class="anchor" href="#do-sort-sections-alphabetically" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO sort sections alphabetically.</h3>
+<h3 id="要-按照字母顺序来排序每个部分中的语句">
+<a id="要-按照字母顺序来排序每个部分中的语句" class="anchor" href="#%E8%A6%81-%E6%8C%89%E7%85%A7%E5%AD%97%E6%AF%8D%E9%A1%BA%E5%BA%8F%E6%9D%A5%E6%8E%92%E5%BA%8F%E6%AF%8F%E4%B8%AA%E9%83%A8%E5%88%86%E4%B8%AD%E7%9A%84%E8%AF%AD%E5%8F%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 按照字母顺序来排序每个部分中的语句。</h3>
 
 <p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/directives_ordering.html">directives_ordering</a></p>
 
@@ -938,70 +967,72 @@ import 'package:bar/bar.dart';
 import 'foo/foo.dart';
 import 'foo.dart';</pre>
 
-<h2 id="formatting">
-<a id="formatting" class="anchor" href="#formatting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Formatting</h2>
+<h2 id="格式化">
+<a id="格式化" class="anchor" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96" aria-hidden="true"><span class="octicon octicon-link"></span></a>格式化</h2>
 
-<p>Like many languages, Dart ignores whitespace. However, <em>humans</em> don’t. Having a
-consistent whitespace style helps ensure that human readers see code the same
-way the compiler does.</p>
+<p>和其他大部分语言一样， Dart 忽略空格。但是，<em>人</em>不会。
+具有一致的空格风格有助于帮助我们能够用编译器相同的方式理解代码。</p>
 
-<h3 id="do-format-your-code-using-dartfmt">
-<a id="do-format-your-code-using-dartfmt" class="anchor" href="#do-format-your-code-using-dartfmt" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO format your code using <code class="highlighter-rouge">dartfmt</code>.</h3>
+<h3 id="要-使用-dartfmt-格式化你的代码">
+<a id="要-使用-dartfmt-格式化你的代码" class="anchor" href="#%E8%A6%81-%E4%BD%BF%E7%94%A8-dartfmt-%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BD%A0%E7%9A%84%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 使用 <code class="highlighter-rouge">dartfmt</code> 格式化你的代码。</h3>
 
-<p>Formatting is tedious work and is particularly time-consuming during
-refactoring. Fortunately, you don’t have to worry about it. We provide a
-sophisticated automated code formatter called <a href="https://github.com/dart-lang/dart_style">dartfmt</a> that does do it for
-you. We have <a href="https://github.com/dart-lang/dart_style/wiki/Formatting-Rules">some documentation</a> on the rules it applies, but the
-official whitespace-handling rules for Dart are <em>whatever dartfmt produces</em>.</p>
+<p>格式化是一项繁琐的工作，尤其在重构过程中特别耗时。
+庆幸的是，你不必担心。
+我们提供了一个名为 <a href="https://github.com/dart-lang/dart_style">dartfmt</a> 的优秀的自动代码格式化程序，它可以为你完成格式化工作。
+我们有一些关于它适用的规则的 <a href="https://github.com/dart-lang/dart_style/wiki/Formatting-Rules">文档</a> ，
+Dart 中任何官方的空格处理规则由 <em><a href="https://github.com/dart-lang/dart_style">dartfmt</a> 生成</em>。</p>
 
-<p>The remaining formatting guidelines are for the few things dartfmt cannot fix
-for you.</p>
+<p>其余格式指南用于 dartfmt 无法修复的一些规则。</p>
 
-<h3 id="consider-changing-your-code-to-make-it-more-formatter-friendly">
-<a id="consider-changing-your-code-to-make-it-more-formatter-friendly" class="anchor" href="#consider-changing-your-code-to-make-it-more-formatter-friendly" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONSIDER changing your code to make it more formatter-friendly.</h3>
+<h3 id="考虑-修改你的代码让格式更友好">
+<a id="考虑-修改你的代码让格式更友好" class="anchor" href="#%E8%80%83%E8%99%91-%E4%BF%AE%E6%94%B9%E4%BD%A0%E7%9A%84%E4%BB%A3%E7%A0%81%E8%AE%A9%E6%A0%BC%E5%BC%8F%E6%9B%B4%E5%8F%8B%E5%A5%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>考虑</strong> 修改你的代码让格式更友好。</h3>
 
-<p>The formatter does the best it can with whatever code you throw at it, but it
-can’t work miracles. If your code has particularly long identifiers, deeply
-nested expressions, a mixture of different kinds of operators, etc. the
-formatted output may still be hard to read.</p>
+<p>无论你扔给格式化程序什么样代码，它都会尽力去处理，
+但是格式化程序不会创造奇迹。
+如果代码里有特别长的标识符，深层嵌套的表达式，混合的不同类型运算符等。
+格式化输出的代码可能任然很难阅读。</p>
 
-<p>When that happens, reorganize or simplify your code. Consider shortening a local
-variable name or hoisting out an expression into a new local variable. In other
-words, make the same kinds of modifications that you’d make if you were
-formatting the code by hand and trying to make it more readable. Think of
-dartfmt as a partnership where you work together, sometimes iteratively, to
-produce beautiful code.</p>
+<p>当有这样的情况发生时，那么就需要重新组织或简化你的代码。
+考虑缩短局部变量名或者将表达式抽取为一个新的局部变量。
+换句话说，你应该做一些手动格式化并增加代码的可读性的修改。
+在工作中应该把 dartfmt 看做一个合作伙伴，
+在代码的编写和迭代过程中互相协作输出优质的代码。</p>
 
-<h3 id="avoid-lines-longer-than-80-characters">
-<a id="avoid-lines-longer-than-80-characters" class="anchor" href="#avoid-lines-longer-than-80-characters" aria-hidden="true"><span class="octicon octicon-link"></span></a>AVOID lines longer than 80 characters.</h3>
+<h3 id="避免-单行超过-80-个字符">
+<a id="避免-单行超过-80-个字符" class="anchor" href="#%E9%81%BF%E5%85%8D-%E5%8D%95%E8%A1%8C%E8%B6%85%E8%BF%87-80-%E4%B8%AA%E5%AD%97%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>避免</strong> 单行超过 80 个字符。</h3>
 
 <p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/lines_longer_than_80_chars.html">lines_longer_than_80_chars</a></p>
 
-<p>Readability studies show that long lines of text are harder to read because your
-eye has to travel farther when moving to the beginning of the next line. This is
-why newspapers and magazines use multiple columns of text.</p>
+<p>可读性研究表明，长行的文字不易阅读，
+长行文字移动到下一行的开头时，眼睛需要移动更长的距离。
+这也是为什么报纸和杂志会使用多列样式的文字排版。</p>
 
-<p>If you really find yourself wanting lines longer than 80 characters, our
-experience is that your code is likely too verbose and could be a little more
-compact. The main offender is usually <code class="highlighter-rouge">VeryLongCamelCaseClassNames</code>. Ask
-yourself, “Does each word in that type name tell me something critical or
-prevent a name collision?” If not, consider omitting it.</p>
+<p>如果你真的发现你需要的文字长度超过了 80 个字符，
+根据我们的经验，你的代码很可能过于冗长，
+而且有方式可以让它更紧凑。
+最常见的的一种情况就是使用 <code class="highlighter-rouge">VeryLongCamelCaseClassNames</code> （非常长的类名字和变量名字）。
+当遇到这种情况时，请自问一下：“那个类型名称中的每个单词都会告诉我一些关键的内容或阻止名称冲突吗？”，
+如果不是，考虑删除它。</p>
 
-<p>Note that dartfmt does 99% of this for you, but the last 1% is you. It does not
-split long string literals to fit in 80 columns, so you have to do that
-manually.</p>
+<p>注意，dartfmt 能自动处理 99% 的情况，但是剩下的 1% 需要你自己处理。 
+dartfmt 不会把很长的字符串字面量分割为 80 个字符的列，
+所以这种情况你<strong>需要</strong>自己手工确保每行不超过 80 个字符。</p>
 
-<p>We make an exception for URIs and file paths. When those occur in comments or
-strings (usually in imports and exports), they may remain on a single line even
-if they go over the line limit. This makes it easier to search source files for
-a given path.</p>
+<p>对于包含 URIs 的字符串则是一个例外—主要是导入和导出语句。
+如果导入导出语句很长，则还是放到同一行上。
+这样可以方便搜索某一个路径下的代码文件。</p>
 
-<h3 id="do-use-curly-braces-for-all-flow-control-structures">
-<a id="do-use-curly-braces-for-all-flow-control-structures" class="anchor" href="#do-use-curly-braces-for-all-flow-control-structures" aria-hidden="true"><span class="octicon octicon-link"></span></a>DO use curly braces for all flow control structures.</h3>
+<p>我们对 URI 和文件路径做了例外。
+当情况出现在注释或字符串是（通常在导入和导出语句中），
+即使文字超出行限制，也可能会保留在一行中。
+这样可以更轻松地搜索给定路径的源文件。</p>
+
+<h3 id="要-对所有流控制结构使用花括号">
+<a id="要-对所有流控制结构使用花括号" class="anchor" href="#%E8%A6%81-%E5%AF%B9%E6%89%80%E6%9C%89%E6%B5%81%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84%E4%BD%BF%E7%94%A8%E8%8A%B1%E6%8B%AC%E5%8F%B7" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>要</strong> 对所有流控制结构使用花括号。</h3>
 
 <p class="linter-rule">Linter rule: <a href="https://dart-lang.github.io/linter/lints/curly_braces_in_flow_control_structures.html">curly_braces_in_flow_control_structures</a></p>
 
-<p>Doing so avoids the <a href="http://en.wikipedia.org/wiki/Dangling_else">dangling else</a> problem.</p>
+<p>这样可以避免 <a href="http://en.wikipedia.org/wiki/Dangling_else">dangling else</a> （else悬挂）的问题。</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (curly-braces)"?>
 <pre class="prettyprint lang-dart good-style">if (isWeekDay) {
@@ -1010,14 +1041,14 @@ a given path.</p>
   print('Go dancing or read a book!');
 }</pre>
 
-<p>There is one exception to this: an <code class="highlighter-rouge">if</code> statement with no <code class="highlighter-rouge">else</code> clause where
-the entire <code class="highlighter-rouge">if</code> statement and the then body all fit in one line. In that case,
-you may leave off the braces if you prefer:</p>
+<p>这里有一个例外：一个没有 <code class="highlighter-rouge">else</code> 的 <code class="highlighter-rouge">if</code> 语句，
+并且这个 <code class="highlighter-rouge">if</code> 语句以及它的执行体适合在一行中实现。
+在这种情况下，如果您愿意，可以不用括号：</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (one-line-if)"?>
 <pre class="prettyprint lang-dart good-style">if (arg == null) return defaultValue;</pre>
 
-<p>If the body wraps to the next line, though, use braces:</p>
+<p>但是，如果执行体包含下一行，请使用大括号：</p>
 
 <?code-excerpt "misc/lib/effective_dart/style_good.dart (one-line-if-wrap)"?>
 <pre class="prettyprint lang-dart good-style">if (overflowChars != other.overflowChars) {
@@ -1033,12 +1064,12 @@ you may leave off the braces if you prefer:</p>
   <ul>
     <li class="previous">
       
-        <a href="/guides/language/effective-dart">&lang;&nbsp;&nbsp;Overview</a>
+        <a href="/guides/language/effective-dart">&lang;&nbsp;&nbsp;概述</a>
       
     </li>
     <li class="next">
       
-        <a href="/guides/language/effective-dart/documentation">Documentation&nbsp;&nbsp;&rang;</a>
+        <a href="/guides/language/effective-dart/documentation">注释&nbsp;&nbsp;&rang;</a>
       
     </li>
   </ul>
@@ -1057,18 +1088,18 @@ you may leave off the braces if you prefer:</p>
           <li><a href="/security">Security</a></li>
           <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
           <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+          <li><a href="/about_zh_CN">关于 dart.dev 中文版</a></li>
           <li>
-            <a href="https://github.com/dart-lang/site-www"
-               title="This site's source is on GitHub."
+            <a href="https://github.com/dartchina/site-www-cn"
+               title="该站在 GitHub 开源"
                class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
             &nbsp;
-            <a href="https://github.com/dart-lang/site-www/issues"
-               title="File an issue about this site."
+            <a href="https://github.com/dartchina/site-www-cn/issues"
+               title="为该站提交 issue"
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               href="https://travis-ci.org/dart-lang/site-www/jobs/547041176"
-               title="Site build #164 (2019/06/17 19:49 PDT)"
+               title="Site built on 2019/06/17 19:56 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
@@ -1077,6 +1108,7 @@ you may leave off the braces if you prefer:</p>
     </div>
   </div>
 </footer>
+
 
   </body>
 </html>

@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Why and how to write sound Dart code.">
-  <title>The Dart type system | Dart</title>
+  <meta name="description" content="如何编写健全的 Dart 代码。">
+  <title>Dart 类型系统 | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,12 +18,12 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="The Dart type system" />
-  <meta name="twitter:description" content="Why and how to write sound Dart code." />
+  <meta name="twitter:title" content="Dart 类型系统" />
+  <meta name="twitter:description" content="如何编写健全的 Dart 代码。" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="The Dart type system" />
-  <meta property="og:description" content="Why and how to write sound Dart code." />
+  <meta property="og:title" content="Dart 类型系统" />
+  <meta property="og:description" content="如何编写健全的 Dart 代码。" />
   <meta property="og:url" content="https://www.dartlang.org/guides/language/sound-dart" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
@@ -52,19 +52,22 @@ ga('send', 'pageview');
   </a>
   <ul class="navbar">
     <li class="mainnav__get-started">
-      <a href="/docs" class="nav-link active"><span>Docs</span></a>
+      <a href="/guides" class="nav-link active"><span>文档</span></a>
     </li>
     <li>
-      <a href="/platforms" class="nav-link">Platforms</a>
+      <a href="/platforms" class="nav-link">平台</a>
     </li>
     <li>
-      <a href="/community" class="nav-link">Community</a>
+      <a href="/community" class="nav-link">社区</a>
     </li>
     <li>
-      <a href="https://dartpad.dartlang.org/" target="_blank" class="nav-link no-automatic-external">Try Dart</a>
+      <a href="https://dartpad.cn/" target="_blank" class="nav-link no-automatic-external">体验 Dart</a>
     </li>
     <li>
-      <a href="/get-dart" class="nav-link">Get Dart</a>
+      <a href="/get-dart" class="nav-link">安装 Dart</a>
+    </li>
+    <li>
+      <a href="/about_zh_CN" class="nav-link">关于</a>
     </li>
     <li class="searchfield">
       <form action="/search" class="site-header__search form-inline" id="cse-search-box">
@@ -82,8 +85,9 @@ ga('send', 'pageview');
  <div class="banner">
   <p class="banner__text">
     
-    Announcing Dart 2.3: Optimized for building user interfaces.
-    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">Learn more.</a>
+    
+    Dart 2.3 发布，针对构建用户界面进行了优化。
+    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">了解更多。</a>
   </p>
 </div>
  
@@ -96,57 +100,60 @@ ga('send', 'pageview');
   <div class="site-sidebar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a href="/platforms" class="nav-link">Platforms</a>
+        <a href="/platforms" class="nav-link">平台</a>
       </li>
       <li class="nav-item">
-        <a href="/community" class="nav-link">Community</a>
+        <a href="/community" class="nav-link">社区</a>
       </li>
       <li class="nav-item">
-        <a href="https://dartpad.dartlang.org" class="nav-link">Try Dart</a>
+        <a href="https://dartpad.cn" class="nav-link">体验 Dart</a>
       </li>
       <li class="nav-item">
-        <a href="/guides" class="nav-link active">Docs</a>
+        <a href="/guides" class="nav-link active">文档</a>
+      </li>
+      <li>
+        <a href="/about_zh_CN" class="nav-link">关于</a>
       </li>
     </ul>
 
     <ul class="nav flex-column"><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-1" role="button"
         aria-expanded="false" aria-controls="sidenav-1"
-      >Samples & tutorials</a>
+      >示例 & 教程</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-1">
         <li class="nav-item">
-    <a class="nav-link" href="/samples">Language samples</a>
+    <a class="nav-link" href="/samples">示例程序</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable"
       data-toggle="collapse" data-target="#sidenav-1-2"
       href="#sidenav-1-2" role="button"
       aria-expanded="true" aria-controls="sidenav-1-2"
-    >Codelabs
+    >Codelab
     </a>
     <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-1-2">
       <li class="nav-item">
-    <a class="nav-link" href="/codelabs">Overview</a>
+    <a class="nav-link" href="/codelabs">综述</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/codelabs/dart-cheatsheet">Cheatsheet codelab</a>
+    <a class="nav-link" href="/codelabs/dart-cheatsheet">Codelab 速查</a>
   </li></ul>
   </li>
 <li class="nav-item">
-    <a class="nav-link" href="/tutorials">Tutorials</a>
+    <a class="nav-link" href="/tutorials">教程</a>
   </li>
 </ul>
     </li><li class="nav-item">
       <a class="nav-link active" data-toggle="collapse" href="#sidenav-2" role="button"
         aria-expanded="true" aria-controls="sidenav-2"
-      >Language</a>
+      >语言</a>
 
       <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-2">
         <li class="nav-item">
-    <a class="nav-link" href="/guides/language/language-tour">Tour</a>
+    <a class="nav-link" href="/guides/language/language-tour">概览</a>
   </li><li class="nav-item">
-    <a class="nav-link active" href="/guides/language/sound-dart">Type system</a>
+    <a class="nav-link active" href="/guides/language/sound-dart">类型系统</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/spec">Specification</a>
+    <a class="nav-link" href="/guides/language/spec">规范</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-2-4"
@@ -156,15 +163,15 @@ ga('send', 'pageview');
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2-4">
       <li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart">Overview</a>
+    <a class="nav-link" href="/guides/language/effective-dart">综述</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/style">Style</a>
+    <a class="nav-link" href="/guides/language/effective-dart/style">风格</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/documentation">Documentation</a>
+    <a class="nav-link" href="/guides/language/effective-dart/documentation">文档</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/usage">Usage</a>
+    <a class="nav-link" href="/guides/language/effective-dart/usage">使用</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/design">Design</a>
+    <a class="nav-link" href="/guides/language/effective-dart/design">设计</a>
   </li></ul>
   </li>
 
@@ -172,19 +179,19 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-3" role="button"
         aria-expanded="false" aria-controls="sidenav-3"
-      >Core libraries</a>
+      >核心库</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3">
         <li class="nav-item">
-    <a class="nav-link" href="/guides/libraries">Overview</a>
+    <a class="nav-link" href="/guides/libraries">综述</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/library-tour">Tour</a>
+    <a class="nav-link" href="/guides/libraries/library-tour">概览</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-3-3"
       href="#sidenav-3-3" role="button"
       aria-expanded="false" aria-controls="sidenav-3-3"
-    >Articles
+    >文章
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3-3">
       <li class="nav-item">
@@ -198,39 +205,39 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-4" role="button"
         aria-expanded="false" aria-controls="sidenav-4"
-      >Packages</a>
+      >包</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4">
         <li class="nav-item">
-    <a class="nav-link" href="/guides/packages">How to use packages</a>
+    <a class="nav-link" href="/guides/packages">如何使用包</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/useful-libraries">Commonly used packages</a>
+    <a class="nav-link" href="/guides/libraries/useful-libraries">常用的包</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/create-library-packages">Creating packages</a>
+    <a class="nav-link" href="/guides/libraries/create-library-packages">创建包</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/publishing">Publishing packages</a>
+    <a class="nav-link" href="/tools/pub/publishing">发布包</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-4-5"
       href="#sidenav-4-5" role="button"
       aria-expanded="false" aria-controls="sidenav-4-5"
-    >Package reference
+    >引用包
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4-5">
       <li class="nav-item">
-    <a class="nav-link" href="/tools/pub/dependencies">Dependencies</a>
+    <a class="nav-link" href="/tools/pub/dependencies">依赖</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/glossary">Glossary</a>
+    <a class="nav-link" href="/tools/pub/glossary">术语</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/package-layout">Package layout conventions</a>
+    <a class="nav-link" href="/tools/pub/package-layout">包的设计约定</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/environment-variables">Pub environment variables</a>
+    <a class="nav-link" href="/tools/pub/environment-variables">Pub 环境变量</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/pubspec">Pubspec file</a>
+    <a class="nav-link" href="/tools/pub/pubspec">Pubspec 文件</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/troubleshoot">Troubleshooting pub</a>
+    <a class="nav-link" href="/tools/pub/troubleshoot">Pub 问题分析与解决</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/versioning">Versioning</a>
+    <a class="nav-link" href="/tools/pub/versioning">版本</a>
   </li></ul>
   </li>
 
@@ -238,37 +245,37 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-5" role="button"
         aria-expanded="false" aria-controls="sidenav-5"
-      >Development</a>
+      >开发</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5">
         <li class="nav-item">
-    <a class="nav-link" href="/tutorials/language/futures">Futures & async-await</a>
+    <a class="nav-link" href="/tutorials/language/futures">Futures & Async-Await</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/json">Using JSON</a>
+    <a class="nav-link" href="/guides/json">使用 JSON</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/language/streams">Streams</a>
+    <a class="nav-link" href="/tutorials/language/streams">Stream</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/mobile">Mobile apps</a>
+    <a class="nav-link" href="/mobile">移动应用</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-5-5"
       href="#sidenav-5-5" role="button"
       aria-expanded="false" aria-controls="sidenav-5-5"
-    >Command-line & server apps
+    >命令行应用 & 服务应用
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-5">
       <li class="nav-item">
-    <a class="nav-link" href="/server">Overview</a>
+    <a class="nav-link" href="/server">综述</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/server/get-started">Get started</a>
+    <a class="nav-link" href="/tutorials/server/get-started">入门</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/server/cmdline">Write command-line apps</a>
+    <a class="nav-link" href="/tutorials/server/cmdline">编写命令行应用</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/server/httpserver">Write HTTP clients & servers</a>
+    <a class="nav-link" href="/tutorials/server/httpserver">编写 HTTP 客户端和服务端应用</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/server/c-interop">C & C++ interop</a>
+    <a class="nav-link" href="/server/c-interop">C & C++ 交互</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/server/libraries">Libraries and packages</a>
+    <a class="nav-link" href="/server/libraries">库和包</a>
   </li></ul>
   </li>
 <li class="nav-item">
@@ -276,40 +283,40 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-5-6"
       href="#sidenav-5-6" role="button"
       aria-expanded="false" aria-controls="sidenav-5-6"
-    >Web apps
+    >Web 应用
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6">
       <li class="nav-item">
-    <a class="nav-link" href="/web">Overview</a>
+    <a class="nav-link" href="/web">综述</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/get-started">Get started</a>
+    <a class="nav-link" href="/tutorials/web/get-started">入门</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/fetch-data">Fetch data dynamically</a>
+    <a class="nav-link" href="/tutorials/web/fetch-data">动态获取数据</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-5-6-4"
       href="#sidenav-5-6-4" role="button"
       aria-expanded="false" aria-controls="sidenav-5-6-4"
-    >Low-level web programming
+    >底层 Web 编程
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6-4">
       <li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Connect Dart & HTML</a>
+    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Dart 和 HTML 关联</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">Add elements to the DOM</a>
+    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">在 DOM 中增加 Element</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">Remove DOM elements</a>
+    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">在 DOM 中移除 Element</a>
   </li>
   </ul>
   </li>
 <li class="nav-item">
-    <a class="nav-link" href="/web/js-interop">JS/TS interop</a>
+    <a class="nav-link" href="/web/js-interop">JS/TS 交互</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/deployment">Deployment</a>
+    <a class="nav-link" href="/web/deployment">开发</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/libraries">Libraries and packages</a>
+    <a class="nav-link" href="/web/libraries">库和包</a>
   </li></ul>
   </li>
 
@@ -317,21 +324,21 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-6" role="button"
         aria-expanded="false" aria-controls="sidenav-6"
-      >Tools & techniques</a>
+      >工具 & 技巧</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6">
         <li class="nav-item">
-    <a class="nav-link" href="/tools">Overview</a>
+    <a class="nav-link" href="/tools">综述</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-6-2"
       href="#sidenav-6-2" role="button"
       aria-expanded="false" aria-controls="sidenav-6-2"
-    >Editors & debuggers
+    >编辑 & 调试
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-2">
       <li class="nav-item">
-    <a class="nav-link" href="/tools/dart-devtools">Dart DevTools</a>
+    <a class="nav-link" href="/tools/dart-devtools">Dart DevTool</a>
   </li><li class="nav-item">
     <a class="nav-link" href="/tools/dartpad">DartPad</a>
   </li><li class="nav-item">
@@ -345,7 +352,7 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-3"
       href="#sidenav-6-3" role="button"
       aria-expanded="false" aria-controls="sidenav-6-3"
-    >Command-line tools
+    >命令行工具
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-3">
       <li class="nav-item">
@@ -357,7 +364,7 @@ ga('send', 'pageview');
     </a>
     <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-1">
       <li class="nav-item">
-    <a class="nav-link" href="/tools/sdk">Overview</a>
+    <a class="nav-link" href="/tools/sdk">综述</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/tools/dart-vm">dart (Dart VM)</a>
@@ -390,7 +397,7 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-3-2"
       href="#sidenav-6-3-2" role="button"
       aria-expanded="true" aria-controls="sidenav-6-3-2"
-    >Other command-line tools
+    >其他命令行工具
     </a>
     <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-2">
       <li class="nav-item">
@@ -408,13 +415,13 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-4"
       href="#sidenav-6-4" role="button"
       aria-expanded="false" aria-controls="sidenav-6-4"
-    >Managing source code
+    >源码管理
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-4">
       <li class="nav-item">
-    <a class="nav-link" href="/guides/language/formatting">Formatting code</a>
+    <a class="nav-link" href="/guides/language/formatting">格式化代码</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/private-files">What not to commit</a>
+    <a class="nav-link" href="/guides/libraries/private-files">哪些内容不应该被提交</a>
   </li></ul>
   </li>
 <li class="nav-item">
@@ -422,7 +429,7 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-5"
       href="#sidenav-6-5" role="button"
       aria-expanded="false" aria-controls="sidenav-6-5"
-    >Static analysis
+    >静态分析
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-5">
       <li class="nav-item">
@@ -436,13 +443,13 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-6"
       href="#sidenav-6-6" role="button"
       aria-expanded="false" aria-controls="sidenav-6-6"
-    >Testing & optimization
+    >测试 & 优化
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-6">
       <li class="nav-item">
-    <a class="nav-link" href="/guides/testing">Testing</a>
+    <a class="nav-link" href="/guides/testing">测试</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/debugging">Debugging web apps</a>
+    <a class="nav-link" href="/web/debugging">调试 Web 应用</a>
   </li></ul>
   </li>
 
@@ -450,11 +457,11 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-7" role="button"
         aria-expanded="false" aria-controls="sidenav-7"
-      >Resources</a>
+      >资源</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7">
         <li class="nav-item">
-    <a class="nav-link" href="/code-of-conduct">Code of conduct</a>
+    <a class="nav-link" href="/code-of-conduct">行为守则</a>
   </li><li class="nav-item">
     <a class="nav-link" href="/faq">FAQ</a>
   </li><li class="nav-item">
@@ -462,35 +469,49 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-7-3"
       href="#sidenav-7-3" role="button"
       aria-expanded="false" aria-controls="sidenav-7-3"
-    >History
+    >历史
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7-3">
       <li class="nav-item">
-    <a class="nav-link" href="/dart-2">Migrating to Dart&nbsp;2</a>
+    <a class="nav-link" href="/dart-2">迁移到 Dart&nbsp;2</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/dart-2">Migrating web apps to Dart&nbsp;2</a>
+    <a class="nav-link" href="/web/dart-2">迁移 Web 应用到 Dart&nbsp;2</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/obsolete">Obsolete pub features</a>
+    <a class="nav-link" href="/tools/pub/obsolete">过时的 Pub 功能</a>
   </li></ul>
   </li>
 
 </ul>
     </li><li class="nav-item">
-      <a class="nav-link " data-toggle="collapse" href="#sidenav-8" role="button"
-        aria-expanded="true" aria-controls="sidenav-8"
-      >Related sites</a>
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-8" role="button"
+        aria-expanded="false" aria-controls="sidenav-8"
+      >相关网站</a>
 
-      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-8">
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-8">
         <li class="nav-item">
-    <a class="nav-link" href="https://api.dart.dev" target="_blank" rel="noopener">API reference<i class="fas fa-external-link-alt"></i></a>
+    <a class="nav-link" href="https://api.dart.dev" target="_blank" rel="noopener">API 参考<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
     <a class="nav-link" href="https://medium.com/dartlang" target="_blank" rel="noopener">Blog<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
-    <a class="nav-link" href="https://dartpad.dartlang.org" target="_blank" rel="noopener">DartPad (online editor)<i class="fas fa-external-link-alt"></i></a>
+    <a class="nav-link" href="https://dartpad.dartlang.org" target="_blank" rel="noopener">DartPad (在线编辑器)<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
     <a class="nav-link" href="https://flutter.dev" target="_blank" rel="noopener">Flutter<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
-    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Package site<i class="fas fa-external-link-alt"></i></a>
+    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Pub 包资源<i class="fas fa-external-link-alt"></i></a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link " data-toggle="collapse" href="#sidenav-9" role="button"
+        aria-expanded="true" aria-controls="sidenav-9"
+      >关于</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-9">
+        <li class="nav-item">
+    <a class="nav-link" href="/about_zh_CN">关于本站</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/about_zh_CN/contributor-guide">贡献者指北</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/about_zh_CN/chinese-copywriting-guidelines">中文排版指北</a>
   </li>
 </ul>
     </li></ul>
@@ -509,37 +530,37 @@ ga('send', 'pageview');
 
 <div id="site-toc--side" class="site-toc ">
   <header class="site-toc__title">
-    Contents
+    大纲
     <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
     
   </header>
   <ul class="section-nav nav">
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#what-is-soundness">What is soundness?</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#the-benefits-of-soundness">The benefits of soundness</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#tips-for-passing-static-analysis">Tips for passing static analysis</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#什么是类型安全">什么是类型安全</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#类型安全的好处">类型安全的好处</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#静态检查中的一些技巧">静态检查中的一些技巧</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#use-sound-return-types-when-overriding-methods">Use sound return types when overriding methods</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#use-sound-parameter-types-when-overriding-methods">Use sound parameter types when overriding methods</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#dont-use-a-dynamic-list-as-a-typed-list">Don’t use a dynamic list as a typed list</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#重写方法时使用类型安全的返回值">重写方法时，使用类型安全的返回值</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#重写方法时使用类型安全的参数">重写方法时，使用类型安全的参数。</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#不要将动态类型的-list-看做是有类型的-list">不要将动态类型的 List 看做是有类型的 List</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#runtime-checks">Runtime checks</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#type-inference">Type inference</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#运行时检查">运行时检查</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#类型推断">类型推断</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#field-and-method-inference">Field and method inference</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#static-field-inference">Static field inference</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#local-variable-inference">Local variable inference</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#type-argument-inference">Type argument inference</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#字段和方法推断">字段和方法推断</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#静态字段推断">静态字段推断</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#局部变量推断">局部变量推断</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#参数类型推断">参数类型推断</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#substituting-types">Substituting types</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#替换类型">替换类型</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#simple-type-assignment">Simple type assignment</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#generic-type-assignment">Generic type assignment</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#methods">Methods</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#普通类型赋值">普通类型赋值</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#泛型赋值">泛型赋值</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#方法">方法</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#other-resources">Other resources</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#其他资源">其他资源</a></li>
 </ul>
 </div>
 
@@ -550,12 +571,12 @@ ga('send', 'pageview');
 
           <div>
             <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
-  <a href="https://github.com/dart-lang/site-www/tree/master/src/_guides/language/sound-dart.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/language/sound-dart.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dart-lang/site-www/issues/new?title='The Dart type system' page issue&body=
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Dart 类型系统' page issue&body=
 Page URL: https://www.dartlang.org/guides/language/sound-dart%0D%0A
-Page source: https://github.com/dart-lang/site-www/tree/master/src/_guides/language/sound-dart.md%0D%0A
+Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/language/sound-dart.md%0D%0A
 %0D%0A
 Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
 %0D%0A
@@ -565,7 +586,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   </a>
 </div>
 
-            <h1>The Dart type system</h1>
+            <h1>Dart 类型系统</h1>
           </div>
           
 
@@ -577,7 +598,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 
 <div id="site-toc--inline" class="site-toc toc-collapsible toc-collapsed">
   <header class="site-toc__title">
-    Contents
+    大纲
     <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
     
       <span class="site-toc--inline__toggle toc-toggle-down"><i class="fas fa-chevron-down fa-m"></i></span>
@@ -585,66 +606,62 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
     
   </header>
   <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#what-is-soundness">What is soundness?</a></li>
-<li class="toc-entry toc-h2"><a href="#the-benefits-of-soundness">The benefits of soundness</a></li>
-<li class="toc-entry toc-h2"><a href="#tips-for-passing-static-analysis">Tips for passing static analysis</a>
+<li class="toc-entry toc-h2"><a href="#什么是类型安全">什么是类型安全</a></li>
+<li class="toc-entry toc-h2"><a href="#类型安全的好处">类型安全的好处</a></li>
+<li class="toc-entry toc-h2"><a href="#静态检查中的一些技巧">静态检查中的一些技巧</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#use-sound-return-types-when-overriding-methods">Use sound return types when overriding methods</a></li>
-<li class="toc-entry toc-h3"><a href="#use-sound-parameter-types-when-overriding-methods">Use sound parameter types when overriding methods</a></li>
-<li class="toc-entry toc-h3"><a href="#dont-use-a-dynamic-list-as-a-typed-list">Don’t use a dynamic list as a typed list</a></li>
+<li class="toc-entry toc-h3"><a href="#重写方法时使用类型安全的返回值">重写方法时，使用类型安全的返回值</a></li>
+<li class="toc-entry toc-h3"><a href="#重写方法时使用类型安全的参数">重写方法时，使用类型安全的参数。</a></li>
+<li class="toc-entry toc-h3"><a href="#不要将动态类型的-list-看做是有类型的-list">不要将动态类型的 List 看做是有类型的 List</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#runtime-checks">Runtime checks</a></li>
-<li class="toc-entry toc-h2"><a href="#type-inference">Type inference</a>
+<li class="toc-entry toc-h2"><a href="#运行时检查">运行时检查</a></li>
+<li class="toc-entry toc-h2"><a href="#类型推断">类型推断</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#field-and-method-inference">Field and method inference</a></li>
-<li class="toc-entry toc-h3"><a href="#static-field-inference">Static field inference</a></li>
-<li class="toc-entry toc-h3"><a href="#local-variable-inference">Local variable inference</a></li>
-<li class="toc-entry toc-h3"><a href="#type-argument-inference">Type argument inference</a></li>
+<li class="toc-entry toc-h3"><a href="#字段和方法推断">字段和方法推断</a></li>
+<li class="toc-entry toc-h3"><a href="#静态字段推断">静态字段推断</a></li>
+<li class="toc-entry toc-h3"><a href="#局部变量推断">局部变量推断</a></li>
+<li class="toc-entry toc-h3"><a href="#参数类型推断">参数类型推断</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#substituting-types">Substituting types</a>
+<li class="toc-entry toc-h2"><a href="#替换类型">替换类型</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#simple-type-assignment">Simple type assignment</a></li>
-<li class="toc-entry toc-h3"><a href="#generic-type-assignment">Generic type assignment</a></li>
-<li class="toc-entry toc-h3"><a href="#methods">Methods</a></li>
+<li class="toc-entry toc-h3"><a href="#普通类型赋值">普通类型赋值</a></li>
+<li class="toc-entry toc-h3"><a href="#泛型赋值">泛型赋值</a></li>
+<li class="toc-entry toc-h3"><a href="#方法">方法</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#other-resources">Other resources</a></li>
+<li class="toc-entry toc-h2"><a href="#其他资源">其他资源</a></li>
 </ul>
 </div>
 
 
           <?code-excerpt replace="/([A-Z]\w*)\d\b/$1/g; /\b(main)\d\b/$1/g"?>
 
-<p>The Dart language is type safe: it uses a combination of static type checking and
-<a href="#runtime-checks">runtime checks</a> to
-ensure that a variable’s value always matches the variable’s static type.
-Although <em>types</em> are mandatory, type <em>annotations</em> are optional
-because of <a href="#type-inference">type inference</a>.</p>
+<p>Dart 是类型安全的编程语言：Dart 使用静态类型检查和
+<a href="#runtime-checks">运行时检查</a>
+的组合来确保变量的值始终与变量的静态类型匹配。尽管类型是必需的，但由于
+<a href="#type-inference">类型推断</a>
+，类型的注释是可选的。</p>
 
-<p>This page concentrates on the type safety features added in Dart 2.
-For a full introduction to the Dart language, including types, see the
-<a href="/guides/language/language-tour">language tour</a>.</p>
+<p>本章重点介绍 Dart 2 中添加的类型安全功能。有关 Dart 语言的完整介绍（包括类型），
+请参阅<a href="/guides/language/language-tour">语言概览</a>。</p>
 
 <aside class="alert alert-info">
-  <p><strong>Terminology note:</strong>
-  The terms <strong>sound</strong> Dart and <strong>type safe</strong> Dart
-  are often used interchangeably.
-  You might also see the term <strong>strong mode</strong>.
-  Strong mode was an opt-in Dart 1.x feature
-  that provided partial support for type safety.</p>
+  <p><strong>术语说明：</strong>
+  术语 <strong>sound</strong> Dart 和 <strong>type safe</strong> Dart 通常可互换使用。
+  你可能还会看到术语 <strong>strong mode</strong> 。 
+  <strong>strong mode</strong> 是一种在Dart 1.x中可选的功能，
+  可为类型安全提供部分支持。</p>
 </aside>
 
-<p>One benefit of static type checking is the ability to find bugs
-at compile time using Dart’s <a href="/guides/language/analysis-options">static analyzer.</a></p>
+<p>静态类型检查的一个好处是能够使用 Dart 的
+<a href="/guides/language/analysis-options">静态分析器</a>
+在编译时找到错误。</p>
 
-<p>You can fix most static analysis errors by adding type annotations to generic
-classes. The most common generic classes are the collection types
-<code class="highlighter-rouge">List&lt;T&gt;</code> and <code class="highlighter-rouge">Map&lt;K,V&gt;</code>.</p>
+<p>可以向泛型类添加类型注释来修复大多数静态分析错误。最常见的泛型类是集合类型 <code class="highlighter-rouge">List&lt;T&gt;</code> 和 <code class="highlighter-rouge">Map&lt;K,V&gt;</code> 。</p>
 
-<p>For example, in the following code the <code class="highlighter-rouge">printInts()</code> function prints an integer list,
-and <code class="highlighter-rouge">main()</code> creates a list and passes it to <code class="highlighter-rouge">printInts()</code>.</p>
+<p>例如，在下面的代码中，<code class="highlighter-rouge">main()</code> 创建一个列表并将其传递给 <code class="highlighter-rouge">printInts()</code> ，由 <code class="highlighter-rouge">printInts()</code> 函数打印这个整数列表。</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (opening-example)" replace="/list(?=\))/[!$&!]/g"?>
 <pre class="prettyprint lang-dart fails-sa">void printInts(List&lt;int&gt; a) =&gt; print(a);
@@ -656,24 +673,19 @@ void main() {
   printInts(<span class="highlight">list</span>);
 }</pre>
 
-<p>The preceding code results in a type error on <code class="highlighter-rouge">list</code> (highlighted
-above) at the call of <code class="highlighter-rouge">printInts(list)</code>:</p>
+<p>上面的代码在调用 <code class="highlighter-rouge">printInts(list)</code> 时会在 <code class="highlighter-rouge">list</code> （高亮提示）上产生类型错误：</p>
 
 <?code-excerpt "strong/analyzer-2-results.txt" retain="/List.*strong_analysis.*argument_type_not_assignable/" replace="/ at (lib|test)\/\w+\.dart:\d+:\d+//g"?>
 <pre class="console-output"><code class="language-nocode">error • The argument type 'List' can't be assigned to the parameter type 'List&lt;int&gt;' • argument_type_not_assignable
 </code></pre>
 
-<p>The error highlights an unsound implicit cast from <code class="highlighter-rouge">List&lt;dynamic&gt;</code> to <code class="highlighter-rouge">List&lt;int&gt;</code>.
-The <code class="highlighter-rouge">list</code> variable has static type <code class="highlighter-rouge">List&lt;dynamic&gt;</code>. This is because the
-initializing declaration <code class="highlighter-rouge">var list = []</code> doesn’t provide the analyzer with
-enough information for it to infer a type argument more specific than <code class="highlighter-rouge">dynamic</code>.
-The <code class="highlighter-rouge">printInts()</code> function expects a parameter of type <code class="highlighter-rouge">List&lt;int&gt;</code>,
-causing a mismatch of types.</p>
+<p>高亮错误是因为产生了从 <code class="highlighter-rouge">List&lt;dynamic&gt;</code> 到 <code class="highlighter-rouge">List&lt;int&gt;</code> 的不正确的隐式转换。
+<code class="highlighter-rouge">list</code> 变量是 <code class="highlighter-rouge">List&lt;dynamic&gt;</code> 静态类型。这是因为 <code class="highlighter-rouge">list</code> 变量的初始化声明 <code class="highlighter-rouge">var list = []</code>
+没有为分析器提供足够的信息来推断比 <code class="highlighter-rouge">dynamic</code> 更具体的类型参数。
+<code class="highlighter-rouge">printInts()</code> 函数需要 <code class="highlighter-rouge">List&lt;int&gt;</code> 类型的参数，因此导致类型不匹配。</p>
 
-<p>When adding a type annotation (<code class="highlighter-rouge">&lt;int&gt;</code>) on creation of the list
-(highlighted below) the analyzer complains that a string argument can’t be assigned to
-an <code class="highlighter-rouge">int</code> parameter. Removing the quotes in <code class="highlighter-rouge">list.add("2")</code> results
-in code that passes static analysis and runs with no errors or warnings.</p>
+<p>在创建 <code class="highlighter-rouge">list</code> 时添加类型注释 <code class="highlighter-rouge">&lt;int&gt;</code>（代码中高亮显示部分）后，分析器会提示无法将字符串参数分配给 <code class="highlighter-rouge">int</code> 参数。
+删除 <code class="highlighter-rouge">list.add("2")</code> 中的字符串引号使代码通过静态分析并能够正常执行。</p>
 
 <?code-excerpt "strong/test/strong_test.dart (opening-example)" replace="/<int.(?=\[)|2/[!$&!]/g"?>
 <pre class="prettyprint lang-dart passes-sa">void printInts(List&lt;int&gt; a) =&gt; print(a);
@@ -685,79 +697,71 @@ void main() {
   printInts(list);
 }</pre>
 
-<p><a href="https://dartpad.dartlang.org/f64e963cb5f894e2146c2b28d5efa4ed">Try it in DartPad</a>.</p>
+<p><a href="https://dartpad.cn/f64e963cb5f894e2146c2b28d5efa4ed">尝试在 DartPad 中练习</a>.</p>
 
-<h2 id="what-is-soundness">
-<a id="what-is-soundness" class="anchor" href="#what-is-soundness" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is soundness?</h2>
+<h2 id="什么是类型安全">
+<a id="什么是类型安全" class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>什么是类型安全</h2>
 
-<p><em>Soundness</em> is about ensuring your program can’t get into certain
-invalid states. A sound <em>type system</em> means you can never get into
-a state where an expression evaluates to a value that doesn’t match
-the expression’s static type. For example, if an expression’s static
-type is <code class="highlighter-rouge">String</code>, at runtime you are guaranteed to only get a string
-when you evaluate it.</p>
+<p>类型安全是为了确保程序不会进入某些无效状态。
+安全的类型系统意味着程序永远不会进入表达式求值为与表达式的静态类型不匹配的值的状态。
+例如，如果表达式的静态类型是 <code class="highlighter-rouge">String</code> ，则在运行时保证在评估它的时候只会获取字符串。</p>
 
-<p>Dart’s type system, like the type systems in Java and C#, is sound. It
-enforces that soundness using a combination of static checking
-(compile-time errors) and runtime checks. For example, assigning a <code class="highlighter-rouge">String</code>
-to <code class="highlighter-rouge">int</code> is a compile-time error. Casting an <code class="highlighter-rouge">Object</code> to a string using
-<code class="highlighter-rouge">as String</code> fails with a runtime error if the object isn’t a
-string.</p>
+<p>Dart 的类型系统，同 Java 和 C＃ 中的类型系统类似，是安全的。
+它使用静态检查（编译时错误）和运行时检查的组合来强制执行类型安全。
+例如，将 <code class="highlighter-rouge">String</code> 分配给 <code class="highlighter-rouge">int</code> 是一个编译时错误。如果<code class="highlighter-rouge">对象</code>不是字符串，
+使用 <code class="highlighter-rouge">as String</code> 将<code class="highlighter-rouge">对象</code>转换为字符串时，会由于运行时错误而导致转换失败。</p>
 
-<h2 id="the-benefits-of-soundness">
-<a id="the-benefits-of-soundness" class="anchor" href="#the-benefits-of-soundness" aria-hidden="true"><span class="octicon octicon-link"></span></a>The benefits of soundness</h2>
+<h2 id="类型安全的好处">
+<a id="类型安全的好处" class="anchor" href="#%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%A5%BD%E5%A4%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>类型安全的好处</h2>
 
-<p>A sound type system has several benefits:</p>
+<p>安全的类型系统有以下几个好处：</p>
 
 <ul>
   <li>
-    <p>Revealing type-related bugs at compile time.<br>
-A sound type system forces code to be unambiguous about its types,
-so type-related bugs that might be tricky to find at runtime are
-revealed at compile time.</p>
+    <p>在编译时就可以检查并显示类型相关的错误。<br>
+安全的类型系统强制要求代码明确类型，
+因此在编译时会显示与类型相关的错误，
+这些错误可能在运行时可能很难发现。</p>
   </li>
   <li>
-    <p>More readable code.<br>
-Code is easier to read because you can rely on a value actually having
-the specified type. In sound Dart, types can’t lie.</p>
+    <p>代码更容易阅读。<br>
+代码更容易阅读，因为我们信赖一个拥有指定类型的值。
+在类型安全的 Dart 中，类型是不会骗人的。 因为一个拥有指定类型的值是可以被信赖的。</p>
   </li>
   <li>
-    <p>More maintainable code.<br>
-With a sound type system, when you change one piece of code, the
-type system can warn you about the other pieces
-of code that just broke.</p>
+    <p>代码可维护性更高。<br>
+在安全的类型系统下，当更改一处代码后，
+类型系统会警告因此影响到的其他代码块。</p>
   </li>
   <li>
-    <p>Better ahead of time (AOT) compilation.<br>
-While AOT compilation is possible without types, the generated
-code is much less efficient.</p>
+    <p>更好的 AOT 编译。<br>
+虽然在没有类型的情况下可以进行 AOT 编译，
+但生成的代码效率要低很多。</p>
   </li>
 </ul>
 
-<h2 id="tips-for-passing-static-analysis">
-<a id="tips-for-passing-static-analysis" class="anchor" href="#tips-for-passing-static-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tips for passing static analysis</h2>
+<h2 id="静态检查中的一些技巧">
+<a id="静态检查中的一些技巧" class="anchor" href="#%E9%9D%99%E6%80%81%E6%A3%80%E6%9F%A5%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8A%80%E5%B7%A7" aria-hidden="true"><span class="octicon octicon-link"></span></a>静态检查中的一些技巧</h2>
 
-<p>Most of the rules for static types are easy to understand.
-Here are some of the less obvious rules:</p>
+<p>大多数静态类型的规则都很容易理解。
+下面是一些不太明显的规则：</p>
 
 <ul>
-  <li>Use sound return types when overriding methods.</li>
-  <li>Use sound parameter types when overriding methods.</li>
-  <li>Don’t use a dynamic list as a typed list.</li>
+  <li>重写方法时，使用类型安全返回值。</li>
+  <li>重写方法时，使用类型安全的参数。</li>
+  <li>不要将动态类型的 List 看做是有类型的 List 。</li>
 </ul>
 
-<p>Let’s see these rules in detail, with examples that use the following
-type hierarchy:</p>
+<p>让我们通过下面示例的类型结构，来更深入的了解这些规则：</p>
 
 <p><img src="images/type-hierarchy.png" alt="a hierarchy of animals where the supertype is Animal and the subtypes are Alligator, Cat, and HoneyBadger. Cat has the subtypes of Lion and MaineCoon"></p>
 
 <p><a name="use-proper-return-types"></a></p>
-<h3 id="use-sound-return-types-when-overriding-methods">
-<a id="use-sound-return-types-when-overriding-methods" class="anchor" href="#use-sound-return-types-when-overriding-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use sound return types when overriding methods</h3>
+<h3 id="重写方法时使用类型安全的返回值">
+<a id="重写方法时使用类型安全的返回值" class="anchor" href="#%E9%87%8D%E5%86%99%E6%96%B9%E6%B3%95%E6%97%B6%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>重写方法时，使用类型安全的返回值</h3>
 
-<p>The return type of a method in a subclass must be the same type or a
-subtype of the return type of the method in the superclass. Consider
-the getter method in the Animal class:</p>
+<p>子类方法中返回值类型必须与父类方法中返回值类型的类型相同或其子类型。
+考虑 Animal 类中的 Getter 方法：</p>
 
 <?code-excerpt "strong/lib/animal.dart (Animal)" replace="/Animal get.*/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">class Animal {
@@ -765,9 +769,9 @@ the getter method in the Animal class:</p>
   <span class="highlight">Animal get parent =&gt; ...</span>
 }</pre>
 
-<p>The <code class="highlighter-rouge">parent</code> getter method returns an Animal. In the HoneyBadger subclass,
-you can replace the getter’s return type with HoneyBadger (or any other subtype
-of Animal), but an unrelated type is not allowed.</p>
+<p><code class="highlighter-rouge">父类</code> Getter 方法返回一个 Animal 。在 HoneyBadger 子类中，
+可以使用 HoneyBadger（或 Animal 的任何其他子类型）替换 Getter 的返回值类型，
+但不允许使用其他的无关类型。</p>
 
 <?code-excerpt "strong/lib/animal.dart (HoneyBadger)" replace="/(\w+)(?= get)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart passes-sa">class HoneyBadger extends Animal {
@@ -782,20 +786,17 @@ of Animal), but an unrelated type is not allowed.</p>
 }</pre>
 
 <p><a name="use-proper-param-types"></a></p>
-<h3 id="use-sound-parameter-types-when-overriding-methods">
-<a id="use-sound-parameter-types-when-overriding-methods" class="anchor" href="#use-sound-parameter-types-when-overriding-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use sound parameter types when overriding methods</h3>
+<h3 id="重写方法时使用类型安全的参数">
+<a id="重写方法时使用类型安全的参数" class="anchor" href="#%E9%87%8D%E5%86%99%E6%96%B9%E6%B3%95%E6%97%B6%E4%BD%BF%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>重写方法时，使用类型安全的参数。</h3>
 
-<p>The parameter of an overridden method must have either the same type
-or a supertype of the corresponding parameter in the superclass.
-Don’t “tighten” the parameter type by replacing the type with a
-subtype of the original parameter.</p>
+<p>子类方法的参数必须与父类方法中参数的类型相同或是其参数的父类型。
+不要使用原始参数的子类型，替换原有类型，这样会导致参数类型”收紧”。</p>
 
 <aside class="alert alert-info">
-  <p><strong>Note:</strong> If you have a valid reason to use a subtype, you can use the
-  <a href="/guides/language/sound-problems#the-covariant-keyword"><code class="highlighter-rouge">covariant</code> keyword</a>.</p>
+  <p><strong>提示：</strong> 如果有合理的理由使用子类型，可以使用 <a href="/guides/language/sound-problems#the-covariant-keyword"><code class="highlighter-rouge">covariant</code> 关键字</a>。</p>
 </aside>
 
-<p>Consider the <code class="highlighter-rouge">chase(Animal)</code> method for the Animal class:</p>
+<p>考虑 Animal 的 <code class="highlighter-rouge">chase(Animal)</code> 方法：</p>
 
 <?code-excerpt "strong/lib/animal.dart (Animal)" replace="/void chase.*/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">class Animal {
@@ -803,8 +804,8 @@ subtype of the original parameter.</p>
   Animal get parent =&gt; ...
 }</pre>
 
-<p>The <code class="highlighter-rouge">chase()</code> method takes an Animal. A HoneyBadger chases anything.
-It’s OK to override the <code class="highlighter-rouge">chase()</code> method to take anything (Object).</p>
+<p><code class="highlighter-rouge">chase()</code> 方法的参数类型是 Animal 。一个 HoneyBadger 可以追逐任何东西。
+因此可以在重写 <code class="highlighter-rouge">chase()</code> 方法时将参数类型指定为任意类型 （Object） 。</p>
 
 <?code-excerpt "strong/lib/animal.dart (chase-Object)" replace="/Object/[!$&!]/g"?>
 <pre class="prettyprint lang-dart passes-sa">class HoneyBadger extends Animal {
@@ -812,8 +813,7 @@ It’s OK to override the <code class="highlighter-rouge">chase()</code> method 
   Animal get parent =&gt; ...
 }</pre>
 
-<p>The following code tightens the parameter on the <code class="highlighter-rouge">chase()</code> method
-from Animal to Mouse, a subclass of Animal.</p>
+<p>Mouse 是 Animal 的子类，下面的代码将 <code class="highlighter-rouge">chase()</code> 方法中参数的范围从 Animal 缩小到 Mouse 。</p>
 
 <?code-excerpt "strong/lib/animal_bad.dart (chase-Mouse)" replace="/(\w+)(?= x)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart fails-sa">class Mouse extends Animal {...}
@@ -822,24 +822,22 @@ class Cat extends Animal {
   void chase(<span class="highlight">Mouse</span> x) { ... }
 }</pre>
 
-<p>This code is not type safe because it would then be possible to define
-a cat and send it after an alligator:</p>
+<p>下面的代码不是类型安全的，因为 a 可以是一个 cat 对象，却可以给它传入一个 alligator 对象。</p>
 
 <?code-excerpt "strong/lib/animal_bad.dart (chase-Alligator)" replace="/Alligator/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">Animal a = Cat();
 a.chase(<span class="highlight">Alligator</span>()); // Not type safe or feline safe</pre>
 
-<h3 id="dont-use-a-dynamic-list-as-a-typed-list">
-<a id="dont-use-a-dynamic-list-as-a-typed-list" class="anchor" href="#dont-use-a-dynamic-list-as-a-typed-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Don’t use a dynamic list as a typed list</h3>
+<h3 id="不要将动态类型的-list-看做是有类型的-list">
+<a id="不要将动态类型的-list-看做是有类型的-list" class="anchor" href="#%E4%B8%8D%E8%A6%81%E5%B0%86%E5%8A%A8%E6%80%81%E7%B1%BB%E5%9E%8B%E7%9A%84-list-%E7%9C%8B%E5%81%9A%E6%98%AF%E6%9C%89%E7%B1%BB%E5%9E%8B%E7%9A%84-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>不要将动态类型的 List 看做是有类型的 List</h3>
 
-<p>A dynamic list is good when you want to have a list with
-different kinds of things in it. However, you can’t use a
-dynamic list as a typed list.</p>
+<p>当期望在一个 List 中可以包含不同类型的对象时，动态列表是很好的选择。
+但是不能将动态类型的 List 看做是有类型的 List 。</p>
 
-<p>This rule also applies to instances of generic types.</p>
+<p>这个规则也适用于泛型类型的实例。</p>
 
-<p>The following code creates a dynamic list of Dog, and assigns it to
-a list of type Cat, which generates an error during static analysis.</p>
+<p>下面代码创建一个 Dog 的动态 List ，并将其分配给 Cat 类型的 List ，
+表达式在静态分析期间会产生错误。</p>
 
 <?code-excerpt "strong/lib/animal_bad.dart (dynamic-list)" replace="/.dynamic.(?!.*OK)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart fails-sa">class Cat extends Animal { ... }
@@ -851,14 +849,14 @@ void main() {
   List&lt;dynamic&gt; bar = &lt;dynamic&gt;[Dog(), Cat()]; // OK
 }</pre>
 
-<h2 id="runtime-checks">
-<a id="runtime-checks" class="anchor" href="#runtime-checks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Runtime checks</h2>
+<h2 id="运行时检查">
+<a id="运行时检查" class="anchor" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A3%80%E6%9F%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>运行时检查</h2>
 
-<p>Runtime checks in tools like the <a href="/server/tools/dart-vm">Dart VM</a> and <a href="/tools/dartdevc">dartdevc</a>
-deal with type safety issues that the analyzer can’t catch.</p>
+<p>运行时检查工具，比如 <a href="/server/tools/dart-vm">Dart VM</a> 和 <a href="/tools/dartdevc">dartdevc</a>，
+处理分析器无法捕获的类型安全问题。</p>
 
-<p>For example, the following code throws an exception at runtime because it is an error
-to assign a list of Dogs to a list of Cats:</p>
+<p>例如，以下代码在运行时会抛出异常，
+因为将 Dog 类型的 List 赋值给 Cat 类型的 List 是错误的：</p>
 
 <?code-excerpt "strong/test/strong_test.dart (runtime-checks)" replace="/cats[^;]*/[!$&!]/g"?>
 <pre class="prettyprint lang-dart runtime-fail">void main() {
@@ -866,60 +864,51 @@ to assign a list of Dogs to a list of Cats:</p>
   List&lt;Cat&gt; <span class="highlight">cats = animals</span>;
 }</pre>
 
-<h2 id="type-inference">
-<a id="type-inference" class="anchor" href="#type-inference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Type inference</h2>
+<h2 id="类型推断">
+<a id="类型推断" class="anchor" href="#%E7%B1%BB%E5%9E%8B%E6%8E%A8%E6%96%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>类型推断</h2>
 
-<p>The analyzer can infer types for fields, methods, local variables,
-and most generic type arguments.
-When the analyzer doesn’t have enough information to infer
-a specific type, it uses the <code class="highlighter-rouge">dynamic</code> type.</p>
+<p>分析器（analyzer）可以推断字段，方法，局部变量和大多数泛型类型参数的类型。
+当分析器没有足够的信息来推断出一个特定类型时，会使用 <code class="highlighter-rouge">dynamic</code> 作为类型。</p>
 
-<p>Here’s an example of how type inference works with generics.
-In this example, a variable named <code class="highlighter-rouge">arguments</code> holds a map that
-pairs string keys with values of various types.</p>
+<p>下面是在泛型中如何进行类型推断的示例。在此示例中，名为 <code class="highlighter-rouge">arguments</code> 的变量包含一个 Map ，
+该 Map 将字符串键与各种类型的值配对。</p>
 
-<p>If you explicitly type the variable, you might write this:</p>
+<p>如果显式键入变量，则可以这样写：</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (type-inference-1-orig)" replace="/Map<String, dynamic\x3E/[!$&!]/g"?>
 <pre class="prettyprint lang-dart"><span class="highlight">Map&lt;String, dynamic&gt;</span> arguments = {'argA': 'hello', 'argB': 42};</pre>
 
-<p>Alternatively, you can use <code class="highlighter-rouge">var</code> and let Dart infer the type:</p>
+<p>或者，使用 <code class="highlighter-rouge">var</code> 让 Dart 来推断类型：</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (type-inference-1)" replace="/var/[!$&!]/g"?>
 <pre class="prettyprint lang-dart"><span class="highlight">var</span> arguments = {'argA': 'hello', 'argB': 42}; // Map&lt;String, Object&gt;</pre>
 
-<p>The map literal infers its type from its entries,
-and then the variable infers its type from the map literal’s type.
-In this map, the keys are both strings, but the values have different
-types (String and int, which have the upper bound Object).
-So the map literal has the type <code class="highlighter-rouge">Map&lt;String, Object&gt;</code>,
-and so does the <code class="highlighter-rouge">arguments</code> variable.</p>
+<p>Map 字面量从其条目中推断出它的类型，然后变量从 Map 字面量的类型中推断出它的类型。
+在此 Map 中，键都是字符串，但值具有不同的类型（ String 和 int ，它们具有共同的上限类型 Object ）。
+因此，Map 字面量的类型为 <code class="highlighter-rouge">Map&lt;String, Object&gt;</code> ，也就是 <code class="highlighter-rouge">arguments</code> 的类型。</p>
 
-<h3 id="field-and-method-inference">
-<a id="field-and-method-inference" class="anchor" href="#field-and-method-inference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Field and method inference</h3>
+<h3 id="字段和方法推断">
+<a id="字段和方法推断" class="anchor" href="#%E5%AD%97%E6%AE%B5%E5%92%8C%E6%96%B9%E6%B3%95%E6%8E%A8%E6%96%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>字段和方法推断</h3>
 
-<p>A field or method that has no specified type and that overrides
-a field or method from the superclass, inherits the type of the
-superclass method or field.</p>
+<p>重写父类的且没有指定类型的字段或方法，继承父类中字段或方法的类型。</p>
 
-<p>A field that does not have a declared or inherited type but that is declared
-with an initial value, gets an inferred type based on the initial value.</p>
+<p>没有声明类型且不存在继承类型的字段，如果在声明时被初始化，
+那么字段的类型为初始化值的类型。</p>
 
-<h3 id="static-field-inference">
-<a id="static-field-inference" class="anchor" href="#static-field-inference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Static field inference</h3>
+<h3 id="静态字段推断">
+<a id="静态字段推断" class="anchor" href="#%E9%9D%99%E6%80%81%E5%AD%97%E6%AE%B5%E6%8E%A8%E6%96%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>静态字段推断</h3>
 
-<p>Static fields and variables get their types inferred from their
-initializer. Note that inference fails if it encounters a cycle
-(that is, inferring a type for the variable depends on knowing the
-type of that variable).</p>
+<p>静态字段和变量的类型从其初始化程序中推断获得。 
+需要注意的是，如果推断是个循环，推断会失败
+（也就是说，推断变量的类型取决于知道该变量的类型）。</p>
 
-<h3 id="local-variable-inference">
-<a id="local-variable-inference" class="anchor" href="#local-variable-inference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Local variable inference</h3>
+<h3 id="局部变量推断">
+<a id="局部变量推断" class="anchor" href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E6%8E%A8%E6%96%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>局部变量推断</h3>
 
-<p>Local variable types are inferred from their initializer, if any.
-Subsequent assignments are not taken into account.
-This may mean that too precise a type may be inferred.
-If so, you can add a type annotation.</p>
+<p>在不考虑连续赋值的情况下，局部变量如果有初始化值的情况下，其类型是从初始化值推断出来的。
+这可能意味着推断出来的类型会非常严格。
+如果是这样，可以为他们添加类型注释。（🤔 This may mean that too precise a type may be inferred.
+If so, you can add a type annotation.）</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (local-var-type-inference-error)"?>
 <pre class="prettyprint lang-dart fails-sa">var x = 3; // x is inferred as an int
@@ -929,15 +918,13 @@ x = 4.0;</pre>
 <pre class="prettyprint lang-dart passes-sa">num y = 3; // a num can be double or int
 y = 4.0;</pre>
 
-<h3 id="type-argument-inference">
-<a id="type-argument-inference" class="anchor" href="#type-argument-inference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Type argument inference</h3>
+<h3 id="参数类型推断">
+<a id="参数类型推断" class="anchor" href="#%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B%E6%8E%A8%E6%96%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>参数类型推断</h3>
 
-<p>Type arguments to constructor calls and
-<a href="/guides/language/language-tour#using-generic-methods">generic method</a> invocations are
-inferred based on a combination of downward information from the context
-of occurrence, and upward information from the arguments to the constructor
-or generic method. If inference is not doing what you want or expect,
-you can always explicitly specify the type arguments.</p>
+<p>构造函数调用的类型参数和
+<a href="/guides/language/language-tour#using-generic-methods">泛型方法</a>调用
+是根据上下文的向下信息和构造函数或泛型方法的参数的向上信息组合推断的。
+如果推断没有按照意愿或期望进行，那么你可以显式的指定他们的参数类型。</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (type-arg-inference)"?>
 <pre class="prettyprint lang-dart passes-sa">// Inferred as if you wrote &lt;int&gt;[].
@@ -949,132 +936,114 @@ var listOfDouble = [3.0];
 // Inferred as Iterable&lt;int&gt;
 var ints = listOfDouble.map((x) =&gt; x.toInt());</pre>
 
-<p>In the last example, <code class="highlighter-rouge">x</code> is inferred as <code class="highlighter-rouge">double</code> using downward information.
-The return type of the closure is inferred as <code class="highlighter-rouge">int</code> using upward information.
-Dart uses this return type as upward information when inferring the <code class="highlighter-rouge">map()</code>
-method’s type argument: <code class="highlighter-rouge">&lt;int&gt;</code>.</p>
+<p>在最后一个示例中，根据向下信息 <code class="highlighter-rouge">x</code> 被推断为 <code class="highlighter-rouge">double</code> 。 闭包的返回类型根据向上信息推断为 <code class="highlighter-rouge">int</code> 。
+在推断 <code class="highlighter-rouge">map()</code> 方法的类型参数：<code class="highlighter-rouge">&lt;int&gt;</code> 时，Dart 使用此返回值的类型作为向上信息。</p>
 
-<h2 id="substituting-types">
-<a id="substituting-types" class="anchor" href="#substituting-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Substituting types</h2>
+<h2 id="替换类型">
+<a id="替换类型" class="anchor" href="#%E6%9B%BF%E6%8D%A2%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>替换类型</h2>
 
-<p>When you override a method, you are replacing something of one type (in the
-old method) with something that might have a new type (in the new method).
-Similarly, when you pass an argument to a function,
-you are replacing something that has one type (a parameter
-with a declared type) with something that has another type
-(the actual argument). When can you replace something that
-has one type with something that has a subtype or a supertype?</p>
+<p>当重写方法时，可以使用一个新类型（在新方法中）替换旧类型（在旧方法中）。
+类似地，当参数传递给函数时，可以使用另一种类型（实际参数）的对象替换现有类型（具有声明类型的参数）要求的对象。
+什么时候可以用具有子类型或父类型的对象替换具有一种类型的对象那？</p>
 
-<p>When substituting types, it helps to think in terms of <em>consumers</em>
-and <em>producers</em>. A consumer absorbs a type and a producer generates a type.</p>
+<p>从_消费者_和_生产者_的角度有助于我们思考替换类型的情况。
+消费者接受类型，生产者产生类型。</p>
 
-<p><strong>You can replace a consumer’s type with a supertype and a producer’s
-type with a subtype.</strong></p>
+<p><strong>可以使用父类型替换消费者类型，使用子类型替换生产者类型。</strong></p>
 
-<p>Let’s look at examples of simple type assignment and assignment with
-generic types.</p>
+<p>下面让我们看一下普通类型赋值和泛型类型赋值的示例。</p>
 
-<h3 id="simple-type-assignment">
-<a id="simple-type-assignment" class="anchor" href="#simple-type-assignment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple type assignment</h3>
+<h3 id="普通类型赋值">
+<a id="普通类型赋值" class="anchor" href="#%E6%99%AE%E9%80%9A%E7%B1%BB%E5%9E%8B%E8%B5%8B%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>普通类型赋值</h3>
 
-<p>When assigning objects to objects, when can you replace a type with a
-different type? The answer depends on whether the object is a consumer
-or a producer.</p>
+<p>将对象赋值给对象时，什么时候可以用其他类型替换当前类型？
+答案取决于对象是消费者还是生产者。</p>
 
-<p>Consider the following type hierarchy:</p>
+<p>分析以下类型层次结构：</p>
 
 <p><img src="images/type-hierarchy.png" alt="a hierarchy of animals where the supertype is Animal and the subtypes are Alligator, Cat, and HoneyBadger. Cat has the subtypes of Lion and MaineCoon"></p>
 
-<p>Consider the following simple assignment where <code class="highlighter-rouge">Cat c</code> is a <em>consumer</em> and <code class="highlighter-rouge">Cat()</code>
-is a <em>producer</em>:</p>
+<p>思考下面示例中的普通赋值，其中 <code class="highlighter-rouge">Cat c</code> 是_消费者_而 <code class="highlighter-rouge">Cat()</code> 是_生产者_：</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (Cat-Cat-ok)"?>
 <pre class="prettyprint lang-dart">Cat c = Cat();</pre>
 
-<p>In a consuming position, it’s safe to replace something that consumes a
-specific type (<code class="highlighter-rouge">Cat</code>) with something that consumes anything (<code class="highlighter-rouge">Animal</code>),
-so replacing <code class="highlighter-rouge">Cat c</code> with <code class="highlighter-rouge">Animal c</code> is allowed, because Animal is
-a supertype of Cat.</p>
+<p>在消费者的位置，任意类型（<code class="highlighter-rouge">Animal</code>）的对象替换特定类型（<code class="highlighter-rouge">Cat</code>）的对象是安全的。
+因此使用 <code class="highlighter-rouge">Animal c</code> 替换 <code class="highlighter-rouge">Cat c</code> 是允许的，因为 Animal 是 Cat 的父类。</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (Animal-Cat-ok)"?>
 <pre class="prettyprint lang-dart passes-sa">Animal c = Cat();</pre>
 
-<p>But replacing <code class="highlighter-rouge">Cat c</code> with <code class="highlighter-rouge">MaineCoon c</code> breaks type safety, because the
-superclass may provide a type of Cat with different behaviors, such
-as Lion:</p>
+<p>但是使用 <code class="highlighter-rouge">MaineCoon c</code> 替换 <code class="highlighter-rouge">Cat c</code> 会打破类型的安全性，
+因为父类可能会提供一种具有不同行为的 Cat ，例如 Lion ：</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (MaineCoon-Cat-err)"?>
 <pre class="prettyprint lang-dart fails-sa">MaineCoon c = Cat();</pre>
 
-<p>In a producing position, it’s safe to replace something that produces a
-type (Cat) with a more specific type (MaineCoon). So, the following
-is allowed:</p>
+<p>在生产者的位置，可以安全地将生产类型 (Cat) 替换成一个更具体的类型 （MaineCoon）的对象。
+因此，下面的操作是允许的：</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (Cat-MaineCoon-ok)"?>
 <pre class="prettyprint lang-dart passes-sa">Cat c = MaineCoon();</pre>
 
-<h3 id="generic-type-assignment">
-<a id="generic-type-assignment" class="anchor" href="#generic-type-assignment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generic type assignment</h3>
+<h3 id="泛型赋值">
+<a id="泛型赋值" class="anchor" href="#%E6%B3%9B%E5%9E%8B%E8%B5%8B%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>泛型赋值</h3>
 
-<p>Are the rules the same for generic types? Yes. Consider the hierarchy
-of lists of animals—a List of Cat is a subtype of a List of
-Animal, and a supertype of a List of MaineCoon:</p>
+<p>上面的规则同样适用于泛型类型吗？是的。
+考虑动物列表的层次结构— Cat 类型的 List 是 Animal 类型 List 的子类型，
+是 MaineCoon 类型 List 的父类型。</p>
 
 <p><img src="images/type-hierarchy-generics.png" alt="List&lt;Animal&gt; -&gt; List&lt;Cat&gt; -&gt; List&lt;MaineCoon&gt;"></p>
 
-<p>In the following example, you can assign a <code class="highlighter-rouge">MaineCoon</code> list to <code class="highlighter-rouge">myCats</code> because
-<code class="highlighter-rouge">List&lt;MaineCoon&gt;</code> is a subtype of <code class="highlighter-rouge">List&lt;Cat&gt;</code>:</p>
+<p>在下面的示例中，可以将 <code class="highlighter-rouge">MaineCoon</code> 类型的 List 赋值给 <code class="highlighter-rouge">myCats</code> ，
+因为 <code class="highlighter-rouge">List&lt;MaineCoon&gt;</code> 是 <code class="highlighter-rouge">List&lt;Cat&gt;</code> 的子类型：</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (generic-type-assignment-MaineCoon)" replace="/MaineCoon/[!$&!]/g"?>
 <pre class="prettyprint lang-dart passes-sa">List&lt;Cat&gt; myCats = List&lt;<span class="highlight">MaineCoon</span>&gt;();</pre>
 
-<p>What about going in the other direction? Can you assign an <code class="highlighter-rouge">Animal</code> list to a <code class="highlighter-rouge">List&lt;Cat&gt;</code>?</p>
+<p>从另一个角度看？可以将 <code class="highlighter-rouge">Animal</code> 类型的 List 赋值给 <code class="highlighter-rouge">List&lt;Cat&gt;</code> 吗？</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (generic-type-assignment-Animal)" replace="/Animal/[!$&!]/g"?>
 <pre class="prettyprint lang-dart passes-sa">List&lt;Cat&gt; myCats = List&lt;<span class="highlight">Animal</span>&gt;();</pre>
 
-<p>This assignment passes static analysis,
-but it creates an implicit cast. It is equivalent to:</p>
+<p>上面的赋值通过了静态分析，但它进行了隐式的强制转换。上面的赋值相当于：</p>
 
 <?code-excerpt "strong/lib/strong_analysis.dart (generic-type-assignment-implied-cast)" replace="/as.*(?=;)/[!$&!]/g"?>
 <pre class="prettyprint lang-dart">List&lt;Cat&gt; myCats = List&lt;Animal&gt;() <span class="highlight">as List&lt;Cat&gt;</span>;</pre>
 
-<p>The code may fail at runtime. You can disallow implicit casts
-by specifying <code class="highlighter-rouge">implicit-casts: false</code> in the <a href="/guides/language/analysis-options">analysis options file.</a></p>
+<p>代码在运行时可能会执行失败。通过在 <a href="/guides/language/analysis-options">静态分析配置文件</a> 
+中指定 <code class="highlighter-rouge">implicit-casts: false</code> 来禁止隐式强制转换。</p>
 
-<h3 id="methods">
-<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h3>
+<h3 id="方法">
+<a id="方法" class="anchor" href="#%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>方法</h3>
 
-<p>When overriding a method, the producer and consumer rules still apply.
-For example:</p>
+<p>在重写方法中，生产者和消费者规则仍然适用。例如：</p>
 
 <p><img src="images/consumer-producer-methods.png" alt="Animal class showing the chase method as the consumer and the parent getter as the producer"></p>
 
-<p>For a consumer (such as the <code class="highlighter-rouge">chase(Animal)</code> method), you can replace
-the parameter type with a supertype. For a producer (such as
-the <code class="highlighter-rouge">parent</code> getter method), you can replace the return type with
-a subtype.</p>
+<p>对于使用者（例如 <code class="highlighter-rouge">chase(Animal)</code> 方法），可以使用父类型替换参数类型。
+对于生产者（例如 <code class="highlighter-rouge">父类</code> 的 Getter 方法），可以使用子类型替换返回值类型。</p>
 
-<p>For more information, see
-<a href="#use-proper-return-types">Use sound return types when overriding methods</a>
-and <a href="#use-proper-param-types">Use sound parameter types when overriding methods</a>.</p>
+<p>有关更多信息，请参阅
+<a href="#use-proper-return-types">重写方法时，使用类型安全的返回值</a>
+以及
+<a href="#use-proper-param-types">重写方法时，使用类型安全的参数</a>。</p>
 
-<h2 id="other-resources">
-<a id="other-resources" class="anchor" href="#other-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other resources</h2>
+<h2 id="其他资源">
+<a id="其他资源" class="anchor" href="#%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>其他资源</h2>
 
-<p>The following resources have further information on sound Dart:</p>
+<p>以下是更多关于 Dart 类型安全的相关资源：</p>
 
 <ul>
   <li>
-<a href="/guides/language/sound-problems">Fixing common type problems</a> -
-Errors you may encounter when
-writing sound Dart code, and how to fix them.</li>
+<a href="/guides/language/sound-problems">修复常见类型问题</a> -
+编写类型安全的 Dart 代码时可能遇到的错误，
+以及解决错误的方法。</li>
   <li>
-<a href="/dart-2">Dart 2</a> - How to update Dart 1.x code to Dart 2.</li>
+<a href="/dart-2">Dart 2</a> - 如何从 Dart 1.x 代码迁移到 Dart 2 。</li>
   <li>
-<a href="/guides/language/analysis-options">Customizing static analysis</a> - How
-to set up and customize the analyzer and linter using an analysis
-options file.</li>
+<a href="/guides/language/analysis-options">Customizing static analysis</a> - 如何使用
+分析配置文件设置及自定义分析器和 linter 。</li>
 </ul>
 
 
@@ -1092,18 +1061,18 @@ options file.</li>
           <li><a href="/security">Security</a></li>
           <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
           <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+          <li><a href="/about_zh_CN">关于 dart.dev 中文版</a></li>
           <li>
-            <a href="https://github.com/dart-lang/site-www"
-               title="This site's source is on GitHub."
+            <a href="https://github.com/dartchina/site-www-cn"
+               title="该站在 GitHub 开源"
                class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
             &nbsp;
-            <a href="https://github.com/dart-lang/site-www/issues"
-               title="File an issue about this site."
+            <a href="https://github.com/dartchina/site-www-cn/issues"
+               title="为该站提交 issue"
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               href="https://travis-ci.org/dart-lang/site-www/jobs/547041176"
-               title="Site build #164 (2019/06/17 19:49 PDT)"
+               title="Site built on 2019/06/17 19:56 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
@@ -1112,6 +1081,7 @@ options file.</li>
     </div>
   </div>
 </footer>
+
 
   </body>
 </html>
