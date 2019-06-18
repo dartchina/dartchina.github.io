@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn more about pub, Dart's tool for managing packages.">
-  <title>Packages | Dart</title>
+  <meta name="description" content="了解更多有关 Dart 管理包的工具 Pub 的内容。">
+  <title>包 | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,12 +18,12 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="How to use packages" />
-  <meta name="twitter:description" content="Learn more about pub, Dart's tool for managing packages." />
+  <meta name="twitter:title" content="如何使用包" />
+  <meta name="twitter:description" content="了解更多有关 Dart 管理包的工具 Pub 的内容。" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="How to use packages" />
-  <meta property="og:description" content="Learn more about pub, Dart's tool for managing packages." />
+  <meta property="og:title" content="如何使用包" />
+  <meta property="og:description" content="了解更多有关 Dart 管理包的工具 Pub 的内容。" />
   <meta property="og:url" content="https://www.dartlang.org/guides/packages" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
@@ -535,16 +535,16 @@ ga('send', 'pageview');
     
   </header>
   <ul class="section-nav nav">
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#creating-a-pubspec">Creating a pubspec</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#getting-packages">Getting packages</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#importing-libraries-from-packages">Importing libraries from packages</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#upgrading-a-dependency">Upgrading a dependency</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#more-information">More information</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#创建-pubspec">创建 pubspec</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#获取包">获取包</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#从包中导入库">从包中导入库</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#升级依赖">升级依赖</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#更多内容">更多内容</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#how-to">How to</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#reference">Reference</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#pub-commands">Pub commands</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#如何使用">如何使用</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#参考">参考</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#pub-命令">Pub 命令</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#故障排除">故障排除</a></li>
 </ul>
 </li>
 </ul>
@@ -560,7 +560,7 @@ ga('send', 'pageview');
   <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/packages.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='How to use packages' page issue&body=
+  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='如何使用包' page issue&body=
 Page URL: https://www.dartlang.org/guides/packages%0D%0A
 Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/packages.md%0D%0A
 %0D%0A
@@ -572,7 +572,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   </a>
 </div>
 
-            <h1>How to use packages</h1>
+            <h1>如何使用包</h1>
           </div>
           
 
@@ -589,122 +589,108 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
     
   </header>
   <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#creating-a-pubspec">Creating a pubspec</a></li>
-<li class="toc-entry toc-h2"><a href="#getting-packages">Getting packages</a></li>
-<li class="toc-entry toc-h2"><a href="#importing-libraries-from-packages">Importing libraries from packages</a></li>
-<li class="toc-entry toc-h2"><a href="#upgrading-a-dependency">Upgrading a dependency</a></li>
-<li class="toc-entry toc-h2"><a href="#more-information">More information</a>
+<li class="toc-entry toc-h2"><a href="#创建-pubspec">创建 pubspec</a></li>
+<li class="toc-entry toc-h2"><a href="#获取包">获取包</a></li>
+<li class="toc-entry toc-h2"><a href="#从包中导入库">从包中导入库</a></li>
+<li class="toc-entry toc-h2"><a href="#升级依赖">升级依赖</a></li>
+<li class="toc-entry toc-h2"><a href="#更多内容">更多内容</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#how-to">How to</a></li>
-<li class="toc-entry toc-h3"><a href="#reference">Reference</a></li>
-<li class="toc-entry toc-h3"><a href="#pub-commands">Pub commands</a></li>
-<li class="toc-entry toc-h3"><a href="#troubleshooting">Troubleshooting</a></li>
+<li class="toc-entry toc-h3"><a href="#如何使用">如何使用</a></li>
+<li class="toc-entry toc-h3"><a href="#参考">参考</a></li>
+<li class="toc-entry toc-h3"><a href="#pub-命令">Pub 命令</a></li>
+<li class="toc-entry toc-h3"><a href="#故障排除">故障排除</a></li>
 </ul>
 </li>
 </ul>
 </div>
 
 
-          <p>The Dart ecosystem uses <em>packages</em> to manage shared software
-such as libraries and tools.
-To get Dart packages, you use the <strong>pub package manager</strong>.
-You can find publicly available packages on the <a href="https://pub.dev"><strong>Pub site</strong>,</a>
-or you can load packages from the local file system or elsewhere,
-such as Git repositories.
-Wherever your packages come from, pub manages version dependencies,
-helping you get package versions that work with each other and
-with your SDK version.</p>
+          
+<p>Dart 生态系统使用_包_来管理<strong>共享软件</strong>，比如：库和工具。
+我们使用 <strong>Pub 包管理工具</strong> 来获取 Dart 包。
+在 <a href="https://pub.dev"><strong>Pub</strong></a> 上，可以找到公开可用的包。
+或者从本地文件系统或其他的位置，比如 Git 仓库，加载可用的包。
+无论包是从什么途径加载的， Pub 都会进行版本依赖管理，
+从而帮助我们获得版本兼容的软件包以及 SDK 。</p>
 
-<p>Most <a href="/tools#ides-and-editors">Dart-savvy IDEs</a> offer support for using pub that
-includes creating, downloading, updating, and publishing packages.
-Or you can use <a href="/tools/pub/cmd"><code class="highlighter-rouge">pub</code> on the command line</a>.</p>
+<p>大多数 <a href="/tools#ides-and-editors">Dart-savvy IDEs</a> 都支持 Pub 的使用，包括包的创建，下载，更新和发布。
+同样上述功能也可以在命令行上通过 <a href="/tools/pub/cmd"><code class="highlighter-rouge">pub</code></a> 来操作。
+或者可以在命令行上使用pub。</p>
 
-<p>At a minimum,
-a Dart package is a directory containing a <a href="/tools/pub/pubspec">pubspec file</a>.
-The pubspec contains some metadata about the package. Additionally,
-a package can contain dependencies (listed in the pubspec),
-Dart libraries, apps, resources, tests, images, and examples.</p>
+<p>Dart 包目录中至少包含一个 <a href="/tools/pub/pubspec">pubspec 文件</a>。
+pubspec 文件记录一些关于包的元数据。
+此外，包还包含其他依赖项（在 pubspec 中列出），
+Dart 库，应用，资源，测试，图片，以及示例。</p>
 
-<p>To use a package, do the following:</p>
+<p>通过以下步骤，引用使用包：</p>
 
 <ul>
-  <li>Create a pubspec (a file named <code class="highlighter-rouge">pubspec.yaml</code> that lists package dependencies and includes
-other metadata, such as a name for your package).</li>
-  <li>Use pub to get your package’s dependencies.</li>
-  <li>If your Dart code depends on a library in the package, import the library.</li>
+  <li>创建一个 pubspec （一个名为 <code class="highlighter-rouge">pubspec.yaml</code> 文件，文件列出依赖的包以及包含的其他元数据，比如当前包的名称）。</li>
+  <li>使用 Pub 获取当前所依赖的包。</li>
+  <li>如果当前 Dart 代码依赖包中的某个库，导入（import）该库。</li>
 </ul>
 
-<h2 id="creating-a-pubspec">
-<a id="creating-a-pubspec" class="anchor" href="#creating-a-pubspec" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a pubspec</h2>
+<h2 id="创建-pubspec">
+<a id="创建-pubspec" class="anchor" href="#%E5%88%9B%E5%BB%BA-pubspec" aria-hidden="true"><span class="octicon octicon-link"></span></a>创建 pubspec</h2>
 
-<p>The pubspec is a file named <code class="literal">pubspec.yaml</code>
-that’s in the top directory of your application.
-The simplest possible pubspec lists only the package name:</p>
+<p>pubspec 是一个名为 <code class="literal">pubspec.yaml</code> 的文件，
+文件位于应用的根路径。
+最简单的 pubspec 只需要列出包名：</p>
 
 <pre class="prettyprint lang-yaml">name: my_app</pre>
 
-<p>Here is an example of a pubspec that declares dependencies on
-two packages (<code class="highlighter-rouge">js</code> and <code class="highlighter-rouge">intl</code>) that are hosted on the Pub site:</p>
+<p>下面是一个 pubspec 的示例，示例中声明依赖了在 Pub 站点上托管的两个包（ <code class="highlighter-rouge">js</code> 和 <code class="highlighter-rouge">intl</code> ）：</p>
 
 <pre class="prettyprint lang-yaml">name: my_app
 dependencies:
   js: ^0.6.0
   intl: ^0.15.8</pre>
 
-<p>For details on creating a pubspec,
-see the <a href="/tools/pub/pubspec">pubspec documentation</a>
-and the documentation for the packages that you want to use.</p>
+<p>有关创建 pubspec 的详细内容，请参阅 <a href="/tools/pub/pubspec">pubspec 文档</a>
+以及使用包的相关文档。</p>
 
-<h2 id="getting-packages">
-<a id="getting-packages" class="anchor" href="#getting-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting packages</h2>
+<h2 id="获取包">
+<a id="获取包" class="anchor" href="#%E8%8E%B7%E5%8F%96%E5%8C%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>获取包</h2>
 
-<p>Once you have a pubspec, you can run <code class="literal">pub
-get</code> from the top directory of your application:</p>
+<p>项目中一旦拥有了 pubspec 文件，就可以在项目根目录中执行
+<code class="literal">pub get</code> 命令：</p>
 
 <div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span> <span class="nb">cd</span> &lt;path-to-my_app&gt;
 <span class="gp">$</span> pub get
 </code></pre></div></div>
 
-<p>This process is called <em>getting the dependencies</em>.</p>
+<p>上面的操作即_获取依赖_。
+<code class="highlighter-rouge">pub get</code> 命令确定当前应用所依赖的包，并将它们保存到中央<a href="/tools/pub/glossary#system-cache">系统缓存</a>（central system cache）中。
+如果当前应用依赖了一个公开包， Pub 会从 <a href="https://pub.dev">Pub 站点</a> 该包。
+对于一个 <a href="/tools/pub/dependencies#git-packages">Git 依赖</a>， Pub 会 Clone 该 Git 仓库。
+同样包括包的相关依赖也会被下载。
+例如，如果 <code class="highlighter-rouge">js</code> 包依赖 <code class="highlighter-rouge">test</code> 包， <code class="highlighter-rouge">pub</code> 会同时获取 <code class="highlighter-rouge">js</code> 包和 <code class="highlighter-rouge">test</code> 包。</p>
 
-<p>The <code class="highlighter-rouge">pub get</code> command determines which packages your app depends on,
-and puts them in a central <a href="/tools/pub/glossary#system-cache">system cache</a>.
-If your app depends on a published package, pub downloads that package from the
-<a href="https://pub.dev">Pub site.</a>
-For a <a href="/tools/pub/dependencies#git-packages">Git dependency</a>,
-pub clones the Git repository.
-Transitive dependencies are included, too.
-For example, if the <code class="highlighter-rouge">js</code> package depends on the <code class="highlighter-rouge">test</code> package, <code class="highlighter-rouge">pub</code>
-grabs both the <code class="highlighter-rouge">js</code> package and the <code class="highlighter-rouge">test</code> package.</p>
+<p>Pub 会创建一个<code class="highlighter-rouge">.packages</code> 文件（位于应用程序的根路目录下），
+该文件将应用程序所依赖的每个包名相应的映射到系统缓存中的包。</p>
 
-<p>Pub creates a
-<code class="highlighter-rouge">.packages</code> file (under your app’s top directory)
-that maps each package name
-that your app depends on to the corresponding package in the system cache.</p>
+<h2 id="从包中导入库">
+<a id="从包中导入库" class="anchor" href="#%E4%BB%8E%E5%8C%85%E4%B8%AD%E5%AF%BC%E5%85%A5%E5%BA%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>从包中导入库</h2>
 
-<h2 id="importing-libraries-from-packages">
-<a id="importing-libraries-from-packages" class="anchor" href="#importing-libraries-from-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Importing libraries from packages</h2>
-
-<p>To import libraries found in packages, use the
-<code class="literal">package:</code> prefix:</p>
+<p>使用 <code class="literal">package:</code> 前缀，导入包中的库：</p>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'package:js/js.dart'</span> <span class="k">as</span> <span class="n">js</span><span class="o">;</span>
 <span class="kn">import</span> <span class="s">'package:intl/intl.dart'</span><span class="o">;</span>
 </code></pre></div></div>
 
-<p>The Dart runtime takes everything after <code class="highlighter-rouge">package:</code>
-and looks it up within the <code class="highlighter-rouge">.packages</code> file for
-your app.</p>
+<p>Dart 运行时</p>
 
-<p>You can also use this style to import libraries from within your own package.
-Consider the following pubspec file, which declares a dependency on
-the (fictional) <code class="highlighter-rouge">transmogrify</code> package:</p>
+<p>Dart 运行时会抓取 <code class="highlighter-rouge">package:</code> 之后的内容，
+并在应用程序的 <code class="highlighter-rouge">.packages</code> 文件中查找它。</p>
+
+<p>也可以使用此方式从自己的包中导入库。
+思考下面的 pubspec 文件，该文件声明了对 <code class="highlighter-rouge">transmogrify</code> 包（虚构的包名）的依赖：</p>
 
 <pre class="prettyprint lang-yaml">name: my_app
 dependencies:
   transmogrify:</pre>
 
-<p>Let’s say that your package is laid out as follows:</p>
+<p>假设包的布局如下：</p>
 
 <pre>transmogrify/
   lib/
@@ -714,84 +700,70 @@ dependencies:
     parser/
       parser_test.dart</pre>
 
-<p>The <code class="highlighter-rouge">parser_test</code> file <em>could</em> import <code class="highlighter-rouge">parser.dart</code> like this:</p>
+<p><code class="highlighter-rouge">parser_test</code> 文件可以通过 import <code class="highlighter-rouge">parser.dart</code> 的方式来导入：</p>
 
 <pre class="prettyprint lang-dart">import '../../lib/parser.dart';</pre>
 
-<p>But that’s a fragile relative path. If <code class="highlighter-rouge">parser_test.dart</code> ever moves
-up or down a directory, that path breaks.
-Instead, you can do as follows:</p>
+<p>但是相对路径是<strong>脆弱的</strong>。如果 <code class="highlighter-rouge">parser_test.dart</code> 在包目录中上下移动，
+那么该路径就会被破坏。
+我们应该通过下面的方式来代替：</p>
 
 <pre class="prettyprint lang-dart">import 'package:transmogrify/parser.dart';</pre>
 
-<p>This way, the import can always get to <code class="highlighter-rouge">parser.dart</code> regardless of where the
-importing file is.</p>
+<p>这样，无论 <code class="highlighter-rouge">parser.dart</code> 文件在哪个位置，总可以被导入。</p>
 
-<h2 id="upgrading-a-dependency">
-<a id="upgrading-a-dependency" class="anchor" href="#upgrading-a-dependency" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrading a dependency</h2>
+<h2 id="升级依赖">
+<a id="升级依赖" class="anchor" href="#%E5%8D%87%E7%BA%A7%E4%BE%9D%E8%B5%96" aria-hidden="true"><span class="octicon octicon-link"></span></a>升级依赖</h2>
 
-<p>The first time you get a new dependency for your package,
-pub downloads the latest version of it that’s compatible with
-your other dependencies.
-It then locks your package to <em>always</em> use that version by
-creating a <strong>lockfile</strong>.
-This is a file named <code class="highlighter-rouge">pubspec.lock</code> that pub creates and stores next to your
-pubspec. It lists the specific versions of each dependency (immediate and
-transitive) that your package uses.</p>
+<p>第一次获取依赖时，Pub 会下载依赖及其兼容的最新版本。
+然后通过创建 <strong>lockfile</strong> 锁定依赖，以始终使用这个版本。
+Pub 会在 pubspec 旁创建并存储一个名为 <code class="highlighter-rouge">pubspec.lock</code> 文件。
+它列出了使用的每个依赖包的指定版本（当前包或传递包的版本）。</p>
 
-<p>If your package is an application package,
-you should check this file into
-<a href="/guides/libraries/private-files">source control</a>.
-That way, everyone working on your app uses the same versions
-of all of the packages.
-Checking in the lockfile also ensures that your deployed app
-uses the same versions of code.</p>
+<p>如果包是一个应用程序包，那么应该将此文件加入到<a href="/guides/libraries/private-files">源文件管理</a>。
+这样，在应用上开发的每个人都能够使用所有相同版本的包。
+同样加入到 lockfile 可以保证部署的应用使用的是同一版本的代码。</p>
 
-<p>When you’re ready to upgrade your dependencies to the latest versions,
-use pub upgrade:</p>
+<p>如果已经准备更新依赖到最新版本，使用命令 <code class="highlighter-rouge">pub upgrade</code> ：</p>
 
 <pre class="prettyprint lang-sh">$ pub upgrade</pre>
 
-<p>That command tells pub to regenerate the lockfile, using the newest
-available versions of your package’s dependencies.
-If you want to upgrade only one dependency,
-you can specify the package to upgrade:</p>
+<p>上面的命令用于重新生成 lockfile 文件，并使用最新可用版本的依赖包。
+如果仅升级某个依赖，可以在命令中指定需要升级的包：</p>
 
 <pre class="prettyprint lang-sh">$ pub upgrade transmogrify</pre>
 
-<p>That command upgrades <code class="highlighter-rouge">transmogrify</code> to the latest version
-but leaves everything else the same.</p>
+<p>上面的命令升级 <code class="highlighter-rouge">transmogrify</code> 到最新版本，但维持其它包不变。</p>
 
-<h2 id="more-information">
-<a id="more-information" class="anchor" href="#more-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information</h2>
+<h2 id="更多内容">
+<a id="更多内容" class="anchor" href="#%E6%9B%B4%E5%A4%9A%E5%86%85%E5%AE%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>更多内容</h2>
 
-<p>The following pages have more information about packages and
-the pub package manager.</p>
+<p>以下链接的页面是关于包及 Pub 包管理的更多内容。</p>
 
-<h3 id="how-to">
-<a id="how-to" class="anchor" href="#how-to" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to</h3>
+<h3 id="如何使用">
+<a id="如何使用" class="anchor" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>如何使用</h3>
 
 <ul>
-  <li><a href="/guides/libraries/create-library-packages">Creating packages</a></li>
-  <li><a href="/tools/pub/publishing">Publishing packages</a></li>
+  <li><a href="/guides/libraries/create-library-packages">创建包</a></li>
+  <li><a href="/tools/pub/publishing">发布包</a></li>
 </ul>
 
-<h3 id="reference">
-<a id="reference" class="anchor" href="#reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reference</h3>
+<h3 id="参考">
+<a id="参考" class="anchor" href="#%E5%8F%82%E8%80%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考</h3>
 
 <ul>
-  <li><a href="/tools/pub/dependencies">Pub dependencies</a></li>
-  <li><a href="/tools/pub/environment-variables">Pub environment variables</a></li>
-  <li><a href="/tools/pub/glossary">Pub glossary</a></li>
-  <li><a href="/tools/pub/package-layout">Pub package layout conventions</a></li>
-  <li><a href="/tools/pub/versioning">Pub versioning philosophy</a></li>
-  <li><a href="/tools/pub/pubspec">Pubspec format</a></li>
+  <li><a href="/tools/pub/dependencies">Pub 依赖</a></li>
+  <li><a href="/tools/pub/environment-variables">Pub 环境变量</a></li>
+  <li><a href="/tools/pub/glossary">Pub 术语</a></li>
+  <li><a href="/tools/pub/package-layout">Pub 包布局约定</a></li>
+  <li><a href="/tools/pub/versioning">Pub 版本哲学</a></li>
+  <li><a href="/tools/pub/pubspec">Pubspec 格式</a></li>
 </ul>
 
-<h3 id="pub-commands">
-<a id="pub-commands" class="anchor" href="#pub-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pub commands</h3>
+<h3 id="pub-命令">
+<a id="pub-命令" class="anchor" href="#pub-%E5%91%BD%E4%BB%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pub 命令</h3>
 
-<p>The <code class="highlighter-rouge">pub</code> tool provides the following commands:</p>
+<p><code class="highlighter-rouge">pub</code> 工具提供一下命令：</p>
 
 <ul>
   <li><a href="/tools/pub/cmd/pub-cache"><code class="highlighter-rouge">pub cache</code></a></li>
@@ -805,14 +777,13 @@ the pub package manager.</p>
   <li><a href="/tools/pub/cmd/pub-uploader"><code class="highlighter-rouge">pub uploader</code></a></li>
 </ul>
 
-<p>For an overview of all the <code class="highlighter-rouge">pub</code> commands,
-see the <a href="/tools/pub/cmd">pub tool documentation</a>.</p>
+<p>有关所有 <code class="highlighter-rouge">pub</code> 命令的概述，
+参见 <a href="/tools/pub/cmd">pub 工具文档</a>。</p>
 
-<h3 id="troubleshooting">
-<a id="troubleshooting" class="anchor" href="#troubleshooting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Troubleshooting</h3>
+<h3 id="故障排除">
+<a id="故障排除" class="anchor" href="#%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>故障排除</h3>
 
-<p><a href="/tools/pub/troubleshoot">Troubleshooting pub</a> gives solutions to problems that
-you might encounter when using pub.</p>
+<p><a href="/tools/pub/troubleshoot">Pub 故障排除</a> 提供使用中可能遇到问题的解决方法。</p>
 
 
           
@@ -840,7 +811,7 @@ you might encounter when using pub.</p>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/06/17 19:56 PDT"
+               title="Site built on 2019/06/18 03:09 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
