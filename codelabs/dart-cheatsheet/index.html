@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="对 Dart 特有功能交互式学习及回顾。">
-  <title>Dart Codelab 速查 | Dart</title>
+  <meta name="description" content="Interactively learn (or relearn) some of Dart's unique features.">
+  <title>Dart cheatsheet codelab | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,16 +18,16 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="Dart Codelab 速查" />
-  <meta name="twitter:description" content="对 Dart 特有功能交互式学习及回顾。" />
+  <meta name="twitter:title" content="Dart cheatsheet codelab" />
+  <meta name="twitter:description" content="Interactively learn (or relearn) some of Dart's unique features." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Dart Codelab 速查" />
-  <meta property="og:description" content="对 Dart 特有功能交互式学习及回顾。" />
+  <meta property="og:title" content="Dart cheatsheet codelab" />
+  <meta property="og:description" content="Interactively learn (or relearn) some of Dart's unique features." />
   <meta property="og:url" content="https://www.dartlang.org/codelabs/dart-cheatsheet/" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" integrity="sha256-OYYqoMfowxw5dTtxCHxOHrDkykaDztc6SJ1qi+We+CM=" crossorigin="anonymous" href="/assets/main-39862aa0c7e8c31c39753b71087c4e1eb0e4ca4683ced73a489d6a8be59ef823.css">
+  <link rel="stylesheet" type="text/css" integrity="sha256-S0f9nOqFuIcXJSRb1Y4WwIH+QKL9f54WrcUkklWPM4k=" crossorigin="anonymous" href="/assets/main-4b47fd9cea85b8871725245bd58e16c081fe40a2fd7f9e16adc52492558f3389.css">
   <script src="/assets/main-f7f2f2125f3c379daf0f5ca0ecf142cd2e10b030af396a510324fddb1682c5e2.js" integrity="sha256-9/LyEl88N52vD1yg7PFCzS4QsDCvOWpRAyT92xaCxeI=" crossorigin="anonymous" type="text/javascript"></script>
   <script>
 
@@ -52,22 +52,19 @@ ga('send', 'pageview');
   </a>
   <ul class="navbar">
     <li class="mainnav__get-started">
-      <a href="/guides" class="nav-link active"><span>文档</span></a>
+      <a href="/docs" class="nav-link active"><span>Docs</span></a>
     </li>
     <li>
-      <a href="/platforms" class="nav-link">平台</a>
+      <a href="/platforms" class="nav-link">Platforms</a>
     </li>
     <li>
-      <a href="/community" class="nav-link">社区</a>
+      <a href="/community" class="nav-link">Community</a>
     </li>
     <li>
-      <a href="https://dartpad.cn/" target="_blank" class="nav-link no-automatic-external">体验 Dart</a>
+      <a href="https://dartpad.dartlang.org/" target="_blank" class="nav-link no-automatic-external">Try Dart</a>
     </li>
     <li>
-      <a href="/get-dart" class="nav-link">安装 Dart</a>
-    </li>
-    <li>
-      <a href="/about_zh_CN" class="nav-link">关于</a>
+      <a href="/get-dart" class="nav-link">Get Dart</a>
     </li>
     <li class="searchfield">
       <form action="/search" class="site-header__search form-inline" id="cse-search-box">
@@ -85,9 +82,8 @@ ga('send', 'pageview');
  <div class="banner">
   <p class="banner__text">
     
-    
-    Dart 2.3 发布，针对构建用户界面进行了优化。
-    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">了解更多。</a>
+    Announcing Dart 2.3: Optimized for building user interfaces.
+    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">Learn more.</a>
   </p>
 </div>
  
@@ -100,60 +96,57 @@ ga('send', 'pageview');
   <div class="site-sidebar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a href="/platforms" class="nav-link">平台</a>
+        <a href="/platforms" class="nav-link">Platforms</a>
       </li>
       <li class="nav-item">
-        <a href="/community" class="nav-link">社区</a>
+        <a href="/community" class="nav-link">Community</a>
       </li>
       <li class="nav-item">
-        <a href="https://dartpad.cn" class="nav-link">体验 Dart</a>
+        <a href="https://dartpad.dartlang.org" class="nav-link">Try Dart</a>
       </li>
       <li class="nav-item">
-        <a href="/guides" class="nav-link active">文档</a>
-      </li>
-      <li>
-        <a href="/about_zh_CN" class="nav-link">关于</a>
+        <a href="/guides" class="nav-link active">Docs</a>
       </li>
     </ul>
 
     <ul class="nav flex-column"><li class="nav-item">
       <a class="nav-link active" data-toggle="collapse" href="#sidenav-1" role="button"
         aria-expanded="true" aria-controls="sidenav-1"
-      >示例 & 教程</a>
+      >Samples & tutorials</a>
 
       <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-1">
         <li class="nav-item">
-    <a class="nav-link" href="/samples">示例程序</a>
+    <a class="nav-link" href="/samples">Language samples</a>
   </li><li class="nav-item">
     <a class="nav-link active collapsable"
       data-toggle="collapse" data-target="#sidenav-1-2"
       href="#sidenav-1-2" role="button"
       aria-expanded="true" aria-controls="sidenav-1-2"
-    >Codelab
+    >Codelabs
     </a>
     <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-1-2">
       <li class="nav-item">
-    <a class="nav-link" href="/codelabs">综述</a>
+    <a class="nav-link" href="/codelabs">Overview</a>
   </li><li class="nav-item">
-    <a class="nav-link active" href="/codelabs/dart-cheatsheet">Codelab 速查</a>
+    <a class="nav-link active" href="/codelabs/dart-cheatsheet">Cheatsheet codelab</a>
   </li></ul>
   </li>
 <li class="nav-item">
-    <a class="nav-link" href="/tutorials">教程</a>
+    <a class="nav-link" href="/tutorials">Tutorials</a>
   </li>
 </ul>
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-2" role="button"
         aria-expanded="false" aria-controls="sidenav-2"
-      >语言</a>
+      >Language</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2">
         <li class="nav-item">
-    <a class="nav-link" href="/guides/language/language-tour">概览</a>
+    <a class="nav-link" href="/guides/language/language-tour">Tour</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/sound-dart">类型系统</a>
+    <a class="nav-link" href="/guides/language/sound-dart">Type system</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/spec">规范</a>
+    <a class="nav-link" href="/guides/language/spec">Specification</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-2-4"
@@ -163,15 +156,15 @@ ga('send', 'pageview');
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2-4">
       <li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart">综述</a>
+    <a class="nav-link" href="/guides/language/effective-dart">Overview</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/style">风格</a>
+    <a class="nav-link" href="/guides/language/effective-dart/style">Style</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/documentation">文档</a>
+    <a class="nav-link" href="/guides/language/effective-dart/documentation">Documentation</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/usage">使用</a>
+    <a class="nav-link" href="/guides/language/effective-dart/usage">Usage</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/design">设计</a>
+    <a class="nav-link" href="/guides/language/effective-dart/design">Design</a>
   </li></ul>
   </li>
 
@@ -179,19 +172,19 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-3" role="button"
         aria-expanded="false" aria-controls="sidenav-3"
-      >核心库</a>
+      >Core libraries</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3">
         <li class="nav-item">
-    <a class="nav-link" href="/guides/libraries">综述</a>
+    <a class="nav-link" href="/guides/libraries">Overview</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/library-tour">概览</a>
+    <a class="nav-link" href="/guides/libraries/library-tour">Tour</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-3-3"
       href="#sidenav-3-3" role="button"
       aria-expanded="false" aria-controls="sidenav-3-3"
-    >文章
+    >Articles
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3-3">
       <li class="nav-item">
@@ -205,39 +198,39 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-4" role="button"
         aria-expanded="false" aria-controls="sidenav-4"
-      >包</a>
+      >Packages</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4">
         <li class="nav-item">
-    <a class="nav-link" href="/guides/packages">如何使用包</a>
+    <a class="nav-link" href="/guides/packages">How to use packages</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/useful-libraries">常用的包</a>
+    <a class="nav-link" href="/guides/libraries/useful-libraries">Commonly used packages</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/create-library-packages">创建包</a>
+    <a class="nav-link" href="/guides/libraries/create-library-packages">Creating packages</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/publishing">发布包</a>
+    <a class="nav-link" href="/tools/pub/publishing">Publishing packages</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-4-5"
       href="#sidenav-4-5" role="button"
       aria-expanded="false" aria-controls="sidenav-4-5"
-    >引用包
+    >Package reference
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4-5">
       <li class="nav-item">
-    <a class="nav-link" href="/tools/pub/dependencies">依赖</a>
+    <a class="nav-link" href="/tools/pub/dependencies">Dependencies</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/glossary">术语</a>
+    <a class="nav-link" href="/tools/pub/glossary">Glossary</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/package-layout">包的设计约定</a>
+    <a class="nav-link" href="/tools/pub/package-layout">Package layout conventions</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/environment-variables">Pub 环境变量</a>
+    <a class="nav-link" href="/tools/pub/environment-variables">Pub environment variables</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/pubspec">Pubspec 文件</a>
+    <a class="nav-link" href="/tools/pub/pubspec">Pubspec file</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/troubleshoot">Pub 问题分析与解决</a>
+    <a class="nav-link" href="/tools/pub/troubleshoot">Troubleshooting pub</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/versioning">版本</a>
+    <a class="nav-link" href="/tools/pub/versioning">Versioning</a>
   </li></ul>
   </li>
 
@@ -245,37 +238,37 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-5" role="button"
         aria-expanded="false" aria-controls="sidenav-5"
-      >开发</a>
+      >Development</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5">
         <li class="nav-item">
-    <a class="nav-link" href="/tutorials/language/futures">Futures & Async-Await</a>
+    <a class="nav-link" href="/tutorials/language/futures">Futures & async-await</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/json">使用 JSON</a>
+    <a class="nav-link" href="/guides/json">Using JSON</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/language/streams">Stream</a>
+    <a class="nav-link" href="/tutorials/language/streams">Streams</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/mobile">移动应用</a>
+    <a class="nav-link" href="/mobile">Mobile apps</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-5-5"
       href="#sidenav-5-5" role="button"
       aria-expanded="false" aria-controls="sidenav-5-5"
-    >命令行应用 & 服务应用
+    >Command-line & server apps
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-5">
       <li class="nav-item">
-    <a class="nav-link" href="/server">综述</a>
+    <a class="nav-link" href="/server">Overview</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/server/get-started">入门</a>
+    <a class="nav-link" href="/tutorials/server/get-started">Get started</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/server/cmdline">编写命令行应用</a>
+    <a class="nav-link" href="/tutorials/server/cmdline">Write command-line apps</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/server/httpserver">编写 HTTP 客户端和服务端应用</a>
+    <a class="nav-link" href="/tutorials/server/httpserver">Write HTTP clients & servers</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/server/c-interop">C & C++ 交互</a>
+    <a class="nav-link" href="/server/c-interop">C & C++ interop</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/server/libraries">库和包</a>
+    <a class="nav-link" href="/server/libraries">Libraries and packages</a>
   </li></ul>
   </li>
 <li class="nav-item">
@@ -283,40 +276,40 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-5-6"
       href="#sidenav-5-6" role="button"
       aria-expanded="false" aria-controls="sidenav-5-6"
-    >Web 应用
+    >Web apps
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6">
       <li class="nav-item">
-    <a class="nav-link" href="/web">综述</a>
+    <a class="nav-link" href="/web">Overview</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/get-started">入门</a>
+    <a class="nav-link" href="/tutorials/web/get-started">Get started</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/fetch-data">动态获取数据</a>
+    <a class="nav-link" href="/tutorials/web/fetch-data">Fetch data dynamically</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-5-6-4"
       href="#sidenav-5-6-4" role="button"
       aria-expanded="false" aria-controls="sidenav-5-6-4"
-    >底层 Web 编程
+    >Low-level web programming
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6-4">
       <li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Dart 和 HTML 关联</a>
+    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Connect Dart & HTML</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">在 DOM 中增加 Element</a>
+    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">Add elements to the DOM</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">在 DOM 中移除 Element</a>
+    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">Remove DOM elements</a>
   </li>
   </ul>
   </li>
 <li class="nav-item">
-    <a class="nav-link" href="/web/js-interop">JS/TS 交互</a>
+    <a class="nav-link" href="/web/js-interop">JS/TS interop</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/deployment">开发</a>
+    <a class="nav-link" href="/web/deployment">Deployment</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/libraries">库和包</a>
+    <a class="nav-link" href="/web/libraries">Libraries and packages</a>
   </li></ul>
   </li>
 
@@ -324,21 +317,21 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-6" role="button"
         aria-expanded="false" aria-controls="sidenav-6"
-      >工具 & 技巧</a>
+      >Tools & techniques</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6">
         <li class="nav-item">
-    <a class="nav-link" href="/tools">综述</a>
+    <a class="nav-link" href="/tools">Overview</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-6-2"
       href="#sidenav-6-2" role="button"
       aria-expanded="false" aria-controls="sidenav-6-2"
-    >编辑 & 调试
+    >Editors & debuggers
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-2">
       <li class="nav-item">
-    <a class="nav-link" href="/tools/dart-devtools">Dart DevTool</a>
+    <a class="nav-link" href="/tools/dart-devtools">Dart DevTools</a>
   </li><li class="nav-item">
     <a class="nav-link" href="/tools/dartpad">DartPad</a>
   </li><li class="nav-item">
@@ -352,7 +345,7 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-3"
       href="#sidenav-6-3" role="button"
       aria-expanded="false" aria-controls="sidenav-6-3"
-    >命令行工具
+    >Command-line tools
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-3">
       <li class="nav-item">
@@ -364,7 +357,7 @@ ga('send', 'pageview');
     </a>
     <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-1">
       <li class="nav-item">
-    <a class="nav-link" href="/tools/sdk">综述</a>
+    <a class="nav-link" href="/tools/sdk">Overview</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/tools/dart-vm">dart (Dart VM)</a>
@@ -397,7 +390,7 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-3-2"
       href="#sidenav-6-3-2" role="button"
       aria-expanded="true" aria-controls="sidenav-6-3-2"
-    >其他命令行工具
+    >Other command-line tools
     </a>
     <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-2">
       <li class="nav-item">
@@ -415,13 +408,13 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-4"
       href="#sidenav-6-4" role="button"
       aria-expanded="false" aria-controls="sidenav-6-4"
-    >源码管理
+    >Managing source code
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-4">
       <li class="nav-item">
-    <a class="nav-link" href="/guides/language/formatting">格式化代码</a>
+    <a class="nav-link" href="/guides/language/formatting">Formatting code</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/private-files">哪些内容不应该被提交</a>
+    <a class="nav-link" href="/guides/libraries/private-files">What not to commit</a>
   </li></ul>
   </li>
 <li class="nav-item">
@@ -429,7 +422,7 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-5"
       href="#sidenav-6-5" role="button"
       aria-expanded="false" aria-controls="sidenav-6-5"
-    >静态分析
+    >Static analysis
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-5">
       <li class="nav-item">
@@ -443,13 +436,13 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-6"
       href="#sidenav-6-6" role="button"
       aria-expanded="false" aria-controls="sidenav-6-6"
-    >测试 & 优化
+    >Testing & optimization
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-6">
       <li class="nav-item">
-    <a class="nav-link" href="/guides/testing">测试</a>
+    <a class="nav-link" href="/guides/testing">Testing</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/debugging">调试 Web 应用</a>
+    <a class="nav-link" href="/web/debugging">Debugging web apps</a>
   </li></ul>
   </li>
 
@@ -457,11 +450,11 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-7" role="button"
         aria-expanded="false" aria-controls="sidenav-7"
-      >资源</a>
+      >Resources</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7">
         <li class="nav-item">
-    <a class="nav-link" href="/code-of-conduct">行为守则</a>
+    <a class="nav-link" href="/code-of-conduct">Code of conduct</a>
   </li><li class="nav-item">
     <a class="nav-link" href="/faq">FAQ</a>
   </li><li class="nav-item">
@@ -469,49 +462,35 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-7-3"
       href="#sidenav-7-3" role="button"
       aria-expanded="false" aria-controls="sidenav-7-3"
-    >历史
+    >History
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7-3">
       <li class="nav-item">
-    <a class="nav-link" href="/dart-2">迁移到 Dart&nbsp;2</a>
+    <a class="nav-link" href="/dart-2">Migrating to Dart&nbsp;2</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/dart-2">迁移 Web 应用到 Dart&nbsp;2</a>
+    <a class="nav-link" href="/web/dart-2">Migrating web apps to Dart&nbsp;2</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/obsolete">过时的 Pub 功能</a>
+    <a class="nav-link" href="/tools/pub/obsolete">Obsolete pub features</a>
   </li></ul>
   </li>
 
 </ul>
     </li><li class="nav-item">
-      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-8" role="button"
-        aria-expanded="false" aria-controls="sidenav-8"
-      >相关网站</a>
+      <a class="nav-link " data-toggle="collapse" href="#sidenav-8" role="button"
+        aria-expanded="true" aria-controls="sidenav-8"
+      >Related sites</a>
 
-      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-8">
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-8">
         <li class="nav-item">
-    <a class="nav-link" href="https://api.dartlang.org" target="_blank" rel="noopener">API 参考<i class="fas fa-external-link-alt"></i></a>
+    <a class="nav-link" href="https://api.dart.dev" target="_blank" rel="noopener">API reference<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
     <a class="nav-link" href="https://medium.com/dartlang" target="_blank" rel="noopener">Blog<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
-    <a class="nav-link" href="https://dartpad.cn" target="_blank" rel="noopener">DartPad (在线编辑器)<i class="fas fa-external-link-alt"></i></a>
+    <a class="nav-link" href="https://dartpad.dartlang.org" target="_blank" rel="noopener">DartPad (online editor)<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
     <a class="nav-link" href="https://flutter.dev" target="_blank" rel="noopener">Flutter<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
-    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Pub 包资源<i class="fas fa-external-link-alt"></i></a>
-  </li>
-</ul>
-    </li><li class="nav-item">
-      <a class="nav-link " data-toggle="collapse" href="#sidenav-9" role="button"
-        aria-expanded="true" aria-controls="sidenav-9"
-      >关于</a>
-
-      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-9">
-        <li class="nav-item">
-    <a class="nav-link" href="/about_zh_CN">关于本站</a>
-  </li><li class="nav-item">
-    <a class="nav-link" href="/about_zh_CN/contributor-guide">贡献者指北</a>
-  </li><li class="nav-item">
-    <a class="nav-link" href="/about_zh_CN/chinese-copywriting-guidelines">中文排版指北</a>
+    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Package site<i class="fas fa-external-link-alt"></i></a>
   </li>
 </ul>
     </li></ul>
@@ -530,88 +509,92 @@ ga('send', 'pageview');
 
 <div id="site-toc--side" class="site-toc ">
   <header class="site-toc__title">
-    大纲
+    Contents
     <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
     
   </header>
   <ul class="section-nav nav">
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#字符串插值">字符串插值</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#string-interpolation">String interpolation</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#代码示例">代码示例</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#null-aware-操作符">Null-Aware 操作符</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#null-aware-operators">Null-aware operators</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#示例代码">示例代码</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-1">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#属性的条件访问">属性的条件访问</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#conditional-property-access">Conditional property access</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#示例代码-1">示例代码</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-2">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#字面量集合">字面量集合</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#箭头语法">箭头语法</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#collection-literals">Collection literals</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#代码示例-1">代码示例</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-3">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#级联">级联</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#arrow-syntax">Arrow syntax</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#示例代码-2">示例代码</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-4">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#getter-和-setter">Getter 和 Setter</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#cascades">Cascades</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#示例代码-3">示例代码</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-5">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#位置可选参数">位置可选参数</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#getters-and-setters">Getters and setters</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#示例代码-4">示例代码</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-6">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#命名可选参数">命名可选参数</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#optional-positional-parameters">Optional positional parameters</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#示例代码-5">示例代码</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-7">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#异常">异常</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#optional-named-parameters">Optional named parameters</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#示例代码-6">示例代码</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-8">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#在构造函数中使用-this">在构造函数中使用 this</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#exceptions">Exceptions</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#示例代码-7">示例代码</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-9">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#初始化列表">初始化列表</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#using-this-in-a-constructor">Using this in a constructor</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#示例代码-8">示例代码</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-10">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#命名构造函数">命名构造函数</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#initializer-lists">Initializer lists</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#示例代码-9">示例代码</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-11">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#工厂构造函数">工厂构造函数</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#named-constructors">Named constructors</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#示例代码-10">示例代码</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-12">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#重定向构造函数">重定向构造函数</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#factory-constructors">Factory constructors</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#示例代码-11">示例代码</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-13">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#常量构造函数">常量构造函数</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#redirecting-constructors">Redirecting constructors</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#实例代码">实例代码</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-14">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#下一步">下一步？</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#const-constructors">Const constructors</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#code-example-15">Code example</a></li>
+</ul>
+</li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#what-next">What next?</a></li>
 </ul>
 </div>
 
@@ -622,12 +605,12 @@ ga('send', 'pageview');
 
           <div>
             <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
-  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/codelabs/dart-cheatsheet/index.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src/codelabs/dart-cheatsheet/index.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Dart Codelab 速查' page issue&body=
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart cheatsheet codelab' page issue&body=
 Page URL: https://www.dartlang.org/codelabs/dart-cheatsheet/%0D%0A
-Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/codelabs/dart-cheatsheet/index.md%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src/codelabs/dart-cheatsheet/index.md%0D%0A
 %0D%0A
 Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
 %0D%0A
@@ -637,7 +620,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   </a>
 </div>
 
-            <h1>Dart Codelab 速查</h1>
+            <h1>Dart cheatsheet codelab</h1>
           </div>
           
 
@@ -649,7 +632,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 
 <div id="site-toc--inline" class="site-toc toc-collapsible toc-collapsed">
   <header class="site-toc__title">
-    大纲
+    Contents
     <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
     
       <span class="site-toc--inline__toggle toc-toggle-down"><i class="fas fa-chevron-down fa-m"></i></span>
@@ -657,83 +640,87 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
     
   </header>
   <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#字符串插值">字符串插值</a>
+<li class="toc-entry toc-h2"><a href="#string-interpolation">String interpolation</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#代码示例">代码示例</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#null-aware-操作符">Null-Aware 操作符</a>
+<li class="toc-entry toc-h2"><a href="#null-aware-operators">Null-aware operators</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#示例代码">示例代码</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example-1">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#属性的条件访问">属性的条件访问</a>
+<li class="toc-entry toc-h2"><a href="#conditional-property-access">Conditional property access</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#示例代码-1">示例代码</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example-2">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#字面量集合">字面量集合</a></li>
-<li class="toc-entry toc-h2"><a href="#箭头语法">箭头语法</a>
+<li class="toc-entry toc-h2"><a href="#collection-literals">Collection literals</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#代码示例-1">代码示例</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example-3">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#级联">级联</a>
+<li class="toc-entry toc-h2"><a href="#arrow-syntax">Arrow syntax</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#示例代码-2">示例代码</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example-4">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#getter-和-setter">Getter 和 Setter</a>
+<li class="toc-entry toc-h2"><a href="#cascades">Cascades</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#示例代码-3">示例代码</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example-5">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#位置可选参数">位置可选参数</a>
+<li class="toc-entry toc-h2"><a href="#getters-and-setters">Getters and setters</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#示例代码-4">示例代码</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example-6">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#命名可选参数">命名可选参数</a>
+<li class="toc-entry toc-h2"><a href="#optional-positional-parameters">Optional positional parameters</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#示例代码-5">示例代码</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example-7">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#异常">异常</a>
+<li class="toc-entry toc-h2"><a href="#optional-named-parameters">Optional named parameters</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#示例代码-6">示例代码</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example-8">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#在构造函数中使用-this">在构造函数中使用 this</a>
+<li class="toc-entry toc-h2"><a href="#exceptions">Exceptions</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#示例代码-7">示例代码</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example-9">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#初始化列表">初始化列表</a>
+<li class="toc-entry toc-h2"><a href="#using-this-in-a-constructor">Using this in a constructor</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#示例代码-8">示例代码</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example-10">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#命名构造函数">命名构造函数</a>
+<li class="toc-entry toc-h2"><a href="#initializer-lists">Initializer lists</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#示例代码-9">示例代码</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example-11">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#工厂构造函数">工厂构造函数</a>
+<li class="toc-entry toc-h2"><a href="#named-constructors">Named constructors</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#示例代码-10">示例代码</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example-12">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#重定向构造函数">重定向构造函数</a>
+<li class="toc-entry toc-h2"><a href="#factory-constructors">Factory constructors</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#示例代码-11">示例代码</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example-13">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#常量构造函数">常量构造函数</a>
+<li class="toc-entry toc-h2"><a href="#redirecting-constructors">Redirecting constructors</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#实例代码">实例代码</a></li>
+<li class="toc-entry toc-h3"><a href="#code-example-14">Code example</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#下一步">下一步？</a></li>
+<li class="toc-entry toc-h2"><a href="#const-constructors">Const constructors</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#code-example-15">Code example</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#what-next">What next?</a></li>
 </ul>
 </div>
 
@@ -750,40 +737,45 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   }
 </style>
 
-<p>对于其他语言的开发者， Dart 语言的语法设计非常易学，但它也有一些其独特的功能。
-该 Codelab 基于 为 google 工程师编写的 <a href="/guides/language/cheatsheet">Dart 语言速查</a>，
-Codelab 将引导你了解体验 Dart 语言功能中最重要的功能和特性。</p>
+<p>The Dart language is designed to be easy to learn for
+coders coming from other languages,
+but it has a few unique features.
+This codelab — which is based on a 
+<a href="/guides/language/cheatsheet">Dart language cheatsheet</a>
+written by and for Google engineers —
+walks you through the most important of these language features.</p>
 
-<p>此代码框中的嵌入式编辑器已部分完成代码片段。 您可以使用这些编辑器通过完成代码并单击“运行”按钮来测试您的知识。 如果需要帮助，请单击“提示”按钮。 要运行代码格式化程序（dartfmt），请单击“格式”。 “重置”按钮会删除您的工作并将编辑器恢复到其原始状态。</p>
-
-<p>该 Codelab 中的内嵌编辑器已经包含了部分完成的代码片段。
-通过补全下列编辑器中代码，并点击 <strong>Run</strong> 按钮，来测试你对语言知识的掌握情况。
-如果需要帮助，可以点击 <strong>Hint</strong> 按钮。
-格式化代码（<a href="/tools/dartfmt">dartfmt</a>），请点击 <strong>Format</strong> 按钮。
-清楚编辑内容，加载编辑器原始内容，点击 <strong>Reset</strong> 按钮。</p>
+<p>The embedded editors in this codelab have partially completed code snippets.
+You can use these editors to test your knowledge by completing the code and
+clicking the <strong>Run</strong> button.
+If you need help, click the <strong>Hint</strong> button.
+To run the code formatter (<a href="/tools/dartfmt">dartfmt</a>), click <strong>Format</strong>.
+The <strong>Reset</strong> button erases your work and
+restores the editor to its original state.</p>
 
 <aside class="alert alert-warning">
-嵌入的编辑器为实验版的 DartPad 。
-如果在 DartPad 中发现 Bug 或对 DartPad 提出建议，请
-<a target="_BLANK" href="https://github.com/dart-lang/dart-pad/issues/new">创建一个 DartPad 的 Issue</a> 。
-如果是针对该 Codelab 内容或示例的建议，
-可点击页面顶部右上角错误图标创建对于本站的 Issue 。
+The embedded editors use an experimental version of DartPad.
+If you find a DartPad bug or have suggestions for DartPad, please
+<a target="_BLANK" href="https://github.com/dart-lang/dart-pad/issues/new">create a DartPad issue.</a>
+If you have suggestions for the text or examples in this codelab,
+you can create a site issue by clicking the bug icon
+at the top right of this page.
 </aside>
 
-<h2 id="字符串插值">
-<a id="字符串插值" class="anchor" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8F%92%E5%80%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>字符串插值</h2>
+<h2 id="string-interpolation">
+<a id="string-interpolation" class="anchor" href="#string-interpolation" aria-hidden="true"><span class="octicon octicon-link"></span></a>String interpolation</h2>
 
-<p>通过 <code class="highlighter-rouge">${表达式}</code> 将表达式的值引入到字符串中。
-如果表达式为标识符，可忽略 <code class="highlighter-rouge">{}</code> 。</p>
+<p>To put the value of an expression inside a string, use <code class="highlighter-rouge">${expression}</code>.
+If the expression is an identifier, you can omit the <code class="highlighter-rouge">{}</code>.</p>
 
-<p>下面是一些字符串插值的实例：</p>
+<p>Here are some examples of using string interpolation:</p>
 
 <table>
   <thead>
     <tr>
-      <th>字符串</th>
+      <th>String</th>
       <th> </th>
-      <th>结果</th>
+      <th>Result</th>
     </tr>
   </thead>
   <tbody>
@@ -806,72 +798,75 @@ Codelab 将引导你了解体验 Dart 语言功能中最重要的功能和特性
   </tbody>
 </table>
 
-<h3 id="代码示例">
-<a id="代码示例" class="anchor" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>代码示例</h3>
+<h3 id="code-example">
+<a id="code-example" class="anchor" href="#code-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>以下函数将两个整数作为参数。
-返回一个包含这两个整数的字符串，两个整数由空格分割。
-例如，<code class="highlighter-rouge">stringify(2, 3)</code> 返回值为 <code class="highlighter-rouge">'2 3'</code> 。</p>
+<p>The following function takes two integers as parameters.
+Make it return a string containing both integers separated by a space.
+For example, <code class="highlighter-rouge">stringify(2, 3)</code> should return <code class="highlighter-rouge">'2 3'</code>.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=43f3db47b0632c557200270807696687"></iframe>
 
-<h2 id="null-aware-操作符">
-<a id="null-aware-操作符" class="anchor" href="#null-aware-%E6%93%8D%E4%BD%9C%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Null-Aware 操作符</h2>
+<h2 id="null-aware-operators">
+<a id="null-aware-operators" class="anchor" href="#null-aware-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Null-aware operators</h2>
 
-<p>Dart 提供一些用来处理值可能为 null 的操作符。
-<code class="highlighter-rouge">??=</code> 为其中的一个操作符，使用该操作符赋值，仅当被赋值变量为空时赋值有效。</p>
+<p>Dart offers some handy operators for dealing with values that might be null. One is the
+<code class="highlighter-rouge">??=</code> assignment operator, which assigns a value to a variable only if that
+variable is currently null:</p>
 
-<pre class="prettyprint lang-dart">int a; // 对象的初始化值为 null 。
+<pre class="prettyprint lang-dart">int a; // The initial value of any object is null.
 a ??= 3;
-print(a); // &lt;-- 打印结果为 3 。
+print(a); // &lt;-- Prints 3.
 
 a ??= 5;
-print(a); // &lt;-- 打印结果仍然是 3 。</pre>
+print(a); // &lt;-- Still prints 3.</pre>
 
-<p>另一个 Null-Aware 操作符为 <code class="highlighter-rouge">??</code> ，
-表达式左侧值为非 null 时，返回左侧表达式。
-否则计算并返回右边的表达式：</p>
+<p>Another null-aware operator is <code class="highlighter-rouge">??</code>,
+which returns the expression on its left unless that expression’s value is null,
+in which case it evaluates and returns the expression on its right:</p>
 
 <pre class="prettyprint lang-dart">print(1 ?? 3); // &lt;-- Prints 1.
 print(null ?? 12); // &lt;-- Prints 12.</pre>
 
-<h3 id="示例代码">
-<a id="示例代码" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h3>
+<h3 id="code-example-1">
+<a id="code-example-1" class="anchor" href="#code-example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>尝试将 <code class="highlighter-rouge">??=</code> 和 <code class="highlighter-rouge">??</code> 操作符加入到以下代码中。</p>
+<p>Try putting the <code class="highlighter-rouge">??=</code> and <code class="highlighter-rouge">??</code> operators to work below.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=ee3d441f60acc95a07d73762a61b3b98"></iframe>
 
-<h2 id="属性的条件访问">
-<a id="属性的条件访问" class="anchor" href="#%E5%B1%9E%E6%80%A7%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%AE%BF%E9%97%AE" aria-hidden="true"><span class="octicon octicon-link"></span></a>属性的条件访问</h2>
+<h2 id="conditional-property-access">
+<a id="conditional-property-access" class="anchor" href="#conditional-property-access" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conditional property access</h2>
 
-<p>防止对可能为 null 的对象进行属性或方法的访问，
-可以在点（<code class="highlighter-rouge">.</code>）的前面加上一个问号（<code class="highlighter-rouge">？</code>）：</p>
+<p>To guard access to a property or method of an object that might be null,
+put a question mark (<code class="highlighter-rouge">?</code>) before the dot (<code class="highlighter-rouge">.</code>):</p>
 
 <pre class="prettyprint lang-dart">myObject?.someProperty</pre>
 
-<p>上述代码等效于以下内容：</p>
+<p>The preceding code is equivalent to the following:</p>
 
 <pre class="prettyprint lang-dart">(myObject != null) ? myObject.someProperty : null</pre>
 
-<p>可以在一个表达式中 <code class="highlighter-rouge">?.</code> 可以多次链式的使用：</p>
+<p>You can chain multiple uses of <code class="highlighter-rouge">?.</code> together in a single expression:</p>
 
 <pre class="prettyprint lang-dart">myObject?.someProperty?.someMethod()</pre>
 
-<p>上述代码中无论是 <code class="highlighter-rouge">myObject</code> 或 <code class="highlighter-rouge">myObject.someProperty</code> 为空，均返回 null （且永远不会调用 <code class="highlighter-rouge">someMethod</code> 函数）。</p>
+<p>The preceding code returns null (and never calls <code class="highlighter-rouge">someMethod</code>) if either
+<code class="highlighter-rouge">myObject</code> or <code class="highlighter-rouge">myObject.someProperty</code> is
+null.</p>
 
-<h3 id="示例代码-1">
-<a id="示例代码-1" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h3>
+<h3 id="code-example-2">
+<a id="code-example-2" class="anchor" href="#code-example-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>使用属性条件访问完成下面的代码片段。</p>
+<p>Try using conditional property access to finish the code snippet below.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=58f14a3d943be6231ae611036fcfc80d"></iframe>
 
-<h2 id="字面量集合">
-<a id="字面量集合" class="anchor" href="#%E5%AD%97%E9%9D%A2%E9%87%8F%E9%9B%86%E5%90%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>字面量集合</h2>
+<h2 id="collection-literals">
+<a id="collection-literals" class="anchor" href="#collection-literals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Collection literals</h2>
 
-<p>Dart 内建支持 List ， Map ， Set 类型。
-这些类型可以通过字面量来创建：</p>
+<p>Dart has built-in support for lists, maps, and sets.
+You can create them using literals:</p>
 
 <pre class="prettyprint lang-dart">final aListOfStrings = ['one', 'two', 'three'];
 final aSetOfStrings = {'one', 'two', 'three'};
@@ -881,89 +876,105 @@ final aMapOfStringsToInts = {
   'three': 3,
 };</pre>
 
-<p>Dart的类型推断可以分配这些变量的类型。
-基于推断，上述变量的推断类型分别为
-<code class="highlighter-rouge">List&lt;String&gt;</code> ， <code class="highlighter-rouge">Set&lt;String&gt;</code> ，及 <code class="highlighter-rouge">Map&lt;String, int&gt;</code> 。
-我们也可以显示的指定上述变量的类型。</p>
+<p>Dart’s type inference can assign types to these variables for you.
+In this case, the inferred types are <code class="highlighter-rouge">List&lt;String&gt;</code>,
+<code class="highlighter-rouge">Set&lt;String&gt;</code>, and <code class="highlighter-rouge">Map&lt;String, int&gt;</code>.</p>
+
+<p>Or you can specify the type yourself:</p>
 
 <pre class="prettyprint lang-dart">final aListOfInts = &lt;int&gt;[];
 final aSetOfInts = &lt;int&gt;{};
 final aMapOfIntToDouble = &lt;int, double&gt;{};</pre>
 
-<p>在使用子类型对象初始化 List ，可以非常方便的指定 List 类型。
-但我们仍然可以人为的指定 List 类型，比如指定 List 类型为 <code class="highlighter-rouge">List&lt;BaseType&gt;</code> ：</p>
+<p>Specifying types is handy when you initialize a list with contents of a subtype,
+but still want the list to be <code class="highlighter-rouge">List&lt;BaseType&gt;</code>:</p>
 
 <pre class="prettyprint lang-dart">final aListOfBaseType = &lt;BaseType&gt;[SubType(), SubType()];</pre>
 
-<h2 id="箭头语法">
-<a id="箭头语法" class="anchor" href="#%E7%AE%AD%E5%A4%B4%E8%AF%AD%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>箭头语法</h2>
+<h3 id="code-example-3">
+<a id="code-example-3" class="anchor" href="#code-example-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>我们在 Dart 代码中常常会见到 <code class="highlighter-rouge">=&gt;</code> 字符。
-该箭头语法用来定义一个函数，函数执行它右侧的表达式，并返回表达式结果。</p>
+<p>Try setting the following variables to the indicated values.</p>
 
-<p>例如，思考下面 <code class="highlighter-rouge">List</code> 的 <code class="highlighter-rouge">any</code> 的传统调用方式：
-For example, consider this call to the <code class="highlighter-rouge">List</code> class’s
+<iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=8ba5e98559ff2a2e92e58ac5a28f1cff"></iframe>
+
+<h2 id="arrow-syntax">
+<a id="arrow-syntax" class="anchor" href="#arrow-syntax" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arrow syntax</h2>
+
+<p>You might have seen the <code class="highlighter-rouge">=&gt;</code> symbol in Dart code.
+This arrow syntax is a way to define a function that executes the
+expression to its right and returns its value.</p>
+
+<p>For example, consider this call to the <code class="highlighter-rouge">List</code> class’s
 <code class="highlighter-rouge">any</code> method:</p>
 
 <pre class="prettyprint lang-dart">bool hasEmpty = aListOfStrings.any((s) {
   return s.isEmpty;
 });</pre>
 
-<p>下面是对以上代码的一种简写：</p>
+<p>Here’s a simpler way to write that code:</p>
 
 <pre class="prettyprint lang-dart">bool hasEmpty = aListOfStrings.any((s) =&gt; s.isEmpty);</pre>
 
-<h3 id="代码示例-1">
-<a id="代码示例-1" class="anchor" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>代码示例</h3>
+<h3 id="code-example-4">
+<a id="code-example-4" class="anchor" href="#code-example-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>尝试使用箭头语法完成以下代码。</p>
+<p>Try finishing the following statements, which use arrow syntax.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=7c287c55dcc7f414a5dfa5837e3450e3"></iframe>
 
-<h2 id="级联">
-<a id="级联" class="anchor" href="#%E7%BA%A7%E8%81%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>级联</h2>
+<h2 id="cascades">
+<a id="cascades" class="anchor" href="#cascades" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cascades</h2>
 
-<p>要对同一对象执行一系列操作，请使用级联（<code class="highlighter-rouge">..</code>）。 我们都见过下面的表达式：</p>
+<p>To perform a sequence of operations on the same object, use cascades (<code class="highlighter-rouge">..</code>).
+We’ve all seen an expression like this:</p>
 
 <pre class="prettyprint lang-dart">myObject.someMethod()</pre>
 
-<p>表达式调用 <code class="highlighter-rouge">myObject</code> 对象的 <code class="highlighter-rouge">someMethod</code> 方法，表达式返回
-<code class="highlighter-rouge">someMethod</code> 函数结果。</p>
+<p>It invokes <code class="highlighter-rouge">someMethod</code> on <code class="highlighter-rouge">myObject</code>, and the result of
+the expression is the return value of <code class="highlighter-rouge">someMethod</code>.</p>
 
-<p>下面是使用了级联的相似表达式：</p>
+<p>Here’s the same expression with a cascade:</p>
 
 <pre class="prettyprint lang-dart">myObject..someMethod()</pre>
 
-<p>尽管表达式依旧调用了 <code class="highlighter-rouge">myObject</code> 对象的 <code class="highlighter-rouge">someMethod</code> 方法，但表达式结果
-<strong>并不是</strong> 函数的执行结果，而是 <code class="highlighter-rouge">myObject</code> 的引用！
-使用级联，可以将需要单独语句的操作链接在一起。请思考以下示例代码：</p>
+<p>Although it still invokes <code class="highlighter-rouge">someMethod</code> on <code class="highlighter-rouge">myObject</code>, the result
+of the expression <strong>isn’t</strong> the return value — it’s a reference to <code class="highlighter-rouge">myObject</code>!
+Using cascades, you can chain together operations that
+would otherwise require separate statements.
+For example, consider this code:</p>
 
 <pre class="prettyprint lang-dart">var button = querySelector('#confirm');
 button.text = 'Confirm';
 button.classes.add('important');
 button.onClick.listen((e) =&gt; window.alert('Confirmed!'));</pre>
 
-<p>使用级联，代码会变得非常简短，代码中不也不需要 <code class="highlighter-rouge">button</code> 这个中间变量。</p>
+<p>With cascades, the code becomes much shorter,
+and you don’t need the <code class="highlighter-rouge">button</code> variable:</p>
 
 <pre class="prettyprint lang-dart">querySelector('#confirm')
 ..text = 'Confirm'
 ..classes.add('important')
 ..onClick.listen((e) =&gt; window.alert('Confirmed!'));</pre>
 
-<h3 id="示例代码-2">
-<a id="示例代码-2" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h3>
+<h3 id="code-example-5">
+<a id="code-example-5" class="anchor" href="#code-example-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>使用级联来创建一个语句，将 <code class="highlighter-rouge">BigObject</code> 的 <code class="highlighter-rouge">anInt</code> ， <code class="highlighter-rouge">aString</code> 和 <code class="highlighter-rouge">aList</code> 属性分别设置为 <code class="highlighter-rouge">1</code> ，
-<code class="highlighter-rouge">'String！'</code> 和 <code class="highlighter-rouge">[3.0]</code> 最后然后调用 <code class="highlighter-rouge">allDone()</code> 。</p>
+<p>Use cascades to create a single statement that
+sets the <code class="highlighter-rouge">anInt</code>, <code class="highlighter-rouge">aString</code>, and <code class="highlighter-rouge">aList</code> properties of a <code class="highlighter-rouge">BigObject</code>
+to <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">'String!'</code>, and <code class="highlighter-rouge">[3.0]</code> (respectively)
+and then calls <code class="highlighter-rouge">allDone()</code>.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=72bde0b4d5c8c6046b4853a3b4053c3a"></iframe>
 
-<h2 id="getter-和-setter">
-<a id="getter-和-setter" class="anchor" href="#getter-%E5%92%8C-setter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getter 和 Setter</h2>
+<h2 id="getters-and-setters">
+<a id="getters-and-setters" class="anchor" href="#getters-and-setters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getters and setters</h2>
 
-<p>当需要对字段进行控制，可以通过定义 Getter 和 Setter 实现。</p>
+<p>You can define getters and setters
+whenever you need more control over a property
+than a simple field allows.</p>
 
-<p>例如，判断属性值是否有效：</p>
+<p>For example, you can make sure a property’s value is valid:</p>
 
 <pre class="prettyprint lang-dart">class MyClass {
   int _aProperty = 0;
@@ -977,7 +988,7 @@ button.onClick.listen((e) =&gt; window.alert('Confirmed!'));</pre>
   }
 }</pre>
 
-<p>同样可以通过 Getter 来定义一个计算属性：</p>
+<p>You can also use a getter to define a computed property:</p>
 
 <pre class="prettyprint lang-dart">class MyClass {
   List&lt;int&gt; _values = [];
@@ -986,31 +997,33 @@ button.onClick.listen((e) =&gt; window.alert('Confirmed!'));</pre>
     _values.add(value);
   }
 
-  // 计算属性。
+  // A computed property.
   int get count {
     return _values.length;
   }
 }</pre>
 
-<h3 id="示例代码-3">
-<a id="示例代码-3" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h3>
+<h3 id="code-example-6">
+<a id="code-example-6" class="anchor" href="#code-example-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>假设一个购物车类中有一个私有的 <code class="highlighter-rouge">List&lt;double&gt;</code> 属性保存商品价格。
-为该类增加以下内容：</p>
+<p>Imagine you have a shopping cart class that keeps a private <code class="highlighter-rouge">List&lt;double&gt;</code>
+of prices.
+Add the following:</p>
 
 <ul>
-  <li>名为 <code class="highlighter-rouge">total</code> 的 Getter 方法，，返回总价。 A getter called <code class="highlighter-rouge">total</code> that returns the sum of the prices</li>
-  <li>一个 Setter 方法，该方法用来设置一个新的 List 对象，但要求新的 List 对象中的价格不能包含负值。
-（如果 List 对象的价格中包含负值，那么应抛出一个 <code class="highlighter-rouge">InvalidPriceException</code> 异常）。</li>
+  <li>A getter called <code class="highlighter-rouge">total</code> that returns the sum of the prices</li>
+  <li>A setter that replaces the list with a new one,
+as long as the new list doesn’t contain any negative prices
+(in which case the setter should throw an <code class="highlighter-rouge">InvalidPriceException</code>).</li>
 </ul>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=84561041d263cbd4c92f614eceec85e6"></iframe>
 
-<h2 id="位置可选参数">
-<a id="位置可选参数" class="anchor" href="#%E4%BD%8D%E7%BD%AE%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>位置可选参数</h2>
+<h2 id="optional-positional-parameters">
+<a id="optional-positional-parameters" class="anchor" href="#optional-positional-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional positional parameters</h2>
 
-<p>Dart 拥有两种函数参数：位置参数和命名参数。
-我们熟悉的位置参数类似于：</p>
+<p>Dart has two kinds of function parameters: positional and named. Positional parameters are the kind
+you’re likely familiar with:</p>
 
 <pre class="prettyprint lang-dart">int sumUp(int a, int b, int c) {
   return a + b + c;
@@ -1018,7 +1031,7 @@ button.onClick.listen((e) =&gt; window.alert('Confirmed!'));</pre>
 
 int total = sumUp(1, 2, 3);</pre>
 
-<p>在 Dart 中，包裹在中括号中的位置参数为可选参数：</p>
+<p>With Dart, you can make these positional parameters optional by wrapping them in brackets:</p>
 
 <pre class="prettyprint lang-dart">int sumUpToFive(int a, [int b, int c, int d, int e]) {
   int sum = a;
@@ -1032,8 +1045,9 @@ int total = sumUp(1, 2, 3);</pre>
 int total = sumUptoFive(1, 2);
 int otherTotal = sumUpToFive(1, 2, 3, 4, 5);</pre>
 
-<p>位置可选参数始终在参数列表的最后。
-除非指定位置可选参数的默认值，否则它们的默认值为 null ：</p>
+<p>Optional positional parameters are always last
+in a function’s parameter list.
+Their default value is null unless you provide another default value:</p>
 
 <pre class="prettyprint lang-dart">int sumUpToFive(int a, [int b = 2, int c = 3, int d = 4, int e = 5]) {
   ...
@@ -1042,19 +1056,19 @@ int otherTotal = sumUpToFive(1, 2, 3, 4, 5);</pre>
 int newTotal = sumUpToFive(1);
 print(newTotal); // &lt;-- prints 15</pre>
 
-<h3 id="示例代码-4">
-<a id="示例代码-4" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h3>
+<h3 id="code-example-7">
+<a id="code-example-7" class="anchor" href="#code-example-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>实现 <code class="highlighter-rouge">joinWithCommas</code> 函数，函数接收 1 到 5 个整型参数。
-函数返回包含数字的字符串，数字间使用逗号分隔。
-下面是函数调用及返回值的一些示例：</p>
+<p>Implement a function called <code class="highlighter-rouge">joinWithCommas</code> that accepts one to
+five integers, then returns a string of those numbers separated by commas.
+Here are some examples of function calls and returned values:</p>
 
 <table>
   <thead>
     <tr>
-      <th>函数调用</th>
+      <th>Function call</th>
       <th> </th>
-      <th>返回值</th>
+      <th>Returned value</th>
     </tr>
   </thead>
   <tbody>
@@ -1080,10 +1094,11 @@ print(newTotal); // &lt;-- prints 15</pre>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=9e7d5b6b56319b7e3b12b791c0ae27c1"></iframe>
 
-<h2 id="命名可选参数">
-<a id="命名可选参数" class="anchor" href="#%E5%91%BD%E5%90%8D%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>命名可选参数</h2>
+<h2 id="optional-named-parameters">
+<a id="optional-named-parameters" class="anchor" href="#optional-named-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optional named parameters</h2>
 
-<p>使用大括号语法，定义具有名称可选参数。</p>
+<p>Using a curly brace syntax,
+you can define optional parameters that have names.</p>
 
 <pre class="prettyprint lang-dart">void printName(String firstName, String lastName, {String suffix}) {
   print('$firstName $lastName ${suffix ?? ''}');
@@ -1092,19 +1107,20 @@ print(newTotal); // &lt;-- prints 15</pre>
 printName('Avinash', 'Gupta');
 printName('Poshmeister', 'Moneybuckets', suffix: 'IV');</pre>
 
-<p>默认情况下这些参数的值为 null ，同样我们可以为这些参数提供默认值：</p>
+<p>As you might expect, the value of these parameters is null by default,
+but you can provide default values:</p>
 
 <pre class="prettyprint lang-dart">void printName(String firstName, String lastName, {String suffix = ''}) {
   print('$firstName $lastName ${suffix}');
 }</pre>
 
-<p>一个函数不能同时包含位置可选参数和命名可选参数。</p>
+<p>A function can’t have both optional positional and optional named parameters.</p>
 
-<h3 id="示例代码-5">
-<a id="示例代码-5" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h3>
+<h3 id="code-example-8">
+<a id="code-example-8" class="anchor" href="#code-example-8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>为 <code class="highlighter-rouge">MyDataObject</code> 类提供一个 <code class="highlighter-rouge">copyWith</code> 方法。
-方法能够接收 3 个参数：</p>
+<p>Add a <code class="highlighter-rouge">copyWith</code> instance method to the <code class="highlighter-rouge">MyDataObject</code>
+class. It should take three named parameters:</p>
 
 <ul>
   <li><code class="highlighter-rouge">int newInt</code></li>
@@ -1112,24 +1128,29 @@ printName('Poshmeister', 'Moneybuckets', suffix: 'IV');</pre>
   <li><code class="highlighter-rouge">double newDouble</code></li>
 </ul>
 
-<p>调用 <code class="highlighter-rouge">copyWith</code> 时应该根据当前实例返回一个新的 <code class="highlighter-rouge">MyDataObject</code> 示例，
-并将前面参数（如果有）的数据复制到对象的属性中。
-例如，如果 <code class="highlighter-rouge">newInt</code> 为非 null ，则将其值复制到 <code class="highlighter-rouge">anInt</code> 属性中。</p>
+<p>When called, <code class="highlighter-rouge">copyWith</code> should return a new <code class="highlighter-rouge">MyDataObject</code>
+based on the current instance,
+with data from the preceding parameters (if any)
+copied into the object’s properties.
+For example, if <code class="highlighter-rouge">newInt</code> is non-null,
+then copy its value into <code class="highlighter-rouge">anInt</code>.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=1dd9cc9654f9e6d080f99bfb9772dae4"></iframe>
 
-<h2 id="异常">
-<a id="异常" class="anchor" href="#%E5%BC%82%E5%B8%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>异常</h2>
+<h2 id="exceptions">
+<a id="exceptions" class="anchor" href="#exceptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exceptions</h2>
 
-<p>Dart 可以抛出和捕获异常。与 Java 相比， Dart 的所有异常都是未经检查的异常。
-方法不会声明可能抛出的异常，任何异常也不要求你必须去捕获。</p>
+<p>Dart code can throw and catch exceptions. In contrast to Java, all of Dart’s exceptions are unchecked
+exceptions. Methods don’t declare which exceptions they might throw, and you aren’t required to catch
+any exceptions.</p>
 
-<p>Dart提供了 <code class="highlighter-rouge">Exception</code> 和 <code class="highlighter-rouge">Error</code> 数据类型，但在异常中允许抛出任何非 null 对象：</p>
+<p>Dart provides <code class="highlighter-rouge">Exception</code> and <code class="highlighter-rouge">Error</code> types, but you’re
+allowed to throw any non-null object:</p>
 
 <pre class="prettyprint lang-dart">throw Exception('Something bad happened.');
 throw 'Waaaaaaah!';</pre>
 
-<p>使用 <code class="highlighter-rouge">try</code> ， <code class="highlighter-rouge">on</code> ， 和 <code class="highlighter-rouge">catch</code> 关键字来处理异常：</p>
+<p>Use the <code class="highlighter-rouge">try</code>, <code class="highlighter-rouge">on</code>, and <code class="highlighter-rouge">catch</code> keywords when handling exceptions:</p>
 
 <pre class="prettyprint lang-dart">try {
   breedMoreLlamas();
@@ -1144,11 +1165,12 @@ throw 'Waaaaaaah!';</pre>
   print('Something really unknown: $e');
 }</pre>
 
-<p><code class="highlighter-rouge">try</code> 关键字的作用与大多数其他语言一样。
-<code class="highlighter-rouge">on</code> 关键字可以按类型过滤特定异常，
-<code class="highlighter-rouge">catch</code> 关键字用来获取对异常对象的引用。</p>
+<p>The <code class="highlighter-rouge">try</code> keyword works as it does in most other languages.
+Use the <code class="highlighter-rouge">on</code> keyword to filter for specific exceptions by type,
+and the <code class="highlighter-rouge">catch</code> keyword to get a reference to the exception object.</p>
 
-<p>如果无法完全处理异常，应该使用 <code class="highlighter-rouge">rethrow</code> 关键字来传播异常：</p>
+<p>If you can’t completely handle the exception, use the <code class="highlighter-rouge">rethrow</code> keyword
+to propagate the exception:</p>
 
 <pre class="prettyprint lang-dart">try {
   breedMoreLlamas();
@@ -1156,8 +1178,6 @@ throw 'Waaaaaaah!';</pre>
   print('I was just trying to breed llamas!.');
   rethrow;
 }</pre>
-
-<p><code class="highlighter-rouge">finally</code> 中实现异常中始终要执行的代码：</p>
 
 <p>To execute code whether or not an exception is thrown,
 use <code class="highlighter-rouge">finally</code>:</p>
@@ -1171,30 +1191,32 @@ use <code class="highlighter-rouge">finally</code>:</p>
   cleanLlamaStalls();
 }</pre>
 
-<h3 id="示例代码-6">
-<a id="示例代码-6" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h3>
+<h3 id="code-example-9">
+<a id="code-example-9" class="anchor" href="#code-example-9" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>在下面实现 <code class="highlighter-rouge">tryFunction</code> 方法。 它执行一个不被信任的方法，并执行以下操作：</p>
+<p>Implement <code class="highlighter-rouge">tryFunction</code> below. It should execute an untrustworthy method and
+then do the following:</p>
 
 <ul>
-  <li>如果 <code class="highlighter-rouge">untrustworthy</code> 抛出一个 <code class="highlighter-rouge">ExceptionWithMessage</code> 异常，
-则使用异常类型和消息调用 <code class="highlighter-rouge">logger.logException</code>（尝试使用 <code class="highlighter-rouge">on</code> 和 <code class="highlighter-rouge">catch</code> ）。</li>
-  <li>如果 <code class="highlighter-rouge">untrustworthy</code> 抛出一个 <code class="highlighter-rouge">Exception</code> 异常，
-则使用异常类型调用 <code class="highlighter-rouge">logger.logException</code>（尝试使用 <code class="highlighter-rouge">on</code> 和 <code class="highlighter-rouge">catch</code> ）。</li>
-  <li>如果 <code class="highlighter-rouge">untrustworthy</code> 抛出一个其他对象，
-不去捕获异常。</li>
-  <li>任意捕获和处理结束后, 调用 <code class="highlighter-rouge">logger.doneLogging</code>
-（尝试使用 <code class="highlighter-rouge">finally</code> ）。</li>
+  <li>If <code class="highlighter-rouge">untrustworthy</code> throws an <code class="highlighter-rouge">ExceptionWithMessage</code>,
+call <code class="highlighter-rouge">logger.logException</code> with the exception type and message
+(try using <code class="highlighter-rouge">on</code> and <code class="highlighter-rouge">catch</code>).</li>
+  <li>If <code class="highlighter-rouge">untrustworthy</code> throws an <code class="highlighter-rouge">Exception</code>,
+call <code class="highlighter-rouge">logger.logException</code> with the exception type
+(try using <code class="highlighter-rouge">on</code> for this one).</li>
+  <li>If <code class="highlighter-rouge">untrustworthy</code> throws any other object, don’t catch the exception.</li>
+  <li>After everything’s caught and handled, call <code class="highlighter-rouge">logger.doneLogging</code>
+(try using <code class="highlighter-rouge">finally</code>).</li>
 </ul>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=e221e3fd667825e62aac79079b8b5c59"></iframe>
 
-<h2 id="在构造函数中使用-this">
-<a id="在构造函数中使用-this" class="anchor" href="#%E5%9C%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%AD%E4%BD%BF%E7%94%A8-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>在构造函数中使用 <code class="highlighter-rouge">this</code>
-</h2>
+<h2 id="using-this-in-a-constructor">
+<a id="using-this-in-a-constructor" class="anchor" href="#using-this-in-a-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using <code class="highlighter-rouge">this</code> in a constructor</h2>
 
-<p>Dart 在构造函数中提供便利简短的属性访问：
-在声明构造函数时使用 <code class="highlighter-rouge">this.propertyName</code> ：</p>
+<p>Dart provides a handy shortcut for assigning
+values to properties in a constructor:
+use <code class="highlighter-rouge">this.propertyName</code> when declaring the constructor:</p>
 
 <pre class="prettyprint lang-dart">class MyColor {
   int red;
@@ -1206,7 +1228,8 @@ use <code class="highlighter-rouge">finally</code>:</p>
 
 final color = MyColor(80, 80, 128);</pre>
 
-<p>此技术也适用于命名参数。 将属性名称用作参数名称：</p>
+<p>This technique works for named parameters, too.
+Property names become the names of the parameters:</p>
 
 <pre class="prettyprint lang-dart">class MyColor {
   ...
@@ -1216,25 +1239,30 @@ final color = MyColor(80, 80, 128);</pre>
 
 final color = MyColor(red: 80, green: 80, blue: 80);</pre>
 
-<p>对于可选参数，根据参数类型给定默认值：</p>
+<p>For optional parameters, default values work as expected:</p>
 
 <pre class="prettyprint lang-dart">MyColor([this.red = 0, this.green = 0, this.blue = 0]);
 // or
 MyColor({this.red = 0, this.green = 0, this.blue = 0});</pre>
 
-<h3 id="示例代码-7">
-<a id="示例代码-7" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h3>
+<h3 id="code-example-10">
+<a id="code-example-10" class="anchor" href="#code-example-10" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>为 <code class="highlighter-rouge">MyClass</code> 增加一个构造函数，构造函数使用 <code class="highlighter-rouge">this.</code> 语法来接收和赋值类的所有的属性的值。</p>
+<p>Add a one-line constructor to <code class="highlighter-rouge">MyClass</code> that uses
+<code class="highlighter-rouge">this.</code> syntax to receive and assign values for
+all three properties of the class.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=2778e81ae2c5729d45c611829f3888c2"></iframe>
 
-<h2 id="初始化列表">
-<a id="初始化列表" class="anchor" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>初始化列表</h2>
+<h2 id="initializer-lists">
+<a id="initializer-lists" class="anchor" href="#initializer-lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initializer lists</h2>
 
-<p>有时，在实现构造函数时，需要在构造函数体执行之前进行一些设置。
-例如， final 字段必须在构造函数体执行之前具有值。
-这些操作需要在初始化列表中执行，初始化列表位于构造函数名及构造函数体之间：</p>
+<p>Sometimes when you implement a constructor,
+you need to do some setup before the constructor body executes.
+For example, final fields must have values
+before the constructor body executes.
+Do this work in an initializer list,
+which goes between the constructor’s signature and its body:</p>
 
 <pre class="prettyprint lang-dart">Point.fromJson(Map&lt;String, num&gt; json)
     : x = json['x'],
@@ -1242,7 +1270,8 @@ MyColor({this.red = 0, this.green = 0, this.blue = 0});</pre>
   print('In Point.fromJson(): ($x, $y)');
 }</pre>
 
-<p>初始化列表也是放置断言的便利位置，断言只在开发期间被执行：</p>
+<p>The initializer list is also a handy place to put asserts,
+which run only during development:</p>
 
 <pre class="prettyprint lang-dart">NonNegativePoint(this.x, this.y)
     : assert(x &gt;= 0),
@@ -1250,19 +1279,21 @@ MyColor({this.red = 0, this.green = 0, this.blue = 0});</pre>
   print('I just made a NonNegativePoint: ($x, $y)');
 }</pre>
 
-<h3 id="示例代码-8">
-<a id="示例代码-8" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81-8" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h3>
+<h3 id="code-example-11">
+<a id="code-example-11" class="anchor" href="#code-example-11" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>补全下面的 <code class="highlighter-rouge">FirstTwoLetters</code> 构造函数。
-使用初始化列表将 <code class="highlighter-rouge">word</code> 中的前两个字符分配给 <code class="highlighter-rouge">letterOne</code> 和 <code class="highlighter-rouge">LetterTwo</code> 属性。
-额外的，添加一个 <code class="highlighter-rouge">assert</code> 来捕获少于两个字符的单词。</p>
+<p>Complete the <code class="highlighter-rouge">FirstTwoLetters</code> constructor below.
+Use an initializer list to assign the first two characters in <code class="highlighter-rouge">word</code> to
+the <code class="highlighter-rouge">letterOne</code> and <code class="highlighter-rouge">LetterTwo</code> properties.
+For extra credit, add an <code class="highlighter-rouge">assert</code> to catch words of less than two characters.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=df45dfc1af2e6af712930c331115eb78"></iframe>
 
-<h2 id="命名构造函数">
-<a id="命名构造函数" class="anchor" href="#%E5%91%BD%E5%90%8D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>命名构造函数</h2>
+<h2 id="named-constructors">
+<a id="named-constructors" class="anchor" href="#named-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Named constructors</h2>
 
-<p>为了允许类具有多个构造函数，Dart 支持命名构造函数：</p>
+<p>To allow classes to have multiple constructors,
+Dart supports named constructors:</p>
 
 <pre class="prettyprint lang-dart">class Point {
   num x, y;
@@ -1275,24 +1306,24 @@ MyColor({this.red = 0, this.green = 0, this.blue = 0});</pre>
   }
 }</pre>
 
-<p>使用构造函数的完整名称来调用命名构造函数：</p>
+<p>To use a named constructor, invoke it using its full name:</p>
 
 <pre class="prettyprint lang-dart">final myPoint = Point.origin();</pre>
 
-<h3 id="示例代码-9">
-<a id="示例代码-9" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81-9" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h3>
+<h3 id="code-example-12">
+<a id="code-example-12" class="anchor" href="#code-example-12" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>为 Color 类提供一个 <code class="highlighter-rouge">Color.black</code> 的命名构造函数，
-该构造函数设置将 3 个属性全部设置为 0 。</p>
+<p>Give the Color class a constructor named <code class="highlighter-rouge">Color.black</code>
+that sets all three properties to zero.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=e1a82c77547e659eb24f4e698abf1eca"></iframe>
 
-<h2 id="工厂构造函数">
-<a id="工厂构造函数" class="anchor" href="#%E5%B7%A5%E5%8E%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>工厂构造函数</h2>
+<h2 id="factory-constructors">
+<a id="factory-constructors" class="anchor" href="#factory-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Factory constructors</h2>
 
-<p>Dart 支持工厂构造函数，
-工厂构造函数可以返回该类的子类实例甚至是 null 。
-使用 <code class="highlighter-rouge">factory</code> 关键字来创建工厂构造函数：</p>
+<p>Dart supports factory constructors,
+which can return subtypes or even null.
+To create a factory constructor, use the <code class="highlighter-rouge">factory</code> keyword:</p>
 
 <pre class="prettyprint lang-dart">class Square extends Shape {}
 
@@ -1310,28 +1341,31 @@ class Shape {
   }
 }</pre>
 
-<h3 id="示例代码-10">
-<a id="示例代码-10" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81-10" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h3>
+<h3 id="code-example-13">
+<a id="code-example-13" class="anchor" href="#code-example-13" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>完成名为 <code class="highlighter-rouge">IntegerHolder.fromList</code> 的工厂构造函数，使其执行以下操作：</p>
+<p>Fill in the factory constructor named <code class="highlighter-rouge">IntegerHolder.fromList</code>,
+making it do the following:</p>
 
 <ul>
-  <li>如果 List 中包含 <strong>一个</strong> 值，
-使用该值创建 <code class="highlighter-rouge">IntegerSingle</code> 。</li>
-  <li>如果 List 中包含 <strong>两个</strong> 值，
-使用这些值创建 <code class="highlighter-rouge">IntegerDouble</code> 。</li>
-  <li>如果 List 中包含 <strong>三个</strong> 值，
-使用这些值创建 <code class="highlighter-rouge">IntegerTriple</code> 。</li>
-  <li>其他情况，返回 null 。</li>
+  <li>If the list has <strong>one</strong> value,
+create an <code class="highlighter-rouge">IntegerSingle</code> with that value.</li>
+  <li>If the list has <strong>two</strong> values,
+create an <code class="highlighter-rouge">IntegerDouble</code> with the values in order.</li>
+  <li>If the list has <strong>three</strong> values,
+create an <code class="highlighter-rouge">IntegerTriple</code> with the values in order.</li>
+  <li>Otherwise, return null.</li>
 </ul>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=727981a8ece1244b52a3c6dc377a8085"></iframe>
 
-<h2 id="重定向构造函数">
-<a id="重定向构造函数" class="anchor" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>重定向构造函数</h2>
+<h2 id="redirecting-constructors">
+<a id="redirecting-constructors" class="anchor" href="#redirecting-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Redirecting constructors</h2>
 
-<p>有时构造函数的唯一目的是重定向到同一个类中的另一个构造函数。
-重定向构造函数的主体是空的，实际构造函数出现在冒号（<code class="highlighter-rouge">:</code>）之后。</p>
+<p>Sometimes a constructor’s only purpose is to redirect to
+another constructor in the same class.
+A redirecting constructor’s body is empty,
+with the constructor call appearing after a colon (<code class="highlighter-rouge">:</code>).</p>
 
 <pre class="prettyprint lang-dart">class Automobile {
   String make;
@@ -1348,20 +1382,21 @@ class Shape {
   Automobile.fancyHybrid() : this.hybrid('Futurecar', 'Mark 2');
 }</pre>
 
-<h3 id="示例代码-11">
-<a id="示例代码-11" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81-11" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例代码</h3>
+<h3 id="code-example-14">
+<a id="code-example-14" class="anchor" href="#code-example-14" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>还记得上面的 <code class="highlighter-rouge">Color</code> 类吗？
-创建一个名为 <code class="highlighter-rouge">black</code> 的命名构造函数，但不手动分配属性，
-而是将其重定向到默认构造函数，设置默认构造函数的参数为 0 。</p>
+<p>Remember the <code class="highlighter-rouge">Color</code> class from above? Create a named constructor called
+<code class="highlighter-rouge">black</code>, but rather than manually assigning the properties, redirect it to the
+default constructor with zeros as the arguments.</p>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=94eb1d8be5b64163753c7350f1f09edf"></iframe>
 
-<h2 id="常量构造函数">
-<a id="常量构造函数" class="anchor" href="#%E5%B8%B8%E9%87%8F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>常量构造函数</h2>
+<h2 id="const-constructors">
+<a id="const-constructors" class="anchor" href="#const-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Const constructors</h2>
 
-<p>如果类创建的对象永远不会改变，那么可以定义这些对象为编译时常量。
-此时，可以定义一个常量构造函数，并保证所有成员变量为 final 变量。</p>
+<p>If your class produces objects that never change, you can make these objects compile-time constants. To
+do this, define a <code class="highlighter-rouge">const</code> constructor and make sure that all instance variables
+are final.</p>
 
 <pre class="prettyprint lang-dart">class ImmutablePoint {
   const ImmutablePoint(this.x, this.y);
@@ -1373,33 +1408,38 @@ class Shape {
       ImmutablePoint(0, 0);
 }</pre>
 
-<h3 id="实例代码">
-<a id="实例代码" class="anchor" href="#%E5%AE%9E%E4%BE%8B%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>实例代码</h3>
+<h3 id="code-example-15">
+<a id="code-example-15" class="anchor" href="#code-example-15" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code example</h3>
 
-<p>修改 <code class="highlighter-rouge">Recipe</code> 类，使其实例为常量，并创建一个执行以下操作的常量构造函数：</p>
+<p>Modify the <code class="highlighter-rouge">Recipe</code> class so its instances can be constants,
+and create a constant constructor that does the following:</p>
 
 <ul>
-  <li>有三个参数：<code class="highlighter-rouge">ingredients</code>，<code class="highlighter-rouge">calories</code> 和 <code class="highlighter-rouge">milligramsOfSodium</code>（参数按此顺序排列）。</li>
-  <li>使用 <code class="highlighter-rouge">this</code> 语法自动将参数值分配给同名的对象属性。</li>
-  <li>是常量，在构造函数声明中的 <code class="highlighter-rouge">Recipe</code> 之前使用 <code class="highlighter-rouge">const</code> 关键字。</li>
+  <li>Has three parameters: <code class="highlighter-rouge">ingredients</code>, <code class="highlighter-rouge">calories</code>,
+and <code class="highlighter-rouge">milligramsOfSodium</code> (in that order).</li>
+  <li>Uses <code class="highlighter-rouge">this.</code> syntax to automatically assign the parameter values to the
+object properties of the same name.</li>
+  <li>Is constant, with the <code class="highlighter-rouge">const</code> keyword just before
+<code class="highlighter-rouge">Recipe</code> in the constructor declaration.</li>
 </ul>
 
 <iframe src="https://dartpad.dartlang.org/experimental/embed-new.html?id=c400cb84fab309ddbbb436c1ced90dad"></iframe>
 
-<h2 id="下一步">
-<a id="下一步" class="anchor" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>下一步？</h2>
+<h2 id="what-next">
+<a id="what-next" class="anchor" href="#what-next" aria-hidden="true"><span class="octicon octicon-link"></span></a>What next?</h2>
 
-<p>希望你能够喜欢使用此 Codelab 来学习和检测对 Dart 语言中一些最有趣的特性。
-以下是接下来可以实践的一些建议：</p>
+<p>We hope you enjoyed using this codelab to learn or test your knowledge of
+some of the most interesting features of the Dart language.
+Here are some suggestions for what to do now:</p>
 
 <ul>
-  <li>尝试 <a href="/codelabs">其他 Dart Codelab</a>。</li>
-  <li>阅读 <a href="/guides/language/language-tour">Dart 语言概览</a>。</li>
-  <li>尝试 <a href="https://dartpad.cn">DartPad</a>。</li>
+  <li>Try <a href="/codelabs">other Dart codelabs</a>.</li>
+  <li>Read the <a href="/guides/language/language-tour">Dart language tour</a>.</li>
+  <li>Play with <a href="https://dartpad.dartlang.org">DartPad.</a>
+</li>
   <li>
-<a href="/get-dart">获取 Dart SDK</a>。</li>
+<a href="/get-dart">Get the Dart SDK</a>.</li>
 </ul>
-
 
           
 
@@ -1415,18 +1455,18 @@ class Shape {
           <li><a href="/security">Security</a></li>
           <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
           <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
-          <li><a href="/about_zh_CN">关于 dart.dev 中文版</a></li>
           <li>
-            <a href="https://github.com/dartchina/site-www-cn"
-               title="该站在 GitHub 开源"
+            <a href="https://github.com/dart-lang/site-www"
+               title="This site's source is on GitHub."
                class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
             &nbsp;
-            <a href="https://github.com/dartchina/site-www-cn/issues"
-               title="为该站提交 issue"
+            <a href="https://github.com/dart-lang/site-www/issues"
+               title="File an issue about this site."
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/06/12 20:45 PDT"
+               href="https://travis-ci.org/dart-lang/site-www/jobs/547037851"
+               title="Site build #163 (2019/06/17 19:34 PDT)"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
@@ -1435,7 +1475,6 @@ class Shape {
     </div>
   </div>
 </footer>
-
 
   </body>
 </html>

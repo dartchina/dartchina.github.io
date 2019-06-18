@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en_US" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Details for diagnostics produced by the Dart analyzer.">
+  <title>Diagnostics | Dart</title>
+
+  <!-- Favicon / Touch Icons -->
+  <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
+  <link href="/assets/touch-icon-iphone-a46c306c4fbfae0b28d63f512b01d7cb2ccf1e4ca9d7f3aab15ba1170beed4a0.png" rel="apple-touch-icon">
+  <link href="/assets/touch-icon-ipad-d0181720760b3912858b6d40da1d5586b1e92c7c8656a485ea41005674401e6b.png" rel="apple-touch-icon" sizes="76x76">
+  <link href="/assets/touch-icon-iphone-retina-3d9821a631425376ac6203dea3c23c1940ab7b5c506a25406662fab76cee2e0b.png" rel="apple-touch-icon" sizes="120x120">
+  <link href="/assets/touch-icon-ipad-retina-b9715401952522f1daee2b4a4064a1bbfb5ffab78d0a47a7226dc87444d51c32.png" rel="apple-touch-icon" sizes="152x152">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dart_lang" />
+  <meta name="twitter:title" content="Diagnostics" />
+  <meta name="twitter:description" content="Details for diagnostics produced by the Dart analyzer." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Diagnostics" />
+  <meta property="og:description" content="Details for diagnostics produced by the Dart analyzer." />
+  <meta property="og:url" content="https://www.dartlang.org/guides/diagnostics" />
+  <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" integrity="sha256-S0f9nOqFuIcXJSRb1Y4WwIH+QKL9f54WrcUkklWPM4k=" crossorigin="anonymous" href="/assets/main-4b47fd9cea85b8871725245bd58e16c081fe40a2fd7f9e16adc52492558f3389.css">
+  <script src="/assets/main-f7f2f2125f3c379daf0f5ca0ecf142cd2e10b030af396a510324fddb1682c5e2.js" integrity="sha256-9/LyEl88N52vD1yg7PFCzS4QsDCvOWpRAyT92xaCxeI=" crossorigin="anonymous" type="text/javascript"></script>
+  <script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26406144-4', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+ </head>
+  <body class="default show_banner">
+    <header id="page-header" class="site-header">
+  <nav id="mainnav" class="site-header">
+  <div id="menu-toggle"><i class="icon icon-menu"></i></div>
+  <a href="/" class="brand" title="Dart">
+    <img src="/assets/shared/dart/logo+text/horizontal/white-e71fb382ad5229792cc704b3ee7a88f8013e986d6e34f0956d89c453b454d0a5.svg" alt="Dart">
+  </a>
+  <ul class="navbar">
+    <li class="mainnav__get-started">
+      <a href="/docs" class="nav-link active"><span>Docs</span></a>
+    </li>
+    <li>
+      <a href="/platforms" class="nav-link">Platforms</a>
+    </li>
+    <li>
+      <a href="/community" class="nav-link">Community</a>
+    </li>
+    <li>
+      <a href="https://dartpad.dartlang.org/" target="_blank" class="nav-link no-automatic-external">Try Dart</a>
+    </li>
+    <li>
+      <a href="/get-dart" class="nav-link">Get Dart</a>
+    </li>
+    <li class="searchfield">
+      <form action="/search" class="site-header__search form-inline" id="cse-search-box">
+        <input type="hidden" name="cx" value="011220921317074318178:_yy-tmb5t_i">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="hidden" name="hl" value="en">
+        <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+      </form>
+    </li>
+  </ul>
+</nav>
+
+  
+</header>
+ <div class="banner">
+  <p class="banner__text">
+    
+    Announcing Dart 2.3: Optimized for building user interfaces.
+    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">Learn more.</a>
+  </p>
+</div>
+ 
+
+    <div id="sidenav" class="">
+  <form action="/search/" class="site-header__search form-inline">
+    <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+  </form>
+
+  <div class="site-sidebar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="/platforms" class="nav-link">Platforms</a>
+      </li>
+      <li class="nav-item">
+        <a href="/community" class="nav-link">Community</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://dartpad.dartlang.org" class="nav-link">Try Dart</a>
+      </li>
+      <li class="nav-item">
+        <a href="/guides" class="nav-link active">Docs</a>
+      </li>
+    </ul>
+
+    <ul class="nav flex-column"><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-1" role="button"
+        aria-expanded="false" aria-controls="sidenav-1"
+      >Samples & tutorials</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-1">
+        <li class="nav-item">
+    <a class="nav-link" href="/samples">Language samples</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-1-2"
+      href="#sidenav-1-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-1-2"
+    >Codelabs
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-1-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/codelabs">Overview</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/codelabs/dart-cheatsheet">Cheatsheet codelab</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link" href="/tutorials">Tutorials</a>
+  </li>
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-2" role="button"
+        aria-expanded="false" aria-controls="sidenav-2"
+      >Language</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/language/language-tour">Tour</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-dart">Type system</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/spec">Specification</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-2-4"
+      href="#sidenav-2-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-2-4"
+    >Effective Dart
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/effective-dart">Overview</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/effective-dart/style">Style</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/effective-dart/documentation">Documentation</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/effective-dart/usage">Usage</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/effective-dart/design">Design</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-3" role="button"
+        aria-expanded="false" aria-controls="sidenav-3"
+      >Core libraries</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/libraries">Overview</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/library-tour">Tour</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-3-3"
+      href="#sidenav-3-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-3-3"
+    >Articles
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/dart-io">Intro to dart:io</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/articles/libraries/creating-streams">Creating streams</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-4" role="button"
+        aria-expanded="false" aria-controls="sidenav-4"
+      >Packages</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4">
+        <li class="nav-item">
+    <a class="nav-link" href="/guides/packages">How to use packages</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/useful-libraries">Commonly used packages</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/create-library-packages">Creating packages</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/publishing">Publishing packages</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-4-5"
+      href="#sidenav-4-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-4-5"
+    >Package reference
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/dependencies">Dependencies</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/glossary">Glossary</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/package-layout">Package layout conventions</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/environment-variables">Pub environment variables</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/pubspec">Pubspec file</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/troubleshoot">Troubleshooting pub</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/versioning">Versioning</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-5" role="button"
+        aria-expanded="false" aria-controls="sidenav-5"
+      >Development</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5">
+        <li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/futures">Futures & async-await</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/json">Using JSON</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/language/streams">Streams</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/mobile">Mobile apps</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-5"
+      href="#sidenav-5-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-5"
+    >Command-line & server apps
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/server">Overview</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/get-started">Get started</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/cmdline">Write command-line apps</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/server/httpserver">Write HTTP clients & servers</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/c-interop">C & C++ interop</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/server/libraries">Libraries and packages</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-6"
+      href="#sidenav-5-6" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-6"
+    >Web apps
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/web">Overview</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/get-started">Get started</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/fetch-data">Fetch data dynamically</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-5-6-4"
+      href="#sidenav-5-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-5-6-4"
+    >Low-level web programming
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Connect Dart & HTML</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">Add elements to the DOM</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">Remove DOM elements</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link" href="/web/js-interop">JS/TS interop</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/deployment">Deployment</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/libraries">Libraries and packages</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-6" role="button"
+        aria-expanded="false" aria-controls="sidenav-6"
+      >Tools & techniques</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6">
+        <li class="nav-item">
+    <a class="nav-link" href="/tools">Overview</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-2"
+      href="#sidenav-6-2" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-2"
+    >Editors & debuggers
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-devtools">Dart DevTools</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/dartpad">DartPad</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/jetbrains-plugin">IntelliJ & Android Studio</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/vs-code">VS Code</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-3"
+      href="#sidenav-6-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-3"
+    >Command-line tools
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-3">
+      <li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-1"
+      href="#sidenav-6-3-1" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-1"
+    >Dart SDK
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-1">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/sdk">Overview</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart-vm">dart (Dart VM)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2aot">dart2aot & dartaotruntime</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dart2js">dart2js (prod JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartanalyzer">dartanalyzer</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdevc">dartdevc (dev JS)</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartdoc">dartdoc</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/dartfmt">dartfmt</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/pub/cmd">pub</a>
+  </li>
+  </ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable"
+      data-toggle="collapse" data-target="#sidenav-6-3-2"
+      href="#sidenav-6-3-2" role="button"
+      aria-expanded="true" aria-controls="sidenav-6-3-2"
+    >Other command-line tools
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-2">
+      <li class="nav-item">
+    <a class="nav-link" href="/tools/build_runner">build_runner</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/tools/webdev">webdev</a>
+  </li>
+  </ul>
+  </li>
+</ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-4"
+      href="#sidenav-6-4" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-4"
+    >Managing source code
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-4">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/formatting">Formatting code</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/libraries/private-files">What not to commit</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-5"
+      href="#sidenav-6-5" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-5"
+    >Static analysis
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-5">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/language/analysis-options">Customizing static analysis</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/guides/language/sound-problems">Fixing common type problems</a>
+  </li></ul>
+  </li>
+<li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-6-6"
+      href="#sidenav-6-6" role="button"
+      aria-expanded="false" aria-controls="sidenav-6-6"
+    >Testing & optimization
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-6">
+      <li class="nav-item">
+    <a class="nav-link" href="/guides/testing">Testing</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/debugging">Debugging web apps</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-7" role="button"
+        aria-expanded="false" aria-controls="sidenav-7"
+      >Resources</a>
+
+      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7">
+        <li class="nav-item">
+    <a class="nav-link" href="/code-of-conduct">Code of conduct</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/faq">FAQ</a>
+  </li><li class="nav-item">
+    <a class="nav-link collapsable collapsed"
+      data-toggle="collapse" data-target="#sidenav-7-3"
+      href="#sidenav-7-3" role="button"
+      aria-expanded="false" aria-controls="sidenav-7-3"
+    >History
+    </a>
+    <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7-3">
+      <li class="nav-item">
+    <a class="nav-link" href="/dart-2">Migrating to Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/web/dart-2">Migrating web apps to Dart&nbsp;2</a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="/tools/pub/obsolete">Obsolete pub features</a>
+  </li></ul>
+  </li>
+
+</ul>
+    </li><li class="nav-item">
+      <a class="nav-link " data-toggle="collapse" href="#sidenav-8" role="button"
+        aria-expanded="true" aria-controls="sidenav-8"
+      >Related sites</a>
+
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-8">
+        <li class="nav-item">
+    <a class="nav-link" href="https://api.dart.dev" target="_blank" rel="noopener">API reference<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://medium.com/dartlang" target="_blank" rel="noopener">Blog<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://dartpad.dartlang.org" target="_blank" rel="noopener">DartPad (online editor)<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://flutter.dev" target="_blank" rel="noopener">Flutter<i class="fas fa-external-link-alt"></i></a>
+  </li><li class="nav-item">
+    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Package site<i class="fas fa-external-link-alt"></i></a>
+  </li>
+</ul>
+    </li></ul>
+
+  </div>
+</div>
+
+    <main id="page-content">
+      
+
+
+
+
+
+
+
+<div id="site-toc--side" class="site-toc ">
+  <header class="site-toc__title">
+    Contents
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+  </header>
+  <ul class="section-nav nav">
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#diagnostics">Diagnostics</a>
+<ul class="nav">
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#ambiguous_set_or_map_literal_both">ambiguous_set_or_map_literal_both</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#ambiguous_set_or_map_literal_either">ambiguous_set_or_map_literal_either</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#deprecated_member_use">deprecated_member_use</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#expression_in_map">expression_in_map</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#invalid_literal_annotation">invalid_literal_annotation</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#not_iterable_spread">not_iterable_spread</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#sdk_version_set_literal">sdk_version_set_literal</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+      <article>
+        <div class="content">
+          
+
+          <div>
+            <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src/_guides/diagnostics.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+    <i class="fas fa-file-alt fa-sm"></i>
+  </a>
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Diagnostics' page issue&body=
+Page URL: https://www.dartlang.org/guides/diagnostics%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src/_guides/diagnostics.md%0D%0A
+%0D%0A
+Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
+%0D%0A
+Description of issue:" class="btn no-automatic-external" title="Report an issue with this page"
+    target="_blank" rel="noopener">
+    <i class="fas fa-bug fa-sm"></i>
+  </a>
+</div>
+
+            <h1>Diagnostics</h1>
+          </div>
+          
+
+
+
+
+
+
+
+<div id="site-toc--inline" class="site-toc ">
+  <header class="site-toc__title">
+    Contents
+    <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
+    
+  </header>
+  <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#diagnostics">Diagnostics</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#ambiguous_set_or_map_literal_both">ambiguous_set_or_map_literal_both</a></li>
+<li class="toc-entry toc-h3"><a href="#ambiguous_set_or_map_literal_either">ambiguous_set_or_map_literal_either</a></li>
+<li class="toc-entry toc-h3"><a href="#deprecated_member_use">deprecated_member_use</a></li>
+<li class="toc-entry toc-h3"><a href="#expression_in_map">expression_in_map</a></li>
+<li class="toc-entry toc-h3"><a href="#invalid_literal_annotation">invalid_literal_annotation</a></li>
+<li class="toc-entry toc-h3"><a href="#not_iterable_spread">not_iterable_spread</a></li>
+<li class="toc-entry toc-h3"><a href="#sdk_version_set_literal">sdk_version_set_literal</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+          <p>This page lists diagnostic messages produced by the Dart analyzer,
+with details about what those messages mean and how you can fix your code.
+For more information about the analyzer, see
+<a href="/guides/language/analysis-options">Customizing static analysis</a>.</p>
+
+<h2 id="diagnostics">
+<a id="diagnostics" class="anchor" href="#diagnostics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Diagnostics</h2>
+
+<p>The analyzer produces the following diagnostics for code that
+doesn’t conform to the language specification or
+that might work in unexpected ways.</p>
+
+<h3 id="ambiguous_set_or_map_literal_both">
+<a id="ambiguous_set_or_map_literal_both" class="anchor" href="#ambiguous_set_or_map_literal_both" aria-hidden="true"><span class="octicon octicon-link"></span></a>ambiguous_set_or_map_literal_both</h3>
+
+<p><em>This literal contains both ‘Map’ and ‘Iterable’ spreads, which makes it
+impossible to determine whether the literal is a map or a set.</em></p>
+
+<h4 id="description">Description</h4>
+
+<p>Because map and set literals use the same delimiters (<code class="highlighter-rouge">{</code> and <code class="highlighter-rouge">}</code>), the
+analyzer looks at the type arguments and the elements to determine which
+kind of literal you meant. When there are no type arguments and all of the
+elements are spread elements (which are allowed in both kinds of literals),
+then the analyzer uses the types of the expressions that are being spread.
+If all of the expressions have the type <code class="highlighter-rouge">Iterable</code>, then it’s a set
+literal; if they all have the type <code class="highlighter-rouge">Map</code>, then it’s a map literal.</p>
+
+<p>The analyzer produces this diagnostic when some of the expressions being
+spread have the type <code class="highlighter-rouge">Iterable</code> and others have the type <code class="highlighter-rouge">Map</code>, making it
+impossible for the analyzer to determine whether you are writing a map
+literal or a set literal.</p>
+
+<h4 id="example">Example</h4>
+
+<p>The following code produces this diagnostic:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">union</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kt">String</span><span class="o">&gt;</span> <span class="n">a</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="n">b</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kt">String</span><span class="o">&gt;</span> <span class="n">c</span><span class="o">)</span> <span class="o">=&gt;</span>
+    <span class="o">{...</span><span class="na">a</span><span class="o">,</span> <span class="o">...</span><span class="na">b</span><span class="o">,</span> <span class="o">...</span><span class="na">c</span><span class="o">};</span>
+</code></pre></div></div>
+
+<p>The list <code class="highlighter-rouge">b</code> can only be spread into a set, and the maps <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">c</code> can
+only be spread into a map, and the literal can’t be both.</p>
+
+<h4 id="common-fixes">Common fixes</h4>
+
+<p>There are two common ways to fix this problem. The first is to remove all
+of the spread elements of one kind or another, so that the elements are
+consistent. In this case, that likely means removing the list and deciding
+what to do about the now unused parameter:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">union</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kt">String</span><span class="o">&gt;</span> <span class="n">a</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="n">b</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kt">String</span><span class="o">&gt;</span> <span class="n">c</span><span class="o">)</span> <span class="o">=&gt;</span>
+    <span class="o">{...</span><span class="na">a</span><span class="o">,</span> <span class="o">...</span><span class="na">c</span><span class="o">};</span>
+</code></pre></div></div>
+
+<p>The second fix is to change the elements of one kind into elements that are
+consistent with the other elements. For example, you could add the elements
+of the list as keys that map to themselves:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">union</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kt">String</span><span class="o">&gt;</span> <span class="n">a</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="n">b</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kt">String</span><span class="o">&gt;</span> <span class="n">c</span><span class="o">)</span> <span class="o">=&gt;</span>
+    <span class="o">{...</span><span class="na">a</span><span class="o">,</span> <span class="k">for</span> <span class="o">(</span><span class="kt">String</span> <span class="n">s</span> <span class="k">in</span> <span class="n">b</span><span class="o">)</span> <span class="nl">s:</span> <span class="n">s</span><span class="o">,</span> <span class="o">...</span><span class="na">c</span><span class="o">};</span>
+</code></pre></div></div>
+
+<h3 id="ambiguous_set_or_map_literal_either">
+<a id="ambiguous_set_or_map_literal_either" class="anchor" href="#ambiguous_set_or_map_literal_either" aria-hidden="true"><span class="octicon octicon-link"></span></a>ambiguous_set_or_map_literal_either</h3>
+
+<p><em>This literal must be either a map or a set, but the elements don’t have enough
+information for type inference to work.</em></p>
+
+<h4 id="description-1">Description</h4>
+
+<p>Because map and set literals use the same delimiters (<code class="highlighter-rouge">{</code> and <code class="highlighter-rouge">}</code>), the
+analyzer looks at the type arguments and the elements to determine which
+kind of literal you meant. When there are no type arguments and all of the
+elements are spread elements (which are allowed in both kinds of literals)
+then the analyzer uses the types of the expressions that are being spread.
+If all of the expressions have the type <code class="highlighter-rouge">Iterable</code>, then it’s a set
+literal; if they all have the type <code class="highlighter-rouge">Map</code>, then it’s a map literal.</p>
+
+<p>This diagnostic is produced when none of the expressions being spread have
+a type that allows the analyzer to decide whether you were writing a map
+literal or a set literal.</p>
+
+<h4 id="example-1">Example</h4>
+
+<p>The following code produces this diagnostic:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">union</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">!{...</span><span class="na">a</span><span class="o">,</span> <span class="o">...</span><span class="na">b</span><span class="o">}!;</span>
+</code></pre></div></div>
+
+<p>The problem occurs because there are no type arguments, and there is no
+information about the type of either <code class="highlighter-rouge">a</code> or <code class="highlighter-rouge">b</code>.</p>
+
+<h4 id="common-fixes-1">Common fixes</h4>
+
+<p>There are three common ways to fix this problem. The first is to add type
+arguments to the literal. For example, if the literal is intended to be a
+map literal, you might write something like this:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">union</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kt">String</span><span class="o">&gt;{...</span><span class="na">a</span><span class="o">,</span> <span class="o">...</span><span class="na">b</span><span class="o">};</span>
+</code></pre></div></div>
+
+<p>The second fix is to add type information so that the expressions have
+either the type <code class="highlighter-rouge">Iterable</code> or the type <code class="highlighter-rouge">Map</code>. You could add an explicit
+cast or, in this case, add types to the declarations of the two parameters:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">union</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">b</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">{...</span><span class="na">a</span><span class="o">,</span> <span class="o">...</span><span class="na">b</span><span class="o">};</span>
+</code></pre></div></div>
+
+<p>The third fix is to add context information. In this case, that means
+adding a return type to the function:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Set</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="n">union</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">{...</span><span class="na">a</span><span class="o">,</span> <span class="o">...</span><span class="na">b</span><span class="o">};</span>
+</code></pre></div></div>
+
+<p>In other cases, you might add a type somewhere else. For example, say the
+original code looks like this:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">union</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kd">var</span> <span class="n">x</span> <span class="o">=</span> <span class="o">{...</span><span class="na">a</span><span class="o">,</span> <span class="o">...</span><span class="na">b</span><span class="o">};</span>
+  <span class="k">return</span> <span class="n">x</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>You might add a type annotation on <code class="highlighter-rouge">x</code>, like this:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">union</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">Map</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kt">String</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="o">{...</span><span class="na">a</span><span class="o">,</span> <span class="o">...</span><span class="na">b</span><span class="o">};</span>
+  <span class="k">return</span> <span class="n">x</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="deprecated_member_use">
+<a id="deprecated_member_use" class="anchor" href="#deprecated_member_use" aria-hidden="true"><span class="octicon octicon-link"></span></a>deprecated_member_use</h3>
+
+<p><em>‘{0}’ is deprecated and shouldn’t be used.</em></p>
+
+<h4 id="description-2">Description</h4>
+
+<p>The analyzer produces this diagnostic when a deprecated library or class
+member is used in a different package.</p>
+
+<h4 id="example-2">Example</h4>
+
+<p>If the method <code class="highlighter-rouge">m</code> in the class <code class="highlighter-rouge">C</code> is annotated with <code class="highlighter-rouge">@deprecated</code>, then
+the following code produces this diagnostic:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n">C</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">c</span><span class="o">.!</span><span class="n">m</span><span class="o">!();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="common-fixes-2">Common fixes</h4>
+
+<p>The documentation for declarations that are annotated with <code class="highlighter-rouge">@deprecated</code>
+should indicate what code to use in place of the deprecated code.</p>
+
+<h3 id="expression_in_map">
+<a id="expression_in_map" class="anchor" href="#expression_in_map" aria-hidden="true"><span class="octicon octicon-link"></span></a>expression_in_map</h3>
+
+<p><em>Expressions can’t be used in a map literal.</em></p>
+
+<h4 id="description-3">Description</h4>
+
+<p>The analyzer produces this diagnostic when the analyzer finds an
+expression, rather than a map entry, in what appears to be a map literal.</p>
+
+<h4 id="example-3">Example</h4>
+
+<p>The following code generates this diagnostic:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="n">map</span> <span class="o">=</span> <span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kt">int</span><span class="o">&gt;{</span><span class="s">'a'</span><span class="o">:</span> <span class="mi">0</span><span class="o">,</span> <span class="s">'b'</span><span class="o">:</span> <span class="mi">1</span><span class="o">,</span> <span class="o">!</span><span class="s">'c'</span><span class="o">!};</span>
+</code></pre></div></div>
+
+<h4 id="common-fix">Common fix</h4>
+
+<p>If the expression is intended to compute either a key or a value in an
+entry, fix the issue by replacing the expression with the key or the value.
+For example:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="n">map</span> <span class="o">=</span> <span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kt">int</span><span class="o">&gt;{</span><span class="s">'a'</span><span class="o">:</span> <span class="mi">0</span><span class="o">,</span> <span class="s">'b'</span><span class="o">:</span> <span class="mi">1</span><span class="o">,</span> <span class="s">'c'</span><span class="o">:</span> <span class="mi">2</span><span class="o">};</span>
+</code></pre></div></div>
+
+<h3 id="invalid_literal_annotation">
+<a id="invalid_literal_annotation" class="anchor" href="#invalid_literal_annotation" aria-hidden="true"><span class="octicon octicon-link"></span></a>invalid_literal_annotation</h3>
+
+<p><em>Only const constructors can have the <code class="highlighter-rouge">@literal</code> annotation.</em></p>
+
+<h4 id="description-4">Description</h4>
+
+<p>The meaning of the <code class="highlighter-rouge">@literal</code> annotation is only defined when it’s applied
+to a const constructor.</p>
+
+<h4 id="example-4">Example</h4>
+
+<p>The following code produces this diagnostic:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">!</span><span class="nd">@literal</span><span class="o">!</span>
+<span class="kd">var</span> <span class="n">x</span><span class="o">;</span>
+</code></pre></div></div>
+
+<h4 id="common-fixes-3">Common fixes</h4>
+
+<p>Remove the annotation:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="n">x</span><span class="o">;</span>
+</code></pre></div></div>
+
+<h3 id="not_iterable_spread">
+<a id="not_iterable_spread" class="anchor" href="#not_iterable_spread" aria-hidden="true"><span class="octicon octicon-link"></span></a>not_iterable_spread</h3>
+
+<p><em>Spread elements in list or set literals must implement ‘Iterable’.</em></p>
+
+<h4 id="description-5">Description</h4>
+
+<p>The analyzer produces this diagnostic when the static type of the
+expression of a spread element that appears in either a list literal or a
+set literal doesn’t implement the type <code class="highlighter-rouge">Iterable</code>.</p>
+
+<h4 id="example-5">Example</h4>
+
+<p>The following code generates this diagnostic:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="n">m</span> <span class="o">=</span> <span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kt">int</span><span class="o">&gt;{</span><span class="s">'a'</span><span class="o">:</span> <span class="mi">0</span><span class="o">,</span> <span class="s">'b'</span><span class="o">:</span> <span class="mi">1</span><span class="o">};</span>
+<span class="kd">var</span> <span class="n">s</span> <span class="o">=</span> <span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;{...</span><span class="na">m</span><span class="o">};</span>
+</code></pre></div></div>
+
+<h4 id="common-fix-1">Common fix</h4>
+
+<p>The most common fix is to replace the expression with one that produces an
+iterable object:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="n">m</span> <span class="o">=</span> <span class="o">&lt;</span><span class="kt">String</span><span class="o">,</span> <span class="kt">int</span><span class="o">&gt;{</span><span class="s">'a'</span><span class="o">:</span> <span class="mi">0</span><span class="o">,</span> <span class="s">'b'</span><span class="o">:</span> <span class="mi">1</span><span class="o">};</span>
+<span class="kd">var</span> <span class="n">s</span> <span class="o">=</span> <span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;{...</span><span class="na">m</span><span class="o">.</span><span class="na">keys</span><span class="o">};</span>
+</code></pre></div></div>
+
+<h3 id="sdk_version_set_literal">
+<a id="sdk_version_set_literal" class="anchor" href="#sdk_version_set_literal" aria-hidden="true"><span class="octicon octicon-link"></span></a>sdk_version_set_literal</h3>
+
+<p><em>Set literals weren’t supported until version 2.2, but this code must be able to
+run on earlier versions.</em></p>
+
+<h4 id="description-6">Description</h4>
+
+<p>The analyzer produces this diagnostic when a set literal is found in code
+that has an SDK constraint whose lower bound is less than 2.2. Set literals
+were not supported in earlier versions, so this code won’t be able to run
+against earlier versions of the SDK.</p>
+
+<h4 id="example-6">Example</h4>
+
+<p>In a package that defines the SDK constraint (in the pubspec.yaml file),
+with a lower bound of less than 2.2:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">environment</span><span class="pi">:</span>
+  <span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=2.1.0</span><span class="nv"> </span><span class="s">&lt;2.4.0'</span>
+</code></pre></div></div>
+
+<p>The following code generates this diagnostic:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="n">s</span> <span class="o">=</span> <span class="o">!&lt;</span><span class="kt">int</span><span class="o">&gt;{}!;</span>
+</code></pre></div></div>
+
+<h4 id="common-fixes-4">Common fixes</h4>
+
+<p>If you don’t need to support older versions of the SDK, then you can
+increase the SDK constraint to allow the syntax to be used:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">environment</span><span class="pi">:</span>
+  <span class="na">sdk</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&gt;=2.2.0</span><span class="nv"> </span><span class="s">&lt;2.4.0'</span>
+</code></pre></div></div>
+
+<p>If you do need to support older versions of the SDK, then replace the set
+literal with code that creates the set without the use of a literal:</p>
+
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;();</span>
+</code></pre></div></div>
+
+          
+
+        </div>
+      </article>
+    </main>
+    <footer id="page-footer">
+  <div class="container">
+    <div class="content">
+      <div class="text-center" martdown="1">
+        <style>.menu .material-icons { font-size: 14px; }</style><ul class="menu">
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/security">Security</a></li>
+          <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
+          <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
+          <li>
+            <a href="https://github.com/dart-lang/site-www"
+               title="This site's source is on GitHub."
+               class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
+            &nbsp;
+            <a href="https://github.com/dart-lang/site-www/issues"
+               title="File an issue about this site."
+               class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
+            &nbsp;
+            <a 
+               href="https://travis-ci.org/dart-lang/site-www/jobs/547037851"
+               title="Site build #163 (2019/06/17 19:34 PDT)"
+               
+               class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

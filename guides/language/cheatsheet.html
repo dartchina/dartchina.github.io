@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Language" content="en_US" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="总结一些 Dart 最有用、有趣的功能。">
-  <title>Dart 语言速查 | Dart</title>
+  <meta name="description" content="A one-page summary of some of Dart's most useful, interesting features.">
+  <title>Dart language cheatsheet | Dart</title>
 
   <!-- Favicon / Touch Icons -->
   <link rel="icon" sizes="64x64" href="/assets/shared/dart/icon/64.png">
@@ -18,16 +18,16 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@dart_lang" />
-  <meta name="twitter:title" content="Dart 语言速查" />
-  <meta name="twitter:description" content="总结一些 Dart 最有用、有趣的功能。" />
+  <meta name="twitter:title" content="Dart language cheatsheet" />
+  <meta name="twitter:description" content="A one-page summary of some of Dart's most useful, interesting features." />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Dart 语言速查" />
-  <meta property="og:description" content="总结一些 Dart 最有用、有趣的功能。" />
+  <meta property="og:title" content="Dart language cheatsheet" />
+  <meta property="og:description" content="A one-page summary of some of Dart's most useful, interesting features." />
   <meta property="og:url" content="https://www.dartlang.org/guides/language/cheatsheet" />
   <meta property="og:image" content="https://www.dartlang.org/assets/shared/dart-logo-for-shares.png?2" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500|Google+Sans+Display:400|Roboto:300,400,500|Roboto+Mono:300,400,700|Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" integrity="sha256-OYYqoMfowxw5dTtxCHxOHrDkykaDztc6SJ1qi+We+CM=" crossorigin="anonymous" href="/assets/main-39862aa0c7e8c31c39753b71087c4e1eb0e4ca4683ced73a489d6a8be59ef823.css">
+  <link rel="stylesheet" type="text/css" integrity="sha256-S0f9nOqFuIcXJSRb1Y4WwIH+QKL9f54WrcUkklWPM4k=" crossorigin="anonymous" href="/assets/main-4b47fd9cea85b8871725245bd58e16c081fe40a2fd7f9e16adc52492558f3389.css">
   <script src="/assets/main-f7f2f2125f3c379daf0f5ca0ecf142cd2e10b030af396a510324fddb1682c5e2.js" integrity="sha256-9/LyEl88N52vD1yg7PFCzS4QsDCvOWpRAyT92xaCxeI=" crossorigin="anonymous" type="text/javascript"></script>
   <script>
 
@@ -52,22 +52,19 @@ ga('send', 'pageview');
   </a>
   <ul class="navbar">
     <li class="mainnav__get-started">
-      <a href="/guides" class="nav-link active"><span>文档</span></a>
+      <a href="/docs" class="nav-link active"><span>Docs</span></a>
     </li>
     <li>
-      <a href="/platforms" class="nav-link">平台</a>
+      <a href="/platforms" class="nav-link">Platforms</a>
     </li>
     <li>
-      <a href="/community" class="nav-link">社区</a>
+      <a href="/community" class="nav-link">Community</a>
     </li>
     <li>
-      <a href="https://dartpad.cn/" target="_blank" class="nav-link no-automatic-external">体验 Dart</a>
+      <a href="https://dartpad.dartlang.org/" target="_blank" class="nav-link no-automatic-external">Try Dart</a>
     </li>
     <li>
-      <a href="/get-dart" class="nav-link">安装 Dart</a>
-    </li>
-    <li>
-      <a href="/about_zh_CN" class="nav-link">关于</a>
+      <a href="/get-dart" class="nav-link">Get Dart</a>
     </li>
     <li class="searchfield">
       <form action="/search" class="site-header__search form-inline" id="cse-search-box">
@@ -85,9 +82,8 @@ ga('send', 'pageview');
  <div class="banner">
   <p class="banner__text">
     
-    
-    Dart 2.3 发布，针对构建用户界面进行了优化。
-    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">了解更多。</a>
+    Announcing Dart 2.3: Optimized for building user interfaces.
+    <a class="external" href="https://medium.com/dartlang/announcing-dart-2-3-optimized-for-building-user-interfaces-e84919ca1dff">Learn more.</a>
   </p>
 </div>
  
@@ -100,60 +96,57 @@ ga('send', 'pageview');
   <div class="site-sidebar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a href="/platforms" class="nav-link">平台</a>
+        <a href="/platforms" class="nav-link">Platforms</a>
       </li>
       <li class="nav-item">
-        <a href="/community" class="nav-link">社区</a>
+        <a href="/community" class="nav-link">Community</a>
       </li>
       <li class="nav-item">
-        <a href="https://dartpad.cn" class="nav-link">体验 Dart</a>
+        <a href="https://dartpad.dartlang.org" class="nav-link">Try Dart</a>
       </li>
       <li class="nav-item">
-        <a href="/guides" class="nav-link active">文档</a>
-      </li>
-      <li>
-        <a href="/about_zh_CN" class="nav-link">关于</a>
+        <a href="/guides" class="nav-link active">Docs</a>
       </li>
     </ul>
 
     <ul class="nav flex-column"><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-1" role="button"
         aria-expanded="false" aria-controls="sidenav-1"
-      >示例 & 教程</a>
+      >Samples & tutorials</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-1">
         <li class="nav-item">
-    <a class="nav-link" href="/samples">示例程序</a>
+    <a class="nav-link" href="/samples">Language samples</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable"
       data-toggle="collapse" data-target="#sidenav-1-2"
       href="#sidenav-1-2" role="button"
       aria-expanded="true" aria-controls="sidenav-1-2"
-    >Codelab
+    >Codelabs
     </a>
     <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-1-2">
       <li class="nav-item">
-    <a class="nav-link" href="/codelabs">综述</a>
+    <a class="nav-link" href="/codelabs">Overview</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/codelabs/dart-cheatsheet">Codelab 速查</a>
+    <a class="nav-link" href="/codelabs/dart-cheatsheet">Cheatsheet codelab</a>
   </li></ul>
   </li>
 <li class="nav-item">
-    <a class="nav-link" href="/tutorials">教程</a>
+    <a class="nav-link" href="/tutorials">Tutorials</a>
   </li>
 </ul>
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-2" role="button"
         aria-expanded="false" aria-controls="sidenav-2"
-      >语言</a>
+      >Language</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2">
         <li class="nav-item">
-    <a class="nav-link" href="/guides/language/language-tour">概览</a>
+    <a class="nav-link" href="/guides/language/language-tour">Tour</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/sound-dart">类型系统</a>
+    <a class="nav-link" href="/guides/language/sound-dart">Type system</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/spec">规范</a>
+    <a class="nav-link" href="/guides/language/spec">Specification</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-2-4"
@@ -163,15 +156,15 @@ ga('send', 'pageview');
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-2-4">
       <li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart">综述</a>
+    <a class="nav-link" href="/guides/language/effective-dart">Overview</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/style">风格</a>
+    <a class="nav-link" href="/guides/language/effective-dart/style">Style</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/documentation">文档</a>
+    <a class="nav-link" href="/guides/language/effective-dart/documentation">Documentation</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/usage">使用</a>
+    <a class="nav-link" href="/guides/language/effective-dart/usage">Usage</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/language/effective-dart/design">设计</a>
+    <a class="nav-link" href="/guides/language/effective-dart/design">Design</a>
   </li></ul>
   </li>
 
@@ -179,19 +172,19 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-3" role="button"
         aria-expanded="false" aria-controls="sidenav-3"
-      >核心库</a>
+      >Core libraries</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3">
         <li class="nav-item">
-    <a class="nav-link" href="/guides/libraries">综述</a>
+    <a class="nav-link" href="/guides/libraries">Overview</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/library-tour">概览</a>
+    <a class="nav-link" href="/guides/libraries/library-tour">Tour</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-3-3"
       href="#sidenav-3-3" role="button"
       aria-expanded="false" aria-controls="sidenav-3-3"
-    >文章
+    >Articles
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-3-3">
       <li class="nav-item">
@@ -205,39 +198,39 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-4" role="button"
         aria-expanded="false" aria-controls="sidenav-4"
-      >包</a>
+      >Packages</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4">
         <li class="nav-item">
-    <a class="nav-link" href="/guides/packages">如何使用包</a>
+    <a class="nav-link" href="/guides/packages">How to use packages</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/useful-libraries">常用的包</a>
+    <a class="nav-link" href="/guides/libraries/useful-libraries">Commonly used packages</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/create-library-packages">创建包</a>
+    <a class="nav-link" href="/guides/libraries/create-library-packages">Creating packages</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/publishing">发布包</a>
+    <a class="nav-link" href="/tools/pub/publishing">Publishing packages</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-4-5"
       href="#sidenav-4-5" role="button"
       aria-expanded="false" aria-controls="sidenav-4-5"
-    >引用包
+    >Package reference
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-4-5">
       <li class="nav-item">
-    <a class="nav-link" href="/tools/pub/dependencies">依赖</a>
+    <a class="nav-link" href="/tools/pub/dependencies">Dependencies</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/glossary">术语</a>
+    <a class="nav-link" href="/tools/pub/glossary">Glossary</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/package-layout">包的设计约定</a>
+    <a class="nav-link" href="/tools/pub/package-layout">Package layout conventions</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/environment-variables">Pub 环境变量</a>
+    <a class="nav-link" href="/tools/pub/environment-variables">Pub environment variables</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/pubspec">Pubspec 文件</a>
+    <a class="nav-link" href="/tools/pub/pubspec">Pubspec file</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/troubleshoot">Pub 问题分析与解决</a>
+    <a class="nav-link" href="/tools/pub/troubleshoot">Troubleshooting pub</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/versioning">版本</a>
+    <a class="nav-link" href="/tools/pub/versioning">Versioning</a>
   </li></ul>
   </li>
 
@@ -245,37 +238,37 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-5" role="button"
         aria-expanded="false" aria-controls="sidenav-5"
-      >开发</a>
+      >Development</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5">
         <li class="nav-item">
-    <a class="nav-link" href="/tutorials/language/futures">Futures & Async-Await</a>
+    <a class="nav-link" href="/tutorials/language/futures">Futures & async-await</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/json">使用 JSON</a>
+    <a class="nav-link" href="/guides/json">Using JSON</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/language/streams">Stream</a>
+    <a class="nav-link" href="/tutorials/language/streams">Streams</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/mobile">移动应用</a>
+    <a class="nav-link" href="/mobile">Mobile apps</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-5-5"
       href="#sidenav-5-5" role="button"
       aria-expanded="false" aria-controls="sidenav-5-5"
-    >命令行应用 & 服务应用
+    >Command-line & server apps
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-5">
       <li class="nav-item">
-    <a class="nav-link" href="/server">综述</a>
+    <a class="nav-link" href="/server">Overview</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/server/get-started">入门</a>
+    <a class="nav-link" href="/tutorials/server/get-started">Get started</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/server/cmdline">编写命令行应用</a>
+    <a class="nav-link" href="/tutorials/server/cmdline">Write command-line apps</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/server/httpserver">编写 HTTP 客户端和服务端应用</a>
+    <a class="nav-link" href="/tutorials/server/httpserver">Write HTTP clients & servers</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/server/c-interop">C & C++ 交互</a>
+    <a class="nav-link" href="/server/c-interop">C & C++ interop</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/server/libraries">库和包</a>
+    <a class="nav-link" href="/server/libraries">Libraries and packages</a>
   </li></ul>
   </li>
 <li class="nav-item">
@@ -283,40 +276,40 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-5-6"
       href="#sidenav-5-6" role="button"
       aria-expanded="false" aria-controls="sidenav-5-6"
-    >Web 应用
+    >Web apps
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6">
       <li class="nav-item">
-    <a class="nav-link" href="/web">综述</a>
+    <a class="nav-link" href="/web">Overview</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/get-started">入门</a>
+    <a class="nav-link" href="/tutorials/web/get-started">Get started</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/fetch-data">动态获取数据</a>
+    <a class="nav-link" href="/tutorials/web/fetch-data">Fetch data dynamically</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-5-6-4"
       href="#sidenav-5-6-4" role="button"
       aria-expanded="false" aria-controls="sidenav-5-6-4"
-    >底层 Web 编程
+    >Low-level web programming
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-5-6-4">
       <li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Dart 和 HTML 关联</a>
+    <a class="nav-link" href="/tutorials/web/low-level-html/connect-dart-html">Connect Dart & HTML</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">在 DOM 中增加 Element</a>
+    <a class="nav-link" href="/tutorials/web/low-level-html/add-elements">Add elements to the DOM</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">在 DOM 中移除 Element</a>
+    <a class="nav-link" href="/tutorials/web/low-level-html/remove-elements">Remove DOM elements</a>
   </li>
   </ul>
   </li>
 <li class="nav-item">
-    <a class="nav-link" href="/web/js-interop">JS/TS 交互</a>
+    <a class="nav-link" href="/web/js-interop">JS/TS interop</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/deployment">开发</a>
+    <a class="nav-link" href="/web/deployment">Deployment</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/libraries">库和包</a>
+    <a class="nav-link" href="/web/libraries">Libraries and packages</a>
   </li></ul>
   </li>
 
@@ -324,21 +317,21 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-6" role="button"
         aria-expanded="false" aria-controls="sidenav-6"
-      >工具 & 技巧</a>
+      >Tools & techniques</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6">
         <li class="nav-item">
-    <a class="nav-link" href="/tools">综述</a>
+    <a class="nav-link" href="/tools">Overview</a>
   </li><li class="nav-item">
     <a class="nav-link collapsable collapsed"
       data-toggle="collapse" data-target="#sidenav-6-2"
       href="#sidenav-6-2" role="button"
       aria-expanded="false" aria-controls="sidenav-6-2"
-    >编辑 & 调试
+    >Editors & debuggers
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-2">
       <li class="nav-item">
-    <a class="nav-link" href="/tools/dart-devtools">Dart DevTool</a>
+    <a class="nav-link" href="/tools/dart-devtools">Dart DevTools</a>
   </li><li class="nav-item">
     <a class="nav-link" href="/tools/dartpad">DartPad</a>
   </li><li class="nav-item">
@@ -352,7 +345,7 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-3"
       href="#sidenav-6-3" role="button"
       aria-expanded="false" aria-controls="sidenav-6-3"
-    >命令行工具
+    >Command-line tools
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-3">
       <li class="nav-item">
@@ -364,7 +357,7 @@ ga('send', 'pageview');
     </a>
     <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-1">
       <li class="nav-item">
-    <a class="nav-link" href="/tools/sdk">综述</a>
+    <a class="nav-link" href="/tools/sdk">Overview</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/tools/dart-vm">dart (Dart VM)</a>
@@ -397,7 +390,7 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-3-2"
       href="#sidenav-6-3-2" role="button"
       aria-expanded="true" aria-controls="sidenav-6-3-2"
-    >其他命令行工具
+    >Other command-line tools
     </a>
     <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-6-3-2">
       <li class="nav-item">
@@ -415,13 +408,13 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-4"
       href="#sidenav-6-4" role="button"
       aria-expanded="false" aria-controls="sidenav-6-4"
-    >源码管理
+    >Managing source code
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-4">
       <li class="nav-item">
-    <a class="nav-link" href="/guides/language/formatting">格式化代码</a>
+    <a class="nav-link" href="/guides/language/formatting">Formatting code</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/guides/libraries/private-files">哪些内容不应该被提交</a>
+    <a class="nav-link" href="/guides/libraries/private-files">What not to commit</a>
   </li></ul>
   </li>
 <li class="nav-item">
@@ -429,7 +422,7 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-5"
       href="#sidenav-6-5" role="button"
       aria-expanded="false" aria-controls="sidenav-6-5"
-    >静态分析
+    >Static analysis
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-5">
       <li class="nav-item">
@@ -443,13 +436,13 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-6-6"
       href="#sidenav-6-6" role="button"
       aria-expanded="false" aria-controls="sidenav-6-6"
-    >测试 & 优化
+    >Testing & optimization
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-6-6">
       <li class="nav-item">
-    <a class="nav-link" href="/guides/testing">测试</a>
+    <a class="nav-link" href="/guides/testing">Testing</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/debugging">调试 Web 应用</a>
+    <a class="nav-link" href="/web/debugging">Debugging web apps</a>
   </li></ul>
   </li>
 
@@ -457,11 +450,11 @@ ga('send', 'pageview');
     </li><li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-7" role="button"
         aria-expanded="false" aria-controls="sidenav-7"
-      >资源</a>
+      >Resources</a>
 
       <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7">
         <li class="nav-item">
-    <a class="nav-link" href="/code-of-conduct">行为守则</a>
+    <a class="nav-link" href="/code-of-conduct">Code of conduct</a>
   </li><li class="nav-item">
     <a class="nav-link" href="/faq">FAQ</a>
   </li><li class="nav-item">
@@ -469,49 +462,35 @@ ga('send', 'pageview');
       data-toggle="collapse" data-target="#sidenav-7-3"
       href="#sidenav-7-3" role="button"
       aria-expanded="false" aria-controls="sidenav-7-3"
-    >历史
+    >History
     </a>
     <ul class="nav flex-column flex-nowrap collapse " id="sidenav-7-3">
       <li class="nav-item">
-    <a class="nav-link" href="/dart-2">迁移到 Dart&nbsp;2</a>
+    <a class="nav-link" href="/dart-2">Migrating to Dart&nbsp;2</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/web/dart-2">迁移 Web 应用到 Dart&nbsp;2</a>
+    <a class="nav-link" href="/web/dart-2">Migrating web apps to Dart&nbsp;2</a>
   </li><li class="nav-item">
-    <a class="nav-link" href="/tools/pub/obsolete">过时的 Pub 功能</a>
+    <a class="nav-link" href="/tools/pub/obsolete">Obsolete pub features</a>
   </li></ul>
   </li>
 
 </ul>
     </li><li class="nav-item">
-      <a class="nav-link collapsed" data-toggle="collapse" href="#sidenav-8" role="button"
-        aria-expanded="false" aria-controls="sidenav-8"
-      >相关网站</a>
+      <a class="nav-link " data-toggle="collapse" href="#sidenav-8" role="button"
+        aria-expanded="true" aria-controls="sidenav-8"
+      >Related sites</a>
 
-      <ul class="nav flex-column flex-nowrap collapse " id="sidenav-8">
+      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-8">
         <li class="nav-item">
-    <a class="nav-link" href="https://api.dartlang.org" target="_blank" rel="noopener">API 参考<i class="fas fa-external-link-alt"></i></a>
+    <a class="nav-link" href="https://api.dart.dev" target="_blank" rel="noopener">API reference<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
     <a class="nav-link" href="https://medium.com/dartlang" target="_blank" rel="noopener">Blog<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
-    <a class="nav-link" href="https://dartpad.cn" target="_blank" rel="noopener">DartPad (在线编辑器)<i class="fas fa-external-link-alt"></i></a>
+    <a class="nav-link" href="https://dartpad.dartlang.org" target="_blank" rel="noopener">DartPad (online editor)<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
     <a class="nav-link" href="https://flutter.dev" target="_blank" rel="noopener">Flutter<i class="fas fa-external-link-alt"></i></a>
   </li><li class="nav-item">
-    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Pub 包资源<i class="fas fa-external-link-alt"></i></a>
-  </li>
-</ul>
-    </li><li class="nav-item">
-      <a class="nav-link " data-toggle="collapse" href="#sidenav-9" role="button"
-        aria-expanded="true" aria-controls="sidenav-9"
-      >关于</a>
-
-      <ul class="nav flex-column flex-nowrap collapse show" id="sidenav-9">
-        <li class="nav-item">
-    <a class="nav-link" href="/about_zh_CN">关于本站</a>
-  </li><li class="nav-item">
-    <a class="nav-link" href="/about_zh_CN/contributor-guide">贡献者指北</a>
-  </li><li class="nav-item">
-    <a class="nav-link" href="/about_zh_CN/chinese-copywriting-guidelines">中文排版指北</a>
+    <a class="nav-link" href="https://pub.dev" target="_blank" rel="noopener">Package site<i class="fas fa-external-link-alt"></i></a>
   </li>
 </ul>
     </li></ul>
@@ -530,48 +509,48 @@ ga('send', 'pageview');
 
 <div id="site-toc--side" class="site-toc ">
   <header class="site-toc__title">
-    大纲
+    Contents
     <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
     
   </header>
   <ul class="section-nav nav">
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#字面量的使用">字面量的使用</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#using-literals">Using literals</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#插值-val">‘插值 ${val}’</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#substitution-val">‘Substitution ${val}’</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#type-">&lt;type&gt;[ ]</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#const-1-2-3">const [1, 2, 3]</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#--">= { }</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#字段声明">字段声明</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#类型检查">类型检查</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#链式方法调用">链式方法调用</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#declaring-fields">Declaring fields</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#checking-types">Checking types</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#chaining-method-calls">Chaining method calls</a>
 <ul class="nav">
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#ab--truec--5">a..b = true..c = 5;</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#null-处理">null 处理</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#dealing-with-null">Dealing with null</a>
 <ul class="nav">
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#b--val">b ??= val;</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#a--value--0">a = value ?? 0;</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#ab">a?.b</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#函数实现">函数实现</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#implementing-functions">Implementing functions</a>
 <ul class="nav">
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#fnbool-bold-false-bool-hidden-false">fn({bool bold: false, bool hidden: false})</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#int-incrint-a--a--1">int incr(int a) =&gt; a + 1;</a></li>
 </ul>
 </li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#异常处理">异常处理</a></li>
-<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#构造函数实现">构造函数实现</a>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#handling-exceptions">Handling exceptions</a></li>
+<li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#implementing-constructors">Implementing constructors</a>
 <ul class="nav">
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#标准构造函数normal-constructor">标准构造函数（Normal constructor）</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#工厂构造函数factory-constructor">工厂构造函数（Factory constructor）</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#命名构造函数named-constructor">命名构造函数（Named constructor）</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#代理构造函数delegating-constructor">代理构造函数（Delegating constructor）</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#常量构造函数const-constructor">常量构造函数（Const constructor）</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#初始化列表">初始化列表</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#normal-constructor">Normal constructor</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#factory-constructor">Factory constructor</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#named-constructor">Named constructor</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#delegating-constructor">Delegating constructor</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#const-constructor">Const constructor</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#initializer-list">Initializer list</a></li>
 </ul>
 </li>
 </ul>
@@ -584,12 +563,12 @@ ga('send', 'pageview');
 
           <div>
             <div id="page-github-links" class="btn-group" aria-label="Page GitHub links" role="group">
-  <a href="https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/language/cheatsheet.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
+  <a href="https://github.com/dart-lang/site-www/tree/master/src/_guides/language/cheatsheet.md" class="btn no-automatic-external" title="View page source" target="_blank" rel="noopener">
     <i class="fas fa-file-alt fa-sm"></i>
   </a>
-  <a href="https://github.com/dartchina/site-www-cn/issues/new?title='Dart 语言速查' page issue&body=
+  <a href="https://github.com/dart-lang/site-www/issues/new?title='Dart language cheatsheet' page issue&body=
 Page URL: https://www.dartlang.org/guides/language/cheatsheet%0D%0A
-Page source: https://github.com/dartchina/site-www-cn/tree/src_zh_CN/src_zh_CN/_guides/language/cheatsheet.md%0D%0A
+Page source: https://github.com/dart-lang/site-www/tree/master/src/_guides/language/cheatsheet.md%0D%0A
 %0D%0A
 Found a typo? You can fix it yourself by going to the page source and clicking the pencil icon. Or finish creating this issue.%0D%0A
 %0D%0A
@@ -599,7 +578,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   </a>
 </div>
 
-            <h1>Dart 语言速查</h1>
+            <h1>Dart language cheatsheet</h1>
           </div>
           
 
@@ -611,7 +590,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 
 <div id="site-toc--inline" class="site-toc toc-collapsible toc-collapsed">
   <header class="site-toc__title">
-    大纲
+    Contents
     <button type="button" class="btn site-toc--button__page-top" aria-label="Page top"></button>
     
       <span class="site-toc--inline__toggle toc-toggle-down"><i class="fas fa-chevron-down fa-m"></i></span>
@@ -619,176 +598,177 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
     
   </header>
   <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#字面量的使用">字面量的使用</a>
+<li class="toc-entry toc-h2"><a href="#using-literals">Using literals</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#插值-val">‘插值 ${val}’</a></li>
+<li class="toc-entry toc-h3"><a href="#substitution-val">‘Substitution ${val}’</a></li>
 <li class="toc-entry toc-h3"><a href="#type-">&lt;type&gt;[ ]</a></li>
 <li class="toc-entry toc-h3"><a href="#const-1-2-3">const [1, 2, 3]</a></li>
 <li class="toc-entry toc-h3"><a href="#--">= { }</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#字段声明">字段声明</a></li>
-<li class="toc-entry toc-h2"><a href="#类型检查">类型检查</a></li>
-<li class="toc-entry toc-h2"><a href="#链式方法调用">链式方法调用</a>
+<li class="toc-entry toc-h2"><a href="#declaring-fields">Declaring fields</a></li>
+<li class="toc-entry toc-h2"><a href="#checking-types">Checking types</a></li>
+<li class="toc-entry toc-h2"><a href="#chaining-method-calls">Chaining method calls</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#ab--truec--5">a..b = true..c = 5;</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#null-处理">null 处理</a>
+<li class="toc-entry toc-h2"><a href="#dealing-with-null">Dealing with null</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#b--val">b ??= val;</a></li>
 <li class="toc-entry toc-h3"><a href="#a--value--0">a = value ?? 0;</a></li>
 <li class="toc-entry toc-h3"><a href="#ab">a?.b</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#函数实现">函数实现</a>
+<li class="toc-entry toc-h2"><a href="#implementing-functions">Implementing functions</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#fnbool-bold-false-bool-hidden-false">fn({bool bold: false, bool hidden: false})</a></li>
 <li class="toc-entry toc-h3"><a href="#int-incrint-a--a--1">int incr(int a) =&gt; a + 1;</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#异常处理">异常处理</a></li>
-<li class="toc-entry toc-h2"><a href="#构造函数实现">构造函数实现</a>
+<li class="toc-entry toc-h2"><a href="#handling-exceptions">Handling exceptions</a></li>
+<li class="toc-entry toc-h2"><a href="#implementing-constructors">Implementing constructors</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#标准构造函数normal-constructor">标准构造函数（Normal constructor）</a></li>
-<li class="toc-entry toc-h3"><a href="#工厂构造函数factory-constructor">工厂构造函数（Factory constructor）</a></li>
-<li class="toc-entry toc-h3"><a href="#命名构造函数named-constructor">命名构造函数（Named constructor）</a></li>
-<li class="toc-entry toc-h3"><a href="#代理构造函数delegating-constructor">代理构造函数（Delegating constructor）</a></li>
-<li class="toc-entry toc-h3"><a href="#常量构造函数const-constructor">常量构造函数（Const constructor）</a></li>
-<li class="toc-entry toc-h3"><a href="#初始化列表">初始化列表</a></li>
+<li class="toc-entry toc-h3"><a href="#normal-constructor">Normal constructor</a></li>
+<li class="toc-entry toc-h3"><a href="#factory-constructor">Factory constructor</a></li>
+<li class="toc-entry toc-h3"><a href="#named-constructor">Named constructor</a></li>
+<li class="toc-entry toc-h3"><a href="#delegating-constructor">Delegating constructor</a></li>
+<li class="toc-entry toc-h3"><a href="#const-constructor">Const constructor</a></li>
+<li class="toc-entry toc-h3"><a href="#initializer-list">Initializer list</a></li>
 </ul>
 </li>
 </ul>
 </div>
 
 
-          
-<p>本速查基于 Google 工程师 <a href="https://medium.com/@mehmetf_71205">Mehmet Fidanboylu</a>
-撰写的一份内部文档。该文档用来帮助 Google 工程师记忆一些 Dart 通用的语法功能。</p>
+          <p>This cheatsheet is based on an internal document
+created by Googler <a href="https://medium.com/@mehmetf_71205">Mehmet Fidanboylu</a>
+to help Google engineers remember the syntax for
+some of Dart’s commonly used features.
+For an interactive guide to these features and more, see the
+<a href="/codelabs/dart-cheatsheet">Dart cheatsheet codelab</a>.</p>
 
-<p>有关这些功能的交互式指南，参见 <a href="/codelabs/dart-cheatsheet">Dart Codelab 速查</a>。</p>
+<h2 id="using-literals">
+<a id="using-literals" class="anchor" href="#using-literals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using literals</h2>
 
-<h2 id="字面量的使用">
-<a id="字面量的使用" class="anchor" href="#%E5%AD%97%E9%9D%A2%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>字面量的使用</h2>
-
-<h3 id="插值-val">
-<a id="插值-val" class="anchor" href="#%E6%8F%92%E5%80%BC-val" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">‘插值 ${val}’</code>
+<h3 id="substitution-val">
+<a id="substitution-val" class="anchor" href="#substitution-val" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">‘Substitution ${val}’</code>
 </h3>
 
-<p>在字面量字符串中引入 <code class="highlighter-rouge">val</code> 的值。
-等价于： <code class="highlighter-rouge">‘Substitution’ + val</code></p>
+<p>Puts the value of <code class="highlighter-rouge">val</code> into a string literal.
+Equivalent: <code class="highlighter-rouge">‘Substitution’ + val</code></p>
 
 <h3 id="type-">
 <a id="type-" class="anchor" href="#type-" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">&lt;type&gt;[ ]</code>
 </h3>
 
-<p>创建一个 <code class="highlighter-rouge">List&lt;type&gt;</code> 类型的对象。
-等价于：<code class="highlighter-rouge">new List&lt;type&gt;();</code></p>
+<p>Creates an object of type <code class="highlighter-rouge">List&lt;type&gt;</code>.
+Equivalent: <code class="highlighter-rouge">new List&lt;type&gt;();</code></p>
 
 <h3 id="const-1-2-3">
 <a id="const-1-2-3" class="anchor" href="#const-1-2-3" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">const [1, 2, 3]</code>
 </h3>
 
-<p>创建一个编译时 List 常量。</p>
+<p>Creates a compile-time constant list.</p>
 
 <h3 id="--">
 <a id="--" class="anchor" href="#--" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">= { }</code>
 </h3>
 
-<p>初始化一个 Map 。
-等价于：<code class="highlighter-rouge">new Map&lt;&gt;();</code></p>
+<p>Initializes a map.
+Equivalent: <code class="highlighter-rouge">new Map&lt;&gt;();</code></p>
 
-<h2 id="字段声明">
-<a id="字段声明" class="anchor" href="#%E5%AD%97%E6%AE%B5%E5%A3%B0%E6%98%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>字段声明</h2>
+<h2 id="declaring-fields">
+<a id="declaring-fields" class="anchor" href="#declaring-fields" aria-hidden="true"><span class="octicon octicon-link"></span></a>Declaring fields</h2>
 
 <table class="table">
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">var</code></td>
-      <td>一般 <code class="highlighter-rouge">var</code> (动态的)</td>
+      <td>Generic <code class="highlighter-rouge">var</code> (dynamic)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">final</code></td>
-      <td>同 <code class="highlighter-rouge">var</code> 但仅能单次赋值</td>
+      <td>Same as <code class="highlighter-rouge">var</code> but final</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">const</code></td>
-      <td>常量</td>
+      <td>Constant</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="类型检查">
-<a id="类型检查" class="anchor" href="#%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>类型检查</h2>
+<h2 id="checking-types">
+<a id="checking-types" class="anchor" href="#checking-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Checking types</h2>
 
 <table class="table">
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">as</code></td>
-      <td>类型转换</td>
+      <td>Typecast</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">is</code></td>
-      <td>示例类型判断</td>
+      <td>instanceof</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">is!</code></td>
-      <td>示例类型判断结果取反</td>
+      <td>!instanceof</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="链式方法调用">
-<a id="链式方法调用" class="anchor" href="#%E9%93%BE%E5%BC%8F%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>链式方法调用</h2>
+<h2 id="chaining-method-calls">
+<a id="chaining-method-calls" class="anchor" href="#chaining-method-calls" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chaining method calls</h2>
 
 <h3 id="ab--truec--5">
 <a id="ab--truec--5" class="anchor" href="#ab--truec--5" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">a..b = true..c = 5;</code>
 </h3>
 
-<p>使用级联来链接方法和访问其他成员。
-等价于：<code class="highlighter-rouge">a.b = true; a.c = 5;</code></p>
+<p>Cascade used for chaining access to methods and other members.
+Equivalent: <code class="highlighter-rouge">a.b = true; a.c = 5;</code></p>
 
-<h2 id="null-处理">
-<a id="null-处理" class="anchor" href="#null-%E5%A4%84%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>null 处理</h2>
+<h2 id="dealing-with-null">
+<a id="dealing-with-null" class="anchor" href="#dealing-with-null" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dealing with null</h2>
 
 <h3 id="b--val">
 <a id="b--val" class="anchor" href="#b--val" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">b ??= val;</code>
 </h3>
 
-<p>如果 <code class="highlighter-rouge">b</code> 为 null ，设置 <code class="highlighter-rouge">b</code> 的值为 <code class="highlighter-rouge">val</code> ，
-否则，保持 <code class="highlighter-rouge">b</code> 的原值。</p>
+<p>If <code class="highlighter-rouge">b</code> is null, assign the value of <code class="highlighter-rouge">val</code> to <code class="highlighter-rouge">b</code>;
+otherwise, <code class="highlighter-rouge">b</code> stays the same.</p>
 
 <h3 id="a--value--0">
 <a id="a--value--0" class="anchor" href="#a--value--0" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">a = value ?? 0;</code>
 </h3>
 
-<p>如果 value 的值为 null ，设置 <code class="highlighter-rouge">a</code> 为 0 。
-否则，设置 <code class="highlighter-rouge">a</code> 为 value 。</p>
+<p>If value is null, set <code class="highlighter-rouge">a</code> to 0.
+Otherwise, set <code class="highlighter-rouge">a</code> to value.</p>
 
 <h3 id="ab">
 <a id="ab" class="anchor" href="#ab" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">a?.b</code>
 </h3>
 
-<p>条件访问。
-等价于：<code class="highlighter-rouge">a == null ? null : a.b</code></p>
+<p>Conditional access.
+Equivalent: <code class="highlighter-rouge">a == null ? null : a.b</code></p>
 
-<h2 id="函数实现">
-<a id="函数实现" class="anchor" href="#%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>函数实现</h2>
+<h2 id="implementing-functions">
+<a id="implementing-functions" class="anchor" href="#implementing-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementing functions</h2>
 
 <h3 id="fnbool-bold-false-bool-hidden-false">
 <a id="fnbool-bold-false-bool-hidden-false" class="anchor" href="#fnbool-bold-false-bool-hidden-false" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">fn({bool bold: false, bool hidden: false})</code>
 </h3>
 
-<p>为命名参数设置默认值。</p>
+<p>Named params with default values.</p>
 
 <h3 id="int-incrint-a--a--1">
 <a id="int-incrint-a--a--1" class="anchor" href="#int-incrint-a--a--1" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">int incr(int a) =&gt; a + 1;</code>
 </h3>
 
-<p>可以简化单个返回语句。</p>
+<p>Single return statement can be abbreviated.</p>
 
-<h2 id="异常处理">
-<a id="异常处理" class="anchor" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>异常处理</h2>
+<h2 id="handling-exceptions">
+<a id="handling-exceptions" class="anchor" href="#handling-exceptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handling exceptions</h2>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{...}</span>
 <span class="n">on</span> <span class="n">MyException</span> <span class="o">{...}</span>
@@ -796,28 +776,29 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 <span class="k">finally</span> <span class="o">{...}</span>
 </code></pre></div></div>
 
-<p>通过 <code class="highlighter-rouge">on</code> 来捕获一种类型的异常。
-通过 <code class="highlighter-rouge">catch</code> 来捕获异常的实例。</p>
+<p>Use <code class="highlighter-rouge">on</code> to catch a type.
+Use <code class="highlighter-rouge">catch</code> to catch an instance.</p>
 
-<h2 id="构造函数实现">
-<a id="构造函数实现" class="anchor" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>构造函数实现</h2>
+<h2 id="implementing-constructors">
+<a id="implementing-constructors" class="anchor" href="#implementing-constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementing constructors</h2>
 
-<h3 id="标准构造函数normal-constructor">
-<a id="标准构造函数normal-constructor" class="anchor" href="#%E6%A0%87%E5%87%86%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0normal-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>标准构造函数（Normal constructor）</h3>
+<h3 id="normal-constructor">
+<a id="normal-constructor" class="anchor" href="#normal-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Normal constructor</h3>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Point</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
 </code></pre></div></div>
 
-<h3 id="工厂构造函数factory-constructor">
-<a id="工厂构造函数factory-constructor" class="anchor" href="#%E5%B7%A5%E5%8E%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0factory-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>工厂构造函数（Factory constructor）</h3>
+<h3 id="factory-constructor">
+<a id="factory-constructor" class="anchor" href="#factory-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Factory constructor</h3>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">factory</span> <span class="nf">Point</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">...;</span>
 </code></pre></div></div>
 
-<p>构造函数不总是创建一个新的对象时，使用 <code class="highlighter-rouge">factory</code> 方式实现构造函数。</p>
+<p>Use <code class="highlighter-rouge">factory</code> when implementing a constructor that
+doesn’t always create a new instance.</p>
 
-<h3 id="命名构造函数named-constructor">
-<a id="命名构造函数named-constructor" class="anchor" href="#%E5%91%BD%E5%90%8D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0named-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>命名构造函数（Named constructor）</h3>
+<h3 id="named-constructor">
+<a id="named-constructor" class="anchor" href="#named-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Named constructor</h3>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Point</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">Map</span> <span class="n">json</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">json</span><span class="o">[</span><span class="s">'x'</span><span class="o">];</span>
@@ -825,28 +806,28 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
   <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="代理构造函数delegating-constructor">
-<a id="代理构造函数delegating-constructor" class="anchor" href="#%E4%BB%A3%E7%90%86%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0delegating-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>代理构造函数（Delegating constructor）</h3>
+<h3 id="delegating-constructor">
+<a id="delegating-constructor" class="anchor" href="#delegating-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Delegating constructor</h3>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Point</span><span class="o">.</span><span class="na">alongXAxis</span><span class="o">(</span><span class="kt">num</span> <span class="n">x</span><span class="o">)</span> <span class="o">:</span> <span class="k">this</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
 </code></pre></div></div>
 
-<h3 id="常量构造函数const-constructor">
-<a id="常量构造函数const-constructor" class="anchor" href="#%E5%B8%B8%E9%87%8F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0const-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>常量构造函数（Const constructor）</h3>
+<h3 id="const-constructor">
+<a id="const-constructor" class="anchor" href="#const-constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Const constructor</h3>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nf">ImmutablePoint</span><span class="p">(</span><span class="k">this</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
 </code></pre></div></div>
 
-<p>生成一个永远不会改变的对象。 这里所有的变量必须都是 final 。</p>
+<p>Produces an object that will never change. All vars have to be final.</p>
 
-<h3 id="初始化列表">
-<a id="初始化列表" class="anchor" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>初始化列表</h3>
+<h3 id="initializer-list">
+<a id="initializer-list" class="anchor" href="#initializer-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initializer list</h3>
 
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Point</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">Map</span> <span class="n">jsonMap</span><span class="o">)</span>
       <span class="o">:</span> <span class="n">x</span> <span class="o">=</span> <span class="n">jsonMap</span><span class="o">[</span><span class="s">'x'</span><span class="o">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">jsonMap</span><span class="o">[</span><span class="s">'y'</span><span class="o">];</span>
 </code></pre></div></div>
 
-<p>设置的字段为 final 时，使用初始化程序列表会很便捷。</p>
+<p>Initializer lists are handy when setting up final fields.</p>
 
           
 
@@ -862,18 +843,18 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
           <li><a href="/security">Security</a></li>
           <li><a href="http://www.google.com/intl/en/policies/privacy/" class="no-automatic-external">Privacy</a></li>
           <li>Site&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" class="no-automatic-external">CC&nbsp;BY&nbsp;3.0</a></li>
-          <li><a href="/about_zh_CN">关于 dart.dev 中文版</a></li>
           <li>
-            <a href="https://github.com/dartchina/site-www-cn"
-               title="该站在 GitHub 开源"
+            <a href="https://github.com/dart-lang/site-www"
+               title="This site's source is on GitHub."
                class="no-automatic-external"><i class="fab fa-github fa-sm"></i></a>
             &nbsp;
-            <a href="https://github.com/dartchina/site-www-cn/issues"
-               title="为该站提交 issue"
+            <a href="https://github.com/dart-lang/site-www/issues"
+               title="File an issue about this site."
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/06/12 20:45 PDT"
+               href="https://travis-ci.org/dart-lang/site-www/jobs/547037851"
+               title="Site build #163 (2019/06/17 19:34 PDT)"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
@@ -882,7 +863,6 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
     </div>
   </div>
 </footer>
-
 
   </body>
 </html>
