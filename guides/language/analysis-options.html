@@ -853,14 +853,15 @@ It also adds the lint <code class="highlighter-rouge">await_only_futures</code>:
 linter:
   rules:
     avoid_shadowing_type_parameters: false
-    - await_only_futures</pre>
+    await_only_futures: true</pre>
 
-<aside class="alert alert-info">
-  <p>The reason you don’t include an initial dash (<code class="highlighter-rouge">- </code>)
-  when you specify a value (<code class="highlighter-rouge">: false</code>) is that
-  the YAML syntax for key-value maps is slightly different
-  from the YAML syntax for lists.</p>
-</aside>
+<p>&lt;aside class=”alert alert-warning” markdown=”1”&gt;
+  If you disable any rules, then use key-value syntax to enable rules.
+  For example, the preceding example can’t use <code class="highlighter-rouge">- await_only_futures</code>;
+  instead, it must use <code class="highlighter-rouge">await_only_futures: true</code>.
+  The reason it can’t use the dash shortcut (<code class="highlighter-rouge">-</code>) to enable <code class="highlighter-rouge">await_only_futures</code>
+  is that YAML doesn’t support mixing list and key-value syntaxes.
+&lt;/aside&gt;</p>
 
 <h2 id="excluding-code-from-analysis">
 <a id="excluding-code-from-analysis" class="anchor" href="#excluding-code-from-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Excluding code from analysis</h2>
@@ -1032,7 +1033,7 @@ and to provide information (but not a warning or error) about dead code:</p>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/07/02 02:11 PDT"
+               title="Site built on 2019/07/02 02:15 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>

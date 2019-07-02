@@ -550,7 +550,7 @@ ga('send', 'pageview');
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#missing-type-arguments">Missing type arguments</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#unexpected-collection-element-type">Unexpected collection element type</a></li>
 <li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#constructor-initialization-list-super-call">Constructor initialization list super() call</a></li>
-<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#a-function-of-type--cant-be-assigned">A function of type … can’t be assigned</a></li>
+<li class="toc-entry nav-item toc-h3"><a class="nav-link" href="#the-function-expression-type--isnt-of-type-">The function expression type … isn’t of type …</a></li>
 </ul>
 </li>
 <li class="toc-entry nav-item toc-h2"><a class="nav-link" href="#runtime-errors">Runtime errors</a>
@@ -620,7 +620,7 @@ Description of issue:" class="btn no-automatic-external" title="Report an issue 
 <li class="toc-entry toc-h3"><a href="#missing-type-arguments">Missing type arguments</a></li>
 <li class="toc-entry toc-h3"><a href="#unexpected-collection-element-type">Unexpected collection element type</a></li>
 <li class="toc-entry toc-h3"><a href="#constructor-initialization-list-super-call">Constructor initialization list super() call</a></li>
-<li class="toc-entry toc-h3"><a href="#a-function-of-type--cant-be-assigned">A function of type … can’t be assigned</a></li>
+<li class="toc-entry toc-h3"><a href="#the-function-expression-type--isnt-of-type-">The function expression type … isn’t of type …</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#runtime-errors">Runtime errors</a>
@@ -823,7 +823,7 @@ class MyAdder extends NumberAdder {
 }</pre>
 
 <?code-excerpt "strong/analyzer-2-results.txt" retain="/isn't a valid override of.*num.*common_problems/"?>
-<pre class="console-output"><code class="language-nocode">error • 'MyAdder.add' ('(int, int) → int') isn't a valid override of 'NumberAdder.add' ('(num, num) → num') • invalid_override
+<pre class="console-output"><code class="language-nocode">error • 'MyAdder.add' ('int Function(int, int)') isn't a valid override of 'NumberAdder.add' ('num Function(num, num)') • invalid_override
 </code></pre>
 
 <p>Consider the following scenario where floating
@@ -883,7 +883,7 @@ class Subclass extends Superclass {
 }</pre>
 
 <?code-excerpt "strong/analyzer-2-results.txt" retain="/isn't a valid override of.*dynamic.*common_problems/"?>
-<pre class="console-output"><code class="language-nocode">error • 'Subclass.method' ('(int) → void') isn't a valid override of 'Superclass.method' ('(dynamic) → void') • invalid_override
+<pre class="console-output"><code class="language-nocode">error • 'Subclass.method' ('void Function(int)') isn't a valid override of 'Superclass.method' ('void Function(dynamic)') • invalid_override
 </code></pre>
 
 <h4 id="fix-specify-type-arguments-for-the-generic-subclass">Fix: Specify type arguments for the generic subclass</h4>
@@ -982,10 +982,10 @@ initialization list.</p>
 <hr>
 
 <p><a name="uses-dynamic-as-bottom"></a></p>
-<h3 id="a-function-of-type--cant-be-assigned">
-<a id="a-function-of-type--cant-be-assigned" class="anchor" href="#a-function-of-type--cant-be-assigned" aria-hidden="true"><span class="octicon octicon-link"></span></a>A function of type … can’t be assigned</h3>
+<h3 id="the-function-expression-type--isnt-of-type-">
+<a id="the-function-expression-type--isnt-of-type-" class="anchor" href="#the-function-expression-type--isnt-of-type-" aria-hidden="true"><span class="octicon octicon-link"></span></a>The function expression type … isn’t of type …</h3>
 
-<?code-excerpt "strong/analyzer-2-results.txt" retain="/The function expression type.*common_problems/" replace="/'\S+ → \S+'/'...'/g"?>
+<?code-excerpt "strong/analyzer-2-results.txt" retain="/The function expression type.*common_problems/" replace="/'bool.*?\)'/'...'/g"?>
 <pre><code class="language-nocode">error • The function expression type '...' isn't of type '...'. This means its parameter or return type does not match what is expected. Consider changing parameter type(s) or the returned type(s) • strong_mode_invalid_cast_function_expr
 </code></pre>
 
@@ -1005,9 +1005,8 @@ in a compile-time error.</p>
 <pre class="prettyprint lang-dart fails-sa">typedef Filter = bool Function(dynamic any);
 Filter filter = (<span class="highlight">String</span> x) =&gt; x.contains('Hello');</pre>
 
-<?code-excerpt "strong/analyzer-2-results.txt" retain="/type '\(String\) → bool'.*common_problems/"?>
-<pre class="console-output"><code class="language-nocode">error • A value of type '(String) → bool' can't be assigned to a variable of type '(dynamic) → bool' • invalid_assignment
-error • The function expression type '(String) → bool' isn't of type '(dynamic) → bool'. This means its parameter or return type does not match what is expected. Consider changing parameter type(s) or the returned type(s) • strong_mode_invalid_cast_function_expr
+<?code-excerpt "strong/analyzer-2-results.txt" retain="/The function expression type.*common_problems/"?>
+<pre class="console-output"><code class="language-nocode">error • The function expression type 'bool Function(String)' isn't of type 'bool Function(dynamic)'. This means its parameter or return type does not match what is expected. Consider changing parameter type(s) or the returned type(s) • strong_mode_invalid_cast_function_expr
 </code></pre>
 
 <h4 id="fix-add-type-parameters-or-cast-from-dynamic-explicitly">Fix: Add type parameters <em>or</em> cast from dynamic explicitly</h4>
@@ -1185,7 +1184,7 @@ also supported on setters and fields.</p>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/07/02 02:11 PDT"
+               title="Site built on 2019/07/02 02:15 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>

@@ -805,9 +805,8 @@ Future main() async {
   print('Listening on localhost:${server.port}');
 
   await for (HttpRequest request in server) {
-    request.response
-      ..write('Hello, world!')
-      ..close();
+    request.response.write('Hello, world!');
+    await request.response.close();
   }
 }</pre>
 <div class="prettify-filename">hello_world_server.dart</div>
@@ -885,9 +884,8 @@ For each request received, the code sends a “Hello, world!” response.</p>
 
 <?code-excerpt "httpserver/bin/hello_world_server.dart (listen)"?>
 <pre class="prettyprint lang-dart">await for (HttpRequest request in server) {
-  request.response
-    ..write('Hello, world!')
-    ..close();
+  request.response.write('Hello, world!');
+  await request.response.close();
 }</pre>
 <div class="prettify-filename">hello_world_server.dart</div>
 
@@ -1428,7 +1426,7 @@ Future main() async {
         ..statusCode = HttpStatus.methodNotAllowed
         ..write("Unsupported request: ${req.method}.");
     }
-    response.close();
+    await response.close();
   }
 }</pre>
 <div class="prettify-filename">basic_writer_server.dart</div>
@@ -1552,9 +1550,8 @@ Future main() async {
       }
     } else {
       print("Can't open ${targetFile.path}.");
-      req.response
-        ..statusCode = HttpStatus.notFound
-        ..close();
+      req.response.statusCode = HttpStatus.notFound;
+      await req.response.close();
     }
   }
 }</pre>
@@ -1701,9 +1698,8 @@ Future main() async {
   );
   print('Listening on localhost:${server.port}');
   await for (HttpRequest request in server) {
-    request.response
-      ..write('Hello, world!')
-      ..close();
+    request.response.write('Hello, world!');
+    await request.response.close();
   }
 }</pre>
 <div class="prettify-filename">hello_world_server_secure.dart</div>
@@ -1845,7 +1841,7 @@ including servers.</li>
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/07/02 02:11 PDT"
+               title="Site built on 2019/07/02 02:15 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>

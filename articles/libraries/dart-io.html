@@ -878,7 +878,7 @@ Future&lt;void&gt; main() async {
   final server = await HttpServer.bind('127.0.0.1', 8082);
   await for (HttpRequest request in server) {
     request.response.write('Hello, world');
-    request.response.close();
+    await request.response.close();
   }
 }</pre>
 
@@ -902,7 +902,7 @@ to pipe all the data read from a file directly to the response stream.</p>
 Future&lt;void&gt; runServer(String basePath) async {
   final server = await HttpServer.bind('127.0.0.1', 8082);
   await for (HttpRequest request in server) {
-    handleRequest(basePath, request);
+    await handleRequest(basePath, request);
   }
 }
 
@@ -982,7 +982,7 @@ To find reported issues, search for the
                class="no-automatic-external"><i class="fas fa-bug fa-sm"></i></a>
             &nbsp;
             <a 
-               title="Site built on 2019/07/02 02:11 PDT"
+               title="Site built on 2019/07/02 02:15 PDT"
                
                class="no-automatic-external"><i class="fas fa-wrench fa-sm"></i></a>
           </li>
